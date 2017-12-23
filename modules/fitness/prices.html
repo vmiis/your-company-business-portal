@@ -1,0 +1,244 @@
+<div id=D__ID>
+    <link href='https://fonts.googleapis.com/css?family=Lora:700italic' rel='stylesheet' type='text/css'>
+	<section class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Our Prices</h1>
+                    <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo.</p>
+                </div>
+            </div>
+        </div>
+	</section>
+
+    <section class="page-body">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-sm col-md-4">
+    				<div class="pricing__item">
+                        <h3 class="pricing__title">Healthy</h3>
+                        <div class="pricing__price"><span class="pricing__currency">$</span>350</div>
+                        <ul class="pricing__feature-list">
+                            <li class="pricing__feature">One General Trainer</li>
+                            <li class="pricing__feature">Gym Services</li>
+                            <li class="pricing__feature">5 Yoga Courses</li>
+                            <li class="pricing__feature">10 Thai Massages</li>
+                            <li class="pricing__feature">15 Aerobics</li>
+                        </ul>
+                        <!--<button class="pricing__action">Sign Up Now</button>-->
+                    </div>
+    			</div>
+
+    			<div class="col-sm col-md-4">
+    				<div class="pricing__item">
+                        <h3 class="pricing__title">Best Fit</h3>
+                        <div class="pricing__price"><span class="pricing__currency">$</span>550</div>
+                        <ul class="pricing__feature-list">
+                            <li class="pricing__feature">Two General Trainers</li>
+                            <li class="pricing__feature">Gym Services</li>
+                            <li class="pricing__feature">10 Yoga Courses</li>
+                            <li class="pricing__feature">20 Thai Massages</li>
+                            <li class="pricing__feature">25 Aerobics</li>
+                        </ul>
+                        <!--<button class="pricing__action">Sign Up Now</button>-->
+                    </div>
+    			</div>
+
+    			<div class="col-sm col-md-4">
+    				<div class="pricing__item">
+                        <h3 class="pricing__title">Rigid Body</h3>
+                        <div class="pricing__price"><span class="pricing__currency">$</span>750</div>
+                        <ul class="pricing__feature-list">
+                            <li class="pricing__feature">Three Personal Trainers</li>
+                            <li class="pricing__feature">Gym Services</li>
+                            <li class="pricing__feature">15 Yoga Courses</li>
+                            <li class="pricing__feature">20 Thai Massages</li>
+                            <li class="pricing__feature">35 Aerobics</li>
+                        </ul>
+                       <!--<button class="pricing__action">Sign Up Now</button>-->
+                    </div>
+    			</div>
+
+    		</div>
+    	</div>
+    </section>
+
+
+
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+	    }
+
+		#D__ID .page-heading {
+		    padding: 40px 0px;
+			background: rgba(0,0,0,0.3);
+		    text-align: center;
+		}
+
+		#D__ID .page-heading h1 {
+		    margin-top: 0px;
+		    margin-bottom: 20px;
+		    font-family: 'Spectral', serif;
+		    font-size: 48px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+
+		#D__ID .page-heading p {
+		    color: #fff;
+		    font-size: 14px;
+		    padding: 0px 25%;
+		    margin-bottom: 0px;
+		}
+
+        #D__ID h3 {
+           font-family: 'Lora', sans-serif;
+           font-style: italic;
+        }
+
+        /*---------------------------------------
+            Price section
+        -----------------------------------------*/
+        #D__ID .page-body{
+		    padding: 40px 0px;
+			background: rgba(0,0,0,0.7);
+		    text-align: center;
+		}
+        #D__ID .page-body p {
+            text-align: center;
+            color: #707070;
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: 0.4px;
+        }
+
+        #D__ID .pricing__item {
+          position: relative;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          -webkit-align-items: stretch;
+          align-items: stretch;
+          text-align: center;
+          -webkit-flex: 0 1 330px;
+          flex: 0 1 330px;
+        }
+
+        #D__ID .pricing__feature-list {
+          white-space: nowrap;
+        }
+
+        #D__ID .pricing__action {
+          color: inherit;
+          border: none;
+          background: none;
+        }
+
+        #D__ID .pricing__action:focus {
+          outline: none;
+        }
+
+        #D__ID .pricing__item {
+          font-size: 20px;
+          margin-top: 72px;
+          padding: 2em;
+          cursor: default;
+          color: #fff;
+          border: 1px solid #666;
+          -webkit-transition: background-color 0.6s, color 0.3s;
+          transition: background-color 0.6s, color 0.3s;
+        }
+
+        #D__ID .pricing__item:nth-child(2) {
+          border-right: none;
+          border-left: none;
+        }
+
+        #D__ID .pricing__item:hover {
+          color: #444;
+          background: #ffffff;
+          border-color: transparent;
+        }
+
+        #D__ID .pricing__title {
+          font-size: 2em;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+
+        #D__ID .pricing__price {
+          font-size: 1.45em;
+          font-weight: bold;
+          line-height: 120px;
+          width: 120px;
+          height: 120px;
+          margin: 1.15em auto 0.3em;
+          border-radius: 50%;
+          background: #ffffff;
+          -webkit-transition: color 0.3s, background 0.3s;
+          transition: color 0.3s, background 0.3s;
+        }
+
+        #D__ID .pricing__item:first-child .pricing__price {
+          background: #26253a;
+        }
+
+        #D__ID .pricing__item:nth-child(2) .pricing__price {
+          background: #26253a;
+        }
+
+        #D__ID .pricing__item:hover .pricing__price {
+          color: #fff;
+          background: #222;
+        }
+
+        #D__ID .pricing__feature-list {
+          margin: 0;
+          padding: 1em 1em 2em 1em;
+          font-weight: bold;
+          list-style: none;
+          letter-spacing: 0.6px;
+          line-height: 32px;
+          text-align: center;
+        }
+
+        #D__ID .pricing__action {
+          font-weight: bold;
+          margin-top: auto;
+          padding: 18px 48px;
+          opacity: 0;
+          color: #fff;
+          font-size: 20px;
+          background: #26253a;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+          transition: transform 0.3s, opacity 0.3s;
+          -webkit-transform: translate3d(0, -15px, 0);
+          transform: translate3d(0, -15px, 0);
+        }
+
+        #D__ID .pricing__item:hover .pricing__action {
+          opacity: 1;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+
+        #D__ID .pricing__action:hover,
+        #D__ID .pricing__action:focus {
+          background: #222;
+        }
+
+
+
+
+
+
+	</style>
+</div>

@@ -1,0 +1,10 @@
+{
+	"api_path_development":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"default_production":"No",
+	"panels":{
+        "website":{"url":"",                          "modules":["website.json"]},
+		"portal":{"url":"modules/panel.html",         "modules":["portal.json"]},
+        "fitness":{"url":"modules/fitness/panel.html","modules":["fitness.json"]}
+	}
+}
