@@ -1,0 +1,124 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+ 		$('#back__ID').hide();
+       //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        $('#new__ID').hide();
+        //-------------------------------------
+        _fields="_Form,Room_Number,Room_Name,Date,Time,Duration,Color,Description,Contact_Name,Contact_Phone,Contact_Email";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                    break;
+                case 'Time':
+                    VmInclude:__COMPONENT__/grid/field_time.js
+                    break;
+                case 'Duration':
+                    var html="<select style='border:0;''>\
+                            <option>0.5</option>\
+                            <option>1.0</option>\
+                            <option>1.5</option>\
+                            <option>2.0</option>\
+                            <option>2.5</option>\
+                            <option>3.0</option>\
+                            <option>3.5</option>\
+                            <option>4.0</option>\
+                            <option>4.5</option>\
+                            <option>5.0</option>\
+                            <option>5.5</option>\
+                            <option>6.0</option>\
+                            <option>6.5</option>\
+                            <option>7.0</option>\
+                            <option>7.5</option>\
+                            <option>8.0</option>\
+                            <option>8.5</option>\
+                            <option>9.0</option>\
+                            <option>9.5</option>\
+                            <option>10.0</option>\
+                        </select>\
+                    ";
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+                case 'Color':
+                    VmInclude:__COMPONENT__/grid/field_color.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            if($vm.vm['__ID'].op.room_uid!==undefined) dbv.PUID= $vm.vm['__ID'].op.room_uid;
+            dbv.DT1=record.Date;
+            dbv.S1=record.Time;
+            dbv.V1=record.Duration;
+            dbv.S2=record.Room_Number;
+            return true;
+        };
+        //-------------------------------------
+        _data_process=function(records){
+            if($vm.vm['__ID'].op.new!==undefined){
+                $vm.vm['__ID'].op.new=undefined;
+                $('#new__ID').triggerHandler('click');
+            }
+        };
+        //-------------------------------------
+        _new_pre_data_process=function(){
+            if($vm.vm['__ID'].op.date!==undefined) _records[0].Date=$vm.vm['__ID'].op.date;
+            if($vm.vm['__ID'].op.time!==undefined) _records[0].Time=$vm.vm['__ID'].op.time;
+            if($vm.vm['__ID'].op.room_name!==undefined)  _records[0].Room_Name=$vm.vm['__ID'].op.room_name;
+            if($vm.vm['__ID'].op.room_number!==undefined)  _records[0].Room_Number=$vm.vm['__ID'].op.room_number;
+            _records[0].Color="#008800";
+            _records[0].Duration="1.0";
+        }
+        //-------------------------------------
+        _after_submit_all=function(type,res){
+            if(type=='add'){
+                $vm.vm['__ID'].op.sql_where=" ID="+res.ret;
+            }
+        }
+        //-------------------------------------
+        _set_req=function(){
+            //-------------------
+            $('#multi__ID').show();
+            if($vm.vm['__ID'].op.new!==undefined || $vm.vm['__ID'].op.sql_where!==undefined){
+                $('#multi__ID').hide();
+            }
+            //-------------------
+            var sql="with tb as (select Information,ID,UID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+="select Information,ID,UID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            //-------------------
+            if($vm.vm['__ID'].op.sql_where!==undefined){
+                var sql_where=$vm.vm['__ID'].op.sql_where;
+                sql=sql.replace('RowNum between @I6 and @I7',sql_where);
+                sql_n+=" where "+sql_where;
+            }
+            //-------------------
+            _req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+        _data_process_after_render=function(){
+            if($vm.vm['__ID'].op.sql_where!==undefined){
+                if(_records.length==0){
+                    $('#new__ID').triggerHandler('click');
+                }
+                if(_records.length==1){
+                    var form=$('#grid__ID tr:nth-child(2)').find('u:first');
+                    form.triggerHandler('click');
+                }
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

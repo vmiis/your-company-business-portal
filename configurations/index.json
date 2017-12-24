@@ -3,8 +3,16 @@
 	"api_path_production":"https://cbs.wappsystem.com/dev/",
 	"default_production":"No",
 	"panels":{
-        "website":{"url":"",                          "modules":["website.json"]},
-		"portal":{"url":"modules/panel.html",         "modules":["portal.json"]},
-        "fitness":{"url":"modules/fitness/panel.html","modules":["fitness.json"]}
+        "website":		{"url":"",                          	"modules":["configurations/website.json"]},
+		"portal":		{"url":"modules/panel.html",         	"modules":[]},
+        "fitness":		{"url":"modules/fitness/panel.html",	"modules":["modules/fitness/module.json"]},
+		"bookkeeping":	{"url":"modules/bookkeeping/panel.html","modules":["modules/bookkeeping/module.json"]},
+		"car-booking":	{"url":"modules/car-booking/panel.html","modules":["modules/car-booking/module.json"]},
+		"room-booking":	{"url":"modules/room-booking/panel.html","modules":["modules/room-booking/module.json"]},
+		"restaurant":	{"url":"modules/restaurant/panel.html",  "modules":["modules/restaurant/module.json"]},
+		"equipment-booking":	{"url":"modules/equipment-booking/panel.html",   "modules":["modules/equipment-booking/module.json"]},
+		"medical-practitioner":	{"url":"modules/medical-practitioner/panel.html","modules":["modules/medical-practitioner/module.json"]},
+		"windfarm_inlab_main":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/main.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
+		"windfarm_inlab_child":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]}
 	}
 }

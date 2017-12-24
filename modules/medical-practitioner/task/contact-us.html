@@ -1,0 +1,141 @@
+<div id=D__ID>
+	<section class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Send a message</h1>
+                    <p>Nunc suscipit ante in lectus laoreet, nec pharetra diam dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                </div>
+            </div>
+        </div>
+	</section>
+
+    <section class="page-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md-2"></div>
+                <div class="col-sm col-md-8">
+                    <form id=F__ID>
+                        <div class="row">
+                            <div class="col-sm col-md-6">
+                                <input name="Name" type="text" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="col-sm col-md-6">
+                                <input name="Email" type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm col-md-12">
+                                <textarea name="Message" rows="6" class="form-control" placeholder="Message" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm col-md-12">
+                                <br>
+                                <input id=submit__ID type="submit" value="SEND MESSAGE" class="btn btn-secondary" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm col-md-2"></div>
+            </div>
+        </div>
+		<br><br>
+		<div class="container">
+			<div class="row">
+                <div class="col-sm col-md-2"></div>
+                <div class="col-sm col-md-8">
+					<div id="googleMap" style="height:400px;width:100%;"></div>
+					<script>
+						function myMap() {
+						var myCenter = new google.maps.LatLng(-33.856783, 151.215274);
+						var mapProp = {center:myCenter, zoom:15, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+						var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+						var marker = new google.maps.Marker({position:myCenter});
+						marker.setMap(map);
+						}
+					</script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Dx_boXQiwvdz8sJHoYeZNVTdoWONYkU&callback=myMap"></script>
+				</div>
+				<div class="col-sm col-md-2"></div>
+			</div>
+		</div>
+    </section>
+
+
+
+
+	<script>
+		function F__ID(){
+			//--------------------------------------------------------
+			$('#D__ID').on('load',function(){
+				$("#F__ID")[0].reset();
+				$('#submit__ID').show();
+			})
+			//--------------------------------------------------------
+			$('#F__ID').submit(function(event){
+				//--------------------------------------------------------
+				event.preventDefault();
+				$('#submit__ID').hide();
+				//--------------------------------------------------------
+				var demo_data_id=$vm.module_list[$vm.vm["__ID"].name].demo_id
+				var demo_db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id
+				var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () {	data[this.name]=this.value || '';});
+				var dbv={V3:demo_data_id}
+				//--------------------------------------------------------
+				var req={cmd:"add_json_record",db_pid:demo_db_pid,data:data,dbv:dbv};
+				$VmAPI.request({data:req,callback:function(res){
+					if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+					else $vm.alert('Your data has been successfully submitted');
+				}});
+				//--------------------------------------------------------
+			})
+			//--------------------------------------------------------
+		}
+	</script>
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+	    }
+		#D__ID .page-heading {
+		    padding: 50px 0px;
+			background: rgba(0,0,0,0.4);
+		    text-align: center;
+		}
+		#D__ID .page-heading h1 {
+		    margin-top: 0px;
+		    margin-bottom: 20px;
+		    font-family: 'Spectral', serif;
+		    font-size: 48px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+        #D__ID .page-heading p {
+		    color: #fff;
+		    font-size: 14px;
+		    padding: 0px 25%;
+		    margin-bottom: 0px;
+		}
+
+        #D__ID .page-body{
+		    padding: 80px 0px;
+			background: rgba(255,255,255,0.8);
+		    text-align: center;
+		}
+        #D__ID .page-body p {
+            text-align: center;
+            color: #707070;
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: 0.4px;
+        }
+
+        #F__ID .row{
+            margin-bottom:6px;
+        }
+
+	</style>
+</div>

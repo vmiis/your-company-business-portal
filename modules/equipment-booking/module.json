@@ -1,0 +1,10 @@
+{
+    "modules":
+	{
+		"about":	  		{"url":"modules/equipment-booking/task/about.html",								  "name_for_search":"About equipment booking"},
+		"monthly":          {"url":"modules/equipment-booking/task/monthly.html",		"table_id":"20002163","name_for_search":"Monthly calendar"},
+        "daily":            {"url":"modules/equipment-booking/task/daily.html",		  	"table_id":"20002163","name_for_search":"Booking a equipment"},
+        "booking_record":   {"url":"modules/equipment-booking/task/booking_record.html","table_id":"20002163","name_for_search":"Booking records"},
+        "equipment":        {"url":"modules/equipment-booking/task/equipment.html",	  	"table_id":"20002162","name_for_search":"Add/Remove equipments"}
+	}
+}

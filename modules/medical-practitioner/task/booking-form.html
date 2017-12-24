@@ -1,0 +1,197 @@
+<div id=D__ID>
+	<section class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Appointment Booking</h1>
+                </div>
+            </div>
+        </div>
+	</section>
+
+    <section class="page-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md-2"></div>
+                <div class="col-sm col-md-8">
+                    <form id=F__ID>
+						<div class="row">
+                            <div class="col-sm col-md-6">
+                                <input id=Date__ID name="Date" type="text" class="form-control" readonly>
+                            </div>
+							<div class="col-sm col-md-6">
+                                <input id=Time__ID name="Time" type="text" class="form-control" readonly>
+                            </div>
+						</div>
+                        <div class="row">
+                            <div class="col-sm col-md-6">
+                                <input name="First_name" type="text" class="form-control" placeholder="First name" required>
+                            </div>
+							<div class="col-sm col-md-6">
+                                <input name="Last_name" type="text" class="form-control" placeholder="Last name" required>
+                            </div>
+						</div>
+						<div class="row">
+							<div class="col-sm col-md-6">
+                                <input name="Phone" type="text" class="form-control" placeholder="Phone" required>
+                            </div>
+                            <div class="col-sm col-md-6">
+                                <input name="Email" type="email" class="form-control" placeholder="Email" >
+                            </div>
+                        </div>
+						<div class="row">
+                            <div class="col-sm col-md-8">
+                                <input name="Medicare_card_number" type=text class="form-control" placeholder="Medicare card number" required>
+                            </div>
+							<div class="col-sm col-md-4">
+                                <input name="IRN" type=text class="form-control" placeholder="IRN" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm col-md-12">
+                                <textarea name="Message" rows="6" class="form-control" placeholder="Message" ></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm col-md-12">
+                                <br>
+                                <input id=submit__ID type="submit" value="Submit" class="btn btn-secondary" />
+								<input id=delete__ID type="button" value="Delete" class="btn btn-secondary" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm col-md-2"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+	<script>
+		function F__ID(){
+			//--------------------------------------------------------
+			var demo_data_id=$vm.module_list[$vm.vm["__ID"].name].demo_id
+			var demo_db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id
+			//--------------------------------------------------------
+			var rid;
+			//--------------------------------------------------------
+			$('#D__ID').on('load',function(){
+				$("#F__ID")[0].reset();
+				$('#submit__ID').show();
+				$('#delete__ID').hide();
+
+				var input=$vm.vm['__ID'].op.input;
+				var date=input.date;
+				var time=input.time;
+				rid=input.rid;
+				if(date!=undefined)	$('#Date__ID').val(date);
+				if(time!=undefined)	$('#Time__ID').val(time);
+				if(rid!=undefined)	read_record(rid);
+			})
+			//--------------------------------------------------------
+			var read_record=function(rid){
+				$VmAPI.request({data:{cmd:'read_record_s2',db_pid:demo_db_pid,rid:rid},callback:function(res){
+					$('#delete__ID').show();
+					$.each(res.records[0], function(name, value){
+	                    var $el = $('#F__ID *[name='+name+']');
+	                    var type = $el.attr('type');
+	                    switch(type){
+							/*
+	                        case 'checkbox':
+	                            $el.attr('checked', 'checked');
+	                            break;
+	                        case 'radio':
+	                            $el.filter('[value="'+value+'"]').attr('checked', 'checked');
+	                            break;
+							*/
+	                        default:
+	                            $el.val(value);
+	                    }
+	                });
+				}})
+			}
+			//--------------------------------------------------------
+			$('#F__ID').submit(function(event){
+				//--------------------------------------------------------
+				event.preventDefault();
+				$('#submit__ID').hide();
+				$('#delete__ID').hide();
+				//--------------------------------------------------------
+				var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () {	data[this.name]=this.value || '';});
+				var dt1=$('#Date__ID').val()+" "+$('#Time__ID').val();
+				var dbv={DT1:dt1,V3:demo_data_id}
+				//--------------------------------------------------------
+				if(rid==undefined){
+					var req={cmd:"add_json_record_s2",db_pid:demo_db_pid,data:data,dbv:dbv};
+					$VmAPI.request({data:req,callback:function(res){
+						$vm.alert('Your request has been successfully submitted');
+					}});
+				}
+				else{
+					var req={cmd:"modify_json_record_s2",db_pid:demo_db_pid,rid:rid,data:data,dbv:dbv};
+					$VmAPI.request({data:req,callback:function(res){
+						$vm.alert('Your request has been successfully submitted');
+					}});
+				}
+				//--------------------------------------------------------
+			})
+			//--------------------------------------------------------
+			$('#delete__ID').on('click',function(){
+				$('#submit__ID').hide();
+				$('#delete__ID').hide();
+				var req={cmd:"delete_record_s2",rid:rid};
+				$VmAPI.request({data:req,callback:function(res){
+					rid=undefined;
+					$vm.alert('Your request has been successfully submitted');
+				}});
+			});
+		}
+	</script>
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+	    }
+		#D__ID .page-heading {
+		    padding: 50px 0px;
+			background: rgba(0,0,0,0.4);
+		    text-align: center;
+		}
+		#D__ID .page-heading h1 {
+		    margin-top: 0px;
+		    margin-bottom: 20px;
+		    font-family: 'Spectral', serif;
+		    font-size: 48px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+        #D__ID .page-heading p {
+		    color: #fff;
+		    font-size: 14px;
+		    padding: 0px 25%;
+		    margin-bottom: 0px;
+		}
+
+        #D__ID .page-body{
+		    padding: 80px 0px;
+			background: rgba(255,255,255,0.8);
+		    text-align: center;
+		}
+        #D__ID .page-body p {
+            text-align: center;
+            color: #707070;
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: 0.4px;
+        }
+
+        #F__ID .row{
+            margin-bottom:6px;
+        }
+
+	</style>
+</div>

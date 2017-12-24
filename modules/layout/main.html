@@ -85,6 +85,7 @@ VmInclude:/modules/layout/main.html.footer.html
 		var N=0;
 		//------------------------------------
 		var add_config_modules_to_module_list_and_start=function(url,text,prefix){
+//alert(url)
 			var config;
 			try{ config=JSON.parse(text);}
 			catch (e){ alert("Error in config file\n"+e); return; }
@@ -100,12 +101,15 @@ VmInclude:/modules/layout/main.html.footer.html
 						website_item_list_for_search.push({label:nm,value:prefix+property})
 					}
 					var m_url=$vm.module_list[prefix+property].url;
+					$vm.module_list[prefix+property].url=url.split('|')[0]+"/"+m_url;
+					/*
 					if(m_url!=undefined && m_url[0]=='/'){
 						$vm.module_list[prefix+property].url=url.split('/configurations/')[0]+m_url;
 					}
 					else if(m_url!=undefined && m_url.substring(0,8)=='modules/'){
 						$vm.module_list[prefix+property].url=url.split('configurations/')[0]+m_url;
 					}
+					*/
 			   	}
 			}
 			N--;
@@ -116,7 +120,7 @@ VmInclude:/modules/layout/main.html.footer.html
 		}
 		//------------------------------------
 		var process_config_file=function(url,prefix){
-			$.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
+			$.get(url.replace('|','/')+'?_='+$vm.ver[1]+$vm.reload,function(data){
 				localStorage.setItem(url+"_txt",data);
 				localStorage.setItem(url+"_ver",$vm.ver[1]);
 				add_config_modules_to_module_list_and_start(url,data,prefix);
@@ -137,7 +141,8 @@ VmInclude:/modules/layout/main.html.footer.html
 			var json_files=panels[property].modules;
 			for(var i=0;i<json_files.length;i++){
 				var url=$vm.url(json_files[i]);
-				if(json_files[i].indexOf('https://')==-1) url=$vm.hosting_path+"/configurations/"+url;
+				if(json_files[i].indexOf('https://')==-1) url=$vm.hosting_path+"|"+url;
+				//if(json_files[i].indexOf('https://')==-1) url=$vm.hosting_path+"/configurations/"+url;
 				var ver=localStorage.getItem(url+"_ver");
 				var txt=localStorage.getItem(url+"_txt");
 				if(ver!=$vm.ver[1] || txt===null || $vm.debug===true || $vm.reload!=''){

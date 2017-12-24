@@ -1,0 +1,199 @@
+<div id=D__ID>
+	<section class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Contact Us</h1>
+                </div>
+            </div>
+        </div>
+	</section>
+
+	<section class="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="section-heading">
+                        <h2>Message</h2>
+                    </div>
+                    <form id="F__ID">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <input name="Name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="Email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="Phone" type="text" class="form-control" id="phone" placeholder="Your phone..." required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <textarea name="Message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                                </fieldset>
+                                <fieldset>
+                                    <button type="submit" id="submit__ID" class="btn">Send Message</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="section-heading contact-info">
+                        <h2>Contact Info</h2>
+                        <p>Pellentesque nec orci in erat venenatis viverra. Vivamus in lorem et leo feugiat ullamcorper. Donec volutpat fermentum erat non aliquet. Cras fermentum, risus a blandit sodales, erat turpis eleifend lacus, venenatis mollis leo lorem vel eros. Quisque et sem tempus, feugiat urna iaculis, tempor metus.<br><br><em>30 Raffles Ave, <br>Singapore 039803</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</section>
+
+	<section class="map">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="map">
+        <!-- How to change your own map point
+            1. Go to Google Maps
+            2. Click on your location point
+            3. Click "Share" and choose "Embed map" tab
+            4. Copy only URL and paste it within the src="" field below
+        -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.485196115994!2d103.85995441789784!3d1.2880401763270322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7fb4e58ad9cd826e!2sSingapore+Flyer!5e0!3m2!1sen!2sth!4v1505825620371" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+	<script>
+		function F__ID(){
+			//--------------------------------------------------------
+			$('#D__ID').on('load',function(){
+				$("#F__ID")[0].reset();
+				$('#submit__ID').show();
+			})
+			//--------------------------------------------------------
+			$('#F__ID').submit(function(event){
+				//--------------------------------------------------------
+				event.preventDefault();
+				$('#submit__ID').hide();
+				//--------------------------------------------------------
+				var demo_data_id=$vm.module_list[$vm.vm["__ID"].name].demo_id
+				var demo_db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id
+				var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () {	data[this.name]=this.value || '';});
+				var dbv={V3:demo_data_id}
+				//--------------------------------------------------------
+				var req={cmd:"add_json_record",db_pid:demo_db_pid,data:data,dbv:dbv};
+				$VmAPI.request({data:req,callback:function(res){
+					if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+					else $vm.alert('Your data has been successfully submitted');
+				}});
+				//--------------------------------------------------------
+			})
+			//--------------------------------------------------------
+		}
+	</script>
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+	    }
+		#D__ID .page-heading {
+		    padding: 80px 0px;
+			background: rgba(0,0,0,0.4);
+		    text-align: center;
+		}
+		#D__ID .page-heading h1 {
+		    margin-top: 0px;
+		    margin-bottom: 20px;
+		    font-family: 'Spectral', serif;
+		    font-size: 48px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+		#D__ID .contact-us{
+		    padding: 50px 0px;
+			background: rgba(255,255,255,1);
+		}
+		#D__ID .map{
+		    padding: 0px 0px 100px 0;
+			background: rgba(255,255,255,1);
+		}
+
+		h2 {
+		    text-align: left;
+		    margin-top: 0px;
+		    margin-bottom: 60px;
+		    font-size: 22px;
+		    font-weight: 700;
+		    letter-spacing: 0.5px;
+		    text-transform: uppercase;
+		    color: #121212;
+		}
+		.contact-us input {
+		    border-radius: 3px;
+		    padding-left: 15px;
+		    font-size: 13px;
+		    color: #4a4a4a;
+		    background-color: #f4f4f4;
+		    outline: none!important;
+		    border: none;
+		    box-shadow: none;
+		    line-height: 44px;
+		    height: 44px;
+		    width: 100%;
+		    margin-bottom: 30px;
+		}
+
+		.contact-us textarea {
+		    border-radius: 3px;
+		    padding-left: 15px;
+		    padding-top: 10px;
+		    font-size: 13px;
+		    color: #4a4a4a;
+		    background-color: #f4f4f4;
+		    outline: none;
+		    border: none;
+		    box-shadow: none;
+		    height: 122px;
+		    max-height: 220px;
+		    width: 100%;
+		    margin-bottom: 25px;
+		}
+
+		.contact-us button {
+		    width: 100%;
+		    display: inline-block;
+		    background-color: #f2745f;
+		    color: #fff!important;
+		    font-size: 13px;
+		    text-transform: uppercase;
+		    font-weight: 500;
+		    padding: 12px 20px;
+		    border-radius: 3px;
+		    text-decoration: none;
+		    letter-spacing: 0.5px;
+		}
+
+		.contact-us .section-heading h2 {
+		    text-align: left;
+		    margin-top: 0px;
+		    margin-bottom: 60px;
+		    font-size: 22px;
+		    font-weight: 700;
+		    letter-spacing: 0.5px;
+		    text-transform: uppercase;
+		    color: #121212;
+		}
+
+	</style>
+</div>

@@ -1,0 +1,197 @@
+<div id=D__ID>
+	<section class="page-heading">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <h1>Book Your Table</h1>
+	                </div>
+	            </div>
+	        </div>
+	</section>
+	<section class="page-booking">
+		<div class=container>
+			<div class="row">
+							<div class="col-md-2"></div>
+			                <div class="col-sm col-md-4">
+			                    <img src="__CURRENT_PATH__/book-your-table.html.book_left_image.jpg" style='height:100%' alt="">
+			                </div>
+			                <div class="col-sm col-md-4" style='background-color:#fff'>
+			                    <div class="right-info">
+			                        <h4>Reservation</h4>
+			                        <form id="F__ID">
+			                            <div class="row">
+			                                <div class="col-md-6">
+			                                    <fieldset>
+			                                        <select required="" name="Day">
+			                                            <option value="">Select day</option>
+			                                            <option value="Monday">Monday</option>
+			                                            <option value="Tuesday">Tuesday</option>
+			                                            <option value="Wednesday">Wednesday</option>
+			                                            <option value="Thursday">Thursday</option>
+			                                            <option value="Friday">Friday</option>
+			                                            <option value="Saturday">Saturday</option>
+			                                            <option value="Sunday">Sunday</option>
+			                                        </select>
+			                                    </fieldset>
+			                                </div>
+			                                <div class="col-md-6">
+			                                    <fieldset>
+			                                        <select required="" name="Hour">
+			                                            <option value="">Select hour</option>
+			                                            <option value="10:00">10:00</option>
+			                                            <option value="12:00">12:00</option>
+			                                            <option value="14:00">14:00</option>
+			                                            <option value="16:00">16:00</option>
+			                                            <option value="18:00">18:00</option>
+			                                            <option value="20:00">20:00</option>
+			                                            <option value="22:00">22:00</option>
+			                                        </select>
+			                                    </fieldset>
+			                                </div>
+			                                <div class="col-md-6">
+			                                    <fieldset>
+			                                        <input name="Name" type="name" class="form-control" placeholder="Full name" required="">
+			                                    </fieldset>
+			                                </div>
+			                                <div class="col-md-6">
+			                                    <fieldset>
+			                                        <input name="Phone" type="phone" class="form-control" placeholder="Phone number" required="">
+			                                    </fieldset>
+			                                </div>
+			                                <div class="col-md-6">
+			                                    <fieldset>
+			                                        <select required="" class="person" name="Persons">
+			                                            <option value="">How many persons?</option>
+			                                            <option value="1-Person">1 Person</option>
+			                                            <option value="2-Persons">2 Persons</option>
+			                                            <option value="3-Persons">3 Persons</option>
+			                                            <option value="4-Persons">4 Persons</option>
+			                                            <option value="5-Persons">5 Persons</option>
+			                                            <option value="6-Persons">6 Persons</option>
+			                                        </select>
+			                                    </fieldset>
+			                                </div>
+			                                <div class="col-md-6">
+			                                    <fieldset>
+			                                        <button type="submit" id="submit__ID" class="btn">Book Table</button>
+			                                    </fieldset>
+			                                </div>
+			                            </div>
+			                        </form>
+			                    </div>
+			                </div>
+							<div class="col-md-2"></div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		function F__ID(){
+			//--------------------------------------------------------
+			$('#D__ID').on('load',function(){
+				$("#F__ID")[0].reset();
+				$('#submit__ID').show();
+			})
+			//--------------------------------------------------------
+			$('#F__ID').submit(function(event){
+				//--------------------------------------------------------
+				event.preventDefault();
+				$('#submit__ID').hide();
+				//--------------------------------------------------------
+				var demo_data_id=$vm.module_list[$vm.vm["__ID"].name].demo_id
+				var demo_db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id
+				var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () {	data[this.name]=this.value || '';});
+				var dbv={V3:demo_data_id}
+				//--------------------------------------------------------
+				var req={cmd:"add_json_record",db_pid:demo_db_pid,data:data,dbv:dbv};
+				$VmAPI.request({data:req,callback:function(res){
+					if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+					else $vm.alert('Your data has been successfully submitted');
+				}});
+				//--------------------------------------------------------
+			})
+			//--------------------------------------------------------
+		}
+	</script>
+
+
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+	    }
+
+		#D__ID .page-heading {
+		    padding: 80px 0px;
+			background: rgba(0,0,0,0.1);
+		    text-align: center;
+		}
+		#D__ID .page-booking {
+		    padding: 50px 0px;
+			background: rgba(0,0,0,0.3);
+		}
+
+		#D__ID .page-heading h1 {
+		    margin-top: 0px;
+		    margin-bottom: 20px;
+		    font-family: 'Spectral', serif;
+		    font-size: 48px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+		#D__ID .right-info {
+		    height: 282px;
+		    background-color: #fff;
+		    padding: 30px;
+			text-align: center;
+		}
+		#D__ID .right-info h4 {
+		    margin-top: 0px;
+		    font-family: 'Spectral', serif;
+		    font-size: 28px;
+		}
+
+		#D__ID .right-info input {
+		    margin-top: 30px;
+		    margin-bottom: 30px;
+		    box-shadow: none;
+		    outline: none;
+		    border-right: none;
+		    border-left: none;
+		    border-top: none;
+		    border-bottom: 1px solid #eee;
+		    font-size: 14px;
+		    color: #9a9a9a;
+		}
+
+		#D__ID .right-info select {
+		    border-right: none;
+		    border-left: none;
+		    border-top: none;
+		    width: 100%;
+		    outline: none;
+		    border-bottom: 1px solid #eee;
+		    font-size: 14px;
+		    color: #9a9a9a;
+		    padding-left: 10px;
+		    height: 40px;
+		}
+
+		#D__ID .right-info button {
+		    width: 100%;
+		    display: inline-block;
+		    background-color: #f2745f;
+		    color: #fff!important;
+		    font-size: 13px;
+		    text-transform: uppercase;
+		    font-weight: 500;
+		    padding: 12px 20px;
+		    border-radius: 3px;
+		    text-decoration: none;
+		    letter-spacing: 0.5px;
+		}
+
+	</style>
+</div>
