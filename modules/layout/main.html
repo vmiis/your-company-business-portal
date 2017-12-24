@@ -85,7 +85,6 @@ VmInclude:/modules/layout/main.html.footer.html
 		var N=0;
 		//------------------------------------
 		var add_config_modules_to_module_list_and_start=function(url,text,prefix){
-//alert(url)
 			var config;
 			try{ config=JSON.parse(text);}
 			catch (e){ alert("Error in config file\n"+e); return; }
@@ -138,6 +137,7 @@ VmInclude:/modules/layout/main.html.footer.html
 		for (var property in panels){
 			$vm.module_list[property]={"url":panels[property].url}
 			var prefix=property+"_";
+			$vm.module_list[property].prefix=prefix;
 			var json_files=panels[property].modules;
 			for(var i=0;i<json_files.length;i++){
 				var url=$vm.url(json_files[i]);

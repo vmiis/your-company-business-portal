@@ -1,0 +1,11 @@
+{
+    "modules":
+	{
+		"goal":			{"url":"modules/about/task/goal.html","name_for_search":"Goal"},
+		"faq":			{"url":"modules/about/task/faq.html","name_for_search":"FAQ"},
+		"myself":		{"url":"modules/about/task/about-myself.html","name_for_search":"About myself"},
+		"proposals":	{"url":"modules/about/task/proposals.html","name_for_search":"Proposals"},
+        "solutions":	{"url":"modules/about/task/solutions.html","name_for_search":"Solutions"},
+        "structure":	{"url":"modules/about/task/structure.html","name_for_search":"Structure"}
+	}
+}

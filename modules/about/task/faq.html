@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Modular distributed web application | FAQ</title>
+	<meta charset="utf-8">
+	<meta name="description" content="A web application with unlimited number of modules distributed on different static web servers around the world and maintained by different people with different skills">
+	<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
+	<script>location.replace("https://www.vmiis.com/index.html?module=panel_about_faq")</script>
+</head>
+<body>
+
+<div id=D__ID>
+	<div id=page__ID>
+		<div class="container-fluid" style='max-width:800px;padding-top:20px'>
+			<div _class="text-center">
+			  <h3>FAQ</h3>
+		  	  <hr style='border-top:1px solid #f05f40;'></hr>
+	            <b>About</b>
+	            <ul>
+	            I build this website for demonstrating the concept of modular distributed web application.
+	            I use GitHub (https://github.com/vmiis) as backend development platform and web hosting as well as Cloudflare as frontend content delivery and caching.
+	            </ul>
+	            <b>What is a module?</b>
+	            <ul>
+	            	A module is a unit with a specific function. It may contain one HTML  file or a group of files (HTML, JavaScript, and CSS) which can be hosted on any static web server under any individual account.
+	            </ul>
+	            <b>What is a web application?</b>
+	            <ul>
+	            	A web application is a layout module with a group of other modules linked together.
+	            </ul>
+	            <b>What is a layout module?</b>
+	            <ul>
+	            	A layout module is the first module loaded into a web browser. It contains a header (banner), a contents container and a footer.
+	            </ul>
+	            <b>What is a contents container?</b>
+	            <ul>
+	            	A contents container is a html div where other modules can be loaded into it.
+	            </ul>
+	            <b>What is the structure of modular distributed web application?</b>
+	            <ul>
+	            	<u><a onclick="$vm.nav_load_module($vm.module_list[$vm.vm['__ID'].name].prefix+'structure');">click here to see a diagram.</a></u>
+	            </ul>
+	            <b>What is the advantage of a modular distributed web application?</b>
+	            <ul>
+	            <li>Fast and flexible.</li>
+	            <li>Modules can be hosted anywhere and maintained by different people with different skills.</li>
+	            <li>Modules can be reused in different applications.</li>
+	            <li>Building a web application is just creating a layout module and links some functional modules together.</li>
+	            </ul>
+	            <b>What is remote distributed module?</b>
+	            <ul>
+	            	A remote distributed module is a module hosted under a person or an organisation cloud account
+	                (for example GitHub) and maintained by the account owner.
+	            </ul>
+	            <b>How to link a remote module?</b>
+	            <ul>
+	            <li>Fully trusted. The module is fully loaded into the system’s main DOM.</li>
+	            <li>Trusted but remove all scripts. After removing some tags and all scripts, the module will be loaded into the system’s main DOM.</li>
+	            <li>Semi trusted.  The module is loaded into the system under a Shadow-DOM. The module’s owner can apply CSS style freely to the modules and the CCS will not affect the other modules in the system</li>
+	            <li>Untrusted. The module will be loaded into an iframe sandbox for security and will use HTML5 Messaging for communication with the main DOM.</li>
+	            <li>Use as local modules after clone (fork to your account) and check the code security.</li>
+	            </ul>
+			  <br>
+			  <br><br>
+			</div>
+		</div>
+	</div>
+	<style>
+		#D__ID{
+			height:100%;
+	    overflow:auto;
+			animation: vm_module_fadein 1.0s;
+	    background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3));
+		}
+		#page__ID{
+	    color:#000;
+			height: 100%;
+		}
+	  #page__ID ul{
+			  /*padding-left:20px;*/
+	        color:#333;
+		  }
+		  #page__ID a{
+			  cursor:pointer;
+		  }
+	</style>
+</div>
+
+
+</body>
+</html>
