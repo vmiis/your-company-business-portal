@@ -1,0 +1,69 @@
+<div id=panel__ID>
+    <div class='nav__ID'>
+	    <span>Calendar</span>
+        <ul>
+			<li module=monthly>Equipment booking monthly calendar</li>
+			<li module=weekly>Equipment booking weekly calendar</li>
+			<li module=daily>Equipment booking daily calendar</li>
+        </ul>
+	    <span>Booking records</span>
+        <ul>
+			<li module=booking_record>Equipment booking records</li>
+        </ul>
+	    <span>Setup</span>
+        <ul>
+			<li module=equipment>Add/Remove equipments</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+      function F__ID(){
+		  //--------------------------------------------------------
+		  var group="";
+		  var config="";
+		  $vm.load_config_and_init("/configurations/equipment-booking.json",function(cfg){
+			  config=cfg;
+			  group=config.group; if(group!="") group=group+"_";
+		  });
+		  //--------------------------------------------------------
+		  $('#panel__ID li').on('click',function(){
+			  var m=group+$(this).attr('module');
+			  $vm.nav_load_module(m,undefined,config);
+		  })
+		  //--------------------------------------------------------
+      }
+</script>
+<style>
+	VmInclude:__PARTS__/navigation/navigation.css
+	#D__ID{
+		background: url("__PARTS__/image/texture.png");
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#panel__ID{
+		padding-left:10px;
+	}
+	#panel__ID li {
+		color:#666;
+	}
+	#panel__ID li:hover {
+		color:#fff;
+	}
+	#panel__ID a {
+		text-decoration: none;
+	}
+	#panel__ID a:link {
+		color:#666;
+	}
+	#panel__ID a:visited {
+		color:#666;
+	}
+	#panel__ID a:hover {
+		color:#fff;
+	}
+	#panel__ID a:active {
+		color:#666;
+	}
+</style>

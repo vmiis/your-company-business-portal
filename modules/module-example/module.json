@@ -1,0 +1,49 @@
+{
+    "modules":
+	{
+        "shadow-dom-test":			{"url":"/modules/distributed/testing/shadow-dom.html","name_for_search":""},
+        "iframe-test":				{"url":"/modules/distributed/testing/iframe.html","name_for_search":""},
+        "a-simple-module":          {"url":"/modules/static/basic/a-simple-module.html","name_for_search":"A simple module"},
+        "simple-static-content-module":	{"url":"/modules/static/basic/simple-static-content-module.html","name_for_search":"A simple static content module"},
+        "automatic-slide-show-w3":		{"url":"/modules/static/basic/automatic-slide-show-w3.html","name_for_search":"Automatic slide show"},
+        "carousel-slide-b4":			{"url":"/modules/static/basic/carousel-slide-b4.html","name_for_search":"Carousel slide"},
+        "price":						{"url":"/modules/static/basic/price.html","name_for_search":"Example of showing price"},
+        "sandbox":						{"url":"/modules/static/basic/sandbox.html"},
+        "sandbox-content":				{"url":"/modules/static/basic/sandbox.content.html","name_for_search":""},
+
+        "codepen-lately":               {"url":"/modules/distributed/codepen/lately.html","name_for_search":"Lately from CodePen"},
+        "codepen-cogs":                 {"url":"/modules/distributed/codepen/cogs.html","name_for_search":"Cogs from CodePen"},
+
+        "particles-particles":			{"url":"/modules/distributed/github/VincentGarreau/particles-particles.html","name_for_search":"Particles"},
+        "particles-nasa":				{"url":"/modules/distributed/github/VincentGarreau/particles-nasa.html","name_for_search":"NASA"},
+        "particles-bubble":				{"url":"/modules/distributed/github/VincentGarreau/particles-bubble.html","name_for_search":"Bubble"},
+        "particles-snow":				{"url":"/modules/distributed/github/VincentGarreau/particles-snow.html","name_for_search":"Snow"},
+        "particles-nyan-cat":			{"url":"/modules/distributed/github/VincentGarreau/particles-nyan-cat.html","name_for_search":"Nyan cat"},
+
+        "windfarm_home":	          		{"url":"https://woolcock-imr.github.io/wind-farm-website-modules-by-garry/modules/home.html","name_for_search":"Windfarm Home page"},
+        "windfarm_purpose-of-research":		{"url":"https://woolcock-imr.github.io/wind-farm-website-modules-by-garry/modules/purpose-of-research.html","name_for_search":"Purpose of research"},
+        "windfarm_about-woolcock-research":	{"url":"https://woolcock-imr.github.io/wind-farm-website-modules-by-garry/modules/about-woolcock-research.html","name_for_search":"About woolcock research"},
+        "windfarm_researcher":				{"url":"https://woolcock-imr.github.io/wind-farm-website-modules-by-garry/modules/researchers.html","name_for_search":"Researchers"},
+
+
+        "enquiry-0003":					{"url":"/modules/dynamic/group-001/enquiry.0003.html","table_id":"20009702","name_for_search":"Enquiry"},
+        "enquiry-0003-record":			{"url":"/modules/dynamic/group-001/enquiry.0003.record.html","table_id":"20009702","name_for_search":"Enquiry (record)"},
+        "contact-us-0001":				{"url":"/modules/dynamic/group-001/contact-us.0001.html","table_id":"20009702","name_for_search":"Contact us"},
+        "contact-us-0001-record":		{"url":"/modules/dynamic/group-001/contact-us.0001.record.html","table_id":"20009702","name_for_search":"Contact us (record)"},
+        "appointment-0002":				{"url":"/modules/dynamic/group-001/appointment.0002.html","table_id":"20009702","name_for_search":"Appointment"},
+        "appointment-0002-record":		{"url":"/modules/dynamic/group-001/appointment.0002.record.html","table_id":"20009702","name_for_search":"Appointment (records)"},
+
+        "business-demographic-survey-0004":			{"url":"/modules/dynamic/group-001/business-demographic-survey-0004.html","table_id":"20009702","name_for_search":"Business demographic survey"},
+        "business-demographic-survey-0004-record":	{"url":"/modules/dynamic/group-001/business-demographic-survey-0004-record.html","table_id":"20009702","name_for_search":"Business demographic survey (record)"},
+
+        "room-booking_monthly":			{"url":"/modules/dynamic/room-booking/monthly.html","table_id":"20003813","prefix":"room-booking_","name_for_search":""},
+        "room-booking_daily":			{"url":"/modules/dynamic/room-booking/daily.html","table_id":"20003813","prefix":"room-booking_","name_for_search":""},
+        "room-booking_booking_record":	{"url":"/modules/dynamic/room-booking/booking_record.html","table_id":"20003813","name_for_search":""},
+        "room-booking_room":			{"url":"/modules/dynamic/room-booking/room.html","table_id":"20003812","name_for_search":""},
+
+
+        "simple-dynamic-content-module":{"url":"/modules/dynamic/basic/simple-dynamic-content-module.html","table_id":"20008490"},
+        "contact-us-record":	        {"url":"/modules/dynamic/basic/contact-us-record.html","table_id":"20011189"},
+        "fitness":	        			{"url":"https://distributed-modules.vmiis.com/bootstrap4/fitness/index.html"}
+	}
+}

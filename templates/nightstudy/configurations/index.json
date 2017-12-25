@@ -1,0 +1,8 @@
+{
+	"api_path_development":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"default_production":"No",
+	"panels":{
+        "panel_main":{"url":"https://nightstudy.rt.org.au/modules/panel/main.html","modules":["https://nightstudy.rt.org.au/configurations/main.json","https://nightstudy.rt.org.au/configurations/task.json","main.json"]}
+	}
+}

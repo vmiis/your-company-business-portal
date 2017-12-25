@@ -1,0 +1,10 @@
+{
+	"modules":
+	{
+		"home":	            {"url":"../../modules/static/basic/home.html","name_for_search":"Home page"},
+		"monthly":          {"url":"../../modules/dynamic/room-booking/monthly.html","table_id":"20003813","name_for_search":"Monthly calendar","prefix":""},
+        "daily":            {"url":"../../modules/dynamic/room-booking/daily.html","table_id":"20003813","name_for_search":"Booking a room","prefix":""},
+        "booking_record":   {"url":"../../modules/dynamic/room-booking/booking_record.html","table_id":"20003813","name_for_search":"Booking records"},
+        "room":             {"url":"../../modules/dynamic/room-booking/room.html","table_id":"20003812","name_for_search":"Add/Remove rooms"}
+	}
+}

@@ -1,0 +1,82 @@
+<section>
+      VmInclude:__PARTS__/calendar/week.v3.html
+</section>
+<script>
+function F__ID(){
+    //--------------------------------------------------------
+    VmInclude:__PARTS__/calendar/week.v3.js
+    //--------------------------------------------------------
+    var daily_module=_group+'daily';
+	var booking_record_module=_group+'booking_record';
+	var booking_record_tid	 =_mlist[booking_record_module].table_id;
+	//-------------------------------------
+    _on_day_click_fun=function(date){
+		var this_mobj  =_mobj.op.mobj;
+		var this_record=_mobj.op.record;
+		var op={
+			//------------------
+			sys:_sys,
+			mobj:this_mobj,
+			record:this_record,
+			//------------------
+			day:date,
+			//------------------
+		}
+		$vm.load_module_by_name(daily_module,$vm.root_layout_content_slot,op)
+    }
+    //--------------------------------------------------------
+    _request_and_render=function(){
+        var sql="select ID,Author,Information from [TABLE-"+booking_record_tid+"] where @T1<=DT1 and DT1<=@T2 order by S1";
+        var req_data={cmd:'query_records',sql:sql,t1:_first_day,t2:_last_day};
+        $VmAPI.request({data:req_data,callback:function(res){
+            _calendar_render("<ul></ul>");
+    		for(var i=0;i<res.records.length;i++){
+				var id=res.records[i].ID;
+				var d=res.records[i].Date;
+                cell_render(res.records[i]);
+			}
+            var top1=$('#calendar__ID').offset().top;
+            $('#calendar__ID').css("height",$(window).height()-top1-$('#'+$vm.root_layout_footer).outerHeight());
+        }});
+    }
+    //--------------------------------------------------------
+    var cell_render=function(record){
+        var id=record.ID;
+		var time=record.Time;
+        var name=record.Contact_Name;
+        var equipment=record.Equipment;
+		var color=record.Color;
+		var author=record.Author;
+        var d=record.Date;
+        var $div=_get_cell_div(d);
+        var $ul=$($div.find('ul')[0]);
+        var LI="<li><u id=event"+id+" style=cursor:pointer;color:"+color+">"+time+" - "+equipment+" - "+name+"</u></li>";
+		$ul.append(LI);
+		$ul.find('u').data("author",author);
+    	$('#event'+id).on('click',function(){
+			var this_mobj  =_mobj.op.mobj;
+			var this_record=_mobj.op.record;
+			var op={
+				//------------------
+				sys:_sys,
+				mobj:this_mobj,
+				record:this_record,
+				//------------------
+				sql_where:' id='+id,
+				//------------------
+			}
+            $vm.load_module_by_name(booking_record_module,undefined,op);
+    	});
+    }
+    //--------------------------------------------------------
+    $('#D__ID').on('load',_request_and_render);
+	$('#D__ID').on('show',_request_and_render);
+    //--------------------------------------------------------
+}
+</script>
+<style>
+    #D__ID{
+        overflow: hidden;
+        background: url("__PARTS__/image/texture.png");
+    }
+</style>

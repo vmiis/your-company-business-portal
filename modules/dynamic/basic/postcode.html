@@ -1,0 +1,30 @@
+<section>
+    VmInclude:__PARTS__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="First_Name,Last_Name,Suburb,Postcode,State";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Suburb':
+                    VmInclude:__PARTS__/grid/field_suburb.js
+                break;
+                case 'Postcode':
+                    VmInclude:__PARTS__/grid/field_postcode.js
+                break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+</style>

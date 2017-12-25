@@ -1,0 +1,52 @@
+<div id=vm_top_container__ID>
+	<div class="container-fluid" style='max-width:800px'>
+		<div class="text-center">
+		  <h1>Modular Distributed Web Aplications.</h1>
+	  	  <hr style='border-top:1px solid #f05f40;'></hr>
+	  	  <p>We can build a web application with unlimited number of shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
+		  <br>
+	  	  <button id=a1__ID class="btn btn-primary">Check a simple dynamic content module</button>
+		  <br><br>
+		  <br><br>
+		</div>
+	</div>
+	<a id=btn_c__ID style="display:none;position:absolute;left:5px;bottom:5px;cursor:pointer"><i class="fa fa-commenting-o"> Comments</i></a>
+</div>
+<div id=g_comments__ID style='width:100%;min-height:600px;display:none;background-color:#fff;'>
+	<div id="comments__ID"></div>
+</div>
+
+
+
+<script>
+	function F__ID(){
+		//----------------------------------------
+		$('#a1__ID').on('click',function(){
+			$vm.nav_load_module('panel_main_simple-dynamic-content-module');
+		})
+		//----------------------------------------
+        VmInclude:__COMPONENT__/comments/google.js
+	}
+</script>
+<style>
+	#D__ID{
+		background-position: center;
+		background-size: cover;
+		background-image: url("__CURRENT_PATH__/simple-static-content-module.html.jpg");
+		height: 100%;
+		width: 100%;
+		overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#vm_top_container__ID{
+		position:relative;
+		height:100%;
+		width:100%;
+		display: flex;
+		align-items: center;
+	    color:#fff;
+		font-family: Verdana,sans-serif;
+	    font-size: 15px;
+	    line-height: 1.5;
+	}
+</style>

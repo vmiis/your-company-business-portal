@@ -1,0 +1,245 @@
+<section id=panel__ID>
+	<div id=tbar__ID class="btn-toolbar" _class="navbar navbar-default">
+		<div class="input-group" style='width:100%'>
+			<input id=test_module_url__ID style='font-size:80%' class="form-control" placeholder='Type in the url of your module for testing, for example, https://codepen.io/vmiis/pen/ZapVOq.html '/>
+			<select id=method__ID>
+				<option>DIV</option>
+                <option>DIV (with script filter)</option>
+				<option>Shadow DOM</option>
+				<option>iFrame</option>
+			</select>
+			<button type=button id=test_module__ID class='btn btn-secondary' style='margin-right:2px'>GO</button>
+			<button type=button onclick=$vm.nav_load_module('panel_blog_how-to-test-a-remote-module') class='btn btn-secondary'>?</button>
+		</div>
+    </div>
+    <div id=info__ID>
+        <i>
+    	When a module is opened, "key Alt+mouse double click" will show the source code of the module and where it is hosted.
+        </i>
+    </div>
+	<div class='nav__ID'>
+	    <span>Examples of static module (content from files)</span>
+	    <ul>
+			<li module=simple-static-content-module>Simple static content module</li>
+	        <li module=automatic-slide-show-w3>Automatic slide show (w3)</li>
+			<li module=carousel-slide-b4>Carousel-slide (bootstrap 4)</li>
+			<li module=price>Price</li>
+			<li module=sandbox>Sandbox</li>
+
+			<li module=particles-particles>Particles</li>
+			<li module=particles-nasa>NASA</li>
+			<li module=particles-bubble>Bubble</li>
+			<li module=particles-snow>Snow</li>
+			<li module=particles-nyan-cat>Nyan Cat</li>
+
+            <li module=windfarm_home>Windfarm home</li>
+			<li module=windfarm_purpose-of-research>Purpose of research</li>
+			<li module=windfarm_about-woolcock-research>About woolcock research</li>
+            <li module=windfarm_researcher>Researchers</li>
+            <li module=codepen-lately>Lately</li>
+            <li module=codepen-cogs>Cogs</li>
+			<li module=fitness>Fitness</li>
+		</ul>
+	    <!--
+        <ul>
+			<li module=static-wind-farm style='list-style-type: circle;'>Wind farm</li>
+	    </ul>
+	    -->
+	</div>
+	<div class='nav__ID'>
+	    <span>Examples of dynamic module (content to/from a database)</span>
+	    <ul>
+			<li module=business-demographic-survey-0004>Business demographic survey</li>
+			<li module=business-demographic-survey-0004-record>Business demographic survey (records)</li>
+			<li module=enquiry-0003>Enquiry</li>
+			<li module=enquiry-0003-record>Enquiry (records)</li>
+			<li module=appointment-0002>Appointment</li>
+			<li module=appointment-0002-record>Appointment (records)</li>
+			<li module=contact-us-0001>Contact us</li>
+			<li module=contact-us-0001-record>Contact us (records)</li>
+			<li module=simple-dynamic-content-module>Simple dynamic content module</li>
+			<li module=room-booking_monthly>Room booking calendar</li>
+			<li module=room-booking_daily>Booking a room</li>
+			<li module=room-booking_booking_record>Room booking records (admin)</li>
+			<li module=room-booking_room>Add or remove a room</li>
+
+	    </ul>
+	</div>
+	<div class='nav__ID'>
+        <span>More modules</span>
+        <ul style='padding-left:20px'>
+            <li panel=panel_001 style='list-style-type: none;'><i class="fa fa-folder-open-o"></i> Contents</li>
+			<li panel=panel_002 style='list-style-type: none;'><i class="fa fa-folder-open-o"></i> Business</li>
+            <li panel=panel_shadow_dom style='list-style-type: none;'><i class="fa fa-folder-open-o"></i> Shadow DOM</li>
+			<li panel=panel_nightstudy style='list-style-type: none;'><i class="fa fa-folder-open-o"></i> Nightstudy (Clinical trials)</li>
+	    </ul>
+	</div>
+</section>
+
+<script>
+	function F__ID(){
+		//--------------------------------------------------------
+		var prefix=$vm.vm["__ID"].name+"_";
+		$('#panel__ID li').on('click',function(){
+			var m=$(this).attr('module');
+			if(m!=undefined){
+				if($vm.module_list[prefix+m]==undefined){
+					alert(prefix+m +" is not in the module list.");
+					return;
+				}
+				$vm.module_list[prefix+m].alert='1';
+				$vm.nav_load_module(prefix+m);
+			}
+			else{
+				var p=$(this).attr('panel');
+				if(p!=undefined){
+					if($vm.module_list[p]==undefined){
+						alert(p +" is not in the module list.");
+						return;
+					}
+					$vm.nav_load_module(p);
+				}
+			}
+		})
+		$vm.panel_nightstudy=1;
+		//--------------------------------------------------------
+		$('#test_module__ID').on('click',function(){
+			var url=$('<div />').html($('#test_module_url__ID').val()).text();
+			if(url!=''){
+				var method=$('#method__ID').val();
+				if(method=="DIV"){
+					if($vm.module_list['_test_module']!=undefined && $vm.module_list['_test_module']!=''){
+						var id=$vm.module_list['_test_module'].id;
+						$('#D'+id).remove();
+					}
+					$vm.module_list['_test_module']={url:url+"?_"+new Date().getTime(),module_only:"1"}
+					$vm.nav_load_module('_test_module');
+				}
+				else if(method=="DIV (with script filter)"){
+                    if($vm.module_list['_test_module']!=undefined && $vm.module_list['_test_module']!=''){
+						var id=$vm.module_list['_test_module'].id;
+						$('#D'+id).remove();
+					}
+					$vm.module_list['_test_module']={url:url+"?_"+new Date().getTime(),html_filter:$vm.html_filter}
+					$vm.nav_load_module('_test_module');
+				}
+				else if(method=="Shadow DOM"){
+					if($vm.module_list['panel_main_shadow-dom-test']!=undefined && $vm.module_list['panel_main_shadow-dom-host']!=''){
+						var id=$vm.module_list['panel_main_shadow-dom-test'].id;
+						$('#D'+id).remove();
+					}
+					$vm.nav_load_module('panel_main_shadow-dom-test',undefined,{url:url});
+				}
+				/*
+				else if(method=="Shadow DOM (with script filter)"){
+					if($vm.module_list['panel_main_shadow-dom-test']!=undefined && $vm.module_list['panel_main_shadow-dom-host']!=''){
+						var id=$vm.module_list['panel_main_shadow-dom-test'].id;
+						$('#D'+id).remove();
+					}
+					$vm.module_list['panel_main_shadow-dom-test'].html_filter=$vm.html_filter
+					$vm.nav_load_module('panel_main_shadow-dom-test',undefined,{url:url});
+				}
+				*/
+				else if(method=="iFrame"){
+					if($vm.module_list['panel_main_iframe-test']!=undefined && $vm.module_list['panel_main_iframe-test']!=''){
+						var id=$vm.module_list['panel_main_iframe-test'].id;
+						$('#D'+id).remove();
+					}
+					$vm.nav_load_module('panel_main_iframe-test',undefined,{url:url});
+				}
+			}
+		})
+		//--------------------------------------------------------
+        $vm.html_filter=function(code){
+            var $code=$("<div />").html(code);
+            //tag
+            var tags=$code.find("*");
+            tags.each(function(){
+                var tag=$(this).prop('tagName').toLowerCase();
+                if($vm.allowed_tags.includes(tag)==false){
+                    $code.find( this ).remove();
+                }
+            })
+            //attrs and inline style
+            var tags=$code.find("*");
+            tags.each(function(){
+                var element=$(this);
+                $.each(this.attributes, function(i, attrib){
+					if(attrib!=undefined){
+                   		var name = attrib.name;
+                   		if($vm.allowed_attrs.includes(name)==false){
+                       		element.removeAttr(name);
+                   		}
+					}
+                });
+            })
+            return $code.html();
+        }
+        //--------------------------------------------------------
+        $vm.allowed_tags=['style','div','name','span','h1','h2','h3','h4','p','hr','button','a','b','ul','li','br'];
+        $vm.allowed_attrs=['class','type','style','id'];
+        //--------------------------------------------------------
+        //$vm.allowed_css=['color','font-size'];
+        /*
+        else if(name=='style'){
+            var style
+            var parts=attrib.value.split(";")
+            var obj={}
+            for (var i=0;i<parts.length;i++){
+                var cs=parts[i].split(':');
+                if($vm.allowed_css.includes(cs[0])==true){
+                    obj[cs[0]]=cs[1];
+                }
+            }
+            var new_style='';
+            for(p in obj){
+                new_style+=p+":"+obj[p]+";";
+            }
+            element.attr('style',new_style);
+        }
+        */
+	}
+</script>
+
+<style>
+	VmInclude:__COMPONENT__/navigation/navigation.css
+	#tbar__ID{
+		background-color:#ccc;
+		padding:6px 10px;
+		overflow:hidden
+	}
+	#D__ID{
+		background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3));
+        overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+    #info__ID{
+        font-size: 9px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	#D__ID li {
+		color:#000;
+	}
+	li::before{
+		font-size: 20px!Important;
+	}
+	#D__ID li:hover {
+		color:#fff;
+	}
+	#D__ID a {
+		text-decoration: none;
+	}
+	#D__ID a:link {
+		color:#000;
+	}
+	#D__ID a:visited {
+		color:#000;
+	}
+	#D__ID a:hover {
+		color:#fff;
+	}
+	#D__ID a:active {
+		color:#000;
+	}
+</style>

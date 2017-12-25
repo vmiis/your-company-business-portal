@@ -1,0 +1,99 @@
+<div header id=header__ID>
+    <nav id=nav__ID class="navbar navbar-expand-xl navbar-dark">
+		<div id=brand__ID>
+	        <a class="navbar-brand d-none d-xl-block" onclick="$vm.nav_load_module('no_panel_home');">
+	            <div class=large_logo__ID>
+	                <div class=large_logo_large_label__ID>
+	                    Business Portal
+	                </div>
+	                <div class=large_logo_small_label__ID>
+	                    on-demand business applications
+	                </div>
+	            </div>
+	        </a>
+	        <a class="navbar-brand d-xl-none" onclick="$vm.nav_load_module('no_panel_home');">
+	            <div class=small_logo__ID>Business Portal</div>
+	        </a>
+		</div>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars__ID" aria-controls="navbars__ID" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbars__ID" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('no_panel_home');"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('no_panel_monthly');">Calendar</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('no_panel_daily');">Booking</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator</a>
+                    <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
+                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('no_panel_booking_record');">Booking Records</a>
+                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('no_panel_room');">Add/Remove Rooms</a>
+                    </div>
+                </li>
+                <li><a class="nav-link" onclick="$vm.nav_click_process('vm_signinout');" name=signinout><i class="fa fa-user"></i> Sign In/Out</a></li>
+            </ul>
+			<form id=form__ID class="form-inline my-2 my-xl-0">
+				<input id=vm_system_search class="form-control mr-sm-2" type="text" placeholder="Search modules..." aria-label="Search modules..." />
+			</form>
+        </div>
+    </nav>
+    <script>
+        //---------------------------------------------
+        if($vm.user=='guest'){
+            $('a[name=signinout]').html('<i class="fa fa-user"></i> Sign In')
+            $('#username__ID').text('');
+        }
+        else{
+            $('a[name=signinout]').html('<i class="fa fa-user"></i> Sign Out')
+            $('#username__ID').text('Signed in as '+ $vm.user);
+        }
+        //---------------------------------------------
+    </script>
+    <style>
+        #header__ID{
+            background: rgba(50,60,70,0.8);
+        }
+		#nav__ID{
+			padding:0;
+            z-index:99;
+        }
+        #header__ID a{
+            cursor:pointer;
+        }
+        #navbars__ID{
+	        padding-top:30px;
+        }
+        .large_logo__ID{
+            color:#fff;
+			padding:10px 0px 10px 30px;
+        }
+        .large_logo_large_label__ID{
+            font-size:140%;
+        }
+        .large_logo_small_label__ID{
+            font-size:64%;
+        }
+        #navbars__ID{
+            padding-left:50px;
+        }
+        #form__ID{
+	        padding-right:80px;
+        }
+		@media screen and (max-width:1200px){
+            #navbars__ID{
+    	        padding-top:0px;
+				background: rgba(50,60,70,1);
+            }
+            .small_logo__ID{
+                color:#fff;
+                font-size: 140%;
+            }
+			#nav__ID{
+                padding: 3px 15px;
+			}
+	        #form__ID{
+		        padding-right:0px;
+	        }
+		}
+    </style>
+</div>

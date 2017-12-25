@@ -1,0 +1,39 @@
+<iframe id=sandbox__ID sandbox="allow-scripts" frameborder="0"></iframe>
+<script>
+	function F__ID(){
+		$('#D__ID').on('load',function(){
+			var url=$vm.url($vm.vm['__ID'].op.sys.config.url)+"?_="+new Date().getTime();
+			//--------------------------------------------------------
+            $('#sandbox__ID').attr('src',url);
+            /*
+            $.get(url, function(data){
+				$('#sandbox__ID').attr('srcdoc',data);
+			}).fail(function() {
+				alert( "The file '"+url+"' doesn't exist!" );
+			});
+            */
+	        //--------------------------------------------------------
+			window.addEventListener('message', function(e) {
+				if(e.data.sandbox_id=='sandbox__ID'){
+					if(e.data.module_name!=undefined){
+						$vm.nav_load_module(e.data.module_name);
+					}
+					else if(e.data.cmd=='source'){
+						$vm.url_source(url);
+					}
+				}
+			}, false)
+		})
+		//--------------------------------------------------------
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		animation: vm_module_fadein 1.0s;
+	}
+	#sandbox__ID{
+		height:100%;
+		width:100%;
+	}
+</style>

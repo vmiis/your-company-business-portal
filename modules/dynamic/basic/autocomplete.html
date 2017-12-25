@@ -1,0 +1,38 @@
+<section>
+    VmInclude:__PARTS__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="Client,Booking_Notes";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Client':
+                    var sql="with tb as (select name=JSON_VALUE(Information,'$.First_Name')+' '+JSON_VALUE(Information,'$.Last_Name'),value2=uid from [TABLE-20008490])";
+                    sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+                    VmInclude:__PARTS__/grid/field_auto.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{
+        font-size:12px;
+        background:#eee;
+    }
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

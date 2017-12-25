@@ -1,0 +1,135 @@
+<section id=form_container__ID>
+	<div id=header__ID>
+		Business Demographic Survey
+		<div style='font-size:60%;padding-top:5px;'>Thank you for joining our business demographic survey. Please give us your feedback by filling in the information below.</div>
+	</div>
+	<form id=F__ID>
+		<div class="container">
+			<div class="row row__ID">
+				<div class="col-12 q__ID">What is your employment status?</div>
+				<div class=col-12>
+					<label class="form-check-label"><input type="radio" name="Employment_status" value="Employed full time"> Employed full time</label><br>
+					<label class="form-check-label"><input type="radio" name="Employment_status" value="Trade or Vocational degree"> Trade or Vocational degree</label><br>
+					<label class="form-check-label"><input type="radio" name="Employment_status" value="Not employed, but looking for work"> Not employed, but looking for work</label><br>
+				</div>
+			</div>
+			<div class="row row__ID">
+				<div class="col-12 q__ID">What is the highest level of education you have completed?</div>
+				<div class=col-12>
+					<label class="form-check-label"><input type="radio" name="Highest_education" value="Some high school"> Some high school</label><br>
+					<label class="form-check-label"><input type="radio" name="Highest_education" value="High school graduate or equivalent"> High school graduate or equivalent</label><br>
+					<label class="form-check-label"><input type="radio" name="Highest_education" value="Trade or Vocational degree"> Trade or Vocational degree</label><br>
+				</div>
+			</div>
+			<br>
+			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+		</div>
+	</form>
+</section>
+
+
+<script>
+	function F__ID(){
+		//--------------------------------------------------------
+		var demo_data_id=4;
+		//--------------------------------------------------------
+		$('#D__ID').on('load',function(){
+			$("#F__ID")[0].reset();
+			$('#submit__ID').show();
+		})
+		//--------------------------------------------------------
+		$('#F__ID').submit(function(event){
+			//--------------------------------------------------------
+			event.preventDefault();
+			$('#submit__ID').hide();
+			//--------------------------------------------------------
+			var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () { data[this.name]=this.value || '';});
+			var dbv={V3:demo_data_id}
+			var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id;
+			//--------------------------------------------------------
+			var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
+			$VmAPI.request({data:req,callback:function(res){
+				if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+				else $vm.alert('Your data has been successfully submitted');
+			}});
+			//--------------------------------------------------------
+		})
+		//--------------------------------------------------------
+		$('#header__ID').on('click', function(event){
+		    if(event.ctrlKey){
+				var x=document.getElementById("F__ID");
+				var txt="";var nm0="";
+				for (var i=0; i < x.length; i++) {
+					var nm=x.elements[i].getAttribute("name");
+					if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
+				}
+				$vm.alert(txt)
+		    }
+		});
+		//--------------------------------------------------------
+        /*
+        $('#D__ID').on("show",function(){
+        });
+        $('#D__ID').on("hide",function(){
+        });
+        */
+        //--------------------------------------------------------
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+		background-color: #465a69;
+	}
+	#form_container__ID{
+		padding-top:50px;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+
+		font-family: Verdana,sans-serif;
+    	font-size: 15px;
+    	line-height: 1.5;
+		color: #fff;
+	}
+	#form_container__ID .row__ID{
+		padding:6px 0;
+	}
+	#form_container__ID .row__ID:hover{
+		background-color: #203342;
+	}
+	#header__ID{
+		background-color:#727b84;
+		color:#fff;
+		padding:10px 15px 10px 15px;
+		font-size:120%;
+        border:1px solid #bbb;
+        border-bottom-width: 0;
+	}
+	#F__ID{
+		border:1px solid #bbb;
+        border-top-width: 0;
+		padding:6px 15px 20px 15px;
+	}
+	#F__ID label
+    	display: inline-block;
+    	margin: .6rem 0 .3rem 0;
+	}
+
+	#F__ID fieldset {
+	    border: 0px solid #c0c0c0;
+	    margin: 0;
+	    padding: 0;
+	}
+	.q__ID{
+		padding-bottom:3px;
+		font-weight:bold;
+	}
+	@media screen and (max-width:768px){
+		#form_container__ID{
+			padding:20px 10px 50px 10px;
+		}
+	}
+</style>

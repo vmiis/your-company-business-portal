@@ -1,0 +1,197 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <form class="form-inline">
+            <select id=YY__ID type=select class="form-control" style='display:inline-block;width:auto;'></select>
+            <button type=button id=aquery__ID class='btn btn-secondary'>Query</button>
+            <button type=button id=export__ID class='btn btn-secondary'>Export</button>
+            GST
+        </form>
+    </div>
+    <div id=table__ID>
+        <table id=grid__ID></table>
+    </div>
+</section>
+<style>
+    #toolbar__ID{
+		background-color:#ccc;
+		padding-left:10px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+    #toolbar__ID .form-inline > * {
+        margin-right:5px;
+    }
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+</style>
+<script>
+function F__ID(){
+    //------------------------
+	VmInclude:__COMPONENT__/grid/grid.v3.js
+    //------------------------
+    //number dropdown
+    var $List2=$('#YY__ID');
+    var y=new Date().getFullYear();
+    for(var i=0;i<7;i++){
+        $List2.append(  $('<option></option>').val(y-i).html(y-i)  );
+    }
+    $List2.val(y);
+    //---------------------------------------------
+    _fields="Year,Quarter,G1,G2,G3,G4,G9(1A)|G9,G10,G11,G13,G14,G20(1B)|G20";
+    //-------------------------------------
+	$('#D__ID').on('load',function(){_set_req(); _request_data();})
+	$('#YY__ID').on('change',function(){_set_req(); _request_data();})
+    $('#aquery__ID').on('click',function(){_set_req(); _request_data();})
+    //-------------------------------------
+    var data_process=function(data_records){
+        var results={Q1:{},Q2:{},Q3:{},Q4:{}}
+        for(var i=0;i<data_records.length;i++){
+            var month=data_records[i].__month__;
+            for(var item in data_records[i]){
+                if(item!='__month__'){
+                    var ns=item.split('_1_1_1_');
+                    var name=ns[0];
+                    var type=ns[1];
+                    var gst=ns[2];
+                    var tr=ns[3];
+                    var amount=parseFloat(data_records[i][item]);
+                    var QN;
+                    switch(month){
+                        case '1':
+                        case '2':
+                        case '3': QN='Q1';break;
+                        case '4':
+                        case '5':
+                        case '6': QN='Q2';break;
+                        case '7':
+                        case '8':
+                        case '9': QN='Q3';break;
+                        case '10':
+                        case '11':
+                        case '12': QN='Q4';break;
+                    }
+                    if(type=='Income'){
+                        if(results[QN]['income_'+gst]==undefined){
+                            results[QN]['income_'+gst]=amount;
+                        }
+                        else{
+                            results[QN]['income_'+gst]+=amount
+                        }
+                    }
+                    if(type=='Expense'){
+                        if(results[QN]['expense_'+gst]==undefined){
+                            results[QN]['expense_'+gst]=amount;
+                        }
+                        else{
+                            results[QN]['expense_'+gst]+=amount
+                        }
+                    }
+                }
+            }
+        }
+        var r=[];
+        for(var i=4;i>0;i--){
+            var record={Year:$('#YY__ID').val(),Quarter:i.toString()}
+            var g1g=0, g1=0,g2=0,g3=0,g4=0,g10g=0,g10=0,g11g=0,g11=0,g13=0,g14=0,g14fc=0,g14fn=0,g9=0,g20=0;
+            if(results['Q'+i]['income_GST']!=undefined)             g1g=results['Q'+i]['income_GST'];
+            if(results['Q'+i]['income_GST_Free']!=undefined)        g2=results['Q'+i]['income_GST_Free'];
+            if(results['Q'+i]['income_GST_Export']!=undefined)      g3=results['Q'+i]['income_GST_Export'];
+            if(results['Q'+i]['income_Input_Taxed']!=undefined)     g4=results['Q'+i]['income_Input_Taxed'];
+            g1=g1g+g2+g3+g4;
+            if(results['Q'+i]['expense_GST_Capital']!=undefined)        g10g=results['Q'+i]['expense_GST_Capital'];
+            if(results['Q'+i]['expense_GST_Free_Capital']!=undefined)   g14fc=results['Q'+i]['expense_GST_Free_Capital'];
+            if(results['Q'+i]['expense_GST']!=undefined)                g11g=results['Q'+i]['expense_GST'];
+            if(results['Q'+i]['expense_Input_Taxed']!=undefined)        g13=results['Q'+i]['expense_Input_Taxed'];
+            if(results['Q'+i]['expense_GST_Free']!=undefined)           g14fn=results['Q'+i]['expense_GST_Free'];
+            g10=g10g+g14fc;
+            g11=g11g+g14fn;
+            g14=g14fc+g14fn;
+            g9=Math.floor(g1g/11);
+            g20=Math.floor(g11g/11);
+
+            record.G1=''; if(g1!=0) record.G1=g1.toFixed(2);
+            record.G2=''; if(g2!=0) record.G2=g2.toFixed(2);
+            record.G3=''; if(g3!=0) record.G3=g3.toFixed(2);
+            record.G4=''; if(g4!=0) record.G4=g4.toFixed(2);
+
+            record.G10='';if(g10!=0) record.G10=g10.toFixed(2);
+            record.G11='';if(g11!=0) record.G11=g11.toFixed(2);
+            record.G13='';if(g13!=0) record.G13=g13.toFixed(2);
+            record.G14='';if(g14!=0) record.G14=g14.toFixed(2);
+            record.G9='';if(g9!=0) record.G9=g9.toFixed(2);
+            record.G20='';if(g20!=0) record.G20=g20.toFixed(2);
+            r.push(record);
+        }
+        return r;
+    }
+    //-------------------------------------
+    _data_process=function(){
+		_records=data_process(_records);
+	    _simple_render();
+		/*
+        $vm.alert('Working hard...');
+        var r=_records;
+        _records=[];
+        setTimeout(function(){
+            _records=data_process(r);
+            _simple_render();
+            $vm.close_alert();
+        }, 100);
+		*/
+    }
+    //-------------------------------------
+    _set_req=_set_req_export=function(){
+        var sql="select __month__=V2,Information from [TABLE-"+_db_pid+"] where V1=@I1 ";
+        _req={cmd:'query_records',sql:sql,i1:$('#YY__ID').val()}
+    }
+    //-------------------------------------
+	_export_records=function(){ //overwrite default export
+	    _set_req();
+	    $VmAPI.request({data:_req,callback:function(res){
+	        _records=data_process(res.records);
+	        $vm.download_csv({name:_filename,data:_records,fields:_fields});
+	    }})
+	}
+	//-------------------------------------
+	/*
+    var _request_data_export=function(){
+        $VmAPI.request({data:_req,callback:function(res){
+            _records=data_process(res.records);
+            _export_data(_filename);
+        }})
+    }
+    //-------------------------------------
+	*/
+}
+</script>
+<style>
+	VmInclude:__COMPONENT__/grid/grid.v3.css
+    #grid__ID tr td:nth-child(4),
+    #grid__ID tr td:nth-child(5),
+    #grid__ID tr td:nth-child(5),
+    #grid__ID tr td:nth-child(6),
+    #grid__ID tr td:nth-child(7),
+    #grid__ID tr td:nth-child(8),
+    #grid__ID tr td:nth-child(9),
+    #grid__ID tr td:nth-child(10),
+    #grid__ID tr td:nth-child(11),
+    #grid__ID tr td:nth-child(12),
+    #grid__ID tr td:nth-child(13),
+    #grid__ID tr td:nth-child(14),
+    #grid__ID tr td:nth-child(15)
+    {
+        text-align: right;
+        width:70px;
+    }
+    #grid__ID tr td:nth-child(8),
+    #grid__ID tr td:nth-child(13)
+    {
+        font-weight: bold;
+    }
+</style>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Modular distributed web application | How to test a remote module</title>
+	<meta charset="utf-8">
+	<meta name="description" content="A web application with unlimited number of modules distributed on different static web servers around the world and maintained by different people with different skills">
+	<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
+	<script>location.replace("https://www.vmiis.com/index.html?module=panel_blog_how-to-test-a-remote-module")</script>
+</head>
+<body>
+
+<div id=D__ID>
+    <div id=page__ID>
+    	<div class="container-fluid" style='max-width:800px;padding-top:20px'>
+            <div>
+                <h3>How to test a remote module?</h3>
+                <hr style='border-top:1px solid #f05f40;'></hr>
+                If you have a idea and create a module and want to test, you do not need to modify your application to let your module
+                added in, you can simply to test your module with the following steps.
+                <ul>
+                    <li>step 1: visit https://www.vmiis.com</li>
+                    <li>step 2: click modules</li>
+                    <li>step 3: type in remote module's url, then click 'Go'</li>
+                </ul>
+                There are 4 types of module integrations that are described as follow.
+                <br><br>
+                <b>DIV</b>
+                <ul>
+                    A remote module will be loaded into the main content container. It will work as a local module, so it can run javascript , be affected by any existing style sheet. Usually the module’s owner is fully trusted and is a member of the development team.
+                </ul>
+                <b>DIV with script filter</b>
+                <ul>
+                	A remote module will be loaded into the main content container, but any script and some unsafe tags will be removed. Usually the module’s owner is trusted but is not a member of the development team. They normally just responsible for some text and basic styles. For example, HR people may want to maintain HR forms download links, marketing people may want to modify some product information, accounting people may want to modify a financial report etc.
+                </ul>
+                <b>Shadow DOM</b>
+                <ul>
+                    Shadow DOM is a new technology which allows a completed HTML module be loaded into the main content container, but it has its own CSS scope. That is the module’s owner can freely apply any CSS rules without affect any other modules in the system. The CSS scope is completed isolated from other parts. This makes the module’s owner be able to style the module in any ways. So far the JavaScript in the shadow module is not isolated, so the module’s owner should be fully trusted.
+                                </ul>
+                                <b>iFrame</b>
+                                <ul>
+                    iFrame is used to fully isolate the module from the system. The module’s owner can do what they want. If the module need to exchange data with the system we will use postMessage method for communication between the system and the module.
+                </ul>
+            </div>
+    	</div>
+    </div>
+    <style>
+    	#D__ID{
+    		height:100%;
+            overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+        background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3));
+    	}
+    	#page__ID{
+            color:#000;
+    		height: 100%;
+    	}
+        #page__ID ul{
+            color:#333;
+    	}
+    </style>
+</div>
+
+
+</body>
+</html>

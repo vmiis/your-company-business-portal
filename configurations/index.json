@@ -13,6 +13,9 @@
 		"equipment-booking":	{"url":"modules/equipment-booking/panel.html",   "modules":["modules/equipment-booking/module.json"]},
 		"medical-practitioner":	{"url":"modules/medical-practitioner/panel.html","modules":["modules/medical-practitioner/module.json"]},
 		"windfarm_inlab_main":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/main.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
-		"windfarm_inlab_child":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]}
+		"windfarm_inlab_child":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
+        "template":		    {"url":"modules/template/panel.html",   "modules":[]},
+        "module-example":	{"url":"modules/module-example/panel.html",   "modules":["modules/module-example/module.json"]},
+        "blog":	            {"url":"modules/blog/panel.html",   "modules":["modules/blog/module.json"]}
 	}
 }

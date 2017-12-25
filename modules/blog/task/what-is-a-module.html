@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Modular distributed web application | What is a module</title>
+	<meta charset="utf-8">
+	<meta name="description" content="A web application with unlimited number of modules distributed on different static web servers around the world and maintained by different people with different skills">
+	<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
+	<script>if(window.location.host=="www.vmiis.com") location.replace("https://www.vmiis.com/index.html?module=panel_blog_what-is-a-module")</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    <style>html,body{height:100%;width:100%;} body{background: url("https://vmiis.github.com/modular-distributed-web-application/images/background.jpg?v=3") center bottom/cover no-repeat;}</style>
+</head>
+<body>
+
+<div id=D__ID>
+	<div id=page__ID>
+		<div class="container-fluid" style='max-width:800px;padding-top:20px'>
+			<div>
+				<h3>What is a module?</h3>
+				<hr style='border-top:1px solid #f05f40;'></hr>
+				A module is a file that contains Html, JavaScript and CSS. The contents may like the following.
+                <br><br><span class='d__ID'></span>
+                <ul>
+                    <br>&lt;div&gt;
+                    <br><span style='display:inline-block;padding-left:20px'>...</span>
+                    <br>&lt;/div&gt;
+                    <br>&lt;script&gt;
+                    <br><span style='display:inline-block;padding-left:20px'>...</span>
+                    <br>&lt;/sciipt&gt;
+                    <br>&lt;style&gt;
+                    <br><span style='display:inline-block;padding-left:20px'>...</span>
+                    <br>&lt;/style&gt;
+                </ul>
+                &lt;/div&gt;
+				<br><br>It could be just a static page for showing information or it could be a data
+				collection form. It can be hosted on any static web server and be loaded into a
+				content container when needed.
+				<u><a style='cursor:pointer' onclick="$vm.nav_load_module('panel_main_a-simple-module')">Click here</a></u>
+				to see an example of a very simple module (a simple home page), and
+				<u><a target=_blank href="https://codepen.io/vmiis/pen/ZaezeP">Click here</a></u>
+				to see the source code on CodePen. A module should starts with tag <span class='d__ID'></span> and ends with &lt;/div&gt;.
+				In side the div, you can put any html elements, script and style for this module. A module can also be a complete web
+				page (with html, head and body) that will be loaded into a shadow-dom or
+				an iFrame. A module should be a bit of independent so that it can be responsible
+				and maintained by a individual person.
+			</div>
+		</div>
+	</div>
+	<script>
+        $('.d__ID').text("<div id=D__"+"ID>")
+    </script>
+	<style>
+		#D__ID{
+            height:100%;
+            overflow:auto;
+            animation: vm_module_fadein 1.0s;
+            background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3));
+		}
+		#page__ID{
+            color:#000;
+            height: 100%;
+		}
+        #page__ID ul{
+            color:#333;
+		}
+	</style>
+</div>
+
+</body>
+</html>

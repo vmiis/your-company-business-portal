@@ -1,0 +1,158 @@
+<section>
+      VmInclude:__PARTS__/calendar/day.v3.html
+</section>
+<script>
+function F__ID(){
+    //--------------------------------------------------------
+    VmInclude:__PARTS__/calendar/day.v3.js
+    //--------------------------------------------------------
+    var booking_record_module=_group+'booking_record';
+	var booking_record_tid	 =_mlist[booking_record_module].table_id;
+	var equipment_tid	 	 =_mlist[_group+'equipment'].table_id;
+	//--------------------------------------------------------
+    _request_and_render=function(){
+        layout_render();
+    }
+    //--------------------------------------------------------
+    var layout_render=function(){
+        var sql="select ID,UID,Information from [TABLE-"+equipment_tid+"] order by S1";
+		$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            var txt="<tr><th style='width:200px;text-align:left'>Room</th>";
+    		for(var j=0;j<12;j++){
+    			txt+="<th colspan=2 style='width:8%;text-align:left'>"+$vm.pad((8+j),2)+":00</th>";
+    		}
+    		txt+="<th></th></tr>";
+    		$('#thead__ID').html('').append(txt);
+
+    		$('#tbody__ID').html('');
+            txt="";
+    		for(var i=0;i<res.records.length;i++){
+                var id=res.records[i].ID;
+    			var uid=res.records[i].UID;
+    			var equipment_name=res.records[i].Name;
+    			txt+="<tr><td style='display:none'>"+id+"</td><td style='display:none'>"+uid+"</td>";
+    			txt+="<td style='display:none'></td><td style='display:none'>"+equipment_name+"</td>";
+    			txt+="<td style='width:100px'>"+equipment_name+"</td>";
+    			for(j=0;j<24;j++){
+    				txt+="<td></td>";
+    			}
+    			txt+="<td></td></tr>";
+    		}
+            $('#tbody__ID').append(txt);
+            put_on_click_for_booking();
+            put_on_bookings();
+        }})
+	};
+	//-----------------------------------
+    var put_on_click_for_booking=function(){
+        $('#tbody__ID tr').each(function(){
+			var id  =$(this).children().eq(0).text();
+			var uid =$(this).children().eq(1).text();
+			//var equipment_number  =$(this).children().eq(2).text();
+			var equipment_name  =$(this).children().eq(3).text();
+			var name  =$(this).children().eq(4).text();
+			for(var j=0;j<24;j++){
+				var $cell=$(this).children().eq(5+j);
+                $cell.data('j',j);
+                $cell.on('click',function(){
+                    var j=$(this).data('j');
+                    var date=$('#date__ID').val();
+                    var time=$vm.pad((8+Math.floor(j/2)),2)+":"+$vm.pad(30*(j%2),2);
+					var j=$(this).data('j');
+				    var date=$('#date__ID').val();
+				    var time=$vm.pad((8+Math.floor(j/2)),2)+":"+$vm.pad(30*(j%2),2);
+
+					var this_mobj  =_mobj.op.mobj;
+					var this_record=_mobj.op.record;
+					var op={
+						//------------------
+						sys:_sys,
+						mobj:this_mobj,
+						record:this_record,
+						//------------------
+						date:date,
+						time:time,
+						equipment_uid:uid,
+						equipment_name:equipment_name,
+						sql_where:'id=-1'
+					}
+				    $vm.load_module_by_name(booking_record_module,undefined,op);
+                })
+				$cell.css('cursor','pointer');
+			}
+		});
+	};
+	//-----------------------------------
+    var put_on_bookings=function(){
+        var sql="select ID,PUID,Author,Information from [TABLE-"+booking_record_tid+"] where Convert(date,dt1)=@T1";
+        $VmAPI.request({data:{cmd:'query_records',sql:sql,t1:$('#date__ID').val()},callback:function(res){
+            for(var i=0;i<res.records.length;i++){
+    			var rid			=res.records[i].ID;
+    			var uid			=res.records[i].PUID;
+    			var contact		=res.records[i].Contact_Name; if(contact==='') contact='No Contact';
+    			var date		=res.records[i].Date; date=$vm.date_parse(date);
+    			var time		=res.records[i].Time;
+    			var duration_0	=res.records[i].Duration;
+                var color		=res.records[i].Color;
+    			var author		=res.records[i].Author;
+    			//----------------------
+    			var duration	=parseFloat(duration_0);
+    			var num=duration/0.5;
+    			var pos=((parseInt(time.split(':')[0])-8)*60+parseInt(time.split(':')[1]))/30;
+    			var $tr=$("#tbody__ID td:nth-child(2)").filter(function() {
+    				return $(this).text()==uid;
+    			}).closest("tr");
+    			for(var j=0;j<num;j++){
+    				var $cell=$tr.find('td').eq(pos+5+j);
+    				$cell.off('click');
+    				$cell.css('cursor','default');
+    				$cell.css('background-color',color);
+    				if(j!==0 && j!==num-1){		$cell.css('border-left','0px solid red');	$cell.css('border-right','0px solid red');	}
+    				else if(j===0 && num>1){	$cell.css('border-right','0px solid red');	}
+    				else if(j==num-1 && num>1){	$cell.css('border-left','0px solid red');	}
+    				if(j===0){
+    					$cell.html('<u style=cursor:pointer>'+contact+'</u>');
+    					$cell.find('u').data("rid",rid);
+    					$cell.find('u').data("author",author);
+                        $cell.find('u').on('click',on_click_edit_fun);
+    				}
+    			}
+    		}
+        }});
+    };
+	//-----------------------------------
+    var on_click_edit_fun=function(){
+        var rid=$(this).data('rid');
+		var this_mobj  =_mobj.op.mobj;
+		var this_record=_mobj.op.record;
+		var op={
+			//------------------
+			sys:_sys,
+			mobj:this_mobj,
+			record:this_record,
+			//------------------
+			sql_where:" ID="+rid,
+		}
+	    $vm.load_module_by_name(booking_record_module,undefined,op);
+	};
+	//--------------------------------------------------------
+    $('#D__ID').on('load',function(){
+        var d=$vm.vm['__ID'].op.day;
+        if(d===undefined) d=$vm.date_to_string_dmy($vm.date_today());
+        $('#date__ID').val(d);
+        $('#date__ID').triggerHandler('change');
+    });
+    //--------------------------------------------------------
+    $('#D__ID').on('refresh_back',_request_and_render);
+    //--------------------------------------------------------
+}
+</script>
+<style>
+	#D__ID{
+	    background-color:#fff;
+	    font-size:13px;
+	    font-family: Helvetica, Arial, sans-serif;
+		height:100%;
+		overflow: auto;
+	}
+</style>

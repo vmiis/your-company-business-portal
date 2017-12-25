@@ -1,0 +1,44 @@
+<section>
+    VmInclude:__PARTS__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="Unit_Price,Quantity,Sub_Total";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Unit_Price':
+                case 'Quantity':
+                    td.css("text-align","right");
+                    break;
+                case 'Sub_Total':
+                    records[I].vm_readonly[field]=true;
+                    td.css("text-align","right");
+                    break;
+            }
+        }
+        //-------------------------------------
+        _after_change=function(records,I,field,td,set_value,source){
+            if(field=='Unit_Price' || field=='Quantity' ){
+                var v1=parseFloat(records[I]['Unit_Price'])
+                var v2=parseFloat(records[I]['Quantity'])
+                var v3=(v1*v2).toFixed(2);
+                if(v3=='NaN') v3="";
+                records[I]['Sub_Total']=v3;
+                set_value(v3,records,I,'Sub_Total');
+                if(source=='grid')  td.parent().find("td[data-id='Sub_Total']").text(v3)
+                else                td.parent().parent().find("td[data-id='Sub_Total']").text(v3)
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.v3.css
+</style>

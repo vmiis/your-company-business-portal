@@ -1,0 +1,20 @@
+AAA
+<div id=host__ID></div>
+BBB
+<script>
+	function F__ID(){
+		var host = document.querySelector('#host__ID');
+		//var root = host.attachShadow({mode: 'closed'});
+		var root = host.createShadowRoot();
+		root.innerHTML="<style>a{color:red;}</style> <a style='cursor:pointer'>123</a>";
+	}
+</script>
+
+
+<style>
+      #D__ID{
+		  height:100%;
+		  overflow: auto;
+          animation: vm_module_fadein 1.0s;
+      }
+</style>
