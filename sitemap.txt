@@ -1,0 +1,9 @@
+https://www.vmiis.com/modules/about/faq.html
+https://www.vmiis.com/modules/about/about-myself.html
+https://www.vmiis.com/modules/about/proposals.html
+https://www.vmiis.com/modules/about/solutions.html
+https://www.vmiis.com/modules/about/structure.html
+https://www.vmiis.com/modules/blog/how-to-test-a-remote-module.html
+https://www.vmiis.com/modules/blog/how-to-create-a-modular-distributed-web-application.html
+https://www.vmiis.com/modules/blog/what-is-a-module.html
+https://www.vmiis.com/modules/blog/how-to-add-a-module-to-an-application.html

@@ -124,11 +124,11 @@
 					$vm.nav_load_module('_test_module');
 				}
 				else if(method=="Shadow DOM"){
-					if($vm.module_list['panel_main_shadow-dom-test']!=undefined && $vm.module_list['panel_main_shadow-dom-host']!=''){
-						var id=$vm.module_list['panel_main_shadow-dom-test'].id;
+					if($vm.module_list[prefix+'shadow-dom-test']!=undefined && $vm.module_list[prefix+'shadow-dom-host']!=''){
+						var id=$vm.module_list['shadow-dom-test'].id;
 						$('#D'+id).remove();
 					}
-					$vm.nav_load_module('panel_main_shadow-dom-test',undefined,{url:url});
+					$vm.nav_load_module(prefix+'shadow-dom-test',undefined,{url:url});
 				}
 				/*
 				else if(method=="Shadow DOM (with script filter)"){
@@ -141,11 +141,11 @@
 				}
 				*/
 				else if(method=="iFrame"){
-					if($vm.module_list['panel_main_iframe-test']!=undefined && $vm.module_list['panel_main_iframe-test']!=''){
-						var id=$vm.module_list['panel_main_iframe-test'].id;
+					if($vm.module_list[prefix+'iframe-test']!=undefined && $vm.module_list[prefix+'iframe-test']!=''){
+						var id=$vm.module_list[prefix+'iframe-test'].id;
 						$('#D'+id).remove();
 					}
-					$vm.nav_load_module('panel_main_iframe-test',undefined,{url:url});
+					$vm.nav_load_module(prefix+'iframe-test',undefined,{url:url});
 				}
 			}
 		})

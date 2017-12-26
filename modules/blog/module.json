@@ -1,8 +1,16 @@
 {
     "modules":
 	{
-		"about":	  {"url":"modules/fitness/task/about.html","name_for_search":"About Fitness"},
-        "trainer":	  {"url":"modules/fitness/task/trainers.html","name_for_search":"Fitness Trainers"},
-        "price":	  {"url":"modules/fitness/task/prices.html","name_for_search":"Fitness Price"}
+        "how-to-test-a-remote-module":	{"url":"modules/blog/task/how-to-test-a-remote-module.html","name_for_search":"How to test a remote module?"},
+		"how-to-create-a-modular-distributed-web-application":	{"url":"modules/blog/task/how-to-create-a-modular-distributed-web-application.html","name_for_search":"How to create a modular distributed web application?"},
+		"what-is-a-module":	{"url":"modules/blog/task/what-is-a-module.html","name_for_search":"What is a module?"},
+        "how-to-add-a-module-to-an-application":	{"url":"modules/blog/task/how-to-add-a-module-to-an-application.html","name_for_search":"How to add a module to an application?"},
+		"contact-information":		{"url":"modules/blog/task/how-to-add-a-module-to-collect-contact-information.html","name_for_search":"How to add a module to collect contact information?"},
+		"bookkeeping":		{"url":"modules/blog/task/bookkeeping.html","name_for_search":"Bookkeeping for Australia business"},
+		"woolcock-app-template":{"url":"modules/blog/task/woolcock-app-template.html","name_for_search":"Woolcock app template"},
+		"template-001":{"url":"modules/blog/task/template-001.html","name_for_search":"Template 001"},
+		"template-002":{"url":"modules/blog/task/template-002.html","name_for_search":"Template 002"},
+        "template-003":{"url":"modules/blog/task/template-003.html","name_for_search":"Template 003"},
+		"template-004":{"url":"modules/blog/task/template-004.html","name_for_search":"Template 004"}
 	}
 }

@@ -1,0 +1,43 @@
+{
+	"modules":
+	{
+        "home-page-who-am-i":		{"url":"modules/static/group-001/home-page-who-am-i.html"},
+		"home-page-company":	    {"url":"modules/static/group-001/home-page-company.html"},
+		"home-page-creative":	    {"url":"modules/static/group-001/home-page-creative.html"},
+
+		"contact-us-sydney":		{"url":"modules/static/group-001/contact-us-sydney.html"},
+        "contact-us-creative":	    {"url":"modules/static/group-001/contact-us-creative.html"},
+
+		"home-page-ocean":	   	{"url":"modules/distributed/templatemo/ocean/home.html","name_for_search":"Home page (ocean)"},
+		"info-ocean":	       	{"url":"modules/distributed/templatemo/ocean/info.html","name_for_search":"Info (ocean)"},
+		"about-ocean":	       	{"url":"modules/distributed/templatemo/ocean/about.html","name_for_search":"About (ocean)"},
+		"contactus-ocean":     	{"url":"modules/distributed/templatemo/ocean/contact.html","name_for_search":"Contact us (ocean)"},
+
+		"home-snapshot":	   	{"url":"modules/distributed/templatemo/snapshot/home.html","name_for_search":"Home page (snapshot)"},
+		"gallery-snapshot":	    {"url":"modules/distributed/templatemo/snapshot/gallery.html","name_for_search":"Gallery (snapshot)"},
+		"about-snapshot":	    {"url":"modules/distributed/templatemo/snapshot/about.html","name_for_search":"About (snapshot)"},
+		"contact-snapshot":     {"url":"modules/distributed/templatemo/snapshot/contact.html","name_for_search":"Contact us (snapshot)"},
+
+		"home-lumino":          {"url":"modules/distributed/templatemo/lumino/home.html","name_for_search":"Home page (lumino)"},
+        "one-column":		    {"url":"modules/distributed/templatemo/lumino/one-column.html","name_for_search":"One column"},
+		"two-column":		    {"url":"modules/distributed/templatemo/lumino/two-column.html","name_for_search":"Two column"},
+		"three-column":		    {"url":"modules/distributed/templatemo/lumino/three-column.html","name_for_search":"Three column"},
+        "news-lumino":		    {"url":"modules/distributed/templatemo/lumino/news.html","name_for_search":"News (lumino)"},
+		"gallery-lumino":		{"url":"modules/distributed/templatemo/lumino/gallery.html","name_for_search":"Gallery (lumino)"},
+        "contact-lumino":		{"url":"modules/distributed/templatemo/lumino/contact.html","name_for_search":"Contact (lumino)"},
+
+		"home-lexis":           {"url":"modules/distributed/free-css/lexis/home.html","name_for_search":"Home page (lexis)"},
+        "work-lexis":			{"url":"modules/distributed/free-css/lexis/work.html","name_for_search":"Word (lexis)"},
+        "service-lexis":		{"url":"modules/distributed/free-css/lexis/service.html","name_for_search":"Services (lexis)"},
+		"team-lexis":			{"url":"modules/distributed/free-css/lexis/team.html","name_for_search":"Team (lexis)"},
+
+		"home-studio":          {"url":"modules/distributed/free-css/studio/home.html","name_for_search":"Home page (studio)"},
+        "service-studio":		{"url":"modules/distributed/free-css/studio/service.html","name_for_search":"Services (studio)"},
+        "about-studio":			{"url":"modules/distributed/free-css/studio/about.html","name_for_search":"About (studio)"},
+        "team-studio":			{"url":"modules/distributed/free-css/studio/team.html","name_for_search":"Team (studio)"},
+        "portfolio-studio":		{"url":"modules/distributed/free-css/studio/portfolio.html","name_for_search":"Portfolio (studio)"},
+        "contact-studio":		{"url":"modules/distributed/free-css/studio/contact.html","name_for_search":"Contact (studio)"},
+
+		"home-big_city":	   	{"url":"modules/distributed/tooplate/big_city/home.html","name_for_search":"Home page (big city)"}
+	}
+}

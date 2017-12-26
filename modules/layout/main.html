@@ -104,6 +104,7 @@ VmInclude:/modules/layout/main.html.footer.html
 					}
 					var m_url=$vm.module_list[prefix+property].url;
 					$vm.module_list[prefix+property].url=url.split('|')[0]+"/"+m_url;
+                    if(m_url.substring(0,7)=="http://" || m_url.substring(0,8)=="https://") $vm.module_list[prefix+property].url=m_url;
 					/*
 					if(m_url!=undefined && m_url[0]=='/'){
 						$vm.module_list[prefix+property].url=url.split('/configurations/')[0]+m_url;

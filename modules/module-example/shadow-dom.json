@@ -1,0 +1,10 @@
+{
+	"modules":
+	{
+		"module-01":	     {"url":"modules/distributed/shadow-dom/module-01.html","name_for_search":"Shadow DOM test"},
+        "scenery":	         {"url":"modules/distributed/shadow-dom/scenery.html","name_for_search":"Scenery"},
+        "one-thing":	     {"url":"modules/distributed/shadow-dom/one-thing.html","name_for_search":"One thing"},
+        "text-patch-work":	 {"url":"modules/distributed/shadow-dom/text-patch-work.html","name_for_search":"Text patch work"},
+        "pricing-table":	 {"url":"modules/distributed/shadow-dom/pricing-table.html","name_for_search":"Price table"}
+	}
+}

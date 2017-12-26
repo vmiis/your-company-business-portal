@@ -3,6 +3,7 @@
 	{
         "shadow-dom-test":			{"url":"/modules/distributed/testing/shadow-dom.html","name_for_search":""},
         "iframe-test":				{"url":"/modules/distributed/testing/iframe.html","name_for_search":""},
+
         "a-simple-module":          {"url":"/modules/static/basic/a-simple-module.html","name_for_search":"A simple module"},
         "simple-static-content-module":	{"url":"/modules/static/basic/simple-static-content-module.html","name_for_search":"A simple static content module"},
         "automatic-slide-show-w3":		{"url":"/modules/static/basic/automatic-slide-show-w3.html","name_for_search":"Automatic slide show"},
