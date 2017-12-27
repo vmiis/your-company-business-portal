@@ -23,7 +23,7 @@
 		"windfarm_inlab_child":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
 		"windfarm_screening_main":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/main.html","modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]},
 		"windfarm_screening_child":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]},
-        "research-volunteer-registration":	{"url":"modules/research-volunteer-registration/panel.html","modules":["https://woolcock-imr.github.io/volunteer-database-2|configurations/main.json"]},
+        "research-volunteer-registration":	{"url":"modules/research-volunteer-registration/panel.html","modules":["https://volunteer-database.rt.org.au|configurations/main.json"]},
         "research-volunteer-management":	{"url":"modules/research-volunteer-management/panel.html",  "modules":["https://woolcock-imr.github.io/volunteer-database-management-2|configurations/modules.json"]}
 	}
 }
