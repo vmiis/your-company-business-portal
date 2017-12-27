@@ -128,7 +128,7 @@ VmInclude:/modules/layout/main.html.footer.html
 				localStorage.setItem(url+"_ver",$vm.ver[1]);
 				add_config_modules_to_module_list_and_start(url,data,prefix);
 			},'text').fail(function() {
-				alert( "The configuration file ("+url+") doesn't exist!" );
+				alert( "The configuration file ("+url.replace('|','/')+") doesn't exist!" );
 			});
 		}
 		//------------------------------------
