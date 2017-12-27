@@ -17,9 +17,11 @@
         "module-example":	{"url":"modules/module-example/panel.html",   "modules":["modules/module-example/module.json"]},
         "panel_001":        {"url":"modules/static/panel.html","modules":["modules/static/module.json"]},
         "panel_002":        {"url":"modules/dynamic/panel.html","modules":["modules/dynamic/module.json"]},
-        "panel_shadow_dom": {"url":"modules/module-example/shadow-dom.html","modules":["modules/module-example/shadow-dom.json"]},
-        "windfarm_inlab_main":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/main.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
+        "panel_shadow_dom": {"url":"modules/distributed/shadow-dom.html","modules":["modules/distributed/shadow-dom.json"]},
+        "panel_nightstudy":     {"url":"https://nightstudy.rt.org.au/modules/panel/main.html","modules":["https://nightstudy.rt.org.au|configurations/main.json","https://nightstudy.rt.org.au|configurations/task.json"]},
+		"windfarm_inlab_main":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/main.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
 		"windfarm_inlab_child":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
-        "panel_nightstudy":     {"url":"https://nightstudy.rt.org.au/modules/panel/main.html","modules":["https://nightstudy.rt.org.au|configurations/main.json","https://nightstudy.rt.org.au|configurations/task.json"]}
+		"windfarm_screening_main":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/main.html","modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]},
+		"windfarm_screening_child":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]}
 	}
 }
