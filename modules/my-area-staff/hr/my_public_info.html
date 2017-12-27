@@ -1,0 +1,68 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _record_type='s2';
+        _fields="_Form,Photo,_More,Title,First_Name,Last_Name,Gender,Department,Position,Location,Email,Phone,Login_Name";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Photo':
+                    VmInclude:__COMPONENT__/grid/field_image.js
+                break;
+                case 'Gender':
+                    records[I].vm_custom[field]=true;
+                    var html="<select style='border:0;'>"
+                    html+="<option>---</option>";
+                    html+="<option>Male</option>";
+                    html+="<option>Female</option>";
+                    html+="</select>"
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                break;
+                case 'Department':
+                    var sql="with tb as (select distinct name=S1,UID from [TABLE-"+_module.department_tid+"]) select name, value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
+                break;
+            }
+        }
+        //-------------------------------------
+        $('#new__ID').hide();
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.S1=record.Department;
+            dbv.S2=record.Login_Name;
+            dbv.S3=record.First_Name+" "+record.Last_Name;
+            return true;
+        };
+        //-------------------------------------
+        _set_req=function(){
+			var sql="select ID,Information from [TABLE-"+_db_pid+"]"
+			_req={cmd:'query_records_s2_v2',sql:sql}
+        }
+        //-------------------------------------
+        _data_process_after_render=function(){
+            if(_records.length==0){
+                $('#new__ID').triggerHandler('click');
+            }
+            if(_records.length==1){
+                var form=$('#grid__ID tr:nth-child(2)').find('u:first');
+                form.triggerHandler('click');
+            }
+            else{
+                alert("More than one records were found! Please report the administrator.");
+                return;
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

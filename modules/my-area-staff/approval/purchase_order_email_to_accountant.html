@@ -1,0 +1,58 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a><span class=tab__ID></span>Alert email
+    </div>
+    <div style='padding:30px'>
+        <br><br>
+        <div id=contents__ID>
+            Dear <span id=manager__ID></span>,<br><br>
+            There is a new approved purchase order needs to be processed.
+            <br>
+            <br>
+            <span id=info__ID></span>
+            <br><br>
+            <br>Best Regards,
+            <br>Database Administrator
+        </div>
+        <br><br>
+        <input type=button id=send__ID value=Send />
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/toolbar/back.js
+        VmInclude:__PARTS__/style/ease-in-out.js
+        //-------------------------------------
+		var _mobj=$vm.vm['__ID'];
+        var accountant;
+        var email="";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            accountant=_mobj.op.accountant.split('/')[0];
+            email=_mobj.op.manager.split('/')[1];
+            $('#manager__ID').text(manager);
+            $('#info__ID').html(_mobj.op.info);
+        })
+        //-------------------------------------
+        $('#send__ID').on('click',function(){
+     	   	var From_Address="noresponse@wappsystem.org.au";
+     		var From_Name="Database Administrator";
+     		var To=email;
+            if(To.length<5){
+                alert('No email address.')
+                return;
+            }
+     		var Title="Purchase order request";
+     		var Body=$('#contents__ID').html();
+            if($vm.user=='guest'){ alert('The alert email (to: '+To+') has been sent out'); return;}
+            $VmAPI.request({data:{cmd:'send_email',From_Address:From_Address,From_Name:From_Name,To:To,Title:Title,Body:Body},callback:function(res){
+                alert('The alert email (to: '+email+') has been sent out');
+            }})
+        });
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/style/default.css
+</style>

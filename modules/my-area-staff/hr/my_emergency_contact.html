@@ -1,0 +1,70 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _record_type='s2';
+        _fields="_Form,_Hidden|Staff,Contact_Name,Relationship,Phone,Email";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+            }
+        }
+        //-------------------------------------
+        $('#new__ID').hide();
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+		var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
+		var staff_tid=$vm.module_list[prefix+"public-info"].table_id;
+        var person_name,person_login_name,person_pid=staff_tid,person_uid;
+        var get_info=function(){
+            jQuery.ajaxSetup({async:false});
+			var sql="select ID,Information from [TABLE-"+staff_tid+"]";
+            var req={cmd:'query_records_s2_v2',sql:sql}
+            $VmAPI.request({data:req,callback:function(res){
+                if(res.records.length>0){
+                    person_name=res.records[0].First_Name+' '+res.records[0].Last_Name;
+                    person_login_name=res.records[0].Login_Name;
+                    person_uid=res.records[0].UID;
+                }
+            }});
+            jQuery.ajaxSetup({async:true});
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            get_info();
+            record.Staff=person_name;
+            dbv.PPID=person_pid;
+            dbv.PUID=person_uid;
+            return true;
+        };
+        //-------------------------------------
+        _set_req=function(){
+			var sql="select ID,Information from [TABLE-"+_db_pid+"]"
+			_req={cmd:'query_records_s2_v2',sql:sql}
+        }
+        //-------------------------------------
+        _data_process_after_render=function(){
+            if(_records.length==0){
+                $('#new__ID').triggerHandler('click');
+            }
+            if(_records.length==1){
+                var form=$('#grid__ID tr:nth-child(2)').find('u:first');
+                form.triggerHandler('click');
+            }
+            else{
+                alert("More than one records were found! Please report the administrator.");
+                return;
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
