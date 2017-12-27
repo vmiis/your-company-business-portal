@@ -1,0 +1,212 @@
+<div id=D__ID>
+	<div id="contact-section__ID">
+	  <div class="container">
+	    <div class="section-title center">
+	      <h2>Contact Us</h2>
+	      <hr>
+	    </div>
+<div class=row>
+		<div class="col-md-4">
+	      <h4>Contact info</h4>
+	      <div class="space"></div>
+	      <p><i class="fa fa-map-marker"></i>4321 California St,<br>
+	        San Francisco, CA 12345</p>
+	      <div class="space"></div>
+	      <p><i class="fa fa-envelope-o"></i>info@company.com</p>
+	      <div class="space"></div>
+	      <p><i class="fa fa-phone"></i>+1 123 456 1234</p>
+	    </div>
+	    <div class="col-md-8">
+	      <h4>Leave us a message</h4>
+	      <form id=F__ID>
+	        <div class="row">
+	          <div class="col-md-6">
+	              <input type="text" class="form-control" name=Name placeholder="Name" required="required">
+	          </div>
+	          <div class="col-md-6">
+	              <input type="email" class="form-control" name=Email placeholder="Email" required="required">
+	          </div>
+	        </div>
+			<br>
+	        <textarea name="Message" class="form-control" rows="4" placeholder="Message" required=""></textarea>
+        	<button id=submit__ID type="submit" class="btn btn-default">Send Message</button>
+	      </form>
+	    </div>
+</div>
+
+
+	  </div>
+	</div>
+	<script>
+		function F__ID(){
+			//--------------------------------------------------------
+			var demo_data_id='1';
+			var demo_db_pid=$vm.module_list[$vm.vm['__ID'].name].table_id;
+			//--------------------------------------------------------
+			$('#D__ID').on('load',function(){
+				$("#F__ID")[0].reset();
+				$('#submit__ID').show();
+			})
+			//--------------------------------------------------------
+			$('#F__ID').submit(function(event){
+				//--------------------------------------------------------
+				event.preventDefault();
+				$('#submit__ID').hide();
+				//--------------------------------------------------------
+				var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () {	data[this.name]=this.value || '';});
+				var dbv={V3:demo_data_id}
+				var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id
+				//--------------------------------------------------------
+				var req={cmd:"add_json_record",db_pid:demo_db_pid,data:data,dbv:dbv};
+				$VmAPI.request({data:req,callback:function(res){
+					if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+					else $vm.alert('Your data has been successfully submitted');
+				}});
+				//--------------------------------------------------------
+			})
+			//--------------------------------------------------------
+		}
+	</script>
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+		  background-color:#fff;
+	    }
+	    #contact-section__ID{
+			padding: 100px 0;
+    		background-color: #f6f6f6;
+			height: 100%;
+	    }
+		#D__ID hr {
+		    height: 2px;
+		    width: 60px;
+		    background: #71bd46;
+		    position: relative;
+		    border: 0;
+		    margin: 30px 0 0 0;
+		}
+		#D__ID h2 {
+		    line-height: 20px;
+		    margin: 0;
+		    font-size: 36px;
+		    font-weight: 300;
+		    margin-bottom: 20px;
+		    color: #666;
+		}
+		#D__ID .space {
+    		margin-top: 40px;
+		}
+		#D__ID  h4 {
+		    border-bottom: 1px solid #b8dea2;
+		    padding-bottom: 20px;
+		    display: inline-block;
+			color: #666;
+    		font-size: 20px;
+		}
+
+		#D__ID  p {
+		    margin-top: 20px;
+		    margin-bottom: 30px;
+		    font-family: 'Open Sans',sans-serif;
+		    color: #888;
+		    line-height: 24px;
+		}
+		#D__ID  .section-title {
+		    padding-bottom: 50px;
+		}
+
+
+
+
+		/* Contact Section */
+		#contact-section__ID {
+			padding: 100px 0;
+			background-color: #f6f6f6;
+		}
+		#contact-section__ID form {
+			padding: 30px 0;
+		}
+		#contact-section__ID i.fa {
+			color: #71bd46;
+			margin-right: 20px;
+		}
+		label {
+			font-size: 12px;
+			font-weight: 400;
+			font-family: 'Open Sans', sans-serif;
+			float: left;
+		}
+		#contact-section__ID .form-control {
+			display: block;
+			width: 100%;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			color: #555;
+			background-color: #fff;
+			background-image: none;
+			border: 1px solid #ccc;
+			border-radius: 2px;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+			-webkit-transition: none;
+			-o-transition: none;
+			transition: none;
+		}
+		#contact-section__ID .form-control:focus {
+			border-color: inherit;
+			outline: 0;
+			-webkit-box-shadow: transparent;
+			box-shadow: transparent;
+		}
+		#contact-section__ID .btn {
+			background: transparent;
+			border: 1px solid #71bd46;
+			border-radius: 4px;
+			padding: 10px 20px;
+			margin-top: 20px;
+			color: #71bd46;
+			font-size: 16px;
+		}
+		#contact-section__ID .btn:hover, #contact-section__ID .btn:focus {
+			background: #71bd46;
+			color: #fff;
+		}
+		#contact-section__ID .text-danger {
+			color: #cc3300;
+			text-align: left;
+		}
+		.btn:active, .btn.active {
+			background-image: none;
+			outline: 0;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+		a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+			outline: none;
+			outline-offset: none;
+		}
+		/* Social Section */
+		#social-section {
+			padding: 30px 0;
+			background-color: #fff;
+		}
+		#social-section .social ul li {
+			display: inline-block;
+			margin: 0 20px;
+		}
+		#social-section .social i.fa {
+			font-size: 24px;
+			padding: 4px 5px;
+			color: #71bd46;
+			transition: all 0.5s;
+		}
+		#social-section .social i.fa:hover {
+			color: #666;
+		}
+
+
+	</style>
+</div>

@@ -1,0 +1,12 @@
+{
+    "modules":
+	{
+		"home":	                                    {"url":"modules/marketing-department/task/home.html","name_for_search":"Home page"},
+		"marketing-department-about":	            {"url":"modules/marketing-department/task/about.html","name_for_search":"About"},
+		"marketing-department-services":	        {"url":"modules/marketing-department/task/services.html","name_for_search":"Services"},
+		"marketing-department-portfolio":	        {"url":"modules/marketing-department/task/portfolio.html","name_for_search":"Portfolio"},
+		"marketing-department-team":	  		    {"url":"modules/marketing-department/task/team.html","name_for_search":"Team"},
+		"marketing-department-contact-us":	        {"table_id":"20009702","url":"modules/marketing-department/task/contact-us.html","name_for_search":"Contact us"},
+		"marketing-department-contact-us-record":   {"table_id":"20009702","url":"modules/marketing-department/task/contact-us-record.html","name_for_search":"Contact us record"}
+	}
+}
