@@ -59,7 +59,7 @@
             if(_records.length==0){
                 $('#new__ID').triggerHandler('click');
             }
-            if(_records.length==1){
+            else if(_records.length==1){
                 var form=$('#grid__ID tr:nth-child(2)').find('u:first');
                 form.triggerHandler('click');
             }

@@ -1,0 +1,145 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a><span class=tab__ID></span><input placeholder='filter' id=keyword__ID type=text />
+          <input id=department__ID placeholder='Department' type=text ></input>
+          <a id=query__ID>Load</a> <a id=pv__ID >Print</a>
+          <span id=multi__ID>
+              <span class=tab__ID></span>Page Size: <select id=page_size__ID><option>50</option><option>100</option><option>200</option></select><span class=tab__ID></span>
+              <span id=I__ID style="display:none">0</span><span id=A__ID></span>
+              <img id=p__ID src="__BASE__/vmiis/Common-Code/image/p.png" ><img id=n__ID src="__BASE__/vmiis/Common-Code/image/n.png" >
+          </span>
+    </div>
+    <div id=pvdiv__ID>
+        <div id=image_container__ID style='font-size:10pt;font-family: Helvetica, Arial, sans-serif;'>
+        </div>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/frame/records_with_paging.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //-------------------------------------
+        _fields="First_Name,Last_Name,Department,Position,Location,Email,Phone";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,Hidden|File,Hidden|Size,Hidden|lastModified";
+        //-------------------------------------
+		var _ids=_sys.config.module_ids;
+		var department_tid=$vm.module_list[_ids.department].table_id;
+		//-------------------------------------
+        $('#department__ID').autocomplete({
+            minLength:0,
+            source:function(request,response){
+                var sql="with tb as (select name=S1 from [TABLE-"+department_tid+"])";
+                sql+=" select top 10 name,value=name from tb where name like '%'+@S1+'%' ";
+                $VmAPI.request({data:{cmd:'auto',s1:request.term,sql:sql,minLength:0},callback:function(res){
+                    response($vm.autocomplete_list(res.table));
+                }});
+            },
+        })
+        $('#department__ID').focus(function(){$('#department__ID').autocomplete("search","");});
+        //-------------------------------------
+        $('#D__ID').on('load',function(){ _set_req(); _request_data(); })
+        //-------------------------------------
+        var set_image_url=function($obj,rid,filename,modified){
+            if(filename=="") return;
+            if(rid===undefined) return;
+            var ext=filename.split('.').pop();
+            var thumb=filename+'_thumb.'+ext;
+            var src_ID='S'+rid+new Date(modified).getTime()+'_'+$vm.version;
+            var src_ID_day='D'+rid+new Date(modified).getTime()+'_'+$vm.version;
+            var src=localStorage.getItem(src_ID);
+            var src_Day=localStorage.getItem(src_ID_day);
+            var D0=new Date(src_Day);
+            var D1=new Date();
+            var dif = D1.getTime() - D0.getTime();
+            dif=dif/1000/3600/24;
+            if(src!==null && dif<6){
+                $obj.attr('src',src);
+            }
+            else{
+                $vm.s3_link({rid:rid,filename:thumb,days:'7',modified:modified,callback:function(url){
+        	        //$vm.vm['__ID'][p]=url;
+        	        $obj.attr('src',url);
+                    localStorage.setItem(src_ID,url);
+                    localStorage.setItem(src_ID_day,new Date().toString());
+            	}});
+            }
+        };
+        //-------------------------------------
+        function show_photo(rid,filename,modified) {
+            var p='L'+rid;
+            if($vm.vm['__ID'][p]!==undefined){
+                var url=$vm.vm['__ID'][p];
+                window.open(url,'resizable=1');
+            }
+        	else{
+                jQuery.ajaxSetup({async:false});
+                var src='';
+                $vm.s3_link({rid:rid,filename:filename,days:'1',modified:modified,callback:function(url){
+        	        $vm.vm['__ID'][p]=url;
+                    src=url;
+            	}});
+                jQuery.ajaxSetup({async:true});
+                window.open(src,'Image','resizable=1');
+            }
+        }
+        //-------------------------------------
+        _set_req=function(){
+            var where=" S1 like '%'+@S2+'%' "
+            var sql="with tb as (select S1,Information,PID,ID,UID,PUID,DateTime,Author,Modified,RowNum=row_number() over (order by S3) from [TABLE-"+_db_pid+"-@S1]  where "+where+")";
+            sql+="select S1,Information,PID,ID,UID,PUID,DateTime,Author,Modified,RowNum from tb  where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1] where "+where;
+            _req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',s2:$('#department__ID').val(),I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+       }
+       //-------------------------------------
+       _display_records=function(records){
+            var txt="<table>";
+            var rows=records.length/10;
+            for(var I=0;I<rows;I++){
+                txt+="<tr>";
+                for(var J=0;J<10;J++){
+                    var i=I*10+J;
+                    if(i<records.length){
+                        txt+="<td><img style='width:80px;cursor:pointer' data-i="+i+" /><br>";
+                        txt+=records[i].First_Name+' '+records[i].Last_Name +"<br>";
+                        txt+=records[i].Phone +"<br>";
+                        txt+=records[i].Location+"</td>";
+                    }
+                }
+                txt+="</tr>";
+            }
+            txt+="</table>";
+            $('#image_container__ID').html(txt);
+            $('#image_container__ID').find('img').each(function(index){
+                var i=$(this).attr('data-i');
+                var rid=records[i].ID;
+                var modified=records[i].Modified;
+                var filename=records[i].Photo;
+                var info="";
+                info+=records[i].First_Name+' '+records[i].Last_Name +"<br>";
+                info+=records[i].Phone +"<br>";
+                info+=records[i].Email+"<br>";
+                info+=records[i].Location+"<br>";
+                info+=records[i].Position+"<br>";
+
+                set_image_url($(this),rid,filename,modified);
+                $(this).parent().on('click',function(){
+					var this_mobj  =_mobj;
+					var this_record=records[i];
+					var op={
+						sys:_mobj.op.sys,
+						mobj:this_mobj,
+						record:this_record,
+						child:'1',
+						readonly:'1'
+					}
+					$vm.load_module_by_name(_ids.staff,undefined,op);
+                })
+            });
+       }
+       //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/style/default.css
+</style>

@@ -10,6 +10,8 @@
         _fields="_Form,Photo,_More,Title,First_Name,Last_Name,Gender,Department,Position,Location,Email,Phone,Login_Name";
         _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
+        var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
+		var department_tid=$vm.module_list[prefix+"department"].table_id;
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
                 case 'Photo':
@@ -25,7 +27,7 @@
                     VmInclude:__COMPONENT__/grid/field_select.js
                 break;
                 case 'Department':
-                    var sql="with tb as (select distinct name=S1,UID from [TABLE-"+_module.department_tid+"]) select name, value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    var sql="with tb as (select distinct name=S1,UID from [TABLE-"+department_tid+"]) select name, value=name,value2=UID from tb where name like '%'+@S1+'%' ";
                     VmInclude:__COMPONENT__/grid/field_auto.js
                 break;
             }
