@@ -1,0 +1,168 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <div class="navbar-left form-inline">
+            <select id=YY__ID type=select class="form-control" style='display:inline-block;width:auto;margin-right:3px'></select>
+            <button type=button id=query_data__ID class='btn btn-secondary'>Load</button>
+        	<span class=tab__ID></span>Business Intelligence Processing
+        </div>
+    </div>
+    <div id=table__ID>
+        <table id=grid__ID>
+            <tr><th>Month</th><th>Update</th><th>Number of Result</th><th>Update Date</th><th>Updated by</th></tr>
+            <tr><td>Jan</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Feb</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Mar</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Apr</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>May</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Jun</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Jul</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Aug</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Sept</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Oct</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Nov</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+            <tr><td>Dec</td><td><button>Update</button></td><td class=v__ID></td><td class=v__ID></td><td class=v__ID></td></tr>
+        </table>
+    </div>
+    <div id=how__ID  style='font-size:11px;white-space: nowrap;padding-left:20px'>
+        <br>
+        What is "Business Intelligence Processing"?
+        <br>
+        A typical problem is that if there are too many records it is very expense to generate
+        <br>aggregation reports in real time. So we would like to generate some partial aggregation
+        <br>(for example a month or a quarter) and save it as middle results. When we need a big
+        <br>aggregation (for example a year or all records in the database), we can use these middle
+        <br>results so as to make it available in real time. The drawback is if one or more original
+        <br>records changed, we need to reprocess the corresponding partial aggregation, but this
+        <br>can be done automatically in midnight.
+    </div>
+</section>
+<script>
+function F__ID(){
+    //------------------------
+    VmInclude:__COMPONENT__/grid/grid.js
+    //------------------------
+    var prefix=_mlist[$vm.vm['__ID'].name].prefix;
+    var record_tid=_mlist[prefix+'transaction-import'].table_id;
+	//-------------------------------------
+    //year dropdown
+    var $List=$('#YY__ID');
+    var y=new Date().getFullYear();
+    for(var i=0;i<7;i++){
+        var txt=(y-i).toString();
+        $List.append(  $('<option></option>').val(txt).html(txt)  );
+    }
+    $List.val((y).toString());
+    //---------------------------------------------
+    $('#YY__ID').on('change',function(){
+        request_data();
+    })
+    //---------------------------------------------
+    $('#D__ID').on('load',function(){
+        request_data();
+    })
+    //---------------------------------------------
+    $('#query_data__ID').on('click',function(){
+        request_data();
+    })
+    //-------------------------------------
+    var records=[]
+    //---------------------------------------------
+    var request_data=function(){
+        $('#grid__ID').hide();
+        records=[];
+        var sql="select ID,V2,V3,DateTime,Author,Modified,MAuthor from [TABLE-"+_db_pid+"] where V1=@I1";
+        $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:$('#YY__ID').val()},callback:function(res){
+            records=res.records;
+            $('#grid__ID td.v__ID').text('');
+            for(var i=0;i<records.length;i++){
+                var m=records[i].V2;
+                var Num=records[i].V3;
+                var Author=records[i].Author;
+                var MAuthor=records[i].MAuthor;
+                var DateTime=records[i].DateTime;
+                var Modified=records[i].Modified;
+                var modified_by=MAuthor; if(modified_by=='') modified_by=Author;
+                var updated_date=Modified; if(updated_date=='') updated_date=DateTime;
+
+                var tr=$('#grid__ID tr').eq(m)
+                //tr.find('td').eq(2).text(Num)
+				if(Num!=0){
+                    tr.find('td').eq(2).html("<u style='cursor:pointer'>"+Num+"</u>");
+                    tr.find('td').eq(2).find('u').data('rid',res.records[i].ID);
+                    tr.find('td').eq(2).find('u').on('click',function(){
+                        var rid=$(this).data('rid');
+                    	$vm.load_module_by_name(prefix+'transaction-bi-details',$vm.root_layout_content_slot,{rid:rid});
+                    })
+                }
+                else tr.find('td').eq(2).text(Num)
+                tr.find('td').eq(3).text(updated_date)
+                tr.find('td').eq(4).text(modified_by)
+            }
+            $('#grid__ID').show();
+        }})
+    }
+    //-------------------------------------
+    $('#grid__ID button').on('click',function(){
+        var m=$(this).parent().parent().index();
+        var record={},dbv={}
+        var N=0;
+        dbv.V1=$('#YY__ID').val();
+        dbv.V2=m.toString();
+        var sql="with tb as(select V1,V2,S1,S2,DateTime,Author,Modified,MAuthor from [TABLE-"+record_tid+"] where DatePart(yy,DT1)=@I1 and DatePart(mm,DT1)=@I2)";
+        sql+=" select amount=sum(V1),S1,S2 from tb group by S1,S2";
+        $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:$('#YY__ID').val(),i2:m.toString()},callback:function(res){
+            for(var i=0;i<res.records.length;i++){
+                var data_name=res.records[i].S1+"_1_1_1_"+res.records[i].S2;
+                var clean_data_name='d_'+data_name.replace(/ /g,'_').replace(/[|&;$%@"<>()+,]/g, "");
+                var data_value=res.records[i].amount;
+                if(data_value!='' && data_value!='0'){
+                    record[clean_data_name]=data_value;
+                    N++;
+                }
+            }
+            dbv.V3=res.records.length;
+            var rid=0;
+            for(var i=0;i<records.length;i++){
+                if(records[i].V2==m){
+                    rid=records[i].ID;
+                    break;
+                }
+            }
+            if(rid==0){
+                var req={cmd:"add_record",db_pid:_db_pid.toString(),data:record,dbv:dbv};
+                $VmAPI.request({data:req,callback:function(res){
+                    request_data();
+                }});
+            }
+            else{
+                var req={cmd:"delete_record",rid:rid,db_pid:_db_pid.toString()};
+                $VmAPI.request({data:req,callback:function(res){
+                    var req={cmd:"add_record",db_pid:_db_pid.toString(),data:record,dbv:dbv};
+                    $VmAPI.request({data:req,callback:function(res){
+                        request_data();
+                    }});
+                }});
+            }
+            //------------------------------------------
+        }});
+    })
+    //-------------------------------------
+}
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    #toolbar__ID{
+		background-color:#ccc;
+		padding-left:10px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+</style>

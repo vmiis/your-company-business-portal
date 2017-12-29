@@ -172,10 +172,10 @@ var vm_init=function(){
 		$.getScript('https://www.gstatic.com/charts/loader.js',function(){
 			google.charts.load('current', {packages: ['corechart']});
 		});
-        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__PARTS__/dialog/export_dialog_module.html'};
+        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html'};
         $vm.load_module_by_name('_system_export_dialog_module','',{})
         //-------------------------------------
-        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__PARTS__/dialog/import_dialog_module.html'};
+        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html'};
         $vm.load_module_by_name('_system_import_dialog_module','',{})
 	}
 	//********************************************************

@@ -27,6 +27,7 @@
         "research-volunteer-management":	{"url":"modules/research-volunteer-management/panel.html",  "modules":["https://woolcock-imr.github.io/volunteer-database-management-2|configurations/modules.json"]},
 		"my-area-staff":	        {"url":"modules/my-area-staff/panel.html","modules":["modules/my-area-staff/module.json"]},
         "staff-management":	        {"url":"modules/staff-management/panel.html","modules":["modules/staff-management/module.json"]},
-        "staff-management-child":	{"url":"modules/staff-management/staff-child-panel.html","modules":["modules/staff-management/module.json"]}
+        "staff-management-child":	{"url":"modules/staff-management/staff-child-panel.html","modules":["modules/staff-management/module.json"]},
+        "woolworths-credit-card":	{"url":"modules/woolworths-credit-card/panel.html","modules":["modules/woolworths-credit-card/module.json"]}
 	}
 }
