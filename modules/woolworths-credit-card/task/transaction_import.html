@@ -1,0 +1,159 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid_import.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="Transaction_Date,Description,Debit,Credit,Category,Subcategory,Notes";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Transaction_Date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                    break;
+                case 'Debit':
+                case 'Credit':
+                    if(source=="grid") td.css("text-align","right").css('white-space','nowrap');
+                    if(records[I][field]!='') td.text(parseFloat(records[I][field]).toFixed(2));
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            record.Transaction_Date=$vm.date_to_string_dmy(new Date(record.Transaction_Date));
+            dbv.DT1=record.Transaction_Date;
+            dbv.V1='0'; if(record.Debit!='')   dbv.V1=record.Debit;
+            dbv.V2='0'; if(record.Credit!='')  dbv.V2=record.Credit;
+            dbv.S1=record.Category;
+            dbv.S2=record.Subcategory;
+            return true;
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+		_set_req=function(){
+		    var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by DT1 DESC) from [TABLE-"+_db_pid+"-@S1] )";
+		    sql+="select Information,ID,UID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+		    var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+		    _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+		}
+		//-------------------------------------
+        $('#import__ID').on('click',function(){
+            $('#fileform__ID')[0].reset();
+            $('#import_file__ID').trigger('click');
+        })
+        //-------------------------------------
+        $('#import_file__ID').on('change',function(evt){
+            var files = evt.target.files;
+            if(files.length>0){
+                if(confirm("Are you sure to import "+files[0].name+"?\n")){
+                    var reader = new FileReader();
+                    reader.onload = (function(e) {processing_file(e.target.result); });
+                    reader.readAsText(files[0]);
+                }
+            }
+        })
+        //-------------------------------------
+        var gNumber_to_process,gNumber_completed,gDialog_module_id;
+        var gI=0,gLines,gTab,gFields,gHeader;
+        var gLoop;
+        var gOK;
+        //-------------------------------------
+        var one_loop=function(){
+            if(gOK==0) return;
+            gOK=0;
+            var items=gLines[gI].splitCSV(gTab);
+            //--------------------------------------
+            //create a record rd
+            var rd={};
+            if(items.length==1 && items[0]==''){} //this is empty line
+            else{
+                for(var j=0;j<gFields.length;j++){
+                    var field_name=gFields[j].split('|')[0];
+                    var field_id=gFields[j].split('|').pop();
+                    var index=gHeader.indexOf(field_name.replace(/ /g,'_'));
+                    if(index!=-1 && index<items.length)  rd[field_id]=items[index];  //index>=items.length: the data line is too short
+                }
+            }
+            //--------------------------------------
+            if(jQuery.isEmptyObject(rd)===false){ //not empty record
+                if(_before_submit!==''){
+                    _dbv={};
+                    _before_submit(rd,_dbv);
+                }
+                //------------------------------------------
+                //add
+                var req={cmd:"add_record",db_pid:_db_pid.toString(),data:rd,dbv:_dbv};
+                $VmAPI.request({data:req,callback:function(res){
+                    gNumber_completed++;
+                    processing_file_end();
+                }})
+                //------------------------------------------
+            }
+            else{
+                gNumber_to_process--;
+                processing_file_end();
+            }
+            console.log(gI+'/'+gNumber_to_process)
+            if(gI>=gNumber_to_process){
+                clearInterval(gLoop);
+                return;
+            }
+            gI++;
+        }
+        //-------------------------------------
+        var processing_file=function(contents){
+            gLines=contents.replace(/\r/g,'\n').replace(/\n\n/g,'\n').split('\n');
+            if(gLines.length>1){
+                gNumber_to_process=gLines.length-1; //-1: not count header line
+                gNumber_completed=0;
+                gDialog_module_id=$vm.get_module_id({name:'_system_import_dialog_module'})
+                gTab='\t';
+                var n1=gLines[0].split('\t').length;
+                var n2=gLines[0].split(',').length;
+                if(n2>n1) gTab=',';
+                gHeader=gLines[0].splitCSV(gTab);
+                for(var k=0;k<gHeader.length;k++){gHeader[k]=gHeader[k].trim().replace(/ /g,'_');}
+                gFields=_fields.split(',');
+                gI=1; //not 0, start from second line, the first line is header
+
+                //check first record
+                var items=gLines[gI].splitCSV(gTab);
+                var sql="select top 1 ID from [TABLE-"+_db_pid+"] where DT1=@T1 and V1=@D1 and V2=@D2 and S1=@S1 and S2=@S2";
+                items[0]=$vm.date_to_string_dmy(new Date(items[0]));
+                if(items[2]=='') items[2]='0';
+                if(items[3]=='') items[3]='0';
+                var req={cmd:"query_records",sql:sql,t1:items[0],d1:items[2],d2:items[3],s1:items[4],s2:items[5]};
+                $VmAPI.request({data:req,callback:function(res){
+                    if(res.records.length==1){
+                        alert('The first record was found in the database. It is possible all other records have been imported.');
+                        return;
+                    }
+                    else{
+                        $vm.open_dialog({name:'_system_import_dialog_module'});
+                        gOK=1;
+                        gLoop=setInterval(one_loop, 500);
+                    }
+                }})
+            }
+        }
+        //-------------------------------------
+        var processing_file_end=function(){
+            gOK=1;
+            $('#import_num'+gDialog_module_id).text(gNumber_completed.toString()+"/"+gNumber_to_process.toString());
+            if(gNumber_to_process<=gNumber_completed){
+                gNumber_to_process=-1;
+                $vm.close_dialog({name:'_system_import_dialog_module'});
+                alert(gNumber_completed.toString()+" records have been imported.");
+                _set_req(); _request_data();
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

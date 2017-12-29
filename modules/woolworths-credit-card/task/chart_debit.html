@@ -1,0 +1,49 @@
+<section>
+    <div id=toolbar__ID class="navbar-left form-inline">
+        <select id=YY__ID type=select class="form-control" style='display:inline-block;width:auto;margin-right:3px'></select>
+        <select id=item__ID type=select class="form-control" style='display:inline-block;width:auto;margin-right:3px'></select>
+        <button id=aquery__ID type=button class='btn btn-secondary'>Query</button>
+        <button id=export__ID type=button class='btn btn-secondary'>Export</button>
+    	<span class=tab__ID></span>Debit Chart
+    </div>
+    <div id=pvdiv__ID>
+        <div id=chart_container__ID style='padding:0 6px 0 6px;font-size:10pt;font-family: Helvetica, Arial, sans-serif;'>
+            <div id=chart__ID style='width:100%'></div>
+        </div>
+    </div>
+</section>
+<style>
+	#toolbar__ID{
+		background-color:#ccc;
+		padding:5px 0px;
+		margin-bottom:0px;
+		overflow:hidden
+	}
+	#toolbar__ID *{
+		margin-right:3px;
+	}
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 0;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+		#row_1__ID{
+			padding-bottom: 3px;
+		}
+	}
+</style>
+<script>
+function F__ID(){
+    //------------------------
+    VmInclude:__COMPONENT__/grid/grid.v3.js
+    var report_type='d_';
+    VmInclude:__CURRENT_PATH__/chart.js
+}
+</script>
+<style>
+    #D__ID{
+        background-color:#fff;
+    }
+</style>

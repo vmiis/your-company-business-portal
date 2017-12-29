@@ -1,0 +1,76 @@
+<div>
+    <div id=toolbar__ID>
+        <a id=back__ID>Back</a><span class=tab__ID></span><span id=nav_link__ID></span>
+    </div>
+    <div id=panel__ID style='clear:left;'>
+        <div class='nav__ID'>
+            <span>Woolworths credit card</span>
+            <ul>
+                <li data-name=import>Import</li>
+                <li data-name=bi>BI processing</li>
+                <li data-name=debit_query>Debit query</li>
+                <li data-name=credit_query>Credit query</li>
+                <li data-name=debit_chart>Debit chart</li>
+                <li data-name=credit_chart>Credit chart</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    //---------------------------------------------
+    function F__ID(){
+        //---------------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/navigation/navigation.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //---------------------------------------------
+        var module_list=function(){
+            _app_id='woolworths_credit_card_';
+            //---------------------------------------------
+			var L=$vm.module_list,A=_app_id;
+			var M='https://vmiis.github.io/modules/woolworths_credit_card';
+			if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			        M=window.location.protocol+'//'+window.location.host+"/vmiis/modules/woolworths_credit_card";
+			}
+            //---------------------------------------------
+            var v={
+                record_tid  :'20010375',
+                bi_tid      :'20010376',
+            }
+            L[A+'import']        ={table_id:v.record_tid,var:v,url:M+'/transaction_import.html'};
+            L[A+'bi']            ={table_id:v.bi_tid,    var:v,url:M+'/transaction_bi.html'};
+            L[A+'credit_query']  ={table_id:v.bi_tid,    var:v,url:M+'/query_credit.html'};
+            L[A+'debit_query']   ={table_id:v.bi_tid,    var:v,url:M+'/query_debit.html'};
+            L[A+'credit_chart']  ={table_id:v.bi_tid,    var:v,url:M+'/chart_credit.html'};
+            L[A+'debit_chart']   ={table_id:v.bi_tid,    var:v,url:M+'/chart_debit.html'};
+            //---------------------------------------------
+        }
+        module_list();
+        //---------------------------------------------
+        _set_li_permissions();
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){
+            _nav_name='';
+            _set_nav_link();
+        });
+        //---------------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/navigation/navigation.css
+    #D__ID{
+        overflow: hidden;
+        background: url("__BASE__/vmiis/common-code/image/texture.png");
+    }
+    .nav__ID span,.nav__ID u{
+        color:#005500;
+        font-weight: bold;
+    }
+    ul{
+        padding-left:28px;
+    }
+    @media screen and (max-width:900px){
+        #D__ID{
+            font-size:16pt;
+        }
+    }
+</style>
