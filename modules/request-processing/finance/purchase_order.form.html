@@ -30,8 +30,8 @@
 <script>
     function F__ID(){
         //----------------------------------
-        VmInclude:__COMPONENT__/grid/form.v3.js
-		VmInclude:__COMPONENT__/grid/grid_item_a.2.js
+        VmInclude:__PARTS__/grid/form.v3.js
+		VmInclude:__PARTS__/grid/grid_item_a.2.js
         //----------------------------------
         //---------------------------------------------
         $('#D__ID').on('load',function(){
@@ -81,7 +81,7 @@
                     break;
 				case "GST":
 					td.html('<input disabled=true type=checkbox />');
-					VmInclude:__COMPONENT__/grid/field_checkbox.js
+					VmInclude:__PARTS__/grid/field_checkbox.js
                     break;
             }
         }
@@ -93,7 +93,6 @@
     }
 </script>
 <style>
-    VmInclude:__COMPONENT__/grid/form.css
-	VmInclude:__COMPONENT__/grid/grid_item_a.css
-	VmInclude:__COMPONENT__/grid/grid_item_b.css
+    VmInclude:__PARTS__/grid/form.css
+	VmInclude:__PARTS__/grid/grid_item_a.css
 </style>

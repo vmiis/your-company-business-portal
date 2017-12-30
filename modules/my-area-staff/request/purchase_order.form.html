@@ -1,5 +1,5 @@
 <section>
-    VmInclude:__PARTS__/toolbar/back_save.html
+    VmInclude:__COMPONENT__/toolbar/save.v3.html
 	<form id=F__ID>
         <table id=tb__ID style='width:770px'>
             <colgroup>
@@ -10,7 +10,7 @@
 			<tr><td colspan=2 class='header__ID'>Purchase Order</td></tr>
 			<tr id=record_id__ID><td>Record ID</td><td data-id=Record_ID data-custom=1></td></tr>
 			<tr><td>Manager for Approval</td><td data-id=Manager_for_Approval data-custom=1></td></tr>
-			<tr><td>Accountant for Processing</td><td data-id=Accountant_for_Processing data-custom=1></td></tr>
+			<!--<tr><td>Accountant for Processing</td><td data-id=Accountant_for_Processing data-custom=1></td></tr>-->
 			<tr><td>Short Description</td><td data-id=Short_Description></td></tr>
 			<tr><td>Supplier Account No (if applicable)</td><td data-id=Supplier_Account_No></td></tr>
 			<tr><td>Supplier Name</td><td data-id=Supplier_Name></td></tr>
@@ -33,16 +33,16 @@
 <script>
     function F__ID(){
         //----------------------------------
-        VmInclude:__PARTS__/grid/form.2.js
-		VmInclude:__PARTS__/grid/grid_item_a.2.js
-        VmInclude:__PARTS__/style/ease-in-out.2.js
+        VmInclude:__COMPONENT__/grid/form.v3.js
+		VmInclude:__COMPONENT__/grid/grid_item_a.2.js
         //----------------------------------
+		var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
 		//get manager list;
         var list_managers='';
-        var list_m_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-"+_mlist[_ids.managers].table_id+"]";
+        var list_m_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-"+_mlist[prefix+"manager"].table_id+"]";
         var req_m={cmd:'query_records',sql:list_m_sql};
 		var list_accountants='';
-        var list_a_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-"+_mlist[_ids.accountants].table_id+"]";
+        var list_a_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-"+_mlist[prefix+"accountant"].table_id+"]";
         var req_a={cmd:'query_records',sql:list_a_sql};
         jQuery.ajaxSetup({async:false});
         $VmAPI.request({data:req_m,callback:function(res){
@@ -71,7 +71,8 @@
             custom_field_process();
 
 			$('#save__ID').show();
-            if(_save_style=='none') $('#save__ID').hide();
+			if(_records[I].Approved_by!="" && _records[I].Approved_by!=undefined) $('#save__ID').hide();
+            //if(_save_style=='none') $('#save__ID').hide();
 
             //-------item a part
 			if(_records[I].items==undefined || typeof _records[I].items === 'string')  _records[I].items=[];
@@ -141,7 +142,7 @@
                     break;
 				case "GST":
 					td.html('<input type=checkbox />');
-					VmInclude:__PARTS__/grid/field_checkbox.js
+					VmInclude:__COMPONENT__/grid/field_checkbox.js
 					td.find('input').on('change',function(){
 						_item_a_after_change(records,I,field,td,set_value,source);
 					})
@@ -194,8 +195,7 @@
     }
 </script>
 <style>
-    VmInclude:__PARTS__/toolbar/toolbar.css
-    VmInclude:__PARTS__/grid/form.css
-	VmInclude:__PARTS__/grid/grid_item_a.css
-	VmInclude:__PARTS__/grid/grid_item_b.css
+    VmInclude:__COMPONENT__/grid/form.css
+	VmInclude:__COMPONENT__/grid/grid_item_a.css
+	VmInclude:__COMPONENT__/grid/grid_item_b.css
 </style>

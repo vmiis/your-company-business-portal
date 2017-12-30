@@ -1,10 +1,11 @@
 {
 	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/pro/",
+	"api_path_woolcock":"https://rt.woolcock.org.au/",
 	"default_production":"No",
 	"panels":{
         "website":		{"url":"",                          	"modules":["configurations/website.json"]},
-		"portal":		{"url":"modules/panel.html",         	"modules":["modules/about/module.json","modules/help/module.json","modules/marketing-department/module.json","https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/main.json"]},
+		"portal":		{"url":"modules/panel.html",         	"modules":["modules/about/module.json","modules/request-processing/portal.json","modules/my-area-staff/portal.json","modules/help/module.json","modules/marketing-department/module.json","https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/main.json"]},
         "fitness":		{"url":"modules/fitness/panel.html",	"modules":["modules/fitness/module.json"]},
 		"bookkeeping":	{"url":"modules/bookkeeping/panel.html","modules":["modules/bookkeeping/module.json"]},
 		"car-booking":	{"url":"modules/car-booking/panel.html","modules":["modules/car-booking/module.json"]},
@@ -23,6 +24,8 @@
 		"windfarm_inlab_child":	{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
 		"windfarm_screening_main":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/main.html","modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]},
 		"windfarm_screening_child":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/child.html","modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]},
+		"amazes-main-panel":	    {"url":"https://woolcock-imr.github.io/amazes/modules/panel/main.html","modules":["https://woolcock-imr.github.io/amazes|configurations/main.json","https://woolcock-imr.github.io/amazes|configurations/task.json"]},
+		"amazes-child-panel":	    {"url":"https://woolcock-imr.github.io/amazes/modules/panel/child.html","modules":["https://woolcock-imr.github.io/amazes|configurations/main.json","https://woolcock-imr.github.io/amazes|configurations/task.json"]},
         "research-volunteer-registration":	{"url":"modules/research-volunteer-registration/panel.html","modules":["https://volunteer-database.rt.org.au|configurations/main.json"]},
         "research-volunteer-management":	{"url":"modules/research-volunteer-management/panel.html",  "modules":["https://woolcock-imr.github.io/volunteer-database-management-2|configurations/modules.json"]},
 		"my-area-staff":	        {"url":"modules/my-area-staff/panel.html","modules":["modules/my-area-staff/module.json"]},

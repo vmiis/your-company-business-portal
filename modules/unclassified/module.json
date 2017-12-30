@@ -1,0 +1,8 @@
+{
+	"modules":
+	{
+        "home-page-who-am-i":		{"url":"modules/static/group-001/home-page-who-am-i.html"},
+		"home-page-company":	    {"url":"modules/static/group-001/home-page-company.html"},
+		"home-page-creative":	    {"url":"modules/static/group-001/home-page-creative.html"}
+	}
+}

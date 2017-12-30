@@ -1,11 +1,11 @@
 <section>
-    VmInclude:__PARTS__/grid/grid_without_export.html
+    VmInclude:__COMPONENT__/grid/grid.v3.html
 </section>
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude:__PARTS__/grid/grid.2.js
-        VmInclude:__PARTS__/style/ease-in-out.js
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		$('#save__ID').hide();
         _record_type='s2';
         //-------------------------------------
         _fields="_Form,Record_ID,Short_Description";
@@ -102,13 +102,14 @@
 				info:info,
 				//------------------
 			}
-			$vm.load_module_by_name(_ids.purchase_order_email_to_manager,$vm.root_layout_content_slot,op)
+			$vm.load_module_by_name(prefix+'purchase_order_email_to_manager',$vm.root_layout_content_slot,op)
 			//-----------------------------------------------
         };
         //-------------------------------------
-		var request_tid=_mlist[_ids.purchase_order_request].table_id;
-		var approval_tid=_mlist[_ids.purchase_order_approval].table_id;
-		var process_tid=_mlist[_ids.purchase_order_process].table_id;
+		var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
+		var request_tid=_mlist[prefix+'my-purchase-order-request'].table_id;
+		var approval_tid=_mlist[prefix+'my-purchase-order-approval'].table_id;
+		var process_tid=_mlist[prefix+'purchase-order-process'].table_id;
 		var sql0="with tb1 as (select Information,ID,PID,UID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+request_tid+"-@S1])";
 		sql0+=",tb2 as (select user2=Author,date2=DateTime,PID2=PID,UID2=UID,PPID2=PPID,PUID2=PUID from [TABLE-"+approval_tid+"])";
 		sql0+=",tb3 as (select user3=Author,date3=DateTime,PID3=PID,UID3=UID,PPID3=PPID,PUID3=PUID from [TABLE-"+process_tid+"])";
@@ -141,5 +142,5 @@
     }
 </script>
 <style>
-    VmInclude:__PARTS__/grid/grid.css
+    VmInclude:__COMPONENT__/grid/grid.v3.css
 </style>
