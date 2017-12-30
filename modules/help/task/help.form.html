@@ -1,0 +1,109 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default" style='margin-bottom:0px;'>
+        <div class="navbar-form navbar-left">
+            <button id=save__ID type=button class='btn btn-secondary' >Save</button>
+        </div>
+    </div>
+    <form id=F__ID>
+        <input data-id=Title data-custom=1 placeholder='Title' style='width:500px'></input><input data-id=Category data-custom=1 placeholder='Category' style='width:200px'></input>
+        <input data-id=Subcategory data-custom=1 placeholder='Subcategory' style='width:200px'></input><input data-id=Order data-custom=1 placeholder='Order' style='width:50px'></input>
+        <br><textarea id=editor__ID data-id=Contents data-custom=1 style='box-sizing: border-box;width:100%;min-height:300px;border:1px solid #aaa;'></textarea>
+    </form>
+</section>
+<style>
+    #toolbar__ID{
+        background-color:#ccc;
+        padding-left:2px;
+        margin-bottom:0px;
+        overflow:hidden'
+    }
+    #D__ID{
+        background-color:#fff;
+        height:100%;
+        overflow: auto;
+    }
+    #tb__ID{
+        /*min-width:100px;*/
+        border-collapse: collapse;
+        font-size: 13px;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+    #tb__ID td{
+        border:1px solid #bbb;
+        padding:6px;
+        white-space: pre;
+    }
+    #title__ID{
+        font-weight:700;
+    }
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        #tb__ID, #tb__ID * {
+            visibility: visible;
+        }
+        #tb__ID {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+</style>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            custom_field_process();
+            var top1=$('#editor__ID').offset().top;
+            $('#editor__ID').css("height",$(window).height()-top1-$('#'+$vm.root_layout_footer).outerHeight()-5);
+        })
+        //-------------------------------------
+        var custom_field_process=function(){
+            //-------------------------------------
+            $('#F__ID input[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Title":
+                    case "Order":
+                    case "Category":
+                    case "Subcategory":
+                        $(this).val(_records[I][field]);
+                        $(this).blur(function(){
+                            _set_value($(this).val(),_records,I,field);
+                        })
+                    break;
+                }
+            })
+            //-------------------------------------
+            $('#F__ID textarea[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Contents":
+                        $(this).val(_records[I][field]);
+                        $(this).blur(function(){
+                            _set_value($(this).val(),_records,I,field);
+                        })
+                    break;
+                }
+            })
+            //-------------------------------------
+        }
+        //----------------------------------
+    }
+</script>
+<style>
+    #D__ID{
+        background-color:#fff;
+    	color:#000;
+        font-size:13px;
+        font-family: Helvetica, Arial, sans-serif;
+    	height:100%;
+    	overflow: auto;
+    	animation: vm_module_fadein 1.0s;
+    }
+</style>

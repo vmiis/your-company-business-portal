@@ -1,6 +1,6 @@
 {
     "modules":
 	{
-		"home":	 {"url":"modules/home.html","name_for_search":"Home page"}
+		"home":	              {"url":"modules/home.html","name_for_search":"Home page"}
 	}
 }
