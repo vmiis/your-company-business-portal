@@ -1,0 +1,28 @@
+<section>
+    <form id=F__ID>
+        <iframe id=icontents__ID sandbox frameborder="0" style='width:100%;'></iframe>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            var contents=$vm.vm['__ID'].op.input.contents;
+            document.getElementById('icontents__ID').src = "data:text/html;charset=utf-8," + contents;
+            var top1=$('#icontents__ID').offset().top;
+            $('#icontents__ID').css("height",$(window).height()-top1-$('#'+$vm.root_layout_footer).outerHeight()-5);
+        })
+        //-------------------------------------
+    }
+</script>
+<style>
+    #D__ID{
+        background-color:#fff;
+    	color:#000;
+        font-size:13px;
+        font-family: Helvetica, Arial, sans-serif;
+    	height:100%;
+    	overflow: auto;
+    	animation: vm_module_fadein 1.0s;
+    }
+</style>
