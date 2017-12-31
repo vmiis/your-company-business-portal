@@ -90,7 +90,8 @@
         //-------------------------------------
 		_after_submit=function(I,res,type,dbv){
 			var info=make_approved_info(_records[I])
-			//---------------------------
+            /*
+            //---------------------------
 			var op={
 				//-----------------
 				sys:_sys,
@@ -102,7 +103,9 @@
 				info:info,
 				//------------------
 			}
-			$vm.load_module_by_name(prefix+'purchase_order_email_to_manager',$vm.root_layout_content_slot,op)
+			$vm.load_module_by_name(prefix+'purchase-order-email-to-manager',$vm.root_layout_content_slot,op)
+            */
+            $vm.nav_load_module(prefix+'purchase-order-email-to-manager',$vm.root_layout_content_slot,{record:_records[I],info:info})
 			//-----------------------------------------------
         };
         //-------------------------------------

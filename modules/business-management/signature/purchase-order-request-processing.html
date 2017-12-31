@@ -1,0 +1,33 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //-------------------------------------
+        _fields="_Form,Title,_gridHidden|Info";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            $('#new__ID').hide();
+            $('#save__ID').hide();
+            _set_req(); _request_data();
+        })
+        //-------------------------------------
+        var _record_delete=function(I,rid){
+            var record={}
+            record.Processed_by="";
+            var req={cmd:"modify_record_by_ppid_and_puid",data:record,dbv:{},ppid:_records[I].Request_PID, puid:_records[I].Request_UID};
+            $VmAPI.request({data:req,callback:function(res){
+                var options={pid:'__ID',rid:rid,dbv:{}, callback:function(res,n){ _request_data(); } }
+                $vm.delete_record(options);
+            }});
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+</style>

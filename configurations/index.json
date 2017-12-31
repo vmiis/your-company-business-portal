@@ -5,7 +5,7 @@
 	"default_production":"No",
 	"panels":{
         "website":		{"url":"",                          	"modules":["configurations/website.json"]},
-		"portal":		{"url":"modules/panel.html",         	"modules":["modules/about/module.json","modules/request-processing/portal.json","modules/my-area-staff/portal.json","modules/help/module.json","modules/marketing-department/module.json","https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/main.json"]},
+		"portal":		{"url":"modules/panel.html",         	"modules":["modules/about/module.json","modules/business-management/portal.json","modules/request-processing/portal.json","modules/my-area-staff/portal.json","modules/help/module.json","modules/marketing-department/module.json","https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/main.json"]},
         "fitness":		{"url":"modules/fitness/panel.html",	"modules":["modules/fitness/module.json"]},
 		"bookkeeping":	{"url":"modules/bookkeeping/panel.html","modules":["modules/bookkeeping/module.json"]},
 		"car-booking":	{"url":"modules/car-booking/panel.html","modules":["modules/car-booking/module.json"]},

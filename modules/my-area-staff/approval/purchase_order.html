@@ -96,6 +96,7 @@
         //-------------------------------------
 		_after_submit=function(I,res,type,dbv){
 			var info=make_approved_info(_records[I])
+            /*
 			//---------------------------
 			var op={
 				//-----------------
@@ -108,7 +109,8 @@
 				info:info,
 				//------------------
 			}
-			$vm.load_module_by_name(_ids.purchase_order_email_to_accountant,$vm.root_layout_content_slot,op)
+            */
+			$vm.nav_load_module(prefix+"purchase-order-email-to-accountant",$vm.root_layout_content_slot,{record:_records[I],info:info})
 			//-----------------------------------------------
         };
         //-------------------------------------

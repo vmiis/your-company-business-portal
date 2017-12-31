@@ -1,10 +1,15 @@
 {
     "modules":
 	{
-        "my-purchase-order-request":	{"table_id":"20009699","url":"modules/my-area-staff/request/purchase_order.html","form_module":"purchase-order-request-form","name_for_search":"My purchase order requests"},
-		"purchase-order-request-form":  {"table_id":"20009699","url":"modules/my-area-staff/request/purchase_order.form.html","name_for_search":""},
-		"my-purchase-order-approval":	{"table_id":"20011183","url":"modules/my-area-staff/approval/purchase_order.html","form_module":"purchase-order-approval-form","name_for_search":"My purchase order approvals"},
-		"purchase-order-approval-form":	{"table_id":"20011183","url":"modules/my-area-staff/approval/purchase_order.form.html","name_for_search":""},
+        "my-purchase-order-request":	          {"table_id":"20009699","url":"modules/my-area-staff/request/purchase_order.html","form_module":"purchase-order-request-form","name_for_search":"My purchase order requests"},
+		"purchase-order-request-form":            {"table_id":"20009699","url":"modules/my-area-staff/request/purchase_order.form.html","name_for_search":""},
+        "purchase-order-email-to-manager":	      {"url":"modules/my-area-staff/request/purchase_order_email_to_manager.html","name_for_search":""},
+
+        "my-purchase-order-approval":	          {"table_id":"20011183","url":"modules/my-area-staff/approval/purchase_order.html","form_module":"purchase-order-approval-form","name_for_search":"My purchase order approvals"},
+		"purchase-order-approval-form":	          {"table_id":"20011183","url":"modules/my-area-staff/approval/purchase_order.form.html","name_for_search":""},
+        "purchase-order-email-to-accountant":	  {"url":"modules/my-area-staff/approval/purchase_order_email_to_accountant.html","name_for_search":""},
+
+
 		"purchase-order-process":		{"table_id":"20011184","name_for_search":""},
 		"manager":		    			{"table_id":"20009687","name_for_search":""},
         "accountant":	    			{"table_id":"20003837","name_for_search":""}
