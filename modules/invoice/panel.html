@@ -1,0 +1,69 @@
+<section id=panel__ID>
+	<div class='nav__ID'>
+	    <span>Invoice Management</span>
+	    <ul>
+            <li module=invoice>Invoices</li>
+            <li module=client>Clients</li>
+		</ul>
+	</div>
+</section>
+
+<script>
+      function F__ID(){
+		  //--------------------------------------------------------
+          var prefix=$vm.vm['__ID'].name+"_";
+		  $('#panel__ID li').on('click',function(){
+			  var m=$(this).attr('module');
+              if(m!=undefined){
+				  if($vm.module_list[prefix+m]==undefined){
+					  alert(prefix+m +" is not in the module list.");
+					  return;
+				  }
+                  $vm.module_list[prefix+m].alert='1';
+			      $vm.nav_load_module(prefix+m);
+              }
+		  })
+		  //--------------------------------------------------------
+      }
+</script>
+
+<style>
+	VmInclude:__COMPONENT__/navigation/navigation.css
+	#D__ID{
+		background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3));
+        overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+    #info__ID{
+        font-size: 9px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	#D__ID li {
+		color:#000;
+	}
+	li::before{
+		font-size: 20px!Important;
+	}
+	#D__ID li:hover {
+		color:#fff;
+	}
+	#D__ID a {
+		text-decoration: none;
+	}
+	#D__ID a:link {
+		color:#000;
+	}
+	#D__ID a:visited {
+		color:#000;
+	}
+	#D__ID a:hover {
+		color:#fff;
+	}
+	#D__ID a:active {
+		color:#000;
+	}
+    .nav__ID span{
+        color:#030;
+    }
+</style>

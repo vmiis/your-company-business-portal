@@ -1,0 +1,126 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Business_Name,Address,Suburb,Postcode,State,Contact_Name,Telephone,Mobilephone";
+        _fields+=",_gridHidden|Fax";
+        _fields+=",_gridHidden|Email";
+        _fields+=",_gridHidden|Web";
+        _fields+=",_gridHidden|Additional_Information";
+        _fields+=",_gridHidden|Login_Name";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                /*
+				case '_More':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>More...</u>");
+                    td.find('u').on('click',function(){
+						var module="M_"+_sys.UID+"_client_child_panel";
+						if($vm.module_list[module]==undefined){
+							var url=$vm.url(_config.parameters.child_configuration_url);
+							if(url.indexOf('?')==-1) url=url+"?_v="+$vm.version;
+							else url=url+"&_v="+$vm.version;
+							url=$vm.url(url);
+							if(url[0]=='/') url=$vm.module_hosting_path+url;
+							console.log('loinging '+url);
+							$.get(url,function(text){
+								var text=$('<div/>').html(text).text();
+								//---------------------------
+								try{ var config=JSON.parse(text);}
+								catch (e){ alert("Error in config file\n"+e); return;}
+								//-----------------------------------------------
+								$vm.module_list[module]={url:config.url,var:{}}
+								//---------------------------
+								$vm.load_module_by_name(module,$vm.root_layout_content_slot,{
+									//------------------------
+									mobj:_mobj,
+									record:records[I],
+									sys:{
+										config:config,
+										UID:_sys.UID+"_staff_child",
+									},
+									//------------------------
+									child:"1",
+									name:records[I].Business_Name,
+									check_count_where:" where PUID="+records[I].UID,
+								})
+								//-----------------------------------------------
+							},'text').fail(function() {
+							    alert( "The file '"+url+"' doesn't exist! (participant)" );
+							});
+						}
+						else{
+							var id=$vm.module_list[module].id
+							$vm.show_module(id,$vm.root_layout_content_slot,{
+								record:records[I],
+								child:"1",
+								name:records[I].Business_Name,
+								check_count_where:" where PUID="+records[I].UID,
+							});
+						}
+                    });
+                    break;
+                */
+                case 'Suburb':
+                    VmInclude:__COMPONENT__/grid/field_suburb.js
+                break;
+                case 'Postcode':
+                    VmInclude:__COMPONENT__/grid/field_postcode.js
+                break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.S2=record.Login_Name;
+			dbv.S3=record.Business_Name;
+            return true;
+        };
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        /*
+        _set_req=function(){
+			if(_module.child=='1'){
+				if(_mobj.op.readonly=='1') $('#save__ID').hide();
+				var where="S2='"+_mobj.op.record.Login_Name+"'";
+	            var sql="select ID,Information,DateTime,Author from [TABLE-"+_db_pid+"] where "+where;
+	            _req={cmd:'query_records',sql:sql}
+			}
+			else{
+				var where=" S1 like '%'+@S2+'%' "
+				var sql="with tb as (select S1,S2,Information,PID,ID,UID,PUID,DateTime,Author,Modified,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] where "+where+")";
+				sql+="select S1,S2,Information,PID,ID,UID,PUID,DateTime,Author,Modified,RowNum from tb where RowNum between @I6 and @I7";
+				var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1] where "+where;
+				_req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',s2:$('#department__ID').val(),I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+			}
+		}
+		//-------------------------------------
+		_data_process_after_render=function(){
+			if(_module.child=='1'){
+				if(_records.length==0){
+					$('#new__ID').triggerHandler('click');
+				}
+				if(_records.length==1){
+					var form=$('#grid__ID tr:nth-child(2)').find('u:first');
+					form.triggerHandler('click');
+				}
+				else{
+					alert("More than one records were found! Please report the administrator.");
+					return;
+				}
+			}
+		}
+		//-------------------------------------
+        */
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

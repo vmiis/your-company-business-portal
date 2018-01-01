@@ -1,0 +1,9 @@
+{
+    "modules":
+	{
+		"invoice":	  				{"table_id":"20011180","url":"modules/invoice/task/invoice.html", "form_module":"invoice-form","name_for_search":"Invoice"},
+        "invoice-form":	 			{"table_id":"20011180","url":"modules/invoice/task/invoice.form.html","name_for_search":""},
+        "invoice-print":	 		{"table_id":"20011180","url":"modules/invoice/task/invoice.print.html","name_for_search":""},
+		"client":	      			{"table_id":"20009674","url":"modules/invoice/task/client.html",	"name_for_search":"Client"}
+	}
+}
