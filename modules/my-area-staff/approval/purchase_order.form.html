@@ -7,7 +7,7 @@
             </colgroup>
 
 			<tr><td colspan=2 class='header__ID'>Purchase Order</td></tr>
-			<tr id=record_id__ID><td>Record ID</td><td data-id=Record_ID data-custom=1></td></tr>
+			<tr id=record_id__ID><td>Purchase Order ID</td><td data-id=Purchase_Order_ID data-custom=1></td></tr>
 			<tr><td>Manager for Approval</td><td data-id=Manager_for_Approval></td></tr>
 			<tr><td>Short Description</td><td data-id=Short_Description></td></tr>
 			<tr><td>Supplier Account No (if applicable)</td><td data-id=Supplier_Account_No></td></tr>
@@ -53,7 +53,7 @@
             $('#tb__ID td[data-custom=1]').each(function(){
                 var field=$(this).attr('data-id');
                 switch(field){
-					case 'Record_ID':
+					case 'Purchase_Order_ID':
 						$('#record_id__ID').hide();
 						if(_records[I].UID!=undefined){
 							$('#record_id__ID').show();
