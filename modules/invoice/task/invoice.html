@@ -1,0 +1,79 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Invoice_Number,_Print,Client,Issue_Date,Due_Date,GST_Amount,Total_Amount,Total_Payment,Balance";
+		_fields+=",_Hidden|invoice_items"
+		_fields+=",_Hidden|payment_items"
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Client_uid";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Invoice_Number':
+                    records[I].vm_readonly[field]=true;
+                break;
+                case 'Issue_Date':
+                case 'Due_Date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                break;
+                case 'GST_Amount':
+                case 'Total_Amount':
+                case 'Total_Payment':
+                case 'Balance':
+                    records[I].vm_readonly[field]=true;
+                    if(source=="grid") td.css("text-align","right").css('white-space','nowrap');
+                    td.html('$ '+parseFloat(records[I][field]).toFixed(2) ); //add $ sign
+                break;
+                case '_Print':
+                    records[I].vm_custom[field]=true;
+                    if(records[I].UID===undefined) return;
+                    var html="<u style='cursor:pointer'>Invoice</u>";
+                    td.html(html);
+                    td.find('u').on('click',function(){
+                        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+                        $vm.nav_load_module(prefix+'invoice-print',$vm.root_layout_content_slot,{record:records[I],invoice_uid:records[I].UID});
+                    })
+                break;
+            }
+        }
+        //-------------------------------------
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                if(_records[i].Total_Payment===undefined) _records[i].Total_Payment=0;
+                if(_records[i].Total_Amount===undefined) _records[i].Total_Amount=0;
+                //_records[i].Balance=parseFloat(_records[i].Total_Payment)-parseFloat(_records[i].Total_Amount);
+                _records[i].Invoice_Number=_records[i].UID;
+            }
+        };
+        //-------------------------------------
+        _new_pre_data_process=function(){ //set issue and due date
+            _records[0].Issue_Date=$vm.date_to_string_dmy($vm.date_today());
+            _records[0].Due_Date=$vm.date_to_string_dmy($vm.date_today());
+            _records[0].GST_Amount=0;
+            _records[0].Total_Amount=0;
+            _records[0].Total_Payment=0;
+            _records[0].Balance=0;
+        };
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    .ui-autocomplete.ui-menu{
+        font-size:12px;
+        background:#ddd;
+    }
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>
