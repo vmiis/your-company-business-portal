@@ -1,9 +1,0 @@
-{
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-    "api_path_production":"https://rt.woolcock.org.au/",
-	"default_production":"No",
-	"panels":{
-        "panel_main":{"url":"","modules":["main.json"]},
-        "panel_first":{"url":"https://clinic-online-questionnaire.rt.org.au/modules/panel/first.html","modules":["https://clinic-online-questionnaire.rt.org.au/configurations/first.json"]}
-	}
-}

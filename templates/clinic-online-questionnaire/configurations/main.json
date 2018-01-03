@@ -1,7 +1,0 @@
-{
-    "modules":
-	{
-		"home":	          {"url":"/modules/home.html","name_for_search":"Home page"},
-        "login":	      {"url":"https://clinic-online-questionnaire.rt.org.au/modules/home.html","name_for_search":"Login page"}
-	}
-}

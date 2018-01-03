@@ -5,7 +5,14 @@
 	"default_production":"No",
 	"panels":{
         "website":		{"url":"",                          	"modules":["configurations/website.json"]},
-		"portal":		{"url":"modules/panel.html",         	"modules":["modules/about/module.json","modules/business-management/portal.json","modules/request-processing/portal.json","modules/my-area-staff/portal.json","modules/help/module.json","modules/marketing-department/module.json","https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/main.json"]},
+		"portal":		{"url":"modules/panel.html",         	"modules":[
+            "modules/purchase-order-request/portal.json",
+            "modules/purchase-order-approval/portal.json",
+            "modules/about/module.json","modules/business-management/portal.json",
+            "modules/request-processing/portal.json",
+            "modules/help/module.json","modules/marketing-department/module.json",
+            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/main.json"
+        ]},
         "fitness":		{"url":"modules/fitness/panel.html",	"modules":["modules/fitness/module.json"]},
 		"bookkeeping":	        {"url":"modules/bookkeeping/panel.html","modules":["modules/bookkeeping/module.json"]},
         "invoice":	    {"url":"modules/invoice/panel.html","modules":["modules/invoice/module.json"]},
@@ -29,7 +36,7 @@
 		"amazes-child-panel":	    {"url":"https://woolcock-imr.github.io/amazes/modules/panel/child.html","modules":["https://woolcock-imr.github.io/amazes|configurations/main.json","https://woolcock-imr.github.io/amazes|configurations/task.json"]},
         "research-volunteer-registration":	{"url":"modules/research-volunteer-registration/panel.html","modules":["https://volunteer-database.rt.org.au|configurations/main.json"]},
         "research-volunteer-management":	{"url":"modules/research-volunteer-management/panel.html",  "modules":["https://woolcock-imr.github.io/volunteer-database-management-2|configurations/modules.json"]},
-		"my-area-staff":	        {"url":"modules/my-area-staff/panel.html","modules":["modules/my-area-staff/module.json"]},
+		"staff-my-records":	        {"url":"modules/staff-my-records/panel.html","modules":["modules/staff-my-records/module.json"]},
         "staff-management":	        {"url":"modules/staff-management/panel.html","modules":["modules/staff-management/module.json"]},
         "staff-management-child":	{"url":"modules/staff-management/staff-child-panel.html","modules":["modules/staff-management/module.json"]},
         "woolworths-credit-card":	{"url":"modules/woolworths-credit-card/panel.html","modules":["modules/woolworths-credit-card/module.json"]}

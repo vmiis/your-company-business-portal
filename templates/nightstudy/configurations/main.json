@@ -1,6 +1,0 @@
-{
-    "modules":
-	{
-		"home":	 {"url":"../../modules/static/basic/home.html","name_for_search":"Home page"}
-	}
-}

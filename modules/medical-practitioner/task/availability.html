@@ -259,7 +259,7 @@
 				var sql="select top 1 Information,ID from [TABLE-"+demo_db_pid+"] where DT1=@T1 and V3="+demo_data_id;
 				var req={cmd:'query_records',sql:sql,t1:t1}
 				$VmAPI.request({data:req,callback:function(res){
-					if(res.length==0){
+                    if(res.records.length==0){
 						var req={cmd:"add_json_record",db_pid:demo_db_pid,data:data,dbv:dbv};
 						$VmAPI.request({data:req,callback:function(res){
 							$('#save__ID').css('background','');
