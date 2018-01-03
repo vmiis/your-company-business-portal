@@ -1,8 +1,0 @@
-{
-    "modules":
-	{
-		"home":	            {"url":"../../modules/static/basic/home.html","name_for_search":"Home page","color":"#FFF"},
-        "survey":			{"url":"../../modules/dynamic/group-001/business-demographic-survey-0004.html","table_id":"20009702","name_for_search":"Business demographic survey"},
-		"survey_record":	{"url":"../../modules/dynamic/group-001/business-demographic-survey-0004-record.html","table_id":"20009702","name_for_search":"Business demographic survey (record)"}
-	}
-}
