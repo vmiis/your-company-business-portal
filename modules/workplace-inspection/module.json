@@ -1,0 +1,10 @@
+{
+    "modules":
+	{
+		"about":	  		{"url":"modules/room-booking/task/about.html",								  "name_for_search":"About Room Booking"},
+		"monthly":          {"url":"modules/room-booking/task/monthly.html",		"table_id":"20003813","name_for_search":"Room booking - Monthly calendar","prefix":""},
+        "daily":            {"url":"modules/room-booking/task/daily.html",			"table_id":"20003813","name_for_search":"Room booking - Booking a room","prefix":""},
+        "booking_record":   {"url":"modules/room-booking/task/booking_record.html",	"table_id":"20003813","name_for_search":"Room booking records"},
+        "room":             {"url":"modules/room-booking/task/room.html",			"table_id":"20003812","name_for_search":"Add/Remove rooms"}
+	}
+}

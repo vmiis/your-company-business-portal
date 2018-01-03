@@ -1,0 +1,81 @@
+<div>
+    <div id=toolbar__ID>
+        <a id=back__ID>Back</a><span class=tab__ID></span><span id=nav_link__ID></span>
+    </div>
+    <div id=panel__ID style='clear:left;'>
+        <div class='nav__ID'>
+            <span>Workplace Inspections</span>
+            <ul>
+                <li data-name=inspection>Inspections</li>
+            </ul>
+            <br>
+            <span>Setup</span>
+            <ul>
+                <li data-name=item>Inspection Items</li>
+                <li data-name=site>Inspection Sites</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+//---------------------------------------------
+function F__ID(){
+	//---------------------------------------------
+	VmInclude:__BASE__/vmiis/Common-Code/navigation/navigation.js
+	VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+	//---------------------------------------------
+	var module_list=function(){
+		_app_id='workplace_inspections_';
+		//---------------------------------------------
+		var L=$vm.module_list,A=_app_id;
+		var M='https://vmiis.github.io/modules/workplace_inspections';
+		//---------------------------------------------
+		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			M=window.location.protocol+'//'+window.location.host+"/vmiis/modules/workplace_inspections";
+		}
+		//---------------------------------------------
+		var v={
+		    inspection_tid  :'20003822',
+		    item_tid        :'20003820',
+		    site_tid        :'20003821'
+		}
+		L[A+'inspection']= {table_id:v.inspection_tid,var:v,url:M+'/inspection.html'};
+		L[A+'item']      = {table_id:v.inspection_tid,var:v,url:M+'/item.html'};
+		L[A+'site']      = {table_id:v.inspection_tid,var:v,url:M+'/site.html'};
+		//---------------------------------------------
+	}
+	module_list();
+	//---------------------------------------------
+	_set_li_permissions();
+	//---------------------------------------------
+	$('#D__ID').on('load',function(){
+	    _nav_name='';
+	    _set_nav_link();
+	});
+	//---------------------------------------------
+}
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/navigation/navigation.css
+    #D__ID{
+        background: url("__BASE__/vmiis/common-code/image/texture.png");
+    }
+    .nav__ID span{
+        color:#005500;
+    }
+    .nh__ID{
+        color:#999!Important;
+        font-size:8pt;
+        font-weight: normal!Important;
+        margin:0!Important;
+    }
+    @media screen and (max-width:900px){
+        #D__ID{
+            font-size:16pt;
+        }
+        .nav__ID li{
+            padding-top:3px;
+            padding-bottom:3px;
+        }
+    }
+</style>
