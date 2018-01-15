@@ -1,30 +1,33 @@
 <section>
-    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+    VmInclude:__COMPONENT__/grid/grid.v3.html
 </section>
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
-        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        VmInclude:__COMPONENT__/grid/grid.js
         //-------------------------------------
         _fields="_Form,Site,Inspection_Date,Inspectors,Item/Question|Item,Answer,Action,Responsible_For_Action,Date_Implemented,Hazard_Priority,Completed";
         _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+		var item_tid=$vm.module_list[prefix+'item'].table_id;
+		var site_tid=$vm.module_list[prefix+'site'].table_id;
+		//-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
                 case 'Site':
-                    var sql="with tb as (select distinct name=@('Site'),UID from [TABLE-"+_module.var.site_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_auto.js
+                    var sql="with tb as (select distinct name=@('Site'),UID from [TABLE-"+site_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
                     break;
                 case 'Item':
-                    var sql="with tb as (select distinct name=@('Item'),UID from [TABLE-"+_module.var.item_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_auto.js
+                    var sql="with tb as (select distinct name=@('Item'),UID from [TABLE-"+item_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
                     break;
                 case 'Time':
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_time.js
+                    VmInclude:__COMPONENT__/grid/field_time.js
                     break;
                 case 'Color':
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_color.js
+                    VmInclude:__COMPONENT__/grid/field_color.js
                     break;
                 case 'Answer':
                     var html="<select style='border:0;''>\
@@ -34,11 +37,11 @@
                             <option>N/A</option>\
                         </select>\
                     ";
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                    VmInclude:__COMPONENT__/grid/field_select.js
                     break;
                 case 'Inspection_Date':
                 case 'Date_Implemented':
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_date.js
+                    VmInclude:__COMPONENT__/grid/field_date.js
                     break;
                 case 'Hazard_Priority':
                     var html="<select style='border:0;''>\
@@ -49,11 +52,11 @@
                             <option>Low</option>\
                         </select>\
                     ";
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                    VmInclude:__COMPONENT__/grid/field_select.js
                     break;
                 case 'Completed':
                     td.html('<input type=checkbox />');
-                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_checkbox.js
+                    VmInclude:__COMPONENT__/grid/field_checkbox.js
                     break;
             }
         }
@@ -63,5 +66,5 @@
     }
 </script>
 <style>
-    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+    VmInclude:__COMPONENT__/grid/grid.v3.css
 </style>

@@ -39,6 +39,10 @@
 		"staff-my-records":	        {"url":"modules/staff-my-records/panel.html","modules":["modules/staff-my-records/module.json"]},
         "staff-management":	        {"url":"modules/staff-management/panel.html","modules":["modules/staff-management/module.json"]},
         "staff-management-child":	{"url":"modules/staff-management/staff-child-panel.html","modules":["modules/staff-management/module.json"]},
-        "woolworths-credit-card":	{"url":"modules/woolworths-credit-card/panel.html","modules":["modules/woolworths-credit-card/module.json"]}
+        "woolworths-credit-card":	{"url":"modules/woolworths-credit-card/panel.html","modules":["modules/woolworths-credit-card/module.json"]},
+		"clinic-online-questionnaire-01":	{"url":"modules/clinic-online-questionnaire-01/panel.html","modules":["modules/clinic-online-questionnaire-01/modules.json"]},
+		"workplace-inspection":				{"url":"modules/workplace-inspection/panel.html","modules":["modules/workplace-inspection/modules.json"]},
+		"incident-reporting":				{"url":"modules/incident-reporting/panel.html","modules":["modules/incident-reporting/modules.json"]},
+		"isleephealth-first-visit":	   		{"url":"https://wappsystem.github.io/isleephealth/modules/first-visit/panel.html","modules":["https://wappsystem.github.io/isleephealth|modules/first-visit/modules.json"]}
 	}
 }

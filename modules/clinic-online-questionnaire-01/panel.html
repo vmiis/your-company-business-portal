@@ -1,0 +1,170 @@
+<div id=page__ID>
+	<div id=panel__ID class="container-fluid" style='max-width:800px'>
+		<div class="text-center panel__ID">
+			<h2>Clinic Online Registration</h2>
+    	  	  <hr style='border-top:1px solid #fff;'></hr>
+    				  <h5 class= "text-left">
+                          Please complete each of the following sections. Please call us on XX or email us on XXX if you are having trouble completing these questionnaires or there are questions you do not understand.<br><br>
+                      </h5>
+                      <div class="text-left">
+                          <ul>
+                              <li module=personal><div id=personal></div> Personal</li>
+                              <li module=medicare-referrals><div id="medicare-referrals"></div> Medicare Referrals</li>
+                              <li module=sleep-history><div id="sleep-history"></div> Sleep History</li>
+                              <li module=health-history><div id="health-history"></div> Health History</li>
+                              <li module=epworth-sleepiness-scale><div id="epworth-sleepiness-scale"></div> Epworth Sleepiness Scale</li>
+                              <li module=additional-questions><div id="additional-questions"></div> Additional Questions</li>
+							  <li module=short-sleep-history><div id="short-sleep-history"></div> Short Sleep History</li>
+							  <li module=consent><div id="consent"></div> Consent</li>
+                              <li module=volunteer><div id=volunteer></div> Become a Research Volunteer</li>
+                          </ul>
+                      </div>
+                      <h5 class= "text-left">
+                          Once they are completed please click on ‘sign-out’ below, to exit the system. Thank you for your time now in helping us help you during your upcoming visit. We look forward to seeing you soon.<br><br>
+                      </h5>
+                      <a name=signinout onclick="$vm.nav_click_process('vm_signinout');" class="btn btn-primary" style='cursor:pointer'>Sign out</a>
+    			  </div>
+              </div>
+		</div>
+	</div>
+</div>
+<script>
+	function F__ID(){
+		var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
+        $('#D__ID li').on('click',function(){
+            var m=$(this).attr('module');
+  			if(m!=undefined){
+  				if($vm.module_list[prefix+m]==undefined){
+  					alert(prefix+m +" is not in the module list.");
+  					return;
+  				}
+  				$vm.module_list[prefix+m].alert='1';
+  				$vm.nav_load_module(prefix+m);
+  			}
+        })
+		/*
+		//--------------------------------------------------------
+		var prefix=$vm.vm['__ID'].name+"_";
+		//$('#personal').attr("class", "fa fa-check");
+		//$('#personal').attr("class", "fa fa-remove");
+		//--------------------------------------------------------
+		$('#D__ID').on('load',function(){	set_first_link();	})
+		//--------------------------------------------------------
+		$('#D__ID').on('show',function(){	set_first_link();	})
+		//--------------------------------------------------------
+		var set_first_link=function(){
+			var req={cmd:'participant_task_status_v2',participant_username:$vm.user,check_uid:"1",json:"1"};
+			$VmAPI.request({data:req,callback:function(res){
+                $('#panel__ID li').each(function(){
+					var $li=$(this);
+                    $li.data("record_id","");
+					$li.off('click');
+					//$li.removeClass('li_allowed__ID')
+					//$li.addClass('li_not_allowed__ID')
+                    var module=$li.attr('module');
+					$('#'+module).attr("class", "fa fa-remove")
+
+                    var li_pid=0;
+                    if($vm.module_list[prefix+module]!=undefined){
+                        var li_pid=$vm.module_list[prefix+module].table_id;
+                    }
+                    for(var i=0;i<res.records.length;i++){
+                        if(res.records[i]['PID']==li_pid){
+                            $li.data('record_id',res.records[i]['ID']);
+                            $li.data('record_pid',res.records[i]['PID']);
+                            //$li.removeClass('li_not_allowed__ID')
+                            //$li.addClass('li_allowed__ID')
+							$('#'+module).attr("class", "fa fa-check")
+                            $li.on('click',function(){
+								var m=prefix+$(this).attr('module');
+								$vm.nav_load_module(m,$vm.root_layout_content_slot,{rid:$(this).data('record_id'),db_pid:$(this).data('record_pid')});
+							});
+                        }
+                    }
+                });
+                $('#panel__ID li').each(function(){
+					var $li=$(this);
+                    if($li.data('record_id')==''){
+                        //$li.removeClass('li_not_allowed__ID')
+                        //$li.addClass('li_allowed__ID')
+						$li.on('click',function(){
+							var m=prefix+$(this).attr('module');
+							$vm.nav_load_module(m,$vm.root_layout_content_slot,{db_pid:$vm.module_list[m].table_id});
+						});
+                    }
+                });
+            }})
+			//--------------------------------------------------------
+		}
+		//--------------------------------------------------------
+		*/
+
+                        /*
+                        $('#panel__ID li').on('click',function(event){
+                			event.stopPropagation();
+                			if( $(this).hasClass( 'li_not_allowed__ID' )===true){
+                				  alert("No permission!");
+                				  return;
+                			}
+                			var m=group+$(this).attr('module');
+                			$vm.nav_load_module(m);
+                		});
+
+                            if(done===0){
+        						var module=$li.attr('module');
+        						if($vm.module_list[module]==undefined){
+        							alert("The module "+module+" is not in the module list");
+        							return;
+        						}
+        						var li_pid=$vm.module_list[module].table_id;
+        						var found_pid=0;
+        						for(var i=0;i<res.records.length;i++){
+        							if(res.records[i]['PID']==li_pid){
+        								found_pid=1;
+        								break;
+        							}
+        						}
+        						if(found_pid===0){ //no record on server
+        							done=1;
+        							$li.removeClass('li_not_allowed__ID')
+        							$li.addClass('li_allowed__ID')
+        							$li.on('click',function(){
+        								var m=group+$(this).attr('module');
+        								$vm.nav_load_module(m,$vm.root_layout_content_slot,{db_pid:$vm.module_list[m].table_id});
+        							});
+        							//--------------------------------------------------------
+        						}
+        					}
+        				});
+                        */
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+		background:rgba(255,255,255,0.2);
+	}
+	#page__ID{
+		height:100%;
+		display: flex;
+		align-items: center;
+	}
+	.panel__ID{
+		color:#ddd;
+		font-weight: normal;
+		background: rgba(20,20,20,0.8);
+	    padding: 30px 20px 10px 20px;
+	    border-radius: 15px;
+	}
+	@media screen and (max-width:786px){
+		#page__ID{
+			display: block;
+		}
+	}
+    #panel__ID li{
+		cursor:pointer;
+	}
+
+</style>

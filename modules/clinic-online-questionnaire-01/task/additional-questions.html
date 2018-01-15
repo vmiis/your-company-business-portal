@@ -1,0 +1,370 @@
+<section id=form_container__ID>
+    <div id=header__ID>
+		Additional Questions
+	</div>
+    <form id=F__ID>
+        <div class="container">
+            How many cups or glasses would you consume per day?
+            <div class="row row__ID">
+                <div class="col-sm" >
+                    Tea
+                    <input  class="form-control" type="text" id=Tea__ID name="Tea" required placeholder="Tea">
+                </div>
+                <div class="col-sm">
+                    Coffee
+                    <input  class="form-control" type="text" id=Coffee__ID name="Coffee" required placeholder="Coffee">
+                </div>
+                <div class="col-sm" >
+                    Cola
+                    <input  class="form-control" type="text" id=Cola__ID name="Cola"  required placeholder="Cola">
+                </div>
+                <div class="col-sm" >
+                    Alcohol
+                    <input  class="form-control" type="text" id=Alcohol__ID name="Alcohol"  required placeholder="Alcohol">
+                </div>
+            </div>
+            Are you a:
+            <div class="row row__ID">
+                <div class="col-sm" >
+                    <label class="control control-radio">Current smoker
+                            <input type="radio"  name="smoker" id=smoker__ID value='Current smoker' required />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm">
+                    How many per day
+                    <input  class="form-control" type="text" id=smoker_per_day__ID name="smoker_per_day" placeholder="per day">
+                </div>
+                <div class="col-sm" >
+                    How many years
+                    <input  class="form-control" type="text" id=smoker_years__ID name="smoker_years"  placeholder="years">
+                </div>
+                <div class="col-sm" >
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm" >
+                    <label class="control control-radio">Ex-smoker
+                            <input type="radio"  name="smoker" id=smoker__ID value='Ex-smoker' />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm">
+                    How many per day?
+                    <input  class="form-control" type="text" id=ex_smoker_per_day__ID name="ex_smoker_per_day" placeholder="per day">
+                </div>
+                <div class="col-sm" >
+                    How many years?
+                    <input  class="form-control" type="text" id=ex_smoker_years__ID name="ex_smoker_years"  placeholder="years">
+                </div>
+                <div class="col-sm" >
+                    When did you quit?
+                    <input  class="form-control" type="text" id=ex_smoker_quit__ID name="ex_smoker_quit"  placeholder="year">
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm" >
+                    <label class="control control-radio">Never Smoked
+                            <input type="radio"  name="smoker" id=smoker__ID value='Never Smoked' />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm" >
+                </div>
+                <div class="col-sm" >
+                </div>
+            </div>
+            Do you have or ever had any infectious diseases:
+            <div class="row row__ID">
+                <div class="col-sm" >
+                    <label class="control control-checkbox">None
+                            <input type="checkbox"  name="None" id=None__ID value=None required />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm" >
+                    <label class="control control-checkbox">MRSA (Golden Staph)
+                            <input type="checkbox"  name="MRSA" id=MRSA__ID value=MRSA />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm" >
+                    <label class="control control-checkbox">VRE
+                            <input type="checkbox"  name="VRE" id=VRE__ID value=VRE />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm" >
+                    <label class="control control-checkbox">MRAB
+                            <input type="checkbox"  name="MRAB" id=MRAB__ID value=MRAB />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm" >
+                    <label class="control control-checkbox">Other
+                            <input type="checkbox"  name="Other" id=Other__ID value='Other' />
+                        <div class="control_indicator"></div>
+                    </label>
+                    <div class="col-sm">
+                        If other, please specfy:
+                        <input class="form-control" type="text" name="infectious_diseases_other" id=infectious_diseases_other__ID placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm">
+                    What year were you infected?
+                    <input class="form-control" type="text" name="infectious_diseases_year" id=infectious_diseases_year__ID placeholder="year">
+                </div>
+                <div class="col-sm">
+                    What was the site of the infection?
+                    <input class="form-control" type="text" name="infectious_diseases_site" id=infectious_diseases_site__ID placeholder="Site">
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm control-group">
+                    <span id=quest__ID>Are you wheelchair bound?</span>
+                    <label class="control control-radio">Yes
+                            <input type="radio"  name="wheelchair" id=wheelchair__ID value=Yes required/>
+                        <div class="control_indicator"></div>
+                    </label>
+                    <label class="control control-radio">No
+                            <input type="radio" name="wheelchair" id=wheelchair__ID value=No />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+                <div class="col-sm control-group">
+                    <span id=quest__ID>Do you require a carer with you on the night of your sleep study?</span>
+                    <label class="control control-radio">Yes
+                            <input type="radio"  name="carer" id=carer__ID value=Yes required/>
+                        <div class="control_indicator"></div>
+                    </label>
+                    <label class="control control-radio">No
+                            <input type="radio" name="carer" id=carer__ID value=No />
+                        <div class="control_indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm control-group">
+                    <span id=quest__ID>Do you require an interpreter?</span>
+                    <label class="control control-radio">Yes
+                            <input type="radio"  name="interpreter" id=interpreter__ID value=Yes required/>
+                        <div class="control_indicator"></div>
+                    </label>
+                    <label class="control control-radio">No
+                            <input type="radio" name="interpreter" id=interpreter__ID value=No />
+                        <div class="control_indicator"></div>
+                    </label>
+                    <div class="col-sm">
+                        If yes, what language?
+                        <input class="form-control" type="text" name="interpreter_language" id="interpreter_language__ID" placeholder="Language">
+                    </div>
+                </div>
+                <div class="col-sm control-group">
+                    <span id=quest__ID>Do you require a special diet?</span>
+                    <label class="control control-radio">Yes
+                            <input type="radio"  name="diet" id=diet__ID value=Yes required/>
+                        <div class="control_indicator"></div>
+                    </label>
+                    <label class="control control-radio">No
+                            <input type="radio" name="diet" id=diet__ID value=No />
+                        <div class="control_indicator"></div>
+                    </label>
+                    <div class="col-sm">
+                        If yes, what type?
+                        <input class="form-control" type="text" name="diet_type" id=diet_type__ID placeholder="Diet">
+                    </div>
+                </div>
+            </div>
+            <br>
+			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+    	</div>
+    </form>
+</section>
+<script>
+	function F__ID(){
+    VmInclude:__CURRENT_PATH__/task.js
+    $("input[name='smoker']").change(function(){
+        radioValue = $(this).val();
+        if(radioValue=='Current smoker') {$('#smoker_per_day__ID').prop('required',true);$('#smoker_years__ID').prop('required',true);}
+        else {$('#smoker_per_day__ID').prop('required',false);$('#smoker_years__ID').prop('required',false);}
+        if(radioValue=='Ex-smoker') {$('#ex_smoker_per_day__ID').prop('required',true);$('#ex_smoker_years__ID').prop('required',true);$('#ex_smoker_quit__ID').prop('required',true);}
+        else {$('#ex_smoker_per_day__ID').prop('required',false);$('#ex_smoker_years__ID').prop('required',false);$('#ex_smoker_quit__ID').prop('required',false);}
+    })
+    $("input[type=checkbox]").change(function(){
+        if($('#None__ID').prop('checked')==false && $('#MRSA__ID').prop('checked')==false && $('#VRE__ID').prop('checked')==false && $('#MRAB__ID').prop('checked')==false && $('#Other__ID').prop('checked')==false )
+        {$('#None__ID').prop('required',true);}
+        else {$('#None__ID').prop('required',false);}
+        if($('#Other__ID').prop('checked')==true){$('#infectious_diseases_other__ID').prop('required',true);}
+        else {$('#infectious_diseases_other__ID').prop('required',false);}
+        if($('#MRSA__ID').prop('checked')==true || $('#VRE__ID').prop('checked')==true || $('#MRAB__ID').prop('checked')==true || $('#Other__ID').prop('checked')==true )
+        {$('#infectious_diseases_year__ID').prop('required',true);$('#infectious_diseases_site').prop('required',true);}
+        else {$('#infectious_diseases_year__ID').prop('required',false);$('#infectious_diseases_site').prop('required',false);}
+
+        if($('#None__ID').prop('checked')==false) {$('#None__ID').val('');};
+        if($('#MRSA__ID').prop('checked')==false) {$('#MRSA__ID').val('');};
+        if($('#VRE__ID').prop('checked')==false) {$('#VRE__ID').val('');};
+        if($('#MRAB__ID').prop('checked')==false) {$('#MRAB__ID').val('');};
+        if($('#Other__ID').prop('checked')==false) {$('#Other__ID').val('');};
+
+    })
+    $("input[name='interpreter']").change(function(){
+        radioValue = $(this).val();
+        if(radioValue=='Yes') {$('#interpreter_language__ID').prop('required',true);}
+        else {$('#interpreter_language__ID').prop('required',false)}
+    })
+    $("input[name='diet']").change(function(){
+        radioValue = $(this).val();
+        if(radioValue=='Yes') {$('#diet_type__ID').prop('required',true);}
+        else {$('#diet_type__ID').prop('required',false)}
+    })
+
+}
+</script>
+<style>
+	#D__ID{
+	    height:100%;
+	    overflow: auto;
+	    animation: vm_module_fadein 1.0s;
+	    background-color: #465a69;
+	}
+	#form_container__ID{
+	    padding-top:50px;
+	    max-width: 800px;
+	    margin-left: auto;
+	    margin-right: auto;
+
+	    font-family: Verdana,sans-serif;
+	    font-size: 15px;
+	    line-height: 1.5;
+	    color: #fff;
+	}
+	#form_container__ID .row__ID{
+	    padding:6px 0;
+	}
+	#form_container__ID .row__ID:hover{
+	    background-color: #203342;
+	}
+	#header__ID{
+	    background-color:#727b84;
+	    color:#fff;
+	    padding:10px 15px 10px 15px;
+	    font-size:150%;
+	}
+	#quest__ID{
+	    padding:5px 5px 5px 5px;
+	    font-size:120%;
+	}
+	#F__ID{
+	    border:1px solid #bbb;
+	    padding:6px 15px 20px 15px;
+	}
+	#F__ID label
+	    display: inline-block;
+	    margin: .6rem 0 .3rem 0;
+	}
+
+	#F__ID fieldset {
+	    border: 0px solid #c0c0c0;
+	    margin: 0;
+	    padding: 0;
+	}
+	@media screen and (max-width:768px){
+	    #form_container__ID{
+	        padding:20px 10px 50px 10px;
+	    }
+	}
+	.control {
+	    font-family: arial;
+	    display: block;
+	    position: relative;
+	    padding-left: 30px;
+	    margin-bottom: 5px;
+	    padding-top: 3px;
+	    cursor: pointer;
+	    font-size: 16px;
+	}
+	.control {
+	    font-family: arial;
+	    display: block;
+	    position: relative;
+	    padding-left: 30px;
+	    margin-bottom: 5px;
+	    padding-top: 3px;
+	    cursor: pointer;
+	    font-size: 16px;
+	}
+	    .control input {
+	        position: absolute;
+	        z-index: -1;
+	        opacity: 0;
+	    }
+	.control_indicator {
+	    position: absolute;
+	    top: 2px;
+	    left: 0;
+	    height: 20px;
+	    width: 20px;
+	    background: #e6e6e6;
+	    border: 0px solid #000000;
+	}
+	.control-radio .control_indicator {
+	    border-radius: 50%;
+	}
+
+	.control:hover input ~ .control_indicator,
+	.control input:focus ~ .control_indicator {
+	    background: #cccccc;
+	}
+
+	.control input:checked ~ .control_indicator {
+	    background: #A51C3D;
+	}
+	.control:hover input:not([disabled]):checked ~ .control_indicator,
+	.control input:checked:focus ~ .control_indicator {
+	    background: #0e6647d;
+	}
+	.control input:disabled ~ .control_indicator {
+	    background: #e6e6e6;
+	    opacity: 0.6;
+	    pointer-events: none;
+	}
+	.control_indicator:after {
+	    box-sizing: unset;
+	    content: '';
+	    position: absolute;
+	    display: none;
+	}
+	.control input:checked ~ .control_indicator:after {
+	    display: block;
+	}
+	.control-radio .control_indicator:after {
+	    left: 7px;
+	    top: 7px;
+	    height: 0px;
+	    width: 0px;
+	    border-radius: 50%;
+	    background: #ffffff;
+	}
+	.control-radio input:disabled ~ .control_indicator:after {
+	    background: #7b7b7b;
+	}
+	.control-checkbox .control_indicator {
+	    border-radius: 10%;
+	}
+	.control-checkbox .control_indicator:after {
+	    left: 8px;
+	    top: 4px;
+	    width: 3px;
+	    height: 8px;
+	    border: solid #ffffff;
+	    border-width: 0 2px 2px 0;
+	    transform: rotate(45deg);
+	}
+	.control-checkbox input:disabled ~ .control_indicator:after {
+	    border-color: #7b7b7b;
+	}
+</style>
