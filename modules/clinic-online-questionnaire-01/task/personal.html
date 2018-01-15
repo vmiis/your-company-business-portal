@@ -1,0 +1,117 @@
+<section id=form_container__ID>
+    <div id=header__ID>
+		Your Details
+	</div>
+    <form id=F__ID>
+        <div class="container">
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Name <i>(Last, First, M.I.)</i>
+                    <input  class="form-control" type="text" id=Name__ID name="Name" placeholder="Name (Last, First, M.I.)" required>
+                </div>
+                <div class="col-sm-3">
+                    Sex
+                    <select  class="form-control" name=Sex id=Sex__ID required><option> </option><option>Male</option><option>Female</option><option>Indeterminate/Intersex/Unspecified</option></select>
+                </div>
+                <div class="col-sm-3" >
+                    DOB
+                    <input  class="form-control" type="text" id=DOB__ID name="DOB"  placeholder="DOB" required >
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm">
+                    Residential Address
+                        <textarea class="form-control"  name="Residential_Address" id="Residential_Address__ID" placeholder="Residential Address" required ></textarea>
+                </div>
+            </div>
+            <div  class="row row__ID">
+                <div class="col-sm">
+                    Suburb/Town
+                    <input class="form-control" type="text" name="Suburb" id=Suburb__ID placeholder="Suburb/Town" required >
+                </div>
+                <div class="col-sm">
+                    Postcode
+                    <input class="form-control" type="text" name="Postcode" id=Postcode__ID placeholder="Postcode" required >
+                </div>
+            </div>
+            <div  class="row row__ID">
+                <div class="col-sm">
+                    Contact number
+                    <input class="form-control" type="text" name="Contact_number" id=Contact_number__ID placeholder="Contact number" required>
+                </div>
+                <div class="col-sm">
+                    Contact email
+                    <input class="form-control" type="email" name="Contact_email" id=Contact_email__ID placeholder="Contact email" required>
+                </div>
+            </div>
+            <div  class="row row__ID">
+                <div class="col-sm">
+                    Emergency contact
+                    <input class="form-control" type="text" name="Emergency_contact" id=Emergency_contact__ID placeholder="Emergency contact" required>
+                </div>
+                <div class="col-sm">
+                    Emergency contact number
+                    <input class="form-control" type="text" name="Emergency_contact_number" id=Emergency_contact_number__ID placeholder="Emergency contact number" required>
+                </div>
+            </div>
+            <br>
+			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+    	</div>
+    </form>
+</section>
+<script>
+	function F__ID(){
+	    VmInclude:__CURRENT_PATH__/task.js
+	    $("input#DOB__ID").datepicker({yearRange:"-120:+0",dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true});
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+		background-color: #465a69;
+	}
+	#form_container__ID{
+		padding-top:50px;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+
+		font-family: Verdana,sans-serif;
+    	font-size: 15px;
+    	line-height: 1.5;
+		color: #fff;
+	}
+	#form_container__ID .row__ID{
+		padding:6px 0;
+	}
+	#form_container__ID .row__ID:hover{
+		background-color: #203342;
+	}
+	#header__ID{
+		background-color:#727b84;
+		color:#fff;
+		padding:10px 15px 10px 15px;
+		font-size:150%;
+	}
+	#F__ID{
+		border:1px solid #bbb;
+		padding:6px 15px 20px 15px;
+	}
+	#F__ID label
+    	display: inline-block;
+    	margin: .6rem 0 .3rem 0;
+	}
+
+	#F__ID fieldset {
+	    border: 0px solid #c0c0c0;
+	    margin: 0;
+	    padding: 0;
+	}
+	@media screen and (max-width:1200px){
+		#form_container__ID{
+			padding:20px 10px 50px 10px;
+		}
+	}
+</style>

@@ -1,0 +1,66 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <form class="form-inline">
+            <button type=button id=aquery__ID class='btn btn-secondary'>Query</button>
+            <button type=button id=export__ID class='btn btn-secondary'>Export</button>
+            Total Number of Incident Compensation Reporting
+        </form>
+		<span id=elapsed__ID style='float:right'></span>
+    </div>
+    <div id=table__ID>
+        <table id=grid__ID></table>
+    </div>
+</section>
+<style>
+    #toolbar__ID{
+		background-color:#ccc;
+		padding-left:10px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+    #toolbar__ID .form-inline > * {
+        margin-right:5px;
+    }
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+</style>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="Year,Animal Biological,Bumped into object,Chemical,Computer/workstation use|Computer_workstation_use,Heat/Radiation/Electrical|Heat_Radiation_Electrical";
+        _fields+=",Manual handling or overuse,Motor vehicle accident,Near miss,Needlestick/Sharps|Needlestick_Sharps,Noise,Psychological";
+        _fields+=",Slip/Trip/Fall|Slip_Trip_Fall,Struck by object,Other,Total";
+        //-------------------------------------
+        //$('#name__ID').text('Total Number of Incident Compensation Reporting');
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _set_req=_set_req_export=function(){
+            var sql="\
+                with \
+                tb1 as (select ID,D=@T('Date_reported'),IT=@('Incident_Type') from [FORM-"+_db_pid+"]),  \
+                tb2 as (select ID,Y=DATEPART(year, D), IT from tb1) \
+                select [Year]=Y,Animal_Biological=[Animal Biological],Bumped_into_object=[Bumped into object],[Chemical],Computer_workstation_use=[Computer/workstation use],Heat_Radiation_Electrical=[Heat, Radiation, Electrical],\
+                Manual_handling_or_overuse=[Manual handling or overuse],Motor_vehicle_accident=[Motor vehicle accident],Near_miss=[Near miss],\
+                Needlestick_Sharps=[Needlestick/Sharps],[Noise],[Psychological],Slip_Trip_Fall=[Slip/Trip/Fall],Struck_by_object=[Struck by object],[Other],\
+            	Total=([Animal Biological]+[Bumped into object]+[Chemical]+[Computer/workstation use]+[Heat, Radiation, Electrical]+[Manual handling or overuse]+[Motor vehicle accident]+[Near miss]+[Needlestick/Sharps]+[Noise]+[Psychological]+[Slip/Trip/Fall]+[Struck by object]+[Other]) from tb2\
+            	PIVOT(\
+            	    Count(ID)\
+            	    for IT IN([Animal Biological],[Bumped into object],[Chemical],[Computer/workstation use],[Heat, Radiation, Electrical],[Manual handling or overuse],[Motor vehicle accident],[Near miss],[Needlestick/Sharps],[Noise],[Psychological],[Slip/Trip/Fall],[Struck by object],[Other])\
+            	) p\
+            "
+            _req={cmd:'query_records',sql:sql}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
