@@ -11,7 +11,7 @@
             "modules/about/module.json","modules/business-management/portal.json",
             "modules/request-processing/portal.json",
             "modules/help/module.json","modules/marketing-department/module.json",
-            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/main.json"
+            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/website.json"
         ]},
         "fitness":		{"url":"modules/fitness/panel.html",	"modules":["modules/fitness/module.json"]},
 		"bookkeeping":	        {"url":"modules/bookkeeping/panel.html","modules":["modules/bookkeeping/module.json"]},
