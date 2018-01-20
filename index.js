@@ -138,6 +138,7 @@ var vm_init=function(){
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://vmiis.github.io/modules');
 
 			text=text.replace(/https:\/\/woolcock-imr.github.io/g,window.location.protocol+'//'+window.location.host+'/woolcock-imr');
+			text=text.replace(/https:\/\/volunteer-database.rt.org.au/g,window.location.protocol+'//'+window.location.host+'/woolcock-imr/volunteer-database-2');
 			text=text.replace(/https:\/\/wappsystem.github.io/g,window.location.protocol+'//'+window.location.host+'/wappsystem');
 
 		}
