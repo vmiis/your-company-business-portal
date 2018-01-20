@@ -11,7 +11,8 @@
             "modules/about/module.json","modules/business-management/portal.json",
             "modules/request-processing/portal.json",
             "modules/help/module.json","modules/marketing-department/module.json",
-            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/website.json"
+            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/website.json",
+            "https://woolcock-imr.github.io/sfix-online-questionnaire|modules/website/third.json"
         ]},
         "fitness":		{"url":"modules/fitness/panel.html",	"modules":["modules/fitness/module.json"]},
 		"bookkeeping":	        {"url":"modules/bookkeeping/panel.html","modules":["modules/bookkeeping/module.json"]},
@@ -43,6 +44,8 @@
 		"clinic-online-questionnaire-01":	{"url":"modules/clinic-online-questionnaire-01/panel.html","modules":["modules/clinic-online-questionnaire-01/modules.json"]},
 		"workplace-inspection":				{"url":"modules/workplace-inspection/panel.html","modules":["modules/workplace-inspection/modules.json"]},
 		"incident-reporting":				{"url":"modules/incident-reporting/panel.html","modules":["modules/incident-reporting/modules.json"]},
-		"isleephealth-first-visit":	   		{"url":"https://wappsystem.github.io/isleephealth/modules/first-visit/panel.html","modules":["https://wappsystem.github.io/isleephealth|modules/first-visit/modules.json"]}
+		"isleephealth-first-visit":	   		{"url":"https://wappsystem.github.io/isleephealth/modules/first-visit/panel.html","modules":["https://wappsystem.github.io/isleephealth|modules/first-visit/modules.json"]},
+        "sfix":             {"url":"https://woolcock-imr.github.io/sfix/modules/panel/sfix.html","modules":["https://woolcock-imr.github.io/sfix|modules/participant-and-others/module.json","https://woolcock-imr.github.io/sfix|modules/edc/module.json"]},
+        "sfix-quest-panel": {"url":"https://woolcock-imr.github.io/sfix-online-questionnaire/modules/panel/quest.html","modules":["https://woolcock-imr.github.io/sfix-online-questionnaire|modules/edc/module.json"]}
 	}
 }
