@@ -45,7 +45,8 @@
 		"workplace-inspection":				{"url":"modules/workplace-inspection/panel.html","modules":["modules/workplace-inspection/modules.json"]},
 		"incident-reporting":				{"url":"modules/incident-reporting/panel.html","modules":["modules/incident-reporting/modules.json"]},
 		"isleephealth-first-visit":	   		{"url":"https://wappsystem.github.io/isleephealth/modules/first-visit/panel.html","modules":["https://wappsystem.github.io/isleephealth|modules/first-visit/modules.json"]},
-        "sfix":             {"url":"https://woolcock-imr.github.io/sfix/modules/panel/sfix.html","modules":["https://woolcock-imr.github.io/sfix|modules/participant-and-others/module.json","https://woolcock-imr.github.io/sfix|modules/edc/module.json"]},
-        "sfix-quest-panel": {"url":"https://woolcock-imr.github.io/sfix-online-questionnaire/modules/panel/quest.html","modules":["https://woolcock-imr.github.io/sfix-online-questionnaire|modules/edc/module.json"]}
+        "sfix":                             {"url":"https://woolcock-imr.github.io/sfix/modules/panel/sfix.html","modules":["https://woolcock-imr.github.io/sfix|modules/participant-and-others/module.json","https://woolcock-imr.github.io/sfix|modules/edc/module.json"]},
+        "sfix-quest-panel":                 {"url":"https://woolcock-imr.github.io/sfix-online-questionnaire/modules/panel/quest.html","modules":["https://woolcock-imr.github.io/sfix-online-questionnaire|modules/edc/module.json"]},
+        "under-development-and-test":		{"url":"modules/under-development-and-test/panel.html","modules":["modules/under-development-and-test/module.json"]}
 	}
 }

@@ -1,0 +1,64 @@
+<section>
+    <div style='background-color:#bbb;display:flex;padding:6px 0 6px 16px'>
+        <span id=parent__ID></span>
+    </div>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json=''; //Store data as XML - NOT json
+        //-------------------------------------
+        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+		//-------------------------------------
+        _fields="_Form,Program Documents|_Program_Documents,Projects (Open)|_Projects_Open,Projects (Closed)|_Projects_Closed,Program,Country,Code,Comments,Document|DocProgram";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Country':
+                    var sql="with tb as (select name=@('Country') from [TABLE-"+$vm.module_list[prefix+'country'].table_id+"] )";
+                    sql+=" select top 10 name,value=name from tb where name like '%'+@S1+'%' order by name ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
+                    break;
+                case 'DocProgram':
+                    VmInclude:__COMPONENT__/grid/field_file.js
+                	break;
+                case '_Program_Documents':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Documents</u>");
+                    td.find('u').on('click',function(){
+                        $vm.nav_load_module(prefix+"program-document",$vm.root_layout_content_slot,{record:records[I],ppid:_db_pid});
+                    });
+                	break;
+                case '_Projects_Open':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Projects (Open)</u>");
+                    td.find('u').on('click',function(){
+                        $vm.nav_load_module(prefix+"project",$vm.root_layout_content_slot,{record:records[I],status:'open',ppid:_db_pid});
+                    });
+                	break;
+                case '_Projects_Closed':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Projects (Closed)</u>");
+                    td.find('u').on('click',function(){
+                        $vm.nav_load_module(prefix+"project",$vm.root_layout_content_slot,{record:records[I],status:'closed',ppid:_db_pid});
+                    });
+                	break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            $('#parent__ID').text('Programmes');
+            _set_req(); _request_data();
+        })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
