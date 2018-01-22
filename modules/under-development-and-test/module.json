@@ -19,6 +19,7 @@
         "approval-status":	         {"table_id":"20000685","url":"modules/ppm/task/project-approval-status.html","name_for_search":"Project Approval Status"},
         "program-list-sub-table":    {"table_id":"20004719","url":"modules/ppm/task/program-list-sub-table.html","name_for_search":"Program List Sub Table"},
 
+		"windfarm-home":  			 {"table_id":"--------","url":"https://woolcock-imr.github.io/windfarm-website/modules/website/task/home.html"},
         "test-1":  {"table_id":"20009702","url":"modules/under-development-and-test/task/test-1.html"}
 	}
 }
