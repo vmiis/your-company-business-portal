@@ -19,7 +19,11 @@
         "approval-status":	         {"table_id":"20000685","url":"modules/ppm/task/project-approval-status.html","name_for_search":"Project Approval Status"},
         "program-list-sub-table":    {"table_id":"20004719","url":"modules/ppm/task/program-list-sub-table.html","name_for_search":"Program List Sub Table"},
 
-		"windfarm-home":  			 {"table_id":"--------","url":"https://woolcock-imr.github.io/windfarm-website/modules/website/task/home.html"},
+		"windfarm-home":  			 {"table_id":"--------","url":"https://woolcock-imr.github.io/windfarm-website/modules/website/task/home.html","name_for_search":"Windfarm home"},
+		"lab-study":  			 	 {"table_id":"--------","url":"https://woolcock-imr.github.io/windfarm-website/modules/website/task/lab-study.html","name_for_search":"Lab study"},
+		"home-study":  			 	 {"table_id":"--------","url":"https://woolcock-imr.github.io/windfarm-website/modules/website/task/home-study.html","name_for_search":"Home study"},
+		"lab-study-registration":  	 {"table_id":"20008858","url":"https://woolcock-imr.github.io/windfarm-website/modules/registration/task/lab-study-registration.html", "name_for_search":"Windfarm lab study registration"},
+		"home-study-registration":   {"table_id":"20008858","url":"https://woolcock-imr.github.io/windfarm-website/modules/registration/task/home-study-registration.html", "name_for_search":"Windfarm home study registration"},
         "test-1":  {"table_id":"20009702","url":"modules/under-development-and-test/task/test-1.html"}
 	}
 }
