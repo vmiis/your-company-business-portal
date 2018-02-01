@@ -162,7 +162,9 @@ var vm_init=function(){
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://raw.githubusercontent.com/vmiis/modules/master');
 		}
 		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix\//g,'https:/sfix.org.au/');
+		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix\|/g,'https:/sfix.org.au|');
 		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\//g,'https:/sfix-online-questionnaire.org.au/');
+		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\|/g,'https:/sfix-online-questionnaire.org.au|');
 		return text;
 	}
 	//--------------------------------------------------------
