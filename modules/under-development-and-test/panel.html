@@ -16,6 +16,21 @@
             <li module=approval-status>Project approval status</li>
             <li module=program-list-sub-table>Program list sub table</li>
 <br>
+			<li module=windfarm-home>Windfarm home page</li>
+			<li module=lab-study>Lab study</li>
+			<li module=home-study>Home study</li>
+			<li module=meet-the-team>Meet the team</li>
+			<li module=lab-study-registration>Lab study registration</li>
+<br>
+			<li module=ron-grunstein-home>Professor Ron Grunstein's home page</li>
+			<li module=about-ron-grunstein>About professor Ron Grunstein</li>
+			<li module=ron-grunstein-questionnaire>Questionnaire</li>
+			<li panel=ron-grunstein-first-visit>First visit</li>
+			<li module=ron-grunstein-medicare-referrals>Medicare referrals</li>
+			<li module=ron-grunstein-epworth-sleepiness-scale>Epworth sleepiness scale</li>
+			<li module=ron-grunstein-health-history>Health History</li>
+
+<br>
             <li module=test-1>test 1</li>
 		</ul>
 	</div>
@@ -34,6 +49,14 @@
 				  }
                   $vm.module_list[prefix+m].alert='1';
 			      $vm.nav_load_module(prefix+m);
+              }
+			  var p=$(this).attr('panel');
+              if(p!=undefined){
+				  if($vm.module_list[p]==undefined){
+					  alert(p+" is not in the module list.");
+					  return;
+				  }
+			      $vm.nav_load_module(p);
               }
 		  })
 		  //--------------------------------------------------------
