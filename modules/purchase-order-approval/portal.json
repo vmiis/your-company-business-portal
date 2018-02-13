@@ -5,6 +5,8 @@
 		"purchase-order-approval-form":	          {"table_id":"20011183","url":"modules/purchase-order-approval/task/purchase_order.form.html","name_for_search":""},
         "purchase-order-email-to-accountant":	  {"url":"modules/purchase-order-approval/task/purchase_order_email_to_accountant.html","name_for_search":""},
 
+		"my-purchase-order-approving":	          {"table_id":"20011183","url":"modules/purchase-order-approval/task/approving.html","name_for_search":"My purchase order approvings"},
+
 		"purchase-order-process":		{"table_id":"20011184","name_for_search":""},
 		"manager":		    			{"table_id":"20009687","name_for_search":""},
         "accountant":	    			{"table_id":"20003837","name_for_search":""}
