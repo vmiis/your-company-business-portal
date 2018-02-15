@@ -1,0 +1,34 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a><span class=tab__ID></span>Appoved Infomation
+    </div>
+    <div style='padding:30px'>
+        <br><br>
+        <div id=contents__ID>
+            <br>
+            <span id=info__ID></span>
+        </div>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/toolbar/back.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            var pid_uid=$vm.vm['__ID'].op.pid_uid;
+            var pid=pid_uid.split('/')[0];
+            var uid=pid_uid.split('/')[1];
+            var db_pid=$vm.module_list[$vm.vm['__ID'].name]['table_id'];
+            var req={cmd:"read_record_s2",db_pid:db_pid,ppid:pid,puid:uid};
+            $VmAPI.request({data:req,callback:function(res){
+                $('#info__ID').html(res.records[0].Info.replace(/\r\n/g,'<br>'));
+            }});
+        })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/style/default.css
+</style>

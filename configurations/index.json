@@ -7,7 +7,7 @@
         "website":		{"url":"",                          	"modules":["configurations/website.json"]},
 		"portal":		{"url":"modules/panel.html",         	"modules":[
             "modules/purchase-order-request/portal.json",
-            "modules/purchase-order-approval/portal.json",
+            "modules/purchase-order-approval/module.json",
             "modules/about/module.json","modules/business-management/portal.json",
             "modules/request-processing/portal.json",
             "modules/help/module.json","modules/marketing-department/module.json",

@@ -1,0 +1,108 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a><span class=tab__ID></span>Approvement
+    </div>
+    <div style='padding:30px'>
+        <br><br>
+        <div id=contents__ID>
+            <span id=info__ID></span>
+            <br><br>
+        </div>
+        <br><br>
+        <input type=button id=approve__ID value='I approve the request' />
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/toolbar/back.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //-------------------------------------
+        var rid;
+        var pid="";
+        var uid="";
+        var title="";
+        var info="";
+        var s3,date;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            s3=$vm.vm['__ID'].op.s3;
+            date=$vm.vm['__ID'].op.date;
+            rid=$vm.vm['__ID'].op.rid;
+            pid=$vm.vm['__ID'].op.pid;
+            uid=$vm.vm['__ID'].op.uid;
+            title=$vm.vm['__ID'].op.title;
+            info=$vm.vm['__ID'].op.info;
+
+            var txt="Requested by "+s3+' on '+date+'\r\n\r\n';
+            txt+=info;
+            $('#info__ID').html(txt.replace(/\r\n/g,'<br>'));
+        })
+        //-------------------------------------
+        var approved_info='';
+        //-------------------------------------
+        var make_approved_info=function(){
+            approved_info="";
+            approved_info="Requested by "+s3+' on '+date+'\r\n';
+            approved_info+="Approved by "+$vm.user+' on '+$vm.today_ddmmyyyy()+'\r\n';
+            approved_info+='\r\nApproved Infomation:\r\n\r\n'+info;
+        }
+        //-------------------------------------
+        $('#approve__ID').on('click',function(){
+            make_approved_info();
+            var record={}
+            record.Request_PID=pid;
+            record.Request_UID=uid;
+            record.Title=title;
+            record.Info=approved_info;
+            var dbv={S3:s3};
+            dbv.PPID=pid;
+            dbv.PUID=uid;
+            //create approval record
+            var db_pid=$vm.module_list[$vm.vm['__ID'].name]['table_id'];
+            var req={cmd:"add_record_s2",db_pid:db_pid,data:record,dbv:dbv};
+            $VmAPI.request({data:req,callback:function(res){
+                //var new_uid=res.uid;
+                var record={}
+                record.Approved_by="Approved by "+$vm.user+" on "+$vm.today_ddmmyyyy();
+                record.Approved_Info=pid+'/'+uid;
+                //modify request, insert approval info
+                var req={cmd:"modify_record_s3",rid:rid,data:record,dbv:{} };
+                $VmAPI.request({data:req,callback:function(res){
+                    sent_notify_email_2('20009592'); //to hr for confirm
+                    //$('#back__ID').triggerHandler('click');
+                    $vm.back_and_refresh({div:'__ID'});
+                }});
+            }});
+        });
+        //-------------------------------------
+        var sent_notify_email_2=function(pid){
+            var sql="select top 1 List=@('List') from [TABLE-"+pid+"] where pid="+pid;
+            $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+                if(res.records.length>0){
+                    var To=res.records[0].List.replace(/\r/g,"\n").replace(/\n\n/g,",").replace(/,,/g,",").replace(/,\s*$/, "");
+                    /*
+                        /,\s*$/
+                        The / mark the beginning and end of the regular expression
+                        The , matches the comma
+                        The \s means whitespace characters (space, tab, etc) and the * means 0 or more
+                        The $ at the end signifies the end of the string
+                    */
+                    var From_Address="noresponse@woolcock.org.au";
+                    var From_Name="Database Administrator";
+                    var Title=title;
+                    var Body=approved_info.replace(/\r\n/g,'<br>')
+                    if($vm.server!="development"){
+                        $VmAPI.request({data:{cmd:'send_email',From_Address:From_Address,From_Name:From_Name,To:To,Title:Title,Body:Body},callback:function(res){
+                            alert('The notification email (to: '+To+') has been sent to HR for confirmation');
+                        }})
+                    }
+                }
+            }});
+        }
+        //---------------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/style/default.css
+</style>
