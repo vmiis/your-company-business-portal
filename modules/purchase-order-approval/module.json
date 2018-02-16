@@ -1,15 +1,15 @@
 {
     "modules":
 	{
-		"my-purchase-order-approval":	          {"table_id":"20011183","url":"modules/purchase-order-approval/requests/purchase_order_request.html","form_module":"purchase-order-approval-form","name_for_search":"My purchase order approvals"},
-        "_my-purchase-order-approval":	          {"table_id":"20011183","url":"modules/purchase-order-approval/task/purchase_order.html","form_module":"purchase-order-approval-form","name_for_search":"My purchase order approvals"},
-		"purchase-order-approval-form":	          {"table_id":"20011183","url":"modules/purchase-order-approval/task/purchase_order.form.html","name_for_search":""},
-        "purchase-order-email-to-accountant":	  {"url":"modules/purchase-order-approval/task/purchase_order_email_to_accountant.html","name_for_search":""},
+		"a-purchase-order-request":	          	{"table_id":"20009699","url":"modules/purchase-order-approval/task/purchase_order.html","form_module":"a-purchase-order-request-form","name_for_search":"My purchase order approvals"},
+		"a-purchase-order-request-form":	    {"table_id":"20009699","url":"modules/purchase-order-approval/task/purchase_order.form.html","name_for_search":""},
+        "a-purchase-order-email-to-accountant":	{"url":"modules/purchase-order-approval/task/purchase_order_email_to_accountant.html","name_for_search":""},
 
-		"my-purchase-order-approving":	          {"table_id":"20011183","url":"modules/purchase-order-approval/task/approving.html","name_for_search":"My purchase order approvings"},
+		"a-purchase-order-approval":	        {"table_id":"20011183","url":"modules/purchase-order-approval/task/approving.html","name_for_search":"My purchase order approvings"},
+		"a-purchase-order-approval-info":		{"table_id":"20011183","url":"modules/purchase-order-approval/task/purchase-order-approval-info.html","name_for_search":"My purchase order approvings"},
 
-		"purchase-order-process":		{"table_id":"20011184","name_for_search":""},
-		"manager":		    			{"table_id":"20009687","name_for_search":""},
-        "accountant":	    			{"table_id":"20003837","name_for_search":""}
+		"a-purchase-order-process":			{"table_id":"20011184","name_for_search":""},
+		"a-manager":		    			{"table_id":"20009687","name_for_search":""},
+        "a-accountant":	    				{"table_id":"20003837","name_for_search":""}
 	}
 }

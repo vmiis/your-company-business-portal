@@ -5,8 +5,8 @@
     function F__ID(){
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
+		$('#new__ID').hide();
 		$('#save__ID').hide();
-        _record_type='s2';
         //-------------------------------------
         _fields="_Form,Purchase_Order_ID,Short_Description";
 		_fields+=",_gridHidden|Manager_for_Approval"
@@ -18,7 +18,7 @@
         _fields+=",_gridHidden|Supplier_Fax"
         _fields+=",GST_Amount,Total_Amount,_Approved_by,_Processed_by"
 		_fields+=",_Hidden|items,_Hidden|u_s_e_r_A,_Hidden|u_s_e_r_B"
-        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        _fields+=",Submit Date|DateTime,Submitted by|Author";
         //-------------------------------------
         $('#D__ID').on('load',function(){
             _set_req(); _request_data();
@@ -33,20 +33,15 @@
 				case '_Approved_by':
 					records[I].vm_custom[field]=true;
 					if(records[I].user2!=undefined && records[I].user2!=''){
-						td.text(records[I].user2+' on '+records[I].date2.split(' ')[0])
+						td.html("<u style='cursor:pointer'>"+records[I].user2+' on '+records[I].date2.split(' ')[0]+"</u>");
+						td.find('u').on('click',function(){
+	                        $vm.nav_load_module(prefix+'a-purchase-order-approval-info','',{record:records[I]});
+						});
 					}
 					else{
 						td.html("<u style='cursor:pointer'>Approving</u>");
 						td.find('u').on('click',function(){
-							var email_title='Purchase order request approved by '+$vm.user;
-	                        $vm.load_module_by_name(_module.var.my_finance_approving,$vm.root_layout_content_slot,
-	                            {
-	                                email_title:email_title,pid:_db_pid,uid:records[I].UID,rid:records[I].ID,
-	                                info:make_approved_info(records[I]),
-	                                s3:records[I].Author,
-	                                date:records[I].DateTime,
-	                            }
-	                        )
+	                        $vm.nav_load_module(prefix+'a-purchase-order-approval','',{record:records[I]});
 						});
 					}
 					break;
@@ -112,29 +107,14 @@
         //-------------------------------------
 		_after_submit=function(I,res,type,dbv){
 			var info=make_approved_info(_records[I])
-            /*
-            //---------------------------
-			var op={
-				//-----------------
-				sys:_sys,
-				mobj:_mobj,
-				record:_records[I],
-				//-----------------
-				rid:_records[I].ID,
-				manager:_records[I].Manager_for_Approval,
-				info:info,
-				//------------------
-			}
-			$vm.load_module_by_name(prefix+'purchase-order-email-to-manager',$vm.root_layout_content_slot,op)
-            */
             $vm.nav_load_module(prefix+'purchase-order-email-to-manager',$vm.root_layout_content_slot,{record:_records[I],info:info})
 			//-----------------------------------------------
         };
         //-------------------------------------
 		var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
-		var request_tid=_mlist[prefix+'my-purchase-order-request'].table_id;
-		var approval_tid=_mlist[prefix+'my-purchase-order-approval'].table_id;
-		var process_tid=_mlist[prefix+'purchase-order-process'].table_id;
+		var request_tid=$vm.module_list[prefix+'a-purchase-order-request'].table_id;
+		var approval_tid=$vm.module_list[prefix+'a-purchase-order-approval'].table_id;
+		var process_tid=$vm.module_list[prefix+'a-purchase-order-process'].table_id;
 		var sql0="with tb1 as (select Information,ID,PID,UID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+request_tid+"-@S1])";
 		sql0+=",tb2 as (select user2=Author,date2=DateTime,PID2=PID,UID2=UID,PPID2=PPID,PUID2=PUID from [TABLE-"+approval_tid+"])";
 		sql0+=",tb3 as (select user3=Author,date3=DateTime,PID3=PID,UID3=UID,PPID3=PPID,PUID3=PUID from [TABLE-"+process_tid+"])";
@@ -143,7 +123,7 @@
         _set_req=function(){
 			var sql=sql0+"select UID,Information,ID,DateTime,Author,date2,user2,user3,date3 from tb where RowNum between @I6 and @I7";
 			var sql_n="select count(ID) from [TABLE-"+request_tid+"]";
-            _req={cmd:'query_records_A',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+            _req={cmd:'query_records_B',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
         }
         //-------------------------------------
         _data_process_after_render=function(sr){
