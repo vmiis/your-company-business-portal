@@ -7,7 +7,6 @@
         "transactions_with_year_quarter":	{"table_id":"20007172","url":"modules/bookkeeping/transaction/transactions_with_year_quarter_toolbar.html","name_for_search":"Transactions (quarter)"},
         "bi_processing":	                {"table_id":"20010377","url":"modules/bookkeeping/transaction/income_and_expense_bookkeeping_bi.html","name_for_search":"BI processing"},
         "bi_processing_details":	        {"table_id":"20010377","url":"modules/bookkeeping/transaction/income_and_expense_bookkeeping_bi_details.html","name_for_search":""},
-        "predefined_transaction_item":      {"table_id":"20005380","url":"modules/bookkeeping/transaction/predefined_transaction_item.html","name_for_search":"Predefined transaction item"},
         "income_aggregation_table":	        {"table_id":"20010377","url":"modules/bookkeeping/transaction_reporting/aggregation_query_income.html","name_for_search":"Income aggregation table"},
         "expense_aggregation_table":	    {"table_id":"20010377","url":"modules/bookkeeping/transaction_reporting/aggregation_query_expense.html","name_for_search":"Expense aggregation table"},
         "income_chart":	                    {"table_id":"20010377","url":"modules/bookkeeping/transaction_reporting/chart_income.html","name_for_search":"Income aggregation chart"},
@@ -17,6 +16,7 @@
 		"transaction_details_with_month":	{"table_id":"20007172","url":"modules/bookkeeping/transaction_reporting/transaction_details_with_year_month_toolbar.html","name_for_search":"Transaction details (month)"},
 		"transaction_details_with_quarter":	{"table_id":"20007172","url":"modules/bookkeeping/transaction_reporting/transaction_details_with_year_quarter_toolbar.html","name_for_search":"Transaction details (quarter)"},
 		"aggregation_gst":	            	{"table_id":"20010377","url":"modules/bookkeeping/transaction_reporting/aggregation_query_gst.html","name_for_search":"GST aggregation table"},
-		"aggregation_tax_return":	        {"table_id":"20010377","url":"modules/bookkeeping/transaction_reporting/aggregation_query_tax_return.html","name_for_search":"Tax return aggregation table"}
+		"aggregation_tax_return":	        {"table_id":"20010377","url":"modules/bookkeeping/transaction_reporting/aggregation_query_tax_return.html","name_for_search":"Tax return aggregation table"},
+        "predefined_transaction_item":      {"table_id":"20005380","url":"modules/bookkeeping/setup/predefined_transaction_item.html","name_for_search":"Predefined transaction item"}
 	}
 }
