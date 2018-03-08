@@ -1,12 +1,12 @@
 {
 	"modules":
 	{
-        "home-page-who-am-i":		{"url":"modules/static/group-001/home-page-who-am-i.html"},
-		"home-page-company":	    {"url":"modules/static/group-001/home-page-company.html"},
-		"home-page-creative":	    {"url":"modules/static/group-001/home-page-creative.html"},
+        "home-page-who-am-i":		{"url":"static/group-001/home-page-who-am-i.html"},
+		"home-page-company":	    {"url":"static/group-001/home-page-company.html"},
+		"home-page-creative":	    {"url":"static/group-001/home-page-creative.html"},
 
-		"contact-us-sydney":		{"url":"modules/static/group-001/contact-us-sydney.html"},
-        "contact-us-creative":	    {"url":"modules/static/group-001/contact-us-creative.html"},
+		"contact-us-sydney":		{"url":"static/group-001/contact-us-sydney.html"},
+        "contact-us-creative":	    {"url":"static/group-001/contact-us-creative.html"},
 
 		"home-page-ocean":	   	{"url":"modules/distributed/templatemo/ocean/home.html","name_for_search":"Home page (ocean)"},
 		"info-ocean":	       	{"url":"modules/distributed/templatemo/ocean/info.html","name_for_search":"Info (ocean)"},
