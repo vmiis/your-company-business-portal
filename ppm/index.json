@@ -1,0 +1,7 @@
+{
+	"modules":
+	{
+        "program": {"table_id":"20000013","url":"ppm/modules/program.html"},
+        "country": {"table_id":"20000021","url":"ppm/modules/country.html"}
+	}
+}
