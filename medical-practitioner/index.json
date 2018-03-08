@@ -1,0 +1,13 @@
+{
+    "modules":
+	{
+		"about":	  		{"url":"medical-practitioner/modules/about.html",		"name_for_search":"About medical practitioner"},
+		"services":         {"url":"medical-practitioner/modules/services.html",	"name_for_search":"Medical practitioner services"},
+        "prices":           {"url":"medical-practitioner/modules/prices.html",		"name_for_search":"Medical practitioner prices"},
+		"doctor":           {"url":"medical-practitioner/modules/doctor.html",		"name_for_search":"Doctor John Smith"},
+		"booking":          {"url":"medical-practitioner/modules/booking-panel.html",	"table_id":"20009702","demo_id":"17111902","demo_id_2":"17111901","name_for_search":"Medical practitioner booking"},
+		"booking-form":	    {"url":"medical-practitioner/modules/booking-form.html",	"table_id":"20009702","demo_id":"17111902","name_for_search":""},
+        "booking-record":   {"url":"medical-practitioner/modules/booking-record.html",	"table_id":"20009702","demo_id":"17111902","name_for_search":"Medical practitioner booking records"},
+        "availability":     {"url":"medical-practitioner/modules/availability.html",	"table_id":"20009702","demo_id":"17111901","name_for_search":"Availability setup"}
+	}
+}

@@ -1,0 +1,8 @@
+{
+    "modules":
+	{
+		"inspection":	{"table_id":"20003822","url":"workplace-inspection/modules/inspection.html",	"name_for_search":"Inspection"},
+		"item":         {"table_id":"20003820","url":"workplace-inspection/modules/item.html",			"name_for_search":"Inspection item"},
+        "site":         {"table_id":"20003821","url":"workplace-inspection/modules/site.html",			"name_for_search":"Inspection site"}
+	}
+}

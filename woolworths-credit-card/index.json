@@ -1,0 +1,12 @@
+{
+    "modules":
+	{
+		"transaction-import":	 {"table_id":"20010375","url":"woolworths-credit-card/modules/transaction_import.html",	  "name_for_search":"Transaction import"},
+		"transaction-bi":        {"table_id":"20010376","url":"woolworths-credit-card/modules/transaction_bi.html",		  "name_for_search":"Transaction BI"},
+        "transaction-bi-details":{"table_id":"20010376","url":"woolworths-credit-card/modules/bi_details.html",		      "name_for_search":""},
+        "credit-query":          {"table_id":"20010376","url":"woolworths-credit-card/modules/query_credit.html",		      "name_for_search":"Credit query"},
+        "debit-query":           {"table_id":"20010376","url":"woolworths-credit-card/modules/query_debit.html",             "name_for_search":"Debit query"},
+        "credit-chart":          {"table_id":"20010376","url":"woolworths-credit-card/modules/chart_credit.html",		      "name_for_search":"Credit chart"},
+        "debit-chart":           {"table_id":"20010376","url":"woolworths-credit-card/modules/chart_debit.html",		      "name_for_search":"Debit chart"}
+	}
+}
