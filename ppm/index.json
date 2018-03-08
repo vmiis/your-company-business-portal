@@ -1,7 +1,22 @@
 {
 	"modules":
 	{
-        "program": {"table_id":"20000013","url":"ppm/modules/program.html"},
-        "country": {"table_id":"20000021","url":"ppm/modules/country.html"}
+		"program":                   {"table_id":"20000013","url":"ppm/modules/program.html","name_for_search":"Program"},
+        "program-document":          {"table_id":"20000028","url":"ppm/modules/program-document.html"},
+        "project":                   {"table_id":"20000012","url":"ppm/modules/project.html"},
+        "country":                   {"table_id":"20000021","url":"ppm/modules/country.html","name_for_search":"Country"},
+        "sector":			         {"table_id":"20000020","url":"ppm/modules/sector.html","name_for_search":"Sector"},
+        "document-type":             {"table_id":"20000022","url":"ppm/modules/document-type.html"},
+        "approval_status":	         {"table_id":"20000685","url":"ppm/modules/approval_status.html","name_for_search":"Project Approval Status"},
+        "theme":			         {"table_id":"20009703","url":"ppm/modules/theme.html","name_for_search":"Theme"},
+        "location":			         {"table_id":"20003861","url":"ppm/modules/location.html","name_for_search":"Location"},
+        "region":			         {"table_id":"20000018","url":"ppm/modules/region.html","name_for_search":"Region"},
+        "site":			             {"table_id":"20000513","url":"ppm/modules/site.html","name_for_search":"Site"},
+        "funding_source":	         {"table_id":"20000019","url":"ppm/modules/funding-source.html","name_for_search":"Funding Source"},
+        "theme":			         {"table_id":"20009703","url":"ppm/modules/theme.html","name_for_search":"Theme"},
+        "implementation-arrangement":{"table_id":"20009704","url":"ppm/modules/implementation-arrangement.html","name_for_search":"Implementation Arrangement"},
+        "drr-mainstreaming":         {"table_id":"20009705","url":"ppm/modules/drr-mainstreaming.html","name_for_search":"DRR Mainstreaming"},
+        "approval-status":	         {"table_id":"20000685","url":"ppm/modules/project-approval-status.html","name_for_search":"Project Approval Status"},
+        "program-list-sub-table":    {"table_id":"20004719","url":"ppm/modules/program-list-sub-table.html","name_for_search":"Program List Sub Table"}
 	}
 }
