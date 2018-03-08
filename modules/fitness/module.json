@@ -1,8 +1,0 @@
-{
-    "modules":
-	{
-		"about":	  {"url":"modules/fitness/task/about.html","name_for_search":"About Fitness"},
-        "trainer":	  {"url":"modules/fitness/task/trainers.html","name_for_search":"Fitness Trainers"},
-        "price":	  {"url":"modules/fitness/task/prices.html","name_for_search":"Fitness Price"}
-	}
-}

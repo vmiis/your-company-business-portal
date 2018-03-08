@@ -1,7 +1,7 @@
-VmInclude:/modules/layout/main.html.top-right-corner.html
-VmInclude:/modules/layout/main.html.header.html
-VmInclude:/modules/layout/main.html.content-container.html
-VmInclude:/modules/layout/main.html.footer.html
+VmInclude:/layout/main.html.top-right-corner.html
+VmInclude:/layout/main.html.header.html
+VmInclude:/layout/main.html.content-container.html
+VmInclude:/layout/main.html.footer.html
 <div id="fb-root"></div>
 <div style='display:none'><div id="disqus_thread"></div></div>
 <script>$vm.comments=1;</script>
@@ -42,7 +42,7 @@ VmInclude:/modules/layout/main.html.footer.html
 		//This is the place we can add background image to body (Asynchronous)
 		var $image1 = $("<img>");
 		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
-		$image1.attr("src", "modules/layout/main.html.background.jpg?v=2");
+		$image1.attr("src", "layout/main.html.background.jpg?v=2");
 		//------------------------------------
 		//over write vm alert
 		$vm.alert=function(msg){

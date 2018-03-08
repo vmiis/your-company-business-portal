@@ -26,7 +26,7 @@ var vm_init=function(){
 	$vm.version=$vm.ver[0];
 	//--------------------------------------------------------
 	var load_config_and_init=function(){
-		var url=$vm.hosting_path+"/configurations/index.json";
+		var url=$vm.hosting_path+"/index.json";
 		var ver=localStorage.getItem(url+"_ver");
 		var txt=localStorage.getItem(url+"_txt");
 		//------------------------------------------
@@ -93,7 +93,7 @@ var vm_init=function(){
 	var load_vm      =function(){ load_js($vm.url('https://vmiis.github.io/framework/distribution/vmframework.min.js'),init);}
 	var init         =function(){
 		$vm.init_v3({callback:function(){$vm.init_status=1;}})
-		$vm.load_first_module_to_body({url:'/modules/layout/main.html',callback:last});
+		$vm.load_first_module_to_body({url:'/layout/main.html',callback:last});
 	}
 	//--------------------------------------------------------
 	var load_js=function(url,next){
