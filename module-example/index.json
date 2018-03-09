@@ -16,13 +16,13 @@
 
 
 
-        "shadow-dom-test":			{"url":"/modules/distributed/testing/shadow-dom.html","name_for_search":""},
-        "iframe-test":				{"url":"/modules/distributed/testing/iframe.html","name_for_search":""},
+        "shadow-dom-test":			{"url":"module-example/testing/shadow-dom.html","name_for_search":""},
+        "iframe-test":				{"url":"module-example/testing/iframe.html","name_for_search":""},
 
-        "a-simple-module":          {"url":"/modules/static/basic/a-simple-module.html","name_for_search":"A simple module"},
+		"a-simple-module":          {"url":"module-example/basic/a-simple-module.html","name_for_search":"A simple module"},
 
-        "codepen-lately":               {"url":"/modules/distributed/codepen/lately.html","name_for_search":"Lately from CodePen"},
-        "codepen-cogs":                 {"url":"/modules/distributed/codepen/cogs.html","name_for_search":"Cogs from CodePen"},
+        "codepen-lately":               {"url":"module-example/codepen/lately.html","name_for_search":"Lately from CodePen"},
+        "codepen-cogs":                 {"url":"module-example/codepen/cogs.html","name_for_search":"Cogs from CodePen"},
 
 
         "windfarm_home":	          		{"url":"https://woolcock-imr.github.io/wind-farm-website-modules-by-garry/modules/home.html","name_for_search":"Windfarm Home page"},
@@ -31,24 +31,23 @@
         "windfarm_researcher":				{"url":"https://woolcock-imr.github.io/wind-farm-website-modules-by-garry/modules/researchers.html","name_for_search":"Researchers"},
 
 
-        "enquiry-0003":					{"url":"/modules/dynamic/group-001/enquiry.0003.html","table_id":"20009702","name_for_search":"Enquiry"},
-        "enquiry-0003-record":			{"url":"/modules/dynamic/group-001/enquiry.0003.record.html","table_id":"20009702","name_for_search":"Enquiry (record)"},
-        "contact-us-0001":				{"url":"/modules/dynamic/group-001/contact-us.0001.html","table_id":"20009702","name_for_search":"Contact us"},
-        "contact-us-0001-record":		{"url":"/modules/dynamic/group-001/contact-us.0001.record.html","table_id":"20009702","name_for_search":"Contact us (record)"},
-        "appointment-0002":				{"url":"/modules/dynamic/group-001/appointment.0002.html","table_id":"20009702","name_for_search":"Appointment"},
-        "appointment-0002-record":		{"url":"/modules/dynamic/group-001/appointment.0002.record.html","table_id":"20009702","name_for_search":"Appointment (records)"},
+        "enquiry-0003":					{"url":"module-example/group-001/enquiry.0003.html","table_id":"20009702","name_for_search":"Enquiry"},
+        "enquiry-0003-record":			{"url":"module-example/group-001/enquiry.0003.record.html","table_id":"20009702","name_for_search":"Enquiry (record)"},
+        "contact-us-0001":				{"url":"module-example/group-001/contact-us.0001.html","table_id":"20009702","name_for_search":"Contact us"},
+        "contact-us-0001-record":		{"url":"module-example/group-001/contact-us.0001.record.html","table_id":"20009702","name_for_search":"Contact us (record)"},
+        "appointment-0002":				{"url":"module-example/group-001/appointment.0002.html","table_id":"20009702","name_for_search":"Appointment"},
+        "appointment-0002-record":		{"url":"module-example/group-001/appointment.0002.record.html","table_id":"20009702","name_for_search":"Appointment (records)"},
 
-        "business-demographic-survey-0004":			{"url":"/modules/dynamic/group-001/business-demographic-survey-0004.html","table_id":"20009702","name_for_search":"Business demographic survey"},
-        "business-demographic-survey-0004-record":	{"url":"/modules/dynamic/group-001/business-demographic-survey-0004-record.html","table_id":"20009702","name_for_search":"Business demographic survey (record)"},
+        "business-demographic-survey-0004":			{"url":"module-example/group-001/business-demographic-survey-0004.html","table_id":"20009702","name_for_search":"Business demographic survey"},
+        "business-demographic-survey-0004-record":	{"url":"module-example/group-001/business-demographic-survey-0004-record.html","table_id":"20009702","name_for_search":"Business demographic survey (record)"},
 
-        "room-booking_monthly":			{"url":"/modules/dynamic/room-booking/monthly.html","table_id":"20003813","prefix":"room-booking_","name_for_search":""},
-        "room-booking_daily":			{"url":"/modules/dynamic/room-booking/daily.html","table_id":"20003813","prefix":"room-booking_","name_for_search":""},
-        "room-booking_booking_record":	{"url":"/modules/dynamic/room-booking/booking_record.html","table_id":"20003813","name_for_search":""},
-        "room-booking_room":			{"url":"/modules/dynamic/room-booking/room.html","table_id":"20003812","name_for_search":""},
+        "room-booking_monthly":			{"url":"module-example/room-booking/monthly.html","table_id":"20003813","prefix":"room-booking_","name_for_search":""},
+        "room-booking_daily":			{"url":"module-example/room-booking/daily.html","table_id":"20003813","prefix":"room-booking_","name_for_search":""},
+        "room-booking_booking_record":	{"url":"module-example/room-booking/booking_record.html","table_id":"20003813","name_for_search":""},
+        "room-booking_room":			{"url":"module-example/room-booking/room.html","table_id":"20003812","name_for_search":""},
 
-
-        "simple-dynamic-content-module":{"url":"/modules/dynamic/basic/simple-dynamic-content-module.html","table_id":"20008490"},
-        "contact-us-record":	        {"url":"/modules/dynamic/basic/contact-us-record.html","table_id":"20011189"},
+        "simple-dynamic-content-module":{"url":"module-example/basic/simple-dynamic-content-module.html","table_id":"20008490"},
+        "contact-us-record":	        {"url":"module-example/basic/contact-us-record.html","table_id":"20011189"},
         "fitness":	        			{"url":"https://distributed-modules.vmiis.com/bootstrap4/fitness/index.html"}
 	}
 }
