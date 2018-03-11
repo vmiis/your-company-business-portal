@@ -1,0 +1,38 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        var task_fields="Hayfever,Eczema,Hayfever_Eczema_Symptoms,Absentieeism,Absentieeism_days,Absentieeism_limited,Family_history_asthma,Family_history_asthma_mother,Family_history_asthma_father,Family_history_asthma_siblings,Family_history_asthma_other_relatives,Family_history_copd,Family_history_copd_mother,Family_history_copd_father,Family_history_copd_siblings,Family_history_copd_other_relatives";
+        _fields="_Form,Status|S2,Notes|NT,Participant,"+task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

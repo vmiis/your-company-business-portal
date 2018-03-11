@@ -1,0 +1,99 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        //-------------------------------------
+        _fields="Participant,Ethnicity,WNS,ISI"
+        _fields+=",_Update,Update_Date,Updated_by";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _fields_e=_fields.replace(',_Update','');
+        //-------------------------------------
+        var participant_pid=_module.var.participant;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'WNS':
+                case 'ISI':
+                    records[I].vm_readonly[field]=true;
+                    break;
+                case 'Participant':
+                    td.autocomplete({
+                        minLength:0,
+                        source:function(request,response){
+                            var sql="with tb as (select name=@('Registration_ID'),value2=S1,value3=S1 from [FORM-"+participant_pid+"])";
+                            sql+=" select top 10 name,value=name,value2,value3 from tb where Name like '%'+@S1+'%' ";
+                            $VmAPI.request({data:{cmd:'auto',s1:request.term,sql:sql,minLength:0},callback:function(res){
+                                response($vm.autocomplete_list(res.table));
+                            }});
+                        },
+                        select: function(event,ui){
+                            records[I]['Participant_uid']=ui.item.value2;
+                        }
+                    })
+                    td.focus(function(){td.autocomplete("search","");});
+                    break;
+                case '_Update':
+                    td.html("<u style='cursor:pointer;color:#888'>Update</u>");
+                    td.find('u').on('click',function(){
+                        update_process(records,I);
+                    })
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            if(record.Participant===undefined || record.Participant===null || record.Participant==""){
+                $vm.alert("No participant was selected");
+                return false;
+            }
+            dbv.PPID=participant_pid;
+            if(record.Participant_uid!==undefined) dbv.PUID=record.Participant_uid;
+            return true;
+        };
+        //-------------------------------------
+        var update_process=function(records,I){
+            var puid=records[I].Participant_uid;
+            if(puid===undefined || puid===null || puid===""){
+                alert("Please select a participant first.")
+                return;
+            }
+            get_WNS(records,I,puid);
+            get_ISI(records,I,puid);
+            records[I].Updated_by=$vm.user;
+            records[I].Update_Date=$vm.date_to_string_dmy(new Date());
+            //_render(I);
+        }
+        //-------------------------------------
+        var get_WNS=function(records,I,puid){
+            var pid=$vm.module_list.woolcock_windform_screening_weinstein_noise_sensitivity_score.table_id;
+            var sql="select wnss=@('wnss') from [TABLE-"+pid+"] where puid=@I1";
+            $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:puid},callback:function(res){
+                if(res.records.length==1){
+                    records[I].WNS=res.records[0].wnss
+                    _render(I);
+                }
+            }});
+        }
+        //-------------------------------------
+        var get_ISI=function(records,I,puid){
+            var pid=$vm.module_list.woolcock_windform_screening_insomnia.table_id;
+            var sql="select isi=@('ISI') from [TABLE-"+pid+"] where puid=@I1";
+            $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:puid},callback:function(res){
+                if(res.records.length==1){
+                    records[I].ISI=res.records[0].isi
+                    _render(I);
+                }
+            }});
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

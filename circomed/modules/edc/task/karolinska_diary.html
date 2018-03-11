@@ -1,0 +1,208 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="date,bed_time,attempt_sleep_time,sleep_latency,wakeup_time,out_of_bed,total_sleep_time,sleep_quality,refreshed,calm,slept_trough,ease_wakeup,ease_fall_asleep,dreaming,naps,caffeinated_drinks,alcohol,sleepy";
+        _task_fields+=",q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14";
+        _fields="_Form,Status|S2,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'sleepy':
+                case 'sleep_quality':
+                case 'refreshed':
+                case 'calm':
+                case 'slept_trough':
+                case 'ease_wakeup':
+                case 'ease_fall_asleep':
+                case 'dreaming':
+                    var html="<select style='border:0;''>\
+                    <option value='' >...</option>\
+                    <option >1</option>\
+                    <option >2</option>\
+                    <option >3</option>\
+                    <option >4</option>\
+                    <option >5</option>\
+                    </select>\
+                    ";
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                break;
+                case 'q1':
+                case 'q2':
+                case 'q3':
+                case 'q4':
+                case 'q5':
+                case 'q6':
+                case 'q7':
+                case 'q8':
+                case 'q9':
+                case 'q10':
+                case 'q11':
+                case 'q12':
+                case 'q13':
+                case 'q14':
+                    var html="<select style='border:0;''>\
+                    <option value='' >...</option>\
+                    <option >0</option>\
+                    <option >1</option>\
+                    <option >2</option>\
+                    <option >3</option>\
+                    <option >4</option>\
+                    </select>\
+                    ";
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                break;
+                case 'date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            var r1=record.q1;
+            var r2=record.q2;
+            var r3=record.q3;
+            var r4=record.q4;
+            var r5=record.q5;
+            var r6=record.q6;
+            var r7=record.q7;
+            var r8=record.q8;
+            var r9=record.q9;
+            var r10=record.q10;
+            var r11=record.q11;
+            var r12=record.q12;
+            var r13=record.q13;
+            var r14=record.q14;
+            if(r3=='2') r3='1';
+            else if(r3=='3') r3='2';
+            else if(r3=='4') r3='3';
+            if(r8=='4') r8='3';
+            if(r9=='4') r9='3';
+            else if(r9=='5') r9='4';
+            if(r10=='4' || r10=='5') r10='3';
+            if(r11=='4' || r11=='5') r11='3';
+            if(r14=='4') r14='3';
+            record.rawsum=(parseInt(r1)+parseInt(r2)+parseInt(r3)+parseInt(r4)+parseInt(r5)+parseInt(r6)+parseInt(r7)+parseInt(r8)+parseInt(r9)+parseInt(r10)+parseInt(r11)+parseInt(r12)+parseInt(r13)+parseInt(r14)).toString();
+            record.breathlesssum=(parseInt(r7)+parseInt(r8)+parseInt(r9)+parseInt(r10)+parseInt(r11)).toString();
+            record.coughsum=(parseInt(r2)+parseInt(r3)).toString();
+            record.chestsum=(parseInt(r1)+parseInt(r5)+parseInt(r6)).toString();
+            if(record.rawsum=='0') record.EXACT_Total_Score='0';
+            if(record.rawsum=='1') record.EXACT_Total_Score='8';
+            if(record.rawsum=='2') record.EXACT_Total_Score='13';
+            if(record.rawsum=='3') record.EXACT_Total_Score='17';
+            if(record.rawsum=='4') record.EXACT_Total_Score='20';
+            if(record.rawsum=='5') record.EXACT_Total_Score='23';
+            if(record.rawsum=='6') record.EXACT_Total_Score='25';
+            if(record.rawsum=='7') record.EXACT_Total_Score='27';
+            if(record.rawsum=='8') record.EXACT_Total_Score='28';
+            if(record.rawsum=='9') record.EXACT_Total_Score='30';
+            if(record.rawsum=='10') record.EXACT_Total_Score='31';
+            if(record.rawsum=='11') record.EXACT_Total_Score='33';
+            if(record.rawsum=='12') record.EXACT_Total_Score='34';
+            if(record.rawsum=='13') record.EXACT_Total_Score='36';
+            if(record.rawsum=='14') record.EXACT_Total_Score='37';
+            if(record.rawsum=='15') record.EXACT_Total_Score='38';
+            if(record.rawsum=='16') record.EXACT_Total_Score='39';
+            if(record.rawsum=='17') record.EXACT_Total_Score='40';
+            if(record.rawsum=='18') record.EXACT_Total_Score='41';
+            if(record.rawsum=='19') record.EXACT_Total_Score='42';
+            if(record.rawsum=='20') record.EXACT_Total_Score='43';
+            if(record.rawsum=='21') record.EXACT_Total_Score='44';
+            if(record.rawsum=='22') record.EXACT_Total_Score='46';
+            if(record.rawsum=='23') record.EXACT_Total_Score='47';
+            if(record.rawsum=='24') record.EXACT_Total_Score='48';
+            if(record.rawsum=='25') record.EXACT_Total_Score='49';
+            if(record.rawsum=='26') record.EXACT_Total_Score='50';
+            if(record.rawsum=='27') record.EXACT_Total_Score='51';
+            if(record.rawsum=='28') record.EXACT_Total_Score='52';
+            if(record.rawsum=='29') record.EXACT_Total_Score='53';
+            if(record.rawsum=='30') record.EXACT_Total_Score='54';
+            if(record.rawsum=='31') record.EXACT_Total_Score='55';
+            if(record.rawsum=='32') record.EXACT_Total_Score='57';
+            if(record.rawsum=='33') record.EXACT_Total_Score='58';
+            if(record.rawsum=='34') record.EXACT_Total_Score='59';
+            if(record.rawsum=='35') record.EXACT_Total_Score='60';
+            if(record.rawsum=='36') record.EXACT_Total_Score='61';
+            if(record.rawsum=='37') record.EXACT_Total_Score='63';
+            if(record.rawsum=='38') record.EXACT_Total_Score='64';
+            if(record.rawsum=='39') record.EXACT_Total_Score='65';
+            if(record.rawsum=='40') record.EXACT_Total_Score='67';
+            if(record.rawsum=='41') record.EXACT_Total_Score='68';
+            if(record.rawsum=='42') record.EXACT_Total_Score='70';
+            if(record.rawsum=='43') record.EXACT_Total_Score='72';
+            if(record.rawsum=='44') record.EXACT_Total_Score='73';
+            if(record.rawsum=='45') record.EXACT_Total_Score='75';
+            if(record.rawsum=='46') record.EXACT_Total_Score='77';
+            if(record.rawsum=='47') record.EXACT_Total_Score='80';
+            if(record.rawsum=='48') record.EXACT_Total_Score='83';
+            if(record.rawsum=='49') record.EXACT_Total_Score='87';
+            if(record.rawsum=='50') record.EXACT_Total_Score='92';
+            if(record.rawsum=='50') record.EXACT_Total_Score='100';
+
+            if(record.breathlesssum=='0') record.EXACT_Breathless='0';
+            if(record.breathlesssum=='1') record.EXACT_Breathless='11';
+            if(record.breathlesssum=='2') record.EXACT_Breathless='19';
+            if(record.breathlesssum=='3') record.EXACT_Breathless='25';
+            if(record.breathlesssum=='4') record.EXACT_Breathless='30';
+            if(record.breathlesssum=='5') record.EXACT_Breathless='34';
+            if(record.breathlesssum=='6') record.EXACT_Breathless='38';
+            if(record.breathlesssum=='7') record.EXACT_Breathless='42';
+            if(record.breathlesssum=='8') record.EXACT_Breathless='45';
+            if(record.breathlesssum=='9') record.EXACT_Breathless='48';
+            if(record.breathlesssum=='10') record.EXACT_Breathless='52';
+            if(record.breathlesssum=='11') record.EXACT_Breathless='56';
+            if(record.breathlesssum=='12') record.EXACT_Breathless='60';
+            if(record.breathlesssum=='13') record.EXACT_Breathless='65';
+            if(record.breathlesssum=='14') record.EXACT_Breathless='71';
+            if(record.breathlesssum=='15') record.EXACT_Breathless='78';
+            if(record.breathlesssum=='16') record.EXACT_Breathless='87';
+            if(record.breathlesssum=='17') record.EXACT_Breathless='100';
+
+            if(record.coughsum=='0') record.EXACT_cough='0';
+            if(record.coughsum=='1') record.EXACT_cough='13';
+            if(record.coughsum=='2') record.EXACT_cough='25';
+            if(record.coughsum=='3') record.EXACT_cough='39';
+            if(record.coughsum=='4') record.EXACT_cough='56';
+            if(record.coughsum=='5') record.EXACT_cough='72';
+            if(record.coughsum=='6') record.EXACT_cough='86';
+            if(record.coughsum=='7') record.EXACT_cough='100';
+
+            if(record.chestsum=='0') record.EXACT_chest='0';
+            if(record.chestsum=='1') record.EXACT_chest='12';
+            if(record.chestsum=='2') record.EXACT_chest='23';
+            if(record.chestsum=='3') record.EXACT_chest='31';
+            if(record.chestsum=='4') record.EXACT_chest='38';
+            if(record.chestsum=='5') record.EXACT_chest='45';
+            if(record.chestsum=='6') record.EXACT_chest='52';
+            if(record.chestsum=='7') record.EXACT_chest='58';
+            if(record.chestsum=='8') record.EXACT_chest='65';
+            if(record.chestsum=='9') record.EXACT_chest='72';
+            if(record.chestsum=='10') record.EXACT_chest='79';
+            if(record.chestsum=='11') record.EXACT_chest='88';
+            if(record.chestsum=='12') record.EXACT_chest='100';            
+            return _set_status_and_participant(record,dbv);
+        }
+		//-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

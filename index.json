@@ -13,9 +13,7 @@
 			"business-management/index.json",
             "help/index.json",
 			"marketing-department/index.json",
-            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/website.json",
-            "https://woolcock-imr.github.io/sfix-online-questionnaire|modules/website/third.json",
-			"https://woolcock-imr.github.io/circomed-2-online-questionnaire|modules/website/third.json"
+            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/website.json"
         ]},
 		"blog":	        					{"url":"blog/panel.html",   						"modules":["blog/index.json"]},
 		"bookkeeping":						{"url":"bookkeeping/panel.html",					"modules":["bookkeeping/index.json"]},
@@ -55,18 +53,29 @@
 		"panel_nightstudy":     	{"url":"https://nightstudy.rt.org.au/modules/panel/main.html",										"modules":["https://nightstudy.rt.org.au|configurations/main.json","https://nightstudy.rt.org.au|configurations/task.json"]},
 		"windfarm_inlab_main":		{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/main.html",						"modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
 		"windfarm_inlab_child":		{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html",					"modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
-		"windfarm_screening_main":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/main.html",	"modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]},
-		"windfarm_screening_child":	{"url":"https://woolcock-imr.github.io/windfarm-screening-questionnaire/modules/panel/child.html",	"modules":["https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/main.json","https://woolcock-imr.github.io/windfarm-screening-questionnaire|configurations/task.json"]},
 		"amazes-main-panel":	    {"url":"https://woolcock-imr.github.io/amazes/modules/panel/main.html",								"modules":["https://woolcock-imr.github.io/amazes|configurations/main.json","https://woolcock-imr.github.io/amazes|configurations/task.json"]},
 		"amazes-child-panel":	    {"url":"https://woolcock-imr.github.io/amazes/modules/panel/child.html",							"modules":["https://woolcock-imr.github.io/amazes|configurations/main.json","https://woolcock-imr.github.io/amazes|configurations/task.json"]},
 		"isleephealth-first-visit":	{"url":"https://wappsystem.github.io/isleephealth/modules/first-visit/panel.html",					"modules":["https://wappsystem.github.io/isleephealth|modules/first-visit/modules.json"]},
 
-		"sfix":                     {"url":"https://woolcock-imr.github.io/sfix/modules/panel/sfix.html",								"modules":["https://woolcock-imr.github.io/sfix|modules/participant-and-others/module.json","https://woolcock-imr.github.io/sfix|modules/edc/module.json"]},
-        "sfix-child":               {"url":"https://woolcock-imr.github.io/sfix/modules/panel/sfix.child.html",							"modules":["https://woolcock-imr.github.io/sfix|modules/participant-and-others/module.json","https://woolcock-imr.github.io/sfix|modules/edc/module.json"]},
-        "sfix-quest-panel":         {"url":"https://woolcock-imr.github.io/sfix-online-questionnaire/modules/panel/quest.html",			"modules":["https://woolcock-imr.github.io/sfix-online-questionnaire|modules/edc/module.json"]},
+        "sfix":                     {"url":"sfix/modules/panel/sfix.html",		                        "modules":["sfix|modules/participant-and-others/module.json","sfix|modules/edc/module.json"]},
+        "sfix-child":               {"url":"sfix/modules/panel/sfix.child.html",                        "modules":["sfix|modules/participant-and-others/module.json","sfix|modules/edc/module.json"]},
+        "sfix-online-home":         {"url":"sfix-online-questionnaire/modules/website/task/home.html",  "modules":[]},
+        "sfix-quest-panel":         {"url":"sfix-online-questionnaire/modules/panel/quest.html",        "modules":["sfix-online-questionnaire|modules/edc/module.json"]},
+        "sfix-registration":        {"url":"sfix-registration/modules/website/task/home.html",		    "modules":["sfix-registration|modules/website/module.json","sfix-registration|modules/edc/module.json"]},
 
-		"circomed":                 {"url":"https://woolcock-imr.github.io/circomed-2/modules/panel/circomed.html",						"modules":["https://woolcock-imr.github.io/circomed-2|modules/participant-and-others/module.json","https://woolcock-imr.github.io/sfix|modules/edc/module.json"]},
-        "circomed-quest-panel":     {"url":"https://woolcock-imr.github.io/circomed-2-online-questionnaire/modules/panel/quest.html",	"modules":["https://woolcock-imr.github.io/circomed-2-online-questionnaire|modules/edc/module.json"]},
+        "circomed":                 {"url":"circomed/modules/panel/circomed.html",						    "modules":["circomed|modules/participant-and-others/module.json","circomed|modules/edc/module.json"]},
+        "circomed-child":           {"url":"circomed/modules/panel/circomed.child.html",                    "modules":["circomed|modules/participant-and-others/module.json","circomed|modules/edc/module.json"]},
+        "circomed-online-home":     {"url":"circomed-online-questionnaire/modules/website/task/home.html",  "modules":[]},
+        "circomed-quest-panel":     {"url":"circomed-online-questionnaire/modules/panel/quest.html",        "modules":["circomed-online-questionnaire|modules/edc/module.json"]},
+
+        "windfarm-about":                  {"url":"windfarm-website/panel.html",                            "modules":["windfarm-website|modules/website/module.json"]},
+        "windfarm-lab-study-registration": {"url":"windfarm-website/modules/website/task/lab-study.html",   "modules":["windfarm-website|modules/website/module.json","windfarm-website|modules/registration/module.json"]},
+        "windfarm-home-study-registration":{"url":"windfarm-website/modules/website/task/home-study.html",  "modules":["windfarm-website|modules/website/module.json","windfarm-website|modules/registration/module.json"]},
+
+        "windfarm-lab-study-screening-questionnaire-main":  {"url":"windfarm-lab-study-screening-questionnaire/panel/main.html",	"modules":["windfarm-lab-study-screening-questionnaire|participant-and-others/index.json","windfarm-lab-study-screening-questionnaire|edc/index.json"]},
+        "windfarm-lab-study-screening-questionnaire-child": {"url":"windfarm-lab-study-screening-questionnaire/panel/child.html",	"modules":["windfarm-lab-study-screening-questionnaire|participant-and-others/index.json","windfarm-lab-study-screening-questionnaire|edc/index.json"]},
+        "windfarm-lab-study-screening-questionnaire-report":{"url":"windfarm-lab-study-screening-questionnaire/report/panel.html",	"modules":["windfarm-lab-study-screening-questionnaire|report/index.json"]},
+
 		"ron-grunstein-first-visit":{"url":"https://wappsystem.github.io/ron-grunstein/modules/first-visit/panel.html",					"modules":["https://wappsystem.github.io/ron-grunstein|modules/first-visit/module.json"]}
 	}
 }

@@ -1,0 +1,6 @@
+{
+	"modules":
+	{
+		"circomed-online-home":	  {"url":"modules/website/task/home.html", "name_for_search":"Circomed online questionnaire"}
+	}
+}

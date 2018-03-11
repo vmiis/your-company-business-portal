@@ -1,0 +1,37 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        var _task_fields="adenoidectomy,adenoidectomy_age,alcohol_abuse,alcohol_abuse_age,anaemia,anaemia_age,heart_condition,heart_condition_age,anxiety,anxiety_age,arthritis,arthritis_age,AF,AF_age,AttDD,ADD_age,asthma,asthma_age,auditory_defects,auditory_defects_age,bipolar,bipolar_age,cancer_specify,cancer,cancer_age,carotid_surgery,carotid_surgery_age,backneck_pain,backneck_pain_age,bronchitis,bronchitis_age,fatigue,fatigue_age,cirrhosis,cirrhosis_age,Colour_blindness,Colour_blindness_age,bypass,bypass_age,angioplasty_stent,angioplasty_stent_age,heart_failure,heart_failure_age,depression,depression_age,diabetes,diabetes_age,cholesterol,cholesterol_age,emphysema,emphysema_age,erectile_dys,erectile_dys_age,eye_disorder,eye_disorder_age,gastric,gastric_age,reflux,reflux_age,gout,gout_age,hayfever,hayfever_age,hepatitis,hepatitis_age,hypertension,hypertension_age,pacemaker,pacemaker_age,bowel,bowel_age,kidney_failure,kidney_failure_age,kidney_stones,kidney_stones_age,liver,liver_age,motor,motor_age,MS,MS_age,musdystrophy,musdystrophy_age,heart_attack,heart_attack_age,dev_septum,dev_septum_age,osteoporosis,osteoporosis_age,parkinsons,parkinsons_age,vascular,vascular_age,pneumonia,pneumonia_age,polycystic,polycystic_age,poliomyelitis,poliomyelitis_age,posttrauma,posttrauma_age,sinus,sinus_age,stroke,stroke_age,thyroid,thyroid_age,TIA,TIA_age,tonsillectomy,tonsillectomy_age,other_psychiatric_specify,other_psychiatric,other_psychiatric_age,other_heart_specify,other_heart,other_heart_age,loss_consciousness_specify,loss_consciousness,loss_consciousness_age,other_surgery_specify,other_surgery,other_surgery_age,other_medical_specify,other_medical,other_medical_age";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+VmInclude:__COMPONENT__/grid/grid.v3.css
+ul.ui-autocomplete.ui-menu{font-size:12px}
+.ui-autocomplete li:hover{
+    color:White;
+    background:#96B202;
+    font-weight:normal;
+    outline:none;
+}
+</style>

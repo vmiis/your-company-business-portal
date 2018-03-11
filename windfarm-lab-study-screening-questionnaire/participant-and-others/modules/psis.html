@@ -1,0 +1,192 @@
+<div>
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/back.html
+    <form id=F__ID>
+        <table id=tb__header>
+            <col style='width:337px' /><col style='width:260px' /><col /></colgroup>
+            <tr>
+                <td colspan="3" style='font-size:22px;padding: 20px'>
+                    <center><b>PSYCHOLOGIST SCREENING INFORMATION SHEET</b></center>
+                </td>
+            </tr>
+            <table id=tb__ID>
+            <col style='width:337px' /><col style='width:260px' /><col /></colgroup>
+            <tr>
+            <tr>
+            <td>Name:</td><td colspan="2">Date of Birth:</td><tr>
+            </tr>
+            <tr>
+            <td><b>Participant Registration ID:</b></td><td colspan="2" id=F20009058__ID></td>
+            </tr>
+            <tr>
+                <td>Screening Number:</td><td colspan="2">Researcher:</td>
+            </tr>
+            <tr>
+                <td>Medical history:</td><td colspan="2" id=medical_history__ID></td>
+            </tr>
+            <tr>
+                <td>Medication:</td><td colspan="2" id=medication__ID></td>
+            </tr>
+            <tr>
+
+            <table id=tb__IDD>
+              <col style='width:337px' /><col style='width:260px' /><col /></colgroup>
+            <tr>
+                <td><b><center>Questionnaries<br></td>
+                <td><b><center>Inclusion/Exclusion<br></td>
+                <td><b><center>Participant results<br></td></center></table>
+            <table id=tb__ID>
+              <col style='width:337px' /><col style='width:260px' /><col /></colgroup>
+            <tr>
+            </tr>
+            <tr>
+                <td><b>Weinstein Noise Sensitivity</b></td><td><center>Exclusion&lt;58</td><td id=F20009063__ID></td>
+            </tr>
+            <tr>
+                <td><b>Insomnia Severity Index</b></td><td><center>Exclusion&gt;18</td><td id=F20009064__ID></td>
+            </tr>
+            <tr>
+                <td><b>Kessler-10 (K10)</b></td><td></td><td id=F20009083__ID></td>
+            </tr>
+            <tr>
+                <td><b>Depression Anxiety Stress Scale (DASS-21)</b></td><td><center>Exclusion:<br>
+                <center>Depression &gt;13<br>
+                <center>Anxiety &gt;10<br>
+                <center>Stress &gt;18 <br>
+                </td><td id=F20009084__ID></td>
+            </tr>
+            <tr>
+                <td><b>Claustrophobia Questionnaire (CLQ) </b></td><td><center>Anything answered &ge; 3 is flagged </td><td id=F20009085__ID></td>
+            </tr>
+            <tr>
+                <td><b>Connor Davidson Resilience Scale (CDRS)</b></td><td></td><td id=F20009086__ID></td>
+            </tr>
+            <tr>
+                <td><b>Eysenck</b></td><td>
+                <center>Neuroticism<br>
+                <center>Psychotism <br>
+               <center> Extraversion<br>
+               <center> Lie<br>
+                </td><td id=F20009087__ID></td>
+            </tr>
+
+
+        </table>
+    </form>
+</div>
+<script>
+function F__ID(){
+    //-------------------------------------
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/back.js
+    VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+    //-------------------------------------
+    $('#D__ID').on('load',function(){
+        var participant_uid=$vm.vm['__ID'].op.participant_uid;
+        var participant=$vm.vm['__ID'].op.participant;
+        var sql="select Information from [TABLE-20009063] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009063__ID').text(res.records[0].wnss);
+        }})
+
+        var sql="select Information from [TABLE-20009064] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009064__ID').text(res.records[0].ISI);
+        }})
+
+        var sql="select Information from [TABLE-20009083] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009083__ID').text(res.records[0].kessler);
+
+        }})
+
+        var sql="select Information from [TABLE-20009084] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009084__ID').html("<b> Depression:</b>&nbsp "+res.records[0].DASS_DS+'<br><b>Anxiety:</b>&nbsp   '  +res.records[0].DASS_AS+'<br><b>Stress:</b> &nbsp'+res.records[0].DASS_SS);
+
+        }})
+
+        var sql="select Information from [TABLE-20009085] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009085__ID').text(res.records[0].crss);
+
+        }})
+
+        var sql="select Information from [TABLE-20009086] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009086__ID').text(res.records[0].cdr);
+
+        }})
+
+        var sql="select Information from [TABLE-20009087] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009087__ID').html("<b>Neuroticism:</b> "+res.records[0].eysneck_n+'<br><b>Psychoticism:</b> '+res.records[0].eysneck_p+'<br><b>Extraversion:</b>  '+res.records[0].eysneck_e+' <br><b> Lie :</b> '+res.records[0].eysneck_l);
+        }})
+        /*
+        var sql="select Information from [TABLE-20009058] where PUID="+participant_uid;
+        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+            if(res.records.length!=0)  $('#F20009058__ID').text(+res.records[0].registration_id);
+
+        }})
+        */
+        $('#F20009058__ID').text(participant);
+
+
+    })
+    //-------------------------------------
+}
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/toolbar.css
+    #tb__header{
+        border: 2px solid #000;
+        width:800px;
+        border-collapse:collapse;
+        background-color: #f0f0f0;
+        padding: 100px;
+  }
+
+    #tb__ID{
+        border: 2px solid #000;
+        width:800px;
+        border-collapse:collapse;
+
+    }
+    #tb__ID td{
+        border: 1px solid #888;
+        padding: 20px;
+    }
+    #tb__IDD{
+        border: 2px solid #000;
+        width:800px;
+        border-collapse:collapse;
+        background-color: #f0f0f0;
+        text-align: center;
+
+
+        }
+    #tb__IDD td{
+        border: 1px solid #888;
+        padding: 10px;
+
+
+    }
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        #F__ID, #F__ID * {
+            visibility: visible;
+        }
+        .c_print {
+            display: none;
+        }
+        #F__ID {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .file_buttons{
+            display:none;
+        }
+    }
+
+</style>

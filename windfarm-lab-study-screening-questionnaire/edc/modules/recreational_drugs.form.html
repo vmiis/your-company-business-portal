@@ -1,0 +1,246 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:800px;'>
+            <colgroup>
+                <col />
+                <col style='width:80px' />
+                <col style='width:300px' />
+                <col style='width:150px' />
+            </colgroup>
+
+            <tr><td colspan=4 class='header__ID'>Recreational Drugs</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=4 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=4 class=' '><br><b>Have you ever used any of the following recreational drugs?</b>
+                  &nbsp;&nbsp;<input type=radio class=modified_radio__ID class=C__ID__rb_center name=rec_drugs data-custom=1 data-id=rec_drugs id=rec_drugs value=0 />No&nbsp;
+                  &nbsp;&nbsp;<input type=radio class=modified_radio__ID class=C__ID__rb_center name=rec_drugs  value=1 />Yes<br><br>
+                  If yes, tick the box, and please describe how often you have used the drug and state the date of latest use:
+                  </td></tr>
+              <tr><td class=C__ID__subheader>Drug</td><td  class=C__ID__subheader>Ever Used</td><td class=C__ID__subheader>How often</td><td class=C__ID__subheader>Date of latest use</td></tr>
+               <tr><td>Marijuana</td><td>&nbsp;&nbsp;<input type=radio class=modified_checkbox__ID name=marijuana_used data-custom=1 data-id=marijuana_used id=marijuana_used ></td>
+               <td>&nbsp;&nbsp;<input type=radio class=modified_radio__ID name=marijuana_how_often value=0 > less than once a month<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=marijuana_how_often data-custom=1 data-id=marijuana_how_often id=marijuana_how_often value=1 > occasionally (1-2 times per month)<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=marijuana_how_often value=2 > sometimes (3-4 times per month) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=marijuana_how_often value=3 > often (1-2 times per week) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=marijuana_how_often  value=4 > frequently (3 or more times per week)<br></td><td><input type=text class=input_box_small__ID name=marijuana_latest_use data-custom=1 data-id=marijuana_latest_use id=marijuana_latest_use ></td></tr>
+               <tr><td>Cocaine</td><td>&nbsp;&nbsp;<input type=radio class=modified_checkbox__ID name=cocaine_used data-custom=1 data-id=cocaine_used id=cocaine_used ></td>
+               <td>&nbsp;&nbsp;<input type=radio class=modified_radio__ID name=cocaine_how_often value=0 > less than once a month<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=cocaine_how_often data-custom=1 data-id=cocaine_how_often id=cocaine_how_often value=1 > occasionally (1-2 times per month)<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=cocaine_how_often value=2 > sometimes (3-4 times per month) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=cocaine_how_often value=3 > often (1-2 times per week) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=cocaine_how_often value=4 > frequently (3 or more times per week)<br></td><td><input type=text class=input_box_small__ID name=cocaine_latest_use data-custom=1 data-id=cocaine_latest_use id=cocaine_latest_use ></td></tr>
+               <tr><td>Amphetamines</td><td>&nbsp;&nbsp;<input type=radio class=modified_checkbox__ID name=amphetamines_used data-custom=1 data-id=amphetamines_used id=amphetamines_used ></td>
+               <td>&nbsp;&nbsp;<input type=radio class=modified_radio__ID name=amphetamines_how_often value=0 > less than once a month<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=amphetamines_how_often data-custom=1 data-id=amphetamines_how_often id=amphetamines_how_often value=1 > occasionally (1-2 times per month)<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=amphetamines_how_often value=2 > sometimes (3-4 times per month) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=amphetamines_how_often value=3 > often (1-2 times per week) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=amphetamines_how_often value=4 > frequently (3 or more times per week)<br></td><td><input type=text class=input_box_small__ID name=amphetamines_latest_use data-custom=1 data-id=amphetamines_latest_use id=amphetamines_latest_use ></td></tr>
+               <tr><td>Hallucinogens</td><td>&nbsp;&nbsp;<input type=radio class=modified_checkbox__ID name=hallucinogens_used data-custom=1 data-id=hallucinogens_used id=hallucinogens_used ></td>
+               <td>&nbsp;&nbsp;<input type=radio class=modified_radio__ID name=hallucinogens_how_often value=0 > less than once a month<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=hallucinogens_how_often data-custom=1 data-id=hallucinogens_how_often id=hallucinogens_how_often value=1 > occasionally (1-2 times per month)<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=hallucinogens_how_often value=2 > sometimes (3-4 times per month) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=hallucinogens_how_often value=3 > often (1-2 times per week) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=hallucinogens_how_often value=4 > frequently (3 or more times per week)<br></td><td><input type=text class=input_box_small__ID name=hallucinogens_latest_use data-custom=1 data-id=hallucinogens_latest_use id=hallucinogens_latest_use ></td></tr>
+               <tr><td>Heroin</td><td>&nbsp;&nbsp;<input type=radio class=modified_checkbox__ID name=heroin_used data-custom=1 data-id=heroin_used id=heroin_used ></td>
+               <td>&nbsp;&nbsp;<input type=radio class=modified_radio__ID name=heroin_how_often value=0 > less than once a month<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=heroin_how_often data-custom=1 data-id=heroin_how_often id=heroin_how_often value=1 > occasionally (1-2 times per month)<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=heroin_how_often value=2 > sometimes (3-4 times per month) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=heroin_how_often value=3 > often (1-2 times per week) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=heroin_how_often value=4 > frequently (3 or more times per week)<br></td><td><input type=text class=input_box_small__ID name=heroin_latest_use data-custom=1 data-id=heroin_latest_use id=heroin_latest_use ></td></tr>
+               <tr><td>Opiates</td><td>&nbsp;&nbsp;<input type=radio class=modified_checkbox__ID name=opiates_used data-custom=1 data-id=opiates_used id=opiates_used ></td>
+               <td>&nbsp;&nbsp;<input type=radio class=modified_radio__ID name=opiates_how_often value=0 > less than once a month<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=opiates_how_often data-custom=1 data-id=opiates_how_often id=opiates_how_often value=1 > occasionally (1-2 times per month)<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=opiates_how_often value=2 > sometimes (3-4 times per month) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=opiates_how_often value=3 > often (1-2 times per week) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=opiates_how_often value=4 > frequently (3 or more times per week)<br></td><td><input type=text class=input_box_small__ID name=opiates_latest_use data-custom=1 data-id=opiates_latest_use id=opiates_latest_use ></td></tr>
+               <tr><td>Inhalants (e.g. glue)</td><td>&nbsp;&nbsp;<input type=radio class=modified_checkbox__ID name=inhalants_used data-custom=1 data-id=inhalants_used id=inhalants_used ></td>
+               <td>&nbsp;&nbsp;<input type=radio class=modified_radio__ID name=inhalants_how_often value=0 > less than once a month<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=inhalants_how_often data-custom=1 data-id=inhalants_how_often id=inhalants_how_often value=1 > occasionally (1-2 times per month)<br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=inhalants_how_often value=2 > sometimes (3-4 times per month) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=inhalants_how_often value=3 > often (1-2 times per week) <br>
+               &nbsp;&nbsp;<input type=radio class=modified_radio__ID name=inhalants_how_often value=4 > frequently (3 or more times per week)<br></td><td><input type=text class=input_box_small__ID name=inhalants_latest_use data-custom=1 data-id=inhalants_latest_use id=inhalants_latest_use ></td></tr>
+           </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID tbody *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    //Radio buttons
+                    case 'rec_drugs':
+                    case 'marijuana_how_often':
+                    case 'cocaine_how_often':
+                    case 'amphetamines_how_often':
+                    case 'hallucinogens_how_often':
+                    case 'heroin_how_often':
+                    case 'opiates_how_often':
+                    case 'inhalants_how_often':
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                    //Checkbox
+                    case 'marijuana_used':
+                    case 'cocaine_used':
+                    case 'amphetamines_used':
+                    case 'hallucinogens_used':
+                    case 'heroin_used':
+                    case 'opiates_used':
+                    case 'inhalants_used':
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                        });
+                    break;
+                    //Text
+                    case 'marijuana_latest_use':
+                    case 'cocaine_latest_use':
+                    case 'amphetamines_latest_use':
+                    case 'hallucinogens_latest_use':
+                    case 'heroin_latest_use':
+                    case 'opiates_latest_use':
+                    case 'inhalants_latest_use':
+                        $(this).val(_records[I][field]);
+                        $(this).datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true,onClose:function(dateText){
+                            _set_value($(this).val(),_records,I,field);
+                        }});
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID td{vertical-align: middle!important;}
+    #tb__ID tr td:nth-child(2)
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    {
+        text-align: center;
+        padding: 5px;
+    }
+    .input_box__ID{border: 1px #B8BDBF solid!important;width:99%!important;}
+    .cb_td__ID{
+        text-align:center!important;
+        border: 1px #B8BDBF solid!important;
+        color: #333333!important;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+    .input_box_small__ID{
+        border: 1px solid #adb8c0!important;
+        width:100px!important;
+    }
+    .input_box__ID{
+        border: 1px solid #adb8c0!important;
+        width:99%!important;
+    }
+    .modified_checkbox__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: checkbox;
+    	background-color: #fafafa;
+    	border: 1px solid #cacece;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    	padding: 9px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    }
+    .modified_checkbox__ID:active, .modified_checkbox__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .modified_checkbox__ID:checked {
+        -moz-appearance: checkbox;
+    	background-color: #e9ecee;
+    	border: 1px solid #adb8c0;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    	color: #99a1a7;
+    }
+    .modified_checkbox__ID:checked:after {
+    	content: '\2714';
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+</style>

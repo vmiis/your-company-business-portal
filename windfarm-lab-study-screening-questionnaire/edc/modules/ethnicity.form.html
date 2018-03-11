@@ -1,0 +1,192 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:800px;'>
+            <colgroup>
+                <col class=colA style='width:250px' />
+                <col />
+            </colgroup>
+
+            <tr><td colspan=2 class='header__ID'>Ethnicity</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=2 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=2 class=' '></br><i>We are interested in your ancestry and ethnicity because we have observed that some sleep conditions are more common in people from certain parts of the world. Therefore, we would be grateful if you answer these questions as specifically as possible. If you do not know this information, just tick the option "Don't Know". If you do not wish to complete this section that is ok and will not influence your care.</i></br></br></td></tr>
+         	<tr><td colspan=2 class=' '></br><i>Please select which group best describes your ancestry/ethnicity (based on a mixture of culture, religion, skin colour and language). If you come from a background of multiple ethnic ancestries please tick all the groups that best apply to you. </i></br></br></td></tr>
+         	<tr><td colspan=2 class=' '><b>A. Caucasian</b> - Australia/NZ (Anglo European), Europe (includes Russia Central and West Asia) & North
+         	Mediterranean, America, Canada, South Africa & Zimbabwe.</br>
+         	<b>B. Indigenous Australian</b> - Aboriginal, Torres Strait Islands.</br>
+         	<b>C. Pacific Islander</b> - New Zealand Maori or Pacific Islands, Hawaii, New Guinea.</br>
+         	<b>D. South-East Asian</b> - Brunei, Cambodia, Indonesia, Laos, Malaysia, Myanmar/Burma, Philippines,Singapore, Thailand, Vietnam.</br>
+         	<b>E. South Asian</b> - Afghanistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, Sri Lanka.</br>
+         	<b>F. North East Asian</b> - China, Hong Kong, Japan, Korea, Macau, Taiwan.</br>
+         	<b>G. North Asian</b> - Mongolia, Siberia.</br>
+         	<b>H. Middle Eastern, Northern African, Somali Peninsular</b> - Algeria, Bahrain, Djibouti, Eritrea, Ethiopia,
+         	Egypt, Israel, Iran, Iraq, Jordan, Kuwait, Lebanon, Libya, Oman, Palestinian Territories, Turkey,
+         	Turkish Cypriots, Qatar, Saudi Arabia, Somalia, Syria, Tunisia, United Arab Emirates, Yemen.</br>
+         	<b>I. Sub-Saharan African</b> - Indigenous African, African American.</br>
+         	<b>J. Central/South American</b> - Central/South America.</br>
+         	<b>K. Other</b></br>
+         	<b>L. Don't Know</b></td></tr>
+             <tr><td colspan=2 class='subheader__ID'>Ethnicity Selection</td></tr>
+         	<tr><td class=indent__ID>Select for YOURSELF</td><td>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_0 name=ethnicity_0 id=ethnicity_0 \><label for=ethnicity_0 > A. Caucasian</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_1 name=ethnicity_1 id=ethnicity_1 \><label for=ethnicity_1 > B. Indigenous Australian </label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_2 name=ethnicity_2 id=ethnicity_2 \><label for=ethnicity_2 > C. Pacific Islander</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_3 name=ethnicity_3 id=ethnicity_3 \><label for=ethnicity_3 > D. South-East Asian</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_4 name=ethnicity_4 id=ethnicity_4 \><label for=ethnicity_4 > E. South Asian</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_5 name=ethnicity_5 id=ethnicity_5 \><label for=ethnicity_5 > F. North East Asian</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_6 name=ethnicity_6 id=ethnicity_6 \><label for=ethnicity_6 > G. North Asian</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_7 name=ethnicity_7 id=ethnicity_7 \><label for=ethnicity_7 > H. Middle Eastern, North Africa, Somali Peninsular</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_8 name=ethnicity_8 id=ethnicity_8 \><label for=ethnicity_8 > I. Sub-Saharan African</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_9 name=ethnicity_9 id=ethnicity_9 \><label for=ethnicity_9 > J. Central/South American</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_10 name=ethnicity_10 id=ethnicity_10 \><label for=ethnicity_10 > K. Other (Please Specify Below)</label><br>
+             	<input type=checkbox class=C__ID__rb data-custom=1 data-id=ethnicity_11 name=ethnicity_11 id=ethnicity_11 \><label for=ethnicity_11 > L. Don't Know</label>
+            </td></tr>
+            <tr><td colspan=2 class='C__ID__subheader'>Other</td></tr>
+         	<tr><td class=C__ID__indent>if <b>Other</b>, please specify</td><td><input data-custom=1 data-id=ethnicity_other name=ethnicity_other id=ethnicity_other type=text \></td></tr>
+            <tr><td colspan=2 class='C__ID__subheader'>Country of Birth</td></tr>
+         	<tr><td class=C__ID__indent>In which country were you born?</td><td><input data-custom=1 data-id=COB name=COB id=COB type=text \></td></tr>
+        </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID tbody *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case 'ethnicity_0':
+                    case 'ethnicity_1':
+                    case 'ethnicity_2':
+                    case 'ethnicity_3':
+                    case 'ethnicity_4':
+                    case 'ethnicity_5':
+                    case 'ethnicity_6':
+                    case 'ethnicity_7':
+                    case 'ethnicity_8':
+                    case 'ethnicity_9':
+                    case 'ethnicity_10':
+                    case 'ethnicity_11':
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                        });
+                    break;
+                    case 'ethnicity_other':
+                    case 'COB':
+                        $(this).val(_records[I][field]);
+                        $(this).on('change', function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            //if( $('#tb__ID').find('input[name=ethnicity_0]').is(':checked')===false ) {alert('aa'); return false;}
+            if( $('#tb__ID').find('input[name=ethnicity_0]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_1]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_2]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_3]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_4]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_5]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_6]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_7]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_8]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_9]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_10]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=ethnicity_11]').is(':checked')===false
+            ) {
+                $vm.alert("Please select at least on of 'your ancestry/ethnicity'");
+                return false;
+            }
+            //alert($('#tb__ID').find('input[name=ethnicity_10]').is(':checked'))
+            if($('#tb__ID').find('input[name=ethnicity_10]').is(':checked')===true && $('#tb__ID').find('input[name=ethnicity_other]').val()===''){
+                $vm.alert("Please specify 'Other'");
+                return false;
+            }
+            if($('#tb__ID').find('input[name=COB]').val()===''){
+                $vm.alert("Please fill 'country were you born'");
+                return false;
+            }
+
+            return true;
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+</style>

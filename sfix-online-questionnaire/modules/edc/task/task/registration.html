@@ -1,0 +1,252 @@
+<div id=page__ID>
+	<div id=panel__ID class="container-fluid" style='max-width:1000px'>
+        <form id=F_01__ID>
+    		<div class="text-left panel__ID">
+    			<h3>Contact Details</h3>
+        	  	  <hr style='border-top:1px solid #fff;'></hr>
+                  <div class="row row__ID">
+                      <div class="col-sm control-group" >
+                          Name
+                          <input type="text" class="form-control" name="Name" placeholder="Name" _required />
+    					  Email
+                          <input class="form-control" type=email name=Email placeholder='Email' _required />
+                          Mobile
+                          <input type="text" class="form-control" name="Mobile" placeholder="Phone" _required />
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-secondary">Next</button>
+    		</div>
+        </form>
+        <form id=F_02__ID>
+    		<div class="text-left panel__ID">
+    			<h3>Contact Details</h3>
+        	  	  <hr style='border-top:1px solid #fff;'></hr>
+                  <div class="row row__ID">
+                      <div class="col-sm control-group" >
+                          Name 2
+                          <input type="text" class="form-control" name="Name2" placeholder="Name" _required />
+    					  Email 2
+                          <input class="form-control" type=email name=Email2 placeholder='Email' _required />
+                          Mobile 2
+                          <input type="text" class="form-control" name="Mobile2" placeholder="Phone" _required />
+                      </div>
+                  </div>
+                  <button type="button" id=f2_p__ID class="btn btn-secondary">Previous</button>
+                  <button type="submit" class="btn btn-secondary">Next</button>
+    		</div>
+        </form>
+        <form id=F_03__ID>
+    		<div class="text-left panel__ID">
+    			<h3>Contact Details</h3>
+        	  	  <hr style='border-top:1px solid #fff;'></hr>
+                  <div class="row row__ID">
+                      <div class="col-sm control-group" >
+                          Name 3
+                          <input type="text" class="form-control" name="Name3" placeholder="Name" _required />
+    					  Email 3
+                          <input class="form-control" type=email name=Email3 placeholder='Email' _required />
+                          Mobile 3
+                          <input type="text" class="form-control" name="Mobile3" placeholder="Phone" _required />
+                      </div>
+                  </div>
+                  <button type="button" id=f3_p__ID class="btn btn-secondary">Previous</button>
+                  <button type="submit" id=submit__ID class="btn btn-secondary">Submit</button>
+    		</div>
+        </form>
+	</div>
+
+</div>
+<script>
+    function F__ID(){
+        //----------------------------------------
+        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+        //----------------------------------------
+        $('#D__ID').on('load',function(){
+            $('#F_01__ID').show();
+            $('#F_02__ID').hide();
+            $('#F_03__ID').hide();
+        })
+        //-------------------------------------
+        $('#F_01__ID').submit(function(event){
+			event.preventDefault();
+            $('#F_01__ID').hide();
+            $('#F_02__ID').show();
+            $('#F_03__ID').hide();
+		})
+        //--------------------------------------------------------
+        $('#f2_p__ID').on('click',function(event){
+			event.preventDefault();
+            $('#F_01__ID').show();
+            $('#F_02__ID').hide();
+            $('#F_03__ID').hide();
+		})
+        //--------------------------------------------------------
+        $('#F_02__ID').submit(function(event){
+			event.preventDefault();
+            $('#F_01__ID').hide();
+            $('#F_02__ID').hide();
+            $('#F_03__ID').show();
+		})
+        //--------------------------------------------------------
+        $('#f3_p__ID').on('click',function(event){
+			event.preventDefault();
+            $('#F_01__ID').hide();
+            $('#F_02__ID').show();
+            $('#F_03__ID').hide();
+		})
+        //--------------------------------------------------------
+        $('#F_03__ID').submit(function(event){
+			event.preventDefault();
+            $('#submit__ID').hide();
+
+
+            var data={};
+            var a=$("#F_01__ID").serializeArray(); $.each(a, function () { data[this.name]=this.value || '';});
+            a=$("#F_02__ID").serializeArray(); $.each(a, function () { data[this.name]=this.value || '';});
+            a=$("#F_03__ID").serializeArray(); $.each(a, function () { data[this.name]=this.value || '';});
+
+            alert(JSON.stringify(data))
+
+            //-------------
+            // calculation
+            // ...
+            var thank='thanks-ok';
+            if(data.Name='tom') thank='thanks-no';
+            //-------------
+
+
+            var dbv={}
+            var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id;
+
+            var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
+            /*
+            $VmAPI.request({data:req,callback:function(res){
+                if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+                else{
+                    $vm.nav_load_moduleload(prefix+thamk'','',{})
+                }
+            }});
+            */
+            $vm.nav_load_module(prefix+thank,'',{})
+		})
+        //--------------------------------------------------------
+    }
+</script>
+<style>
+#D__ID{
+	height:100%;
+	overflow:auto;
+	animation: vm_module_fadein 1.0s;
+	background:rgba(255,255,255,0.2);
+}
+	#page__ID{
+		height:100%;
+		display: flex;
+		align-items: center;
+	}
+	.panel__ID{
+		color:#000;
+		font-weight: normal;
+		background: rgba(255,255,255,0.8);
+		padding: 30px 20px 10px 20px;
+		border-radius: 15px;
+	}
+	@media screen and (max-width:786px){
+		#page__ID{
+			display: block;
+		}
+	}
+    #panel__ID li{
+		cursor:pointer;
+	}
+    .control {
+        font-family: arial;
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 5px;
+        padding-top: 3px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .control {
+        font-family: arial;
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 5px;
+        padding-top: 3px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+        .control input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+    .control_indicator {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background: #e6e6e6;
+        border: 1px solid #000000;
+    }
+    .control-radio .control_indicator {
+        border-radius: 50%;
+    }
+    .control:hover input ~ .control_indicator,
+    .control input:focus ~ .control_indicator {
+        background: #cccccc;
+    }
+
+    .control input:checked ~ .control_indicator {
+        background: #A51C3D;
+    }
+    .control:hover input:not([disabled]):checked ~ .control_indicator,
+    .control input:checked:focus ~ .control_indicator {
+        background: #0e6647d;
+    }
+    .control input:disabled ~ .control_indicator {
+        background: #e6e6e6;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+    .control_indicator:after {
+        box-sizing: unset;
+        content: '';
+        position: absolute;
+        display: none;
+    }
+    .control input:checked ~ .control_indicator:after {
+        display: block;
+    }
+    .control-radio .control_indicator:after {
+        left: 7px;
+        top: 7px;
+        height: 0px;
+        width: 0px;
+        border-radius: 50%;
+        background: #ffffff;
+    }
+    .control-radio input:disabled ~ .control_indicator:after {
+        background: #7b7b7b;
+    }
+    .control-checkbox .control_indicator {
+        border-radius: 10%;
+    }
+    .control-checkbox .control_indicator:after {
+        left: 8px;
+        top: 4px;
+        width: 3px;
+        height: 8px;
+        border: solid #ffffff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+    .control-checkbox input:disabled ~ .control_indicator:after {
+        border-color: #7b7b7b;
+    }
+
+</style>

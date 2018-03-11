@@ -1,0 +1,129 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="SF12_1,SF12_2,SF12_3,SF12_4,SF12_5,SF12_6,SF12_7,SF12_8,SF12_9,SF12_10,SF12_11,SF12_12,PCSF12,MCSF12";
+        _fields="_Form,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                case 'PCSF12':
+                case 'MCSF12':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            var GH1=(6-parseInt(record.SF12_1))
+            var GH1_1=0;
+            var GH1_2=0;
+            var GH1_3=0;
+            var GH1_4=0;
+            if(GH1==1) GH1_1=1;
+            else if (GH1==2) GH1_2=1;
+            else if (GH1==3) GH1_3=1;
+            else if (GH1==4) GH1_4=1;
+            var PF02=parseInt(record.SF12_2)
+            var PF02_1=0;
+            var PF02_2=0;
+            if(PF02==1) PF02_1=1;
+            else if (PF02==2) PF02_2=1;
+            var PF04=parseInt(record.SF12_3)
+            var PF04_1=0;
+            var PF04_2=0;
+            if(PF04==1) PF04_1=1;
+            else if (PF04==2) PF04_2=1;
+            var RP2=parseInt(record.SF12_4)
+            var RP2_1=0;
+            if(RP2==1) RP2_1=1;
+            var RP3=parseInt(record.SF12_5)
+            var RP3_1=0;
+            if(RP3==1) RP3_1=1;
+            var RE2=parseInt(record.SF12_6)
+            var RE2_1=0;
+            if(RE2==1) RE2_1=1;
+            var RE3=parseInt(record.SF12_7)
+            var RE3_1=0;
+            if(RE3==1) RE3_1=1;
+            var BP2=(6-parseInt(record.SF12_8))
+            var BP2_1=0;
+            var BP2_2=0;
+            var BP2_3=0;
+            var BP2_4=0;
+            if(BP2==1) BP2_1=1;
+            else if (BP2==2) BP2_2=1;
+            else if (BP2==3) BP2_3=1;
+            else if (BP2==4) BP2_4=1;
+            var MH3=(7-parseInt(record.SF12_9))
+            var MH3_1=0;
+            var MH3_2=0;
+            var MH3_3=0;
+            var MH3_4=0;
+            var MH3_5=0;
+            if(MH3==1) MH3_1=1;
+            else if (MH3==2) MH3_2=1;
+            else if (MH3==3) MH3_3=1;
+            else if (MH3==4) MH3_4=1;
+            else if (MH3==5) MH3_5=1;
+            var VT2=(7-parseInt(record.SF12_10))
+            var VT2_1=0;
+            var VT2_2=0;
+            var VT2_3=0;
+            var VT2_4=0;
+            var VT2_5=0;
+            if(VT2==1) VT2_1=1;
+            else if (VT2==2) VT2_2=1;
+            else if (VT2==3) VT2_3=1;
+            else if (VT2==4) VT2_4=1;
+            else if (VT2==5) VT2_5=1;
+            var MH4=(parseInt(record.SF12_11))
+            var MH4_1=0;
+            var MH4_2=0;
+            var MH4_3=0;
+            var MH4_4=0;
+            var MH4_5=0;
+            if(MH4==1) MH4_1=1;
+            else if (MH4==2) MH4_2=1;
+            else if (MH4==3) MH4_3=1;
+            else if (MH4==4) MH4_4=1;
+            else if (MH4==5) MH4_5=1;
+            var SF2=(parseInt(record.SF12_12))
+            var SF2_1=0;
+            var SF2_2=0;
+            var SF2_3=0;
+            var SF2_4=0;
+            if(SF2==1) SF2_1=1;
+            else if (SF2==2) SF2_2=1;
+            else if (SF2==3) SF2_3=1;
+            else if (SF2==4) SF2_4=1;
+            var RAWPCSF12=(-7.23216*PF02_1) + (-3.4555*PF02_2) + (-6.24397*PF04_1) + (-2.73557*PF04_2) + (-4.61617*RP2_1) + (-5.51747* RP3_1) + (-11.25544*BP2_1) + (-8.38063*BP2_2) + (-6.50522*BP2_3) + (-3.80130*BP2_4) + (-8.37399*GH1_1) + (-5.56461*GH1_2) + (-3.02396*GH1_3) + (-1.31872*GH1_4) + (-2.44706*VT2_1) + (-2.02168*VT2_2) + (-1.6185*VT2_3) + (-1.14387*VT2_4) + (-0.42251*VT2_5) + ( -0.33682*SF2_1) + (-0.94342*SF2_2) + (-0.18043*SF2_3) + (0.11038*SF2_4) + (3.04365*RE2_1) + (2.32091*RE3_1) + (3.46638*MH3_1) + (2.90426*MH3_2) + (2.37241*MH3_3) + (1.36689*MH3_4) + (0.66514*MH3_5) + (4.61446*MH4_1) + (3.41593*MH4_2) + (2.34247*MH4_3) + (1.28044*MH4_4) + (0.41188*MH4_5);
+            var RAWMCSF12=(3.93115*PF02_1) + (1.8684*PF02_2) + (2.68282*PF04_1) + (1.43103*PF04_2) + (1.4406*RP2_1) + (1.66968*RP3_1) + (1.48619*BP2_1) +( 1.76691*BP2_2) + (1.49384*BP2_3) + (0.90384*BP2_4) + (-1.71175*GH1_1) + (-0.16891*GH1_2) + (0.03482*GH1_3) + (-0.06064*GH1_4) + (-6.02409*VT2_1) + (-4.88962*VT2_2) + (-3.29805*VT2_3) + (-1.65178*VT2_4) + (-0.92057*VT2_5) + (-6.29724*SF2_1) + (-8.26066*SF2_2) + (-5.63286*SF2_3) + (-3.13896*SF2_4) + (-6.82672*RE2_1) + (-5.69921*RE3_1) + (-10.19085*MH3_1) + (-7.92717*MH3_2) + (-6.31121*MH3_3) + (-4.09842*MH3_4) + (-1.94949*MH3_5) + (-16.15395*MH4_1) + (-10.77911*MH4_2) + (-8.09914*MH4_3) + (-4.59055*MH4_4) + (-1.95934*MH4_5);
+            record.PCSF12=(RAWPCSF12 + 56.57706).toFixed(5);
+            record.MCSF12 =(RAWMCSF12  + 60.75781).toFixed(5);
+            return _set_status_and_participant(record,dbv);
+        }
+		//-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>
