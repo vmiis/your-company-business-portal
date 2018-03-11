@@ -1,0 +1,47 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        var task_fields="Medicine,Relievers,Relievers_strength,Relievers_frequency,Relievers_type,Atrovent,Atrovent_strength,Atrovent_frequency,Atrovent_type";
+        task_fields+=",Nebulisers,Nebulisers_strength,Nebulisers_frequency,Nebulisers_type,Corticosteroid,Corticosteroid_strength,Corticosteroid_frequency,Corticosteroid_type";
+        task_fields+=",Combination,Combination_strength,Combination_frequency,Combination_type,LAMA,LAMA_strength,LAMA_frequency,LAMA_type";
+        task_fields+=",LABA,LABA_strength,LABA_frequency,LABA_type,LAMA_LABA,LAMA_LABA_strength,LAMA_LABA_frequency,LAMA_LABA_type,NSP,NSP_strength,NSP_frequency,NSP_type";
+        task_fields+=",Theophylline,Theophylline_strength,Theophylline_frequency,NSP_Tablets,NSP_Tablets_strength,NSP_Tablets_frequency";
+        task_fields+=",Steroids,Steroids_strength,Steroids_frequency,Medicine_Anxiety,Medicine_Other,Medication_Other_1,Medication_Other_1_strength,Medication_Other_1_frequency";
+        task_fields+=",Medication_Other_2,Medication_Other_2_strength,Medication_Other_2_frequency,Medication_Other_3,Medication_Other_3_strength,Medication_Other_3_frequency";
+        task_fields+=",Medication_Other_4,Medication_Other_4_strength,Medication_Other_4_frequency,Medication_Other_5,Medication_Other_5_strength,Medication_Other_5_frequency";
+        task_fields+=",Medication_Other_6,Medication_Other_6_strength,Medication_Other_6_frequency,Medication_Other_7,Medication_Other_7_strength,Medication_Other_7_frequency";
+        task_fields+=",Medication_Other_8,Medication_Other_8_strength,Medication_Other_8_frequency,Recreational_Drugs,Recreational_Drugs_Specify";
+        _fields="_Form,Status|S2,Notes|NT,Participant,"+task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

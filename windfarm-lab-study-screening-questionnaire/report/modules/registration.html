@@ -1,0 +1,32 @@
+<section>
+    <div id=toolbar__ID>
+        <a id=back__ID>Back</a>
+        <a id=aquery__ID >Query</a>
+        <a id=export__ID >Export</a>
+    	<span class=tab__ID></span>Screen Fail
+        <span class=tab__ID></span>
+    </div>
+    <div id=table__ID>
+        <table id=grid__ID></table>
+    </div>
+</section>
+<script>
+function F__ID(){
+    //------------------------
+    VmInclude:__PARTS__/grid/grid.js
+    VmInclude:__PARTS__/style/ease-in-out.js
+    //------------------------
+	_fields="Registration_ID|UID,Email,DateTime";
+	//-------------------------------------
+	$('#aquery__ID').on('click',function(){_set_req(); _request_data();})
+	//-------------------------------------
+	_set_req=_set_req_export=function(){
+	    var sql="select UID,Email=@('Email'),DateTime from [TABLE-20008858] where UID>29 ";
+	    _req={cmd:'query_records',sql:sql}
+	}
+	//-------------------------------------
+}
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.css
+</style>

@@ -1,0 +1,181 @@
+<div id=toolbar__ID class="navbar navbar-default">
+	<form class="form-inline">
+		<button type=button id=count__ID class='btn btn-secondary'>Count</button>
+	</form>
+	<span id=elapsed__ID style='float:right'></span>
+</div>
+<style>
+    #toolbar__ID{
+		background-color:#ccc;
+		margin-bottom:0px;
+		overflow:hidden;
+        padding: 5px 0 5px 10px;
+	}
+    #toolbar__ID .form-inline > * {
+        margin-right:5px;
+    }
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+</style>
+<section id=panel__ID>
+	<div class='nav__ID'>
+		<span>Participants</span>
+		<ul>
+			<li module=participant>Participants</li>
+		</ul>
+		<span>Notes</span>
+		<ul>
+			<li module=edc-notes>All Task Notes</li>
+		</ul>
+		<br>
+	</div>
+	VmInclude:__CURRENT_PATH__/task_links.html
+</section>
+
+<script>
+    function F__ID(){
+    	//--------------------------------------------------------
+    	var set_li_text=function(){
+    	    $('.nav__ID li').each(function(){
+    	        $(this).attr('data-li_text',$(this).text());
+    	    })
+    	}
+    	set_li_text();
+    	//---------------------------------------------
+    	var clear_counting=function(){
+    		$('.nav__ID li').each(function(){
+    			var txt=$(this).attr('data-li_text');
+    			if(txt!=undefined){
+    				$(this).text(txt);
+    			}
+    		})
+    	}
+    	//---------------------------------------------
+    	var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+        //---------------------------------------------
+    	$('#panel__ID li').on('click',function(){
+    		if( $(this).hasClass( 'not_allowed__ID' )===true){
+    		    alert("No permission!");
+    		    return;
+    		}
+    		var m=$(this).attr('module');
+    		if(m!=undefined){
+    		  if($vm.module_list[prefix+m]==undefined){
+    			  alert(prefix+m +" is not in the module list.");
+    			  return;
+    		  }
+    		  $vm.nav_load_module(prefix+m,'',{});
+    		}
+    	})
+    	//--------------------------------------------------------
+    	$('#D__ID').on('load',function(){
+    		var pids="";
+    		if($vm.server==='production'){
+    		  $('.nav__ID li').each(function(index){
+    		      var name=$(this).attr('module');
+    		      var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+    		      if(pid!==undefined && pid!=='--------'){
+    		         if(pids!=="") pids+=",";
+    		         pids+=pid;
+    		      }
+    		  });
+    		  if(pids!==""){
+    		      $VmAPI.request({data:{cmd:'permissions',pids:pids},callback:function(res){
+    		          $('.nav__ID li').each(function(index){
+    		              var name=$(this).attr('module');
+    					  var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+    		              if(pid!==undefined && pid!=='--------'){
+    		                  $(this).removeClass('not_allowed__ID');
+    		                  if(res[pid]===undefined){
+    		                      $(this).addClass('not_allowed__ID')
+    		                  }
+    		              }
+    		          })
+    		      }})
+    		  }
+    		}
+    	})
+    	//---------------------------------------------------------------
+    	$('#count__ID').on('click',function(){
+    		clear_counting();
+    		var N=0;
+    		$('#panel__ID li').each(function(){
+    			var $li=$(this);
+    			N++;
+    			var m=$li.attr('module');
+    			if(m!=undefined){
+    				check_count($li,N);
+    			}
+    		});
+    	})
+    	//--------------------------------------------------------
+    	var check_count=function($li,N){
+    		//do not send too many requests to the server in a short period
+    		setTimeout(function(){check_count_d($li)}, N*200);
+    	}
+    	//--------------------------------------------------------
+    	var check_count_d=function($li){
+    		var m=$li.attr('module');
+    		if($vm.module_list[prefix+m]!=undefined){
+    			var pid=$vm.module_list[prefix+m].table_id;
+    			if(pid!=undefined){
+    				var sql="select Num=count(ID) from [TABLE-"+pid+"]";
+    				$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+    					var num=res.records[0].Num;
+    					var txt=$('<div/>').html($li.attr('data-li_text')).text();
+    					$li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
+    				}})
+    			}
+    		}
+    	}
+    	//--------------------------------------------------------
+    }
+</script>
+
+<style>
+	VmInclude:__PARTS__/navigation/navigation.css
+	#D__ID{
+		background-color:#ffffffb0;
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#panel__ID{
+		padding:20px 0 0 20px;
+	}
+	#D__ID li {
+		color:#555;
+	}
+	li::before{
+		font-size: 20px!Important;
+	}
+	#D__ID li:hover {
+		color:#fff;
+	}
+	#D__ID a {
+		text-decoration: none;
+	}
+	#D__ID a:link {
+		color:#555;
+	}
+	#D__ID a:visited {
+		color:#555;
+	}
+	#D__ID a:hover {
+		color:#fff;
+	}
+	#D__ID a:active {
+		color:#555;
+	}
+	@media screen and (max-width:768px){
+		#D__ID{
+			padding:10px 0 0 10px;
+		}
+	}
+</style>

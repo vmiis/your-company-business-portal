@@ -1,0 +1,511 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="Actiwatch_File_Name,Serial_No,Epoch,aTRT,aExcl,aBedtime,Bedtime_min,Bedtime_max,aRisetime,Risetime_min,Risetime_max,aTIB,aTIB_std,aTIB_min,aTIB_max,aTST_aTIB,aTST_aTIB_std,aTST_aTIB_min,aTST_aTIB_max,aTST,aTST_std,aTST_min,aTST_max,aSOL,aSOL_std,aSOL_min,aSOL_max,aWASO,aWASO_std,aWASO_min,aWASO_max,aSE,aSE_std,aSE_min,aSE_max,Naps_no,Naps,Naps_std,Naps_min,Naps_max,SB,SB_std,SB_min,SB_max,WB,WB_std,WB_min,WB_max,WAC,WAC_std,WAC_min,WAC_max,SAC,SAC_std,SAC_min,SAC_max,FI,FI_std,FI_min,FI_max,d_ST_24,d_ST_24_STD,AC 24 Ac/min|AC_24,AC 24 STD Ac/min|AC_24_STD,Date_Rest_1,Bedtime_1,Risetime_1,aTIB_1,aTST_aTIB_1,SAC_1,Date_Sleep_1,aTST_1,aSOL_1,aWASO_1,FI_1,Date_Daily_1,d_ST_24_1,AC_24_1,Dur_24_1,Date_Active_1,Dur_Active_1,WAC_1,Date_Rest_2,Bedtime_2,Risetime_2,aTIB_2,aTST_aTIB_2,SAC_2,Date_Sleep_2,aTST_2,aSOL_2,aWASO_2,FI_2,Date_Daily_2,d_ST_24_2,AC_24_2,Dur_24_2,Date_Active_2,Dur_Active_2,WAC_2,Date_Rest_3,Bedtime_3,Risetime_3,aTIB_3,aTST_aTIB_3,SAC_3,Date_Sleep_3,aTST_3,aSOL_3,aWASO_3,FI_3,Date_Daily_3,d_ST_24_3,AC_24_3,Dur_24_3,Date_Active_3,Dur_Active_3,WAC_3,Date_Rest_4,Bedtime_4,Risetime_4,aTIB_4,aTST_aTIB_4,SAC_4,Date_Sleep_4,aTST_4,aSOL_4,aWASO_4,FI_4,Date_Daily_4,d_ST_24_4,AC_24_4,Dur_24_4,Date_Active_4,Dur_Active_4,WAC_4,Date_Rest_5,Bedtime_5,Risetime_5,aTIB_5,aTST_aTIB_5,SAC_5,Date_Sleep_5,aTST_5,aSOL_5,aWASO_5,FI_5,Date_Daily_5,d_ST_24_5,AC_24_5,Dur_24_5,Date_Active_5,Dur_Active_5,WAC_5,Date_Rest_6,Bedtime_6,Risetime_6,aTIB_6,aTST_aTIB_6,SAC_6,Date_Sleep_6,aTST_6,aSOL_6,aWASO_6,FI_6,Date_Daily_6,d_ST_24_6,AC_24_6,Dur_24_6,Date_Active_6,Dur_Active_6,WAC_6,Date_Rest_7,Bedtime_7,Risetime_7,aTIB_7,aTST_aTIB_7,SAC_7,Date_Sleep_7,aTST_7,aSOL_7,aWASO_7,FI_7,Date_Daily_7,d_ST_24_7,AC_24_7,Dur_24_7,Date_Active_7,Dur_Active_7,WAC_7,Date_Rest_8,Bedtime_8,Risetime_8,aTIB_8,aTST_aTIB_8,SAC_8,Date_Sleep_8,aTST_8,aSOL_8,aWASO_8,FI_8,Date_Daily_8,d_ST_24_8,AC_24_8,Dur_24_8,Date_Active_8,Dur_Active_8,WAC_8,Date_Rest_9,Bedtime_9,Risetime_9,aTIB_9,aTST_aTIB_9,SAC_9,Date_Sleep_9,aTST_9,aSOL_9,aWASO_9,FI_9,Date_Daily_9,d_ST_24_9,AC_24_9,Dur_24_9,Date_Active_9,Dur_Active_9,WAC_9,Date_Rest_10,Bedtime_10,Risetime_10,aTIB_10,aTST_aTIB_10,SAC_10,Date_Sleep_10,aTST_10,aSOL_10,aWASO_10,FI_10,Date_Daily_10,d_ST_24_10,AC_24_10,Dur_24_10,Date_Active_10,Dur_Active_10,WAC_10,Date_Rest_11,Bedtime_11,Risetime_11,aTIB_11,aTST_aTIB_11,SAC_11,Date_Sleep_11,aTST_11,aSOL_11,aWASO_11,FI_11,Date_Daily_11,d_ST_24_11,AC_24_11,Dur_24_11,Date_Active_11,Dur_Active_11,WAC_11,Date_Rest_12,Bedtime_12,Risetime_12,aTIB_12,aTST_aTIB_12,SAC_12,Date_Sleep_12,aTST_12,aSOL_12,aWASO_12,FI_12,Date_Daily_12,d_ST_24_12,AC_24_12,Dur_24_12,Date_Active_12,Dur_Active_12,WAC_12,Date_Rest_13,Bedtime_13,Risetime_13,aTIB_13,aTST_aTIB_13,SAC_13,Date_Sleep_13,aTST_13,aSOL_13,aWASO_13,FI_13,Date_Daily_13,d_ST_24_13,AC_24_13,Dur_24_13,Date_Active_13,Dur_Active_13,WAC_13,Date_Rest_14,Bedtime_14,Risetime_14,aTIB_14,aTST_aTIB_14,SAC_14,Date_Sleep_14,aTST_14,aSOL_14,aWASO_14,FI_14,Date_Daily_14,d_ST_24_14,AC_24_14,Dur_24_14,Date_Active_14,Dur_Active_14,WAC_14,Date_Rest_15,Bedtime_15,Risetime_15,aTIB_15,aTST_aTIB_15,SAC_15,Date_Sleep_15,aTST_15,aSOL_15,aWASO_15,FI_15,Date_Daily_15,d_ST_24_15,AC_24_15,Dur_24_15,Date_Active_15,Dur_Active_15,WAC_15";
+        _fields="_Form,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _grid_to_form_parameters={task_fields:_task_fields};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                case 'Actiwatch_File_Name':
+                    records[I].vm_custom[field]=true;
+                    if(records[I][field]===undefined) records[I][field]="";
+                    var html="<u>"+records[I][field]+"</u>";
+                    html+="<span class=file_buttons><a title='Choose a file' class=choose_file>&#9783;<a></span>";
+                    html+="<form><input type=file style='display:none'></input></form>";
+                    td.html(html);
+                    td.find('a.choose_file').on('click',function(){
+                        if(td.find('form')[0]!==undefined) td.find('form')[0].reset();
+                        td.find('input[type=file]').trigger('click');
+                    })
+                    td.find('input[type=file]').on('change',function(evt){
+                        var file = this.files[0];
+                        change_file_name(file.name);
+                        file_process(file,records,I);
+                    })
+                    var change_file_name=function(name){
+                        set_value(name,records,I,field);
+                        if(source=='grid'){
+                            td.parent().find("td[data-id='"+field+"']").find('u').html(name);
+                            td.parent().find("td[data-id='"+field+"']").find('u').css('text-decoration','none')
+                        }
+                        else{
+                            td.parent().parent().find("td[data-id='"+field+"']").find('u').html(name);
+                        }
+                    }
+                    break;
+            }
+        }
+        //-------------------------------------
+        var file_process=function(file,records,I){
+            var reader = new FileReader();
+            reader.onload = (function(e) {
+                var contents = e.target.result;
+                var lines=contents.replace(/"/g,'').replace(/\r/,'\n').replace(/\n\n/,'\n').split('\n');
+                var startdate=0;
+                var starttime=0;
+                var enddate=0;
+                var endtime=0;
+                var sleeptime=0;
+                var onsetlatency=0;
+                var waso=0;
+                var efficiency=0;
+                var duration=0;
+                var ac_average=0;
+                var sleepbouts=0;
+                var wakebouts=0;
+                var activitycount=0;
+                var stdactivitycount=0;
+                var fragmentation=0;
+                var realdaysStartDate=[];
+                var realdaysStartTime=[];
+                var days=[];
+                var ac_count=[];
+                var wac_count=[];
+                var sleep_time=[];
+                var exclude_start=[];
+                var exclude_end=[];
+                var exclude=[];
+                var start_date;
+                var start_time;
+                var end_date;
+                var end_time;
+                var daily_start=[];
+                var daily_end=[];
+                var duration_min=[];
+                var bedtimemin=0;
+                var bedtimeminstr='';
+                var bedtimemax=0;
+                var bedtimemaxstr='';
+                var bedtimeavg=0;
+                var bedtimecount=0;
+                var bedtime=0;
+                var risetimeavg=0;
+                var risetimecount=0;
+                var risetime=0;
+                var risetimemin=0;
+                var risetimeminstr='';
+                var risetimemax=0;
+                var risetimemaxstr='';
+                var totalexcluded=0;
+                if(lines.length>0){
+                    for(var i=0;i<200;i++){
+                        var line=lines[i].split(',');
+                        if(line.length==1) line=lines[i].split('\t');
+                        switch(line[0]){
+                        case "Initials:":
+                            break;
+                        case "Number of Days:":
+//                            records[I]['aTRT']=line[1];
+                            break;
+                        case "Actiwatch Serial Number:":
+                            records[I]['Serial_No']=line[1];
+                                break;
+                        case "Epoch Length:":
+                            records[I]['Epoch']=line[1];
+                            break;
+                        case "Data Collection Start Date:":
+                            start_date=line[1];
+                            break;
+                        case "Data Collection Start Time:":
+                            start_time=line[1];
+                            break;
+                        case "Data Collection End Date:":
+                            end_date=line[1];
+                            break;
+                        case "Data Collection End Time:":
+                            end_time=line[1];
+                            records[I]['aTRT']=((date_time_to_ticks(end_date,end_time)-date_time_to_ticks(start_date,start_time))/24/60/60/1000).toFixed(1);
+                             break;
+                        case "Full Name:":
+                            break;
+                        case "Date of Birth:":
+                            break;
+                        case "Interval Type":
+                            for(var j=0;j<line.length;j++){
+                              switch(line[j]){
+                                case "Start Date":
+                                  startdate=j;
+                                  break;
+                                case "Start Time":
+                                  starttime=j;
+                                  break;
+                                case "End Date":
+                                  enddate=j;
+                                  break;
+                                case "End Time":
+                                  endtime=j;
+                                  break;
+                                case "Sleep Time":
+                                  sleeptime=j;
+                                  break;
+                                case "Onset Latency":
+                                  onsetlatency=j;
+                                  break;
+                                case "WASO":
+                                  waso=j;
+                                  break;
+                                case "Efficiency":
+                                  efficiency=j;
+                                  break;
+                                case "Duration":
+                                  duration=j;
+                                  break;
+                                case "Avg AC/min":
+                                  ac_average=j;
+                                  break;
+                                case "#Sleep Bouts":
+                                  sleepbouts=j;
+                                  break;
+                                case "#Wake Bouts":
+                                  wakebouts=j;
+                                  break;
+                                case "Total AC":
+                                  activitycount=j;
+                                  break;
+                                case "Std AC":
+                                  stdactivitycount=j;
+                                  break;
+                                case "Fragmentation":
+                                  fragmentation=j;
+                                  break;
+                                }
+                            }
+                        break;
+                        case "Rest Summary":
+                            switch(line[1]){
+                              case "Average(n)":
+                                if(duration>0) records[I]['aTIB']=line[duration].trim();
+                                if(sleeptime>0) records[I]['aTST_aTIB']=line[sleeptime].trim();
+                                if(activitycount>0) records[I]['SAC']=line[activitycount].trim();
+                                break;
+                              case "Std Dev(n-1)":
+                                if(duration>0) records[I]['aTIB_std']=line[duration].trim();
+                                if(sleeptime>0) records[I]['aTST_aTIB_std']=line[sleeptime].trim();
+                                if(activitycount>0) records[I]['SAC_std']=line[activitycount].trim();
+                                break;
+                              case "Minimum(n)":
+                                if(duration>0) records[I]['aTIB_min']=line[duration].trim();
+                                if(sleeptime>0) records[I]['aTST_aTIB_min']=line[sleeptime].trim();
+                                if(activitycount>0) records[I]['SAC_min']=line[activitycount].trim();
+                                break;
+                              case "Maximum(n)":
+                                if(duration>0) records[I]['aTIB_max']=line[duration].trim();
+                                if(sleeptime>0) records[I]['aTST_aTIB_max']=line[sleeptime].trim();
+                                if(activitycount>0) records[I]['SAC_max']=line[activitycount].trim();
+                                break;
+                            }
+                        break;
+                        //                    records[I]['d_ST_24']=mean.toFixed(2);
+                        //                    records[I]['d_ST_24_STD']=Math.sqrt(sqrs/(days.length-1)).toFixed(2);
+                        //                    records[I]['AC_24']=meanac.toFixed(0);
+                        //                    records[I]['AC_24_STD']=Math.sqrt(sqrsac/(days.length-1)).toFixed(0);
+
+                        case "Daily Summary":
+                            switch(line[1]){
+                              case "Average(n)":
+                                if(ac_average>0) records[I]['AC_24']=line[ac_average].trim();
+                                if(sleeptime>0) records[I]['d_ST_24']=line[sleeptime].trim();
+                                break;
+                              case "Std Dev(n-1)":
+                                if(ac_average>0) records[I]['AC_24_STD']=line[ac_average].trim();
+                                if(sleeptime>0) records[I]['d_ST_24_STD']=line[sleeptime].trim();
+                                break;
+                            }
+                        break;
+                        case "Sleep Summary":
+                            switch(line[1]){
+                              case "Average(n)":
+                                if(sleeptime>0) records[I]['aTST']=line[sleeptime].trim();
+                                if(onsetlatency>0) records[I]['aSOL']=line[onsetlatency].trim();
+                                if(waso>0) records[I]['aWASO']=line[waso].trim();
+                                if(efficiency>0) records[I]['aSE']=line[efficiency].trim();
+                                if(sleepbouts>0) records[I]['SB']=line[sleepbouts].trim();
+                                if(wakebouts>0) records[I]['WB']=line[wakebouts].trim();
+                                if(stdactivitycount>0) records[I]['SAC_STD']=line[stdactivitycount].trim();
+                                if(fragmentation>0) records[I]['FI']=line[fragmentation].trim();
+                                break;
+                              case "Std Dev(n-1)":
+                                if(sleeptime>0) records[I]['aTST_std']=line[sleeptime].trim();
+                                if(onsetlatency>0) records[I]['aSOL_std']=line[sleeptime].trim();
+                                if(waso>0) records[I]['aWASO_std']=line[waso].trim();
+                                if(efficiency>0) records[I]['aSE_std']=line[efficiency].trim();
+                                if(sleepbouts>0) records[I]['SB_std']=line[sleepbouts].trim();
+                                if(wakebouts>0) records[I]['WB_std']=line[wakebouts].trim();
+                                if(stdactivitycount>0) records[I]['SAC_STD_std']=line[stdactivitycount].trim();
+                                if(fragmentation>0) records[I]['FI_std']=line[fragmentation].trim();
+                                break;
+                              case "Minimum(n)":
+                                if(sleeptime>0) records[I]['aTST_min']=line[sleeptime].trim();
+                                if(onsetlatency>0) records[I]['aSOL_min']=line[sleeptime].trim();
+                                if(waso>0) records[I]['aWASO_min']=line[waso].trim();
+                                if(efficiency>0) records[I]['aSE_min']=line[efficiency].trim();
+                                if(sleepbouts>0) records[I]['SB_min']=line[sleepbouts].trim();
+                                if(wakebouts>0) records[I]['WB_min']=line[wakebouts].trim();
+                                if(stdactivitycount>0) records[I]['SAC_STD_min']=line[stdactivitycount].trim();
+                                if(fragmentation>0) records[I]['FI_min']=line[fragmentation].trim();
+                                break;
+                              case "Maximum(n)":
+                                if(sleeptime>0) records[I]['aTST_max']=line[sleeptime].trim();
+                                if(onsetlatency>0) records[I]['aSOL_max']=line[sleeptime].trim();
+                                if(waso>0) records[I]['aWASO_max']=line[waso].trim();
+                                if(efficiency>0) records[I]['aSE_max']=line[efficiency].trim();
+                                if(sleepbouts>0) records[I]['SB_max']=line[sleepbouts].trim();
+                                if(wakebouts>0) records[I]['WB_max']=line[wakebouts].trim();
+                                if(stdactivitycount>0) records[I]['SAC_STD_max']=line[stdactivitycount].trim();
+                                if(fragmentation>0) records[I]['FI_max']=line[fragmentation].trim();
+                                break;
+                            }
+                        break;
+                        case "Custom Summary":
+                            switch(line[1]){
+                              case "n":
+                                if(duration>0 && line[duration].trim()!=='NaN') records[I]['Naps_no']=line[duration].trim();
+                                break;
+                              case "Average(n)":
+                                if(duration>0 && line[duration].trim()!=='NaN') records[I]['Naps']=line[duration].trim();
+                                break;
+                              case "Std Dev(n-1)":
+                                if(duration>0 && line[duration].trim()!=='NaN') records[I]['Naps_std']=line[duration].trim();
+                                break;
+                              case "Minimum(n)":
+                                if(duration>0 && line[duration].trim()!=='NaN') records[I]['Naps_min']=line[duration].trim();
+                                break;
+                              case "Maximum(n)":
+                                if(duration>0 && line[duration].trim()!=='NaN') records[I]['Naps_max']=line[duration].trim();
+                                break;
+                            }
+                        break;
+                        case "Active Summary":
+                            switch(line[1]){
+                              case "Average(n)":
+                                if(activitycount>0) records[I]['WAC']=line[activitycount].trim();
+                                if(stdactivitycount>0) records[I]['WAC_STD']=line[stdactivitycount].trim();
+                                break;
+                              case "Std Dev(n-1)":
+                                if(activitycount>0) records[I]['WAC_std']=line[activitycount].trim();
+                                if(stdactivitycount>0) records[I]['WAC_STD_std']=line[stdactivitycount].trim();
+                                break;
+                              case "Minimum(n)":
+                                if(activitycount>0) records[I]['WAC_min']=line[activitycount].trim();
+                                if(stdactivitycount>0) records[I]['WAC_STD_min']=line[stdactivitycount].trim();
+                                break;
+                              case "Maximum(n)":
+                                if(activitycount>0) records[I]['WAC_max']=line[activitycount].trim();
+                                if(stdactivitycount>0) records[I]['WAC_STD_max']=line[stdactivitycount].trim();
+                                break;
+                            }
+                        break;
+                        case "REST":
+                                if(line[1]=="1" || line[1]=="2" || line[1]=="3" || line[1]=="4" || line[1]=="5"
+                                || line[1]=="6"|| line[1]=="7"|| line[1]=="8"|| line[1]=="9"|| line[1]=="10"
+                                || line[1]=="11"|| line[1]=="12"|| line[1]=="13"|| line[1]=="14"|| line[1]=="15"){
+                                    if(startdate>0 && line[startdate].trim()!=='NaN') records[I]['Date_Rest_'+line[1]]=line[startdate].trim();
+                                    if(activitycount>0 && line[activitycount].trim()!=='NaN') records[I]['SAC_'+line[1]]=line[activitycount].trim();
+                                    if(starttime>0) records[I]['Bedtime_'+line[1]]=line[starttime].trim();
+                                    if(endtime>0) records[I]['Risetime_'+line[1]]=line[endtime].trim();
+                                    if(duration>0) records[I]['aTIB_'+line[1]]=line[duration].trim();
+                                    if(sleeptime>0) records[I]['aTST_aTIB_'+line[1]]=line[sleeptime].trim();
+                                    var sd='01/01/2011 ';
+                                    var sdr='01/01/2011 ';
+                                    if(starttime>0 && endtime>0){
+                                        var a=line[starttime].trim();
+                                        var ar=line[endtime].trim();
+                                        var t24='';
+                                        var t24r='';
+                                        if (a.indexOf("PM") > -1)
+                                        {
+                                            var pos=a.indexOf(":");
+                                            var pos2=a.indexOf("PM");
+                                            var b=parseInt(a.substring(0,pos))
+                                            b=b+12;
+                                            t24 = [b.toString(),a.slice(pos,pos2)].join('');
+                                        }
+                                        else
+                                        {
+                                            sd='01/02/2011 ';
+                                            var pos=a.indexOf(":");
+                                            var pos2=a.indexOf("AM");
+                                            var b=parseInt(a.substring(0,pos))
+                                            if(b==12) {b=0;t24 = [b.toString(),a.slice(pos,pos2)].join('');}
+                                            else t24=a.substring(0,a.indexOf("AM"))
+                                        }
+                                        if (ar.indexOf("PM") > -1)
+                                        {
+                                            var posr=ar.indexOf(":");
+                                            var pos2r=ar.indexOf("PM");
+                                            var br=parseInt(ar.substring(0,pos))
+                                            br=br+12;
+                                            t24r = [br.toString(),ar.slice(pos,pos2)].join('');
+                                        }
+                                        else
+                                        {
+                                            sdr='01/02/2011 ';
+                                            var posr=ar.indexOf(":");
+                                            var pos2r=ar.indexOf("AM");
+                                            var br=parseInt(ar.substring(0,pos))
+                                            if(br==12) {br=0;t24r = [br.toString(),ar.slice(pos,pos2)].join('');}
+                                            else t24r=ar.substring(0,ar.indexOf("AM"))
+                                        }
+                                        var d=Date.parse(sd+t24);
+                                        var dd=Date.parse('01/02/2011 0:00:00')
+                                        var dr=Date.parse(sdr+t24r);
+                                        var ddr=Date.parse('01/02/2011 0:00:00')
+                                        var diffMs = (d-dd); // milliseconds between now & Christmas
+                                        var diffMsr = (dr-ddr); // milliseconds between now & Christmas
+                                        bedtime+=diffMs;
+                                        risetime+=diffMsr;
+                                        bedtimecount++;
+                                        risetimecount++;
+                                        var diffcount=bedtime/bedtimecount;
+                                        if(diffcount<0) diffcount=24*60*60*1000+diffcount;
+                                        var bedtimeavg=Math.round(diffcount/1000);
+                                        var bedtimeavg=toHHMMSS(bedtimeavg)
+                                        if(bedtimemin==0) {bedtimemin=d;bedtimeminstr=a;}
+                                        if(bedtimemax==0) {bedtimemax=d;bedtimemaxstr=a;}
+                                        if(bedtimemin>d) {bedtimemin=d;bedtimeminstr=a;}
+                                        if(bedtimemax<d) {bedtimemax=d;bedtimemaxstr=a;}
+
+                                        var diffcountr=risetime/risetimecount;
+                                        if(diffcountr<0) diffcountr=24*60*60*1000+diffcountr;
+                                        var risetimeavg=Math.round(diffcountr/1000);
+                                        var risetimeavg=toHHMMSS(risetimeavg)
+                                        if(risetimemin==0) {risetimemin=dr;risetimeminstr=ar;}
+                                        if(risetimemax==0) {risetimemax=dr;risetimemaxstr=ar;}
+                                        if(risetimemin>dr) {risetimemin=dr;risetimeminstr=ar;}
+                                        if(risetimemax<dr) {risetimemax=dr;risetimemaxstr=ar;}
+                                     }
+                                }
+                        break;
+                        case "ACTIVE":
+                                if(line[1]=="1" || line[1]=="2" || line[1]=="3" || line[1]=="4" || line[1]=="5"
+                                || line[1]=="6"|| line[1]=="7"|| line[1]=="8"|| line[1]=="9"|| line[1]=="10"
+                                || line[1]=="11"|| line[1]=="12"|| line[1]=="13"|| line[1]=="14"|| line[1]=="15"){
+                                    if(startdate>0 && line[startdate].trim()!=='NaN') records[I]['Date_Active_'+line[1]]=line[startdate].trim();
+                                    if(activitycount>0 && line[activitycount].trim()!=='NaN') records[I]['WAC_'+line[1]]=line[activitycount].trim();
+                                    if(activitycount>0 && line[activitycount].trim()!=='NaN' && ac_average>0 && line[ac_average].trim()!=='NaN') records[I]['Dur_Active_'+line[1]]=(parseFloat(line[activitycount].trim())/parseFloat(line[ac_average].trim())).toFixed(1);
+                                }
+                        break;
+                        case "SLEEP*":
+                        case "SLEEP":
+                                if(line[1]=="1" || line[1]=="2" || line[1]=="3" || line[1]=="4" || line[1]=="5"
+                                || line[1]=="6"|| line[1]=="7"|| line[1]=="8"|| line[1]=="9"|| line[1]=="10"
+                                || line[1]=="11"|| line[1]=="12"|| line[1]=="13"|| line[1]=="14"|| line[1]=="15"){
+                                    if(startdate>0 && line[startdate].trim()!=='NaN') records[I]['Date_Sleep_'+line[1]]=line[startdate].trim();
+                                    if(sleeptime>0 && line[sleeptime].trim()!=='NaN') records[I]['aTST_'+line[1]]=line[sleeptime].trim();
+                                    if(onsetlatency>0 && line[onsetlatency].trim()!=='NaN') records[I]['aSOL_'+line[1]]=line[onsetlatency].trim();
+                                    if(waso>0 && line[waso].trim()!=='NaN') records[I]['aWASO_'+line[1]]=line[waso].trim();
+                                    if(fragmentation>0 && line[fragmentation].trim()!=='NaN') records[I]['FI_'+line[1]]=line[fragmentation].trim();
+                                }
+                        break;
+                        case "DAILY":
+                                if(line[1]=="1" || line[1]=="2" || line[1]=="3" || line[1]=="4" || line[1]=="5"
+                                || line[1]=="6"|| line[1]=="7"|| line[1]=="8"|| line[1]=="9"|| line[1]=="10"
+                                || line[1]=="11"|| line[1]=="12"|| line[1]=="13"|| line[1]=="14"|| line[1]=="15"){
+                                    if(startdate>0 && line[startdate].trim()!=='NaN') records[I]['Date_Daily_'+line[1]]=line[startdate].trim();
+                                    if(activitycount>0 && line[activitycount].trim()!=='NaN') records[I]['AC_24_'+line[1]]=line[activitycount].trim();
+                                    if(sleeptime>0 && line[sleeptime].trim()!=='NaN') {
+                                        records[I]['d_ST_24_'+line[1]]=line[sleeptime].trim();
+                                        if(line[activitycount]!=='0' && line[ac_average]!=='0'){
+                                            sleep_time[sleep_time.length]=parseFloat(line[sleeptime].trim())/(parseFloat(line[activitycount].trim())/parseFloat(line[ac_average].trim()))*1440;
+                                        }
+                                        else sleep_time[sleep_time.length]=0;
+                                    }
+                                    if(activitycount>0 && line[activitycount].trim()!=='NaN' && line[activitycount].trim()!=='0' && ac_average>0 && line[ac_average].trim()!=='NaN' && line[ac_average].trim()!=='0') records[I]['Dur_24_'+line[1]]=(parseFloat(line[activitycount].trim())/parseFloat(line[ac_average].trim())).toFixed(1);
+                                    //else records[I]['Dur_24_'+line[1]]='0';
+
+                                }
+                        break;
+                        case "EXCLUDED":
+                                if(line[1]!==""){
+                                    var sd=date_time_to_ticks(line[startdate].trim(),line[starttime].trim())
+                                    var ed=date_time_to_ticks(line[enddate].trim(),line[endtime].trim())
+                                    totalexcluded+=ed-sd;
+                               }
+                        break;
+                        }
+                    }
+                    records[I]['aBedtime']=bedtimeavg;
+                    records[I]['aRisetime']=risetimeavg;
+                    records[I]['aExcl']=(totalexcluded/24/60/60/1000).toFixed(2);
+                    records[I]['Bedtime_min']=bedtimeminstr;
+                    records[I]['Bedtime_max']=bedtimemaxstr;
+                    records[I]['Risetime_min']=risetimeminstr;
+                    records[I]['Risetime_max']=risetimemaxstr;
+
+                    var total=0;
+                    for (var i = 0; i < sleep_time.length; i++) {
+                        total += sleep_time[i];
+                    }
+                    var mean=total/sleep_time.length;
+                    var sqrs=0;
+                    for (var i = 0; i < sleep_time.length; i++) {
+                        sqrs += Math.pow(sleep_time[i]-mean,2);
+                    }
+                    records[I]['d_ST_24']=mean.toFixed(2);
+                    records[I]['d_ST_24_STD']=Math.sqrt(sqrs/(sleep_time.length-1)).toFixed(2);
+              }
+
+              for (var property in records[I]) {
+                  if(records[I][property]!==undefined && records[I][property]!==null){
+                      records[I][property]=records[I][property].toString();
+                  }
+              }
+              if(ac_average==0) alert("Standard Woolcock Actiware analysis hasn't been use so some outputs are missing. Please re-analyse the file.")
+              _render(I);
+            });
+            reader.readAsText(file);
+        }
+        //-------------------------------------
+        var date_time_to_ticks=function(date_str,time_str){
+            var st24='';
+            if (time_str.indexOf("PM") > -1)
+            {
+                var pos=time_str.indexOf(":");
+                var pos2=time_str.indexOf("PM");
+                var b=parseInt(time_str.substring(0,pos))
+                if(b<12) b=b+12;
+                st24 = [b.toString(),time_str.slice(pos,pos2)].join('');
+            }
+            else
+            {
+                st24=time_str.substring(0,time_str.indexOf("AM"))
+            }
+            var sdateparts=date_str.split('/');
+            var stimeparts=st24.split(':');
+            return new Date(sdateparts[2], parseInt(sdateparts[1], 10) - 1, sdateparts[0], stimeparts[0], stimeparts[1]);
+        }
+        //-------------------------------------
+        var toHHMMSS = function (sec_num) {
+            var ampm='AM'
+            var hours   = Math.floor(sec_num / 3600);
+            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+            var seconds = sec_num - (hours * 3600) - (minutes * 60);
+            if(hours>12) {hours=hours-12;ampm='PM';}
+            if (hours   < 10) {hours   = "0"+hours;}
+            if (minutes < 10) {minutes = "0"+minutes;}
+            if (seconds < 10) {seconds = "0"+seconds;}
+            return hours+':'+minutes+':'+seconds+' '+ampm;
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

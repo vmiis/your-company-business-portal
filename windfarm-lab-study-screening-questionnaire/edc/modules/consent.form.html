@@ -1,0 +1,94 @@
+<section class="w3s">
+    <div id=toolbar__ID class="w3-padding-8 w3-grey w3-padding-left w3-normal" >
+        <a id=save__ID  class="w3-btn w3-dark-grey w3-hover-black w3-text-white w3-round-large" >Save & Back</a> <span class=tab__ID></span><span id=name__ID></span>
+    </div>
+<div>
+</div>
+    <div class="w3-container w3-content-2">
+        <form id=F__ID>
+            <div class="w3-xlarge w3-center w3-padding-16">Consent</div>
+            <div class="w3-container " id=tr_participant__ID style='display:none' data-id=Participant data-custom=1>
+                <input class="w3-input w3-half" name=Participant  id=Participant__ID  type=text placeholder='select a partcipant...' />
+                <input class="w3-quarter w3-border-0 w3-text-grey w3-center" name=Participant_uid id=Participant_uid__ID type=text readonly  />
+                <u  class="w3-quarter w3-btn w3-white w3-border-bottom " id=Participant_r__ID>Remove</u>
+            </div>
+            <div class="w3-container w3-padding-16" data-id=first_language style='vertical-align:middle' data-custom=1 >
+                <label> Dear Sir/Madam,<br><br>
+                This questionnaire was developed by the Woolcock Institute of Medical Research.<br><br>
+                The Wind Farm study is exclusively funded by the Australian Commonwealth through the National Health and Medical Research Council (NHMRC) and aims to study the impact of noise exposures on sleep and health including the inaudible sound that is produced by wind turbines called 'infrasound'.<br><br>
+                This important research is impossible without the generous contributions from volunteers and as such we would like to invite you to contribute to this research effort designed to better understand the effects of Wind farms on health including sleep. We would be grateful if you would complete the following questionnaire that will take up to 30 minutes. Please complete all sections unless it states that you are not required to do so.<br><br>
+                Taking part in this research is completely voluntary and all information obtained in this questionnaire will be kept confidential and de-identified prior to any research use. Any research information will be de-identified and stored completely anonymously and separate from your personal information on a Wind Farms database with the same high level of security as your personal medical record. Your information will not be provided to any third party unless required by law.<br><br>
+                    If you have any concerns or questions we encourage you to contact our research team at Windfarmstudy@woolcock.org.au<br><br><br>
+                </label>
+            </div>
+            <div class="w3-container w3-padding-16" data-id=Consent style='vertical-align:middle' data-custom=1 >
+                <label><b>I have read and understood the above information and:<br><br> </b>Please select</label><br>
+               <br> <div class="w3-col">
+                    <input class="w3-radio" type="radio" name="Consent" id=Consent value=Yes \>
+                    <label  for=Consent_Y__ID>&nbsp;Yes, I agree to participate in this research study and I understand that I may be contacted and invited to participate in future stages of screening if suitable</label>
+                    <br><br><input  class="w3-radio"  type="radio" name="Consent" id=Consent value=No \>
+                    <label  for=Consent_N__ID>&nbsp;No, I do not wish to take part in this or future research</label>
+                </div>
+            </div>
+            <div class="w3-container w3-padding-16" data-id=first_language style='vertical-align:middle' data-custom=1 >
+
+                <label> <i>By selecting ‘Yes’, you are stating that you understand the information provided and give consent for your de-identified responses to be used for research purposes.<br><br>
+                  <ul style="list-style-type:circle">
+                 <li>You understand that your participation in this research study is entirely voluntary</li><br>
+                 <li>You are under no obligation to participate and you can withdraw at any time<br><br></li>
+                 <li>You also understand that all data collected under this research study is strictly confidential.</li></i></label></li><br>
+            </div>
+        </form>
+        <a id=save2__ID  class="w3-btn w3-dark-grey w3-hover-black w3-text-white w3-round-large" >Save &amp; Back</a>
+
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#F__ID div[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "Consent":
+                        $(this).parent().find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $(this).parent().find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if($('#F__ID input[name=Consent]:checked').val()===undefined){ $vm.alert("Please answer the consent question");	return false;}
+            if($('#F__ID input[name=Consent]:checked').val()==='No'){ $vm.alert("Thank you for your interest. If you do not give your consent you will not be able to continue with this questionnaire.");	return false;}
+            return true;
+        }
+        //----------------------------------
+    }
+</script>
+<style>
+    VmInclude:__CURRENT_PATH__/assets/w3.css
+	#D__ID{
+	  height:100%;
+	  overflow:auto;
+	  animation: vm_module_fadein 1.0s;
+	  background-color:#fff;
+	}
+</style>

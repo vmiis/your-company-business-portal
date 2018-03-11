@@ -1,0 +1,274 @@
+<section class=w3s>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+    <div class="w3-container w3-content-2">
+        <form id=F__ID >
+            <div class="w3-xlarge w3-center w3-padding-16">Thank you for you completing the first section of our online questionnaire</div>
+            <div class="w3-container w3-padding-16 w3-large" data-id=first_language style='vertical-align:middle' data-custom=1 >
+                <label> We are currently checking your answers to see if you are eligible to continue. <br><br>
+                    Please click on the "Check Eligibility" button to see if you are eligible.<br><br><br>
+                </label>
+            </div>
+<!--                <label> Unfortunately, based on your answers you are not eligible to participate in this study.
+            If you are interested in participating in other research studies at the Woolcock Institute of Medical research.
+            Please visit www.woolcock.org.au for more studies that may be suitable for you to participate in. <br><br></label>
+            </div>
+            <div class="w3-container w3-padding-16 w3-large" id=included>
+                <label>You are eligible to continue our online questionnaire, please click on next to continue the list of questionnaire.<br><br></label>
+            </div> -->
+        </form>
+        <a id=save2__ID  class="w3-btn w3-dark-grey w3-hover-black w3-text-white w3-round-large" >Check Eligibility</a>
+    </div>
+</section>
+<script>
+function F__ID(){
+    //----------------------------------
+    VmInclude:__CURRENT_PATH__/task.form.js
+    VmInclude:__COMPONENT__/grid/form.v3.js
+    var _task_fields;
+    //----------------------------------
+    $('#D__ID').on('load',function(){
+        _init();
+        _field_process();
+        _set_participant_field();
+        _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+        custom_field_process();
+    })
+    //----------------------------------
+    var custom_field_process=function(){
+        $('#tb__ID td[data-custom=1]').each(function(){
+            var field=$(this).attr('data-id');
+            switch(field){
+                case "Participant":
+                    $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                    $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                break;
+            }
+        })
+    }
+    //----------------------------------
+    _before_submit_form=function(){
+        var check;
+        if($vm.online_questionnaire==1) check=check_2();
+        else check=check_1();
+        if(check===0){
+            $vm.alert('Thank you for taking the time to complete our questionnaire. Unfortunately, based on the responses you have given, you do not meet the eligibility criteria and will not be able to continue the questionnaire or participate in this research study. If you would like further information on research projects at the Woolcock Institute of Medical Research, please visit www.woolcock.org.au');
+            return false;
+        }
+        else {return true;}
+    }
+    //----------------------------------
+    /*
+    stop if
+    pid=20009060 Consent=='No'
+    or
+    pid=20009061 recent_travel=='Yes'
+    or
+    pid=20009061 pregnant=='Yes'
+    or
+    pid=20009063 wnss < 58
+    or
+    pid=20009064 ISI > 18
+    */
+    //----------------------------------
+    var check_1=function(){ //for researcher
+        var output=1;
+        jQuery.ajaxSetup({async:false});
+        var p_uid=_records[I].Participant_uid;
+        var sql="with tb1 as (select PUID,Consent=@('Consent') from [TABLE-20009060]) \
+        ,tb2 as (select PUID,age=@('age'),recent_travel=@('recent_travel'),pregnant=@('pregnant') from [TABLE-20009061]) \
+        ,tb3 as (select PUID,wnss=@('wnss') from [TABLE-20009063]) \
+        ,tb4 as (select PUID,ISI=@('ISI') from [TABLE-20009064]) \
+            select Consent,age,recent_travel,pregnant,wnss,ISI \
+            from tb1 join tb2 on tb1.PUID=@I1 and tb1.PUID=tb2.PUID join tb3 on tb1.PUID=@I1 and tb1.PUID=tb3.PUID join tb4 on tb1.PUID=@I1 and tb1.PUID=tb4.PUID  \
+        ";
+            //$VmAPI.request({data:{cmd:'query_records_s2',sql:sql,i1:p_uid},callback:function(res){
+			$VmAPI.request({data:{cmd:'query_records',sql:sql,i1:p_uid},callback:function(res){
+            if(res.records.length==1){
+                if(res.records[0].Consent=='No') {output=0;}
+				else if(parseInt(res.records[0].age)<18) {output=0;}
+                //else if(res.records[0].recent_travel=='Yes') {output=0;}
+                else if(res.records[0].pregnant=='Yes') {output=0;}
+                else if(parseInt(res.records[0].wnss)<58) {output=0;}
+                else if(parseInt(res.records[0].ISI)>18) {output=0;}
+            }
+            else {output=1;}
+        }})
+        jQuery.ajaxSetup({async:true});
+        return output;
+    }
+    //----------------------------------
+    var check_2=function(){ //for participant
+        var output=1;
+        jQuery.ajaxSetup({async:false});
+        var req_data={cmd:'query_special_records',sql:'windfarm_screening_eligibility_check',owner:'woolcock',i1:_records[I].Participant_uid}
+        $VmAPI.request({data:req_data,callback:function(res){
+            if(res.records[0].Consent=='No') {output=0;}
+			else if(parseInt(res.records[0].age)<18) {output=0;}
+            //else if(res.records[0].recent_travel=='Yes') {output=0;}
+            else if(res.records[0].pregnant=='Yes') {output=0;}
+            else if(parseInt(res.records[0].wnss)<58) {output=0;}
+            else if(parseInt(res.records[0].ISI)>18) {output=0;}
+        }})
+        jQuery.ajaxSetup({async:true});
+        return output;
+    }
+    //----------------------------------
+}
+</script>
+<style>
+VmInclude:__COMPONENT__/toolbar/toolbar.css
+VmInclude:__COMPONENT__/grid/form.css
+#tb__ID input[type=radio]{
+    cursor:pointer;
+}
+#tb__ID tr td:nth-child(2),
+#tb__ID tr td:nth-child(3),
+#tb__ID tr td:nth-child(4),
+#tb__ID tr td:nth-child(5)
+{
+    text-align: center;
+    padding-top: 0px;
+    vertical-align:middle;
+}
+#tb__ID tr td:nth-child(1){
+    text-align: left;
+    vertical-align:middle;
+}
+tr:hover{ background-color:#f0f0f0;}
+.answ__ID{
+    font-weight:normal;
+    font-style:italic;
+    font-size:15px;
+    border:1px solid #B8BDBF;
+}
+.modified_radio__ID {
+    -webkit-appearance: none;
+    -moz-appearance: button;
+/*	background-color: #fafafa;*/
+    border: 1px solid #B8BDBF;
+    width:52px;
+    height:26px;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    padding: 0px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    opacity:0.3;
+}
+.modified_radio__ID:active, .modified_radio__ID:checked:active {
+    /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+}
+
+.modified_radio__ID:checked {
+        -moz-appearance: button;
+    background-color: #888;
+    border: 1px solid #333;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    color: #99a1a7;
+    opacity:0.85;
+}
+.modified_radio__ID:checked:after {
+    /*content: '\2714';*/
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: #99a1a7;
+}
+.modified_radio_2__ID {
+    -webkit-appearance: none;
+    -moz-appearance: button;
+/*	background-color: #fafafa;*/
+    border: 1px solid #B8BDBF;
+    width:120px;
+    height:26px;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    padding: 0px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    opacity:0.3;
+}
+.modified_radio_2__ID:active, .modified_radio__ID:checked:active {
+    /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+}
+
+.modified_radio_2__ID:checked {
+        -moz-appearance: button;
+    background-color: #888;
+    border: 1px solid #333;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    color: #99a1a7;
+    opacity:0.85;
+}
+.modified_radio_2__ID:checked:after {
+    /*content: '\2714';*/
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: #99a1a7;
+}
+.modified_radio_3__ID {
+    -webkit-appearance: none;
+    -moz-appearance: button;
+/*	background-color: #fafafa;*/
+    border: 1px solid #B8BDBF;
+    width:80px;
+    height:26px;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    padding: 0px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    opacity:0.3;
+}
+.modified_radio_3__ID:active, .modified_radio__ID:checked:active {
+    /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+}
+
+.modified_radio_3__ID:checked {
+    -moz-appearance: button;
+    background-color: #888;
+    border: 1px solid #333;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    color: #99a1a7;
+    opacity:0.85;
+}
+.modified_radio_3__ID:checked:after {
+    /*content: '\2714';*/
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: #99a1a7;
+}
+.modified_number_no__ID{
+    vertical-align: top;
+    margin-left:-38px;
+    font-size:14pt;
+}
+.modified_number_yes__ID{
+    vertical-align: top;
+    margin-left:-73px;
+    font-size:14pt;
+}
+.modified_number_sometimes__ID{
+    vertical-align: top;
+    margin-left:-112px;
+    font-size:14pt;
+}
+
+.rb__ID{
+    padding-top:5px!important;
+    text-align: center!important;
+    vertical-align: middle;
+}
+	VmInclude:__CURRENT_PATH__/assets/w3.css
+	#D__ID{
+	  height:100%;
+	  overflow:auto;
+	  animation: vm_module_fadein 1.0s;
+	  background-color:#fff;
+	}
+</style>

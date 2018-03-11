@@ -1,0 +1,6 @@
+{
+	"modules":
+	{
+		"sfix-registration-home":	  {"url":"modules/website/task/home.html", "name_for_search":"SFIX registration"}
+	}
+}

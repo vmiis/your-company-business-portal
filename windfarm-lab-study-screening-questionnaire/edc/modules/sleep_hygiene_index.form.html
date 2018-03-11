@@ -1,0 +1,178 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:800px;'>
+            <colgroup><col />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+            </colgroup>
+
+            <tr><td colspan=6 class='header__ID'>Sleep Hygiene Index</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=6 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=6 class=' '><br /><b><i>Please indicate how frequently you engage in the following behaviours</i></b>
+             <br /><br /></td></tr>
+             <tr><th>Question</th><th>always</th><th>frequently</th><th>sometimes</th><th>rarely</th><th>never</th></tr>
+             <tr><td>1. I take daytime naps lasting two or more hours.</td><td data-id=SHI_1 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_1 id=SHI_1  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_1   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_1   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_1   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_1   /></td></tr>
+             <tr><td>2. I go to bed at different times from day to day.</td><td data-id=SHI_2 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_2 id=SHI_2  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_2   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_2   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_2   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_2   /></td></tr>
+             <tr><td>3. I get out of bed at different times from day to day</td><td data-id=SHI_3 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_3 id=SHI_3  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_3   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_3   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_3   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_3   /></td></tr>
+             <tr><td>4. I exercise to the point of sweating within 1 h of going to bed.</td><td data-id=SHI_4 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_4 id=SHI_4  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_4   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_4   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_4   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_4   /></td></tr>
+             <tr><td>5. I stay in bed longer than I should two or three times a week.</td><td data-id=SHI_5 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_5 id=SHI_5  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_5   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_5   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_5   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_5   /></td></tr>
+             <tr><td>6. I use alcohol, tobacco, or caffeine within 4 h of going to bed or after going to bed.</td><td data-id=SHI_6 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_6 id=SHI_6  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_6   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_6   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_6   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_6   /></td></tr>
+             <tr><td>7. I do something that may wake me up before bedtime (for example: play video games, use the internet, or clean).</td><td data-id=SHI_7 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_7 id=SHI_7  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_7   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_7   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_7   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_7   /></td></tr>
+             <tr><td>8. I go to bed feeling stressed, angry, upset, or nervous.</td><td data-id=SHI_8 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_8 id=SHI_8  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_8   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_8   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_8   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_8  /></td></tr>
+             <tr><td>9. I use my bed for things other than sleeping or sex (for example: watch television, read, eat, or study).</td><td data-id=SHI_9 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_9 id=SHI_9  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_9   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_9   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_9   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_9   /></td></tr>
+             <tr><td>10. I sleep on an uncomfortable bed (for example: poor mattress or pillow, too much or not enough blankets).</td><td data-id=SHI_10 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_10 id=SHI_10  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_10   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_10   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_10   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_10   /></td></tr>
+             <tr><td>11. I sleep in an uncomfortable bedroom (for example: too bright, too stuffy, too hot, too cold, or too noisy).</td><td data-id=SHI_11 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_11 id=SHI_11  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_11   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_11   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_11   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_11   /></td></tr>
+             <tr><td>12. I do important work before bedtime (for example: pay bills, schedule, or study).</td><td data-id=SHI_12 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_12 id=SHI_12  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_12   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_12   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_12   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_12   /></td></tr>
+             <tr><td>13. I think, plan, or worry when I am in bed.</td><td data-id=SHI_13 data-custom=1><input class=modified_radio__ID type=radio value=5 name=SHI_13 id=SHI_13  /></td><td><input class=modified_radio__ID type=radio value=4 name=SHI_13   /></td><td><input class=modified_radio__ID type=radio value=3 name=SHI_13   /></td><td><input class=modified_radio__ID type=radio value=2 name=SHI_13   /></td><td><input class=modified_radio__ID type=radio value=1 name=SHI_13   /></td></tr>
+             <tr id=tr_participant__ID ><td>Total Score</td><td colspan=5><input type=text name=SHI id=SHI  /></td></tr>
+         </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "SHI_1":
+                    case "SHI_2":
+                    case "SHI_3":
+                    case "SHI_4":
+                    case "SHI_5":
+                    case "SHI_6":
+                    case "SHI_7":
+                    case "SHI_8":
+                    case "SHI_9":
+                    case "SHI_10":
+                    case "SHI_11":
+                    case "SHI_12":
+                    case "SHI_13":
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+        _before_submit_form=function(){
+            if( $('#tb__ID').find('input[name=SHI_1]:checked').val()===undefined){ $vm.alert("Please answer question 1"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_2]:checked').val()===undefined){ $vm.alert("Please answer question 2"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_3]:checked').val()===undefined){ $vm.alert("Please answer question 3"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_4]:checked').val()===undefined){ $vm.alert("Please answer question 4"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_5]:checked').val()===undefined){ $vm.alert("Please answer question 5"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_6]:checked').val()===undefined){ $vm.alert("Please answer question 6"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_7]:checked').val()===undefined){ $vm.alert("Please answer question 7"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_8]:checked').val()===undefined){ $vm.alert("Please answer question 8"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_9]:checked').val()===undefined){ $vm.alert("Please answer question 9"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_10]:checked').val()===undefined){ $vm.alert("Please answer question 10"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_11]:checked').val()===undefined){ $vm.alert("Please answer question 11"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_12]:checked').val()===undefined){ $vm.alert("Please answer question 12"); return false; }
+            if( $('#tb__ID').find('input[name=SHI_13]:checked').val()===undefined){ $vm.alert("Please answer question 13"); return false; }
+            var v1=parseInt($('#tb__ID').find('input[name=SHI_1]:checked').val());
+            var v2=parseInt($('#tb__ID').find('input[name=SHI_2]:checked').val());
+            var v3=parseInt($('#tb__ID').find('input[name=SHI_3]:checked').val());
+            var v4=parseInt($('#tb__ID').find('input[name=SHI_4]:checked').val());
+            var v5=parseInt($('#tb__ID').find('input[name=SHI_5]:checked').val());
+            var v6=parseInt($('#tb__ID').find('input[name=SHI_6]:checked').val());
+            var v7=parseInt($('#tb__ID').find('input[name=SHI_7]:checked').val());
+            var v8=parseInt($('#tb__ID').find('input[name=SHI_8]:checked').val());
+            var v9=parseInt($('#tb__ID').find('input[name=SHI_9]:checked').val());
+            var v10=parseInt($('#tb__ID').find('input[name=SHI_10]:checked').val());
+            var v11=parseInt($('#tb__ID').find('input[name=SHI_11]:checked').val());
+            var v12=parseInt($('#tb__ID').find('input[name=SHI_12]:checked').val());
+            var v13=parseInt($('#tb__ID').find('input[name=SHI_13]:checked').val());
+    	    var v14=v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12+v13;
+            _records[I].SHI=v14;
+            return true;
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID tr td:nth-child(2),
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    #tb__ID tr td:nth-child(5),
+    #tb__ID tr td:nth-child(6)
+    {
+        text-align: center;
+        padding: 5px;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+</style>

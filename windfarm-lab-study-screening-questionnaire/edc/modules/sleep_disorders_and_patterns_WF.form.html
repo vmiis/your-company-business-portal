@@ -1,0 +1,579 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:800px;'>
+            <colgroup>
+                <col style='width:400' />
+                <col style='width:80px' />
+                <col style='width:80px' />
+                <col style='width:80px' />
+                <col />
+            </colgroup>
+
+            <tr><td colspan=5 class='header__ID'>Sleep Disorders &amp; Patterns</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=5 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=5  ><br>1.    Have you been diagnosed with any of the following sleep conditions by a doctor?.<br><br>
+            Please tick all that apply. </td>
+            </tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_OSA  data-custom=1 data-id=diagnosis_OSA id=diagnosis_OSA style='vertical-align: middle' /><label for=diagnosis_OSA> Sleep Apnea</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_insom  data-custom=1 data-id=diagnosis_insom id=diagnosis_insom style='vertical-align: middle' /><label for=diagnosis_insom> Insomnia</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_narco  data-custom=1 data-id=diagnosis_narco id=diagnosis_narco style='vertical-align: middle' /><label for=diagnosis_narco> Narcolepsy</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_RLS  data-custom=1 data-id=diagnosis_RLS id=diagnosis_RLS style='vertical-align: middle' /><label for=diagnosis_RLS> Restless Legs or Periodic Leg Movements during Sleep</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_brux  data-custom=1 data-id=diagnosis_brux id=diagnosis_brux style='vertical-align: middle' /><label for=diagnosis_brux> Bruxism (teeth grinding)</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_REM  data-custom=1 data-id=diagnosis_REM id=diagnosis_REM style='vertical-align: middle' /><label for=diagnosis_REM> REM Behavioural Disorder</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_paras  data-custom=1 data-id=diagnosis_paras id=diagnosis_paras style='vertical-align: middle' /><label for=diagnosis_paras> Parasomnias (sleep walking, sleep talking, night terrors)</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_hypo  data-custom=1 data-id=diagnosis_hypo id=diagnosis_hypo style='vertical-align: middle' /><label for=diagnosis_hypo> Obesity Hypoventilation Syndrome</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_DSPD  data-custom=1 data-id=diagnosis_DSPD id=diagnosis_DSPD style='vertical-align: middle' /><label for=diagnosis_DSPD> Delayed Sleep Phase Disorder</label></td></tr>
+            <tr><td colspan=5 ><input class=modified_checkbox__ID type=checkbox name=diagnosis_none  data-custom=1 data-id=diagnosis_none id=diagnosis_none style='vertical-align: middle' /><label for=diagnosis_none> I have not been diagnosed with any sleep condition</label></td></tr>
+        </table>
+        <div id=tr_OSA>
+            <table id=tb__ID style='width:800px;'>
+                <colgroup>
+                    <col style='width:400' />
+                    <col style='width:80px' />
+                    <col style='width:80px' />
+                    <col style='width:80px' />
+                    <col />
+                </colgroup>
+
+                <tr><td colspan=5 class='subheader__ID'>Sleep Apnea</td></tr>
+                <tr><td colspan=5  ><br>2.    If you selected 'Sleep Apnea' as a diagnosed condition for question 1, were any of the following treatments recommended or prescribed for your sleep apnea? (multiple selections allowed)<br><br>
+                If you select any of following treatments, please also indicate if you are still using this treatment on a regular basis. </td>
+                </tr>
+                <tr ><td></td><td ></td>
+                <td colspan=3 >Are you still using this treatment <u>on a regular basis</u>?</td>
+                </tr>
+                <tr ><td></td><td style='text-align:center' >Tick</td>
+                <td >Yes</td>
+                <td >No</td>
+                <td >Why Not</td>
+                </tr>
+                <tr><td >Continuous positive airway pressure (CPAP) machine </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_CPAP  data-custom=1 data-id=OSA_CPAP id=OSA_CPAP></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_CPAP_reguse  data-custom=1 data-id=OSA_CPAP_reguse id=OSA_CPAP_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_CPAP_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=OSA_CPAP_no  data-custom=1 data-id=OSA_CPAP_no id=OSA_CPAP_no ></td>
+                </tr>
+                <tr><td >Mandibular advancement splint, dental device or oral appliance  </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_MAS  data-custom=1 data-id=OSA_MAS id=OSA_MAS></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_MAS_reguse  data-custom=1 data-id=OSA_MAS_reguse id=OSA_MAS_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_MAS_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=OSA_MAS_no  data-custom=1 data-id=OSA_MAS_no id=OSA_MAS_no ></td>
+                </tr>
+                <tr><td >Lifestyle advice (e.g. diet, exercise, weight loss program)</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_life  data-custom=1 data-id=OSA_life id=OSA_life></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_life_reguse  data-custom=1 data-id=OSA_life_reguse id=OSA_life_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_life_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=OSA_life_no  data-custom=1 data-id=OSA_life_no id=OSA_life_no ></td>
+                </tr>
+                <tr><td >Medications prescribed by your doctor that help you stay awake (e.g. modafinil (Provigil, Modavigil), Ritalin, Amphetamine)</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_med  data-custom=1 data-id=OSA_med id=OSA_med></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_med_reguse  data-custom=1 data-id=OSA_med_reguse id=OSA_med_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_med_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=OSA_med_no  data-custom=1 data-id=OSA_med_no id=OSA_med_no ></td>
+                </tr>
+                <tr><td >Over the counter treatments or drugs not prescribed by your doctor (e.g. snore strips, snore sprays, snore rings)</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_npresmed  data-custom=1 data-id=OSA_npresmed id=OSA_npresmed></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_npresmed_reguse  data-custom=1 data-id=OSA_npresmed_reguse id=OSA_npresmed_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_npresmed_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=OSA_npresmed_no  data-custom=1 data-id=OSA_npresmed_no id=OSA_npresmed_no ></td>
+                </tr>
+                <tr><td >Positional treatments (e.g. tennis ball, something to stop you rolling on your back)</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_position  data-custom=1 data-id=OSA_position id=OSA_position></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_position_reguse  data-custom=1 data-id=OSA_position_reguse id=OSA_position_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_position_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=OSA_position_no  data-custom=1 data-id=OSA_position_no id=OSA_position_no ></td>
+                </tr>
+                <tr><td >Other</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_other  data-custom=1 data-id=OSA_other id=OSA_other></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_other_reguse  data-custom=1 data-id=OSA_other_reguse id=OSA_other_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=OSA_other_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=OSA_other_no  data-custom=1 data-id=OSA_other_no id=OSA_other_no ></td>
+                </tr>
+                <tr><td >Surgery</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_surgery  data-custom=1 data-id=OSA_surgery id=OSA_surgery></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+                <tr><td >Waiting for treatment</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_waiting  data-custom=1 data-id=OSA_waiting id=OSA_waiting></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+                <tr><td >No treatment</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=OSA_none  data-custom=1 data-id=OSA_none id=OSA_none></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+            </table>
+        </div>
+            <div id=tr_surgery>
+                <table id=tb__ID style='width:800px;'>
+                    <colgroup>
+                        <col style='width:400' />
+                        <col style='width:80px' />
+                        <col style='width:80px' />
+                        <col style='width:80px' />
+                        <col />
+                    </colgroup>
+
+                <tr><td colspan=5 _indent ><br>i.    If you selected the 'Surgery' option in question 2, please specify the type and year of surgery:<br></td></tr>
+                    <tr ><td></td><td style='text-align:center' >Tick</td>
+                <td >Year</td>
+                <td  colspan=2></td></tr>
+                <tr><td _indent>Palatal surgery</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=surgery_palatal  data-custom=1 data-id=surgery_palatal id=surgery_palatal></td>
+                <td><input type=number class=input_box__ID name=palatal_yr  data-custom=1 data-id=palatal_yr id=palatal_yr ></td>
+                <td colspan=2></td></tr>
+                    <tr><td _indent>Tonsillectomy</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=surgery_tonsillectomy  data-custom=1 data-id=surgery_tonsillectomy id=surgery_tonsillectomy></td>
+                <td><input type=number class=input_box__ID name=tonsillectomy_yr  data-custom=1 data-id=tonsillectomy_yr id=tonsillectomy_yr ></td>
+                <td colspan=2></td></tr>
+                <tr><td _indent>Nose surgery</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=surgery_nose  data-custom=1 data-id=surgery_nose id=surgery_nose></td>
+                <td><input type=number class=input_box__ID name=nose_yr  data-custom=1 data-id=nose_yr id=nose_yr ></td>
+                <td colspan=2></td></tr>
+                <tr><td _indent>Laser treatment</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=surgery_laser  data-custom=1 data-id=surgery_laser id=surgery_laser></td>
+                <td><input type=number class=input_box__ID name=laser_yr  data-custom=1 data-id=laser_yr id=laser_yr ></td>
+                <td colspan=2></td></tr>
+                <tr><td _indent>Surgery for weight loss</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=surgery_weight  data-custom=1 data-id=surgery_weight id=surgery_weight></td>
+                <td><input type=number class=input_box__ID name=weight_yr  data-custom=1 data-id=weight_yr id=weight_yr ></td>
+                <td colspan=2></td></tr>
+                <tr><td _indent>Other
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=surgery_other  data-custom=1 data-id=surgery_other id=surgery_other></td>
+                <td><input type=number class=input_box__ID name=other_yr  data-custom=1 data-id=other_yr id=other_yr ></td>
+                <td colspan=2>Please specify<input type=text class=input_box__ID name=surgother_specify  data-custom=1 data-id=surgother_specify id=surgother_specify ></td></tr>
+            </table>
+        </div>
+            <div id=tr_insomnia>
+                <table id=tb__ID style='width:800px;'>
+                    <colgroup>
+                        <col style='width:400' />
+                        <col style='width:80px' />
+                        <col style='width:80px' />
+                        <col style='width:80px' />
+                        <col />
+                    </colgroup>
+
+                <tr><td colspan=5 class='subheader__ID'>Insomnia</td></tr>
+                <tr><td colspan=5  ><br>3.    If you selected 'Insomnia' as a diagnosed condition for question 1, were any of the following treatments recommended or prescribed for your insomnia? (multiple selections allowed)<br><br>
+                If you select any of following treatments, please also indicate if you are still using this treatment on a regular basis. </td>
+                </tr>
+                <tr ><td></td><td ></td>
+                <td colspan=3 >Are you still using this treatment <u>on a regular basis</u>?</td>
+            </tr>
+                <tr ><td></td><td style='text-align:center' >Tick</td>
+                <td >Yes</td>
+                <td >No</td>
+                <td >Why Not</td>
+            </tr>
+                <tr><td >Referral to psychologist / cognitive behavioural therapy (CBT) program</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_psychologist  data-custom=1 data-id=insom_psychologist id=insom_psychologist></td>
+                <td><input type=radio class=modified_radio__ID name=insom_psychologist_reguse  data-custom=1 data-id=insom_psychologist_reguse id=insom_psychologist_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_psychologist_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_psychologist_no  data-custom=1 data-id=insom_psychologist_no id=insom_psychologist_no ></td>
+                </tr>
+                <tr><td >Referral to a psychiatrist </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_psychiatrist  data-custom=1 data-id=insom_psychiatrist id=insom_psychiatrist></td>
+                <td><input type=radio class=modified_radio__ID name=insom_psychiatrist_reguse  data-custom=1 data-id=insom_psychiatrist_reguse id=insom_psychiatrist_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_psychiatrist_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_psychiatrist_no  data-custom=1 data-id=insom_psychiatrist_no id=insom_psychiatrist_no ></td>
+                </tr>
+                <tr><td >Lifestyle advice (e.g. diet, exercise, weight loss program)</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_life  data-custom=1 data-id=insom_life id=insom_life></td>
+                <td><input type=radio class=modified_radio__ID name=insom_life_reguse  data-custom=1 data-id=insom_life_reguse id=insom_life_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_life_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_life_no  data-custom=1 data-id=insom_life_no id=insom_life_no ></td>
+                </tr>
+                <tr><td >Medications prescribed by your doctor that help you sleep </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_med  data-custom=1 data-id=insom_med id=insom_med></td>
+                <td><input type=radio class=modified_radio__ID name=insom_med_reguse  data-custom=1 data-id=insom_med_reguse id=insom_med_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_med_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_med_no  data-custom=1 data-id=insom_med_no id=insom_med_no ></td>
+                </tr>
+                <tr><td >Over the counter treatments / drugs not prescribed by your doctor (e.g. valerian, herbal remedies, magnesium, melatonin)</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_npresmed  data-custom=1 data-id=insom_npresmed id=insom_npresmed></td>
+                <td><input type=radio class=modified_radio__ID name=insom_npresmed_reguse  data-custom=1 data-id=insom_npresmed_reguse id=insom_npresmed_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_npresmed_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_npresmed_no  data-custom=1 data-id=insom_npresmed_no id=insom_npresmed_no ></td>
+                </tr>
+                <tr><td >Acupuncture or hypnotherapy</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_complement  data-custom=1 data-id=insom_complement id=insom_complement></td>
+                <td><input type=radio class=modified_radio__ID name=insom_complement_reguse  data-custom=1 data-id=insom_complement_reguse id=insom_complement_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_complement_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_complement_no  data-custom=1 data-id=insom_complement_no id=insom_complement_no ></td>
+                </tr>
+                <tr><td >Meditation, yoga, and / or relaxation techniques </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_relax  data-custom=1 data-id=insom_relax id=insom_relax></td>
+                <td><input type=radio class=modified_radio__ID name=insom_relax_reguse  data-custom=1 data-id=insom_relax_reguse id=insom_relax_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_relax_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_relax_no  data-custom=1 data-id=insom_relax_no id=insom_relax_no ></td>
+                </tr>
+                <tr><td >Other</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_other  data-custom=1 data-id=insom_other id=insom_other></td>
+                <td><input type=radio class=modified_radio__ID name=insom_other_reguse  data-custom=1 data-id=insom_other_reguse id=insom_other_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=insom_other_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=insom_other_no  data-custom=1 data-id=insom_other_no id=insom_other_no ></td>
+                </tr>
+                <tr><td >Waiting for treatment</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_waiting  data-custom=1 data-id=insom_waiting id=insom_waiting></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+                <tr><td >No treatment</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=insom_none  data-custom=1 data-id=insom_none id=insom_none></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+            </table>
+        </div>
+        <div id=tr_other>
+            <table id=tb__ID style='width:800px;'>
+                <colgroup>
+                    <col style='width:400' />
+                    <col style='width:80px' />
+                    <col style='width:80px' />
+                    <col style='width:80px' />
+                    <col />
+                </colgroup>
+
+                <tr><td colspan=5 class='subheader__ID'>Other diagnosed condition</td></tr>
+                <tr><td colspan=5  ><br>4.    For any other diagnosed condition, were any of the following treatments recommended or prescribed for your condition? (multiple selections allowed)<br><br>
+                If you select any of following treatments, please also indicate if you are still using this treatment on a regular basis. </td>
+                </tr>
+                <tr ><td></td><td ></td>
+                <td colspan=3 >Are you still using this treatment <u>on a regular basis</u>?</td>
+                </tr>
+                <tr ><td></td><td style='text-align:center' >Tick</td>
+                <td >Yes</td>
+                <td >No</td>
+                <td >Why Not</td></tr>
+                <tr><td >Lifestyle advice (e.g. developing good sleep habits, avoiding sleep deprivation)</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=other_life  data-custom=1 data-id=other_life id=other_life></td>
+                <td><input type=radio class=modified_radio__ID name=other_life_reguse  data-custom=1 data-id=other_life_reguse id=other_life_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=other_life_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=other_life_no  data-custom=1 data-id=other_life_no id=other_life_no ></td>
+                </tr>
+                <tr><td >Referral to a psychiatrist</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=other_psychiatrist  data-custom=1 data-id=other_psychiatrist id=other_psychiatrist></td>
+                <td><input type=radio class=modified_radio__ID name=other_psychiatrist_reguse  data-custom=1 data-id=other_psychiatrist_reguse id=other_psychiatrist_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=other_psychiatrist_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=other_psychiatrist_no  data-custom=1 data-id=other_psychiatrist_no id=other_psychiatrist_no ></td>
+                </tr>
+                <tr><td >Medications prescribed by your doctor </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=other_med  data-custom=1 data-id=other_med id=other_med></td>
+                <td><input type=radio class=modified_radio__ID name=other_med_reguse  data-custom=1 data-id=other_med_reguse id=other_med_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=other_med_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=other_med_no  data-custom=1 data-id=other_med_no id=other_med_no ></td>
+                </tr>
+                <tr><td >Other</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=other_other  data-custom=1 data-id=other_other id=other_other></td>
+                <td><input type=radio class=modified_radio__ID name=other_other_reguse  data-custom=1 data-id=other_other_reguse id=other_other_reguse value=1></td>
+                <td><input type=radio class=modified_radio__ID name=other_other_reguse  value=0></td>
+                <td><input type=text class=input_box__ID name=other_other_no  data-custom=1 data-id=other_other_no id=other_other_no ></td>
+                </tr>
+                <tr><td >Waiting for treatment</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=other_waiting  data-custom=1 data-id=other_waiting id=other_waiting></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+                <tr><td >No treatment</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_checkbox__ID type=checkbox name=other_none  data-custom=1 data-id=other_none id=other_none></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+            display_page();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#F__ID *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    //Radio buttons
+                    case 'OSA_MAS_reguse':
+                    case 'OSA_CPAP_reguse':
+                    case 'OSA_life_reguse':
+                    case 'OSA_med_reguse':
+                    case 'OSA_npresmed_reguse':
+                    case 'OSA_position_reguse':
+                    case 'OSA_other_reguse':
+                    case 'insom_psychiatrist_reguse':
+                    case 'insom_npresmed_reguse':
+                    case 'insom_psychologist_reguse':
+                    case 'insom_life_reguse':
+                    case 'insom_med_reguse':
+                    case 'insom_complement_reguse':
+                    case 'insom_relax_reguse':
+                    case 'insom_other_reguse':
+                    case 'other_life_reguse':
+                    case 'other_psychiatrist_reguse':
+                    case 'other_med_reguse':
+                    case 'other_other_reguse':
+                    case 'nap':
+                    case 'nap_number':
+                    case 'nap_refreshed':
+                        $('#F__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#F__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                    //Checkbox
+                    case 'diagnosis_OSA':
+                    case 'diagnosis_insom':
+                    case 'diagnosis_narco':
+                    case 'diagnosis_RLS':
+                    case 'diagnosis_brux':
+                    case 'diagnosis_REM':
+                    case 'diagnosis_paras':
+                    case 'diagnosis_hypo':
+                    case 'diagnosis_DSPD':
+                    case 'diagnosis_none':
+                    case 'OSA_CPAP':
+                    case 'OSA_MAS':
+                    case 'OSA_life':
+                    case 'OSA_med':
+                    case 'OSA_npresmed':
+                    case 'OSA_position':
+                    case 'OSA_other':
+                    case 'OSA_surgery':
+                    case 'OSA_waiting':
+                    case 'OSA_none':
+                    case 'surgery_palatal':
+                    case 'surgery_tonsillectomy':
+                    case 'surgery_nose':
+                    case 'surgery_laser':
+                    case 'surgery_weight':
+                    case 'surgery_other':
+                    case 'insom_psychologist':
+                    case 'insom_psychiatrist':
+                    case 'insom_life':
+                    case 'insom_med':
+                    case 'insom_npresmed':
+                    case 'insom_relax':
+                    case 'insom_other':
+                    case 'insom_waiting':
+                    case 'insom_none':
+                    case 'insom_complement':
+                    case 'other_life':
+                    case 'other_psychiatrist':
+                    case 'other_med':
+                    case 'other_other':
+                    case 'other_waiting':
+                    case 'other_none':
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                            display_page();
+                        });
+                    break;
+                    //Date picker
+                    case 'xxxxxxxx':
+                        $(this).val(_records[I][field]);
+                        $(this).datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true,onClose:function(dateText){
+                            _set_value($(this).val(),_records,I,field);
+                        }});
+                    break;
+                    //Text
+                    case 'OSA_MAS_no':
+                    case 'OSA_CPAP_no':
+                    case 'OSA_life_no':
+                    case 'OSA_med_no':
+                    case 'OSA_npresmed_no':
+                    case 'OSA_position_no':
+                    case 'OSA_other_no':
+                    case 'palatal_yr':
+                    case 'tonsillectomy_yr':
+                    case 'nose_yr':
+                    case 'laser_yr':
+                    case 'weight_yr':
+                    case 'other_yr':
+                    case 'surgother_specify':
+                    case 'insom_med_no':
+                    case 'insom_psychologist_no':
+                    case 'insom_psychiatrist_no':
+                    case 'insom_life_no':
+                    case 'insom_npresmed_no':
+                    case 'insom_complement_no':
+                    case 'insom_relax_no':
+                    case 'insom_other_no':
+                    case 'other_life_no':
+                    case 'other_psychiatrist_no':
+                    case 'other_med_no':
+                    case 'other_other_no':
+                    case 'nap_length':
+                        $(this).val(_records[I][field]);
+                        $(this).on('change', function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+        }
+        var display_page=function(){
+            var vdiagnosis_OSA=$('#F__ID').find('input[name=diagnosis_OSA]').is(':checked');
+            var vdiagnosis_insom=$('#F__ID').find('input[name=diagnosis_insom]').is(':checked');
+            var vdiagnosis_narco=$('#F__ID').find('input[name=diagnosis_narco]').is(':checked');
+            var vdiagnosis_RLS=$('#F__ID').find('input[name=diagnosis_RLS]').is(':checked');
+            var viagnosis_brux=$('#F__ID').find('input[name=diagnosis_brux]').is(':checked');
+            var vdiagnosis_REM=$('#F__ID').find('input[name=diagnosis_REM]').is(':checked');
+            var vdiagnosis_paras=$('#F__ID').find('input[name=diagnosis_paras]').is(':checked');
+            var vdiagnosis_hypo=$('#F__ID').find('input[name=diagnosis_hypo]').is(':checked');
+            var vdiagnosis_DSPD=$('#F__ID').find('input[name=diagnosis_DSPD]').is(':checked');
+            var vOSA_surgery=$('#F__ID').find('input[name=OSA_surgery]').is(':checked');
+
+            if (vdiagnosis_OSA===true){$('#tr_OSA').show();}
+            else {;$('#tr_OSA').hide()}
+            if (vdiagnosis_insom===true){$('#tr_insomnia').show(); }
+            else {$('#tr_insomnia').hide()}
+            if (vOSA_surgery===true){$('#tr_surgery').show(); }
+            else {$('#tr_surgery').hide()}
+            if ( vdiagnosis_narco===true || vdiagnosis_RLS===true ||
+                viagnosis_brux===true || vdiagnosis_REM===true ||
+                vdiagnosis_paras===true || vdiagnosis_hypo===true || vdiagnosis_DSPD===true )
+                {$('#tr_other').show();}
+            else {$('#tr_other').hide();}
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID td{vertical-align:middle!important;}
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    #tb__ID tr td:nth-child(5)
+    {
+        text-align: center!important;
+        padding: 5px;
+    }
+    .input_box__ID{border: 1px #B8BDBF solid!important;width:99%!important;}
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.35;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+    .input_box_small__ID{
+        border: 1px solid #adb8c0!important;
+        width:100px!important;
+    }
+    .input_box__ID{
+        border: 1px solid #adb8c0!important;
+        width:99%!important;
+    }
+    .modified_checkbox__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: checkbox;
+    	background-color: #fafafa;
+    	border: 1px solid #cacece;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    	padding: 9px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    }
+    .modified_checkbox__ID:active, .modified_checkbox__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .modified_checkbox__ID:checked {
+        -moz-appearance: checkbox;
+    	background-color: #e9ecee;
+    	border: 1px solid #adb8c0;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    	color: #99a1a7;
+    }
+    .modified_checkbox__ID:checked:after {
+    	content: '\2714';
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+</style>

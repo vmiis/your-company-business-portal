@@ -1,0 +1,14 @@
+{
+    "modules":
+	{
+		"health-history":			{"table_id":"20011308","url":"clinic-online-questionnaire-01/modules/health-history.html"},
+		"sleep-history":			{"table_id":"20011309","url":"clinic-online-questionnaire-01/modules/sleep-history.html"},
+		"short-sleep-history":		{"table_id":"20011176","url":"clinic-online-questionnaire-01/modules/short-sleep-history.html"},
+		"personal":					{"table_id":"20011312","url":"clinic-online-questionnaire-01/modules/personal.html"},
+		"medicare-referrals":		{"table_id":"20011175","url":"clinic-online-questionnaire-01/modules/medicare-referrals.html"},
+		"epworth-sleepiness-scale":	{"table_id":"20011311","url":"clinic-online-questionnaire-01/modules/epworth-sleepiness-scale.html"},
+		"additional-questions":		{"table_id":"20011310","url":"clinic-online-questionnaire-01/modules/additional-questions.html"},
+		"consent":	            	{"table_id":"20011345","url":"clinic-online-questionnaire-01/modules/consent.html"},
+		"volunteer":	        	{"table_id":"20011342","url":"clinic-online-questionnaire-01/modules/volunteer.html"}
+	}
+}

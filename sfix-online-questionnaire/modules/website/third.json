@@ -1,0 +1,6 @@
+{
+	"modules":
+	{
+		"sfix-online-home":	  {"url":"modules/website/task/home.html", "name_for_search":"SFIX online questionnaire"}
+	}
+}

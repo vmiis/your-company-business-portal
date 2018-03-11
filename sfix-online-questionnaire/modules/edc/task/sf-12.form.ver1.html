@@ -1,0 +1,315 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/back_save.html
+    <form id=F__ID>
+        <table id=tb__ID style='width:850px;border: 3px #B8BDBF solid;'>
+            <colgroup><col style='' />
+                <col style='width:100px;' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+            </colgroup>
+
+            <tr><td colspan=7 class='header__ID'>SF-12</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=7 data-id=Participant data-custom=1>
+                <input name=Participant     id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=7 class=' '><br><b><i>This survey asks for your views about your health. This information will help you keep track of how you feel and how well you are able to do your usual activities.
+             <br><br>Answer every question by selecting the answer as indicated. If you are unsure about how to answer a question, please give the best answer you can.
+            </i></b>
+            <br><br>
+            </td></tr>
+             <tr><td colspan=7 class=' '><br><b>
+            1. In general, would you say your health is:</b></td></tr>
+            <tr><th class=answ__ID colspan=2 ></th><th class=answ__ID>Excellent</th><th class=answ__ID>Very good</th><th class=answ__ID>Good</th><th class=answ__ID>Fair</th><th class=answ__ID>Poor</th></tr>
+            <tr class=tr_row__ID><td colspan=2 data-id=SF12_1 data-custom=1 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_1 id=SF12_1 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_1  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_1  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=SF12_1  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=5 name=SF12_1  ></td></tr>
+             <tr><td colspan=7 class=' '><br><br><b>
+            2. The following questions are about activities you might do during a typical day. Does <u>your health now limit you</u> in these activities? If so, how much?</b></td></tr>
+            <tr><th class=answ__ID colspan=4 ></th><th class=answ__ID>Yes, limitied a lot</th><th class=answ__ID>Yes, limitied a little</th><th class=answ__ID>No, not limited at all</th></tr>
+            <tr class=tr_row__ID><td colspan=4 data-id=SF12_2 data-custom=1 >	a <u>Moderate activities</u>, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_2 id=SF12_2 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_2  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_2  ></td></tr>
+            <tr class=tr_row__ID><td colspan=4 data-id=SF12_3 data-custom=1 >	b Climbing <u>several</u> flights of stairs</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_3 id=SF12_3 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_3  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_3  ></td></tr>
+             <tr><td colspan=7 class=' '><br><br><b>
+             3. During the <u>past 4 weeks</u>, have you had any of the following problems with your work or other regular daily activities <u>as a result of your physical health</u>?</b></td></tr>
+             <tr><th class=answ__ID colspan=2 ></th><th class=answ__ID>Yes</th><th class=answ__ID>No</th><th colspan=3></th></tr>
+             <tr class=tr_row__ID><td colspan=2 data-id=SF12_4 data-custom=1 >	a <u>Accomplished less</u> than you would like</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 id=SF12_4 name=SF12_4  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_4  ></td><td colspan=3></td></tr>
+             <tr class=tr_row__ID><td colspan=2 data-id=SF12_5 data-custom=1 >	b Were limited in the <u>kind</u> of work or other activities</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 id=SF12_5 name=SF12_5  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_5  ></td><td colspan=3></td></tr>
+             <tr><td colspan=7 class=' '><br><br><b>
+            4. During the <u>past 4 weeks</u>, have you had any of the following problems with your work or other regular daily activities <u>as a result of any emotional problems</u> (such as feeling depressed or anxious)?</b></td></tr>
+            <tr><th class=answ__ID colspan=2 ></th><th class=answ__ID>Yes</th><th class=answ__ID>No</th><th colspan=3></th></tr>
+            <tr class=tr_row__ID><td colspan=2 data-id=SF12_6 data-custom=1 >	a <u>Accomplished less</u> than you would like</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 id=SF12_6 name=SF12_6  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_6  ></td><td colspan=3></td></tr>
+            <tr class=tr_row__ID><td colspan=2 data-id=SF12_7 data-custom=1 >	b Did work or other activities <u>less carefully than usual</u></td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 id=SF12_7 name=SF12_7  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_7  ></td><td colspan=3></td></tr>
+	             <tr><td colspan=7 class=' '><br><br><b>
+            5. During the <u>past 4 weeks</u>, how much did pain interfere with your normal work (including both work outside the home and housework)?</b></td></tr>
+            <tr><th class=answ__ID colspan=2 ></th><th class=answ__ID>Not at all</th><th class=answ__ID>A little bit</th><th class=answ__ID>Moderately</th><th class=answ__ID>Quite a bit</th><th class=answ__ID>Extremely</th></tr>
+            <tr class=tr_row__ID><td colspan=2 data-id=SF12_8 data-custom=1 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_8 id=SF12_8 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_8  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_8  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=SF12_8  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=5 name=SF12_8  ></td></tr>
+	       <tr><td colspan=7 class=' '><br><br><b>
+            6. These questions are about how you feel and how things have been with you <u>during the past 4 weeks</u>. For each question, please give the one answer that comes closest to the way you have been feeling.<br><br>
+            How much of the time during the <u>past 4 weeks</u>...</b></td></tr>
+            <tr><th class=answ__ID></th><th class=answ__ID>All of the time</th><th class=answ__ID>Most of the time</th><th class=answ__ID>A good bit of the time</th><th class=answ__ID>Some of the time</th><th class=answ__ID>A little of the time</th><th class=answ__ID>None of the time</th></tr>
+            <tr class=tr_row__ID><td data-id=SF12_9 data-custom=1 >a Have you felt calm and peaceful?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_9 id=SF12_9 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_9  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_9  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=SF12_9  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=5 name=SF12_9  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=6 name=SF12_9  ></td></tr>
+            <tr class=tr_row__ID><td data-id=SF12_10 data-custom=1 >b Did you have a lot of energy?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_10 id=SF12_10 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_10  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_10  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=SF12_10  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=5 name=SF12_10  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=6 name=SF12_10  ></td></tr>
+            <tr class=tr_row__ID><td data-id=SF12_11 data-custom=1 >c Have you felt downhearted and blue?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_11 id=SF12_11 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_11  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_11  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=SF12_11  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=5 name=SF12_11  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=6 name=SF12_11  ></td></tr>
+	             <tr><td colspan=7 class=' '><br><br><b>
+            7. During the <u>past 4 weeks</u>, how much of the time has your <u>physical health or emotional problems</u> interfered with your social activities (like visiting friends, relatives, etc.)?</b></td></tr>
+            <tr><th class=answ__ID colspan=2 ></th><th class=answ__ID>All the time</th><th class=answ__ID>Most of the time</th><th class=answ__ID>Some of the time</th><th class=answ__ID>A little of the time</th><th class=answ__ID>None of the time</th></tr>
+            <tr class=tr_row__ID><td colspan=2 data-id=SF12_12 data-custom=1 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 name=SF12_12 id=SF12_12 ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=2 name=SF12_12  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=3 name=SF12_12  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=SF12_12  ></td><td class=rb__ID><input class=modified_radio__ID type=radio value=5 name=SF12_12  ></td></tr>
+            <tr><td><input type=text id=PCSF12 name=PCSF12 style=display:none /></td></tr>
+        </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+		VmInclude:__CURRENT_PATH__/task.old.form.js
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "SF12_1":
+                    case "SF12_2":
+                    case "SF12_3":
+                    case "SF12_4":
+                    case "SF12_5":
+                    case "SF12_6":
+                    case "SF12_7":
+                    case "SF12_8":
+                    case "SF12_9":
+                    case "SF12_10":
+                    case "SF12_11":
+                    case "SF12_12":
+                        $(this).parent().find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $(this).parent().find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if($('#tb__ID input[name=SF12_1]:checked').val()===undefined){ $vm.alert("Please answer question 1");	return false;}
+            if($('#tb__ID input[name=SF12_2]:checked').val()===undefined){ $vm.alert("Please answer question 2a");	return false;}
+            if($('#tb__ID input[name=SF12_3]:checked').val()===undefined){ $vm.alert("Please answer question 2b");	return false;}
+            if($('#tb__ID input[name=SF12_4]:checked').val()===undefined){ $vm.alert("Please answer question 3a");	return false;}
+            if($('#tb__ID input[name=SF12_5]:checked').val()===undefined){ $vm.alert("Please answer question 3b");	return false;}
+            if($('#tb__ID input[name=SF12_6]:checked').val()===undefined){ $vm.alert("Please answer question 4a");	return false;}
+            if($('#tb__ID input[name=SF12_7]:checked').val()===undefined){ $vm.alert("Please answer question 4b");	return false;}
+            if($('#tb__ID input[name=SF12_8]:checked').val()===undefined){ $vm.alert("Please answer question 5");	return false;}
+            if($('#tb__ID input[name=SF12_9]:checked').val()===undefined){ $vm.alert("Please answer question 6a");	return false;}
+            if($('#tb__ID input[name=SF12_10]:checked').val()===undefined){ $vm.alert("Please answer question 6b");	return false;}
+            if($('#tb__ID input[name=SF12_11]:checked').val()===undefined){ $vm.alert("Please answer question 6c");	return false;}
+            if($('#tb__ID input[name=SF12_12]:checked').val()===undefined){ $vm.alert("Please answer question 7");	return false;}
+/*
+            var GH1=(6-parseInt($('#tb__ID input[name=SF12_1]:checked').val()))
+            var GH1_1=0;
+            var GH1_2=0;
+            var GH1_3=0;
+            var GH1_4=0;
+            if(GH1==1) GH1_1=1;
+            else if (GH1==2) GH1_2=1;
+            else if (GH1==3) GH1_3=1;
+            else if (GH1==4) GH1_4=1;
+            var PF02=parseInt($('#tb__ID input[name=SF12_2]:checked').val())
+            var PF02_1=0;
+            var PF02_2=0;
+            if(PF02==1) PF02_1=1;
+            else if (PF02==2) PF02_2=1;
+            var PF04=parseInt($('#tb__ID input[name=SF12_3]:checked').val())
+            var PF04_1=0;
+            var PF04_2=0;
+            if(PF04==1) PF04_1=1;
+            else if (PF04==2) PF04_2=1;
+            var RP2=parseInt($('#tb__ID input[name=SF12_4]:checked').val())
+            var RP2_1=0;
+            if(RP2==1) RP2_1=1;
+            var RP3=parseInt($('#tb__ID input[name=SF12_5]:checked').val())
+            var RP3_1=0;
+            if(RP3==1) RP3_1=1;
+            var RE2=parseInt($('#tb__ID input[name=SF12_6]:checked').val())
+            var RE2_1=0;
+            if(RE2==1) RE2_1=1;
+            var RE3=parseInt($('#tb__ID input[name=SF12_7]:checked').val())
+            var RE3_1=0;
+            if(RE3==1) RE3_1=1;
+            var BP2=(6-parseInt($('#tb__ID input[name=SF12_8]:checked').val()))
+            var BP2_1=0;
+            var BP2_2=0;
+            var BP2_3=0;
+            var BP2_4=0;
+            if(BP2==1) BP2_1=1;
+            else if (BP2==2) BP2_2=1;
+            else if (BP2==3) BP2_3=1;
+            else if (BP2==4) BP2_4=1;
+            var MH3=(7-parseInt($('#tb__ID input[name=SF12_9]:checked').val()))
+            var MH3_1=0;
+            var MH3_2=0;
+            var MH3_3=0;
+            var MH3_4=0;
+            var MH3_5=0;
+            if(MH3==1) MH3_1=1;
+            else if (MH3==2) MH3_2=1;
+            else if (MH3==3) MH3_3=1;
+            else if (MH3==4) MH3_4=1;
+            else if (MH3==5) MH3_5=1;
+            var VT2=(7-parseInt($('#tb__ID input[name=SF12_10]:checked').val()))
+            var VT2_1=0;
+            var VT2_2=0;
+            var VT2_3=0;
+            var VT2_4=0;
+            var VT2_5=0;
+            if(VT2==1) VT2_1=1;
+            else if (VT2==2) VT2_2=1;
+            else if (VT2==3) VT2_3=1;
+            else if (VT2==4) VT2_4=1;
+            else if (VT2==5) VT2_5=1;
+            var MH4=(parseInt($('#tb__ID input[name=SF12_11]:checked').val()))
+            var MH4_1=0;
+            var MH4_2=0;
+            var MH4_3=0;
+            var MH4_4=0;
+            var MH4_5=0;
+            if(MH4==1) MH4_1=1;
+            else if (MH4==2) MH4_2=1;
+            else if (MH4==3) MH4_3=1;
+            else if (MH4==4) MH4_4=1;
+            else if (MH4==5) MH4_5=1;
+            var SF2=(parseInt($('#tb__ID input[name=SF12_12]:checked').val()))
+            var SF2_1=0;
+            var SF2_2=0;
+            var SF2_3=0;
+            var SF2_4=0;
+            if(SF2==1) SF2_1=1;
+            else if (SF2==2) SF2_2=1;
+            else if (SF2==3) SF2_3=1;
+            else if (SF2==4) SF2_4=1;
+            var RAWPCSF12=(-7.23216*PF02_1) + (-3.4555*PF02_2) + (-6.24397*PF04_1) + (-2.73557*PF04_2) + (-4.61617*RP2_1) + (-5.51747* RP3_1) + (-11.25544*BP2_1) + (-8.38063*BP2_2) + (-6.50522*BP2_3) + (-3.80130*BP2_4) + (-8.37399*GH1_1) + (-5.56461*GH1_2) + (-3.02396*GH1_3) + (-1.31872*GH1_4) + (-2.44706*VT2_1) + (-2.02168*VT2_2) + (-1.6185*VT2_3) + (-1.14387*VT2_4) + (-0.42251*VT2_5) + ( -0.33682*SF2_1) + (-0.94342*SF2_2) + (-0.18043*SF2_3) + (0.11038*SF2_4) + (3.04365*RE2_1) + (2.32091*RE3_1) + (3.46638*MH3_1) + (2.90426*MH3_2) + (2.37241*MH3_3) + (1.36689*MH3_4) + (0.66514*MH3_5) + (4.61446*MH4_1) + (3.41593*MH4_2) + (2.34247*MH4_3) + (1.28044*MH4_4) + (0.41188*MH4_5);
+            var RAWMCSF12=(3.93115*PF02_1) + (1.8684*PF02_2) + (2.68282*PF04_1) + (1.43103*PF04_2) + (1.4406*RP2_1) + (1.66968*RP3_1) + (1.48619*BP2_1) +( 1.76691*BP2_2) + (1.49384*BP2_3) + (0.90384*BP2_4) + (-1.71175*GH1_1) + (-0.16891*GH1_2) + (0.03482*GH1_3) + (-0.06064*GH1_4) + (-6.02409*VT2_1) + (-4.88962*VT2_2) + (-3.29805*VT2_3) + (-1.65178*VT2_4) + (-0.92057*VT2_5) + (-6.29724*SF2_1) + (-8.26066*SF2_2) + (-5.63286*SF2_3) + (-3.13896*SF2_4) + (-6.82672*RE2_1) + (-5.69921*RE3_1) + (-10.19085*MH3_1) + (-7.92717*MH3_2) + (-6.31121*MH3_3) + (-4.09842*MH3_4) + (-1.94949*MH3_5) + (-16.15395*MH4_1) + (-10.77911*MH4_2) + (-8.09914*MH4_3) + (-4.59055*MH4_4) + (-1.95934*MH4_5);
+            record.PCSF12=(RAWPCSF12 + 56.57706).toString();
+            record.MCSF12 =(RAWMCSF12  + 60.75781).toString();
+            */
+            return true;
+        }
+        //----------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/toolbar.css
+    VmInclude:__BASE__/vmiis/Common-Code/grid/form.css
+    #tb__ID tr td:nth-child(2),
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    #tb__ID tr td:nth-child(5),
+    #tb__ID tr td:nth-child(6),
+    #tb__ID tr td:nth-child(7)
+    {
+        text-align: center;
+        padding-top: 5px;
+        border:0;
+    }
+    #tb__ID td:nth-child(n){vertical-align:middle;}
+    #tb__ID td{ border: 0px #069 solid; color: #333333; border-collapse: collapse;}
+    #tb__ID th{ border: 0px #069 solid; color: #333333; border-collapse: collapse;}
+
+    .tr_row__ID:hover{ background-color:#f0f0f0;}
+    .answ__ID{
+        font-weight:normal;
+        font-style:italic;
+        font-size:15px;
+    }
+    .modified_checkbox__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: checkbox;
+    	background-color: #fafafa;
+    	border: 1px solid #cacece;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    	padding: 9px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    }
+    .modified_checkbox__ID:active, .modified_checkbox__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .modified_checkbox__ID:checked {
+        -moz-appearance: checkbox;
+    	background-color: #e9ecee;
+    	border: 1px solid #adb8c0;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    	color: #99a1a7;
+    }
+    .modified_checkbox__ID:checked:after {
+    	content: '\2714';
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.50;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #888;
+    	border: 1px solid #000;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_number__ID{
+        margin-left:-19px;
+        font-size:14pt;
+    }
+
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-19px;
+        font-size:14pt;
+    }
+
+</style>

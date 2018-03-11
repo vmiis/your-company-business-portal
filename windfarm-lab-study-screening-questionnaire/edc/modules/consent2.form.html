@@ -1,0 +1,102 @@
+<section class="w3s">
+    <div id=toolbar__ID class="w3-padding-8 w3-grey w3-padding-left w3-normal" >
+        <a id=save__ID  class="w3-btn w3-dark-grey w3-hover-black w3-text-white w3-round-large" >Save & Back</a> <span class=tab__ID></span><span id=name__ID></span>
+    </div>
+    <div class="w3-container w3-content-2">
+        <form id=F__ID >
+            <div class="w3-xlarge w3-center w3-padding-16">Consent</div>
+            <div class="w3-container " id=tr_participant__ID style='display:none' data-id=Participant data-custom=1>
+                <input class="w3-input w3-half" name=Participant  id=Participant__ID  type=text placeholder='select a partcipant...' />
+                <input class="w3-quarter w3-border-0 w3-text-grey w3-center" name=Participant_uid id=Participant_uid__ID type=text readonly  />
+                <u  class="w3-quarter w3-btn w3-white w3-border-bottom " id=Participant_r__ID>Remove</u>
+            </div>
+            <div class="w3-container w3-padding-16" data-id=first_language style='vertical-align:middle' data-custom=1 >
+                <label> Thank you for completing our questionnaires for the Wind Farms study at the Woolcock Institute of Medical Research.
+                    <br><br>If you are eligible to continue to the next stages of the study, a member from the research team will be in contact you to organise for you to come in for a 3 hour face-to-face appointment to see a sleep psychologist and an audiologist at the Woolcock Institute of Medical Research in Glebe, Sydney. The Psychologist will assess whether you will be able to cope with 3 weekends in our sleep laboratory and the audiologist will measure your hearing.
+                    <br> Prior to this visit, a watch like device will be sent to you called an actiwatch and a sleep diary which we will require you to wear 14 days before your appointments with the psychologist and audiologist.  All tests during the screening visit are safe and non-invasive, although unlikely, some tests may feel uncomfortable at times
+                    <br><br>You will be reimbursed for any of your transport costs in getting to the Woolcock and we have undercover parking free of charge. You will not be charged any money for seeing these health professionals as part of this study
+                    <br><br>If you have any questions, please send an email to windfarmstudy@woolcock.org.au
+                </label>
+            </div>
+            <div class="w3-half w3-center">Actiwatch</div>
+            <div class="w3-half w3-center">Sleep Diary</div>
+            <div class="w3-half" style="padding-left: 80px!important;" >
+            <figure class=""><img id=logo__ID src="__BASE__/woolcock-imr/windfarm/images/actiwatch.jpg" style='width:100px' ></figure>
+        </div>
+            <div class="w3-half" >
+            <figure class=""><img id=logo__ID src="__BASE__/woolcock-imr/windfarm/images/sleepdiary.png" style='width:300px'></figure>
+        </div>
+        <div class="w3-container w3-padding-16" data-id=first_language style='vertical-align:middle' data-custom=1 >
+            <label> <b>Neurotology tests with Audiologist: </b>
+<br><br><b>Matted Romberg:</b> You will be asked to stand with eyes open and eyes closed to observe your ability to hold the position
+<br><b>Unterberger:</b>  You will be asked to walk along straight line with your eyes closed and the angle of how much you drift from the line will be measured
+<br><b>Audiometry:</b>  Responding to tones or words being played through headphones by pressing a button or repeating the word respectively.
+<br><b>Otoacoustic Emissions:</b> Will test cochlear function by eliciting a response by playing a tone through an earbud that is placed in the ear
+<br><b>Vestibular Evoked Myogenic Potentials (VEMP):</b> Electrodes will be placed on various places on the face, neck and chest  and you will be asked to turn your head or gaze a specific point whilst a clicking  sound will be played through headphones or a tapping against your forehead
+<br><b>Otoscopy:</b>  Using a device that looks into the ear called an otoscope, will determine ear canal structure and whether it is clear of wax.
+<br><b>Tympanometry:</b>  Will test the eardrums integrity by placing pressure on the eardrums and measuring its response.
+<br><b>Video Head Impulse Test:</b> You will be fitted with a pair of goggles with a high speed camera to track eye movements as the examiner moves your heads in a random pattern in different planes.
+
+            </label>
+        </div>
+            <div class="w3-container w3-padding-16" data-id=Consent style='vertical-align:middle' data-custom=1 >
+                <div class="w3-col">
+                    <input class="w3-radio" type="radio" name="Consent" id=Consent_Y__ID value=Yes \>
+                    <label  for=Consent_Y__ID> Yes, I hereby agree if eligible for the next stages to be contacted by a member of the research team to arrange an appointment to see the audiologist and psychologist and be sent an actiwatch and a sleep diary to wear before attending this appointment</label>
+                    <br><input  class="w3-radio"  type="radio" name="Consent" id=Consent_N__ID value=No \>
+                    <label  for=Consent_N__ID> No, I do not wish to take part in this research study</label>
+                </div>
+            </div>
+        </form>
+        <a id=save2__ID  class="w3-btn w3-dark-grey w3-hover-black w3-text-white w3-round-large" >Save &amp; Back</a>
+
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#F__ID div[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "Consent":
+                        $(this).parent().find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $(this).parent().find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if($('#F__ID input[name=Consent]:checked').val()===undefined){ $vm.alert("Please answer the consent question");	return false;}
+            return true;
+        }
+        //----------------------------------
+    }
+</script>
+<style>
+	VmInclude:__CURRENT_PATH__/assets/w3.css
+	#D__ID{
+	  height:100%;
+	  overflow:auto;
+	  animation: vm_module_fadein 1.0s;
+	  background-color:#fff;
+	}
+</style>

@@ -1,0 +1,105 @@
+<section class="w3s">
+    <div id=toolbar__ID class="w3-padding-8 w3-grey w3-padding-left w3-normal">
+        <a id=save__ID  class="w3-btn w3-dark-grey w3-hover-black w3-text-white w3-round-large" >Save & Back</a> <span class=tab__ID></span><span id=name__ID></span>
+    </div>
+<div class="w3-container w3-content-2">
+    <form id=F__ID>
+        <div class="w3-xlarge w3-center w3-padding-16">General Information </div>
+        <div class="w3-container " id=tr_participant__ID style='display:none' data-id=Participant data-custom=1>
+            <input class="w3-input w3-half" name=Participant  id=Participant__ID  type=text placeholder='select a partcipant...' />
+            <input class="w3-quarter w3-border-0 w3-text-grey w3-center" name=Participant_uid id=Participant_uid__ID type=text readonly  />
+            <u  class="w3-quarter w3-btn w3-white w3-border-bottom " id=Participant_r__ID>Remove</u>
+        </div>
+        <div class="w3-container w3-padding-16" data-id=age style='vertical-align:middle' data-custom=1 >
+            <input  class="w3-input w3-border" type="number" id="age" name="age" placeholder="Age">
+        </div>
+        <div class="w3-container"  data-id=gender style='vertical-align:middle' data-custom=1 >
+            Gender
+            <div class="w3-col">
+                <input class="w3-radio w3-p" type="radio" name="gender" id=Gender_Y__ID value=Male \>
+                <label  for=Gender_Y__ID>Male</label>
+                <input class="w3-radio " type="radio" name="gender" id=Gender_N__ID value=Female \>
+                <label for=Gender_N__ID>Female</label>
+            </div>
+        </div>
+        <div class="w3-container w3-padding-16"  data-id=recent_travel style='vertical-align:middle' data-custom=1 >
+            Have you travelled more than 2 time zones in the last 2 weeks or 1 time zone in the past week? Or are you planning to travel in the next 3 months?
+            <div class="w3-col">
+                <input class="w3-radio " type="radio" name="recent_travel" id=recent_travel_Y__ID value=Yes \>
+                <label  for=recent_travel_Y__ID>Yes</label>
+                <input class="w3-radio " type="radio" name="recent_travel" id=recent_travel_N__ID value=No \>
+                <label for=recent_travel_N__ID>&nbsp;No</label>
+            </div>
+        </div>
+        <div class="w3-container w3-padding-16"  data-id=pregnant style='vertical-align:middle' data-custom=1 >
+            Are you currently pregnant/breastfeeding or trying in the next 3 months?
+            <div class="w3-col">
+                <input class="w3-radio " type="radio" name="pregnant" id=pregnant_Y__ID value=Yes \>
+                <label  for=pregnant_Y__ID>Yes</label>
+                <input class="w3-radio " type="radio" name="pregnant" id=pregnant_N__ID value=No \>
+                <label for=pregnant_N__ID>&nbsp;No</label>
+            </div>
+        </div>
+    </form>
+    <a id=save2__ID  class="w3-btn w3-dark-grey w3-hover-black w3-text-white w3-round-large" >Save &amp; Back</a>
+</div>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__CURRENT_PATH__/task.form.js
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#F__ID div[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "age":
+                        $(this).find("input[name='"+field+"']").val(_records[I].age);
+                        $(this).find("input[name='"+field+"']").on('change',function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                    case "gender":
+                    case "pregnant":
+                    case "recent_travel":
+                        $(this).parent().find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $(this).parent().find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if($('#F__ID input[name=age]').val()==='') { $vm.alert("Please fill in 'Age'");	return false;}
+            if($('#F__ID input[name=gender]:checked').val()===undefined){ $vm.alert("Please answer 'Gender'");	return false;}
+            if($('#F__ID input[name=recent_travel]:checked').val()===undefined){ $vm.alert("Please answer 'Have you travelled more ..'");	return false;}
+            if($('#F__ID input[name=pregnant]:checked').val()===undefined) { $vm.alert("Please answer 'Are you currently pregnant ..'");	return false;}
+            return true;
+        }
+        //----------------------------------
+    }
+</script>
+<style>
+	VmInclude:__CURRENT_PATH__/assets/w3.css
+	#D__ID{
+	  height:100%;
+	  overflow:auto;
+	  animation: vm_module_fadein 1.0s;
+	  background-color:#fff;
+	}
+</style>

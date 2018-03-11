@@ -1,0 +1,122 @@
+<div header id=header__ID>
+    <nav id=nav__ID class="navbar navbar-expand-md navbar-dark" style='max-width:1000px;margin:auto'>
+        <div id=brand__ID>
+            <a class="navbar-brand d-none d-lg-inline-block" onclick="$vm.nav_load_module('website_home');">
+            	<div class=large_logo__ID>
+					<img width=100 src='__CURRENT_PATH__/main.html.header.html.logo.png' style='margin-top:0px;margin-bottom:-10px'></img>
+    	        </div>
+            </a>
+            <a class="navbar-brand d-lg-none" onclick="$vm.nav_load_module('website_home');">
+                <div class=small_logo__ID>Woolcock</div>
+            </a>
+        </div>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars__ID" aria-controls="navbars__ID" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbars__ID" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_home');">Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_lab-study');">Lab Study</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_home-study');">Home Study</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_contact-us');">Contact Us</a></li>
+				<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a></a>
+                    <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_woolcock');" >About the Woolcock Institute</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_meet-the-team');" >Meet the team</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_news');">News</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        //---------------------------------------------
+        if($vm.user=='guest'){
+            $('a[name=signinout]').html('<i class="fa fa-user"></i> Sign In')
+            $('#username__ID').text('');
+        }
+        else{
+            $('a[name=signinout]').html('<i class="fa fa-user"></i> Sign Out')
+            $('#username__ID').text('Signed in as '+ $vm.user);
+        }
+        //---------------------------------------------
+		if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+			$('#form__ID').parent().prepend($('#form__ID'));
+		}
+		//---------------------------------------------
+		$(".navbar-nav").hide();
+		var navbars_loop=setInterval(function (){
+			if($vm.js_popper==1){
+				clearInterval(navbars_loop);
+				$(".navbar-nav").show();
+                console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************** menu is ready ************************");
+			}
+		},100);
+		//------------------------------------
+    </script>
+    <style>
+        #header__ID{
+			background: rgba(255,255,255,1);
+        }
+		#nav__ID{
+	        z-index:99;
+			padding:0;
+        }
+		.large_logo__ID{
+            color:#fff;
+            padding-left:0px;
+            display:table;
+        }
+		/*
+		.logo_image__ID{
+			width:500px;
+			height:95px;
+			background: url('images/logo.gif') no-repeat;
+			background-size: cover;
+		}
+		*/
+        .small_logo__ID{
+            color:#fff;
+			font-size: 150%;
+        }
+		#navbars__ID{
+	        padding:35px 0 0 50px;
+        }
+		#navbars__ID a{
+			color:#000;
+            cursor:pointer;
+			margin-right:60px;
+        }
+		#navbars__ID a:hover{
+			color:red;
+        }
+		@media screen and (max-width:768px){
+			#nav__ID{
+	        	padding:0 10px;
+				background-color:#555;
+			}
+			#header__ID a{
+				color:#000;
+	            cursor:pointer;
+	        }
+			#header__ID a:hover{
+				color:red;
+	            cursor:pointer;
+	        }
+	        #navbars__ID{
+		        padding-top:5px;
+		        padding-left:5px;
+	        }
+			#navbars__ID a{
+				color:#fff;
+	        }
+			.dropdown-menu a{
+				color:#000!Important;
+			}
+	        #form__ID{
+		        padding-right:0px;
+	        }
+		}
+    </style>
+</div>

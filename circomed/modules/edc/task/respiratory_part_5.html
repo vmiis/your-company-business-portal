@@ -1,0 +1,38 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        var task_fields="Smoker_ever,Smoking_Age_start,Smoking_Cigs_day,Smoker_now,Age_start_1,Age_stopped_1,Type_Tobacco_1,Cigs_day_1,No_years_1,Pack_years_1,Age_start_2,Age_stopped_2,Type_Tobacco_2,Cigs_day_2,No_years_2,Pack_years_2,Age_start_3,Age_stopped_3,Type_Tobacco_3,Cigs_day_3,No_years_3,Pack_years_3,Age_start_4,Age_stopped_4,Type_Tobacco_4,Cigs_day_4,No_years_4,Pack_years_4,Age_start_5,Age_stopped_5,Type_Tobacco_5,Cigs_day_5,No_years_5,Pack_years_5,Pack_years_total";
+        _fields="_Form,Status|S2,Notes|NT,Participant,"+task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

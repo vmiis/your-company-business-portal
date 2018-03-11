@@ -1,0 +1,55 @@
+<section>
+    <div id=toolbar__ID>
+        <a id=back__ID>Back</a>
+        <span class=tab__ID></span>
+        <a id=aquery__ID >Chart</a>
+        <a id=export__ID >Export</a>
+    	<span class=tab__ID></span>Online Screening Progress
+        <span class=tab__ID></span>
+    </div>
+    <div id=pvdiv__ID>
+        <div id=chart_container__ID style='padding:0 6px 0 6px;font-size:10pt;font-family: Helvetica, Arial, sans-serif;'>
+            <div id=chart__ID __style='width:100%' style="width: 900px; height: 500px;"></div>
+        </div>
+    </div>
+</section>
+<script>
+function F__ID(){
+    //------------------------
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
+    VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+	//------------------------
+	_set_req=_set_req_export=function(){
+		var sql="with tb as (select S=@('Screening_Number'), ID from [TABLE-20008858] Where UID >29) ";
+		  	  sql+=" select sort=1,Name='Registered online',Number=count(ID) from tb where S<>'TEST' and S<>'DUPLICATE' "
+		      sql+=" union select sort=2,Name='Online Screening Consent',Number=count(ID) from [TABLE-20009060] where PUID>29 "
+		      sql+=" union select sort=9,Name='Passed 1st part of Online Screening',Number=count(ID) from [TABLE-20009190]Where PUID >29 "
+		      //sql+=" union select sort=10,Name='Excluded after 1st Part of Online Screening',Number=count(ID) from [TABLE-20009190] Where PUID >29 IS NULL"
+		      sql+=" union select sort=23,Name='Completed the Questionnaire & Consent for Clinical screening',Number=count(ID) from [TABLE-20008713]Where PUID >29 "
+	    _req={cmd:'query_records',sql:sql}
+	}
+	//-------------------------------------
+	$('#aquery__ID').on('click',function(){
+		_set_req();
+		$VmAPI.request({data:_req,callback:function(res){
+					var data = google.visualization.arrayToDataTable([
+			          ['Task', 'Hours per Day'],
+			          ['"Registered online',  parseInt(res.records[0].Number)],
+			          ['Online Screening Consent',      parseInt(res.records[1].Number)],
+			          ['Passed 1st part of Online Screening',  parseInt(res.records[2].Number)],
+			          ['Completed the Questionnaire & Consent for Clinical screening', parseInt(res.records[3].Number)]
+			        ]);
+
+			        var options = {
+			          title: 'My Daily Activities'
+			        };
+			        var chart = new google.visualization.PieChart(document.getElementById('chart__ID'));
+
+			        chart.draw(data, options);
+	    }})
+	})
+}
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/style/default.css
+</style>

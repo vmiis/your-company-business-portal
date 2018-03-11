@@ -1,0 +1,203 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+    <form id=F__ID>
+        <div class="mbr-section__container mbr-section__container--std-padding container" style="padding-top: 93px; padding-bottom: 93px;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="mbr-header mbr-header--center mbr-header--std-padding">
+                                <h2 class="mbr-header__text">General Information</h2>
+                            </div>
+
+                            <div class="form-group" id=tr_participant__ID style='display:none' data-id=Participant data-custom=1>
+                                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...' style='width:80%'/>
+                                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+                            </div>
+
+                            <div class="form-group" data-id=first_language style='vertical-align:middle' data-custom=1 >
+                                <b>Language</b><br>Is English your first language?&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" class="modified_radio__ID" name="first_language" id=first_language_Y__ID value=Yes \><label  for=first_language_Y__ID>&nbsp;Yes</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="modified_radio__ID" name="first_language" id=first_language_N__ID value=No \><label for=first_language_N__ID>&nbsp;No</label>
+                            </div>
+                            <div class="form-group" data-id=English_fluency style='vertical-align:middle' data-custom=1 >
+                                If you answered ‘No’, are you fluent in English?&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" class="modified_radio__ID" name="English_fluency" id=English_fluency_Y__ID value=Yes \><label  for=English_fluency_Y__ID>&nbsp;Yes</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="modified_radio__ID" name="English_fluency" id=English_fluency_N__ID value=No \><label for=English_fluency_N__ID>&nbsp;No</label>
+                            </div>
+                            <div class="form-group" data-id=recent_travel style='vertical-align:middle' data-custom=1 >
+                                <b>Recently travelling overseas</b><br>Have you travelled outside of the country in the past 3 months?&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" class="modified_radio__ID" name="recent_travel" id=recent_travel_Y__ID value=Yes \><label  for=recent_travel_Y__ID>&nbsp;Yes</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="modified_radio__ID" name="recent_travel" id=recent_travel_N__ID value=No \><label for=recent_travel_N__ID>&nbsp;No</label>
+                            </div>
+                            <div class="form-group" data-id=recent_travel_where style='vertical-align:middle' data-custom=1 >
+                                If you answered 'Yes".&nbsp;&nbsp;&nbsp;
+                                <input type="text" class="form-control" id="recent_travel_where" name="recent_travel_where" placeholder="Where" style='width:50%'>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__CURRENT_PATH__/task.form.js
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#F__ID div[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "recent_travel_where":
+                        $(this).find("input[name='"+field+"']").val(_records[I].recent_travel_where);
+                        $(this).find("input[name='"+field+"']").on('change',function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                    case "first_language":
+                    case "English_fluency":
+                    case "recent_travel":
+                        $(this).parent().find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $(this).parent().find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if($('#F__ID input[name=first_language]:checked').val()===undefined){ $vm.alert("Please answer 'Is English your first language?'");	return false;}
+            if($('#F__ID input[name=first_language]:checked').val()==='No' && $('#F__ID input[name=English_fluency]:checked').val()===undefined){ $vm.alert("Please answer ' are you fluent in English?'");	return false;}
+            if($('#F__ID input[name=recent_travel]:checked').val()===undefined){ $vm.alert("Please answer 'Have you travelled outside of the country in the past 3 months?'");	return false;}
+            if($('#F__ID input[name=recent_travel]:checked').val()==='Yes' && $('#F__ID input[name=recent_travel_where]').val()==='') { $vm.alert("Please answer 'Where'");	return false;}
+            return true;
+        }
+        //----------------------------------
+    }
+</script>
+<style>
+VmInclude:__BASE__/woolcock-imr/windfarm/assets/bootstrap/css/bootstrap.min.css
+VmInclude:__BASE__/woolcock-imr/windfarm/assets//mobirise/css/style.css
+VmInclude:__COMPONENT__/toolbar/toolbar.css
+#F__ID input[type=text] {
+    width: 100%;
+    padding: 3px 6px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#F__ID input[type=button] {
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #428bca;
+    border-color: #357ebd;
+    font-size: 34px
+}
+
+#F__ID input[type=button]:hover {
+    background-color: #357ebd;
+}
+
+.modified_checkbox__ID {
+    -webkit-appearance: none;
+    -moz-appearance: checkbox;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+}
+.modified_checkbox__ID:active, .modified_checkbox__ID:checked:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.modified_checkbox__ID:checked {
+    -moz-appearance: checkbox;
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+}
+.modified_checkbox__ID:checked:after {
+    content: '\2714';
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: #99a1a7;
+}
+.modified_radio__ID {
+    -webkit-appearance: none;
+    -moz-appearance: button;
+/*	background-color: #fafafa;*/
+    border: 1px solid #000;
+    width:22px;
+    height:26px;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    padding: 0px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    opacity:0.50;
+}
+.modified_radio__ID:active, .modified_radio__ID:checked:active {
+    /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+}
+
+.modified_radio__ID:checked {
+    -moz-appearance: button;
+    background-color: #888;
+    border: 1px solid #000;
+/*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    color: #99a1a7;
+    opacity:0.9;
+}
+.modified_radio__ID:checked:after {
+    /*content: '\2714';*/
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: #99a1a7;
+}
+.modified_number__ID{
+    margin-left:-19px;
+    font-size:14pt;
+}
+
+.modified_radio__ID:active, .modified_radio__ID:checked:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.modified_number__ID{
+    margin-left:-19px;
+    font-size:14pt;
+}
+
+</style>

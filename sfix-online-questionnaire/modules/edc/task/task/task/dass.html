@@ -1,0 +1,46 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="DASS_1,DASS_2,DASS_3,DASS_4,DASS_5,DASS_6,DASS_7,DASS_8,DASS_9,DASS_10,DASS_11,DASS_12,DASS_13,DASS_14,DASS_15,DASS_16,DASS_17,DASS_18,DASS_19,DASS_20,DASS_21,DASS_DS,DASS_AS,DASS_SS";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'DASS_DS':
+                case 'DASS_AS':
+                case 'DASS_SS':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            record.DASS_DS=((parseInt(record.DASS_3)+parseInt(record.DASS_5)+parseInt(record.DASS_10)+parseInt(record.DASS_13)+parseInt(record.DASS_16)+parseInt(record.DASS_17)+parseInt(record.DASS_21))*2).toString();
+            record.DASS_AS=((parseInt(record.DASS_2)+parseInt(record.DASS_4)+parseInt(record.DASS_7)+parseInt(record.DASS_9)+parseInt(record.DASS_15)+parseInt(record.DASS_19)+parseInt(record.DASS_20))*2).toString();
+            record.DASS_SS=((parseInt(record.DASS_1)+parseInt(record.DASS_6)+parseInt(record.DASS_8)+parseInt(record.DASS_11)+parseInt(record.DASS_12)+parseInt(record.DASS_14)+parseInt(record.DASS_18))*2).toString();
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

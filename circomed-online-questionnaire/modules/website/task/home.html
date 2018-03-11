@@ -1,0 +1,124 @@
+
+<section>
+    <div class=C__ID__s>
+        <p></p>
+        <input id=username__ID placeholder="Username" class=C__ID__input autocomplete="off" />
+        <br><input id=password__ID placeholder="Password" class=C__ID__input type=password />
+        <br><span id="ErrMsg__ID"></span>
+        <br><input id=signin__ID type=button value='Sign in' class=C__ID__button />
+        <br>
+    </div>
+</section>
+<script>
+    function F__ID(){
+		$('#username_0').text('');
+		var search=window.location.search
+		if(search.indexOf('username=')!=-1){
+			var txt=search.split('username=')[1];
+			var username=txt.split('&')[0];
+			$('#username__ID').val(username);
+		}
+		if(search.indexOf('password=')!=-1){
+			var txt=search.split('password=')[1];
+			var password=txt.split('&')[0];
+			$('#password__ID').val(password);
+		}
+        $('#signin__ID').on('click',function(){
+			//------------------------------------
+			$('#ErrMsg__ID').text("");
+            var username=$('#username__ID').val();
+            var password=$('#password__ID').val();
+            var a=username.split('-');
+            if(a.length!=2){
+                $('#ErrMsg__ID').text("Invalid participant login ID or password.")
+                return;
+            }
+            var participant_uid=a[0];
+            var setup_pid=a[1];
+			//------------------------------------
+			$vm.g_participant_pid="20007831";
+			$vm.g_participant_uid=participant_uid;
+			$vm.g_participant=participant_uid;
+			$vm.g_setup_pid=setup_pid;
+			//------------------------------------
+			$VmAPI.request({data:{cmd:'participant_signin_v2',username:username,password:password},callback:function(res){
+                if(res.ret=="1"){
+                    $vm.online_questionnaire=1;
+                    $vm.user=username;
+                    $vm.user_id=res.user_id;
+					$('#username_0').text('Signed in as '+username);
+                    $VmAPI.set_token(res.token,'');
+                    if(res.S1!=undefined) $vm.g_participant=res.S1;
+					$vm.g_task_list=res.List;
+					$vm.nav_load_module("circomed-quest-panel");
+                }
+                else{
+                    $('#ErrMsg__ID').text("Invalid participant login ID or password.")
+                }
+            }})
+			//------------------------------------
+    	});
+    }
+</script>
+<style>
+	#D__ID{
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+    .C__ID__s{
+        font: 18pt "Arial";
+        padding:80px;
+    }
+    @media all and (max-width: 480px){
+    	.C__ID__s{
+        	padding-left:20px;
+    	}
+    }
+    .C__ID__input{
+        height: 34px;
+        width:260px;
+        color: #555;
+        adisplay: inline-block;
+        padding: 1px 6px;
+        font-size: 10pt;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        margin-bottom: 0;
+    }
+    .C__ID__button {
+        margin:16px 0;
+        -webkit-appearance: button;
+        cursor: pointer;
+        color: #fff;
+        background-color: #428bca;
+        border-color: #357ebd;
+        display: inline-block;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    .C__ID__button:hover{
+        background-color: #3276b1;
+        border-color: #285e8e;
+    }
+    .C__ID__s *{
+        margin: 6px 0;
+    }
+    .C__ID__s span{
+        color:#FF0000;
+        font: 12pt "Arial";
+    }
+    .C__ID__s u{
+    	cursor:pointer;
+        font: 12pt "Arial";
+    }
+</style>

@@ -1,0 +1,129 @@
+<div style='float:right;padding-right:5px'>
+	<a name=signinout onclick="$vm.nav_click_process('vm_signinout');" style='cursor:pointer'>Sign out</a>
+</div>
+
+<div id=panel__ID>
+	<div id=items__ID></div>
+</div>
+</div>
+
+<script>
+	function F__ID(){
+		//--------------------------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+		var q_list;
+		//--------------------------------------------------------
+		$('#D__ID').on('load',function(){
+		})
+		//--------------------------------------------------------
+		$('#D__ID').on('show',function(){
+			q_list=$vm.module_list[prefix+"quest_list"].list;
+			setup_panel();
+		})
+		//--------------------------------------------------------
+		var status=[]
+		//---------------------------------
+		var get_task_name=function(pid){
+			for(visit in q_list){
+				var sublist=q_list[visit];
+                for(i in sublist){
+					if(pid==sublist[i].table_id /*&& sublist[i].task_name.indexOf(prefix)!=-1*/){
+						return sublist[i].task_name;
+					}
+				}
+			}
+			return "not found";
+		}
+		//---------------------------------
+		var get_module_id=function(pid){
+			for(module in $vm.module_list){
+				if(pid==$vm.module_list[module].table_id && module.indexOf(prefix)!=-1){
+					return module;
+				}
+			}
+			return "not found";
+		}
+		//---------------------------------
+		var setup_panel=function(){
+			//----------------------------------
+		    var pids=$vm.g_task_list.split(',');
+		    var txt="";
+		    //----------------------------------
+		    for(var i=0;i<pids.length;i++){
+		        var pid=pids[i];
+		        if(status[pid.toString()]==undefined){
+		            status[pid.toString()]={rid:0}
+		        }
+				var task_name=get_task_name(pid.toString());
+				var module=get_module_id(pid.toString());
+				txt+="<li id="+pid+" module="+module+">"+task_name+"</li>";
+		    }
+		    $('#items__ID').html(txt);
+		    //----------------------------------
+			$('#items__ID li').each(function(){
+		        var $li=$(this);
+				$li.removeClass('li_allowed__ID')
+				$li.addClass('li_not_allowed__ID')
+			})
+			//----------------------------------
+			$('#items__ID li').each(function(){
+		        var $li=$(this);
+		        var li_pid=$li.attr('id');
+		        if(status[li_pid].rid==0){
+		            //-----------------
+		            var req=req={cmd:'query_records_s2',db_pid:li_pid,fields:'ID'};
+		            //-----------------
+		            jQuery.ajaxSetup({async:false});
+		            $VmAPI.request({data:req,callback:function(res){
+		                if(res.records.length==0){
+		                }
+		                else{
+		                    status[li_pid].rid=1;
+		                }
+		            }})
+		            jQuery.ajaxSetup({async:true});
+		        }
+		        if(status[li_pid].rid==0){
+					$li.removeClass('li_not_allowed__ID')
+					$li.addClass('li_allowed__ID')
+		            var task_name=$li.html();
+		            var module=$li.attr('module');
+		            $li.html("<u style='cursor:pointer' module="+module+">"+task_name+"</u>");
+		            $li.find('u').on('click',function(){
+		                var module=$(this).attr('module');
+                        //the module allready contains the prefix
+						if($vm.module_list[module].form_module!=undefined){
+							//grid-form
+							//$vm.load_module_by_name(module,undefined,{"participant_uid":$vm.g_participant_uid,"participant_name":$vm.g_participant});
+							$vm.nav_load_module(module,"hidden",{"participant_uid":$vm.g_participant_uid,"participant_name":$vm.g_participant});
+						}
+						else{
+							//independent form
+							$vm.nav_load_module(module,$vm.root_layout_content_slot,{"participant_uid":$vm.g_participant_uid,"participant_name":$vm.g_participant});
+						}
+		            });
+		            return false; // break out the loop
+		        }
+		    })
+		    //----------------------------------
+		}
+		//--------------------------------------------------------
+	}
+</script>
+<style>
+	#D__ID{
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#panel__ID{
+		padding:30px;
+	}
+	.li_not_allowed__ID{
+		color:#999!Important;
+		cursor:not-allowed!Important;
+	}
+	.li_allowed__ID{
+		color:#000!Important;
+		cursor:pointer!Important;
+	}
+</style>

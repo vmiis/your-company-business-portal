@@ -1,0 +1,240 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        var task_fields="SGRQ_Symptoms,SGRQ_Activity,SGRQ_Impact,SGRQ_Total";
+        _fields="_Form,Status|S2,Notes|NT,Participant,_Update,"+task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                case '_Update':
+                    td.html("<u style='cursor:pointer'>Update</u>");
+                    td.find('u').on('click',function(){
+                        read_data(records,I);
+                    })
+                    break;
+            }
+        }
+        //-------------------------------------
+        var read_data=function(records,I){
+            var p_uid=records[I].Participant_uid;
+            if(p_uid===''){
+                alert('Select a participant first.')
+                return;
+            }
+
+            var sql="with tb1 as (select PUID,SGRQ_1=@('SGRQ_1'),SGRQ_2=@('SGRQ_2'),SGRQ_3=@('SGRQ_3'),SGRQ_4=@('SGRQ_4'),SGRQ_5=@('SGRQ_5'),SGRQ_6=@('SGRQ_6'),SGRQ_7=@('SGRQ_7'),SGRQ_8=@('SGRQ_8') from [TABLE-20007814]) \
+            ,tb2 as (select PUID,SGRQ_9=@('SGRQ_9'),SGRQ_10=@('SGRQ_10'),SGRQ_11A=@('SGRQ_11A'),SGRQ_11B=@('SGRQ_11B'),SGRQ_11C=@('SGRQ_11C'),SGRQ_11D=@('SGRQ_11D'),SGRQ_11E=@('SGRQ_11E'),SGRQ_11F=@('SGRQ_11F'),SGRQ_11G=@('SGRQ_11G') from [TABLE-20008176]) \
+            ,tb3 as (select PUID,SGRQ_12A=@('SGRQ_12A'),SGRQ_12B=@('SGRQ_12B'),SGRQ_12C=@('SGRQ_12C'),SGRQ_12D=@('SGRQ_12D'),SGRQ_12E=@('SGRQ_12E'),SGRQ_12F=@('SGRQ_12F'),SGRQ_13A=@('SGRQ_13A'),SGRQ_13B=@('SGRQ_13B'),SGRQ_13C=@('SGRQ_13C'),SGRQ_13D=@('SGRQ_13D'),SGRQ_13E=@('SGRQ_13E'),SGRQ_13F=@('SGRQ_13F'),SGRQ_13G=@('SGRQ_13G'),SGRQ_13H=@('SGRQ_13H'),SGRQ_14A=@('SGRQ_14A'),SGRQ_14B=@('SGRQ_14B'),SGRQ_14C=@('SGRQ_14C'),SGRQ_14D=@('SGRQ_14D') from [TABLE-20008179]) \
+            ,tb4 as (select PUID,SGRQ_15A=@('SGRQ_15A'),SGRQ_15B=@('SGRQ_15B'),SGRQ_15C=@('SGRQ_15C'),SGRQ_15D=@('SGRQ_15D'),SGRQ_15E=@('SGRQ_15E'),SGRQ_15F=@('SGRQ_15F'),SGRQ_15G=@('SGRQ_15G'),SGRQ_15H=@('SGRQ_15H'),SGRQ_15I=@('SGRQ_15I'),SGRQ_16A=@('SGRQ_16A'),SGRQ_16B=@('SGRQ_16B'),SGRQ_16C=@('SGRQ_16C'),SGRQ_16D=@('SGRQ_16D'),SGRQ_16E=@('SGRQ_16E'),SGRQ_17=@('SGRQ_17') from [TABLE-20008180]) \
+                select SGRQ_1,SGRQ_2,SGRQ_3,SGRQ_4,SGRQ_5,SGRQ_6,SGRQ_7,SGRQ_8 \
+                ,SGRQ_9,SGRQ_10,SGRQ_11A,SGRQ_11B,SGRQ_11C,SGRQ_11D,SGRQ_11E,SGRQ_11F,SGRQ_11G \
+                ,SGRQ_12A,SGRQ_12B,SGRQ_12C,SGRQ_12D,SGRQ_12E,SGRQ_12F,SGRQ_13A,SGRQ_13B,SGRQ_13C,SGRQ_13D,SGRQ_13E,SGRQ_13F,SGRQ_13G,SGRQ_13H,SGRQ_14A,SGRQ_14B,SGRQ_14C,SGRQ_14D \
+                ,SGRQ_15A,SGRQ_15B,SGRQ_15C,SGRQ_15D,SGRQ_15E,SGRQ_15F,SGRQ_15G,SGRQ_15H,SGRQ_15I,SGRQ_16A,SGRQ_16B,SGRQ_16C,SGRQ_16D,SGRQ_16E,SGRQ_17 \
+                from tb1 join tb2 on tb1.PUID=@I1 and tb1.PUID=tb2.PUID join tb3 on tb1.PUID=@I1 and tb1.PUID=tb3.PUID join tb4 on tb1.PUID=@I1 and tb1.PUID=tb4.PUID  \
+            ";
+            $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:p_uid},callback:function(res){
+                if(res.records.length==1){
+                    if(res.records[0].SGRQ_6 ==''){
+                        records[I].SGRQ_Symptoms=((
+                        parseFloat(res.records[0].SGRQ_1)
+                        +parseFloat(res.records[0].SGRQ_2)
+                        +parseFloat(res.records[0].SGRQ_3)
+                        +parseFloat(res.records[0].SGRQ_4)
+                        +parseFloat(res.records[0].SGRQ_5)
+                        +parseFloat(res.records[0].SGRQ_7)
+                        +parseFloat(res.records[0].SGRQ_8))/(662.5-89.7)*100.0).toFixed(1);
+                        records[I].SGRQ_Total=((
+                            parseFloat(res.records[0].SGRQ_1)
+                            +parseFloat(res.records[0].SGRQ_2)
+                            +parseFloat(res.records[0].SGRQ_3)
+                            +parseFloat(res.records[0].SGRQ_4)
+                            +parseFloat(res.records[0].SGRQ_5)
+                            +parseFloat(res.records[0].SGRQ_7)
+                            +parseFloat(res.records[0].SGRQ_8)
+                            +parseFloat(res.records[0].SGRQ_11A)
+                            +parseFloat(res.records[0].SGRQ_11B)
+                            +parseFloat(res.records[0].SGRQ_11C)
+                            +parseFloat(res.records[0].SGRQ_11D)
+                            +parseFloat(res.records[0].SGRQ_11E)
+                            +parseFloat(res.records[0].SGRQ_11F)
+                            +parseFloat(res.records[0].SGRQ_11G)
+                            +parseFloat(res.records[0].SGRQ_12A)
+                            +parseFloat(res.records[0].SGRQ_12B)
+                            +parseFloat(res.records[0].SGRQ_12C)
+                            +parseFloat(res.records[0].SGRQ_12D)
+                            +parseFloat(res.records[0].SGRQ_12E)
+                            +parseFloat(res.records[0].SGRQ_12F)
+                            +parseFloat(res.records[0].SGRQ_13A)
+                            +parseFloat(res.records[0].SGRQ_13B)
+                            +parseFloat(res.records[0].SGRQ_13C)
+                            +parseFloat(res.records[0].SGRQ_13D)
+                            +parseFloat(res.records[0].SGRQ_13E)
+                            +parseFloat(res.records[0].SGRQ_13F)
+                            +parseFloat(res.records[0].SGRQ_13G)
+                            +parseFloat(res.records[0].SGRQ_13H)
+                            +parseFloat(res.records[0].SGRQ_14A)
+                            +parseFloat(res.records[0].SGRQ_14B)
+                            +parseFloat(res.records[0].SGRQ_14C)
+                            +parseFloat(res.records[0].SGRQ_14D)
+                            +parseFloat(res.records[0].SGRQ_15A)
+                            +parseFloat(res.records[0].SGRQ_15B)
+                            +parseFloat(res.records[0].SGRQ_15C)
+                            +parseFloat(res.records[0].SGRQ_15D)
+                            +parseFloat(res.records[0].SGRQ_15E)
+                            +parseFloat(res.records[0].SGRQ_15F)
+                            +parseFloat(res.records[0].SGRQ_15G)
+                            +parseFloat(res.records[0].SGRQ_15H)
+                            +parseFloat(res.records[0].SGRQ_15I)
+                            +parseFloat(res.records[0].SGRQ_9)
+                            +parseFloat(res.records[0].SGRQ_10)
+                            +parseFloat(res.records[0].SGRQ_16A)
+                            +parseFloat(res.records[0].SGRQ_16B)
+                            +parseFloat(res.records[0].SGRQ_16C)
+                            +parseFloat(res.records[0].SGRQ_16D)
+                            +parseFloat(res.records[0].SGRQ_16E)
+                            +parseFloat(res.records[0].SGRQ_17))/(3989.4-89.7)*100.0).toFixed(1);
+                    }
+                    else {
+                        records[I].SGRQ_Symptoms=((
+                            parseFloat(res.records[0].SGRQ_1)
+                            +parseFloat(res.records[0].SGRQ_2)
+                            +parseFloat(res.records[0].SGRQ_3)
+                            +parseFloat(res.records[0].SGRQ_4)
+                            +parseFloat(res.records[0].SGRQ_5)
+                            +parseFloat(res.records[0].SGRQ_6)
+                            +parseFloat(res.records[0].SGRQ_7)
+                            +parseFloat(res.records[0].SGRQ_8))/662.5*100.0).toFixed(1);
+                            records[I].SGRQ_Total=((
+                                parseFloat(res.records[0].SGRQ_1)
+                                +parseFloat(res.records[0].SGRQ_2)
+                                +parseFloat(res.records[0].SGRQ_3)
+                                +parseFloat(res.records[0].SGRQ_4)
+                                +parseFloat(res.records[0].SGRQ_5)
+                                +parseFloat(res.records[0].SGRQ_6)
+                                +parseFloat(res.records[0].SGRQ_7)
+                                +parseFloat(res.records[0].SGRQ_8)
+                                +parseFloat(res.records[0].SGRQ_11A)
+                                +parseFloat(res.records[0].SGRQ_11B)
+                                +parseFloat(res.records[0].SGRQ_11C)
+                                +parseFloat(res.records[0].SGRQ_11D)
+                                +parseFloat(res.records[0].SGRQ_11E)
+                                +parseFloat(res.records[0].SGRQ_11F)
+                                +parseFloat(res.records[0].SGRQ_11G)
+                                +parseFloat(res.records[0].SGRQ_12A)
+                                +parseFloat(res.records[0].SGRQ_12B)
+                                +parseFloat(res.records[0].SGRQ_12C)
+                                +parseFloat(res.records[0].SGRQ_12D)
+                                +parseFloat(res.records[0].SGRQ_12E)
+                                +parseFloat(res.records[0].SGRQ_12F)
+                                +parseFloat(res.records[0].SGRQ_13A)
+                                +parseFloat(res.records[0].SGRQ_13B)
+                                +parseFloat(res.records[0].SGRQ_13C)
+                                +parseFloat(res.records[0].SGRQ_13D)
+                                +parseFloat(res.records[0].SGRQ_13E)
+                                +parseFloat(res.records[0].SGRQ_13F)
+                                +parseFloat(res.records[0].SGRQ_13G)
+                                +parseFloat(res.records[0].SGRQ_13H)
+                                +parseFloat(res.records[0].SGRQ_14A)
+                                +parseFloat(res.records[0].SGRQ_14B)
+                                +parseFloat(res.records[0].SGRQ_14C)
+                                +parseFloat(res.records[0].SGRQ_14D)
+                                +parseFloat(res.records[0].SGRQ_15A)
+                                +parseFloat(res.records[0].SGRQ_15B)
+                                +parseFloat(res.records[0].SGRQ_15C)
+                                +parseFloat(res.records[0].SGRQ_15D)
+                                +parseFloat(res.records[0].SGRQ_15E)
+                                +parseFloat(res.records[0].SGRQ_15F)
+                                +parseFloat(res.records[0].SGRQ_15G)
+                                +parseFloat(res.records[0].SGRQ_15H)
+                                +parseFloat(res.records[0].SGRQ_15I)
+                                +parseFloat(res.records[0].SGRQ_9)
+                                +parseFloat(res.records[0].SGRQ_10)
+                                +parseFloat(res.records[0].SGRQ_16A)
+                                +parseFloat(res.records[0].SGRQ_16B)
+                                +parseFloat(res.records[0].SGRQ_16C)
+                                +parseFloat(res.records[0].SGRQ_16D)
+                                +parseFloat(res.records[0].SGRQ_16E)
+                                +parseFloat(res.records[0].SGRQ_17))/(3989.4)*100.0).toFixed(1);
+
+                    }
+                    records[I].SGRQ_Activity=((
+                        parseFloat(res.records[0].SGRQ_11A)
+                        +parseFloat(res.records[0].SGRQ_11B)
+                        +parseFloat(res.records[0].SGRQ_11C)
+                        +parseFloat(res.records[0].SGRQ_11D)
+                        +parseFloat(res.records[0].SGRQ_11E)
+                        +parseFloat(res.records[0].SGRQ_11F)
+                        +parseFloat(res.records[0].SGRQ_11G)
+                        +parseFloat(res.records[0].SGRQ_15A)
+                        +parseFloat(res.records[0].SGRQ_15B)
+                        +parseFloat(res.records[0].SGRQ_15C)
+                        +parseFloat(res.records[0].SGRQ_15D)
+                        +parseFloat(res.records[0].SGRQ_15E)
+                        +parseFloat(res.records[0].SGRQ_15F)
+                        +parseFloat(res.records[0].SGRQ_15G)
+                        +parseFloat(res.records[0].SGRQ_15H)
+                        +parseFloat(res.records[0].SGRQ_15I))/1209.1*100.0).toFixed(1);
+
+                    records[I].SGRQ_Impact=((
+                        parseFloat(res.records[0].SGRQ_9)
+                        +parseFloat(res.records[0].SGRQ_10)
+                        +parseFloat(res.records[0].SGRQ_12A)
+                        +parseFloat(res.records[0].SGRQ_12B)
+                        +parseFloat(res.records[0].SGRQ_12C)
+                        +parseFloat(res.records[0].SGRQ_12D)
+                        +parseFloat(res.records[0].SGRQ_12E)
+                        +parseFloat(res.records[0].SGRQ_12F)
+                        +parseFloat(res.records[0].SGRQ_13A)
+                        +parseFloat(res.records[0].SGRQ_13B)
+                        +parseFloat(res.records[0].SGRQ_13C)
+                        +parseFloat(res.records[0].SGRQ_13D)
+                        +parseFloat(res.records[0].SGRQ_13E)
+                        +parseFloat(res.records[0].SGRQ_13F)
+                        +parseFloat(res.records[0].SGRQ_13G)
+                        +parseFloat(res.records[0].SGRQ_13H)
+                        +parseFloat(res.records[0].SGRQ_14A)
+                        +parseFloat(res.records[0].SGRQ_14B)
+                        +parseFloat(res.records[0].SGRQ_14C)
+                        +parseFloat(res.records[0].SGRQ_14D)
+                        +parseFloat(res.records[0].SGRQ_16A)
+                        +parseFloat(res.records[0].SGRQ_16B)
+                        +parseFloat(res.records[0].SGRQ_16C)
+                        +parseFloat(res.records[0].SGRQ_16D)
+                        +parseFloat(res.records[0].SGRQ_16E)
+                        +parseFloat(res.records[0].SGRQ_17))/2117.8*100.0).toFixed(1);
+                    _render(I);
+                }
+                else{
+                    alert('No data');
+                }
+            }})
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

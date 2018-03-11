@@ -1,0 +1,76 @@
+{
+	"modules":
+	{
+		"day_1_respiratory_part_1":    			{"table_id":"20007816","url":"modules/edc/task/respiratory_part_1.html","form_module":"F20007816"},	"F20007816":  {"table_id":"20007816","url":"modules/edc/task/form.html"},
+	    "day_1_respiratory_part_2":    			{"table_id":"20007817","url":"modules/edc/task/respiratory_part_2.html","form_module":"F20007817"},	"F20007817":  {"table_id":"20007817","url":"modules/edc/task/form.html"},
+	    "day_1_respiratory_part_3":    			{"table_id":"20008233","url":"modules/edc/task/respiratory_part_3.html","form_module":"F20008233"},	"F20008233":  {"table_id":"20008233","url":"modules/edc/task/form.html"},
+	    "day_1_respiratory_part_4":   			{"table_id":"20008234","url":"modules/edc/task/respiratory_part_4.html","form_module":"F20008234"},	"F20008234":  {"table_id":"20008234","url":"modules/edc/task/form.html"},
+	    "day_1_respiratory_part_5":    			{"table_id":"20008235","url":"modules/edc/task/respiratory_part_5.html","form_module":"F20008235"},	"F20008235":  {"table_id":"20008235","url":"modules/edc/task/form.html"},
+	    "day_1_st_george_1":           			{"table_id":"20007814","url":"modules/edc/task/st_george_1.html",		"form_module":"F20007814"},	"F20007814":  {"table_id":"20007814","url":"modules/edc/task/form.html"},
+	    "day_1_st_george_2":           			{"table_id":"20008176","url":"modules/edc/task/st_george_2.html",		"form_module":"F20008176"},	"F20008176":  {"table_id":"20008176","url":"modules/edc/task/form.html"},
+	    "day_1_st_george_3":           			{"table_id":"20008179","url":"modules/edc/task/st_george_3.html",		"form_module":"F20008179"},	"F20008179":  {"table_id":"20008179","url":"modules/edc/task/form.html"},
+	    "day_1_st_george_4":           			{"table_id":"20008180","url":"modules/edc/task/st_george_4.html",		"form_module":"F20008180"},	"F20008180":  {"table_id":"20008180","url":"modules/edc/task/form.html"},
+	    "day_1_st_george_score":       			{"table_id":"20009281","url":"modules/edc/task/st_george_score.html",	"form_module":"F20009281"},	"F20009281":  {"table_id":"20009281","url":"modules/edc/task/form.html"},
+		"day_1_background_information":			{"table_id":"20008237","url":"modules/edc/task/background_information.html",	"form_module":"F20008237"},	"F20008237":  {"table_id":"20008237","url":"modules/edc/task/form.html"},
+	    "day_1_sleep_disorder_and_patterns":   	{"table_id":"20007877","url":"modules/edc/task/sleep_disorders_patterns.html",	"form_module":"F20007877"},	"F20007877":  {"table_id":"20007877","url":"modules/edc/task/form.html"},
+		"day_1_sleep_hygene_index":            	{"table_id":"20007878","url":"modules/edc/task/sleep_hygiene_index.html",		"form_module":"F20007878"},	"F20007878":  {"table_id":"20007878","url":"modules/edc/task/form.html"},
+	    "day_1_sleep_family_history":          	{"table_id":"20007879","url":"modules/edc/task/family_sleep_history.html",		"form_module":"F20007879"},	"F20007879":  {"table_id":"20007879","url":"modules/edc/task/form.html"},
+		"day_1_epworth_sleepiness_scale":      	{"table_id":"20007880","url":"modules/edc/task/epworth_sleepiness_scale.html",	"form_module":"F20007880"},	"F20007880":  {"table_id":"20007880","url":"modules/edc/task/form.html"},
+	    "day_1_multivariable_apnea_predictor": 	{"table_id":"20007881","url":"modules/edc/task/multivariate_apnea_predictor.html",	"form_module":"F20007881"},	"F20007881":  {"table_id":"20007881","url":"modules/edc/task/form.html"},
+		"day_1_insomnia_severity_index":       	{"table_id":"20007882","url":"modules/edc/task/insomnia_severity_index.html",		"form_module":"F20007882"},	"F20007882":  {"table_id":"20007882","url":"modules/edc/task/form.html"},
+	    "day_1_restless_legs":                 	{"table_id":"20007883","url":"modules/edc/task/restless_legs.html",					"form_module":"F20007883"},	"F20007883":  {"table_id":"20007883","url":"modules/edc/task/form.html"},
+	    "day_1_horne_ostberg":                 	{"table_id":"20007884","url":"modules/edc/task/horne_ostberg.html",					"form_module":"F20007884"},	"F20007884":  {"table_id":"20007884","url":"modules/edc/task/form.html"},
+		"day_1_functional_outcomes_of_sleep":  	{"table_id":"20007885","url":"modules/edc/task/functional_outcomes_of_sleep.html",	"form_module":"F20007885"},	"F20007885":  {"table_id":"20007885","url":"modules/edc/task/form.html"},
+		"day_1_pittsburg_sleep_quality":       	{"table_id":"20007886","url":"modules/edc/task/pittsburg_sleep_quality.html",		"form_module":"F20007886"},	"F20007886":  {"table_id":"20007886","url":"modules/edc/task/form.html"},
+	    "day_1_patient_health_questionnaire":  	{"table_id":"20007887","url":"modules/edc/task/patient_health_questionnaire.html",	"form_module":"F20007887"},	"F20007887":  {"table_id":"20007887","url":"modules/edc/task/form.html"},
+	    "day_1_generalised_anxiety_disorder":  	{"table_id":"20007888","url":"modules/edc/task/generalised_anxiety_disorder.html",	"form_module":"F20007888"},	"F20007888":  {"table_id":"20007888","url":"modules/edc/task/form.html"},
+	    "day_1_depression_anxiety_stress_scale":{"table_id":"20007889","url":"modules/edc/task/depression_anxiety_stress_scale.html",	"form_module":"F20007889"},	"F20007889":  {"table_id":"20007889","url":"modules/edc/task/form.html"},
+	    "day_1_fatigue_severity_scale":        	{"table_id":"20007890","url":"modules/edc/task/fatigue_severity_scale.html",			"form_module":"F20007890"},	"F20007890":  {"table_id":"20007890","url":"modules/edc/task/form.html"},
+	    "day_1_sheehan_disability_scale":      	{"table_id":"20007891","url":"modules/edc/task/sheehan_disability_scale.html",			"form_module":"F20007891"},	"F20007891":  {"table_id":"20007891","url":"modules/edc/task/form.html"},
+	    "day_1_diary":                          {"table_id":"20009284","url":"modules/edc/task/karolinska_diary.html",					"form_module":"F20009284"},	"F20009284":  {"table_id":"20009284","url":"modules/edc/task/form.html"},
+	    "day_2_copd_instrument_night":          {"table_id":"20007818","url":"modules/edc/task/copd_instrument_night.html",				"form_module":"F20007818"},	"F20007818":  {"table_id":"20007818","url":"modules/edc/task/form.html"},
+	    "day_2_copd_instrument_morning":        {"table_id":"20008232","url":"modules/edc/task/copd_instrument_morning.html",			"form_module":"F20008232"},	"F20008232":  {"table_id":"20008232","url":"modules/edc/task/form.html"},
+	    "day_2_diary":                          {"table_id":"20009285","url":"modules/edc/task/karolinska_diary.html",					"form_module":"F20009285"},	"F20009285":  {"table_id":"20009285","url":"modules/edc/task/form.html"},
+	    "Adverse_Event":                        {"table_id":"20009720","url":"modules/edc/task/adverse_event.html",						"form_module":"F20009720"},	"F20009720":  {"table_id":"20009720","url":"modules/edc/task/form.html"},
+	    "PSG_300":                              {"table_id":"20009763","url":"modules/edc/task/psg300.html",							"form_module":"F20009763"},	"F20009763":  {"table_id":"20009763","url":"modules/edc/task/form.html"},
+	    "actigraphy":                           {"table_id":"20009762","url":"modules/edc/task/actiwatch_new.html",						"form_module":"F20009762"},	"F20009762":  {"table_id":"20009762","url":"modules/edc/task/form.html"},
+
+		"quest_list":{
+			"list":{
+				"Day 1":[
+					{"table_id":"20007816","task_name":"Day 1 Respiratory part 1"},
+				    {"table_id":"20007817","task_name":"Day 1 Respiratory part 2"},
+				    {"table_id":"20008233","task_name":"Day 1 Respiratory part 3"},
+				    {"table_id":"20008234","task_name":"Day 1 Respiratory part 4"},
+				    {"table_id":"20008235","task_name":"Day 1 Respiratory part 5"},
+					{"table_id":"20007814","task_name":"St George 1"},
+				    {"table_id":"20008176","task_name":"St George 2"},
+				    {"table_id":"20008179","task_name":"St George 3"},
+				    {"table_id":"20008180","task_name":"St George 4"},
+				    {"table_id":"20009281","task_name":"St George Score"},
+				    {"table_id":"20008237","task_name":"Background Information"},
+				    {"table_id":"20007877","task_name":"Sleep disorders and patterns"},
+				    {"table_id":"20007878","task_name":"Sleep hygiene index"},
+				    {"table_id":"20007879","task_name":"Sleep Family history"},
+				    {"table_id":"20007880","task_name":"Epworth sleepiness scale"},
+				    {"table_id":"20007881","task_name":"Multivariable Apnea Predictor"},
+				    {"table_id":"20007882","task_name":"Insomnia Severity Index"},
+				    {"table_id":"20007883","task_name":"Restless Legs"},
+				    {"table_id":"20007884","task_name":"Horne and Ӧstberg"},
+				    {"table_id":"20007885","task_name":"Functional Outcomes of Sleep"},
+				    {"table_id":"20007886","task_name":"Pittsburgh Sleep Quality"},
+				    {"table_id":"20007887","task_name":"Patient Health Questionnaire"},
+				    {"table_id":"20007888","task_name":"Generalised Anxiety Disorder"},
+				    {"table_id":"20007889","task_name":"Depression Anxiety Stress Scale"},
+				    {"table_id":"20007890","task_name":"Fatigue Severity Scale"},
+				    {"table_id":"20007891","task_name":"Sheehan Disability Scale"},
+				    {"table_id":"20009284","task_name":"Day 1 diary"}
+				],
+				"Day 2":[
+					{"table_id":"20007818","task_name":"COPD Instrument Night"},
+				    {"table_id":"20008232","task_name":"COPD Instrument Morning"}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="PSQI1,PSQI2,PSQI3,PSQI4,PSQI5a,PSQI5b,PSQI5c,PSQI5d,PSQI5e,PSQI5f,PSQI5g,PSQI5h,PSQI5i,PSQI5j,PSQI5ji,PSQI6,PSQI7,PSQI8,PSQI9,PSQI10,PSQI10a,PSQI10b,PSQI10c,PSQI10d,PSQI10e,PSQI10ei,PSQIDURAT,PSQIDISTB,PSQILATEN,PSQIDAYDYS,PSQIHSE,PSQISLPQUAL,PSQIMEDS,PSQI";
+        _fields="_Form,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _grid_to_form_parameters={task_fields:_task_fields};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

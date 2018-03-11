@@ -1,0 +1,97 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		_fields="_Form,Participant ID|UID,Subject_ID,Subject_Initials,Gender,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		_json='';
+        //-------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+		var login_setup_tid=$vm.module_list[prefix+'login-setup'].table_id;
+		//-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        $('#D__ID').on('show',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				case 'UID':
+                    records[I].vm_readonly[field]=true;
+                    break;
+                case '_Data_Entry':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Data Entry</u>");
+                    td.find('u').on('click',function(){
+                        $vm.nav_load_module('circomed-child',$vm.root_layout_content_slot,{record:records[I]});
+                    });
+                    break;
+                case '_Setup':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Login Setup</u>");
+                    td.find('u').on('click',function(){
+						$vm.nav_load_module(prefix+'login-setup',$vm.root_layout_content_slot,{record:records[I]});
+                    });
+                    break;
+                case '_Quest':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Online Questionnaire</u>");
+                    td.find('u').on('click',function(){
+						var d="";
+						if($vm.server=='development') d="&database=development";
+						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
+						var q_url="https://woolcock-imr.github.io/circomed-2-online-questionnaire/index.html"+p;
+						if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+							q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/woolcock-imr")
+						};
+						q_url=$vm.url(q_url)
+						window.open(q_url);
+                    });
+                    break;
+				case '_Login_ID':
+                    records[I].vm_readonly[field]=true;
+                    td.html(records[I].S2);
+                    break;
+                case '_Password':
+                    records[I].vm_readonly[field]=true;
+                    td.html(records[I].S3);
+                    break;
+            }
+        }
+        //-------------------------------------
+		_before_submit=function(record,dbv){
+			//dbv.S2=record.Study_ID;
+			return true;
+        }
+        //-------------------------------------
+		var _set_req=function(){
+            //-------------------
+			var sql="with tb as (select Information,ID,PID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+=",tb2 as (select PUID,S2,S3 from [TABLE-"+login_setup_tid+"] )";
+            sql+=" select Information,ID,PID,UID,tb.PUID,DateTime,Author,RowNum,S2,S3 from tb left join tb2 on tb.UID=tb2.PUID where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+            //-------------------
+        }
+        //-------------------------------------
+		/*
+		var _set_req=function(){
+            //-------------------
+            sql="with tb as (select Information,ID,UID,PUID,S1,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] ) ";
+            sql+="select Information,ID,UID,PUID,S1,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+            sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            //-------------------
+            _req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+		*/
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
