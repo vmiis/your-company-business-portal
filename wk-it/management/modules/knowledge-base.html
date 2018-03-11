@@ -1,0 +1,41 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		_json='';
+		//-------------------------------------
+		_fields="_Form,Short_Title,_gridHidden|Information,Document";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+		_cell_render=function(records,I,field,td,set_value,source){
+			switch(field){
+				case 'Short_Title':
+					if(records[I].UID==null || records[I].UID==undefined) return;
+					if(source=='form'){
+						records[I].vm_readonly[field]=false;
+						return;
+					}
+					records[I].vm_readonly[field]=true;
+					var nm=$('<div/>').html(records[I][field]).text();
+					td.html("<u style='cursor:pointer;'>"+nm+"</u>");
+					td.find('u').on('click',function(){
+						var form=td.parent().find('td').eq(1).find('u:first');
+	                    form.triggerHandler('click');
+					})
+					break;
+			    case 'Document':
+			        VmInclude:__COMPONENT__/grid/field_file.js
+			    	break;
+			}
+		}
+		//-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

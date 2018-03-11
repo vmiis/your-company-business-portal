@@ -1,0 +1,7 @@
+{
+	"modules":
+	{
+		"applications":		{"table_id":"91000080","url":"management/modules/applications.html", "name_for_search":"Applications"},
+		"knowledge-base":	{"table_id":"20000441","url":"management/modules/knowledge-base.html", "name_for_search":"Knowledge Base"}
+	}
+}
