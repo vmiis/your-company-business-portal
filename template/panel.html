@@ -42,6 +42,14 @@
 
 <script>
       function F__ID(){
+		  if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			  $('#panel__ID a').each(function(){
+				  var href=$(this).href;
+				  if(href!=undefined){
+					  href=href.replace('https://vmiis.github.io/','http://127.0.0.1:8000/vmiis/applications/');
+				  }
+			  })
+		  }
       }
 </script>
 
