@@ -1,0 +1,51 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		_fields="_Form,Participant ID|UID,Site,AMAZES_ID,MRN,sex,DOB,Height,weight"; //,_Data_Entry
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+		//var prefix=_mlist[$vm.vm['__ID'].name].prefix;
+		//-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        $('#D__ID').on('show',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				case 'UID':
+                    records[I].vm_readonly[field]=true;
+                    break;
+                case '_Data_Entry':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Data Entry</u>");
+                    td.find('u').on('click',function(){
+                        $vm.nav_load_module('amazes-panel-child',$vm.root_layout_content_slot,{record:records[I]});
+                    });
+                    break;
+            }
+        }
+        //-------------------------------------
+		_before_submit=function(record,dbv){
+			dbv.S2=record.Study_ID;
+			return true;
+        }
+        //-------------------------------------
+		var _set_req=function(){
+            //-------------------
+            sql="with tb as (select Information,ID,UID,PUID,S1,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] ) ";
+            sql+="select Information,ID,UID,PUID,S1,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+            sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            //-------------------
+            _req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
