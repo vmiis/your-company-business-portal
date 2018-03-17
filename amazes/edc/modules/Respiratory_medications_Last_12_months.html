@@ -1,0 +1,39 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="nochanges,nochanges_text,Class1,Drug1,Trade_Names1,Device1,Dose1,Puffs_Occasion1,Occasions_Day1,Class2,Drug2,Trade_Names2,Device2,Dose2,Puffs_Occasion2,Occasions_Day2,Class3,Drug3,Trade_Names3,Device3,Dose3,Puffs_Occasion3,Occasions_Day3,Class4,Drug4,Trade_Names4,Device4,Dose4,Puffs_Occasion4,Occasions_Day4,Class5,Drug5,Trade_Names5,Device5,Dose5,Puffs_Occasion5,Occasions_Day5,Class6,Drug6,Trade_Names6,Device6,Dose6,Puffs_Occasion6,Occasions_Day6,Class7,Drug7,Trade_Names7,Device7,Dose7,Puffs_Occasion7,Occasions_Day7";
+        _fields="_Form,AMAZES_ID|Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    $('#save__ID').hide();$('#new__ID').hide();_set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    $('#save__ID').hide();$('#new__ID').hide();_set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

@@ -1,0 +1,39 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="Area_16,condition_notes_16,Start_Unknown_16,Start_Unknown_16_text,start_day_16,start_month_16,start_year_16,End_16,end_day_16,end_month_16,end_year_16,outcome_16,Condition_16,Area_17,condition_notes_17,Start_Unknown_17,Start_Unknown_17_text,start_day_17,start_month_17,start_year_17,End_17,end_day_17,end_month_17,end_year_17,outcome_17,Condition_17,Area_18,condition_notes_18,Start_Unknown_18,Start_Unknown_18_text,start_day_18,start_month_18,start_year_18,End_18,end_day_18,end_month_18,end_year_18,outcome_18,Condition_18,Area_19,condition_notes_19,Start_Unknown_19,Start_Unknown_19_text,start_day_19,start_month_19,start_year_19,End_19,end_day_19,end_month_19,end_year_19,outcome_19,Condition_19,Area_20,condition_notes_20,Start_Unknown_20,Start_Unknown_20_text,start_day_20,start_month_20,start_year_20,End_20,end_day_20,end_month_20,end_year_20,outcome_20,Condition_20";
+        _fields="_Form,AMAZES_ID|Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    $('#save__ID').hide();$('#new__ID').hide();_set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    $('#save__ID').hide();$('#new__ID').hide();_set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>
