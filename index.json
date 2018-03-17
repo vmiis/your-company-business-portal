@@ -52,8 +52,6 @@
 		]},
 
 		"panel_nightstudy":     	{"url":"https://nightstudy.rt.org.au/modules/panel/main.html",										"modules":["https://nightstudy.rt.org.au|configurations/main.json","https://nightstudy.rt.org.au|configurations/task.json"]},
-		"windfarm_inlab_main":		{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/main.html",						"modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
-		"windfarm_inlab_child":		{"url":"https://woolcock-imr.github.io/windfarm-inlab/modules/panel/child.html",					"modules":["https://woolcock-imr.github.io/windfarm-inlab|configurations/main.json","https://woolcock-imr.github.io/windfarm-inlab|configurations/task.json"]},
 		"isleephealth-first-visit":	{"url":"https://wappsystem.github.io/isleephealth/modules/first-visit/panel.html",					"modules":["https://wappsystem.github.io/isleephealth|modules/first-visit/modules.json"]},
 
 		"amazes":  					{"url":"amazes/panel/main.html",	"modules":["amazes|participant-and-others/index.json","amazes|edc/index.json"]},
