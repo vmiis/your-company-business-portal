@@ -1,0 +1,54 @@
+<section>
+      VmInclude:__BASE__/vmiis/Common-Code/toolbar/week.html
+      VmInclude:__BASE__/vmiis/Common-Code/calendar/week.html
+</section>
+<script>
+    function F__ID(){
+        //--------------------------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/toolbar/week_v2.js
+        VmInclude:__BASE__/vmiis/Common-Code/calendar/week_v2.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //--------------------------------------------------------
+        var record_name=$vm.module_list[$vm.vm['__ID'].name].booking_record;
+        var daily_name=$vm.module_list[$vm.vm['__ID'].name].daily;
+        var booking_record_db_pid=$vm.module_list[record_name].table_id;
+        //--------------------------------------------------------
+        _on_day_click_fun=function(date){
+            $vm.load_module_by_name(daily_name,$vm.root_layout_content_slot,{day:date});
+        }
+        //--------------------------------------------------------
+        _request_and_render=function(){
+            var sql="select ID,Author,Information from [FORM-"+booking_record_db_pid+"] where @T1<=DT1 and DT1<=@T2 order by S1";
+            var req_data={cmd:'query_records',sql:sql,t1:_first_day,t2:_last_day};
+            $VmAPI.request({data:req_data,callback:function(res){
+                _calendar_render("<ul></ul>");
+        		for(var i=0;i<res.records.length;i++){
+                    cell_render(res.records[i]);
+    			}
+                var top1=$('#calendar__ID').offset().top;
+                $('#calendar__ID').css("height",$(window).height()-top1-$('#'+$vm.root_layout_footer).outerHeight());
+            }});
+        }
+        //--------------------------------------------------------
+        var cell_render=function(record){
+            var id=record.ID;
+    		var time=record.Time;
+            var description=record.Description;
+    		var color=record.Color;
+    		var author=record.Author;
+            var d=record.Date;
+            var $div=_get_cell_div(d);
+            var $ul=$($div.find('ul')[0]);
+            var LI="<li><u id=event"+id+" style=cursor:pointer;color:"+color+">"+time+" - "+description+"</u></li>";
+    		$ul.append(LI);
+    		$ul.find('u').data("author",author);
+        	$('#event'+id).on('click',function(){
+                $vm.load_module_by_name(record_name,$vm.root_layout_content_slot,{edit:1,sql_where:' id='+id});
+        	});
+        }
+        //--------------------------------------------------------
+        $('#D__ID').on('load',_request_and_render);
+        $('#D__ID').on('back',_request_and_render);
+        //--------------------------------------------------------
+    }
+</script>

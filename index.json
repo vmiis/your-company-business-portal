@@ -38,6 +38,7 @@
 		"under-development-and-test":		{"url":"under-development-and-test/panel.html",		"modules":["under-development-and-test/index.json"]},
 		"woolworths-credit-card":			{"url":"woolworths-credit-card/panel.html",			"modules":["woolworths-credit-card/index.json"]},
 		"workplace-inspection":				{"url":"workplace-inspection/panel.html",			"modules":["workplace-inspection/index.json"]},
+        "team-event-calendar":				{"url":"team-event-calendar/panel.html",			"modules":["team-event-calendar/index.json"]},
 		"wk-it":                     		{"url":"wk-it/management/panel.html",		        "modules":["wk-it|management/index.json"]},
 
 		"research-volunteer-registration":	{"url":"research-volunteer-registration/panel.html",										"modules":["https://volunteer-database.rt.org.au|configurations/main.json"]},
