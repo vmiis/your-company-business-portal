@@ -12,8 +12,8 @@
         //-------------------------------------
 		var record;
 		var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
-		var request_tid=$vm.module_list[prefix+'a-purchase-order-request'].table_id;
-		var info_tid=$vm.module_list[prefix+'a-purchase-order-approval-info'].table_id;
+		var request_tid=$vm.module_list[prefix+'p-purchase-order-request'].table_id;
+		var info_tid=$vm.module_list[prefix+'p-purchase-order-process-info'].table_id;
         //-------------------------------------
         $('#D__ID').on('load',function(){
 			record=$vm.vm['__ID'].op.input.record;
