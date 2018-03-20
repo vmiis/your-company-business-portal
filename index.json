@@ -13,7 +13,7 @@
 			"business-management/index.json",
             "help/index.json",
 			"marketing-department/index.json",
-            "https://woolcock-imr.github.io/windfarm-recruitment-management|configurations/website.json"
+			"https://windfarm-lab-study-registration-management.rt.org.au|registration/index.json"
         ]},
 		"blog":	        					{"url":"blog/panel.html",   						"modules":["blog/index.json"]},
 		"bookkeeping":						{"url":"bookkeeping/panel.html",					"modules":["bookkeeping/index.json"]},
