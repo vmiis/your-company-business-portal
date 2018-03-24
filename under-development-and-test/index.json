@@ -15,6 +15,8 @@
 		"ron-grunstein-epworth-sleepiness-scale": 	{"table_id":"20011364","url":"https://wappsystem.github.io/ron-grunstein/modules/first-visit/task/epworth-sleepiness-scale.html","name_for_search":"Epworth sleepiness scale"},
 		"ron-grunstein-health-history": 			{"table_id":"20011365","url":"https://wappsystem.github.io/ron-grunstein/modules/first-visit/task/health-history.html","name_for_search":"Health history"},
 
-		"test-1":  {"table_id":"20009702","url":"under-development-and-test/modules/test-1.html"}
+		"test-1":  			 {"table_id":"20009702","v3":"18012101","url":"under-development-and-test/modules/test-1.html"},
+		"upload-file":  	 {"table_id":"20009702","v3":"18032501","url":"under-development-and-test/modules/upload-file.html"},
+		"upload-file-form":  {"table_id":"20009702","v3":"18032501","url":"under-development-and-test/modules/upload-file-form.html"}
 	}
 }

@@ -6,12 +6,14 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
         //-------------------------------------
-        _fields="_Form,Number,Model,Description";
+        _fields="_Form,A,B,C,Doc1,Doc2";
         _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
-                case 'aaa':
+                case 'Doc1':
+                case 'Doc2':
+                    VmInclude:__COMPONENT__/grid/field_file.js
                 break;
             }
         }
