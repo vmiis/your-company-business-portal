@@ -1,0 +1,59 @@
+<section>
+      VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //-------------------------------------
+        _fields="_Form,Topic,Version,Short_Title,Contents,Color";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Topic':
+                case 'Version':
+                    records[I].vm_readonly[field]=true;
+                break;
+                case 'Color':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_color.js
+                break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            var parent_pid=$vm.module_list['topic'].table_id;
+            var puid=record.PUID;
+            if(puid===null || puid===undefined) puid=$vm.vm['__ID'].op.puid;
+            if(puid===null || puid===undefined){
+                alert("No parent");
+                return false;
+            }
+    		dbv.PPID=parent_pid;
+    		dbv.PUID=puid;
+            dbv.S1=record.Short_Title;
+            return true;
+        };
+        //-------------------------------------
+        _new_pre_data_process=function(){
+            var topic=$vm.vm['__ID'].op.topic;
+            var version=$vm.vm['__ID'].op.version;
+            _records[I].Topic=topic;
+            _records[I].Version=version;
+            _records[I].Color="#008800";
+        };
+        //-------------------------------------
+        _set_req=function(){
+            if($vm.vm['__ID'].op.sql_where==="") $('#new__ID').hide();
+            else $('#new__ID').show();
+            _set_req_with_sql_where();
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+</style>

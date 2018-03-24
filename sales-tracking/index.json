@@ -1,0 +1,11 @@
+{
+    "modules":
+	{
+        "sales":     {"table_id":"20007255","url":"sales-tracking/modules/sales.html",    "name_for_search":"Sales"},
+        "region":    {"table_id":"20008362","url":"sales-tracking/modules/region.html",   "name_for_search":"Region"},
+        "item":      {"table_id":"20008363","url":"sales-tracking/modules/item.html",     "name_for_search":"Item"},
+        "rep":       {"table_id":"20008364","url":"sales-tracking/modules/rep.html",      "name_for_search":"Rep"},
+        "query":     {"table_id":"20008365","url":"sales-tracking/modules/sales_total_monthl.query.html",     "name_for_search":"Query"},
+        "chart":     {"table_id":"20008365","url":"sales-tracking/modules/sales_total_monthl.chart.html",      "name_for_search":"Chart"}
+	}
+}

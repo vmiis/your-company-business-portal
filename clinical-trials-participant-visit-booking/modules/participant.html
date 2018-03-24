@@ -1,0 +1,47 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Subject ID|UID,Screening_Number,Subject_Initials,Randomisation_Number,Gender,DOB";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){ _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'UID':
+                    records[I].vm_readonly[field]=true;
+                    break;
+                case 'Gender':
+                    records[I].vm_custom[field]=true;
+                    var html="<select style='border:0;''>"
+                    html+="<option>---</option>";
+                    html+="<option>Male</option>";
+                    html+="<option>Female</option>";
+                    html+="</select>"
+                    td.html(html)
+                    td.find('select').val(records[I][field])
+                    td.find('select').on('input', function(){
+                        set_value($(this).val(),records,I,field);
+                    });
+                    break;
+                case 'DOB':
+                    records[I].vm_custom[field]=true;
+                    td.html('<input style="border:0; width:80px" />')
+                    td.find('input').val(records[I][field])
+                    td.find('input').datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true,onClose:function(dateText) {
+                        set_value(dateText,records,I,field);
+                    }});
+                    break;
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

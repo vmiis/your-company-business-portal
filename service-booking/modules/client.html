@@ -1,0 +1,39 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Client_ID,First_Name,Last_Name,Business_Name,Address,Suburb,Postcode,State,Telephone,Mobilephone";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){           _set_req(); _request_data();                               })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Client_ID':
+                    records[I].vm_readonly[field]=true;
+                    td.html(records[I].UID);
+                    break;
+                case 'Suburb':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_suburb.js
+                    break;
+                case 'Postcode':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_postcode.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+     		dbv.S1=record.First_Name;
+            dbv.S2=record.Last_Name;
+            return true;
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

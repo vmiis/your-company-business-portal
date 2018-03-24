@@ -1,0 +1,86 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Order_Date,Region,Rep,Item,Units,Unit_Cost,Total";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Order_Date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                    break;
+                case 'Units':
+                case 'Unit_Cost':
+                case 'Total':
+                if(field=='Total') records[I].vm_readonly[field]=true;
+                    td.css('text-align','right');
+                    if(source=="grid") td.css("text-align","right").css('white-space','nowrap');
+                    td.html(parseFloat(records[I][field]).toFixed(2) );
+                    break;
+                case 'Region':
+                    var pid=$vm.module_list[prefix+'region'].table_id;
+                    var sql="with tb as (select distinct name=S1,UID from [TABLE-"+pid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
+                    break;
+                case 'Item':
+                    var pid=$vm.module_list[prefix+'item'].table_id;
+                    var sql="with tb as (select distinct name=S1,UID from [TABLE-"+pid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
+                    break;
+                case 'Rep':
+                    var pid=$vm.module_list[prefix+'rep'].table_id;
+                    var sql="with tb as (select distinct name=S1,UID from [TABLE-"+pid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        _after_change=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Units':
+                    records[I].Total=(parseFloat(records[I].Units)*parseFloat(records[I].Unit_Cost)).toFixed(0);
+                    _render(I);
+                    break;
+                case 'Unit_Cost':
+                    records[I].Total=(parseFloat(records[I].Units)*parseFloat(records[I].Unit_Cost)).toFixed(2);
+                    _render(I);
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            //-------------------------------------
+            dbv.DT1=record.Order_Date;
+            dbv.S1=record.Item;
+            dbv.S2=record.Rep;
+            dbv.S3=record.Region;
+            dbv.V1=record.Total;
+            dbv.V2=record.Units;
+            dbv.V3=record.Unit_Cost;
+            return true;
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    .ui-autocomplete.ui-menu{
+        font-size:12px;
+        background:#ddd;
+    }
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>
