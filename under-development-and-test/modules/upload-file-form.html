@@ -8,8 +8,8 @@
             <div class="row row__ID"><div class="col-sm col-lg-3">B</div><div class="col-sm"><input type="text" class="form-control" name="B" /></div></div>
             <div class="row row__ID"><div class="col-sm col-lg-3">C</div><div class="col-sm"><input type="text" class="form-control" name="C" /></div></div>
 
-            <div class="row row__ID"><div class="col-sm col-lg-3">Doc1</div><div class="col-sm"><input type="file" class="form-control" name="Doc1" /></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Doc2</div><div class="col-sm"><input type="file" class="form-control" name="Doc2" /></div></div>
+            <div class="row row__ID"><div class="col-sm col-lg-3">Doc1</div><div id=Doc1__ID name=Doc1 class="col-sm"></div></div>
+            <div class="row row__ID"><div class="col-sm col-lg-3">Doc2</div><div id=Doc2__ID name=Doc2 class="col-sm"></div></div>
 
 			<br>
 			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
@@ -26,74 +26,19 @@
 		$('#D__ID').on('load',function(){
 			$("#F__ID")[0].reset();
 			$('#submit__ID').show();
+			var record=$vm.vm['__ID'].op.record;
+			$vm.deserialize(record,'#F__ID');
+			$vm.render_file_field( $('#Doc1__ID'),record);
+			$vm.render_file_field( $('#Doc2__ID'),record);
 		})
 		//--------------------------------------------------------
-        var _upload_form_files=function(rid,$form,upload_files_callback){
-            //--------------------------------------------------------
-            var upload_a_file=function(rid,file,upload_a_callback){
-                $vm.uploading_v2({file:file,rid:rid,filename:file.name,callback:function(){
-
-        			if (file.name.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)){
-        			   $vm.uploading_thumb_image({file:file,rid:rid,filename:file.name,callback:function(){
-        				   upload_a_callback();
-        			   }});
-        			}
-        			else{
-        				upload_a_callback();
-        			}
-        		}});
-                upload_a_callback();
-            }
-            //--------------------------------------------------------
-            var total_num=0;
-            $form.find('input[type=file]').each(function(evt){
-                if(this.files.length===1){
-                    total_num++;
-                }
-            });
-            if(total_num!=0){
-                $form.find('input[type=file]').each(function(evt){
-                    if(this.files.length===1){
-                        upload_a_file(rid,this.files[0],function(){
-                            total_num--;
-                            if(total_num==0){
-                                upload_files_callback();
-                            }
-                        });
-                    }
-                });
-            }
-            else upload_files_callback();
-            //--------------------------------------------------------
-        }
-        //--------------------------------------------------------
-        var _set_file_name_as_upload_unsuccessful=function(data,$form){
-            $form.find('input[type=file]').each(function(evt){
-                if(this.files.length===1){
-                    var field=$(this).attr('name');
-                    data[field]="upload unsuccessful";
-                }
-            });
-        }
-        //--------------------------------------------------------
-        var _get_original_file_name=function($form){
-            var data={}
-            $form.find('input[type=file]').each(function(evt){
-                if(this.files.length===1){
-                    var field=$(this).attr('name');
-                    data[field]=this.files[0].name;
-                }
-            });
-            return data
-        }
-        //--------------------------------------------------------
 		$('#F__ID').submit(function(event){
 			//--------------------------------------------------------
 			event.preventDefault();
 			$('#submit__ID').hide();
 			//--------------------------------------------------------
-			var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () { data[this.name]=this.value || '';});
-            _set_file_name_as_upload_unsuccessful(data,$('#F__ID'));
+			var data=$vm.serialize('#F__ID');
+            $vm.set_file_name_as_upload_unsuccessful(data,$('#F__ID'));
 			var dbv={V3:demo_data_id}
 			var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id;
 			//--------------------------------------------------------
@@ -105,8 +50,8 @@
                     return;
                 }
                 //2. upload files
-                _upload_form_files(res.ret,$('#F__ID'),function(){
-                    var data=_get_original_file_name($('#F__ID'));
+                $vm.upload_form_files(res.ret,$('#F__ID'),function(){
+                    var data=$vm.get_original_file_name($('#F__ID'));
                     var req={cmd:"modify_json_record",rid:res.ret,db_pid:db_pid,data:data,dbv:{}};
                     //3. recorver name
         			$VmAPI.request({data:req,callback:function(res){
@@ -120,6 +65,16 @@
 	}
 </script>
 <style>
+	#D__ID .choose_file,.remove_file{
+	    cursor: pointer;
+	    line-height: 18px;
+	}
+	#D__ID .file_buttons{
+	    padding-left: 10px;
+	    float: right;
+	    line-height: 10px;
+	    color: #888;
+	}
 	#D__ID{
 		height:100%;
 		overflow: auto;
