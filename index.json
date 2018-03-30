@@ -43,7 +43,7 @@
 		"service-booking":             		{"url":"service-booking/panel.html",		        "modules":["service-booking/index.json"]},
 		"sales-tracking":             		{"url":"sales-tracking/panel.html",		        	"modules":["sales-tracking/index.json"]},
 		"document-collaboration-tracking":             		{"url":"document-collaboration-tracking/panel.html", "modules":["document-collaboration-tracking/index.json"]},
-
+        "recent-form":             		    {"url":"recent-form/panel.html", "modules":["recent-form/index.json"]},
 
 		"clinical-trials-participant-visit-booking":{"url":"clinical-trials-participant-visit-booking/panel.html","modules":["clinical-trials-participant-visit-booking/index.json"]},
 		"research-volunteer-registration":	{"url":"research-volunteer-registration/panel.html",										"modules":["https://volunteer-database.rt.org.au|configurations/main.json"]},
