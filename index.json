@@ -58,7 +58,6 @@
 		]},
 
 		"panel_nightstudy":     	{"url":"https://nightstudy.rt.org.au/modules/panel/main.html",										"modules":["https://nightstudy.rt.org.au|configurations/main.json","https://nightstudy.rt.org.au|configurations/task.json"]},
-		"isleephealth-first-visit":	{"url":"https://wappsystem.github.io/isleephealth/modules/first-visit/panel.html",					"modules":["https://wappsystem.github.io/isleephealth|modules/first-visit/modules.json"]},
 
 		"amazes":  					{"url":"amazes/panel/main.html",	"modules":["amazes|participant-and-others/index.json","amazes|edc/index.json"]},
         "sfix":                     {"url":"sfix/modules/panel/sfix.html",		                        "modules":["sfix|modules/participant-and-others/module.json","sfix|modules/edc/module.json"]},
