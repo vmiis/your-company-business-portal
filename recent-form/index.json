@@ -1,9 +1,0 @@
-{
-	"modules":
-	{
-        "enquiry-grid":       {"table_id":"20009702","v3":"18033002","url":"recent-form/modules/enquiry-grid.html","form_module":"enquiry-form","name_for_search":"Enquiry records"},
-		"enquiry-form":       {"table_id":"20009702","v3":"18033002","url":"recent-form/modules/enquiry-form.html","name_for_search":"Enquiry form"},
-		"registration-grid":  {"table_id":"20009702","v3":"18033001","url":"recent-form/modules/registration-grid.html","form_module":"registration-form","name_for_search":"Registration records"},
-		"registration-form":  {"table_id":"20009702","v3":"18033001","url":"recent-form/modules/registration-form.html","name_for_search":"Registration form"}
-	}
-}

@@ -39,6 +39,7 @@
 			$('#submit__ID').hide();
 			//--------------------------------------------------------
 			var data=$vm.serialize('#F__ID');
+            //file.1. set as upload_unsuccessful
             var num=$vm.set_file_name_as_upload_unsuccessful(data,$('#F__ID'));
 			var dbv={V3:demo_data_id}
 			var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id;
@@ -46,13 +47,8 @@
 			var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;
 			var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
 			if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:db_pid,data:data,dbv:dbv};
-            //1. add or modify record
 			$VmAPI.request({data:req,callback:function(res){
-				if(res.ret<=0){
-                    $vm.alert("Sorry there is a problem. You can try again later.");
-                    return;
-                }
-                //2. upload files
+                //file.2. upload files
 				if(rid==undefined){
 					rid=res.ret;
 					$.extend($vm.vm['__ID'].op.record,data);
@@ -62,7 +58,7 @@
 	                $vm.upload_form_files(rid,$('#F__ID'),function(){
 	                    var data=$vm.get_original_file_name($('#F__ID'));
 	                    var req={cmd:"modify_json_record",rid:rid,db_pid:db_pid,data:data,dbv:{}};
-						//3. recorver name
+						//file.3. recorver name
 	        			$VmAPI.request({data:req,callback:function(res){
 							$.extend($vm.vm['__ID'].op.record,data);
 	                        $vm.alert('Your data has been successfully submitted');
