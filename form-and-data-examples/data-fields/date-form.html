@@ -1,19 +1,14 @@
 VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
-		Dropdown List
+		Date
 	</div>
 	<form id=F__ID>
 		<div class="container">
 			<div class="row row__ID"><div class="col-sm col-lg-3">First Name</div><div class="col-sm"><input type="text" placeholder="First Name" class="form-control" name="First_Name" required /></div></div>
 			<div class="row row__ID"><div class="col-sm col-lg-3">Last Name</div><div class="col-sm"><input type="text" placeholder="Last Name" class="form-control" name="Last_Name" required /></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Site</div><div class="col-sm"><select class="form-control" name="Site" required >
-				<option></option>
-                <option value=''>---</option>
-                <option>Australia</option>
-                <option>USA</option>
-                <option>China</option>
-			</select></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Date of Birth</div><div class="col-sm"><input type="date" class="form-control" name="Date_of_Birth" /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Date of Payment</div><div class="col-sm"><input type="date" class="form-control" name="Date_of_Payment" /></div></div>
 			<br>
 			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
 		</div>
@@ -36,9 +31,7 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 			$('#submit__ID').hide();
 			//--------------------------------------------------------
             var data=$vm.serialize('#F__ID');
-			var dbv={
-                V3:$vm.module_list[$vm.vm['__ID'].name].v3
-            }
+			var dbv={}
 			//--------------------------------------------------------
             var db_pid=$vm.module_list[$vm.vm['__ID'].name].table_id;
             var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;

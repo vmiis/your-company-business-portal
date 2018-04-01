@@ -6,24 +6,28 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
         //-------------------------------------
-		var fields="First_Name,Last_Name,Site";
+        var fields="First_Name,Last_Name,Date_of_Birth,Date_of_Payment";
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
-                case 'Site':
-                    var html="<select style='border:0;''>"
-                    html+="<option value=''>---</option>";
-                    html+="<option>Australia</option>";
-                    html+="<option>USA</option>";
-                    html+="<option>China</option>";
-                    html+="</select>"
-                    $vm.render_dropdown_list_field('__ID',td,records[I],html)
+                case 'Date_of_Birth':
+                case 'Date_of_Payment':
+                    var html='<input type=date style="border:none" />';
+                    $vm.render_date_field(records[I],'__ID',td,html);
                     break;
             }
         }
         //-------------------------------------
         $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        //convert the existed date to the new standard format
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].Date_of_Birth=$vm.au_date_to_string_yyyymmdd(_records[i].Date_of_Birth);
+                _records[i].Date_of_Payment=$vm.au_date_to_string_yyyymmdd(_records[i].Date_of_Payment);
+            }
+        }
         //-------------------------------------
     }
 </script>

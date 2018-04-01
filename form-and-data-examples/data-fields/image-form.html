@@ -1,31 +1,13 @@
+VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
-		Enquiry
+		File
 	</div>
 	<form id=F__ID>
 		<div class="container">
-            <div class="row row__ID"><div class="col-sm col-lg-3">Photo</div><div class="col-sm" id=Photo__ID data-id=Photo></div></div>
-			<div class="row row__ID"><div class="col-sm col-lg-3">Title</div><div class="col-sm"><select class="form-control" name="Title" required >
-				<option></option>
-				<option value="Miss">Miss</option>
-				<option value="Ms">Ms</option>
-				<option value="Mrs">Mrs</option>
-				<option value="Mr">Mr</option>
-				<option value="Dr">Dr</option>
-			</select></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Name</div><div class="col-sm"><input type="text" placeholder=First class="form-control" name="First_Name" required /></div><div class="col-sm"><input type="text" placeholder=Last class="form-control" name="Last_Name" required /></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Gender</div><div class="col-sm"><select class="form-control" name="Gender" required >
-				<option></option>
-				<option>Male</option>
-				<option>Female</option>
-			</select></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Department</div><div class="col-sm"><input type="text" placeholder=Department class="form-control" name="Department" required /></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Position</div><div class="col-sm"><input type="text" placeholder=Position class="form-control" name="Position" required /></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Location</div><div class="col-sm"><input type="text" placeholder=Location class="form-control" name="Location" required /></div></div>
-			<div class="row row__ID"><div class="col-sm col-lg-3">Email</div><div class="col-sm"><input type="email" placeholder=Email class="form-control" name="Email" required /></div></div>
-			<div class="row row__ID"><div class="col-sm col-lg-3">Phone</div><div class="col-sm"><input type="text" placeholder=Phone class="form-control" name="Phone" /></div></div>
-            <div class="row row__ID"><div class="col-sm col-lg-3">Login Name</div><div class="col-sm"><input type="text" placeholder="Login Name" class="form-control" name="Login_Name" /></div></div>
-
+			<div class="row row__ID"><div class="col-sm col-lg-3">Photo</div><div class="col-sm" id=Photo__ID data-id=Photo></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">First Name</div><div class="col-sm"><input type="text" class="form-control" name="First_Name" /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Last Name</div><div class="col-sm"><input type="text"  class="form-control" name="Last_Name" /></div></div>
 			<br>
 			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
 		</div>
@@ -38,8 +20,9 @@
             $('#F__ID')[0].reset();
             $('#submit__ID').show();
 			var record=$vm.vm['__ID'].op.record;
+            $('#delete__ID').hide(); if(record!=undefined && record.ID!==undefined) $('#delete__ID').show();
 			$vm.deserialize(record,'#F__ID');
-            $vm.render_image_field(record,'__ID',$('#Photo__ID'));
+			$vm.render_image_field(record,'__ID',$('#Photo__ID'));
         })
         //-------------------------------------
 		$('#F__ID').submit(function(event){
@@ -48,9 +31,7 @@
 			$('#submit__ID').hide();
 			//--------------------------------------------------------
             var data=$vm.serialize('#F__ID');
-			var dbv={
-                V3:$vm.module_list[$vm.vm['__ID'].name].v3
-            }
+			var dbv={}
 			//--------------------------------------------------------
 			//file.1. set as upload_unsuccessful
             var num=$vm.set_file_name_as_upload_unsuccessful(data,$('#F__ID'));
@@ -101,7 +82,7 @@
 	}
     #form_container__ID{
         margin-top:20px;
-		max-width: 600px;
+		max-width: 700px;
 		margin-left: auto;
 		margin-right: auto;
 
