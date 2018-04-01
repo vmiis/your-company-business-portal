@@ -1,44 +1,30 @@
+<div id=info__ID>
+	<i>
+		Data collection is the first step for business success.
+	</i>
+</div>
+<div style='padding:10px'>
+	<span class=hd__ID>Form Templates</span>
+</div>
 <section id=panel__ID>
 	<div class='nav__ID'>
-        <span>Forms</span>
 	    <ul>
-            <li module=staff-form>Staff</li>
-            <li module=survey-form>Survey</li>
-            <li module=appointment-form>Appointment</li>
-            <li module=contact-us-form>Contact us</li>
-            <li module=enquiry-form>Enquiry</li>
-			<li module=registration-form>Registration</li>
-            <li module=select-form>Select</li>
-			<li module=radio-form>Radio</li>
-			<li module=checkbox-form>Checkbox</li>
-			<li module=color-form>Color</li>
-			<li module=date-form>Date</li>
-			<li module=file-form>File</li>
-			<li module=image-form>Image</li>
-			<li module=autocomplete-form>Autocomplete</li>
-			<li module=postcode-form>Postcode</li>
-			<li module=caculation-form>Caculation</li>
-		</ul>
-	</div>
-    <div class='nav__ID'>
-        <span>Data</span>
-	    <ul>
-            <li module=staff-data>Staff</li>
-            <li module=survey-data>Survey</li>
-            <li module=appointment-data>Appointment</li>
-            <li module=contact-us-data>Contact us</li>
-            <li module=enquiry-data>Enquiry</li>
-			<li module=registration-data>Registration</li>
-            <li module=select-data>Select</li>
-			<li module=radio-data>Radio</li>
-			<li module=checkbox-data>Checkbox</li>
-			<li module=color-data>Color</li>
-			<li module=date-data>Date</li>
-			<li module=file-data>File</li>
-			<li module=image-data>Image</li>
-			<li module=autocomplete-data>Autocomplete</li>
-			<li module=postcode-data>Postcode</li>
-			<li module=caculation-data>Caculation</li>
+			<li><u module=staff-data>data</u> <u module=staff-form>Staff</u></li>
+			<li><u module=survey-data>data</u> <u module=survey-form>Survey</u></li>
+			<li><u module=appointment-data>data</u> <u module=appointment-form>Appointment</u></li>
+			<li><u module=contact-us-data>data</u> <u module=contact-us-form>Contact us</u></li>
+			<li><u module=enquiry-data>data</u> <u module=enquiry-form>Enquiry</u></li>
+			<li><u module=registration-data>data</u> <u module=registration-form>Registration</u></li>
+			<li><u module=select-data>data</u> <u module=select-form>Select</u></li>
+			<li><u module=radio-data>data</u> <u module=radio-form>Radio</u></li>
+			<li><u module=checkbox-data>data</u> <u module=checkbox-form>Checkbox</u></li>
+			<li><u module=color-data>data</u> <u module=color-form>Color</u></li>
+			<li><u module=date-data>data</u> <u module=date-form>Date</u></li>
+			<li><u module=file-data>data</u> <u module=file-form>File</u></li>
+			<li><u module=image-data>data</u> <u module=file-form>Image</u></li>
+			<li><u module=autocomplete-data>data</u> <u module=file-form>Autocomplete</u></li>
+			<li><u module=postcode-data>data</u> <u module=file-form>Postcode</u></li>
+			<li><u module=caculation-data>data</u> <u module=file-form>Caculation</u></li>
 		</ul>
 	</div>
 </section>
@@ -47,7 +33,7 @@
       function F__ID(){
 		  //--------------------------------------------------------
           var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
-		  $('#panel__ID li').on('click',function(){
+		  $('#panel__ID u').on('click',function(){
 			  var m=$(this).attr('module');
               if(m!=undefined){
 				  if($vm.module_list[prefix+m]==undefined){
@@ -109,4 +95,34 @@
     .nav__ID span{
         color:#030;
     }
+
+
+
+	.nav__ID u{
+		margin:0px;
+		display:inline-block;
+	}
+	.nav__ID li:hover{
+	    cursor:default;
+	}
+	.nav__ID li u:first-child{
+		color:#888;
+	}
+	.nav__ID li u:first-child:hover{
+		color:#fff;
+	}
+	#D__ID li:hover {
+		color:#000;
+	}
+	#info__ID{
+        font-size: 9px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	.hd__ID{
+	    margin:3px;
+	    display:block;
+	    font-weight:700;
+		color:#030;
+	}
 </style>
