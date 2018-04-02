@@ -1,0 +1,33 @@
+<section>
+	VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/bookkeeping_details.js
+        //-------------------------------------
+		$('#new__ID').hide();
+		$('#save__ID').hide();
+        _set_req=function(){
+            var sql="with tb as (select Information,ID,S1,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+=",item as (select S1,Information2=Information from [TABLE-"+predefined_transaction_item_tid+"])";
+            sql+=" select ID,Information,Information2 from tb left join item on tb.S1=item.S1 where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+        _set_req_export=function(){
+            var sql="with tb as (select Information,ID,S1,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+=",item as (select S1,Information2=Information from [TABLE-"+predefined_transaction_item_tid+"])";
+            sql+=" select ID,Information,Information2 from tb left join item on tb.S1=item.S1";
+            _set_from_to();
+            if(_from!='0' && _to!='0') sql+=" where RowNum between @I6 and @I7";
+            _req={cmd:'query_records',sql:sql,s1:'"'+$('#keyword__ID').val()+'"',i6:_from,i7:_to}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+	VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

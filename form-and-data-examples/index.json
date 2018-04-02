@@ -30,6 +30,12 @@
         "enquiry-data":       {"table_id":"20009702","v3":"18033002","url":"modules/enquiry-data.html","form_module":"enquiry-form","name_for_search":"Enquiry data"},
 		"enquiry-form":       {"table_id":"20009702","v3":"18033002","url":"modules/enquiry-form.html","name_for_search":"Enquiry form"},
 		"registration-data":  {"table_id":"20009702","v3":"18033001","url":"modules/registration-data.html","form_module":"registration-form","name_for_search":"Registration data"},
-		"registration-form":  {"table_id":"20009702","v3":"18033001","url":"modules/registration-form.html","name_for_search":"Registration form"}
+		"registration-form":  {"table_id":"20009702","v3":"18033001","url":"modules/registration-form.html","name_for_search":"Registration form"},
+        "isi-data":           {"table_id":"20011372",                "url":"clinical-trials/insomnia-severity-index-data.html","form_module":"isi-form","name_for_search":"Insomnia Severity Index data"},
+        "isi-form":           {"table_id":"20011372",                "url":"clinical-trials/insomnia-severity-index-form.html","name_for_search":"Insomnia Severity Index form"},
+        "ess-data":           {"table_id":"20011377",                "url":"clinical-trials/epworth-sleepiness-scale-data.html","form_module":"ess-form","name_for_search":"Epworth Sleepiness Scale data"},
+        "ess-form":           {"table_id":"20011377",                "url":"clinical-trials/epworth-sleepiness-scale-form.html","name_for_search":"Epworth Sleepiness Scale form"},
+        "ffs-data":           {"table_id":"20011382",                "url":"clinical-trials/flinders-fatigue-scale-data.html","form_module":"ffs-form","name_for_search":"Flinders Fatigue Scale data"},
+        "ffs-form":           {"table_id":"20011382",                "url":"clinical-trials/flinders-fatigue-scale-form.html","name_for_search":"Flinders Fatigue Scale form"}
 	}
 }

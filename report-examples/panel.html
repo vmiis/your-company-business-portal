@@ -9,6 +9,18 @@
 <section id=panel__ID>
 	<div class='nav__ID'>
 	    <ul>
+            <li module=expense_chart>Expense aggregation chart</li>
+			<li module=expense_aggregation_table>Expense aggregation table</li>
+            <li module=aggregation_gst>GST aggregation</li>
+            <li module=income_chart>Income aggregation chart</li>
+            <li module=income_aggregation_table>Income aggregation table</li>
+            <li module=aggregation_tax_return>Tax return</li>
+            <li module=sales-tracking-chart>Total sales (chart)</li>
+            <li module=sales-tracking-query>Total sales (query)</li>
+			<li module=transaction_details>Transaction tax details</li>
+			<li module=transaction_details_with_month>Transaction tax details (month)</li>
+            <li module=transaction_details_with_period>Transaction tax details (period)</li>
+			<li module=transaction_details_with_quarter>Transaction tax details (quarter)</li>
 		</ul>
     </div>
     <div class='nav__ID'>
@@ -18,8 +30,22 @@
 </section>
 
 <script>
-      function F__ID(){
-      }
+    function F__ID(){
+        //--------------------------------------------------------
+        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+        $('#panel__ID li').on('click',function(){
+            var m=$(this).attr('module');
+            if(m!=undefined){
+                if($vm.module_list[prefix+m]==undefined){
+                  alert(prefix+m +" is not in the module list.");
+                  return;
+                }
+                $vm.module_list[prefix+m].alert='1';
+                $vm.nav_load_module(prefix+m);
+            }
+        })
+        //--------------------------------------------------------
+    }
 </script>
 
 <style>

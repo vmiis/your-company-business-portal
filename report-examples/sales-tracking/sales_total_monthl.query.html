@@ -1,0 +1,158 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <form class="form-inline">
+            <button type=button class='btn btn-secondary' id=new__ID>New</button>
+            <button type=button class='btn btn-secondary' id=save__ID>Save</button>
+            <select id=YY__ID type=select class="form-control" style='display:inline-block;width:auto;'></select>
+            <button type=button class='btn btn-secondary' id=query__ID >Query</button>
+            <button type=button class='btn btn-secondary' id=export__ID >Export</button>
+        	<span class=tab__ID></span>Sales total monthly
+        </form>
+        <span id=elapsed__ID style='float:right'></span>
+    </div>
+    <table id=grid__ID></table>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="Year,Month,Amount,_Update,Update_Date,Updated_by";
+        _fields+=",Submit Date|DateTime,Submitted by|Author";
+        _fields_e=_fields.replace(',_Update','');
+        //-------------------------------------
+        var prefix=_mlist[$vm.vm['__ID'].name].prefix;
+        //-------------------------------------
+        //number dropdown
+        var $List=$('#YY__ID');
+        var y=new Date().getFullYear();
+        for(var i=0;i<7;i++){
+        	$List.append(  $('<option></option>').val(y-i).html(y-i)  );
+        }
+        $List.val(y);
+        $List.on('change',function(){  _set_req(); _request_data(); });
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Order_Date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                    break;
+                case 'Year':
+                    var y=new Date().getFullYear();
+                    var html="<select style='border:0;''>\
+                            <option>"+y+"</option>\
+                            <option>"+(y-1)+"</option>\
+                            <option>"+(y-2)+"</option>\
+                            <option>"+(y-3)+"</option>\
+                            <option>"+(y-4)+"</option>\
+                            <option>"+(y-5)+"</option>\
+                            <option>"+(y-6)+"</option>\
+                            <option>"+(y-7)+"</option>\
+                            <option>"+(y-8)+"</option>\
+                            <option>"+(y-9)+"</option>\
+                        </select>\
+                    ";
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+                case 'Month':
+                    var y=new Date().getFullYear();
+                    var html="<select style='border:0;'>\
+                            <option>January</option>\
+                            <option>February</option>\
+                            <option>March</option>\
+                            <option>April</option>\
+                            <option>May</option>\
+                            <option>June</option>\
+                            <option>July</option>\
+                            <option>August</option>\
+                            <option>September</option>\
+                            <option>October</option>\
+                            <option>November</option>\
+                            <option>December</option>\
+                        </select>\
+                    ";
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+                case 'Amount':
+                    td.css('text-align','right');
+                    if(source=="grid") td.css("text-align","right").css('white-space','nowrap');
+                    td.html(parseFloat(records[I][field]).toFixed(2) );
+                    break;
+                case '_Update':
+                    records[I].vm_custom[field]=true;
+                    td.html("<u style='cursor:pointer;color:#888'>Update</u>");
+                    td.find('u').on('click',function(){
+                        update_amount(I);
+                    })
+                    break;
+            }
+        }
+        //-------------------------------------
+        _new_pre_data_process=function(){
+            _records[0].Year=$('#YY__ID').val();
+            _records[0].Amount='0.00';
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.S1=$vm.date_to_string_dmy(new Date());
+            dbv.S2=$vm.user;
+            dbv.V1=record.Year;
+            dbv.V2=['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(record.Month)+1;
+            dbv.V3=record.Amount;
+            return true;
+        };
+        //-------------------------------------
+        _set_req=_set_req_export=function(){
+            var sql="with tb as (select Information,V2,ID,DateTime,Author from [TABLE-"+_db_pid+"] where V1=@I1) ";
+            sql+="select Information,ID,DateTime,Author from tb order by V2";
+            _req={cmd:'query_records',sql:sql,i1:$('#YY__ID').val()}
+        }
+        //-------------------------------------
+        var update_amount=function(I){
+            var old_value=_records[I].Amount;
+            var year=_records[I].Year;
+            var month=_records[I].Month;
+            if(year!==undefined && month!==undefined){
+                var items=['January','February','March','April','May','June','July','August','September','October','November','December'];
+                month=(items.indexOf(month)+1).toString();
+                var pid=$vm.module_list[prefix+'sales'].table_id;
+                var sql="\
+                    with tb as (select Amount=V1 from [TABLE-"+pid+"] where DatePart(yy,DT1)=@I1 and DatePart(mm,DT1)=@I2) \
+                    select Amount=Sum(Amount) from tb\
+                ";
+                var req={cmd:'query_records',sql:sql,i1:year,i2:month}
+                $VmAPI.request({data:req,callback:function(res){
+                    if(res.records.length>0){
+                        var new_value=res.records[0].Amount;
+                        if(new_value==='') new_value='0.00';
+                        if(old_value!==new_value || new_value=='0.00'){
+                            _records[I].Amount=new_value;
+                            _records[I].Update_Date=$vm.date_to_string_dmy(new Date());
+                            _records[I].Updated_by=$vm.user;
+                            _render(I);
+                            $('#save__ID').css('background','#E00');
+                        }
+                        else{
+                            alert('The new amount is same as old one. No update.')
+                        }
+                    }
+                }})
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    #toolbar__ID{
+		background-color:#ccc;
+		padding:5px;
+		margin-bottom:0px;
+		overflow:hidden
+	}
+    #toolbar__ID *{
+		margin-right:3px;
+	}
+</style>

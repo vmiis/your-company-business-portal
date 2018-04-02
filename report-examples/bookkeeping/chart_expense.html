@@ -1,0 +1,96 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <form class="form-inline">
+            <select id=YY__ID type=select class="form-control" style='display:inline-block;width:auto;'></select>
+            <select id=item__ID type=select class="form-control" style='display:inline-block;width:auto;'></select>
+            <button type=button id=aquery__ID class='btn btn-secondary'>Query</button>
+            <button type=button id=export__ID class='btn btn-secondary'>Export</button>
+            Expense
+        </form>
+    </div>
+    <div id=pvdiv__ID>
+        <div id=chart_container__ID style='padding:0 6px 0 6px;font-size:10pt;font-family: Helvetica, Arial, sans-serif;'>
+            <div id=chart__ID style='width:100%'></div>
+        </div>
+    </div>
+</section>
+<style>
+    #toolbar__ID{
+		background-color:#ccc;
+		padding-left:10px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+    #toolbar__ID .form-inline > * {
+        margin-right:5px;
+    }
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+</style>
+<script>
+function F__ID(){
+    //------------------------
+    VmInclude:__COMPONENT__/grid/grid.v3.js
+    VmInclude:__CURRENT_PATH__/chart.js
+    //------------------------
+    var create_results=function(data_records){
+        var results={}
+        for(var i=0;i<data_records.length;i++){
+            var month=data_records[i].__month__;
+            for(var item in data_records[i]){
+                if(item!='__month__'){
+                    var ns=item.split('_1_1_1_');
+                    var name=ns[0];
+                    var type=ns[1];
+                    var gst=ns[2];
+                    var tr=ns[3];
+                    var amount=parseFloat(data_records[i][item]);
+                    if(gst=='GST'){
+                        amount=amount*10/11;
+                    }
+                    if(type=="Expense" || type=="Super_Expense" || type=="Salary_Expense"){
+                        if(results[name]==undefined){
+                            results[name]={}
+                        }
+                        switch(month){
+                            case '1': if(results[name].M1==undefined) results[name].M1=amount; else results[name].M1+=amount;  break;
+                            case '2': if(results[name].M2==undefined) results[name].M2=amount; else results[name].M2+=amount;  break;
+                            case '3': if(results[name].M3==undefined) results[name].M3=amount; else results[name].M3+=amount;  break;
+                            case '4': if(results[name].M4==undefined) results[name].M4=amount; else results[name].M4+=amount;  break;
+                            case '5': if(results[name].M5==undefined) results[name].M5=amount; else results[name].M5+=amount;  break;
+                            case '6': if(results[name].M6==undefined) results[name].M6=amount; else results[name].M6+=amount;  break;
+                            case '7': if(results[name].M7==undefined) results[name].M7=amount; else results[name].M7+=amount;  break;
+                            case '8': if(results[name].M8==undefined) results[name].M8=amount; else results[name].M8+=amount;  break;
+                            case '9': if(results[name].M9==undefined) results[name].M9=amount; else results[name].M9+=amount;  break;
+                            case '10': if(results[name].M10==undefined) results[name].M10=amount; else results[name].M10+=amount;  break;
+                            case '11': if(results[name].M11==undefined) results[name].M11=amount; else results[name].M11+=amount;  break;
+                            case '12': if(results[name].M12==undefined) results[name].M12=amount; else results[name].M12+=amount;  break;
+                        }
+                    }
+                }
+            }
+        }
+        return results;
+    }
+    //------------------------
+}
+</script>
+<style>
+    @media print {
+        body * { visibility: hidden; }
+        #chart_container__ID * {
+            visibility: visible;
+        }
+        #chart_container__ID {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+</style>

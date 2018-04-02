@@ -1,0 +1,72 @@
+<section>
+	<div id=toolbar__ID class="navbar navbar-default">
+            <div id=row_1__ID class="col-sm col-lg-4">
+                Start Date: <input id=t1__ID type=text style="width: 100px; display:inline-block;" class="form-control" />
+                End Date: <input id=t2__ID type=text style="width: 100px; display:inline-block;" class="form-control" />
+            </div>
+	    	<div id=row_2__ID class="col-sm col-lg-3">
+                    <input placeholder='name' id=name__ID type=text style="width: 120px; display:inline-block;" class="form-control" />
+					<input placeholder='type' id=type__ID type=text style="width: 120px; display:inline-block;" class="form-control" />
+
+                    <button id=query__ID type=button class="btn btn-secondary"><i class="fa fa-search" title='Search'></i></button>
+	    	</div>
+	    	<div class="col-sm col-lg-3">
+		            Page Size:
+		            <select id=page_size__ID class="form-control" style='margin-right:20px;display:inline-block;width:auto;'><option>30</option><option>50</option><option>100</option><option>200</option></select>
+		            <span id=I__ID style="display:none">0</span><span id=A__ID></span>
+		            <button id=p__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-left"></i></button>
+		            <button id=n__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-right"></i></button>
+	    	</div>
+	       	<span id=elapsed__ID style='float:right'></span>
+    </div>
+    <div id=table__ID>
+        <table id=grid__ID></table>
+    </div>
+</section>
+<style>
+	#toolbar__ID{
+		background-color:#ccc;
+		padding-left:2px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 0;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+		#row_1__ID, #row_2__ID{
+			padding-bottom: 3px;
+		}
+	}
+</style>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/bookkeeping_details.js
+        //-------------------------------------
+        $('#t1__ID').datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true});
+        $('#t2__ID').datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true});
+        $('#t1__ID').val($vm.first_day_of_current_year());
+        $('#t2__ID').val($vm.date_to_string_dmy($vm.date_today()));
+        //-------------------------------------
+        _set_req=function(){
+            var sql0="with tb as (select Information,ID,S1 from [TABLE-"+_db_pid+"] where DT1>=@T1 and DT1<=@T2 and S1 like '%'+@S1+'%')";
+            if($('#type__ID').val()=='')
+                sql0+=",item as (select S1,Information2=Information from [TABLE-"+predefined_transaction_item_tid+"])";
+            else
+                sql0+=",item as (select S1,Information2=Information from [TABLE-"+predefined_transaction_item_tid+"] where S2=@S2)";
+            sql0+=",tb2 as (select ID,Information,Information2,RowNum=row_number() over (order by ID DESC) from tb join item on tb.S1=item.S1)";
+            var sql=sql0+" select ID,Information,Information2 from tb2 where RowNum between @I6 and @I7";
+            var sql_n=sql0+" select count(ID) from tb2";
+            _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:$('#name__ID').val(),s2:$('#type__ID').val(),t1:$('#t1__ID').val(),t2:$('#t2__ID').val(),I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+	VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
