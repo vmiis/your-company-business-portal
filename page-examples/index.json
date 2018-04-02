@@ -1,0 +1,13 @@
+{
+    "modules":
+    {
+        "fitness":	    {"url":"modules/fitness.html","name_for_search":"Fitness"},
+        "bubble":       {"url":"modules/bubble.html","name_for_search":"Bubble"},
+        "nyan-cat":	    {"url":"modules/nyan-cat.html","name_for_search":"Nyan cat"},
+        "particles":	{"url":"modules/particles.html","name_for_search":"Particles"},
+        "snow":	        {"url":"modules/snow.html","name_for_search":"Snow"},
+        "nasa":	        {"url":"modules/nasa.html","name_for_search":"NASA"},
+        "windfarm-home":{"url":"modules/windfarm/home.html","name_for_search":"One thing"},
+        "one-thing":	{"url":"modules/one-thing.html","name_for_search":"One thing"}
+    }
+}

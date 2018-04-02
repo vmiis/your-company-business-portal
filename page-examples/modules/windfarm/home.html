@@ -1,0 +1,123 @@
+<div id=page__ID>
+	<div class="container-fluid" style='max-width:1000px'>
+		<div class=row>
+			<div class=col-12 style='color:#fff;background:rgba(43, 108, 163,0.37)'>
+				<div class="text-center" style='padding-top:36px;padding-bottom:50px'>
+					<span style='font-size:36px;font-weight:700'>DO WIND FARMS CAUSE HEALTH<br>EFFECTS?</span>
+				</div>
+				<div style='padding:10px 30px 90px 30px; text-align:center'>
+					There have been conflicting reports about whether wind farms affect the health of people who live nearby. To help answer this question the National Health and Medical Research Council (NHMRC) has funded this world first research study to be conducted by our team at the Woolcock Institute of Medical Research.
+
+​
+
+					We are currently seeking volunteers for two different research studies.
+					<br>
+					<br>
+					<u style='cursor:pointer' id=contact_us__ID><i>Click here to contact the research team</i></u>
+				</div>
+			</div>
+		</div>
+		<div class=row>
+			<div class="col-sm col-lg-6 text-center" style='color:#888;background-color:#fff'>
+				<div style='padding-top:36px;padding-bottom:20px'>
+					<div style='border-width: 1px 0 1px 0;  border-color: black;  border-style: solid;'>
+						<span style='font-size:30px;font-weight:700;line-height:56px'>THE LABORATORY STUDY</span>
+					</div>
+				</div>
+				<span style='font-size:22px'>Come to our Sleep Labs</span>
+				<br><br>
+				<p>
+					We will be studying the effects on sleep and health over 3 separate weekends.</p>
+<p>Participants will be exposed between wind turbine noise (Infrasound), traffic and silence over each weekend visit.</p>
+​<p>To complete our online questionnaire, please click on “Register" below to see if you would be suitable to participate</p>
+<p>All visits at the Woolcock Institute of Medical Research, Glebe, Sydney</p>
+<br><br><br>
+				<button id=lab_study_more__ID type=button class='btn btn-primary' style='margin-right:80px'>More Information</button>
+				<button id=lab_study_registration__ID type=button class='btn btn-primary'>Register</button>
+				<br><br>
+			</div>
+			<div class="col-sm col-lg-6 text-center"  style='color:#fff;background-color:#2B6CA3'>
+				<div style='padding-top:36px;padding-bottom:20px'>
+					<div style='border-width: 1px 0 1px 0;  border-color: #fff;  border-style: solid;'>
+						<span style='font-size:36px;font-weight:700'>THE HOME STUDY</span>
+					</div>
+				</div>
+				<span style='font-size:22px'>Participate in your home</span>
+				<br><br>
+
+				<p>
+					We will install speakers in your bedroom that deliver either infrasound, which is a sound that cannot be heard by the human ear, or no sound. These speakers will not produce audible sounds.</p>
+					<p>The type of speaker we install will be selected at random and you will not know what type of speaker is installed until the study end.</p>
+					<p>We will visit you in your home at the beginning of the research study and also 3 months and 6 months later to conduct some tests. The range of tests will measure your sleep, heart health,
+						emotional wellbeing and your hearing, balance and senses. We will also ask you to have a blood test.</p>
+					<b><i><mark>Currently recruiting in Camden, Narrellan, and Campbelltown Areas</mark>
+				</p>
+				<button id=home_study_more__ID type=button class='btn btn-primary' style='margin-right:80px'>More Information</button>
+				<button id=home_study_registration__ID type=button class='btn btn-primary'>Register</button>
+				<br><br>
+			</div>
+		</div>
+	</div>
+	<div style='background-color:#fff'>
+		<br><br>
+		<div class="container-fluid" style='max-width:1000px'>
+			<img width=230 src='__CURRENT_PATH__/home.html.logo1.png' _style='margin-top:0px;margin-bottom:-10px'></img>
+			<img width=280 src='__CURRENT_PATH__/home.html.logo2.png' _style='margin-top:0px;margin-bottom:-10px'></img>
+			<div style="display:inline-block;color:#666;font-size:9px;padding-left:20px">This website has been approved by the SLHD Ethics Committee (RPAH Zone)<br>Protocol No. 16-0073 and 17-0235 Version 1.0 February 8th 2018
+		</div>
+		<div>
+			<br><br>
+		</div>
+</div>
+<script>
+	function F__ID(){
+		//----------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+        //----------------------------------------
+		$('#lab_study_more__ID').on('click',function(){
+			$vm.nav_load_module(prefix+'lab-study');
+		})
+		//----------------------------------------
+		$('#lab_study_registration__ID').on('click',function(){
+			$vm.nav_load_module(prefix+'lab-study-registration');
+		})
+		//----------------------------------------
+		$('#home_study_more__ID').on('click',function(){
+			$vm.nav_load_module(prefix+'home-study');
+		})
+		//----------------------------------------
+		$('#home_study_registration__ID').on('click',function(){
+			$vm.nav_load_module(prefix+'home-study-registration');
+		})
+		//----------------------------------------
+		$('#contact_us__ID').on('click',function(){
+			$vm.nav_load_module(prefix+'contact-us');
+		})
+		//----------------------------------------
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+        color:#c76c59;
+		height:100%;
+		/*display: flex;*/
+		align-items: center;
+	}
+	#hr__ID{
+		border-top:1px solid #c76c59;
+	}
+	#a1__ID{
+		cursor:pointer;
+	}
+	#a1__ID:hover{
+		color:#a74c39;
+	}
+	#a2__ID{
+		cursor:pointer;
+	}
+</style>
