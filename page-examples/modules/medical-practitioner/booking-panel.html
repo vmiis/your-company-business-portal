@@ -1,0 +1,513 @@
+<div id=D__ID>
+	<section>
+		<div id=toolbar__ID class="navbar navbar-default">
+	    	<div id=row_1__ID class="col-sm col-lg-4">
+				<form class="form-inline">
+		        	<!--<button id=save__ID type=button class='btn btn-secondary'><i class="fa fa-upload" title='Save'></i></button>-->
+					<select id=YY__ID type=select class="form-control" _style='display:inline-block;width:auto;'></select>
+					<select id=MM__ID type=select class="form-control" _style='display:inline-block;width:auto;'></select>
+					<!--<button id=query__ID type=button class="btn btn-secondary"><i class="fa fa-download" title='Refresh'></i></button>-->
+				</form>
+	    	</div>
+	       	<span id=elapsed__ID style='float:right'></span>
+	    </div>
+	</section>
+	<style>
+		#toolbar__ID{
+			background-color:#ccc;
+			padding:4px 0px;
+			margin-bottom:0px;
+			overflow:hidden
+		}
+		#toolbar__ID .form-inline > * {
+	        margin-right:5px;
+	    }
+		@media screen and (max-width:768px){
+			#toolbar__ID{
+				padding: 3px 0;
+			}
+			#toolbar__ID div{
+				padding-left:3px;
+			}
+			#row_1__ID{
+				padding-bottom: 3px;
+			}
+		}
+	</style>
+
+
+	<table class='table table-bordered table-sm'>
+		<th>
+			<td>01</td><td>02</td><td>03</td><td>04</td><td>05</td>
+			<td>06</td><td>07</td><td>08</td><td>09</td><td>10</td>
+			<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+			<td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+			<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+			<td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+		</th>
+		<tr>
+			<td>08:00-08:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>08:15-08:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>08:30-08:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>08:45-09:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>09:00-09:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>09:15-09:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>09:30-09:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>09:45-10:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>10:00-10:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>10:15-10:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>10:30-10:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>10:45-11:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>11:00-11:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>11:15-11:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>11:30-11:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>11:45-12:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>12:00-12:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>12:15-12:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>12:30-12:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>12:45-13:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>13:00-13:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>13:15-13:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>13:30-13:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>13:45-14:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>14:00-14:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>14:15-14:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>14:30-14:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>14:45-15:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>15:00-15:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>15:15-15:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>15:30-15:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>15:45-16:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>16:00-16:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>16:15-16:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>16:30-16:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>16:45-17:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>17:00-17:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>17:15-17:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>17:30-17:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>17:45-18:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>18:00-18:15</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>18:15-18:30</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>18:30-18:45</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td>18:45-19:00</td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+	</table>
+	<script>
+		function F__ID(){
+			//--------------------------------------
+		    //number dropdown
+		    var $List2=$('#YY__ID');
+		    var y=new Date().getFullYear();
+		    for(var i=0;i<2;i++){
+		        $List2.append(  $('<option></option>').val(y+i).html(y+i)  );
+		    }
+		    $List2.val(y);
+
+			var $List2=$('#MM__ID');
+		    for(var i=1;i<=12;i++){
+		        $List2.append(  $('<option></option>').val(i).html(i)  );
+		    }
+			var m=new Date().getMonth()+1;
+		    $List2.val(m);
+			$('#YY__ID').on('change',function(){ request_data(); })
+			$('#MM__ID').on('change',function(){ request_data(); })
+		    //---------------------------------------------
+			var demo_data_id_2=$vm.module_list[$vm.vm["__ID"].name].demo_id_2
+			var demo_data_id=$vm.module_list[$vm.vm["__ID"].name].demo_id
+			var demo_db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id
+			//--------------------------------------
+			var _records=[];
+			var dt={}
+			//--------------------------------------
+			$('#D__ID').on('show',function(){ request_data(); })
+			$('#query__ID').on('click',function(){ request_data(); })
+			$('#save__ID').on('click',function(){ save_data(); })
+			//--------------------------------------
+			var render=function(){
+				$('#D__ID td').each(function(){
+					var col = $(this).parent().children().index($(this));
+			        var row = $(this).parent().parent().children().index($(this).parent());
+					if(col>0 && row>0){
+						var p=col+"-"+row;
+						if(dt[p]>1){
+							$(this).css({'background-color':'#ddd','cursor':'pointer'});
+							$(this).text("My booking");
+						}
+						else if(dt[p]==1) $(this).css({'background-color':'#fff','cursor':'pointer'});
+						else $(this).css('background-color','#ddd');
+					}
+				})
+				$("#D__ID td").show();
+				var n=new Date($('#YY__ID').val(), $('#MM__ID').val(), 0).getDate();
+				if(n==30) $("#D__ID table td:nth-child(32)").hide();
+				if(n==29){ $("#D__ID table td:nth-child(32)").hide(); $("#D__ID table td:nth-child(31)").hide();}
+				if(n==28){ $("#D__ID table td:nth-child(32)").hide(); $("#D__ID table td:nth-child(31)").hide(); $("#D__ID table td:nth-child(30)").hide();}
+			}
+			//--------------------------------------
+			$('#D__ID td').on('click',function(){
+				var col = $(this).parent().children().index($(this));
+		        var row = $(this).parent().parent().children().index($(this).parent());
+				var p=col+"-"+row;
+				if(dt[p]==1){
+					if($vm.user=="guest"){
+						$vm.alert("You need to signin for booking.");
+					}
+					var d=$('#YY__ID').val()+"-"+$('#MM__ID').val()+"-"+$(this).parent().parent().children().eq(0).find('td').eq(col-1).html();
+					var t=$(this).parent().children().eq(0).html().split('-')[0];
+					$vm.nav_load_module('panel_main_booking-form',"",{date:d,time:t});
+				}
+				else if(dt[p]>1){
+					$vm.nav_load_module('panel_main_booking-form',"",{rid:dt[p]});
+				}
+			})
+			//--------------------------------------
+			var request_N;
+			var request_data=function(){
+				request_N=3;
+				dt={}
+				//-----------------------------------
+    		    var sql="select top 1 Information,ID from [TABLE-"+demo_db_pid+"] where DT1=@T1 and V3="+demo_data_id_2;
+				var t1=$('#YY__ID').val()+"-"+$('#MM__ID').val()+"-01";
+				var req={cmd:'query_records',sql:sql,t1:t1}
+				$VmAPI.request({data:req,callback:function(res){
+					_records=res.records;
+					if(_records.length>0){
+						var dt0=_records[0].dt;
+						for(var p in dt0){
+							var ss=p.split('-');
+							if(ss.length==2){
+								var p1=ss[0]+'-'+(2*parseInt(ss[1])-1);
+								var p2=ss[0]+'-'+(2*parseInt(ss[1]));
+								if(dt[p1]==undefined) dt[p1]=1;
+								if(dt[p2]==undefined) dt[p2]=1;
+							}
+						}
+					}
+					request_data_last();
+				}})
+				//-----------------------------------
+				var y=parseInt($('#YY__ID').val());
+				var m=parseInt($('#MM__ID').val());
+				var t1=y+"-"+m+"-01";
+				m=m+1; if(m==13){ m=1;y++}
+				var t2=y+"-"+m+"-01";
+				var req={cmd:'query_records_dt1',db_pid:demo_db_pid,t1:t1,t2:t2,demo_data_id:demo_data_id}
+				$VmAPI.request({data:req,callback:function(res){
+					var records=res.records;
+					for(var i=0;i<records.length;i++){
+						var dt1=records[i].DT1;
+						var ss=dt1.split(' ');
+						if(ss.length>1){
+							var d=ss[0];
+							var t=ss[1];
+							var col=new Date(d).getDate();
+							var tt=t.split(':');
+							if(tt.length>1){
+								var ms=parseInt(tt[0]*60)+parseInt(tt[1])-8*60;
+								var row=ms/15+1;
+								var p=col+"-"+row;
+								if(dt[p]==1) dt[p]=0;
+							}
+						}
+					}
+					request_data_last();
+				}})
+				//-----------------------------------
+				var y=parseInt($('#YY__ID').val());
+				var m=parseInt($('#MM__ID').val());
+				var t1=y+"-"+m+"-01";
+				m=m+1; if(m==13){ m=1;y++}
+				var t2=y+"-"+m+"-01";
+				var sql="select ID, DT1=convert(varchar,DT1,20) from [TABLE-"+demo_db_pid+"] where DT1>=@T1 and DT1<@T2"
+				var req={cmd:'query_records_s2_v2',sql:sql,t1:t1,t2:t2}
+				$VmAPI.request({data:req,callback:function(res){
+					var records=res.records;
+					for(var i=0;i<records.length;i++){
+						var dt1=records[i].DT1;
+						var ss=dt1.split(' ');
+						if(ss.length>1){
+							var d=ss[0];
+							var t=ss[1];
+							var col=new Date(d).getDate();
+							var tt=t.split(':');
+							if(tt.length>1){
+								var ms=parseInt(tt[0]*60)+parseInt(tt[1])-8*60;
+								var row=ms/15+1;
+								var p=col+"-"+row;
+								dt[p]=records[i].ID;
+							}
+						}
+					}
+					request_data_last();
+				}})
+				//-----------------------------------
+			}
+			//--------------------------------------
+			var request_data_last=function(){
+				request_N--;
+				if(request_N==0) render();
+			}
+			//--------------------------------------
+			var save_data=function(){
+				//--------------------------------------------------------
+				var data={"dt":dt};
+				var t1=$('#YY__ID').val()+"-"+$('#MM__ID').val()+"-01";
+				var dbv={V3:demo_data_id,DT1:t1}
+				//--------------------------------------------------------
+				var sql="select top 1 Information,ID from [TABLE-"+demo_db_pid+"] where DT1=@T1 and V3="+demo_data_id;
+				var req={cmd:'query_records',sql:sql,t1:t1}
+				$VmAPI.request({data:req,callback:function(res){
+					if(res.length==0){
+						var req={cmd:"add_json_record",db_pid:demo_db_pid,data:data,dbv:dbv};
+						$VmAPI.request({data:req,callback:function(res){
+							$('#save__ID').css('background','');
+							$('#query__ID').css('background','');
+						}});
+					}
+					else{
+						var req={cmd:"modify_json_record",rid:res.records[0].ID,db_pid:demo_db_pid,data:data,dbv:dbv};
+						$VmAPI.request({data:req,callback:function(res){
+							$('#save__ID').css('background','');
+							$('#query__ID').css('background','');
+						}});
+					}
+				}});
+				//--------------------------------------------------------
+			}
+			//--------------------------------------
+		}
+	</script>
+	<style>
+		#D__ID{
+			height:100%;
+	        overflow:auto;
+			animation: vm_module_fadein 1.0s;
+			background-color:#fff;
+		}
+		#D__ID table .fa{
+			color:green;
+		}
+		#D__ID table td{
+			padding-top:0;
+			padding-bottom:0;
+		}
+	</style>
+</div>
