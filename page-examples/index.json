@@ -19,6 +19,8 @@
 		"team":	  				{"url":"modules/team.html","name_for_search":"Team"},
         "medical-services":	  	{"url":"modules/medical-services.html","name_for_search":"Medical services"},
         "price":	  	        {"url":"modules/prices.html","name_for_search":"Price"},
+        "price2":	  	        {"url":"modules/prices2.html","name_for_search":"Price 2"},
+        "trainers":	  	        {"url":"modules/trainers.html","name_for_search":"Trainers"},
         "contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/contact-us.html","name_for_search":"Contact us"}
     }
 }

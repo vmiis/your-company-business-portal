@@ -10,7 +10,7 @@
 	<div class='nav__ID'>
 	    <ul>
             <li><u module=appointment-data>data</u> <u module=appointment-form>Appointment</u></li>
-            <li><u module=autocomplete-data>data</u> <u module=file-form>Autocomplete</u></li>
+            <li><u module=autocomplete-data>data</u> <u module=autocomplete-form>Autocomplete</u></li>
             <li><u module=caculation-data>data</u> <u module=caculation-form>Caculation</u></li>
             <li><u module=checkbox-data>data</u> <u module=checkbox-form>Checkbox</u></li>
             <li><u module=contact-us-data>data</u> <u module=contact-us-form>Contact us</u></li>
@@ -19,7 +19,11 @@
             <li><u module=enquiry-data>data</u> <u module=enquiry-form>Enquiry</u></li>
             <li><u module=ess-data>data</u> <u module=ess-form>Epworth sleepiness scale</u></li>
             <li><u module=file-data>data</u> <u module=file-form>File</u></li>
-            <li><u module=ffs-data>data</u> <u module=ffs-form>Flinders fatigue scale</u></li>
+		</ul>
+	</div>
+	<div class='nav__ID'>
+	    <ul>
+			<li><u module=ffs-data>data</u> <u module=ffs-form>Flinders fatigue scale</u></li>
             <li><u module=image-data>data</u> <u module=file-form>Image</u></li>
             <li><u module=isi-data>data</u> <u module=isi-form>Insomnia severity index</u></li>
             <li><u module=postcode-data>data</u> <u module=file-form>Postcode</u></li>
@@ -30,14 +34,16 @@
 			<li><u module=survey-data>data</u> <u module=survey-form>Survey</u></li>
 		</ul>
 	</div>
+	<div class='nav__ID'>
+		<span>Under deveopment forms</span>
+	    <ul>
+			<li><u module=i-appointment-data>data</u> <u module=i-appointment-form>Appointment setup</u></li>
+		</ul>
+	</div>
 </section>
 
 <script>
       function F__ID(){
-
-
-
-
 		  //--------------------------------------------------------
           var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
 		  $('#panel__ID u').on('click',function(){
