@@ -106,7 +106,7 @@ VmInclude:/layout/main.html.footer.html
 						website_item_list_for_search.push({label:nm,value:prefix+property})
 					}
 					var m_url=$vm.module_list[prefix+property].url;
-					m_url=$vm.url(m_url);
+					if(m_url!=undefined) m_url=$vm.url(m_url);
 					$vm.module_list[prefix+property].url=url.split('|')[0]+"/"+m_url;
                     if(m_url!=undefined && (m_url.substring(0,7)=="http://" || m_url.substring(0,8)=="https://") ) $vm.module_list[prefix+property].url=m_url;
 			   	}

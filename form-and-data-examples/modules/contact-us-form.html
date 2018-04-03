@@ -50,19 +50,6 @@
 			//--------------------------------------------------------
 		})
 		//--------------------------------------------------------
-        //tool: get all field name for grid module
-        $('#header__ID').on('click', function(event){
-		    if(event.ctrlKey){
-				var x=document.getElementById("F__ID");
-				var txt="";var nm0="";
-				for (var i=0; i < x.length; i++) {
-					var nm=x.elements[i].getAttribute("name");
-					if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-				}
-				$vm.alert(txt)
-		    }
-		});
-		//--------------------------------------------------------
     }
 </script>
 <style>

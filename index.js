@@ -175,7 +175,7 @@ var vm_init=function(){
 		$('head').append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>");
         $('head').append("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>");
         $('head').append("<link rel='stylesheet' href='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css'>");
-        $('head').append("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
+        //$('head').append("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
         $.getScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',function(){$vm.js_popper=1;});
         $.getScript('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',function(){$vm.js_bootstrap=1;});
 		$.getScript('https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js',function(){$vm.js_jquery_ui=1;});

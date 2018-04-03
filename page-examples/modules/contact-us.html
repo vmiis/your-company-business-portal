@@ -61,37 +61,37 @@
 			</div>
 		</div>
     </section>
-
-
-
-
 	<script>
 		function F__ID(){
-			//--------------------------------------------------------
-			$('#D__ID').on('load',function(){
-				$("#F__ID")[0].reset();
-				$('#submit__ID').show();
-			})
-			//--------------------------------------------------------
+	        //-------------------------------------
+	        $('#D__ID').on('load',function(){
+	            $('#F__ID')[0].reset();
+	            $('#submit__ID').show();
+				var record=$vm.vm['__ID'].op.record;
+				$vm.deserialize(record,'#F__ID');
+	        })
+	        //-------------------------------------
 			$('#F__ID').submit(function(event){
 				//--------------------------------------------------------
 				event.preventDefault();
 				$('#submit__ID').hide();
 				//--------------------------------------------------------
-				var demo_data_id=$vm.module_list[$vm.vm["__ID"].name].demo_id
-				var demo_db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id
-				var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () {	data[this.name]=this.value || '';});
-				var dbv={V3:demo_data_id}
+	            var data=$vm.serialize('#F__ID');
+				var dbv={
+	                V3:$vm.module_list[$vm.vm['__ID'].name].v3
+	            }
 				//--------------------------------------------------------
-				var req={cmd:"add_json_record",db_pid:demo_db_pid,data:data,dbv:dbv};
-				$VmAPI.request({data:req,callback:function(res){
-					if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
-					else $vm.alert('Your data has been successfully submitted');
-				}});
+	            var db_pid=$vm.module_list[$vm.vm['__ID'].name].table_id;
+	            var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;
+				var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
+				if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:db_pid,data:data,dbv:dbv};
+	            $VmAPI.request({data:req,callback:function(res){
+	                $vm.alert('Your data has been successfully submitted');
+	            }});
 				//--------------------------------------------------------
 			})
 			//--------------------------------------------------------
-		}
+	    }
 	</script>
 	<style>
 		#D__ID{
