@@ -37,8 +37,9 @@
         "ess-form":           {"table_id":"20011377",                "url":"clinical-trials/epworth-sleepiness-scale-form.html","name_for_search":"Epworth Sleepiness Scale form"},
         "ffs-data":           {"table_id":"20011382",                "url":"clinical-trials/flinders-fatigue-scale-data.html","form_module":"ffs-form","name_for_search":"Flinders Fatigue Scale data"},
         "ffs-form":           {"table_id":"20011382",                "url":"clinical-trials/flinders-fatigue-scale-form.html","name_for_search":"Flinders Fatigue Scale form"},
-		"i-appointment-data": {"table_id":"20011471", "url":"modules/i-appointment-data.html","physician_tid":"20011472","appointment_type_tid":"20011473","form_module":"i-appointment-form","prefix2":"i-"},
-		"i-appointment-form": {"table_id":"20011471", "url":"modules/i-appointment-form.html","physician_tid":"20011472","appointment_type_tid":"20011473"},
-        "i-email-001":        {"table_id":"20011471", "url":"modules/i-email-001.html"}
+		"i-appointment-data": {"table_id":"20011471", "url":"isleephealth/appointment-data.html","physician_tid":"20011472","appointment_type_tid":"20011473","form_module":"i-appointment-form","prefix2":"i-"},
+		"i-appointment-form": {"table_id":"20011471", "url":"isleephealth/appointment-form.html","physician_tid":"20011472","appointment_type_tid":"20011473"},
+        "i-email-001":        {"table_id":"20011471", "url":"isleephealth/email-001.html"},
+		"i-report":        	  {"table_id":"20011471", "url":"isleephealth/report.html"}
 	}
 }
