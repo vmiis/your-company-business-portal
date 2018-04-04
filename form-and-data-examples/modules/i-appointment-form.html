@@ -11,7 +11,7 @@
 			<div class="row row__ID"><div class="col-sm col-lg-3">Appointment Type</div><div class="col-sm"><input type="text" placeholder="Appointment Type" class="form-control" name="Appointment_Type" required /></div></div>
 			<div class="row row__ID"><div class="col-sm col-lg-3">Date</div><div class="col-sm"><input type="date" class="form-control" name="Date" required /></div></div>
 			<div class="row row__ID"><div class="col-sm col-lg-3">Appointment Time</div><div class="col-sm"><input type="time" class="form-control" name="Appointment Time" required /></div></div>
-			<div class="row row__ID"><div class="col-sm col-lg-3">Login ID</div><div class="col-sm"><input type="text" placeholder="Auto generated, read only" class="form-control" name="Login_ID" readonly /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Login ID</div><div class="col-sm"><input type="text" placeholder="Auto generated, read only" class="form-control" id="Login_ID__ID" readonly /></div></div>
 			<div class="row row__ID"><div class="col-sm col-lg-3">Password</div><div class="col-sm"><input type="text" placeholder=Password class="form-control" name="Password" required /></div></div>
 			<br>
 			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
@@ -23,35 +23,58 @@
 <script>
 	function F__ID(){
 		//-------------------------------------
+        var db_pid              =$vm.module_list[$vm.vm['__ID'].name].table_id;
 		var physician_tid		=$vm.module_list[$vm.vm['__ID'].name].physician_tid;
 		var appointment_type_tid=$vm.module_list[$vm.vm['__ID'].name].appointment_type_tid;
 		//-------------------------------------
+        var initial_pid_list=[
+            "20011365","20011469","20011470",
+    		"20011363","20011364","20011464",
+    		"20011465","20011466","20011467",
+    		"20011468"
+        ];
+		var second_pid_list=[];
+        //-------------------------------------
 		var sql="with tb as (select distinct name=S1,value2=uid from [TABLE-"+physician_tid+"])";
 		sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
 		$vm.autocomplete($("#F__ID input[name=Physician]"),sql);
+		//-------------------------------------
+        var sql="with tb as (select distinct name=S1,value2=uid from [TABLE-"+appointment_type_tid+"])";
+		sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+		$vm.autocomplete($("#F__ID input[name=Appointment_Type]"),sql);
 		//-------------------------------------
 		$('#D__ID').on('load',function(){
 			$('#F__ID')[0].reset();
 			$('#submit__ID').show();
 			var record=$vm.vm['__ID'].op.record;
 			$vm.deserialize(record,'#F__ID');
+            if(record==undefined)  $("#F__ID input[name=Password]").val( $vm.vm_password(8,false) );
+            else $('#Login_ID__ID').val(record.UID+'-'+db_pid);
 		})
 		//-------------------------------------
+        var _before_submit=function(record,dbv){
+			record.List=initial_pid_list.toString(); //based on some logic, select first or second or...
+            dbv.S1=record.Email;
+			dbv.S3=record.Password;
+			dbv.DT1=record.Date;
+            return true;
+        };
+        //-------------------------------------
 		$('#F__ID').submit(function(event){
 			//--------------------------------------------------------
 			event.preventDefault();
 			$('#submit__ID').hide();
 			//--------------------------------------------------------
-			var data=$vm.serialize('#F__ID');
-			var dbv={
-			}
+			var data=$vm.serialize('#F__ID');var dbv={}
+            _before_submit(data,dbv);
 			//--------------------------------------------------------
-			var db_pid=$vm.module_list[$vm.vm['__ID'].name].table_id;
 			var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;
 			var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
 			if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:db_pid,data:data,dbv:dbv};
 			$VmAPI.request({data:req,callback:function(res){
-				$vm.alert('Your data has been successfully submitted');
+                $vm.refresh=1;
+                if(rid!=undefined) window.history.go(-1);
+                else $vm.alert('Your data has been successfully submitted');
 			}});
 			//--------------------------------------------------------
 		})
@@ -110,4 +133,7 @@
 			padding:20px 10px 50px 10px;
 		}
 	}
+    .C__ID {
+        background-color: #ccc;
+    }
 </style>

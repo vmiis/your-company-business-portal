@@ -1,0 +1,99 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="First_Name,Last_Name,Email,Physician,Appointment_Type,Date,Appointment_Time,_Login_ID,Password,_Send_Email,_Report,_Patient_Info";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        var prefix              =$vm.module_list[$vm.vm['__ID'].name].prefix;  if(prefix==undefined) prefix="";
+        var prefix2             =$vm.module_list[$vm.vm['__ID'].name].prefix2; if(prefix2==undefined) prefix2="";
+        var db_pid              =$vm.module_list[$vm.vm['__ID'].name].table_id;
+        var physician_tid		=$vm.module_list[$vm.vm['__ID'].name].physician_tid;
+		var appointment_type_tid=$vm.module_list[$vm.vm['__ID'].name].appointment_type_tid;
+		//-------------------------------------
+        var initial_pid_list=[
+            "20011365","20011469","20011470",
+    		"20011363","20011364","20011464",
+    		"20011465","20011466","20011467",
+    		"20011468"
+        ];
+		var second_pid_list=[];
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        var _before_submit=function(record,dbv){
+			record.List=initial_pid_list.toString(); //based on some logic, select first or second or...
+            dbv.S1=record.Email;
+			dbv.S3=record.Password;
+			dbv.DT1=record.Date;
+            return true;
+        };
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Physician':
+                    var sql="with tb as (select distinct name=S1,value2=uid from [TABLE-"+physician_tid+"])";
+            		sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+            		$vm.autocomplete(td,sql);
+	                break;
+				case 'Appointment_Type':
+                    var sql="with tb as (select distinct name=S1,value2=uid from [TABLE-"+appointment_type_tid+"])";
+                    sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+                    $vm.autocomplete(td,sql);
+                    break;
+				case 'Date':
+                    var html='<input type=date style="border:none" />';
+                    $vm.render_input_field(records[I],'__ID',td,html);
+	                break;
+                case 'Appointment_Time':
+                    var html='<input type=time style="border:none" />';
+                    $vm.render_input_field(records[I],'__ID',td,html);
+	                break;
+				case '_Login_ID':
+					records[I].vm_custom[field]=true;
+					if(records[I].UID!=undefined) td.text(records[I].UID+'-'+db_pid);
+					break;
+				case '_Send_Email':
+					records[I].vm_custom[field]=true;
+					if(records[I].UID===undefined) return;
+					td.html("<u style='cursor:pointer'>Send Email</u>");
+					td.find('u').on('click',function(){
+                        var email_module_id=prefix+prefix2+"email-001";
+                        $vm.nav_load_module(email_module_id,$vm.root_layout_content_slot,{record:records[I]});
+					});
+					break;
+				case '_Report':
+					records[I].vm_custom[field]=true;
+					if(records[I].UID===undefined) return;
+					td.html("<u style='cursor:pointer'>Report</u>");
+					td.find('u').on('click',function(){
+                        $vm.nav_load_module(prefix+prefix2+"report",$vm.root_layout_content_slot,{record:records[I]});
+					});
+					break;
+                case '_Patient_Info':
+					records[I].vm_custom[field]=true;
+					if(records[I].UID===undefined) return;
+					td.html("<u style='cursor:pointer'>Patient Info</u>");
+					td.find('u').on('click',function(){
+                        $vm.nav_load_module(prefix+prefix2+"patient-info",$vm.root_layout_content_slot,{record:records[I]});
+					});
+					break;
+            }
+        }
+        //-------------------------------------
+        //convert the existed date to the new standard format
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].Date=$vm.au_date_to_string_yyyymmdd(_records[i].Date);
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

@@ -1,0 +1,86 @@
+<section>
+    <div id=toolbar__ID>
+          Email
+    </div>
+    <div style='padding:30px'>
+        <div id=contents__ID>
+            Dear <span id=patient__ID></span>, <br><br>This letter confirms your appointment with <b><span id=doctor__ID></span></b> at the Integrated Sleep Health <br>
+            <br>
+            <b>Please read all of the information below for <i>important details</i> and <i>links to questionnaires for you to complete before your visit</i></b>
+            <br><br>
+            Your appointment details are: <br>
+            <i>When:</i> <b><span id=date__ID></span> at <span id=appointment_time__ID></span> with <span id=doctor2__ID></span></b><br><br>
+            <i>Where:</i><br>
+            <b>Integrated Sleep Health<br>
+            Level 57, MLC Building, Martin Pl<br>
+            Sydney NSW 2000<br></b>
+
+            Before the appointment could you please please fill in the <b>Intgrated Sleep Health Online Registration and Questionnaires for Initial Consultaion</b> or arrive early and complete at the clinic.<br><br>
+            <u><a id=q_n href="#" target="_blank" >Click here to access <b>Intgrated Sleep Health Online Registration and Questionnaires for Initial Consultaion</b></a></u> <br>
+            Login ID and Password will be filled automatically.<br>In case this doesn't happend please use the following to get access to your questionnaires<br>
+			Login ID: <span id=Login_ID__ID></span><br>
+			Password: <span id=Password__ID></span><br>
+
+			<br>
+            We look forward to seeing you at your visit.</b>
+
+            <br>
+            <br>
+            <b>Kind regards,<br>
+        </div>
+        <br><br>
+        <input type=button id=send__ID value=Send class="btn btn-secondary"/>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+		var pid=$vm.module_list[$vm.vm['__ID'].name].table_id
+		var record;
+		if($vm.vm['__ID'].op.input.record==undefined) return; //no parent;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+			record=$vm.vm['__ID'].op.input.record;
+            $('#patient__ID').text(record.First_Name+' '+record.Last_Name);
+			$('#Login_ID__ID').text(record.UID+'-'+pid);
+            $('#Password__ID').text(record.Password);
+            $('#doctor__ID').text(record.Physician);
+            $('#doctor2__ID').text(record.Physician);
+            $('#appointment_time__ID').text(record.Appointment_Time);
+            $('#date__ID').text(record.Date);
+            var d="?visit=initial";
+            if($vm.server=='development'){
+                d=d+"&database=developmen&username="+record.UID+'-'+pid+"&password="+record.Password;
+            }
+            var q_url="https://wappsystem.github.io/isleephealth-patients-portal/index.html"+d;
+            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+                q_url=q_url.replace("https://wappsystem.github.io","http://127.0.0.1:8000/wappsystem")
+            };
+            $(document).ready(function() {
+                  $('#q_n').attr('href',q_url);
+            });
+        })
+
+        //-------------------------------------
+        $('#send__ID').on('click',function(){
+     	   	var From_Address="noresponse@wappsystem.com";
+     		var From_Name="Integrated Sleep Health";
+     		var To=record.Email;
+            if(To.length<5){
+                alert('No email address.')
+                return;
+            }
+     		var Title="Intgrated Sleep Health Online Registration and Questionnaires";
+     		var Body=$('#contents__ID').html();
+            //if($vm.user=='guest'){ alert('The alert email (to: '+To+') has been sent out'); return;}
+			$VmAPI.request({data:{cmd:'send_email',From_Address:From_Address,From_Name:From_Name,To:To,Title:Title,Body:Body},callback:function(res){
+                $vm.alert('An email has been sent to '+record.Email+'');
+            }})
+        });
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/style/default.css
+</style>
