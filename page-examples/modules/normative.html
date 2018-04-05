@@ -1,0 +1,126 @@
+<div id=page__ID>
+	<div id=panel__ID class="container-fluid" style='max-width:1200px'>
+        <form id=F__ID >
+    		<div class="text-left panel__ID">
+                <div class="row">
+      			  <div class="col-sm-8">
+                    <h1>
+						Get your lung function tested and help our research!
+					</h1>
+                    <p>
+						Are you a healthy non-smoker aged 18-65 years and want to get your lungs tested? We are running a
+						study to establish what normal lung function for an Australian population is, using latest and advanced
+						tests. The tests are non-invasive and only involve simple breathing into a mouthpiece.
+					</p>
+                    <p>
+						We invite you to participate in a study to review your lung function and help in research by
+						contributing towards establishing what normal lung function in an Australian population is.
+						You will be required to visit us once for approximately 2 hours. By participating in the study you will be
+						provided with your lung function tests and also two movie vouchers to reimburse your time. If
+						interested in doing your bit for medical research please contact below.
+                    </p>
+                    <p class"lead">Do you want to participate in this study?</p>
+                    <p>
+						<i>Email:</i> normative@woolcock.org.au
+                        <br><i>Contact name:</i> Dr Kanika Jetmalani
+                    </p>
+					<br><i>Chief Investigator:</i> Professor Greg King
+                    <br><i>Ethics approvals:</i>NSLHDHREC LNR/17/HAWKE/312
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded" style='max-width:100%' src="__CURRENT_PATH__/__CURRENT_NAME__.normative.png"  ><img>
+              </div>
+    		</div>
+			<br>
+			<input class="btn btn-primary" type=button id=submit__ID value="Click here to participate in the study" />
+			<br><br>
+        </form>
+	</div>
+</div>
+<script>
+    function F__ID(){
+        //--------------------------------------------
+        var project_name='circomed';
+        //--------------------------------------------
+        var goto_thanks=function(){
+			$vm.nav_load_module('panel_main_projects_thanks');
+        }
+        //--------------------------------------------
+        var join_project=function(){
+            var req={cmd:'query_records_s2',db_pid:'20009681',fields:'ID',where:"S1='"+project_name+"'"}      //check joined or not
+            $VmAPI.request({data:req,callback:function(res){
+                if(res.records.length>0){
+                    goto_thanks();
+                }
+                else{
+                    $VmAPI.request({data:{cmd:'secure_query_records',sql:'volunteer registration record',owner:'woolcock'},callback:function(res){
+                        if(res.records.length>0){
+                            var record={
+                                Volunteer:res.records[0].First_Name+' '+res.records[0].Last_Name,
+                                Login_Email:res.records[0].Email,
+                                Project:project_name,
+                                Status:'Registration',
+                            };
+                            var dbv={S1:project_name,S3:'Registration',PUID:$vm.user_id};
+                            var req={cmd:"add_record_s2",db_pid:'20009681',data:record,dbv:dbv};
+                            $VmAPI.request({data:req,callback:function(res){
+                                goto_thanks();
+                            }});
+                        }
+                    }})
+                    //----------------------
+                    //sending email
+                    var req={cmd:"query_records",sql:"select Information from [TABLE-20009716] where @('Project_Name')='"+project_name+"' "};
+                    $VmAPI.request({data:req,callback:function(res){
+                        if(res.records.length>0){
+                            var contact_email=res.records[0].Contact_Email;
+                            if(contact_email!=''){
+                                $VmAPI.request({data:{cmd:'send_email',From_Address:'noresponse@woolcock.org.au',From_Name:'Database Administrator',To:contact_email,
+                                    Title:"Research participation",
+                                    Body:"A volunteer has shown interest in your study; "+project_name+"."},callback:function(res){
+                                }})
+                            }
+                        }
+                    }})
+                    //----------------------
+                }
+            }})
+        }
+        //--------------------------------------------
+        $('#submit__ID').on('click',function(){
+			if($vm.user=="guest"){
+				$vm.module_afetr_signin=$vm.vm['__ID'].name;
+				$vm.nav_load_module("panel_main_signin");
+			}
+			else{
+				join_project();
+			}
+        })
+		//--------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+		background:rgba(255,255,255,0.2);
+	}
+	#page__ID{
+		height:100%;
+		display: flex;
+		align-items: center;
+	}
+	.panel__ID{
+		color:#000;
+		font-weight: normal;
+		background: rgba(255,255,255,0.8);
+	    padding: 30px 20px 10px 20px;
+	    border-radius: 15px;
+	}
+	@media screen and (max-width:786px){
+		#page__ID{
+			display: block;
+		}
+	}
+</style>

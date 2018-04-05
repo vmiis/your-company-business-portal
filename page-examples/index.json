@@ -21,6 +21,9 @@
         "price":	  	        {"url":"modules/prices.html","name_for_search":"Price"},
         "price2":	  	        {"url":"modules/prices2.html","name_for_search":"Price 2"},
         "trainers":	  	        {"url":"modules/trainers.html","name_for_search":"Trainers"},
+		"normative":	  	    {"url":"modules/normative.html","name_for_search":"Normative"},
+		"ecos":	  	    		{"url":"modules/ecos.html","name_for_search":"Ecos"},
         "contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/contact-us.html","name_for_search":"Contact us"}
+
     }
 }
