@@ -1,0 +1,122 @@
+<section>
+    <div style='padding:30px'>
+        <div id=contents__ID >coming soon...</div>
+    </div>
+</section>
+<script>
+    function F__ID(){
+		//-------------------------------------
+		var participant_uid;
+		var config;
+		if($vm.vm['__ID'].op.record==undefined){
+			//$('#contents__ID').html("No patient");
+			return;
+		}
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+return;
+			var record=$vm.vm['__ID'].op.record;
+			participant_uid=record.UID;
+			var url=$vm.url($vm.vm['__ID'].op.url);
+			$.get(url+'?_='+$vm.version+$vm.reload,function(text){
+				//--------------------------------------------------------
+				config;	try{ config=JSON.parse(text);}
+				catch (e){ alert("Error in app config file\n"+e); return; }
+				create_report(config)
+				//--------------------------------------------------------
+
+			},'text').fail(function() {
+				alert( "The configuration file ("+url+") doesn't exist!" );
+			});
+        })
+        //-------------------------------------
+		var modules;
+		var total_N;
+		//-------------------------------------
+		var create_report=function(config){
+			//---------------------------
+			//copy all modules from config.modules to local modules;
+			modules={}
+			total_N=0;
+			var ms=config.modules;
+			for (var property in ms) {
+                if(property=="contact-details" || property=="medicare-referrals"){
+    				var table_id=ms[property].table_id;
+    				if(table_id!=undefined){
+    					modules[property]={table_id:table_id}
+    					total_N++;
+    				}
+                }
+			}
+			//---------------------------
+			//read data
+			for (var property in modules) {
+				var table_id=modules[property].table_id;
+				data_request(property,table_id);
+			}
+			//---------------------------
+		}
+		//-------------------------------------
+		var data_request=function(property,table_id){
+			var sql="select Information from [TABLE-"+table_id+"] where PUID="+participant_uid;
+			$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+				//attach res.records to local module
+				modules[property].records=res.records;
+				report_processing();
+			}})
+		}
+		//-------------------------------------
+		var report_processing=function(){
+			total_N--;
+			if(total_N>0) return;
+			//data processing after all request come back
+			var html='<table id="table__ID" class="table table-bordered" style="max-width:500px"><colgroup><col style="width:250px"></col><col></col></colgroup><tbody>';
+			for (var property in modules) {
+				var records=modules[property].records;
+				for (var p in records[0]) {
+                    if(p!='Participant' && p!='Participant_uid' ){
+                        html+='<tr><th scope="row">'
+    					if(config.dictionary[property]!=undefined){
+    						var new_p=config.dictionary[property][p];
+    						if(new_p==undefined) new_p=p;
+    						html+=new_p+'</th><td>'+records[0][p]+'</td>'
+    					}
+    					else{ //no dictionary
+    						html+='</th><td>'+records[0][p]+'</td>'
+    					}
+                        html+='</tr>'
+                    }
+				}
+			}
+            html+='</table></div>'
+			$('#contents__ID').html(html)
+		}
+		//-------------------------------------
+		var s=function(txt){
+			return $('<div/>').html(txt).text();
+		}
+		//-------------------------------------
+
+    }
+</script>
+<style>
+	#D__ID{
+		background-color: #fff;
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	@media print {
+	    body * {
+	        visibility: hidden;
+	    }
+	    #contents__ID {
+			visibility: visible;
+	        position: fixed;
+	        left: 0;
+	        top: 0;
+			padding:0;
+			margin:0;
+	    }
+	}
+</style>

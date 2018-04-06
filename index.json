@@ -45,6 +45,7 @@
         "form-and-data-examples":           {"url":"form-and-data-examples/panel.html", "modules":["form-and-data-examples|index.json"]},
 		"report-examples":           		{"url":"report-examples/panel.html", "modules":["report-examples|index.json"]},
 		"page-examples":           			{"url":"page-examples/panel.html", "modules":["page-examples|index.json"]},
+		"isleephealth-task":           		{"url":"isleephealth/task/panel.html", "modules":["isleephealth/task/index.json"]},
 
 		"clinical-trials-participant-visit-booking":{"url":"clinical-trials-participant-visit-booking/panel.html","modules":["clinical-trials-participant-visit-booking/index.json"]},
 		"research-volunteer-registration":	{"url":"research-volunteer-registration/panel.html",										"modules":["https://volunteer-database.rt.org.au|configurations/main.json"]},
