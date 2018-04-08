@@ -6,7 +6,7 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
         //-------------------------------------
-        var fields="First_Name,Last_Name,Email,Physician,Appointment_Type,Date,Appointment_Time,_Login_ID,Password,_Send_Email,_Report,_Patient_Info";
+        var fields="First_Name,Last_Name,Email,Physician,Appointment_Type,Date,Appointment_Time,_Login_ID,Password,_Send_Email,_Results"; //*,_Report,_Patient_Info*
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
 		var this_module			=$vm.module_list[$vm.vm['__ID'].name];
@@ -70,7 +70,16 @@
                         $vm.nav_load_module(email_module_id,$vm.root_layout_content_slot,{record:records[I]});
 					});
 					break;
-				case '_Report':
+				case '_Results':
+                    records[I].vm_custom[field]=true;
+                    if(records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Results</u>");
+                    td.find('u').on('click',function(){
+                        records[I].PID=_db_pid;
+                        $vm.nav_load_module("panel-initial",$vm.root_layout_content_slot,{record:records[I]});
+                    });
+                    break;
+                case '_Report':
 					records[I].vm_custom[field]=true;
 					if(records[I].UID===undefined) return;
 					td.html("<u style='cursor:pointer'>Report</u>");

@@ -1,0 +1,24 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+		var fields="DASS_1, DASS_2, DASS_3, DASS_4, DASS_5, DASS_6, DASS_7, DASS_8, DASS_9, DASS_10, DASS_11, DASS_12, DASS_13, DASS_14, DASS_15, DASS_16, DASS_17, DASS_18, DASS_19, DASS_20, DASS_21, DASS_DS, DASS_AS, DASS_SS";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        var this_module			=$vm.module_list[$vm.vm['__ID'].name];
+        var prefix              =this_module.prefix;  if(prefix==undefined) prefix="";
+        var form_module			=this_module.form_module;
+        //-------------------------------------
+        $('#new__ID').off('click').on('click',function(){$vm.nav_load_module(prefix+form_module,'',{goback:1})})
+		//-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

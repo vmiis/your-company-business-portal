@@ -51,7 +51,7 @@
             $('#date__ID').text(record.Date);
             var d="?visit=initial";
             if($vm.server=='development'){
-                d=d+"&database=developmen&username="+record.UID+'-'+pid+"&password="+record.Password;
+                d=d+"&database=development&username="+record.UID+'-'+pid+"&password="+record.Password;
             }
             var q_url="https://wappsystem.github.io/isleephealth-patients-portal/index.html"+d;
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){

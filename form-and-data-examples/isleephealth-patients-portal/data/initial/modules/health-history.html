@@ -1,0 +1,24 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+		var fields="heart_failure, pacemaker, angina, hypertension, heart_other_specify, blood_clot, anaemia, bleeding, diabetes_1, diabetes_2, shortness_of_breath, tuberculosis, copd, asthma, lung_other_specify, morning_headaches, broken_nose, claustrophobia, thyroid, kidney, hepatitis_a, hepatitis_b, hepatitis_c, alcohol, drug, deafness, blindness, insomnia, anxiety, depression, stroke, mental_other_specify, neuromuscular_other_specify, arthritis, heartburn, epilepsy, cataplexy, narcolepsy, anaemia, tonsillitis, sinusitis, allergies_specify, Other_Medical_Condition, Surgical_Procedure, Medication, weight, height, sleep_study, sleep_study_date, sleep_study_location, sleep_study_doctor, sleep_study_result, cpap, cpap_unsuccessful, medication";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        var this_module			=$vm.module_list[$vm.vm['__ID'].name];
+        var prefix              =this_module.prefix;  if(prefix==undefined) prefix="";
+        var form_module			=this_module.form_module;
+        //-------------------------------------
+        $('#new__ID').off('click').on('click',function(){$vm.nav_load_module(prefix+form_module,'',{goback:1})})
+		//-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
