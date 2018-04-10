@@ -24,7 +24,7 @@
 		"incident-reporting":				{"url":"incident-reporting/panel.html",				"modules":["incident-reporting/index.json"]},
 		"invoice":	    					{"url":"invoice/panel.html",						"modules":["invoice/index.json"]},
 		"medical-practitioner":				{"url":"medical-practitioner/panel.html",			"modules":["medical-practitioner/index.json"]},
-		"module-example":	    			{"url":"module-example/panel.html",   				"modules":["module-example/index.json"]},
+		"module-example":	    			{"url":"distributed-module-testing/panel.html",   				"modules":["module-example/index.json"]},
 		"panel_shadow_dom":     			{"url":"shadow-dom/panel.html",						"modules":["shadow-dom/index.json"]},
 		"ppm":								{"url":"ppm/panel.html",  							"modules":["ppm/index.json"]},
 		"restaurant":						{"url":"restaurant/panel.html",  					"modules":["restaurant/index.json"]},

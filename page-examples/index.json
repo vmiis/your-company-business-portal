@@ -1,18 +1,30 @@
 {
     "modules":
     {
-		"snapshot-about":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"about.html","name_for_search":"snapshot about"},
-		"snapshot-home":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"home.html","name_for_search":"snapshot home"},
-		"snapshot-gallery":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"gallery.html","name_for_search":"snapshot gallery"},
-		"snapshot-contact":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"contact.html","name_for_search":"snapshot contact"},
+		"snapshot-about":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"about.html"},
+		"snapshot-home":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"home.html"},
+		"snapshot-gallery":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"gallery.html"},
+		"snapshot-contact":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"contact.html"},
 
-		"lumino-home":			{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"home.html","name_for_search":"lumino home"},
-		"lumino-gallery":		{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"gallery.html","name_for_search":"lumino gallery"},
-		"lumino-contact":		{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"contact.html","name_for_search":"lumino contact"},
-		"lumino-news":			{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"news.html","name_for_search":"lumino news"},
-		"lumino-one-column":	{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"one-column.html","name_for_search":"lumino one-column"},
-		"lumino-two-column":	{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"two-column.html","name_for_search":"lumino two-column"},
-		"lumino-three-column":	{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"three-column.html","name_for_search":"lumino three-column"},
+		"lumino-home":			{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/lumino","page":"home.html"},
+		"lumino-gallery":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/lumino","page":"gallery.html"},
+		"lumino-contact":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/lumino","page":"contact.html"},
+		"lumino-news":			{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/lumino","page":"news.html"},
+		"lumino-one-column":	{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/lumino","page":"one-column.html"},
+		"lumino-two-column":	{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/lumino","page":"two-column.html"},
+		"lumino-three-column":	{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/lumino","page":"three-column.html"},
+
+        "lexis-home":			{"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/lexis","page":"home.html"},
+        "lexis-service":		{"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/lexis","page":"service.html"},
+        "lexis-team":		    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/lexis","page":"team.html"},
+        "lexis-work":		    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/lexis","page":"work.html"},
+
+        "studio-about":		    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/studio","page":"about.html"},
+        "studio-contact":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/studio","page":"contact.html"},
+        "studio-home":		    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/studio","page":"home.html"},
+        "studio-portfolio":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/studio","page":"portfolio.html"},
+        "studio-service":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/studio","page":"service.html"},
+        "studio-team":		    {"url":"__HOST__/distributed-modules/bridge.html","path":"free-css/studio","page":"team.html"},
 
 		"about-this-website":	{"url":"__HOST__/about/modules/about-myself.html","name_for_search":"About this website"},
         "fitness":	    		{"url":"modules/fitness.html","name_for_search":"Fitness"},

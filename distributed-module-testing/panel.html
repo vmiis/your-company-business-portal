@@ -17,82 +17,12 @@
     	When a module is opened, "key Alt+mouse double click" will show the source code of the module and where it is hosted.
         </i>
     </div>
-	<div class='nav__ID'>
-	    <span>Examples of static module (content from files)</span>
-	    <ul>
-			<li module=simple-static-content-module>Simple static content module</li>
-	        <li module=automatic-slide-show-w3>Automatic slide show (w3)</li>
-			<li module=carousel-slide-b4>Carousel-slide (bootstrap 4)</li>
-			<li module=price>Price</li>
-			<li module=sandbox>Sandbox</li>
-
-			<li module=particles-particles>Particles</li>
-			<li module=particles-nasa>NASA</li>
-			<li module=particles-bubble>Bubble</li>
-			<li module=particles-snow>Snow</li>
-			<li module=particles-nyan-cat>Nyan Cat</li>
-
-            <li module=windfarm_home>Windfarm home</li>
-			<li module=windfarm_purpose-of-research>Purpose of research</li>
-			<li module=windfarm_about-woolcock-research>About woolcock research</li>
-            <li module=windfarm_researcher>Researchers</li>
-            <li module=codepen-lately>Lately</li>
-            <li module=codepen-cogs>Cogs</li>
-			<li module=fitness>Fitness</li>
-		</ul>
-	    <!--
-        <ul>
-			<li module=static-wind-farm style='list-style-type: circle;'>Wind farm</li>
-	    </ul>
-	    -->
-	</div>
-	<div class='nav__ID'>
-	    <span>Examples of dynamic module (content to/from a database)</span>
-	    <ul>
-			<li module=business-demographic-survey-0004>Business demographic survey</li>
-			<li module=business-demographic-survey-0004-record>Business demographic survey (records)</li>
-			<li module=enquiry-0003>Enquiry</li>
-			<li module=enquiry-0003-record>Enquiry (records)</li>
-			<li module=appointment-0002>Appointment</li>
-			<li module=appointment-0002-record>Appointment (records)</li>
-			<li module=contact-us-0001>Contact us</li>
-			<li module=contact-us-0001-record>Contact us (records)</li>
-			<li module=simple-dynamic-content-module>Simple dynamic content module</li>
-			<li module=room-booking_monthly>Room booking calendar</li>
-			<li module=room-booking_daily>Booking a room</li>
-			<li module=room-booking_booking_record>Room booking records (admin)</li>
-			<li module=room-booking_room>Add or remove a room</li>
-
-	    </ul>
-	</div>
 </section>
 
 <script>
 	function F__ID(){
 		//--------------------------------------------------------
 		var prefix=$vm.vm["__ID"].name+"_";
-		$('#panel__ID li').on('click',function(){
-			var m=$(this).attr('module');
-			if(m!=undefined){
-				if($vm.module_list[prefix+m]==undefined){
-					alert(prefix+m +" is not in the module list.");
-					return;
-				}
-				$vm.module_list[prefix+m].alert='1';
-				$vm.nav_load_module(prefix+m);
-			}
-			else{
-				var p=$(this).attr('panel');
-				if(p!=undefined){
-					if($vm.module_list[p]==undefined){
-						alert(p +" is not in the module list.");
-						return;
-					}
-					$vm.nav_load_module(p);
-				}
-			}
-		})
-		$vm.panel_nightstudy=1;
 		//--------------------------------------------------------
 		$('#test_module__ID').on('click',function(){
 			var url=$('<div />').html($('#test_module_url__ID').val()).text();
@@ -170,25 +100,6 @@
         $vm.allowed_tags=['style','div','name','span','h1','h2','h3','h4','p','hr','button','a','b','ul','li','br'];
         $vm.allowed_attrs=['class','type','style','id'];
         //--------------------------------------------------------
-        //$vm.allowed_css=['color','font-size'];
-        /*
-        else if(name=='style'){
-            var style
-            var parts=attrib.value.split(";")
-            var obj={}
-            for (var i=0;i<parts.length;i++){
-                var cs=parts[i].split(':');
-                if($vm.allowed_css.includes(cs[0])==true){
-                    obj[cs[0]]=cs[1];
-                }
-            }
-            var new_style='';
-            for(p in obj){
-                new_style+=p+":"+obj[p]+";";
-            }
-            element.attr('style',new_style);
-        }
-        */
 	}
 </script>
 
