@@ -1,0 +1,43 @@
+<div class=container style='min-height:100%'>
+	<div class="row">
+	  <div id="tm-section-1" class="tm-section">
+		<div class="col-md-12">
+			<h1 class="text-xs-center blue-text tm-page-2-title">Lumino Bootstrap 4.0 Columns</h1>
+			<p class="text-xs-center tm-page-2-p tm-page-2-subtitle">
+				Etiam at rhoncus nisl. Nunc rutrum ac ante euismod cursus. <br>
+				Suspendisse imperdiet feugiat massa nec iaculis.
+			</p>
+			<img src="img/tm-1800x600-01.jpg" class="img-fluid tm-banner-img" alt="Image">
+		</div>
+	  </div>
+	</div>
+	<div class="row">
+		<div class="tm-section" id="tm-section-2">
+			<div class="col-md-12">
+				<p class="text-left tm-description">
+					Lumino theme is a Bootstrap 4.0 mobile compatible layout for your website.
+					Cras dolor neque, mollis et tortor eget, ornare hendrerit lectus. Donec
+					condimentum leo ut elementum consequat. Sed condimentum sagittis neque
+					in iaculis. Duis quis libero nec mauris porta luctus et sit amet turpis.
+					Proin auctor tortor quis ipsum dignissim, quis congue tortor.
+				</p>
+				<p class="text-left tm-description">
+					Aliquam non vestibulum mi, sed volutpat ipsum. Nunc ultricies quam id
+					mi semper, vitae mattis mi iaculis. Nullam tincidunt vehicula turpis at
+					porttitor. Sed bibendum odio non maximus suscipit. Pellentesque consectetur
+					orci id rutrum lacinia.
+				</p>
+				<div class="tm-flex-center">
+				  <a class="btn btn-default btn-lg tm-gray-btn">Large</a>
+				  <a class="btn btn-default btn-lg tm-gray-bordered-btn">Large</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$('a').on('click',function(){
+		id=window.location.href.split('id=').pop().split('&')[0];
+		window.parent.postMessage({sandbox_id:'sandbox'+id,module_name:'portal_myself'},"*")
+	})
+</script>

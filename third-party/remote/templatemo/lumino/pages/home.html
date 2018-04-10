@@ -1,0 +1,18 @@
+ <div class="tm-intro" style='min-height:100%;background-size:cover'>
+
+	 <section id="tm-section-1">
+		 <div class="tm-container text-xs-center tm-section-1-inner">
+			 <img src="img/tm-lumino-logo.png" alt="Logo" class="tm-logo">
+			 <h1 class="tm-site-name">Modular Based and Distributed Web Aplications</h1>
+			 <p class="tm-intro-text">We can build a web application with unlimited number of modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
+			 <a class="tm-intro-link">Begin</a>
+		 </div>
+	</section>
+
+ </div>
+ <script>
+	 $('a').on('click',function(){
+		 id=window.location.href.split('id=').pop().split('&')[0];
+		 window.parent.postMessage({sandbox_id:'sandbox'+id,module_name:'portal_myself'},"*")
+	 })
+ </script>

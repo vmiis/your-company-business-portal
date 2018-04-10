@@ -1,6 +1,19 @@
 {
     "modules":
     {
+		"snapshot-about":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"about.html","name_for_search":"snapshot about"},
+		"snapshot-home":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"home.html","name_for_search":"snapshot home"},
+		"snapshot-gallery":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"gallery.html","name_for_search":"snapshot gallery"},
+		"snapshot-contact":		{"url":"__HOST__/third-party/local/templatemo/snapshot.html","page":"contact.html","name_for_search":"snapshot contact"},
+
+		"lumino-home":			{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"home.html","name_for_search":"lumino home"},
+		"lumino-gallery":		{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"gallery.html","name_for_search":"lumino gallery"},
+		"lumino-contact":		{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"contact.html","name_for_search":"lumino contact"},
+		"lumino-news":			{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"news.html","name_for_search":"lumino news"},
+		"lumino-one-column":	{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"one-column.html","name_for_search":"lumino one-column"},
+		"lumino-two-column":	{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"two-column.html","name_for_search":"lumino two-column"},
+		"lumino-three-column":	{"url":"__HOST__/third-party/local/templatemo/lumino.html","page":"three-column.html","name_for_search":"lumino three-column"},
+
 		"about-this-website":	{"url":"__HOST__/about/modules/about-myself.html","name_for_search":"About this website"},
         "fitness":	    		{"url":"modules/fitness.html","name_for_search":"Fitness"},
         "bubble":       		{"url":"modules/bubble.html","name_for_search":"Bubble"},

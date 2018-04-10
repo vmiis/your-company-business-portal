@@ -1,0 +1,59 @@
+<div class=container style='min-height:100%'>
+	<div class="row">
+		<div class="tm-section" id="tm-section-3">
+
+			<div class="col-md-6 margin-bottom-sm-8">
+				<div class="tm-2-col-box-left">
+					<img src="img/tm-700x350-01.jpg" alt="Image" class="img-fluid tm-img-2-col">
+
+					<p class="text-left tm-description">
+						Proin auctor tortor quis ipsum dignissim, quis congue tortor scelerisque.
+						Etiam malesuada efficitur elit, ut pellentesque mi pellentesque ut.
+					</p>
+					<p class="text-left tm-description">
+						Nullam tincidunt vehicula turpis at porttitor. Sed bibendum odio non maximus
+						suscipit. Pellentesque consectetur orci id rutrum lacinia.
+					</p>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div>
+					<img src="img/tm-700x350-02.jpg" alt="Image" class="img-fluid tm-img-2-col">
+
+					<table class="table table-striped">
+						<tbody>
+							<tr>
+								<td>Aliquam in nibh elementum</td>
+								<td>$100</td>
+							</tr>
+							<tr>
+								<td>Donec porta augue vitae egestas</td>
+								<td>$200</td>
+							</tr>
+							<tr>
+								<td>Nunc lacinia vehicula ipsum</td>
+								<td>$300</td>
+							</tr>
+							<tr>
+								<td>Porttitor rhoncus vel vitae libero</td>
+								<td>$400</td>
+							</tr>
+							<tr>
+								<td>Nulla neque ligula, bibendum vitae</td>
+								<td>$500</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script>
+	$('a').on('click',function(){
+		id=window.location.href.split('id=').pop().split('&')[0];
+		window.parent.postMessage({sandbox_id:'sandbox'+id,module_name:'portal_myself'},"*")
+	})
+</script>
