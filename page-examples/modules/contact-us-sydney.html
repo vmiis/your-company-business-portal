@@ -1,0 +1,84 @@
+<div id=page__ID>
+	<div class="container-fluid" style='max-width:800px'>
+		<div id=follow_us class="text-center" style='padding-top:30px'>
+			<h1>FOLLOW US</h1>
+			<a href="#" class="fa fa-facebook fa__ID "></a>
+			<a href="#" class="fa fa-twitter fa__ID"></a>
+			<a href="#" class="fa fa-linkedin fa__ID"></a>
+			<a href="#" class="fa fa-youtube fa__ID"></a>
+            <a href="#" class="fa fa-github fa__ID"></a>
+		</div>
+		<div>
+			<h5>Address:</h5>
+			<p>
+				100 Lake Road
+			</p>
+			<h5>Email:</h5>
+			<p>
+				info@company.com
+			</p>
+			<h5>Phone:</h5>
+			<p>
+				(02) 91234567
+			</p>
+			<br>
+		</div>
+		<div>
+			<div id="googleMap" style="height:400px;width:100%;"></div>
+			<script>
+				function myMap() {
+				var myCenter = new google.maps.LatLng(-33.856783, 151.215274);
+				var mapProp = {center:myCenter, zoom:15, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+				var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+				var marker = new google.maps.Marker({position:myCenter});
+				marker.setMap(map);
+				}
+			</script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Dx_boXQiwvdz8sJHoYeZNVTdoWONYkU&callback=myMap"></script>
+		</div>
+		<br>
+	</div>
+</div>
+<style>
+	#D__ID{
+		height:100%;
+        background-color:#555;
+        overflow:auto;
+        color:#fff;
+		animation: vm_module_fadein 1.0s;
+	}
+	.fa__ID {
+	  padding: 10px;
+	  font-size: 20px;
+	  width: 40px;
+	  text-align: center;
+	  text-decoration: none;
+	  margin: 5px 2px;
+	  border-radius: 50%;
+	}
+
+	.fa__ID:hover {
+	    opacity: 0.8;
+	}
+
+	.fa-facebook {
+	  background: #3B5998;
+	  color: white;
+	}
+	.fa-twitter {
+	  background: #55ACEE;
+	  color: white;
+	}
+	.fa-linkedin {
+	  background: #007bb5;
+	  color: white;
+	}
+	.fa-youtube {
+	  background: #bb0000;
+	  color: white;
+	}
+    .fa-github {
+	  background: #660099;
+	  color: white;
+	}
+</style>

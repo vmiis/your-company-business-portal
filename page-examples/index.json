@@ -1,7 +1,23 @@
 {
     "modules":
     {
-		"snapshot-about":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"about.html"},
+        "contact-us-sydney":	{"url":"modules/contact-us-sydney.html"},
+        "contact-us-creative":	{"url":"modules/contact-us-creative.html"},
+
+        "cogs-codepen":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/codevember-9-infinite-scrolling-cogs","page":""},
+        "lately-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/lately","page":""},
+        "pricing-table-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/pricing-table","page":""},
+        "scenery-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/scenery","page":""},
+        "text-patch-work-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/text-patch-work","page":""},
+
+        "big-city-home":	{"url":"__HOST__/distributed-modules/bridge.html","path":"tooplate/big-city","page":"home.html"},
+
+        "ocean-about":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/ocean","page":"about.html"},
+        "ocean-home":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/ocean","page":"home.html"},
+        "ocean-info":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/ocean","page":"info.html"},
+        "ocean-contact":	{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/ocean","page":"contact.html"},
+
+        "snapshot-about":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"about.html"},
 		"snapshot-home":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"home.html"},
 		"snapshot-gallery":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"gallery.html"},
 		"snapshot-contact":		{"url":"__HOST__/distributed-modules/bridge.html","path":"templatemo/snapshot","page":"contact.html"},

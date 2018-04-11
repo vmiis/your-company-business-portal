@@ -3,11 +3,7 @@
 	function F__ID(){
 		//--------------------------------------------------------
 		var url="https://distributed-modules.vmiis.com/";
-		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-			var host=window.location.protocol+'//'+window.location.host;
-			url=host+"/vmiis/distributed-modules/";
-			$('#sandbox__ID').attr('sandbox',"allow-scripts allow-forms allow-same-origin");
-		}
+		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	url=window.location.protocol+'//'+window.location.host+"/vmiis/distributed-modules/";
 		var path=$vm.module_list[$vm.vm['__ID'].name].path;
 		var page=$vm.module_list[$vm.vm['__ID'].name].page;
 		url+=path+"/index.html?v="+$vm.version+"&id=__ID&page="+page;
