@@ -18,9 +18,9 @@
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars__ID" aria-controls="navbars__ID" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div id=menu_bar__ID style="display:none">
+        <!--<div id=menu_bar__ID style="display:none">-->
         <div id="navbars__ID" class="navbar-collapse collapse">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto" id=vm_system_menu style="display:none">
                 <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_home');"><i class="fa fa-home"></i> Home</a></li>
                 <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('portal');"><i class="fa fa-th"></i> Business Portal</a></li>
                 <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('form-and-data-examples');"><i class="fa fa-table"></i> Forms</a></li>
@@ -39,10 +39,10 @@
 				<li class="nav-item" id=signout__ID style="display:none"><a class="nav-link" onclick=$vm.nav_signout() ><i class="fa fa-user"></i> Sign Out</a></li>
             </ul>
 			<form id=form__ID class="form-inline my-2 my-lg-0">
-				<input id=vm_system_search class="form-control mr-sm-2" type="text" placeholder="Search modules..." aria-label="Search modules..." />
+				<input id=vm_system_search  style="display:none" class="form-control mr-sm-2" type="text" placeholder="Search modules..." aria-label="Search modules..." />
 			</form>
         </div>
-        </div>
+        <!--</div>-->
     </nav>
     <script>
         //---------------------------------------------

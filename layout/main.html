@@ -85,7 +85,7 @@ VmInclude:/layout/main.html.footer.html
 		}
 		//********************************************************
 		//add all modules to module list
-		var N=0;
+		var N=0,P=0;
 		//------------------------------------
 		var add_config_modules_to_module_list_and_start=function(url,text,prefix){
 			var config;
@@ -108,11 +108,16 @@ VmInclude:/layout/main.html.footer.html
                     if(m_url!=undefined && (m_url.substring(0,7)=="http://" || m_url.substring(0,8)=="https://") ) $vm.module_list[prefix+property].url=m_url;
 			   	}
 			}
-			N--;
-			if(N==0){
+			N--;P++;
+			if(P==1){
+				$('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+N+"  "+P)
 				$vm.search_list=1;
 				load_home_module();
 				load_system_modules();
+			}
+			if(N==0){
+				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+N+"  "+P)
 			}
 		}
 		//------------------------------------
@@ -179,7 +184,8 @@ VmInclude:/layout/main.html.footer.html
 			if($vm['jquery-ui-min-js']==1 && $vm['popper-min-js']==1 && $vm.search_list==1){
 				clearInterval(search_loop);
 				set_module_search();
-				$('#menu_bar__ID').show();
+				$('#vm_system_menu').show();
+				$('#vm_system_search').show();
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
 			}
 		},100);
