@@ -7,6 +7,7 @@ VmInclude:/layout/main.html.footer.html
 <script>$vm.comments=1;</script>
 <script main-layout-js>
 	function F__ID(){
+		//------------------------------------
 		var home_page_module='website_home';
         console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* start running code in main.html ************************");
 		//------------------------------------
@@ -53,25 +54,6 @@ VmInclude:/layout/main.html.footer.html
             $('#vm_alert_information').modal('hide');
 		}
 		//------------------------------------
-		var set_module_search=function(){
-			$("#vm_system_search").autocomplete({
-				minLength:0,
-				source: function(request, response) {
-					var results=$.ui.autocomplete.filter(website_item_list_for_search, request.term);
-					response(results.slice(0, 10));
-				},
-				select: function(event,ui) {
-					event.preventDefault();
-					$('.navbar-collapse').collapse('hide');
-					$("#vm_system_search").val('');
-					$("#vm_system_search").blur();
-					$('.ui-helper-hidden-accessible').html('');
-					$vm.nav_load_module(ui.item.value);
-				}
-			});
-			$("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
-		}
-		//------------------------------------
 		var load_home_module=function(){
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"*********************** loading home module... **************************")
 			var a=window.location.href.split('module=');
@@ -88,6 +70,7 @@ VmInclude:/layout/main.html.footer.html
 			}
 		}
 		//********************************************************
+		//add all modules to module list
 		var N=0;
 		//------------------------------------
 		var add_config_modules_to_module_list_and_start=function(url,text,prefix){
@@ -114,7 +97,7 @@ VmInclude:/layout/main.html.footer.html
 			N--;
 			if(N==0){
 				$vm.search_list=1;
-				load_home_module();
+				//load_home_module();
 			}
 		}
 		//------------------------------------
@@ -129,40 +112,62 @@ VmInclude:/layout/main.html.footer.html
 			});
 		}
 		//------------------------------------
-		//read all module's info from json files
-		var panels=$vm.app_config.panels;
-		for (var property in panels){
-			var json_files=panels[property].modules;
-			N=N+json_files.length;
-		}
-		for (var property in panels){
-			$vm.module_list[property]={"url":panels[property].url}
-			var prefix=property+"_";
-			$vm.module_list[property].prefix=prefix;
-			var json_files=panels[property].modules;
-			for(var i=0;i<json_files.length;i++){
-				var url=$vm.url(json_files[i]);
-				//if(json_files[i].indexOf('https://')==-1) url=$vm.hosting_path+"|"+url;
-                if(json_files[i].indexOf('https://')==-1){
-                    if(json_files[i].indexOf('|')==-1)   url=$vm.hosting_path+"|"+url;
-                    else                                 url=$vm.hosting_path+"/"+url;
-                }
-				var ver=localStorage.getItem(url+"_ver");
-				var txt=localStorage.getItem(url+"_txt");
-				if(ver!=$vm.ver[1] || txt===null || $vm.debug===true || $vm.reload!=''){
-					process_config_file(url,prefix);
-				}
-				else{
-                    add_config_modules_to_module_list_and_start(url,txt,prefix);
-                }
+		setTimeout(function (){
+			//read all module's info from json files
+			var panels=$vm.app_config.panels;
+			for (var property in panels){
+				var json_files=panels[property].modules;
+				N=N+json_files.length;
 			}
+			for (var property in panels){
+				$vm.module_list[property]={"url":panels[property].url}
+				var prefix=property+"_";
+				$vm.module_list[property].prefix=prefix;
+				var json_files=panels[property].modules;
+				for(var i=0;i<json_files.length;i++){
+					var url=$vm.url(json_files[i]);
+					//if(json_files[i].indexOf('https://')==-1) url=$vm.hosting_path+"|"+url;
+	                if(json_files[i].indexOf('https://')==-1){
+	                    if(json_files[i].indexOf('|')==-1)   url=$vm.hosting_path+"|"+url;
+	                    else                                 url=$vm.hosting_path+"/"+url;
+	                }
+					var ver=localStorage.getItem(url+"_ver");
+					var txt=localStorage.getItem(url+"_txt");
+					if(ver!=$vm.ver[1] || txt===null || $vm.debug===true || $vm.reload!=''){
+						process_config_file(url,prefix);
+					}
+					else{
+	                    add_config_modules_to_module_list_and_start(url,txt,prefix);
+	                }
+				}
+			}
+		},10);
+		//------------------------------------
+		var set_module_search=function(){
+			$("#vm_system_search").autocomplete({
+				minLength:0,
+				source: function(request, response) {
+					var results=$.ui.autocomplete.filter(website_item_list_for_search, request.term);
+					response(results.slice(0, 10));
+				},
+				select: function(event,ui) {
+					event.preventDefault();
+					$('.navbar-collapse').collapse('hide');
+					$("#vm_system_search").val('');
+					$("#vm_system_search").blur();
+					$('.ui-helper-hidden-accessible').html('');
+					$vm.nav_load_module(ui.item.value);
+				}
+			});
+			$("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
+			$('#menu_bar__ID').show();
+			console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* search module is ready ************************");
 		}
-		//********************************************************
+		//------------------------------------
 		var search_loop=setInterval(function (){
-			if($vm.js_jquery_ui==1 && $vm.search_list==1){
+			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1){
 				clearInterval(search_loop);
 				set_module_search();
-                console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* search module is ready ************************");
 			}
 		},100);
 		//------------------------------------

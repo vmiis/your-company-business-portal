@@ -1,4 +1,5 @@
 var vm_init=function(){
+	//--------------------------------------------------------
 	$vm.start_time=new Date().getTime();
 	//check and clear localstorage
 	var data=''; for(var key in window.localStorage){ if(window.localStorage.hasOwnProperty(key)){ data+=window.localStorage[key]; }}
@@ -93,7 +94,8 @@ var vm_init=function(){
 	var load_vm      =function(){ load_js($vm.url('https://vmiis.github.io/framework/distribution/vmframework.min.js'),init);}
 	var init         =function(){
 		$vm.init_v3({callback:function(){$vm.init_status=1;}})
-		$vm.load_first_module_to_body({url:'/layout/main.html',callback:last});
+		$vm.load_first_module_to_body({url:'/layout/main.html'});
+		setTimeout(function (){	load_system_modules(); },10);
 	}
 	//--------------------------------------------------------
 	var load_js=function(url,next){
@@ -170,21 +172,8 @@ var vm_init=function(){
 		//text=text.replace(/https:\/\/woolcock-imr.github.io\/volunteer-database-management-2\|/g,'https://volunteer-database-management.rt.org.au|');
 		return text;
 	}
-	//--------------------------------------------------------
-	var last=function(){
-		$('head').append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>");
-        $('head').append("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>");
-        $('head').append("<link rel='stylesheet' href='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css'>");
-        //$('head').append("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
-        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',function(){$vm.js_popper=1;});
-        $.getScript('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',function(){$vm.js_bootstrap=1;});
-		$.getScript('https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js',function(){$vm.js_jquery_ui=1;});
-		$.getScript('https://apis.google.com/js/plusone.js');
-        $.getScript('https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js');
-        $.getScript('https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js');
-		$.getScript('https://www.gstatic.com/charts/loader.js',function(){
-			google.charts.load('current', {packages: ['corechart']});
-		});
+	//------------------------------------
+	var load_system_modules=function(){
 		//-------------------------------------
         $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html'};
         $vm.load_module_by_name('_system_export_dialog_module','',{})
@@ -199,4 +188,42 @@ var vm_init=function(){
 	//********************************************************
 	load_config_and_init();
 	//********************************************************
+
+	//------------------------------------
+	var resources=[
+		"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+		"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+		"https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
+
+		"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+		"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+		"https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
+		"https://apis.google.com/js/plusone.js",
+		"https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
+		"https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
+		"https://www.gstatic.com/charts/loader.js"
+	];
+	var load_resources=function(links){
+		for(i in links){
+			var e=links[i].split('.').pop();
+			if(e=='css'){
+				$('head').append("<link rel='stylesheet' href='"+links[i]+"'>");
+			}
+			else if(e=='js'){
+				load_js_link(links[i])
+			}
+		}
+	}
+	var load_js_link=function(link){
+		$.getScript(link,function(){
+			var nm=link.split('/').pop();
+			nm=nm.replace(/\./g,'-');
+			$vm[nm]=1;
+			if(nm=='loader-js'){
+				google.charts.load('current', {packages: ['corechart']});
+			}
+		});
+	}
+	setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
+	//------------------------------------
 }
