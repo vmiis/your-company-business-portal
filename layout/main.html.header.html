@@ -18,30 +18,30 @@
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars__ID" aria-controls="navbars__ID" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div id=menu_bar__ID style="display:none">
         <div id="navbars__ID" class="navbar-collapse collapse">
-			<div id=menu_bar__ID style='display:none'>
-	            <ul class="navbar-nav mr-auto">
-	                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_home');"><i class="fa fa-home"></i> Home</a></li>
-	                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('portal');"><i class="fa fa-th"></i> Business Portal</a></li>
-	                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('form-and-data-examples');"><i class="fa fa-table"></i> Forms</a></li>
-	                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('report-examples');"><i class="fa fa-bar-chart"></i> Reports</a></li>
-	                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('page-examples');"><i class="fa fa-file-text-o"></i> Pages</a></li>
-	                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('template');"><i class="fa fa-list"></i> Apps</a></li>
-	                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('portal_myself');"><i class="fa fa-info-circle"></i> About</a></li>
-	                <li class="nav-item dropdown" id=signin__ID>
-	                    <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Sign In</a></a>
-	                    <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
-							<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" id=google__ID >With your Google account</a>
-							<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" id=facebook__ID >With your Facebook account</a>
-							<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
-	                    </div>
-	                </li>
-					<li class="nav-item" id=signout__ID style='display:none'><a class="nav-link" onclick=$vm.nav_signout() ><i class="fa fa-user"></i> Sign Out</a></li>
-	            </ul>
-				<form id=form__ID class="form-inline my-2 my-lg-0">
-					<input id=vm_system_search class="form-control mr-sm-2" type="text" placeholder="Search modules..." aria-label="Search modules..." />
-				</form>
-			</div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_home');"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('portal');"><i class="fa fa-th"></i> Business Portal</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('form-and-data-examples');"><i class="fa fa-table"></i> Forms</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('report-examples');"><i class="fa fa-bar-chart"></i> Reports</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('page-examples');"><i class="fa fa-file-text-o"></i> Pages</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('template');"><i class="fa fa-list"></i> Apps</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('portal_myself');"><i class="fa fa-info-circle"></i> About</a></li>
+                <li class="nav-item dropdown" id=signin__ID>
+                    <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Sign In</a></a>
+                    <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" id=google__ID >With your Google account</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" id=facebook__ID >With your Facebook account</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
+                    </div>
+                </li>
+				<li class="nav-item" id=signout__ID style="display:none"><a class="nav-link" onclick=$vm.nav_signout() ><i class="fa fa-user"></i> Sign Out</a></li>
+            </ul>
+			<form id=form__ID class="form-inline my-2 my-lg-0">
+				<input id=vm_system_search class="form-control mr-sm-2" type="text" placeholder="Search modules..." aria-label="Search modules..." />
+			</form>
+        </div>
         </div>
     </nav>
     <script>
@@ -81,15 +81,6 @@
 			$('#form__ID').parent().prepend($('#form__ID'));
 		}
 		//---------------------------------------------
-		$(".navbar-nav").hide();
-		var navbars_loop=setInterval(function (){
-			if($vm['popper-min-js']==1){
-				clearInterval(navbars_loop);
-				$(".navbar-nav").show();
-                console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************** menu is ready ************************");
-			}
-		},100);
-		//------------------------------------
     </script>
     <style>
         #header__ID{

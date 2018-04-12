@@ -10,6 +10,11 @@ VmInclude:/layout/main.html.footer.html
 		//------------------------------------
 		var home_page_module='website_home';
         console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* start running code in main.html ************************");
+		//This is the place we can add background image to body (Asynchronous)
+		var $image1 = $("<img>");
+		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
+		$image1.attr("src", "layout/main.html.background.jpg");
+		console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
 		//------------------------------------
 		var website_item_list_for_search=[]
 		//------------------------------------
@@ -40,11 +45,6 @@ VmInclude:/layout/main.html.footer.html
 		    }
 		};
 		//-----------------------------------------
-		//This is the place we can add background image to body (Asynchronous)
-		var $image1 = $("<img>");
-		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
-		$image1.attr("src", "layout/main.html.background.jpg?v=2");
-		//------------------------------------
 		//over write vm alert
 		$vm.alert=function(msg){
 			$('#vm_alert_information div.modal-body').html( $('<div/>').html(msg).text() );
@@ -54,8 +54,9 @@ VmInclude:/layout/main.html.footer.html
             $('#vm_alert_information').modal('hide');
 		}
 		//------------------------------------
+		//load home module
 		var load_home_module=function(){
-            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"*********************** loading home module... **************************")
+            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* loading home module... **************************")
 			var a=window.location.href.split('module=');
 			if(a.length!=2)	$vm.nav_load_module(home_page_module);
 			else{
@@ -68,6 +69,19 @@ VmInclude:/layout/main.html.footer.html
 				};
 				alert("The module "+name+" doesn't exist!");
 			}
+		}
+		//------------------------------------
+		var load_system_modules=function(){
+			//-------------------------------------
+	        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html'};
+	        $vm.load_module_by_name('_system_export_dialog_module','',{})
+	        //-------------------------------------
+	        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html'};
+	        $vm.load_module_by_name('_system_import_dialog_module','',{})
+			//-------------------------------------
+			$vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html'};
+	        $vm.load_module_by_name('_system_import_dialog_module','',{})
+			//-------------------------------------
 		}
 		//********************************************************
 		//add all modules to module list
@@ -97,7 +111,8 @@ VmInclude:/layout/main.html.footer.html
 			N--;
 			if(N==0){
 				$vm.search_list=1;
-				//load_home_module();
+				load_home_module();
+				load_system_modules();
 			}
 		}
 		//------------------------------------
@@ -107,7 +122,6 @@ VmInclude:/layout/main.html.footer.html
 				localStorage.setItem(url+"_ver",$vm.ver[1]);
 				add_config_modules_to_module_list_and_start(url,data,prefix);
 			},'text').fail(function() {
-				//alert( "The configuration file ("+url.replace('|','/')+") doesn't exist!" );
 				console.log("The configuration file ("+url.replace('|','/')+") doesn't exist!")
 			});
 		}
@@ -116,8 +130,7 @@ VmInclude:/layout/main.html.footer.html
 			//read all module's info from json files
 			var panels=$vm.app_config.panels;
 			for (var property in panels){
-				var json_files=panels[property].modules;
-				N=N+json_files.length;
+				N=N+panels[property].modules.length;
 			}
 			for (var property in panels){
 				$vm.module_list[property]={"url":panels[property].url}
@@ -126,7 +139,6 @@ VmInclude:/layout/main.html.footer.html
 				var json_files=panels[property].modules;
 				for(var i=0;i<json_files.length;i++){
 					var url=$vm.url(json_files[i]);
-					//if(json_files[i].indexOf('https://')==-1) url=$vm.hosting_path+"|"+url;
 	                if(json_files[i].indexOf('https://')==-1){
 	                    if(json_files[i].indexOf('|')==-1)   url=$vm.hosting_path+"|"+url;
 	                    else                                 url=$vm.hosting_path+"/"+url;
@@ -141,8 +153,9 @@ VmInclude:/layout/main.html.footer.html
 	                }
 				}
 			}
-		},10);
-		//------------------------------------
+		},100);
+		//********************************************************
+		//set header available
 		var set_module_search=function(){
 			$("#vm_system_search").autocomplete({
 				minLength:0,
@@ -160,14 +173,14 @@ VmInclude:/layout/main.html.footer.html
 				}
 			});
 			$("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
-			$('#menu_bar__ID').show();
-			console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* search module is ready ************************");
 		}
 		//------------------------------------
 		var search_loop=setInterval(function (){
-			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1){
+			if($vm['jquery-ui-min-js']==1 && $vm['popper-min-js']==1 && $vm.search_list==1){
 				clearInterval(search_loop);
 				set_module_search();
+				$('#menu_bar__ID').show();
+				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
 			}
 		},100);
 		//------------------------------------
