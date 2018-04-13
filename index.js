@@ -1,32 +1,32 @@
 var vm_init=function(){
-	//--------------------------------------------------------
-	$vm.start_time=new Date().getTime();
-	//check and clear localstorage
-	var data=''; for(var key in window.localStorage){ if(window.localStorage.hasOwnProperty(key)){ data+=window.localStorage[key]; }}
-	if(data.length>3000000) localStorage.clear();
-	if(window.location.href.indexOf('?clearcache=1')!=-1){
-		localStorage.clear();
-		alert("Cache is cleard!");
-		return;
-	}
-	//set name space
-	$VmAPI={};$vm.module_list={};$vm.config_list={}
-	//--------------------------------------------------------
-	//get hosting path
-	var href = window.location.href.split('?')[0];
-	var path=href.split('/index.html')[0];
-	var lastChar=path[path.length-1];
-	if(lastChar=='/') path=path.substring(0,path.length-1);
-	$vm.hosting_path=path;
-	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.debug =true;
-	//--------------------------------------------------------
-	$vm.reload='';
-	if(window.location.toString().indexOf('_d=3')!=-1){
-		$vm.reload=new Date().getTime().toString();
-	}
-	$vm.version=$vm.ver[0];
-	//--------------------------------------------------------
-	var load_config_and_init=function(){
+	var start=function(){
+		//--------------------------------------------------------
+		$vm.start_time=new Date().getTime();
+		//check and clear localstorage
+		var data=''; for(var key in window.localStorage){ if(window.localStorage.hasOwnProperty(key)){ data+=window.localStorage[key]; }}
+		if(data.length>3000000) localStorage.clear();
+		if(window.location.href.indexOf('?clearcache=1')!=-1){
+			localStorage.clear();
+			alert("Cache is cleard!");
+			return;
+		}
+		//set name space
+		$VmAPI={};$vm.module_list={};$vm.config_list={}
+		//--------------------------------------------------------
+		//get hosting path
+		var href = window.location.href.split('?')[0];
+		var path=href.split('/index.html')[0];
+		var lastChar=path[path.length-1];
+		if(lastChar=='/') path=path.substring(0,path.length-1);
+		$vm.hosting_path=path;
+		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.debug =true;
+		//--------------------------------------------------------
+		$vm.reload='';
+		if(window.location.toString().indexOf('_d=3')!=-1){
+			$vm.reload=new Date().getTime().toString();
+		}
+		$vm.version=$vm.ver[0];
+		//--------------------------------------------------------
 		var url=$vm.hosting_path+"/index.json";
 		var ver=localStorage.getItem(url+"_ver");
 		var txt=localStorage.getItem(url+"_txt");
@@ -168,15 +168,8 @@ var vm_init=function(){
 		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix\|/g,'https://sfix.rt.org.au|');
 		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\//g,'https://sfix-online-questionnaire.rt.org.au/');
 		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\|/g,'https://sfix-online-questionnaire.rt.org.au|');
-		//text=text.replace(/https:\/\/woolcock-imr.github.io\/volunteer-database-management-2\//g,'https://volunteer-database-management.rt.org.au/');
-		//text=text.replace(/https:\/\/woolcock-imr.github.io\/volunteer-database-management-2\|/g,'https://volunteer-database-management.rt.org.au|');
 		return text;
 	}
-	//------------------------------------
-	//********************************************************
-	load_config_and_init();
-	//********************************************************
-
 	//------------------------------------
 	var resources=[
 		"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
@@ -191,6 +184,7 @@ var vm_init=function(){
 		"https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
 		"https://www.gstatic.com/charts/loader.js"
 	];
+	//------------------------------------
 	var load_resources=function(links){
 		for(i in links){
 			var e=links[i].split('.').pop();
@@ -202,6 +196,7 @@ var vm_init=function(){
 			}
 		}
 	}
+	//------------------------------------
 	var load_js_link=function(link){
 		$.getScript(link,function(){
 			var nm=link.split('/').pop();
@@ -212,6 +207,11 @@ var vm_init=function(){
 			}
 		});
 	}
+	//------------------------------------
 	setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
 	//------------------------------------
+
+	//********************************************************
+	start();
+	//********************************************************
 }
