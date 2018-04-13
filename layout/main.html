@@ -80,13 +80,13 @@ VmInclude:/layout/main.html.footer.html
 	        $vm.load_module_by_name('_system_import_dialog_module','',{})
 			//-------------------------------------
 			$vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html'};
-	        $vm.load_module_by_name('_system_import_dialog_module','',{})
+	        $vm.load_module_by_name('uploading_file_dialog_module','',{})
 			//-------------------------------------
 		}
 		//********************************************************
 		//add all modules to module list
-		var N=0,P=0;
 		//------------------------------------
+		var Loaded=0;
 		var add_config_modules_to_module_list_and_start=function(url,text,prefix){
 			var config;
 			try{ config=JSON.parse(text);}
@@ -108,16 +108,13 @@ VmInclude:/layout/main.html.footer.html
                     if(m_url!=undefined && (m_url.substring(0,7)=="http://" || m_url.substring(0,8)=="https://") ) $vm.module_list[prefix+property].url=m_url;
 			   	}
 			}
-			N--;P++;
-			if(P==1){
-				$('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+N+"  "+P)
-				$vm.search_list=1;
-				load_home_module();
-				load_system_modules();
-			}
-			if(N==0){
-				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+N+"  "+P)
+			if($vm.module_list[home_page_module]!=undefined){
+				if(Loaded==0){
+					Loaded=1;
+					$('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+					console.log((new Date().getTime()-$vm.start_time).toString()+"---"+home_page_module+"  is ready")
+					load_home_module();
+				}
 			}
 		}
 		//------------------------------------
@@ -130,35 +127,46 @@ VmInclude:/layout/main.html.footer.html
 				console.log("The configuration file ("+url.replace('|','/')+") doesn't exist!")
 			});
 		}
-		//------------------------------------
-		setTimeout(function (){
-			//read all module's info from json files
-			var panels=$vm.app_config.panels;
-			for (var property in panels){
-				N=N+panels[property].modules.length;
+		//********************************************************
+		//Load module json
+		var panels=$vm.app_config.panels;
+		var panelN=panels.length;
+		var panel_names=[];
+		for (var k in $vm.app_config.panels){
+			panel_names.push(k);
+		}
+		var panelI=0,loop=0;
+		var loading_loop=setInterval(function (){
+			loop++;
+			if(panelN==panel_names.length || loop==100){
+				clearInterval(loading_loop);
+				console.log((new Date().getTime()-$vm.start_time).toString()+"--- module list is ready")
+				$vm.search_list=1;
 			}
-			for (var property in panels){
+			var property=panel_names[panelI];
+			if(property!=undefined){
 				$vm.module_list[property]={"url":panels[property].url}
 				var prefix=property+"_";
 				$vm.module_list[property].prefix=prefix;
 				var json_files=panels[property].modules;
 				for(var i=0;i<json_files.length;i++){
 					var url=$vm.url(json_files[i]);
-	                if(json_files[i].indexOf('https://')==-1){
-	                    if(json_files[i].indexOf('|')==-1)   url=$vm.hosting_path+"|"+url;
-	                    else                                 url=$vm.hosting_path+"/"+url;
-	                }
+					if(json_files[i].indexOf('https://')==-1){
+						if(json_files[i].indexOf('|')==-1)   url=$vm.hosting_path+"|"+url;
+						else                                 url=$vm.hosting_path+"/"+url;
+					}
 					var ver=localStorage.getItem(url+"_ver");
 					var txt=localStorage.getItem(url+"_txt");
 					if(ver!=$vm.ver[1] || txt===null || $vm.debug===true || $vm.reload!=''){
 						process_config_file(url,prefix);
 					}
 					else{
-	                    add_config_modules_to_module_list_and_start(url,txt,prefix);
-	                }
+						add_config_modules_to_module_list_and_start(url,txt,prefix);
+					}
 				}
 			}
-		},100);
+			panelI++;
+		},1);
 		//********************************************************
 		//set header available
 		var set_module_search=function(){
@@ -187,6 +195,7 @@ VmInclude:/layout/main.html.footer.html
 				$('#vm_system_menu').show();
 				$('#vm_system_search').show();
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
+				load_system_modules();
 			}
 		},100);
 		//------------------------------------
