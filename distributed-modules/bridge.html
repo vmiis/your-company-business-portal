@@ -7,7 +7,7 @@
 		var path=$vm.module_list[$vm.vm['__ID'].name].path;
 		var page=$vm.module_list[$vm.vm['__ID'].name].page;
         var height=$vm.module_list[$vm.vm['__ID'].name].height;
-		url+=path+"/index.html?v="+$vm.version+"&id=__ID&page="+page;
+		url+=path+"?v="+$vm.version+"&id=__ID&page="+page;
 		//--------------------------------------------------------
 		var iframeWin = document.getElementById("sandbox__ID").contentWindow;
 		$('#sandbox__ID').attr('src',url);
