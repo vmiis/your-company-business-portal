@@ -1,4 +1,4 @@
-<iframe id=sandbox__ID sandbox="allow-scripts allow-forms allow-same-origin" frameborder="0"></iframe>
+<iframe id=sandbox__ID sandbox="allow-scripts allow-forms allow-same-origin" frameborder="0" ></iframe>
 <script>
 	function F__ID(){
 		//--------------------------------------------------------
@@ -6,6 +6,7 @@
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	url=window.location.protocol+'//'+window.location.host+"/vmiis/distributed-modules/";
 		var path=$vm.module_list[$vm.vm['__ID'].name].path;
 		var page=$vm.module_list[$vm.vm['__ID'].name].page;
+        var height=$vm.module_list[$vm.vm['__ID'].name].height;
 		url+=path+"/index.html?v="+$vm.version+"&id=__ID&page="+page;
 		//--------------------------------------------------------
 		var iframeWin = document.getElementById("sandbox__ID").contentWindow;
@@ -24,7 +25,15 @@
 		            var url_content=$('#sandbox__ID').attr('src').replace('index.html','pages/'+page);
 					$vm.url_source(url_content);
 				}
-				//------------------------------
+                //------------------------------
+                //chang containter height
+                else if(e.data.cmd=='height'){
+                    if(e.data.height<5000){
+                        $('#D__ID').css('height',e.data.height);
+                        console.log("Container hight changed:"+e.data.height);
+                    }
+                }
+                //------------------------------
 				//save contact to database
 				else if(e.data.cmd=='contact'){
 					var req={cmd:"add_json_record_s2",db_pid:'20009702',data:e.data.form_data,dbv:{V3:'18033101'}};
@@ -44,11 +53,18 @@
 			iframeWin.postMessage({cmd:'show',msg:''},"*")
 		})
 		//--------------------------------------------------------
+        $('#sandbox__ID').on('load',function(){
+            var h=document.getElementById('sandbox__ID').contentWindow.document.body.scrollHeight+'px';
+            if(height!=undefined) h=height;
+            $('#D__ID').css('height',h)
+            console.log("Container initial hight:"+h);
+        });
+        //--------------------------------------------------------
 	}
 </script>
 <style>
 	#D__ID{
-		height:100%;
+		min-height:100%;
 		animation: vm_module_fadein 1.0s;
 	}
 	#sandbox__ID{

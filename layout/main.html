@@ -1,10 +1,15 @@
-VmInclude:/layout/main.html.top-right-corner.html
-VmInclude:/layout/main.html.header.html
-VmInclude:/layout/main.html.content-container.html
-VmInclude:/layout/main.html.footer.html
-<div id="fb-root"></div>
-<div style='display:none'><div id="disqus_thread"></div></div>
-<script>$vm.comments=1;</script>
+<div id=layout__ID>
+    <div>
+        VmInclude:/layout/main.html.top-right-corner.html
+        VmInclude:/layout/main.html.header.html
+    </div>
+    <div>
+        VmInclude:/layout/main.html.content-container.html
+    </div>
+    <div>
+        VmInclude:/layout/main.html.footer.html
+    </div>
+</div>
 <script main-layout-js>
 	function F__ID(){
 		//------------------------------------
@@ -18,24 +23,6 @@ VmInclude:/layout/main.html.footer.html
 		//------------------------------------
 		var website_item_list_for_search=[]
 		//------------------------------------
-		var set_height=function(){
-			var header_height=$('#brand__ID').outerHeight(); $vm.header_height=header_height;
-			var footer_height=$('#footer__ID').outerHeight();
-			$vm.min_height=($(window).height()-header_height-footer_height);
-			$('#content_container__ID').css({'height':$vm.min_height});
-			$('#content_container__ID').css({'top':header_height+'px'})
-		}
-		//------------------------------------
-		set_height();
-        $vm._nn=6;
-        function checkForChanges(){
-            set_height();
-            $vm._nn--; if($vm._nn==0) return;
-            setTimeout(checkForChanges, 300);
-        }
-        checkForChanges();
-		//------------------------------------
-		window.onresize=function(e){set_height();};
 		window.onmessage=function(e){
 		    if(e.data.username!=undefined && e.data.user_id!=undefined){
 		        $vm.user=e.data.username;
@@ -45,6 +32,8 @@ VmInclude:/layout/main.html.footer.html
 		    }
 		};
 		//-----------------------------------------
+        $vm.min_height=$('#content_container__ID').outerHeight();
+        //-----------------------------------------
 		//over write vm alert
 		$vm.alert=function(msg){
 			$('#vm_alert_information div.modal-body').html( $('<div/>').html(msg).text() );
@@ -74,13 +63,13 @@ VmInclude:/layout/main.html.footer.html
 		var load_system_modules=function(){
 			//-------------------------------------
 	        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html'};
-	        $vm.load_module_by_name('_system_export_dialog_module','',{})
+	        $vm.nav_load_module('_system_export_dialog_module','hidden',{})
 	        //-------------------------------------
 	        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html'};
-	        $vm.load_module_by_name('_system_import_dialog_module','',{})
+	        $vm.nav_load_module('_system_import_dialog_module','hidden',{})
 			//-------------------------------------
 			$vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html'};
-	        $vm.load_module_by_name('uploading_file_dialog_module','',{})
+	        $vm.nav_load_module('uploading_file_dialog_module','hidden',{})
 			//-------------------------------------
 		}
 		//********************************************************
@@ -189,11 +178,10 @@ VmInclude:/layout/main.html.footer.html
 		}
 		//------------------------------------
 		var search_loop=setInterval(function (){
-			if($vm['jquery-ui-min-js']==1 && $vm['popper-min-js']==1 && $vm.search_list==1){
+			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1){
 				clearInterval(search_loop);
 				set_module_search();
 				$('#vm_system_menu').show();
-				$('#vm_system_search').show();
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
 				load_system_modules();
 			}
@@ -203,13 +191,18 @@ VmInclude:/layout/main.html.footer.html
 </script>
 <style main-layout-css>
     .vm_module{
-        position:absolute;
+        /*position:absolute;*/
         width:100%;
         height:100%;
     }
 	html,body{
-		height:100%;
-		overflow-y:hidden;
+		/*height:100%;*/
+		/*overflow-y:hidden;*/
+        width: 100%;
+        height: 100%;
+        padding:0;
+        margin:0;
+        font-family:Arial;
 	}
 	@keyframes vm_module_fadein {
 		from { opacity:0; }
@@ -230,4 +223,12 @@ VmInclude:/layout/main.html.footer.html
 	.ui-menu-item .ui-menu-item-wrapper:hover{
 		font-weight:normal;
 	}
+    #layout__ID {
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+    #layout__ID > div{
+        border:0px solid green;
+    }
 </style>

@@ -1,204 +1,250 @@
-<div header id=header__ID>
-    <nav id=nav__ID class="navbar navbar-expand-lg navbar-dark">
-		<div id=brand__ID>
-	        <a class="navbar-brand d-none d-lg-block" onclick="$vm.nav_load_module('website_home');">
-	            <div class=large_logo__ID>
-	                <div class=large_logo_large_label__ID>
-	                    Your Company Business Portal
-	                </div>
-	                <div class=large_logo_small_label__ID>
-	                    Manage all your business activities <br>and valuable digital assets in one place
-	                </div>
-	            </div>
-	        </a>
-	        <a class="navbar-brand d-lg-none" onclick="$vm.nav_load_module('website_home');">
-	            <div class=small_logo__ID>Business Portal</div>
-	        </a>
-		</div>
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars__ID" aria-controls="navbars__ID" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--<div id=menu_bar__ID style="display:none">-->
-        <div id="navbars__ID" class="navbar-collapse collapse">
-            <ul class="navbar-nav mr-auto" id=vm_system_menu style="display:none">
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('website_home');"><i class="fa fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('portal');"><i class="fa fa-th"></i> Business Portal</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('form-and-data-examples');"><i class="fa fa-table"></i> Forms</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('report-examples');"><i class="fa fa-bar-chart"></i> Reports</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('page-examples');"><i class="fa fa-file-text-o"></i> Pages</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('template');"><i class="fa fa-list"></i> Apps</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('portal_myself');"><i class="fa fa-info-circle"></i> About</a></li>
-                <li class="nav-item dropdown" id=signin__ID>
-                    <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Sign In</a></a>
-                    <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" id=google__ID >With your Google account</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" id=facebook__ID >With your Facebook account</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
-                    </div>
-                </li>
-				<li class="nav-item" id=signout__ID style="display:none"><a class="nav-link" onclick=$vm.nav_signout() ><i class="fa fa-user"></i> Sign Out</a></li>
-            </ul>
-			<form id=form__ID class="form-inline my-2 my-lg-0">
-				<input id=vm_system_search  style="display:none" class="form-control mr-sm-2" type="text" placeholder="Search modules..." aria-label="Search modules..." />
-			</form>
+<div id=header__ID>
+    <div id=vm_logo module=website_home>
+        <span id=vm_logo_label_A>Your Company Business Portal</span><br>
+        <span id=vm_logo_label_B>Manage all your business activities<br>and valuable digital assets in one place</span>
+    </div>
+    <div id="vm_system_menu">
+        <a module=website_home _class="vm_active"><i class="fa fa-home"></i> Home</a>
+        <a module=portal><i class="fa fa-th"></i> Business Portal</a>
+        <a module=form-and-data-examples><i class="fa fa-table"></i> Forms</a>
+        <a module=report-examples><i class="fa fa-bar-chart"></i> Reports</a>
+        <a module=page-examples><i class="fa fa-file-text-o"></i> Pages</a>
+        <a module=template><i class="fa fa-list"></i> Apps</a>
+        <a module=portal_myself><i class="fa fa-info-circle"></i> About</a>
+        <div class="vm_dropdown" id=signin__ID>
+            <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
+            <div class="vm_dropdown-content">
+                <a id=google__ID >With your Google account</a>
+                <a id=facebook__ID >With your Facebook account</a>
+                <a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
+            </div>
         </div>
-        <!--</div>-->
-    </nav>
-    <script>
-        //---------------------------------------------
-		var init_loop=setInterval(function (){
-			console.log('init_loop...')
-			if($vm.init_status==1){
-				clearInterval(init_loop);
-				show_user();
-				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* init is done ************************");
-			}
-		},100);
-        //---------------------------------------------
-		var show_user=function(){
-			var third=""
-			if($vm.user_puid=="1") third=" (Google)";
-			if($vm.user_puid=="2") third=" (Facebook)";
-			if($vm.user=='guest'){
-				$('#username__ID').text('');
-				$('#signin__ID').show();
-				$('#signout__ID').hide();
-			}
-			else{
-				$('#username__ID').text('Signed in as '+ $vm.user+third);
-				$('#signin__ID').hide();
-				$('#signout__ID').show();
-			}
-		}
-		//---------------------------------------------
-        if(window.location.hostname!='127.0.0.1'){
-
-			$vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
-            $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
-        }
-		//---------------------------------------------
-		if(window.innerWidth <= 800 && window.innerHeight <= 600) {
-			$('#form__ID').parent().prepend($('#form__ID'));
-		}
-		//---------------------------------------------
-    </script>
-    <style>
-        #header__ID{
-            background: rgba(0,0,0,0.5);
-        }
-        #header__ID a{
-            cursor:pointer;
-        }
-        #nav__ID{
-			padding:0;
-            z-index:99;
-        }
-        #navbars__ID{
-	        padding-top:30px;
-        }
-        .large_logo__ID{
-            color:#fff;
-            padding:10px 0px 10px 30px;
-        }
-        .large_logo_large_label__ID{
-            font-family: "Arial Narrow", Arial, sans-serif;
-            font-size:140%;
-        }
-        .large_logo_small_label__ID{
-            font-size:64%;
-        }
-        #navbars__ID{
-            padding-left:50px;
-        }
-        #form__ID{
-            padding-left:80px;
-        }
-		@media screen and (max-width:992px){
-			#nav__ID{
-	            z-index:99;
-	        }
-            #form__ID{
-		        padding-left:0px;
-	        }
-			#nav__ID{
-                padding: 0px 15px;
-			}
-            #navbars__ID{
-    	        padding-top:0px;
-                padding-left:10px;
-                padding-right:10px;
-				background-color:#445a26;
-            }
-            .small_logo__ID{
-                color:#fff;
-                font-size: 140%;
-            }
-		}
-		/****************************/
-		#navbars__ID a:focus {
-			outline: none;
-		}
-		#navbars__ID .navbar-brand {
-			font-size: 1.1rem;
-			color: white;
-		}
-		#navbars__ID .navbar-brand.active,
-		#navbars__ID .navbar-brand:active,
-		#navbars__ID .navbar-brand:focus,
-		#navbars__ID .navbar-brand:hover {
-			color: white;
-		}
-		#navbars__ID .navbar-nav {
-			letter-spacing: 1px;
-		}
-		#navbars__ID .navbar-nav li.nav-item a.nav-link {
-			color: white;
-		}
-		#navbars__ID .navbar-nav li.nav-item a.nav-link:hover {
-			color: #18BC9C;
-			outline: none;
-		}
-		#navbars__ID .navbar-nav li.nav-item a.nav-link:active,
-		#navbars__ID .navbar-nav li.nav-item a.nav-link:focus {
-			color: white;
-		}
-		#navbars__ID .navbar-toggler {
-			font-size: 14px;
-			padding: 11px;
-			text-transform: uppercase;
-			color: white;
-			border-color: white;
-		}
-		#navbars__ID .navbar-toggler:focus,
-		#navbars__ID .navbar-toggler:hover {
-			color: white;
-			border-color: #18BC9C;
-			background-color: #18BC9C;
-		}
-		@media (min-width: 992px) {
-			#navbars__ID {
-				-webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-				-moz-transition: padding-top 0.3s, padding-bottom 0.3s;
-				transition: padding-top 0.3s, padding-bottom 0.3s;
-			}
-			#navbars__ID .navbar-brand {
-				font-size: 2em;
-				-webkit-transition: all 0.3s;
-				-moz-transition: all 0.3s;
-				transition: all 0.3s;
-			}
-			#navbars__ID .navbar-nav > li.nav-item > a.nav-link.active {
-				color: white;
-				border-radius: 3px;
-				background: #18BC9C;
-			}
-			#navbars__ID .navbar-nav > li.nav-item > a.nav-link.active:active,
-			#navbars__ID .navbar-nav > li.nav-item > a.nav-link.active:focus,
-			#navbars__ID .navbar-nav > li.nav-item > a.nav-link.active:hover {
-				color: white;
-				background: #18BC9C;
-		  	}
-		}
-		/*********************************/
-    </style>
+        <a id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+        <input id=vm_system_search  type="text" placeholder="Search modules..." />
+    </div>
+    <span module=website_home id=m_title>Business Portal</span>
+    <a toggle id="vm_icon" onclick="vm_toggle()">&#9776;</a>
 </div>
+<script>
+    function vm_toggle() {
+        var x = document.getElementById("vm_system_menu");
+        if(x.className==='') x.className="responsive";
+        else x.className="";
+    }
+    $('#vm_system_menu a').on('click',function(){
+        var module=$(this).attr('module');
+        if(module!=undefined) $vm.nav_load_module(module);
+        if( $(this).attr('toggle')==undefined){
+            var x = document.getElementById("vm_system_menu");
+            if(x.className==='responsive') x.className="";
+        }
+    })
+    $('.vm_dropdown').on('click',function(){
+        var d=$(this).find('.vm_dropdown-content');
+        if(d.css('display')=='block') d.css('display','none');
+        else d.css('display','block');
+    })
+    $(".vm_dropdown-content").mouseleave(function () {
+        $(this).hide();
+    })
+    $('#m_title').on('click',function(){
+        var module=$(this).attr('module');
+        $vm.nav_load_module(module);
+    })
+    $('#vm_logo').on('click',function(){
+        var module=$(this).attr('module');
+        $vm.nav_load_module(module);
+    })
+    //---------------------------------------------
+    var init_loop=setInterval(function (){
+        console.log('init_loop...')
+        if($vm.init_status==1){
+            clearInterval(init_loop);
+            show_user();
+            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* init is done ************************");
+        }
+    },100);
+    //---------------------------------------------
+    var show_user=function(){
+        var third=""
+        if($vm.user_puid=="1") third=" (Google)";
+        if($vm.user_puid=="2") third=" (Facebook)";
+        if($vm.user=='guest'){
+            $('#username__ID').text('');
+            $('#signin__ID').show();
+            $('#signout__ID').hide();
+        }
+        else{
+            $('#username__ID').text('Signed in as '+ $vm.user+third);
+            $('#signin__ID').hide();
+            $('#signout__ID').show();
+        }
+    }
+    //---------------------------------------------
+    if(window.location.hostname!='127.0.0.1'){
+
+        $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
+        $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+    }
+    //---------------------------------------------
+    if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+        //$('#form__ID').parent().prepend($('#form__ID'));
+    }
+    //---------------------------------------------
+</script>
+<style>
+    #header__ID{
+        height:100px;
+        background: rgba(0,0,0,0.5);
+    }
+    #vm_system_menu {
+        margin-top:50px;
+        margin-right:20px;
+        overflow: hidden;
+        background: rgba(0,0,0,0.0);
+        display:inline-block;
+        float:right;
+    }
+    #vm_system_search{
+        margin-top:5px;
+        margin-left:20px;
+        border-radius:.25rem;
+        padding-left:6px
+    }
+    #vm_system_menu > a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 10px 8px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor:pointer;
+    }
+
+    .vm_active {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #vm_icon {
+      display: none;
+    }
+    .vm_dropdown {
+        float: left;
+        overflow: hidden;
+    }
+    .vm_dropdown .vm_dropbtn {
+        font-size: 14px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 10px 8px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+    .vm_dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .vm_dropdown-content a {
+        float: none;
+        color: black;
+        padding: 5px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        cursor:pointer;
+    }
+    #vm_system_menu > a:hover, .vm_dropdown:hover .vm_dropbtn {
+      background-color: #555;
+      color: white;
+      border-radius:4px;
+    }
+    .vm_dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    #m_title{
+        display:none;
+    }
+    #vm_logo{
+        display:inline-block;
+        padding-top:10px;
+        padding-left:20px;
+        cursor:pointer;
+    }
+    #vm_logo_label_A{
+        font-family: "Arial Narrow", Arial, sans-serif;
+        color:#fff;
+        font-size: 160%;
+        line-height:160%;
+        display:inline-block;
+    }
+    #vm_logo_label_B{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 80%;
+        line-height:139%;
+        display:inline-block;
+    }
+    @media screen and (max-width: 1280px) {
+        #m_title{
+            color:#fff;
+            font-size: 28px;
+            display:inline-block;
+            padding: 7px 0 0 12px;
+            cursor: pointer;
+        }
+        #vm_system_menu a, .vm_dropdown .vm_dropbtn {
+            display: none;
+        }
+        #vm_icon {
+            float: right;
+            display: block;
+            font-size:28px;
+            padding:7px 16px 3px 16px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor:pointer;
+            color:#fff;
+        }
+        #vm_system_menu.responsive {position: relative;}
+        #vm_system_menu.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+        #vm_system_menu.responsive .vm_dropdown {float: none;}
+        #vm_system_menu.responsive .vm_dropdown-content {position: relative;}
+        #vm_system_menu.responsive .vm_dropdown .vm_dropbtn {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        #vm_system_menu {
+            margin-top:0px;
+            margin-right:0px;
+            overflow: hidden;
+            background: #1c3144;
+            display:block;
+            float:unset;
+        }
+        #header__ID{
+            height:unset;
+            background: rgba(0,0,0,0.3);
+        }
+        #vm_logo{
+            display:none;
+        }
+        #vm_system_search{
+            display:none;
+        }
+    }
+</style>

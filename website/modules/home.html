@@ -1,11 +1,11 @@
 <div id=page__ID>
 	<div class="container-fluid" style='max-width:750px;color:#000'>
-		<div class="text-center">
+        <div class="text-center panel__ID">
 		  <h2>Modular Distributed Web Application</h2>
 	  	  <hr style='border-top:1px solid #f05f40;'></hr>
-	  	  <p>A single page application with unlimited number of shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
-		  Open source code project: <a style='color:#000' target=_blank href=https://github.com/vmiis><u>https://github.com/vmiis</u></a>
-          <br>Open source code template list: <a style='color:#000' target=_blank href=https://github.com/vmiis/template-list><u>https://github.com/vmiis/template-list</u></a>
+	  	  <p>A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
+		  Open source code project: <a target=_blank href=https://github.com/vmiis><u>https://github.com/vmiis</u></a>
+          <br>Open source code template list: <a target=_blank href=https://github.com/vmiis/template-list><u>https://github.com/vmiis/template-list</u></a>
 		  <br>
 		  <br>
           <button id=a2__ID class="btn btn-primary">Business Portal</button>
@@ -25,14 +25,29 @@
 		height:100%;
         overflow:auto;
 		animation: vm_module_fadein 1.0s, D__ID 3s;
+        padding-bottom: 10%;
 	}
 	#page__ID{
 		height:100%;
 		display: flex;
 		align-items: center;
 	}
+	.panel__ID{
+		color:#fff;
+		background: rgba(0, 0, 0, 0.3);
+		border-radius: 25px;
+		padding:20px 10px;
+	}
+    .panel__ID a{
+		color:#fff;
+    }
 	@keyframes D__ID {
 		from {padding-top: 300px;}
-	    to {padding-top: 0px;}
+		to {padding-top: 0px;}
 	}
+    @media screen and (max-width: 992px) {
+        #D__ID{
+            animation: vm_module_fadein 1.0s;
+        }
+    }
 </style>
