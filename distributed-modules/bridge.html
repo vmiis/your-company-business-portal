@@ -26,14 +26,6 @@
 					$vm.url_source(url_content);
 				}
                 //------------------------------
-                //chang containter height
-                else if(e.data.cmd=='height'){
-                    if(e.data.height<5000){
-                        $('#D__ID').css('height',e.data.height);
-                        console.log("Container hight changed:"+e.data.height);
-                    }
-                }
-                //------------------------------
 				//save contact to database
 				else if(e.data.cmd=='contact'){
 					var req={cmd:"add_json_record_s2",db_pid:'20009702',data:e.data.form_data,dbv:{V3:'18033101'}};
@@ -53,13 +45,6 @@
 			iframeWin.postMessage({cmd:'show',msg:''},"*")
 		})
 		//--------------------------------------------------------
-        $('#sandbox__ID').on('load',function(){
-            var h=document.getElementById('sandbox__ID').contentWindow.document.body.scrollHeight+'px';
-            if(height!=undefined) h=height;
-            $('#D__ID').css('height',h)
-            console.log("Container initial hight:"+h);
-        });
-        //--------------------------------------------------------
 	}
 </script>
 <style>

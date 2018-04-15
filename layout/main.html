@@ -1,12 +1,12 @@
-<div id=layout__ID>
-    <div>
+<div main-layout id=layout__ID>
+    <div hrader>
         VmInclude:/layout/main.html.top-right-corner.html
         VmInclude:/layout/main.html.header.html
     </div>
-    <div>
+    <div content>
         VmInclude:/layout/main.html.content-container.html
     </div>
-    <div>
+    <div footer>
         VmInclude:/layout/main.html.footer.html
     </div>
 </div>
@@ -32,7 +32,14 @@
 		    }
 		};
 		//-----------------------------------------
-        $vm.min_height=$('#content_container__ID').outerHeight();
+        var set_height=function(){
+			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer__ID').outerHeight();
+			$vm.min_height=($(window).height()-header_height-footer_height);
+			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
+		}
+		//------------------------------------
+		set_height();window.onresize=function(){set_height();}
         //-----------------------------------------
 		//over write vm alert
 		$vm.alert=function(msg){
@@ -224,11 +231,9 @@
 		font-weight:normal;
 	}
     #layout__ID {
-        min-height: 100%;
+        height: 100%;
         display: grid;
         grid-template-rows: auto 1fr auto;
-    }
-    #layout__ID > div{
-        border:0px solid green;
+        overflow:hidden;
     }
 </style>

@@ -4,16 +4,22 @@
 	<script>
 		$vm.root_layout_footer='footer__ID';
 		//-----------------------------------------------------
-        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. Site Code on GitHub (github.com/vmiis). Pull Requests welcome!");
+        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL__ID>Site Code on GitHub (github.com/vmiis). Pull Requests welcome!</span>");
 		//------------------------------------
 	</script>
 	<style>
 		#footer__ID{
+			height:24px;
 			color: #fff;
 			padding: 3px;
     		background-color: #333;
 			font:80%/18px arial;
             text-align: center;
+		}
+		@media screen and (max-width: 900px){
+			#FL__ID{
+				display:none;
+			}
 		}
 	</style>
 </div>
