@@ -3,12 +3,18 @@
         <div class="text-center panel__ID">
 		  <h2>Modular Distributed Web Application</h2>
 	  	  <hr style='border-top:1px solid #f05f40;'></hr>
-	  	  <p>A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
-		  Open source code project: <a target=_blank href=https://github.com/vmiis><u>https://github.com/vmiis</u></a>
-          <br>Open source code template list: <a target=_blank href=https://github.com/vmiis/template-list><u>https://github.com/vmiis/template-list</u></a>
+	  	  <p id=info__ID>
+			  A single page application with shared reusable modules distributed on different static web servers
+			  around the world and maintained by different people with different skills!
+			  <br>
+			  <br>
+			  Open source code project: <a target=_blank href=https://github.com/vmiis><u>https://github.com/vmiis</u></a>
+	          <br>
+			  Open source code template list: <a target=_blank href=https://github.com/vmiis/template-list><u>https://github.com/vmiis/template-list</u></a>
+			  <br>
+		  </p>
 		  <br>
-		  <br>
-          <button id=a2__ID class="btn btn-primary">Business Portal</button>
+          <button id=a2__ID class="btn btn-primary">More</button>
 		  <br>
 		</div>
 	</div>
@@ -46,8 +52,14 @@
 		to {padding-top: 0px;}
 	}
     @media screen and (max-width: 992px) {
+		#info__ID{
+			display:none;
+		}
         #D__ID{
             animation: vm_module_fadein 1.0s;
         }
+		.panel__ID{
+			background: rgba(0, 0, 0, 0.1);
+		}
     }
 </style>
