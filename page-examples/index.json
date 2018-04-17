@@ -4,7 +4,11 @@
         "contact-us-sydney":	{"url":"modules/contact-us-sydney.html"},
         "contact-us-creative":	{"url":"modules/contact-us-creative.html"},
 
-        "cogs-codepen":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/codevember-9-infinite-scrolling-cogs","page":""},
+		"my-first-bootstrap-page":	{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"my-first-bootstrap-page.html"},
+		"dark-table":				{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"dark-table.html"},
+		"carousel":					{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"carousel.html"},
+
+		"cogs-codepen":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/codevember-9-infinite-scrolling-cogs","page":""},
         "lately-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/lately","page":""},
         "pricing-table-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/pricing-table","page":""},
         "scenery-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/scenery","page":""},

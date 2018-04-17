@@ -138,6 +138,9 @@
 				clearInterval(loading_loop);
 				console.log((new Date().getTime()-$vm.start_time).toString()+"--- module list is ready")
 				$vm.search_list=1;
+				load_system_modules();
+				load_hot_modules();
+				return;
 			}
 			var property=panel_names[panelI];
 			if(property!=undefined){
@@ -190,9 +193,15 @@
 				set_module_search();
 				$('#vm_system_menu').show();
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
-				load_system_modules();
 			}
 		},100);
+		//------------------------------------
+		var load_hot_modules=function(){
+			//pre load into memory, for fast showing on screen
+			//-------------------------------------
+	        //$vm.nav_load_module('page-examples_snapshot-about','hidden',{})
+	        //-------------------------------------
+		}
 		//------------------------------------
 	}
 </script>
