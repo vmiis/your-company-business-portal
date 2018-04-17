@@ -4,6 +4,9 @@
         "contact-us-sydney":	{"url":"modules/contact-us-sydney.html"},
         "contact-us-creative":	{"url":"modules/contact-us-creative.html"},
 
+        "column-chart-001":		{"url":"__HOST__/distributed-modules/google-chart.html","path":"google-chart/index.html","page":"column-chart-001.html"},
+
+        "aerial":					{"url":"__HOST__/distributed-modules/bridge.html","path":"template/aerial/index.html","page":""},
 		"my-first-bootstrap-page":	{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"my-first-bootstrap-page.html"},
 		"dark-table":				{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"dark-table.html"},
 		"carousel":					{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"carousel.html"},
