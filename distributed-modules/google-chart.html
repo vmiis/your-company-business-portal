@@ -40,7 +40,33 @@
 		})
 		//--------------------------------------------------------
 		var request_process=function(request_id){
-			iframeWin.postMessage({cmd:'report',info:{data:[1,2,3]}},"*")
+            //----------------------------------------
+            if(request_id="pie-001"){
+                var sql="select top 1 Information from [TABLE-20009702] where V3=18041801";
+                $VmAPI.request({
+                    data:{cmd:'query_records',sql:sql},
+                    callback:function(res){
+                        if(res.records.length==1){
+                            var record=res.records[0];
+                            var data=[];
+                            data.push(['Task', 'Hours per Day']);
+                            data.push(['Work',parseInt(record.Work)]);
+                            data.push(['Eat',parseInt(record.Eat)]);
+                            data.push(['Commute',parseInt(record.Commute)]);
+                            data.push(['Watch TV',parseInt(record.Watch_TV)]);
+                            data.push(['Sleep',parseInt(record.Sleep)]);
+                        }
+                        else{ $vm.alert('No data'); return;}
+                        var info={
+                            "title":"My Daily Activities",
+                            "data":data
+                        }
+                        iframeWin.postMessage({cmd:'report',info:info},"*")
+                    }
+                })
+            }
+            //----------------------------------------
+			else iframeWin.postMessage({cmd:'report'},"*")
 		}
 		//--------------------------------------------------------
 	}
@@ -54,4 +80,29 @@
 		height:100%;
 		width:100%;
 	}
+    @media print {
+        #content_container_0{
+            position:absolute;
+            overflow:visible;
+            height:100%;
+            width:100%;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+            overflow:visible;
+        }
+        body * {
+            visibility: hidden;
+        }
+        #D__ID{
+            height:100%;
+            width:100%;
+            overflow:visible;
+            visibility:visible;
+        }
+        #D__ID *{
+            visibility:visible;
+        }
+    }
 </style>

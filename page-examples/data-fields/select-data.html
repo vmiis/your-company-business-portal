@@ -1,0 +1,32 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+		var fields="First_Name,Last_Name,Site";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Site':
+                    var html="<select style='border:0;''>"
+                    html+="<option value=''>---</option>";
+                    html+="<option>Australia</option>";
+                    html+="<option>USA</option>";
+                    html+="<option>China</option>";
+                    html+="</select>"
+                    $vm.render_select_field(records[I],'__ID',td,html)
+                    break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

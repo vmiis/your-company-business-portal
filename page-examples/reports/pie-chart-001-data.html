@@ -1,0 +1,49 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="Work,Eat,Commute,Watch_TV,Sleep";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        var this_module=$vm.module_list[$vm.vm['__ID'].name];
+		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+		var form_module=prefix+this_module.form_module;
+		//-------------------------------------
+        $('#new__ID').off('click').on('click',function(){$vm.nav_load_module(form_module,'',{goback:1})})
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+
+
+
+        //-------------------------------------
+        //The following code is use to pick up a part of records in a table
+        //-------------------------------------
+        var v3=$vm.module_list[$vm.vm['__ID'].name].v3;
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.V3=v3;
+        };
+        //-------------------------------------
+		_set_req=function(){
+		    var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] where V3="+v3+")";
+		    sql+="select Information,ID,UID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+		    var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1] where V3="+v3;
+			_req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+		}
+		//-------------------------------------
+        _set_req_export=function(i1,i2){
+		    var sql="with tb as (select Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] where V3="+v3+" )";
+		    sql+="select Information,DateTime,Author from tb where RowNum between @I1 and @I2";
+			_req={cmd:'query_records',sql:sql,i1:i1,i2:i2};
+		}
+		//-----------------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

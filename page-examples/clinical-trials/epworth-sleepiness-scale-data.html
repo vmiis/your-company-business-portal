@@ -1,0 +1,33 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+		//-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="ESS_1,ESS_2,ESS_3,ESS_4,ESS_5,ESS_6,ESS_7,ESS_8,ESS";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        var _before_submit=function(record,dbv){
+            if(record.ESS_1!='' && record.ESS_2!='' && record.ESS_3!='' && record.ESS_4!='' && record.ESS_5!='' && record.ESS_6!='' && record.ESS_7!='' && record.ESS_8!=''){
+                record.ESS=(parseInt(record.ESS_1)+parseInt(record.ESS_2)+parseInt(record.ESS_3)+parseInt(record.ESS_4)+parseInt(record.ESS_5)+parseInt(record.ESS_6)+parseInt(record.ESS_7)+parseInt(record.ESS_8)).toString();
+            }
+            //-------------------
+            var input=$vm.vm['__ID'].op.input; if(input==undefined) input=$vm.vm['__ID'].op
+            if(input!=undefined){
+                data.Participant    =input.participant;
+                data.Participant_uid=input.participant_uid;
+            }
+            //-------------------
+            dbv.PUID=record.Participant_uid;
+            dbv.S3=$vm.status_of_data(record);
+		}
+        //--------------------------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

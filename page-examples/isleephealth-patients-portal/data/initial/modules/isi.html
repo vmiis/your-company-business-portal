@@ -1,0 +1,24 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+		var fields="ISI_1a, ISI_1b, ISI_1c, ISI_2, ISI_3, ISI_4, ISI_5, ISI, ISI_1";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        var this_module			=$vm.module_list[$vm.vm['__ID'].name];
+        var prefix              =this_module.prefix;  if(prefix==undefined) prefix="";
+        var form_module			=this_module.form_module;
+        //-------------------------------------
+        $('#new__ID').off('click').on('click',function(){$vm.nav_load_module(prefix+form_module,'',{goback:1})})
+		//-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
