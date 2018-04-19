@@ -1,4 +1,6 @@
 {"modules":{
+"checkbox-data":      {"table_id":"20008498",                "url":"data-fields/checkbox-data.html","form_module":"checkbox-form","name_for_search":"Checkbox data"},
+"checkbox-form":      {"table_id":"20008498",                "url":"data-fields/checkbox-form.html","name_for_search":"Checkbox form"},
 "caculation-data":    {"table_id":"20008496",                "url":"data-fields/caculation-data.html","form_module":"caculation-form","name_for_search":"Caculation data"},
 "caculation-form":    {"table_id":"20008496",                "url":"data-fields/caculation-form.html","name_for_search":"Caculation form"},
 "postcode-data":  	  {"table_id":"20008494",                "url":"data-fields/postcode-data.html","form_module":"postcode-form","name_for_search":"Postcode data"},
@@ -37,8 +39,13 @@
 "ffs-form":           {"table_id":"20011382",                "url":"clinical-trials/flinders-fatigue-scale-form.html","name_for_search":"Flinders Fatigue Scale form"},
 "i-appointment-data": {"table_id":"20011471", "url":"isleephealth/appointment-data.html","physician_tid":"20011472","appointment_type_tid":"20011473","form_module":"i-appointment-form","prefix2":"i-"},
 "i-appointment-form": {"table_id":"20011471", "url":"isleephealth/appointment-form.html","physician_tid":"20011472","appointment_type_tid":"20011473"},
+
 "hs-participant-data":{"table_id":"91000001", "url":"home-study/participant-data.html","notes":"91000002","login_setup":"91000003","form_module":"hs-participant-form","name_for_search":"Participant data","prefix2":"hs-"},
 "hs-participant-form":{"table_id":"91000001", "url":"home-study/participant-form.html","notes":"91000002","login_setup":"91000003","name_for_search":"Participant form","prefix2":"hs-"},
+"hs-phone-screening-hearing-form":{"table_id":"91000060", "url":"home-study/phone-screening-hearing-form.html"},
+"new-unikey-data":{"table_id":"91000092", "url":"woolcock/new-unikey-data.html","form_module":"new-unikey-form"},
+"new-unikey-form":{"table_id":"91000092", "url":"woolcock/new-unikey-form.html"},
+
 
 "i-p-p-contact-details-data":{"table_id":"20011470","url":"isleephealth-patients-portal/data/initial/modules/contact-details.html","form_module":"i-p-p-contact-details"},
 "i-p-p-contact-details":	{"table_id":"20011470","url":"isleephealth-patients-portal/initial/modules/contact-details.html"},

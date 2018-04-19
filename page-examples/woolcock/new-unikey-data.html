@@ -1,0 +1,27 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		var fields="Your_position_in_relation_to_the_account_applicant,Unikey_creation_approver,Why_does_this_account_need_to_be_created,Salutation";
+		fields+=",First_name,Surname,Preferrend_first_name,Date_of_birth,Geder,Phone_number,Has_this_person_on_the_usyd_payrool_before";
+		fields+=",Do_you_need_a_computer_configured_for_them,Has_this_person_a_student_at_usyd_before,What_is_their_relationship_to_usyd";
+		fields+=",Do_they_require_a_exchange_email_account,What_is_a_master_user_group,Do_they_need_access_to_any_network_shared_file_network";
+		_fields="_Form,"+fields+",SubmitDate|DateTime,Submittedby|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+		var this_module=$vm.module_list[$vm.vm['__ID'].name];
+		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+		var form_module=prefix+this_module.form_module;
+		//-------------------------------------
+		$('#new__ID').off('click').on('click',function(){$vm.nav_load_module(form_module,'',{goback:1})})
+		//-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

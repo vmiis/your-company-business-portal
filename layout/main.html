@@ -53,6 +53,8 @@
 		//load home module
 		var load_home_module=function(){
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* loading home module... **************************")
+			$vm.nav_load_module(home_page_module);
+			/*
 			var a=window.location.href.split('module=');
 			if(a.length!=2)	$vm.nav_load_module(home_page_module);
 			else{
@@ -65,19 +67,7 @@
 				};
 				alert("The module "+name+" doesn't exist!");
 			}
-		}
-		//------------------------------------
-		var load_system_modules=function(){
-			//-------------------------------------
-	        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html'};
-	        $vm.nav_load_module('_system_export_dialog_module','hidden',{})
-	        //-------------------------------------
-	        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html'};
-	        $vm.nav_load_module('_system_import_dialog_module','hidden',{})
-			//-------------------------------------
-			$vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html'};
-	        $vm.nav_load_module('uploading_file_dialog_module','hidden',{})
-			//-------------------------------------
+			*/
 		}
 		//********************************************************
 		//add all modules to module list
@@ -108,8 +98,12 @@
 				if(Loaded==0){
 					Loaded=1;
 					$('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-					console.log((new Date().getTime()-$vm.start_time).toString()+"---"+home_page_module+"  is ready")
-					load_home_module();
+					//load_home_module();
+					var a=window.location.href.split('module=');
+					if(a.length!=2){
+						console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* loading home module... **************************")
+						$vm.nav_load_module(home_page_module);
+					}
 				}
 			}
 		}
@@ -136,8 +130,9 @@
 			loop++;
 			if(panelN==panel_names.length || loop==100){
 				clearInterval(loading_loop);
-				console.log((new Date().getTime()-$vm.start_time).toString()+"--- module list is ready")
+				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* module list is ready **************************")
 				$vm.search_list=1;
+				load_search_modules();
 				load_system_modules();
 				load_hot_modules();
 				return;
@@ -196,6 +191,32 @@
 			}
 		},100);
 		//------------------------------------
+		var load_search_modules=function(){
+			var a=window.location.href.split('module=');
+			if(a.length==2){
+				var name=a[1].split('&')[0];
+				if(name.length>0){
+					if($vm.module_list[name]!=undefined){
+						$vm.nav_load_module(name);
+						return;
+					}
+				}
+				else alert("The module "+name+" doesn't exist!");
+			}
+		}
+		//------------------------------------
+		var load_system_modules=function(){
+			//-------------------------------------
+	        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html'};
+	        $vm.nav_load_module('_system_export_dialog_module','hidden',{})
+	        //-------------------------------------
+	        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html'};
+	        $vm.nav_load_module('_system_import_dialog_module','hidden',{})
+			//-------------------------------------
+			$vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html'};
+	        $vm.nav_load_module('uploading_file_dialog_module','hidden',{})
+			//-------------------------------------
+		}
 		var load_hot_modules=function(){
 			//pre load into memory, for fast showing on screen
 			//-------------------------------------
