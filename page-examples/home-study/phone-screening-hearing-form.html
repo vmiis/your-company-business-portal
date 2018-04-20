@@ -4,11 +4,42 @@
 	</div>
 	<form id=F__ID>
 		<div class="container">
+			<div class="row row__ID" id=row_participant__ID>
+				<div class="col-12 label__ID">
+					Participant
+				</div>
+				<div class="col-10 input__ID">
+					<input name="Participant" class=form-control id=Participant__ID data-id="Participant">
+				</div>
+				<div class="col-2 input__ID">
+					<input name="Participant_uid" class=form-control readonly>
+				</div>
+			</div>
 			<div class="row row__ID">
-				<span>Do you consider yourself ot have normal hearing?</span>
-				<div class=col>
+				<div class="col-12 label__ID">
+					Do you consider yourself ot have normal hearing?
+				</div>
+				<div class="col-12 input__ID radio__ID">
 					<label class="form-check-label"><input type="radio" name="normal" value="Yes"> Yes</label><br>
-					<label class="form-check-label"><input type="radio" name="normal" value="No"> No</label><br>
+					<label class="form-check-label"><input type="radio" name="normal" value="No"> No</label>
+				</div>
+			</div>
+			<div class="row row__ID">
+				<div class="col-12 label__ID">
+					Do you wear any hearing aids?
+				</div>
+				<div class="col-12 input__ID radio__ID">
+					<label class="form-check-label"><input type="radio" name="hearing_aid" value="Yes"> Yes</label><br>
+					<label class="form-check-label"><input type="radio" name="hearing_aid" value="No"> No</label>
+				</div>
+			</div>
+			<div class="row row__ID">
+				<div class="col-12 label__ID">
+					Do you wear any hearing aids?
+				</div>
+				<div class="col-12 input__ID radio__ID">
+					<label class="form-check-label"><input type="radio" name="understand" value="Yes"> Yes</label><br>
+					<label class="form-check-label"><input type="radio" name="understand" value="No"> No</label>
 				</div>
 			</div>
 			<br>
@@ -23,40 +54,10 @@
 <script>
 	function F__ID(){
 		//-------------------------------------
-		var this_module	=$vm.module_list[$vm.vm['__ID'].name];
-        var db_pid      =this_module.table_id;
+		//if(participant_tid==undefined) participant_tid='91000001'; //for testing
 		//-------------------------------------
-		$('#D__ID').on('load',function(){
-			$('#F__ID')[0].reset();
-			$('#submit__ID').show();
-			var record=$vm.vm['__ID'].op.record;
-			$vm.deserialize(record,'#F__ID');
-		})
+		VmInclude:__CURRENT_PATH__/task_form.js
 		//-------------------------------------
-        var _before_submit=function(record,dbv){
-            return true;
-        };
-        //-------------------------------------
-		$('#F__ID').submit(function(event){
-			//--------------------------------------------------------
-			event.preventDefault();
-			$('#submit__ID').hide();
-			//--------------------------------------------------------
-			var data=$vm.serialize('#F__ID');var dbv={}
-            _before_submit(data,dbv);
-			//--------------------------------------------------------
-			var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;
-			var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
-			if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:db_pid,data:data,dbv:dbv};
-			$VmAPI.request({data:req,callback:function(res){
-                $vm.refresh=1;
-                if(rid!=undefined) window.history.go(-1);
-				else if($vm.vm['__ID'].op.input!=undefined && $vm.vm['__ID'].op.input.goback!=undefined) window.history.go(-1);
-                else $vm.alert('Your data has been successfully submitted');
-			}});
-			//--------------------------------------------------------
-		})
-		//--------------------------------------------------------
 	}
 </script>
 <style>
@@ -116,4 +117,17 @@
     .C__ID {
         background-color: #ccc;
     }
+	.label__ID{
+		font-weight: bold;
+		padding-bottom:5px;
+	}
+	.radio__ID{
+		padding-left:40px;
+	}
+	.radio__ID label{
+		cursor:pointer;
+	}
+	.radio__ID label:hover{
+		background-color: #999;
+	}
 </style>

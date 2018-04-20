@@ -40,9 +40,16 @@
 "i-appointment-data": {"table_id":"20011471", "url":"isleephealth/appointment-data.html","physician_tid":"20011472","appointment_type_tid":"20011473","form_module":"i-appointment-form","prefix2":"i-"},
 "i-appointment-form": {"table_id":"20011471", "url":"isleephealth/appointment-form.html","physician_tid":"20011472","appointment_type_tid":"20011473"},
 
+"participant-data":	{"table_id":"91000001"},
+"edc-notes-data":	{"table_id":"91000002","url":"home-study/edc-notes-data.html","form_module":"edc-notes-form"},
+"edc-notes-form":	{"table_id":"91000002","url":"home-study/edc-notes-form.html"},
+
 "hs-participant-data":{"table_id":"91000001", "url":"home-study/participant-data.html","notes":"91000002","login_setup":"91000003","form_module":"hs-participant-form","name_for_search":"Participant data","prefix2":"hs-"},
 "hs-participant-form":{"table_id":"91000001", "url":"home-study/participant-form.html","notes":"91000002","login_setup":"91000003","name_for_search":"Participant form","prefix2":"hs-"},
-"hs-phone-screening-hearing-form":{"table_id":"91000060", "url":"home-study/phone-screening-hearing-form.html"},
+
+"hs-phone-screening-hearing-data":{"table_id":"91000060", "url":"home-study/phone-screening-hearing-data.html","form_module":"hs-phone-screening-hearing-form","name_for_search":"Phone screening hearing"},
+"hs-phone-screening-hearing-form":{"table_id":"91000060", "url":"home-study/phone-screening-hearing-form.html","participant_tid":"91000001"},
+
 "new-unikey-data":{"table_id":"91000092", "url":"woolcock/new-unikey-data.html","form_module":"new-unikey-form"},
 "new-unikey-form":{"table_id":"91000092", "url":"woolcock/new-unikey-form.html"},
 

@@ -32,7 +32,8 @@
             <li><u module=ess-data>data</u> <u module=ess-form>Epworth sleepiness scale</u></li>
 			<li><u module=i-p-p-ess-data>data</u> <u module=i-p-p-ess>Epworth sleepiness scale (ISH)</u></li>
 			<li><u module=hs-participant-data>data</u> <u module=hs-participant-form>Participant</u></li>
-			<li><u module=hs-phone-screening-form>Phone screening</u></li>
+			<li><u module=hs-phone-screening-hearing-data>data</u> <u module=hs-phone-screening-hearing-form>Phone screening</u></li>
+			<li><u module=edc-notes-data>data</u> <u module=edc-notes-form>Clinic trials notes</u></li>
         </ul>
         <span>Web forms</span>
 	    <ul>
@@ -147,7 +148,7 @@
                     return;
                 }
                 $vm.module_list[prefix+m].alert='1';
-                $vm.nav_load_module(prefix+m);
+                $vm.nav_load_module(prefix+m,'',{});
             }
             var p=$(this).attr('panel');
             if(p!=undefined){
@@ -155,7 +156,7 @@
                     alert(p+" is not in the module list.");
                     return;
                 }
-                $vm.nav_load_module(p);
+                $vm.nav_load_module(p,'',{});
             }
         })
         //--------------------------------------------------------
