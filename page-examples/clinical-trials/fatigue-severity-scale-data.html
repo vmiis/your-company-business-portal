@@ -4,7 +4,7 @@
 <script>
     function F__ID(){
 		//-------------------------------------
-        var fields="ISI_1a,ISI_1b,ISI_1c,ISI_2,ISI_3,ISI_4,ISI_5,ISI_1,ISI";
+        var fields="FSS_1,FSS_2,FSS_3,FSS_4,FSS_5,FSS_6,FSS_7,FSS_8,FSS_9,FSS";
         _fields="_Form,Status|_S3,Notes|_NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
@@ -17,8 +17,16 @@
         }
         //-------------------------------------
 		_before_submit=function(record,dbv){
-            record.ISI=(parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
-            record.ISI_1=(parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
+            record.FSS=
+                parseInt(record.FSS_1)+
+                parseInt(record.FSS_2)+
+                parseInt(record.FSS_3)+
+                parseInt(record.FSS_4)+
+                parseInt(record.FSS_5)+
+                parseInt(record.FSS_6)+
+                parseInt(record.FSS_7)+
+                parseInt(record.FSS_8)+
+                parseInt(record.FSS_9);
 			return _set_status_and_participant(record,dbv);
         }
         //-------------------------------------
