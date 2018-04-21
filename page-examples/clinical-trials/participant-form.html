@@ -1,49 +1,23 @@
 <section id=form_container__ID>
 	<div id=header__ID>
-		Notes
+		Participant
 	</div>
 	<form id=F__ID>
 		<div class="container">
-			<div class="row row__ID">
-				<div class="col-sm col-lg-3">
-					<span>Participant_ID</span>
-					<input type="text" class="form-control" name="Participant_ID" readonly>
-				</div>
-				<div class="col-sm col-lg-9">
-					<span>Participant</span>
-					<input type="text" class="form-control" name="Participant" readonly>
-				</div>
-			</div>
-			<div class="row row__ID">
-				<div class=col>
-					<span>Task</span>
-					<input type="text" class="form-control" name=Task readonly>
-				</div>
-			</div>
-			<div class="row row__ID">
-				<div class=col>
-					<span>Short Title</span>
-					<input type="text" class="form-control" name=Short_Title>
-				</div>
-			</div>
-			<div class="row row__ID">
-				<div class=col>
-					<span>Contents</span>
-					<textarea class="form-control" name=Contents></textarea>
-				</div>
-			</div>
-			<div class="row row__ID">
-				<div class=col>
-					<span>Color</span>
-					<input type=color style='border:none;width:60px;height:30px;padding:0;' class="form-control" name="Color">
-				</div>
-			</div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Screening ID</div><div class="col-sm"><input type="text" placeholder="First Name" class="form-control" name="Screening_ID" /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Randomisation ID</div><div class="col-sm"><input type="text" placeholder="Last Name" class="form-control" name="Randomisation_ID" /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Initials</div><div class="col-sm"><input type="text" placeholder=Initials class="form-control" name=Initials /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Sex</div><div class="col-sm"><select class="form-control" name="Sex" required >
+				<option></option>
+                <option value=''>---</option>
+                <option>Male</option>
+                <option>Femaile</option>
+			</select></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">DOB</div><div class="col-sm"><input type="date" class="form-control" name="DOB" /></div></div>
 			<br>
-			<div class="row">
-				<div class=col>
-					<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
-				</div>
-			</div>
+			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+
+
 		</div>
 	</form>
 </section>
@@ -56,21 +30,12 @@
 		$('#D__ID').on('load',function(){
 			$('#F__ID')[0].reset();
 			$('#submit__ID').show();
-			var record=$vm.vm['__ID'].op.record; if(record==undefined) record=$vm.vm['__ID'].op.input.record;
+			var record=$vm.vm['__ID'].op.record;
 			$vm.deserialize(record,'#F__ID');
 		})
 		//-------------------------------------
         var _before_submit=function(record,dbv){
-			var input=$vm.vm['__ID'].op.input;
-			if(input!=undefined && input.dbv!=undefined){
-				var d=input.dbv;
-				dbv.PPID=d.PPID;
-				dbv.PUID=d.PUID;
-				dbv.GUID=d.GUID;
-			}
-			dbv.S1=record.Short_Title;
-			dbv.S2=record.Color;
-			$vm.refresh=1;
+            return true;
         };
         //-------------------------------------
 		$('#F__ID').submit(function(event){
@@ -86,7 +51,6 @@
 			if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:db_pid,data:data,dbv:dbv};
 			$VmAPI.request({data:req,callback:function(res){
                 $vm.refresh=1;
-				$vm.refresh2=1;
                 if(rid!=undefined) window.history.go(-1);
 				else if($vm.vm['__ID'].op.input!=undefined && $vm.vm['__ID'].op.input.goback!=undefined) window.history.go(-1);
                 else $vm.alert('Your data has been successfully submitted');
@@ -97,18 +61,10 @@
 	}
 </script>
 <style>
-	#F__ID div span{
-		display:inline-block;
-		padding-bottom:5px;
-	}
-	#F__ID div label{
-		display:inline-block;
-	}
 	#D__ID{
 		height:100%;
 		overflow:auto;
 		animation: vm_module_fadein 1.0s;
-		background-color:#fff;
 	}
     #form_container__ID{
         margin-top:20px;
@@ -119,12 +75,14 @@
 		font-family: Verdana,sans-serif;
     	font-size: 15px;
     	line-height: 1.5;
+		color: #fff;
+        background-color: #465a69;
 	}
 	#form_container__ID .row__ID{
-		padding:6px 5px;
+		padding:6px 0;
 	}
 	#form_container__ID .row__ID:hover{
-		background-color: #ddd;
+		background-color: #203342;
 	}
 	#header__ID{
 		background-color:#727b84;
@@ -138,8 +96,12 @@
 		border:1px solid #bbb;
         border-top-width: 0;
 		padding:6px 15px 20px 15px;
-		margin-bottom:200px;
 	}
+	#F__ID label
+    	display: inline-block;
+    	margin: .6rem 0 .3rem 0;
+	}
+
 	#F__ID fieldset {
 	    border: 0px solid #c0c0c0;
 	    margin: 0;

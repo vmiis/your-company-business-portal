@@ -4,14 +4,14 @@
 <script>
     function F__ID(){
         //-------------------------------------
+		var fields="Do you consider yourself ot have normal hearing?|normal";
+		fields+=",Do you wear any hearing aids?|hearing_aid";
+		fields+=",Did the person seen to hear/understandyou clearly?|understand";
+        _fields="_Form,Status|_S3,Notes|_NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
 		VmInclude:__CURRENT_PATH__/task_data.js
 		//-------------------------------------
-        _task_fields="Do you consider yourself of have normal hearing?|normal";
-		_task_fields+=",Do you wear any hearing aids?|hearing_aid";
-		_task_fields+=",Did the person seen to hear/understandyou clearly?|understand";
-        _fields="_Form,Status|_S3,Notes|_NT,Participant,"+_task_fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
-        //-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
 			_default_cell_render(records,I,field,td,set_value,source);
             switch(field){
@@ -19,8 +19,6 @@
         }
         //-------------------------------------
 		_before_submit=function(record,dbv){
-alert(_task_fields)
-return false;           
 			return _set_status_and_participant(record,dbv);
         }
         //-------------------------------------
