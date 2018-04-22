@@ -18,7 +18,7 @@
 		//This is the place we can add background image to body (Asynchronous)
 		var $image1 = $("<img>");
 		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
-		$image1.attr("src", "layout/main.html.background.jpg");
+        $image1.attr("src", "__CURRENT_PATH__/__CURRENT_NAME__.background.jpg");
 		console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
 		//------------------------------------
 		var website_item_list_for_search=[]
@@ -182,11 +182,12 @@
 			$("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
 		}
 		//------------------------------------
-		var search_loop=setInterval(function (){
-			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1){
+        var search_loop=setInterval(function (){
+            console.log('search_loop'+"-"+$vm['jquery-ui-min-js']+"-"+$vm.search_list+"-"+$vm['popper-min-js']);
+			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1 /*&& $vm['popper-min-js']==1*/){
 				clearInterval(search_loop);
 				set_module_search();
-				$('#vm_system_menu').show();
+				//$('#vm_system_menu').show();
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
 			}
 		},100);
