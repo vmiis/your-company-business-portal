@@ -27,6 +27,7 @@ $('#D__ID').on('load',function(){
 	}
 	$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
 	//--------------------------
+	if(typeof(on_load)!=undefined) on_load();
 })
 //-------------------------------------
 var _before_submit=function(record,dbv){
