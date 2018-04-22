@@ -5,6 +5,7 @@
 	"default_production":"No",
 	"panels":{
         "website":		{"url":"",                          	"modules":["website/index.json"]},
+		"pages":       	{"url":"pages/panel.html", 				"modules":["pages|index.json"]},
 		"portal":		{"url":"portal/panel.html",         	"modules":[
 			"about/index.json",
             "purchase-order-request/index.json",
@@ -44,7 +45,6 @@
 		"document-collaboration-tracking": 	{"url":"document-collaboration-tracking/panel.html","modules":["document-collaboration-tracking/index.json"]},
         "form-and-data-examples":           {"url":"form-and-data-examples/panel.html", 		"modules":["form-and-data-examples|index.json"]},
 		"report-examples":           		{"url":"report-examples/panel.html", 					"modules":["report-examples|index.json"]},
-		"page-examples":           			{"url":"page-examples/panel.html", 						"modules":["page-examples|index.json"]},
 		"isleephealth-task":           		{"url":"isleephealth/task/panel.html", 					"modules":["isleephealth/task/index.json"]},
 		"panel-initial":					{"url":"isleephealth-patients-portal/initial/panel.html","modules":["isleephealth-patients-portal/initial/index.json"]},
 
