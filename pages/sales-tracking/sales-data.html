@@ -10,6 +10,42 @@
         VmInclude:__COMPONENT__/grid/grid.v3.js
         VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case "Total":
+                    records[I].vm_readonly[field]=true;
+                    break;
+            }
+        }
+        //-------------------------------------
+        _after_change=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Units':
+                case 'Unit_Cost':
+                    records[I].Total=(parseFloat(records[I].Units)*parseFloat(records[I].Unit_Cost)).toFixed(2);
+                    _render(I);
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.DT1=record.Order_Date;
+            dbv.S1=record.Item;
+            dbv.S2=record.Rep;
+            dbv.S3=record.Region;
+            dbv.V1=record.Total;
+            dbv.V2=record.Units;
+            dbv.V3=record.Unit_Cost;
+            return true;
+        };
+        //-------------------------------------
+        //convert the existed date to the new standard format
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].Order_Date=$vm.au_date_to_string_yyyymmdd(_records[i].Order_Date);
+            }
+        }
+        //-------------------------------------
     }
 </script>
 <style>

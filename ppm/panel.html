@@ -2,18 +2,20 @@
 	<div class='nav__ID'>
 	    <ul>
             <li module=program>Program</li>
-<br>
-            <li module=site>Site list</li>
-            <li module=document-type>Document type</li>
-            <li module=region>Region list</li>
-            <li module=country>Country list</li>
-            <li module=sector>Sector list</li>
-            <li module=location>Location list</li>
-            <li module=funding_source>Funding source list</li>
-            <li module=theme>Theme</li>
-            <li module=implementation-arrangement>Implementation arrangement list</li>
-            <li module=drr-mainstreaming>DRR mainstreaming list</li>
-            <li module=approval-status>Project approval status</li>
+		</ul>
+		<span>Setup</span>
+		<ul>
+            <li page=ppm-site-list-data>Site list</li>
+            <li page=ppm-document-type-data>Document type</li>
+            <li page=ppm-region-list-data>Region list</li>
+            <li page=ppm-country-list-data>Country list</li>
+            <li page=ppm-sector-list-data>Sector list</li>
+            <li page=ppm-location-list-data>Location list</li>
+            <li page=ppm-funding-source-list-data>Funding source list</li>
+            <li page=ppm-theme-list-data>Theme</li>
+            <li page=ppm-ia-data>Implementation arrangement list</li>
+            <li page=ppm-drr-data>DRR mainstreaming list</li>
+            <li page=ppm-approval-status-data>Project approval status</li>
             <li module=program-list-sub-table>Program list sub table</li>
 		</ul>
 	</div>
@@ -40,6 +42,15 @@
 					  return;
 				  }
 			      $vm.nav_load_module(p);
+              }
+			  var page=$(this).attr('page');
+              if(page!=undefined){
+				  page="pages_"+page;
+				  if($vm.module_list[page]==undefined){
+					  alert(page+" is not in the module list.");
+					  return;
+				  }
+			      $vm.nav_load_module(page,'',{});
               }
 		  })
 		  //--------------------------------------------------------

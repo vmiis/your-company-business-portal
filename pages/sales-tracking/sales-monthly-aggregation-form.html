@@ -1,14 +1,14 @@
 VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
-		Sales
+		Sales monthly aggregation
 	</div>
 	<form id=F__ID>
 		<div class="container">
 			<div class="row row__ID">
                 <div class="col">
-                    <span>Order date</span>
-                    <input type=date class="form-control" name="Order_Date">
+                    <span>Year</span>
+                    <select class="form-control" name="Year" id=YY__ID></select>
                 </div>
             </div>
 			<div class="row row__ID">
@@ -55,6 +55,14 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
         //-------------------------------------
         VmInclude:__CURRENT_PATH__/task_form.js
         //-------------------------------------
+        //year dropdown
+        var $List=$('#YY__ID');
+        var y=new Date().getFullYear();
+        for(var i=0;i<7;i++){
+        	$List.append(  $('<option></option>').val(y-i).html(y-i)  );
+        }
+        $List.val(y);
+        //---------------------------------------------
 		var sql="with tb as (select distinct name=S1,UID from [TABLE-20008362]) ";
 		sql+=" select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
 		$vm.autocomplete($('#Region__ID'),sql,function(key,value){

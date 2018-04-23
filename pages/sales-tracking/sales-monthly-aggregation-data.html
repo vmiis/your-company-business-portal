@@ -1,0 +1,62 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <form class="form-inline">
+            <button type=button class='btn btn-secondary' id=new__ID>New</button>
+            <select id=YY__ID type=select class="form-control" style='display:inline-block;width:auto;'></select>
+            <button type=button class='btn btn-secondary' id=query__ID >Query</button>
+            <button type=button class='btn btn-secondary' id=export__ID >Export</button>
+        	<span class=tab__ID></span>Sales total monthly
+        </form>
+        <span id=elapsed__ID style='float:right'></span>
+    </div>
+    <div id=table__ID>
+        <table id=grid__ID></table>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        var fields="Year,Month,Amount,Update_Date,Updated_by";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+        //year dropdown
+        var $List=$('#YY__ID');
+        var y=new Date().getFullYear();
+        for(var i=0;i<7;i++){
+        	$List.append(  $('<option></option>').val(y-i).html(y-i)  );
+        }
+        $List.val(y);
+        $List.val("2015");
+        $List.on('change',function(){  _set_req(); _request_data(); });
+        //---------------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                default:
+                    records[I].vm_readonly[field]=true;
+                    break;
+            }
+        }
+        //-------------------------------------
+        _set_req=_set_req_export=function(){
+            var sql="with tb as (select Information,V2,ID,DateTime,Author from [TABLE-"+_db_pid+"] where V1=@I1) ";
+            sql+="select Information,ID,DateTime,Author from tb order by V2";
+            _req={cmd:'query_records',sql:sql,i1:$('#YY__ID').val()}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    #toolbar__ID{
+		background-color:#ccc;
+		padding:5px;
+		margin-bottom:0px;
+		overflow:hidden
+	}
+    #toolbar__ID *{
+		margin-right:3px;
+	}
+</style>
