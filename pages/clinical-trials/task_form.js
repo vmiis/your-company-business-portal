@@ -27,19 +27,18 @@ $('#D__ID').on('load',function(){
 	}
 	$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
 	//--------------------------
-	if(typeof(on_load)!=undefined) on_load();
+	if(typeof(on_load)!='undefined') on_load();
 })
 //-------------------------------------
 var _before_submit=function(record,dbv){
-	if(typeof(before_submit)!=undefined) before_submit(record,dbv);
+	if(typeof(before_submit)!='undefined') before_submit(record,dbv);
 	dbv.PUID=record.Participant_uid;
 	dbv.S3=$vm.status_of_data(record);
-	/*
 	if(dbv.PUID==''){
 		$vm.alert('No participant was selected.');
+		$('#submit__ID').show();
 		return false;
 	}
-	*/
 	return true;
 };
 //-------------------------------------
@@ -49,7 +48,7 @@ $('#F__ID').submit(function(event){
 	$('#submit__ID').hide();
 	//--------------------------------------------------------
 	var data=$vm.serialize('#F__ID'); var dbv={}
-	_before_submit(data,dbv);
+	if(_before_submit(data,dbv)==false) return;
 	//--------------------------------------------------------
 	var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;
 	var req={cmd:"add_json_record",db_pid:form_tid,data:data,dbv:dbv};
