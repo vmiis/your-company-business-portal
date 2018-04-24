@@ -22,7 +22,7 @@ $('#D__ID').on('load',function(){
 	//particioant info from parent grid
 	var input=$vm.vm['__ID'].op.input; if(input==undefined) input=$vm.vm['__ID'].op
 	if($("#F__ID input[name=Participant]").val()=='' && input!=undefined){
-		$("#F__ID input[name=Participant]").val(input.participant);
+		$("#F__ID input[name=Participant]").val(input.participant_name);
 		$("#F__ID input[name=Participant_uid]").val(input.participant_uid);
 	}
 	$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
