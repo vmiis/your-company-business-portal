@@ -5,9 +5,9 @@
     </div>
     <div id="vm_system_menu">
         <a module=website_home _class="vm_active"><i class="fa fa-home"></i> Home</a>
-        <a module=portal><i class="fa fa-th"></i> Business Portal</a>
-        <a module=pages><i class="fa fa-file-text-o"></i> Pages</a>
-        <a module=template><i class="fa fa-list"></i> Apps</a>
+        <!--<a module=portal><i class="fa fa-file-text-o"></i> Business Portal</a>-->
+        <a module=pages><i class="fa fa-th"></i> Web Pages and Applications</a>
+        <!--<a module=template><i class="fa fa-list"></i> Apps</a>-->
         <a module=portal_myself><i class="fa fa-info-circle"></i> About</a>
         <div class="vm_dropdown" id=signin__ID>
             <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
@@ -42,17 +42,10 @@
         if(d.css('display')=='block') d.css('display','none');
         else d.css('display','block');
     })
-    $(".vm_dropdown-content").mouseleave(function () {
-        $(this).hide();
-    })
-    $('#m_title').on('click',function(){
-        var module=$(this).attr('module');
-        $vm.nav_load_module(module);
-    })
-    $('#vm_logo').on('click',function(){
-        var module=$(this).attr('module');
-        $vm.nav_load_module(module);
-    })
+    $(".vm_dropdown").mouseleave(function (){  $(".vm_dropdown-content").hide();  })
+    $(".vm_dropdown-content").mouseleave(function (){  $(this).hide();  })
+    $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.nav_load_module(module);    })
+    $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.nav_load_module(module);    })
     //---------------------------------------------
     var init_loop=setInterval(function (){
         console.log('init_loop...')
@@ -88,7 +81,7 @@
 <style>
     #header__ID{
         height:100px;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.3);
     }
     #vm_system_menu {
         margin-top:50px;

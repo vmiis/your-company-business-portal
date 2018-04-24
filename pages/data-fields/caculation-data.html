@@ -5,6 +5,7 @@
     function F__ID(){
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
         var fields="Unit_Price,Quantity,Sub_Total";
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
@@ -34,8 +35,6 @@
                 else                td.parent().parent().find("td[data-id='Sub_Total']").text(v3)
             }
         }
-        //-------------------------------------
-        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
         //-------------------------------------
     }
 </script>

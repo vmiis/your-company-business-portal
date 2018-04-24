@@ -1,4 +1,9 @@
 {"modules":{
+
+"framework-home": {"url":"framework/home.html"},
+"framework-under-construction": {"url":"framework/under-construction.html"},
+"hello-world":{"url":"hello-world/hello-world.html"},
+
 "sfix-system-usability-scale-data": {"table_id":"91000094",  "url":"clinical-trials/system-usability-scale-data.html","form_module":"sfix-system-usability-scale-form"},
 "sfix-system-usability-scale-form": {"table_id":"91000094",  "url":"clinical-trials/system-usability-scale-form.html"},
 "-hs-medication-data": {"table_id":"91000058",                "url":"clinical-trials/medication-data.html","form_module":"hs-medication-form"},

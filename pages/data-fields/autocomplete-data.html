@@ -5,6 +5,7 @@
     function F__ID(){
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
         var fields="Client,Booking_Notes";
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
@@ -21,20 +22,8 @@
             }
         }
         //-------------------------------------
-        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
-        //-------------------------------------
     }
 </script>
 <style>
     VmInclude:__COMPONENT__/grid/grid.v3.css
-    ul.ui-autocomplete.ui-menu{
-        font-size:12px;
-        background:#eee;
-    }
-    .ui-autocomplete li:hover{
-        color:White;
-        background:#96B202;
-        font-weight:normal;
-        outline:none;
-    }
 </style>

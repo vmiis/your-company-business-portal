@@ -1,0 +1,6 @@
+{
+    "modules":
+	{
+        "hello-world":	      {"url":"../../../pages/hello-world/hello-world.html","name_for_search":"Hello World"}
+	}
+}
