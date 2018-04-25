@@ -1,0 +1,16 @@
+{
+    "modules":
+	{
+        "st-sales-data":                        {"table_id":"20007255", "url":"../../../pages/sales-tracking/sales-data.html","form_module":"st-sales-form"},
+        "st-sales-form":                        {"table_id":"20007255", "url":"../../../pages/sales-tracking/sales-form.html"},
+        "st-sales-monthly-aggregation-data":    {"table_id":"20008365", "url":"../../../pages/sales-tracking/sales-monthly-aggregation-data.html","form_module":"st-sales-monthly-aggregation-form"},
+        "st-sales-monthly-aggregation-form":    {"table_id":"20008365", "url":"../../../pages/sales-tracking/sales-monthly-aggregation-form.html"},
+        "st-sales-monthly-aggregation-chart":   {"table_id":"20008365", "url":"../../../pages/sales-tracking/sales-monthly-aggregation-chart.html"},
+        "st-rep-dropdown-list-data":            {"table_id":"20008364", "url":"../../../pages/sales-tracking/rep-dropdown-list-data.html","form_module":"st-rep-dropdown-list-form"},
+        "st-rep-dropdown-list-form":            {"table_id":"20008364", "url":"../../../pages/sales-tracking/rep-dropdown-list-form.html"},
+        "st-item-dropdown-list-data":           {"table_id":"20008363", "url":"../../../pages/sales-tracking/item-dropdown-list-data.html","form_module":"st-item-dropdown-list-form"},
+        "st-item-dropdown-list-form":           {"table_id":"20008363", "url":"../../../pages/sales-tracking/item-dropdown-list-form.html"},
+        "st-region-dropdown-list-data":         {"table_id":"20008362", "url":"../../../pages/sales-tracking/region-dropdown-list-data.html","form_module":"st-region-dropdown-list-form"},
+        "st-region-dropdown-list-form":         {"table_id":"20008362", "url":"../../../pages/sales-tracking/region-dropdown-list-form.html"}
+	}
+}

@@ -1,0 +1,11 @@
+{
+    "modules":
+	{
+        "rb-monthly":               {"table_id":"20003813", "url":"../../../pages/room-booking/monthly.html",	"daily_module":"rb-daily","booking_form":"rb-booking-record-form"},
+        "rb-daily":                 {"table_id":"20003813", "url":"../../../pages/room-booking/daily.html",      "room_tid":"20003812","booking_form":"rb-booking-record-form"},
+        "rb-booking-record-data":   {"table_id":"20003813", "url":"../../../pages/room-booking/booking-record-data.html","form_module":"rb-booking-record-form"},
+        "rb-booking-record-form":   {"table_id":"20003813", "url":"../../../pages/room-booking/booking-record-form.html"},
+        "rb-room-data":             {"table_id":"20003812", "url":"../../../pages/room-booking/room-data.html","form_module":"rb-room-form"},
+        "rb-room-form":             {"table_id":"20003812", "url":"../../../pages/room-booking/room-form.html"}
+	}
+}

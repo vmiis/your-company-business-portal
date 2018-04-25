@@ -1,0 +1,95 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <form class="form-inline">
+            <select id=YY__ID type=select  class="form-control" style='display:inline-block;width:auto;'></select>
+            <button type=button class='btn btn-secondary' id=query__ID >Chart</button>
+        </form>
+        <span id=elapsed__ID style='float:right'></span>
+    </div>
+    <div id=chart_container__ID style='padding:0 6px 0 6px;font-size:10pt;font-family: Helvetica, Arial, sans-serif;'>
+        <div id=chart__ID style='width:100%'></div>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        var this_module=$vm.module_list[$vm.vm['__ID'].name];
+        //-------------------------------------
+        //number dropdown
+        var $List=$('#YY__ID');
+        var y=new Date().getFullYear();
+        for(var i=0;i<7;i++){
+        	$List.append(  $('<option></option>').val(y-i).html(y-i)  );
+        }
+        $List.val(y);
+        $List.val(2015);//set 2015 because we have some demo data in this year
+        $List.on('change',function(){  request_data(); });
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){
+            var top1=$('#chart__ID').offset().top;
+            $('#chart__ID').css("height",($(window).height()-top1-30)+'px');
+            request_data();
+        })
+        //-------------------------------------
+        var request_data=function(){
+            var sql="with tb as (select Information,V2,ID,DateTime,Author from [TABLE-"+this_module.table_id+"] where V1=@I1) ";
+            sql+="select Information,ID,DateTime,Author from tb order by V2";
+            $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:$('#YY__ID').val()},callback:function(res){
+                chart(res.records)
+            }})
+        }
+        //-------------------------------------
+        var chart=function(records){
+            if(records.length===0){ alert("No data in this year."); return;}
+            var d=[["Month","Amount",{ role: "tooltip" }]];
+            for(var i=0;i<records.length;i++){
+                d.push([records[i].Month, parseFloat(records[i].Amount),parseFloat(records[i].Amount)]);
+            }
+            var data = google.visualization.arrayToDataTable(d);
+            var view = new google.visualization.DataView(data);
+            var options = {
+                title: "Sales total monthly",
+                titleFontSize: 20,
+                bar: {groupWidth: "95%"},
+                legend: { position: "none" },
+                hAxis: {
+                    title: 'Month',
+                },
+                vAxis: {
+                    title: 'Sales',
+                    format: '$ 0.00',
+                    minValue:0
+                }
+            };
+            var c= new google.visualization.ColumnChart(document.getElementById("chart__ID"));
+            c.draw(view, options);
+       }
+       //-------------------------------------
+    }
+</script>
+<style>
+    #D__ID{
+        height:100%;
+        overflow:auto;
+        animation: vm_module_fadein 1.0s;
+        background:rgba(255,255,255,1);
+        font-size:13px;
+    }
+    #toolbar__ID{
+		background-color:#ccc;
+		padding:5px;
+		margin-bottom:0px;
+		overflow:hidden
+	}
+    #toolbar__ID *{
+		margin-right:3px;
+	}
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        #content_container_0, #content_container_0 *{
+            visibility: visible;
+        }
+    }
+</style>

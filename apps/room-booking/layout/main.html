@@ -13,7 +13,7 @@
 <script main-layout-js>
 	function F__ID(){
 		//------------------------------------
-		var home_page_module='website_home';
+		var home_page_module='home';
         console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* start running code in main.html ************************");
 		//This is the place we can add background image to body (Asynchronous)
 		var $image1 = $("<img>");
@@ -267,18 +267,5 @@
         display: grid;
         grid-template-rows: auto 1fr auto;
         overflow:hidden;
-    }
-    @media print {
-        html,body{
-            width:100%;
-            height:100%;
-            overflow:visible;
-        }
-        body * {
-            visibility: hidden;
-        }
-        #content_container_0, #content_container_0 *{
-            visibility: visible;
-        }
     }
 </style>

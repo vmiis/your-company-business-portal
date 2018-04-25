@@ -1,0 +1,61 @@
+<section>
+    VmInclude:__COMPONENT__/calendar/month.v5.html
+</section>
+<script>
+    function F__ID(){
+    	//--------------------------------------------------------
+        VmInclude:__COMPONENT__/calendar/month.v5.js
+    	//--------------------------------------------------------
+        var this_module         =$vm.module_list[$vm.vm['__ID'].name];
+        var prefix              =this_module.prefix; if(prefix==undefined) prefix="";
+        var booking_form        =prefix+this_module.booking_form;
+        var daily_module        =prefix+this_module.daily_module;
+    	var booking_record_tid	=this_module.table_id;
+    	//--------------------------------------------------------
+    	_on_day_click_fun=function(date){
+    		$vm.nav_load_module(daily_module,$vm.root_layout_content_slot,{day:date})
+    	}
+    	//--------------------------------------------------------
+    	_request_and_render=function(){
+    	    var sql="select ID,Author,Information from [TABLE-"+booking_record_tid+"] where @T1<=DT1 and DT1<=@T2 order by S1";
+    	    var req_data={cmd:'query_records',sql:sql,t1:_first_day,t2:_last_day};
+    	    $VmAPI.request({data:req_data,callback:function(res){
+    	        _calendar_render("");
+    			for(var i=0;i<res.records.length;i++){
+    				var id=res.records[i].ID;
+    				var d=res.records[i].Date;
+    	            cell_render(res.records[i]);
+    			}
+    	    }});
+    	}
+    	//--------------------------------------------------------
+    	var cell_render=function(record){
+    	    var id=record.ID;
+    		var time=record.Time;
+    	    var room=record.Room_Number;
+    	    var name=record.Contact_Name; if(name===undefined) name="No contact name";
+    		var color=record.Color;
+    		var author=record.Author;
+    	    var d=record.Date;  d=$vm.au_date_to_string_yyyymmdd(d); //convert the existed au date to the new standard format
+    	    var $div=_get_cell_div(d);
+    	    var info="<span  style=color:"+color+">"+room+" "+name+" <br>"+$vm.text(record.Description)+"</span><br>"+time+' '+$vm.text(record.Duration)+" hours";
+    	    var event="<div class=event__ID data-author="+author+" id=event__ID"+id+">"+info+"</div>";
+    		$div.append(event);
+    		$('#event__ID'+id).on('click',function(){
+                $vm.nav_load_module(booking_form,'',{record:record});
+    		});
+    	}
+    	//--------------------------------------------------------
+    	$('#D__ID').on('load',function(){_request_and_render();});
+    	$('#D__ID').on('show',function(){_request_and_render();});
+    	//--------------------------------------------------------
+    }
+</script>
+<style>
+    #D__ID{
+        height:100%;
+        overflow: auto;
+        background-color: #fff;
+        animation: vm_module_fadein 1.0s, D__ID 2s;
+    }
+</style>

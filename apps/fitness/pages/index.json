@@ -1,0 +1,12 @@
+{
+    "modules":
+	{
+        "ft-fitness":        {"url":"../../../pages/fitness/fitness.html"},
+        "ft-prices":         {"url":"../../../pages/fitness/prices.html"},
+        "ft-trainers":       {"url":"../../../pages/fitness/trainers.html"},
+        "ft-contact-us-data":{"url":"../../../pages/fitness/contact-us-data.html"},
+        "ft-contact-us-form":{"url":"../../../pages/fitness/contact-us-form.html"},
+        "ft-contact-us-data":    {"table_id":"20009702","v3":"17111803","url":"../../../pages/fitness/contact-us-data.html","form_module":"ft-contact-us-form"},
+        "ft-contact-us-form":    {"table_id":"20009702","v3":"17111803","url":"../../../pages/fitness/contact-us-form.html"}
+	}
+}

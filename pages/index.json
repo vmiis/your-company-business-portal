@@ -1,5 +1,21 @@
 {"modules":{
 
+
+"ft-fitness":        {"url":"fitness/fitness.html"},
+"ft-prices":         {"url":"fitness/prices.html"},
+"ft-trainers":       {"url":"fitness/trainers.html"},
+"ft-contact-us-data":{"url":"fitness/contact-us-data.html"},
+"ft-contact-us-form":{"url":"fitness/contact-us-form.html"},
+"ft-contact-us-data":    {"table_id":"20009702","v3":"17111803","url":"fitness/contact-us-data.html","form_module":"ft-contact-us-form"},
+"ft-contact-us-form":    {"table_id":"20009702","v3":"17111803","url":"fitness/contact-us-form.html"},
+
+"rb-monthly":          {"table_id":"20003813","url":"room-booking/monthly.html",	"daily_module":"rb-daily","booking_form":"rb-booking-record-form"},
+"rb-daily":            {"table_id":"20003813","url":"room-booking/daily.html",      "room_tid":"20003812","booking_form":"rb-booking-record-form"},
+"rb-booking-record-data":   {"table_id":"20003813", "url":"room-booking/booking-record-data.html","form_module":"rb-booking-record-form"},
+"rb-booking-record-form":   {"table_id":"20003813", "url":"room-booking/booking-record-form.html"},
+"rb-room-data":     {"table_id":"20003812","url":"room-booking/room-data.html","form_module":"rb-room-form"},
+"rb-room-form":     {"table_id":"20003812","url":"room-booking/room-form.html"},
+
 "framework-home": {"url":"framework/home.html"},
 "framework-under-construction": {"url":"framework/under-construction.html"},
 "hello-world":{"url":"hello-world/hello-world.html"},
@@ -14,16 +30,19 @@
 "hs-general-information-form": {"table_id":"91000063",                "url":"clinical-trials/general-information-form.html"},
 "hs-consent-1-data": {"table_id":"91000062",                "url":"clinical-trials/consent-1-data.html","form_module":"hs-consent-1-form"},
 "hs-consent-1-form": {"table_id":"91000062",                "url":"clinical-trials/consent-1-form.html"},
+
 "st-sales-data": {"table_id":"20007255",                "url":"sales-tracking/sales-data.html","form_module":"st-sales-form"},
 "st-sales-form": {"table_id":"20007255",                "url":"sales-tracking/sales-form.html"},
 "st-sales-monthly-aggregation-data": {"table_id":"20008365",                "url":"sales-tracking/sales-monthly-aggregation-data.html","form_module":"st-sales-monthly-aggregation-form"},
 "st-sales-monthly-aggregation-form": {"table_id":"20008365",                "url":"sales-tracking/sales-monthly-aggregation-form.html"},
+"st-sales-monthly-aggregation-chart":{"table_id":"20008365",                "url":"sales-tracking/sales-monthly-aggregation-chart.html"},
 "st-rep-dropdown-list-data": {"table_id":"20008364",                "url":"sales-tracking/rep-dropdown-list-data.html","form_module":"st-rep-dropdown-list-form"},
 "st-rep-dropdown-list-form": {"table_id":"20008364",                "url":"sales-tracking/rep-dropdown-list-form.html"},
 "st-item-dropdown-list-data": {"table_id":"20008363",                "url":"sales-tracking/item-dropdown-list-data.html","form_module":"st-item-dropdown-list-form"},
 "st-item-dropdown-list-form": {"table_id":"20008363",                "url":"sales-tracking/item-dropdown-list-form.html"},
 "st-region-dropdown-list-data": {"table_id":"20008362",                "url":"sales-tracking/region-dropdown-list-data.html","form_module":"st-region-dropdown-list-form"},
 "st-region-dropdown-list-form": {"table_id":"20008362",                "url":"sales-tracking/region-dropdown-list-form.html"},
+
 "hei-client-data": {"table_id":"20003689",                "url":"hei/client-data.html","form_module":"hei-client-form"},
 "hei-client-form": {"table_id":"20003689",                "url":"hei/client-form.html"},
 "ppm-site-list-data": {"table_id":"20000513",                "url":"ppm/site-list-data.html","form_module":"ppm-site-list-form"},

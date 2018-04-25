@@ -46,6 +46,13 @@
             _req={cmd:'query_records',sql:sql,i1:$('#YY__ID').val()}
         }
         //-------------------------------------
+        //convert the existed date to the new standard format
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].Update_Date=$vm.au_date_to_string_yyyymmdd(_records[i].Update_Date);
+            }
+        }
+        //-------------------------------------
     }
 </script>
 <style>
