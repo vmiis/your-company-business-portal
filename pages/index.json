@@ -1,6 +1,11 @@
 {"modules":{
 
 
+"cb-booking-record-data":   {"table_id":"20000908", "url":"car-booking/booking-record-data.html","form_module":"cb-booking-record-form"},
+"cb-booking-record-form":   {"table_id":"20000908", "url":"car-booking/booking-record-form.html"},
+"cb-car-data":     {"table_id":"20000906","url":"car-booking/car-data.html","form_module":"cb-car-form"},
+"cb-car-form":     {"table_id":"20000906","url":"car-booking/car-form.html"},
+
 "ft-fitness":        {"url":"fitness/fitness.html"},
 "ft-prices":         {"url":"fitness/prices.html"},
 "ft-trainers":       {"url":"fitness/trainers.html"},
