@@ -1,10 +1,12 @@
 {"modules":{
 
 
-"cb-booking-record-data":   {"table_id":"20000908", "url":"car-booking/booking-record-data.html","form_module":"cb-booking-record-form"},
-"cb-booking-record-form":   {"table_id":"20000908", "url":"car-booking/booking-record-form.html"},
-"cb-car-data":     {"table_id":"20000906","url":"car-booking/car-data.html","form_module":"cb-car-form"},
-"cb-car-form":     {"table_id":"20000906","url":"car-booking/car-form.html"},
+"cb-monthly":               {"table_id":"20000908","url":"car-booking/monthly.html",	"daily_module":"cb-daily","booking_form":"cb-booking-record-form"},
+"cb-daily":                 {"table_id":"20000908","url":"car-booking/daily.html",      "car_tid":"20000906","booking_form":"cb-booking-record-form"},
+"cb-booking-record-data":   {"table_id":"20000908","url":"car-booking/booking-record-data.html","form_module":"cb-booking-record-form"},
+"cb-booking-record-form":   {"table_id":"20000908","url":"car-booking/booking-record-form.html"},
+"cb-car-data":              {"table_id":"20000906","url":"car-booking/car-data.html","form_module":"cb-car-form"},
+"cb-car-form":              {"table_id":"20000906","url":"car-booking/car-form.html"},
 
 "ft-fitness":        {"url":"fitness/fitness.html"},
 "ft-prices":         {"url":"fitness/prices.html"},
@@ -13,6 +15,12 @@
 "ft-contact-us-form":{"url":"fitness/contact-us-form.html"},
 "ft-contact-us-data":    {"table_id":"20009702","v3":"17111803","url":"fitness/contact-us-data.html","form_module":"ft-contact-us-form"},
 "ft-contact-us-form":    {"table_id":"20009702","v3":"17111803","url":"fitness/contact-us-form.html"},
+
+"re-our-menu":	      		    {"url":"restaurant/our-menu.html","name_for_search":"Our menu"},
+"re-book-your-table-data":  	{"table_id":"20009702","demo_id":"17111801","url":"restaurant/book-your-table-record.html","name_for_search":"Book your table record"},
+"re-book-your-table-form":		{"table_id":"20009702","demo_id":"17111801","url":"restaurant/book-your-table.html","name_for_search":"Book your table"},
+"re-contact-us-data":  		    {"table_id":"20009702","demo_id":"17111802","url":"restaurant/contact-us-record.html","name_for_search":"Contact us record"},
+"re-contact-us-form":	  		{"table_id":"20009702","demo_id":"17111802","url":"restaurant/contact-us.html","name_for_search":"Contact us"},
 
 "rb-monthly":          {"table_id":"20003813","url":"room-booking/monthly.html",	"daily_module":"rb-daily","booking_form":"rb-booking-record-form"},
 "rb-daily":            {"table_id":"20003813","url":"room-booking/daily.html",      "room_tid":"20003812","booking_form":"rb-booking-record-form"},

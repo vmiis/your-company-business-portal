@@ -1,20 +1,16 @@
 VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
-		Room booking
+		Car booking
 	</div>
 	<form id=F__ID>
 		<div class="container">
 			<div class="row row__ID">
-                <div class="col-sm col-lg-4">
-                    <span>Room Number</span>
-                    <input type=text class="form-control" name="Room_Number" readonly required>
+                <div class="col">
+                    <span>Car</span>
+                    <input type=text class="form-control" name="Car" readonly required>
                 </div>
-                <div class="col-sm col-lg-8">
-                    <span>Room Name</span>
-                    <input type=text class="form-control" name="Room_Name" readonly required>
-                </div>
-            </div>
+			</div>
             <div class="row row__ID">
                 <div class="col-sm col-lg-6">
                     <span>Date</span>
@@ -58,26 +54,61 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
             </div>
             <div class="row row__ID">
                 <div class="col">
-                    <span>Description</span>
-                    <textarea class="form-control" name="Description" style='min-height:100px'></textarea>
+                    <span>Purpose of Journey</span>
+                    <textarea class="form-control" name="Purpose" style='min-height:50px'></textarea>
+                </div>
+            </div>
+			<div class="row row__ID">
+                <div class="col">
+					<label>
+						<input type="checkbox" name="Q1" />	I have a valid driving licence
+					</label>
+                </div>
+            </div>
+			<div class="row row__ID">
+                <div class="col">
+					<label>
+						<input type="checkbox" name="Q2" />	I have not had an insurance claim refused
+					</label>
+                </div>
+            </div>
+			<div class="row row__ID">
+                <div class="col">
+					<label>
+						<input type="checkbox" name="Q3" />	I have Manager's approval
+					</label>
                 </div>
             </div>
             <div class="row row__ID">
                 <div class="col">
-                    <span>Contact name</span>
-                    <input type=text class="form-control" name="Contact_Name">
+                    <span>Booked by</span>
+                    <input type=text class="form-control" name="Booked_by">
                 </div>
             </div>
             <div class="row row__ID">
-                <div class="col">
+				<div class="col-sm col-lg-6">
                     <span>Contact phone</span>
                     <input type=text class="form-control" name="Contact_Phone">
                 </div>
-            </div>
-            <div class="row row__ID">
-                <div class="col">
+				<div class="col-sm col-lg-6">
                     <span>Contact email</span>
                     <input type=text class="form-control" name="Contact_Email">
+                </div>
+            </div>
+			<div class="row row__ID">
+                <div class="col">
+                    <span>Addtional Information</span>
+                    <textarea class="form-control" name="Addtional_Information" style='min-height:50px'></textarea>
+                </div>
+            </div>
+			<div class="row row__ID">
+                <div class="col-sm col-lg-6">
+                    <span>Odometer (Start)</span>
+                    <input type=text class="form-control" name="Odometer_Start">
+                </div>
+                <div class="col-sm col-lg-6">
+					<span>Odometer (End)</span>
+                    <input type=text class="form-control" name="Odometer_End">
                 </div>
             </div>
             <br>

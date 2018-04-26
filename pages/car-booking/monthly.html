@@ -32,13 +32,13 @@
     	var cell_render=function(record){
     	    var id=record.ID;
     		var time=record.Time;
-    	    var room=record.Room_Number;
-    	    var name=record.Contact_Name; if(name===undefined) name="No contact name";
+            var car=$vm.text(record.Car);
+            var name=$vm.text(record.Booked_by); if(name=="") name="No contact name";
     		var color=record.Color;
     		var author=record.Author;
     	    var d=record.Date;  d=record.Date=$vm.au_date_to_string_yyyymmdd(d); //convert the existed au date to the new standard format
     	    var $div=_get_cell_div(d);
-    	    var info="<span  style=color:"+color+">"+room+" "+name+" <br>"+$vm.text(record.Description)+"</span><br>"+time+' '+$vm.text(record.Duration)+" hours";
+            var info="<span  style=color:"+color+">"+car+" "+name+" <br>"+$vm.text(record.Purpose)+"</span><br>"+time+' '+$vm.text(record.Duration)+" hours";
     	    var event="<div class=event__ID data-author="+author+" id=event__ID"+id+">"+info+"</div>";
     		$div.append(event);
     		$('#event__ID'+id).on('click',function(){
