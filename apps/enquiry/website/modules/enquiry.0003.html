@@ -1,0 +1,147 @@
+<section id=form_container__ID>
+	<div id=header__ID>
+		Enquiry
+	</div>
+	<form id=F__ID>
+		<div class="container">
+			<div class="row row__ID"><div class="col-sm col-lg-3">Name</div><div class="col-sm"><input type="text" placeholder=First class="form-control" name="First_Name" required /></div><div class="col-sm"><input type="text" placeholder=Last class="form-control" name="Last_Name" required /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Title</div><div class="col-sm"><select class="form-control" name="Title" required >
+				<option></option>
+				<option value="Miss">Miss</option>
+				<option value="Ms">Ms</option>
+				<option value="Mrs">Mrs</option>
+				<option value="Mr">Mr</option>
+				<option value="Dr">Dr</option>
+			</select></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Occupation</div><div class="col-sm"><input type="text" placeholder=Occupation class="form-control" name="Occupation" required /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Email</div><div class="col-sm"><input type="email" placeholder=Email class="form-control" name="Email" required /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Enquire type</div><div class="col-sm"><select class="form-control" name="Enquire_type" required >
+				<option></option>
+				<option value="Pricing levels">Pricing levels</option>
+				<option value="Maintenance">Maintenance</option>
+				<option value="Testing">Testing</option>
+				<option value="Complaints">Complaints</option>
+			</select></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Details</div><div class="col-sm"><textarea class="form-control" style='height:150px' name="Details" required></textarea></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Contact by phone</div><div class="col-sm">
+				<div class="form-check form-check-inline">
+				  <label class="form-check-label">
+				    <input class="form-check-input" type="radio" name="Contact_by_phone" value="Yes"> Yes
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <label class="form-check-label">
+				    <input class="form-check-input" type="radio" name="Contact_by_phone" value="No"> No
+				  </label>
+				</div>
+			</div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Phone</div><div class="col-sm"><input type="text" placeholder=Phone class="form-control" name="Phone" /></div></div>
+
+			<br>
+			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+		</div>
+	</form>
+</section>
+
+
+<script>
+	function F__ID(){
+		//--------------------------------------------------------
+		var demo_data_id=3;
+		//--------------------------------------------------------
+		$('#D__ID').on('load',function(){
+			$("#F__ID")[0].reset();
+			$('#submit__ID').show();
+		})
+		//--------------------------------------------------------
+		$('#F__ID').submit(function(event){
+			//--------------------------------------------------------
+			event.preventDefault();
+			$('#submit__ID').hide();
+			//--------------------------------------------------------
+			var data={}; var a=$("#F__ID").serializeArray(); $.each(a, function () { data[this.name]=this.value || '';});
+			var dbv={V3:demo_data_id}
+			var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id;
+			//--------------------------------------------------------
+			var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
+			$VmAPI.request({data:req,callback:function(res){
+				if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+				else $vm.alert('Your data has been successfully submitted');
+			}});
+			//--------------------------------------------------------
+		})
+		//--------------------------------------------------------
+		$('#header__ID').on('click', function(event){
+		    if(event.ctrlKey){
+				var x=document.getElementById("F__ID");
+				var txt="";var nm0="";
+				for (var i=0; i < x.length; i++) {
+					var nm=x.elements[i].getAttribute("name");
+					if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
+				}
+				$vm.alert(txt)
+		    }
+		});
+		//--------------------------------------------------------
+        /*
+        $('#D__ID').on("show",function(){
+        });
+        $('#D__ID').on("hide",function(){
+        });
+        */
+        //--------------------------------------------------------
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+		background-color: #465a69;
+	}
+	#form_container__ID{
+		padding-top:50px;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+
+		font-family: Verdana,sans-serif;
+    	font-size: 15px;
+    	line-height: 1.5;
+		color: #fff;
+	}
+	#form_container__ID .row__ID{
+		padding:6px 0;
+	}
+	#form_container__ID .row__ID:hover{
+		background-color: #203342;
+	}
+	#header__ID{
+		background-color:#727b84;
+		color:#fff;
+		padding:10px 15px 10px 15px;
+		font-size:120%;
+        border:1px solid #bbb;
+        border-bottom-width: 0;
+	}
+	#F__ID{
+		border:1px solid #bbb;
+        border-top-width: 0;
+		padding:6px 15px 20px 15px;
+	}
+	#F__ID label
+    	display: inline-block;
+    	margin: .6rem 0 .3rem 0;
+	}
+
+	#F__ID fieldset {
+	    border: 0px solid #c0c0c0;
+	    margin: 0;
+	    padding: 0;
+	}
+	@media screen and (max-width:768px){
+		#form_container__ID{
+			padding:20px 10px 50px 10px;
+		}
+	}
+</style>

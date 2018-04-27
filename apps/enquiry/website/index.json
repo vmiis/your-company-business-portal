@@ -1,0 +1,8 @@
+{
+    "modules":
+	{
+		"home":	            {"url":"website/modules/home.html","name_for_search":"Home page"},
+		"enquiry":	        {"table_id":"20009702","url":"website/modules/enquiry.0003.html","name_for_search":"Enquiry"},
+		"enquiry_record":	{"table_id":"20009702","url":"website/modules/enquiry.0003.record.html","name_for_search":"Enquiry records"}
+	}
+}

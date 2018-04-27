@@ -1,0 +1,9 @@
+{
+    "modules":
+	{
+        "participant":      {"table_id":"20005031","url":"modules/participant.html",      "name_for_search":"Participants"},
+        "monthly":          {"table_id":"20005048","url":"modules/monthly.html",          "name_for_search":"Monthly calendar"},
+        "daily":            {"table_id":"20005048","url":"modules/daily.html",            "name_for_search":"Daily calendar"},
+        "booking-record":	{"table_id":"20005048","url":"modules/booking-record.html",	"name_for_search":"Booking records"}
+	}
+}

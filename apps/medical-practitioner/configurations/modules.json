@@ -1,0 +1,15 @@
+{
+    "modules":
+	{
+		"home":	          			{"url":"modules/task/home.html","name_for_search":"Home page"},
+		"about":	      		    {"url":"modules/task/about.html","name_for_search":"About"},
+		"services":	      		    {"url":"modules/task/services.html","name_for_search":"Services"},
+        "prices":	      		    {"url":"modules/task/prices.html","name_for_search":"Prices"},
+		"booking":	      		    {"table_id":"20009702","demo_id":"17111902","demo_id_2":"17111901","url":"modules/task/booking-panel.html","name_for_search":"Booking"},
+		"booking-form":	      		{"table_id":"20009702","demo_id":"17111902","url":"modules/task/booking-form.html","name_for_search":""},
+		"booking-record":	   		{"table_id":"20009702","demo_id":"17111902","url":"modules/task/booking-record.html","name_for_search":"Booking records"},
+		"contact-us":	  			{"table_id":"20009702","demo_id":"17111803","url":"modules/task/contact-us.html","name_for_search":"Contact us"},
+		"contact-us-record":  		{"table_id":"20009702","demo_id":"17111803","url":"modules/task/contact-us-record.html","name_for_search":"Contact us record"},
+		"availability":				{"table_id":"20009702","demo_id":"17111901","url":"modules/task/availability.html","name_for_search":"Availability setup"}
+	}
+}

@@ -1,0 +1,58 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        //-------------------------------------
+        _fields="_Form,Name,Transaction Type|IE,Tax_Rate,Item of Tax Return|Tax_Return,Accounting_Code";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'IE':
+                    var html="<select style='border:0;''>"
+                    html+="<option value=''>---</option>";
+                    html+="<option>Income</option>";
+                    html+="<option>Expense</option>";
+                    html+="<option>Capital Expense</option>";
+                    html+="<option>Salary Expense</option>";
+                    html+="<option>Super Expense</option>";
+                    html+="<option>Salary Payment</option>";
+                    html+="<option>Super Payment</option>";
+                    html+="<option>ATO Payment</option>";
+                    html+="<option>ATO Refund</option>";
+                    html+="<option>W2</option>";
+                    html+="<option>Opening Balance</option>";
+                    html+="</select>"
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+                case 'Tax_Rate':
+                    var html="<select style='border:0;''>"
+                    html+="<option value=''>---</option>";
+                    html+="<option>GST</option>";
+                    html+="<option>GST Free</option>";
+                    html+="<option>GST Free Exports</option>";
+                    html+="<option>Input Taxed</option>";
+                    html+="<option>N/A</option>";
+                    html+="</select>"
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.S1=record.Name;
+            dbv.S2=record.IE;
+            dbv.S3=record.Tax_Rate;
+        };
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

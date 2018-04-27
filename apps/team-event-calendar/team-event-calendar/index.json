@@ -1,0 +1,8 @@
+{
+    "modules":
+	{
+		"event-record":	  {"table_id":"20003773","url":"team-event-calendar/modules/event-record.html",	"name_for_search":"Event records"},
+		"monthly":        {"url":"team-event-calendar/modules/monthly.html",		"name_for_search":"Monthly calendar"},
+        "daily":          {"url":"team-event-calendar/modules/daily.html",			"name_for_search":"Daily calendar"}
+	}
+}

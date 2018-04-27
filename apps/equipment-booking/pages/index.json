@@ -1,0 +1,9 @@
+{
+	"modules":
+	{
+        "monthly":          {"table_id":"20002163","url":"modules/monthly.html",		"name_for_search":"Monthly calendar"},
+        "daily":            {"table_id":"20002163","url":"modules/daily.html",		  	"name_for_search":"Booking a equipment"},
+        "booking_record":   {"table_id":"20002163","url":"modules/booking_record.html","name_for_search":"Booking records"},
+        "equipment":        {"table_id":"20002162","url":"modules/equipment.html",	  	"name_for_search":"Add/Remove equipments"}
+	}
+}

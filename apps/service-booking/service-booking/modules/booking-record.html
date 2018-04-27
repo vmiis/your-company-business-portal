@@ -1,0 +1,117 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        var prefix=_mlist[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+    	var client_tid =$vm.module_list[prefix+'client'].table_id;
+    	//-------------------------------------
+        _fields="_Form,Client,Date,Time,Hours,Minutes,Color,Notes";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Client_uid";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Client':
+                    var sql="with tb as (select name=@('First_Name')+' '+@('Last_Name'),UID  from [TABLE-"+client_tid+"])";
+                    sql+=" select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    VmInclude:__COMPONENT__/grid/field_auto.js
+                    break;
+                case 'Date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                    break;
+                case 'Time':
+                    VmInclude:__COMPONENT__/grid/field_time.js
+                    break;
+                case 'Hours':
+                    var html="<select style='border:0;'>\
+                        <option>0</option>\
+                        <option>1</option>\
+                        <option>2</option>\
+                        <option>3</option>\
+                        <option>4</option>\
+                        <option>5</option>\
+                        <option>6</option>\
+                        <option>7</option>\
+                        <option>8</option>\
+                        <option>9</option>\
+                        </select>";
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+                case 'Minutes':
+                    var html="<select style='border:0;'>\
+                        <option>0</option>\
+                        <option>5</option>\
+                        <option>10</option>\
+                        <option>15</option>\
+                        <option>20</option>\
+                        <option>25</option>\
+                        <option>30</option>\
+                        <option>35</option>\
+                        <option>40</option>\
+                        <option>45</option>\
+                        <option>50</option>\
+                        <option>55</option>\
+                        </select>";
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+                case 'Color':
+                    VmInclude:__COMPONENT__/grid/field_color.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        $('#new__ID').hide(); //always hide
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.DT1=record.Date;
+            dbv.S1=record.Time;
+            dbv.V1=(60*parseFloat(record.Hours)+parseFloat(record.Minutes)).toString();
+            dbv.PPID=client_tid;
+            if(record.Client_uid!==undefined) dbv.PUID=record.Client_uid;
+            return true;
+        };
+        //-------------------------------------
+        _new_pre_data_process=function(){
+            _records[0].Date=$vm.vm['__ID'].op.input.date;
+            _records[0].Time=$vm.vm['__ID'].op.input.time;
+            _records[0].Hours="0";
+            _records[0].Minutes="30";
+            _records[0].Color="#80FF80";
+        }
+        //-------------------------------------
+        _set_req=function(){
+            var sql="with tb as (select Information,ID,UID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+="select Information,ID,UID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            //-------------------
+            if($vm.vm['__ID'].op.input!==undefined && $vm.vm['__ID'].op.input.sql_where!==undefined){
+                var sql_where=$vm.vm['__ID'].op.input.sql_where;
+                sql=sql.replace('RowNum between @I6 and @I7',sql_where);
+                sql_n+=" where "+sql_where;
+            }
+            //-------------------
+            _req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+        _data_process_after_render=function(){
+            if($vm.vm['__ID'].op.input!==undefined && $vm.vm['__ID'].op.input.sql_where!==undefined){
+                if(_records.length==0){
+                    $('#new__ID').triggerHandler('click');
+                }
+                if(_records.length==1){
+                    var form=$('#grid__ID tr:nth-child(2)').find('u:first');
+                    form.triggerHandler('click');
+                }
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

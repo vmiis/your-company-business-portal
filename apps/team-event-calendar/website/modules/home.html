@@ -1,0 +1,30 @@
+<div id=page__ID>
+	<div class="container-fluid" style='color:#051c31;max-width:800px'>
+		<div class="text-center">
+		  <h1>Modular Distributed Web Applications</h1>
+	  	  <hr style='border-top:1px solid #f05f40;'></hr>
+	  	  <p>A web application with unlimited number of shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
+		  <br>
+		  <br><br>
+		</div>
+	</div>
+</div>
+<script>
+	function F__ID(){
+        var color=$vm.module_list[$vm.vm['__ID'].name].color;
+        if(color!=undefined) $('#D__ID').css('color',color);
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+		background:rgba(255,255,255,0.6);
+	}
+	#page__ID{
+		height:100%;
+		display: flex;
+		align-items: center;
+	}
+</style>

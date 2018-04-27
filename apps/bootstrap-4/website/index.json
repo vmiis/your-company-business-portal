@@ -1,0 +1,12 @@
+{
+    "modules":
+	{
+		"home":	          {"url":"website/modules/home.html","name_for_search":"Home page"},
+		"about":	      {"url":"website/modules/about.html","name_for_search":"About"},
+		"services":	      {"url":"website/modules/services.html","name_for_search":"Services"},
+		"portfolio":	  {"url":"website/modules/portfolio.html","name_for_search":"Portfolio"},
+		"team":	  		  {"url":"website/modules/team.html","name_for_search":"Team"},
+		"contact-us":	  {"table_id":"20009702","url":"website/modules/contact-us.html","name_for_search":"Contact us"},
+		"contact-us-record":  {"table_id":"20009702","url":"website/modules/contact-us-record.html","name_for_search":"Contact us record"}
+	}
+}

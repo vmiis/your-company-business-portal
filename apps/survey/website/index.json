@@ -1,0 +1,8 @@
+{
+    "modules":
+	{
+		"home":	            {"url":"website/modules/home.html","name_for_search":"Home page"},
+        "survey":			{"table_id":"20009702","url":"website/modules/business-demographic-survey-0004.html","name_for_search":"Business demographic survey"},
+		"survey_record":	{"table_id":"20009702","url":"website/modules/business-demographic-survey-0004-record.html","name_for_search":"Business demographic survey (record)"}
+	}
+}

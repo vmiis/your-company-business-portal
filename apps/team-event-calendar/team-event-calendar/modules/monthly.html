@@ -1,0 +1,58 @@
+<section>
+    VmInclude:__COMPONENT__/calendar/month.v3.html
+</section>
+<script>
+    function F__ID(){
+        //--------------------------------------------------------
+        VmInclude:__COMPONENT__/calendar/month.v3.js
+    	//--------------------------------------------------------
+    	var prefix=_mlist[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+    	var event_record_tid =$vm.module_list[prefix+'event-record'].table_id;
+    	//-------------------------------------
+        _on_day_click_fun=function(date){
+    		$vm.nav_load_module(prefix+'daily',$vm.root_layout_content_slot,{day:date})
+    	}
+    	//--------------------------------------------------------
+        _request_and_render=function(){
+    	    var sql="select ID,Author,Information from [TABLE-"+event_record_tid+"] where @T1<=DT1 and DT1<=@T2 order by S1";
+    	    var req_data={cmd:'query_records',sql:sql,t1:_first_day,t2:_last_day};
+    	    $VmAPI.request({data:req_data,callback:function(res){
+    	        _calendar_render("");
+    			for(var i=0;i<res.records.length;i++){
+    				var id=res.records[i].ID;
+    				var d=res.records[i].Date;
+    	            cell_render(res.records[i]);
+    			}
+    	    }});
+    	}
+    	//--------------------------------------------------------
+        var cell_render=function(record){
+            var id=record.ID;
+            var time=$vm.text(record.Time);
+            var description=$vm.text(record.Description);
+    		var color=$vm.text(record.Color);
+    		var author=$vm.text(record.Author);
+            var d=record.Date;
+
+            var $div=_get_cell_div(d);
+    	    var info="<span  style=color:"+color+">"+time+" "+description+"</span>";
+            var event="<div class=event__ID data-author="+author+" id=event__ID"+id+">"+info+"</div>";
+    		$div.append(event);
+    		$('#event__ID'+id).on('click',function(){
+                $vm.nav_load_module(prefix+'event-record','hidden',{sql_where:' id='+id});
+    		});
+    	}
+    	//--------------------------------------------------------
+        $('#D__ID').on('load',function(){_request_and_render();});
+    	$('#D__ID').on('show',function(){_request_and_render();});
+    	//--------------------------------------------------------
+    }
+</script>
+<style>
+    #D__ID{
+        height:100%;
+        overflow: auto;
+        background-color: #fff;
+        animation: vm_module_fadein 1.0s, D__ID 2s;
+    }
+</style>

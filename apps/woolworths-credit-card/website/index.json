@@ -1,0 +1,6 @@
+{
+    "modules":
+	{
+		"home":	          {"url":"website/modules/home.html","name_for_search":"Home page","color":"#fff"}
+	}
+}

@@ -1,0 +1,27 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Incident_Reported_By,Reporters_Contact_Number,Person_affected,Position,Contact_Number,Incident_Date,Incident_Time,Occupation,Department,Where_did_the_incident_occur,Building_Code,Site_normally_based,Task_frequency,Main_witness_name,Main_witness_phone_number,Occurred_during,Incident_and_Injury_Description,Incident_Type,Incident_Type_Other,Name_of_injured_person,Date_of_birth,Residential_Address,Home_phone,Work_phone,Mobile_phone,E_mail_address,Injury_reported_to,Date_reported,First_aid_officer,Other,Compensation";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Incident_Date':
+                case 'Date_of_birth':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
