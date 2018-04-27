@@ -1,0 +1,30 @@
+<div id=D__ID>
+    <div>
+        VmInclude:__COMPONENT__/grid/grid.v3.html
+    </div>
+    <script>
+        function F__ID(){
+    		//-------------------------------------
+			var demo_data_id=$vm.module_list[$vm.vm["__ID"].name].demo_id
+            //-------------------------------------
+            VmInclude:__COMPONENT__/grid/grid.v3.js
+    		$('#new__ID').hide();
+            //-------------------------------------
+            var fields="Day,Hour,Name,Phone,Persons";
+            _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            //-------------------------------------
+            $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+            //-------------------------------------
+    		_set_req=function(){
+    		    var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] where V3="+demo_data_id+")";
+    		    sql+="select Information,ID,UID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+    		    var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1] where V3="+demo_data_id;
+    			_req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+    		}
+    		//-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/grid/grid.v3.css
+    </style>
+</div>
