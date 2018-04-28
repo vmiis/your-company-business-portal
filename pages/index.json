@@ -11,8 +11,6 @@
 "ft-fitness":        {"url":"fitness/fitness.html"},
 "ft-prices":         {"url":"fitness/prices.html"},
 "ft-trainers":       {"url":"fitness/trainers.html"},
-"ft-contact-us-data":{"url":"fitness/contact-us-data.html"},
-"ft-contact-us-form":{"url":"fitness/contact-us-form.html"},
 "ft-contact-us-data":    {"table_id":"20009702","v3":"17111803","url":"fitness/contact-us-data.html","form_module":"ft-contact-us-form"},
 "ft-contact-us-form":    {"table_id":"20009702","v3":"17111803","url":"fitness/contact-us-form.html"},
 
@@ -21,6 +19,15 @@
 "re-book-your-table-form":		{"table_id":"20009702","demo_id":"17111801","url":"restaurant/book-your-table.html","name_for_search":"Book your table"},
 "re-contact-us-data":  		    {"table_id":"20009702","demo_id":"17111802","url":"restaurant/contact-us-record.html","name_for_search":"Contact us record"},
 "re-contact-us-form":	  		{"table_id":"20009702","demo_id":"17111802","url":"restaurant/contact-us.html","name_for_search":"Contact us"},
+
+"mp-about":	      		    {"url":"medical-practitioner/about.html"},
+"mp-services":	   		    {"url":"medical-practitioner/services.html"},
+"mp-prices":	   		    {"url":"medical-practitioner/prices.html"},
+"mp-contact-us-form":		{"table_id":"20009702","demo_id":"17111803","url":"medical-practitioner/contact-us-form.html"},
+"mp-contact-us-data":  		{"table_id":"20009702","demo_id":"17111803","url":"medical-practitioner/contact-us-data.html"},
+
+"sv-survey-data":        {"table_id":"20009702","v3":"18033103","url":"survey/business-demographic-survey-data.html","form_module":"sv-survey-form","name_for_search":"Survey data"},
+"sv-survey-form":        {"table_id":"20009702","v3":"18033103","url":"survey/business-demographic-survey-form.html","name_for_search":"Survey form"},
 
 "rb-monthly":          {"table_id":"20003813","url":"room-booking/monthly.html",	"daily_module":"rb-daily","booking_form":"rb-booking-record-form"},
 "rb-daily":            {"table_id":"20003813","url":"room-booking/daily.html",      "room_tid":"20003812","booking_form":"rb-booking-record-form"},
@@ -105,8 +112,6 @@
 "select-form": 		  {"table_id":"20008497",                "url":"data-fields/select-form.html","name_for_search":"Select form"},
 "staff-data":         {"table_id":"20009675",                "url":"modules/staff-data.html","form_module":"staff-form","name_for_search":"Staff data"},
 "staff-form":         {"table_id":"20009675",                "url":"modules/staff-form.html","name_for_search":"Staff form"},
-"survey-data":        {"table_id":"20009702","v3":"18033103","url":"modules/survey-data.html","form_module":"survey-form","name_for_search":"Survey data"},
-"survey-form":        {"table_id":"20009702","v3":"18033103","url":"modules/survey-form.html","name_for_search":"Survey form"},
 "appointment-data":   {"table_id":"20009702","v3":"18033102","url":"modules/appointment-data.html","form_module":"appointment-form","name_for_search":"Appointment data"},
 "appointment-form":   {"table_id":"20009702","v3":"18033102","url":"modules/appointment-form.html","name_for_search":"Appointment form"},
 "contact-us-data":    {"table_id":"20009702","v3":"18033101","url":"modules/contact-us-data.html","form_module":"contact-us-form","name_for_search":"Contact us data"},
@@ -245,9 +250,6 @@
 "sfix-registration":	{"url":"modules/sfix-registration.html","name_for_search":"Sfix registration"},
 "team":	  				{"url":"modules/team.html","name_for_search":"Team"},
 "medical-services":	  	{"url":"modules/medical-services.html","name_for_search":"Medical services"},
-"price":	  	        {"url":"modules/prices.html","name_for_search":"Price"},
-"price2":	  	        {"url":"modules/prices2.html","name_for_search":"Price 2"},
-"trainers":	  	        {"url":"modules/trainers.html","name_for_search":"Trainers"},
 "normative":	  	    {"url":"modules/normative.html","name_for_search":"Normative"},
 "ecos":	  	    		{"url":"modules/ecos.html","name_for_search":"Ecos"},
 "contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/contact-us.html","name_for_search":"Contact us"}

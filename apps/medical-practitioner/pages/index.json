@@ -1,0 +1,14 @@
+{
+    "modules":
+	{
+		"mp-about":	      		    {"url":"../../../pages/medical-practitioner/about.html","name_for_search":"About"},
+		"mp-services":	      	    {"url":"../../../pages/medical-practitioner/services.html","name_for_search":"Services"},
+        "mp-prices":	      	    {"url":"../../../pages/medical-practitioner/prices.html","name_for_search":"Prices"},
+		"mp-booking":	      	    {"table_id":"20009702","demo_id":"17111902","demo_id_2":"17111901","url":"modules/booking-panel.html","name_for_search":"Booking"},
+		"mp-booking-form":	    	{"table_id":"20009702","demo_id":"17111902","url":"modules/booking-form.html","name_for_search":""},
+		"mp-booking-record":		{"table_id":"20009702","demo_id":"17111902","url":"modules/booking-record.html","name_for_search":"Booking records"},
+		"mp-contact-us-form":		{"table_id":"20009702","demo_id":"17111803","url":"../../../pages/medical-practitioner/contact-us-form.html","name_for_search":"Contact us"},
+		"mp-contact-us-data":  		{"table_id":"20009702","demo_id":"17111803","url":"../../../pages/medical-practitioner/contact-us-data.html","name_for_search":"Contact us record"},
+		"mp-availability":			{"table_id":"20009702","demo_id":"17111901","url":"modules/availability.html","name_for_search":"Availability setup"}
+	}
+}

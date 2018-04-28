@@ -1,0 +1,7 @@
+{
+    "modules":
+	{
+        "sv-survey-form":	{"table_id":"20009702","url":"../../../pages/survey/business-demographic-survey-form.html","name_for_search":"Business demographic survey"},
+		"sv-survey_data":	{"table_id":"20009702","url":"../../../pages/survey/business-demographic-survey-data.html","form_module":"sv-survey-form","name_for_search":"Business demographic survey (record)"}
+	}
+}

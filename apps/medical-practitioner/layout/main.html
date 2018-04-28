@@ -13,7 +13,7 @@
 <script main-layout-js>
 	function F__ID(){
 		//------------------------------------
-		var home_page_module='website_home';
+		var home_page_module='home';
         console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* start running code in main.html ************************");
 		//This is the place we can add background image to body (Asynchronous)
 		var $image1 = $("<img>");
@@ -163,18 +163,15 @@
 					$("#vm_system_search").blur();
 					$('.ui-helper-hidden-accessible').html('');
 					$vm.nav_load_module(ui.item.value);
-				},
-                position: {  collision: "flip"  }
+				}
 			});
 			$("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
 		}
 		//------------------------------------
         var search_loop=setInterval(function (){
-            console.log('search_loop'+"-"+$vm['jquery-ui-min-js']+"-"+$vm.search_list+"-"+$vm['popper-min-js']);
-			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1 /*&& $vm['popper-min-js']==1*/){
+			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1 ){
 				clearInterval(search_loop);
 				set_module_search();
-				//$('#vm_system_menu').show();
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
 			}
 		},100);
