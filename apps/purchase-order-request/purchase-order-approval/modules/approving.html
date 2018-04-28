@@ -41,7 +41,7 @@
             var db_pid=$vm.module_list[$vm.vm['__ID'].name]['table_id'];
             var req={cmd:"add_json_record_s2",db_pid:db_pid,data:data,dbv:dbv};
             $VmAPI.request({data:req,callback:function(res){
-	            $vm.nav_load_module(prefix+'a-purchase-order-email-to-accountant',$vm.root_layout_content_slot,{record:record})
+	            $vm.load_module_v2(prefix+'a-purchase-order-email-to-accountant',$vm.root_layout_content_slot,{record:record})
             }});
         });
         //-------------------------------------

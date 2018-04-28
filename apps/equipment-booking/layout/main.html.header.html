@@ -1,7 +1,7 @@
 <div header id=header__ID>
     <nav id=nav__ID class="navbar navbar-expand-xl navbar-dark">
 		<div id=brand__ID>
-	        <a class="navbar-brand d-none d-xl-block" onclick="$vm.nav_load_module('home');">
+	        <a class="navbar-brand d-none d-xl-block" onclick="$vm.load_module_v2('home');">
 	            <div class=large_logo__ID>
 	                <div class=large_logo_large_label__ID>
 	                    Business Portal
@@ -11,7 +11,7 @@
 	                </div>
 	            </div>
 	        </a>
-	        <a class="navbar-brand d-xl-none" onclick="$vm.nav_load_module('home');">
+	        <a class="navbar-brand d-xl-none" onclick="$vm.load_module_v2('home');">
 	            <div class=small_logo__ID>Business Portal</div>
 	        </a>
 		</div>
@@ -20,14 +20,14 @@
         </button>
         <div id="navbars__ID" class="navbar-collapse collapse">
             <ul class="navbar-nav mr-auto" id=vm_system_menu style="display:none">
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('home');"><i class="fa fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_eb-monthly');">Calendar</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_eb-daily');">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('home');"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_eb-monthly');">Calendar</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_eb-daily');">Booking</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator</a>
                     <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
-                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_eb-booking-data');">Booking Records</a>
-                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_eb-equipment-data');">Add/Remove Equipments</a>
+                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_eb-booking-data');">Booking Records</a>
+                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_eb-equipment-data');">Add/Remove Equipments</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown" id=signin__ID>

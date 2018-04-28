@@ -34,7 +34,7 @@
     		    $(this).on('click',function(){
     		        var date=$('#date__ID').val();
     		        var time=$(this).html();
-                    $vm.nav_load_module(prefix+'event-record',"hidden",{date:date,time:time,sql_where:'id=-1'});
+                    $vm.load_module_v2(prefix+'event-record',"hidden",{date:date,time:time,sql_where:'id=-1'});
     		    });
     		});
     	};
@@ -63,7 +63,7 @@
     	//-----------------------------------
     	var on_click_edit_fun=function(){
     	    var rid=$(this).data('rid');
-    	    $vm.nav_load_module(prefix+'event-record',"hidden",{sql_where:" ID="+rid});
+    	    $vm.load_module_v2(prefix+'event-record',"hidden",{sql_where:" ID="+rid});
     	};
     	//--------------------------------------------------------
     	$('#D__ID').on('load',function(){

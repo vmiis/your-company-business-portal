@@ -64,7 +64,7 @@
         //-------------------------------------
 		_after_submit=function(I,res,type,dbv){
 			if($vm.g_purchase_order_for_approval_submit_button=='alert'){
-            	$vm.nav_load_module(prefix+'r-purchase-order-email-to-manager',$vm.root_layout_content_slot,{record:_records[I]})
+            	$vm.load_module_v2(prefix+'r-purchase-order-email-to-manager',$vm.root_layout_content_slot,{record:_records[I]})
 			}
         };
         //-------------------------------------

@@ -10,7 +10,7 @@
     	var record_tid =$vm.module_list[prefix+'booking-record'].table_id;
     	//-------------------------------------
         _on_day_click_fun=function(date){
-    		$vm.nav_load_module(prefix+'daily',$vm.root_layout_content_slot,{day:date})
+    		$vm.load_module_v2(prefix+'daily',$vm.root_layout_content_slot,{day:date})
     	}
     	//--------------------------------------------------------
         _request_and_render=function(){
@@ -39,7 +39,7 @@
             var booking="<div class=event__ID style='background-color:"+color+"' data-author="+author+" id=booking__ID"+id+">"+info+"</div>";
     		$div.append(booking);
     		$('#booking__ID'+id).on('click',function(){
-                $vm.nav_load_module(prefix+'booking-record','hidden',{sql_where:' id='+id});
+                $vm.load_module_v2(prefix+'booking-record','hidden',{sql_where:' id='+id});
     		});
         }
         //--------------------------------------------------------

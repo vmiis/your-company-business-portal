@@ -30,14 +30,14 @@
                     records[I].vm_readonly[field]=true;
                     td.html("<u style='cursor:pointer'>Files</u>");
                     td.find('u').on('click',function(){
-                        $vm.nav_load_module(prefix+'file',$vm.root_layout_content_slot,{record:records[I],sql_where:'puid='+uid,uid,puid:uid,topic:records[I].Name});
+                        $vm.load_module_v2(prefix+'file',$vm.root_layout_content_slot,{record:records[I],sql_where:'puid='+uid,uid,puid:uid,topic:records[I].Name});
                     });
                     break;
                 case 'NT':
                     records[I].vm_readonly[field]=true;
                     td.html("<u style='cursor:pointer;color:"+records[I].I3_Color+"'>"+records[I][field]+"</u>");
                     td.find('u').on('click',function(){
-                        $vm.nav_load_module(prefix+'discussion',$vm.root_layout_content_slot,{record:records[I],sql_where:'puid='+uid,puid:uid,topic:records[I].Name,version:records[I].I2_Version});
+                        $vm.load_module_v2(prefix+'discussion',$vm.root_layout_content_slot,{record:records[I],sql_where:'puid='+uid,puid:uid,topic:records[I].Name,version:records[I].I2_Version});
                     });
                     break;
             }

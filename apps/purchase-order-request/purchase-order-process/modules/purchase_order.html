@@ -33,7 +33,7 @@
                     if(records[I].user2!=undefined && records[I].user2!=''){
                         td.html("<u style='cursor:pointer'>"+records[I].user2+' on '+records[I].date2.split(' ')[0]+"</u>");
                         td.find('u').on('click',function(){
-                            $vm.nav_load_module(prefix+'a-purchase-order-approval-info','',{record:records[I]});
+                            $vm.load_module_v2(prefix+'a-purchase-order-approval-info','',{record:records[I]});
                         });
                     }
                     /*
@@ -48,13 +48,13 @@
                     if(records[I].user3!=undefined && records[I].user3!=''){
                         td.html("<u style='cursor:pointer'>"+records[I].user3+' on '+records[I].date3.split(' ')[0]+"</u>");
                         td.find('u').on('click',function(){
-                            $vm.nav_load_module(prefix+'p-purchase-order-process-info','',{record:records[I]});
+                            $vm.load_module_v2(prefix+'p-purchase-order-process-info','',{record:records[I]});
                         });
                     }
                     else if(records[I].user2!=undefined && records[I].user2!=''){
                         td.html("<u style='cursor:pointer'>Processing</u>");
                         td.find('u').on('click',function(){
-                            $vm.nav_load_module(prefix+'p-purchase-order-process','',{record:records[I],user2:records[I].user2,date2:records[I].date2});
+                            $vm.load_module_v2(prefix+'p-purchase-order-process','',{record:records[I],user2:records[I].user2,date2:records[I].date2});
                         });
                     }
                     break;
@@ -66,7 +66,7 @@
                     else if(records[I].user2!=undefined && records[I].user2!=''){
 						td.html("<u style='cursor:pointer'>Processing</u>");
 						td.find('u').on('click',function(){
-                            $vm.nav_load_module(prefix+'p-purchase-order-process','',{record:records[I]});
+                            $vm.load_module_v2(prefix+'p-purchase-order-process','',{record:records[I]});
                             /*
 							var r=confirm("Are you sure that you have processed this purchase order?")
 							if(r==true){
@@ -118,7 +118,7 @@
             alert(JSON.stringify(data))
             alert(JSON.stringify(dbv))
             $VmAPI.request({data:req,callback:function(res){
-	            //$vm.nav_load_module(prefix+'a-purchase-order-email-to-accountant',$vm.root_layout_content_slot,{record:record})
+	            //$vm.load_module_v2(prefix+'a-purchase-order-email-to-accountant',$vm.root_layout_content_slot,{record:record})
                 _set_req(); _request_data();
             }});
         };

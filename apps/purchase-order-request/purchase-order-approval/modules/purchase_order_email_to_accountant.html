@@ -47,12 +47,12 @@
      		var Body=$('#contents__ID').html();
             if($vm.user=='guest'){
 				$vm.alert('The alert email (to: '+To+') has been sent out');
-				$vm.nav_load_module(prefix+'a-purchase-order-request');
+				$vm.load_module_v2(prefix+'a-purchase-order-request');
 				return;
 			}
             $VmAPI.request({data:{cmd:'send_email',From_Address:From_Address,From_Name:From_Name,To:To,Title:Title,Body:Body},callback:function(res){
                 alert('The alert email (to: '+email+') has been sent out');
-				$vm.nav_load_module(prefix+'a-purchase-order-request');
+				$vm.load_module_v2(prefix+'a-purchase-order-request');
             }})
         });
         //-------------------------------------

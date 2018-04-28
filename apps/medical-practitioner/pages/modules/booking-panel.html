@@ -372,10 +372,10 @@
 					}
 					var d=$('#YY__ID').val()+"-"+$('#MM__ID').val()+"-"+$(this).parent().parent().children().eq(0).find('td').eq(col-1).html();
 					var t=$(this).parent().children().eq(0).html().split('-')[0];
-					$vm.nav_load_module('panel_main_booking-form',"",{date:d,time:t});
+					$vm.load_module_v2('panel_main_booking-form',"",{date:d,time:t});
 				}
 				else if(dt[p]>1){
-					$vm.nav_load_module('panel_main_booking-form',"",{rid:dt[p]});
+					$vm.load_module_v2('panel_main_booking-form',"",{rid:dt[p]});
 				}
 			})
 			//--------------------------------------

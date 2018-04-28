@@ -1,7 +1,7 @@
 <div header id=header__ID>
     <nav id=nav__ID class="navbar navbar-expand-xl navbar-dark">
 		<div id=brand__ID>
-	        <a class="navbar-brand d-none d-xl-block" onclick="$vm.nav_load_module('home');">
+	        <a class="navbar-brand d-none d-xl-block" onclick="$vm.load_module_v2('home');">
 	            <div class=large_logo__ID>
 	                <div class=large_logo_large_label__ID>
 	                    Business Portal
@@ -11,7 +11,7 @@
 	                </div>
 	            </div>
 	        </a>
-	        <a class="navbar-brand d-xl-none" onclick="$vm.nav_load_module('home');">
+	        <a class="navbar-brand d-xl-none" onclick="$vm.load_module_v2('home');">
 	            <div class=small_logo__ID>Business Portal</div>
 	        </a>
 		</div>
@@ -20,36 +20,36 @@
         </button>
         <div id="navbars__ID" class="navbar-collapse collapse">
             <ul class="navbar-nav mr-auto" id=vm_system_menu style="display:none">
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('home');"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('home');"><i class="fa fa-home"></i> Home</a></li>
 				<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="a_nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Transaction</a>
                     <div class="dropdown-menu" aria-labelledby="a_nav_dropdown__ID">
-                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transactions');">Transactions</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transactions_with_period');">Transactions (period)</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transactions_with_year_and_month');">Transactions (month)</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transactions_with_year_quarter');">Transactions (quarter)</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_bi_processing');">BI processing</a>
+                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transactions');">Transactions</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transactions_with_period');">Transactions (period)</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transactions_with_year_and_month');">Transactions (month)</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transactions_with_year_quarter');">Transactions (quarter)</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_bi_processing');">BI processing</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="b_nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reporting</a>
                     <div class="dropdown-menu" aria-labelledby="b_nav_dropdown__ID">
-                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_income_aggregation_table');">Income aggregation table</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_income_chart');">Income aggregation chart</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_expense_aggregation_table');">Expense aggregation table</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_expense_chart');">Expense aggregation chart</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transaction_details');">Transaction tax details</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transaction_details_with_period');">Transaction tax details (period)</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transaction_details_with_month');">Transaction tax details (month)</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_transaction_details_with_quarter');">Transaction tax details (quarter)</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_aggregation_gst');">GST aggregation</a>
-						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_aggregation_tax_return');">Tax return</a>
+                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_income_aggregation_table');">Income aggregation table</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_income_chart');">Income aggregation chart</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_expense_aggregation_table');">Expense aggregation table</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_expense_chart');">Expense aggregation chart</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transaction_details');">Transaction tax details</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transaction_details_with_period');">Transaction tax details (period)</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transaction_details_with_month');">Transaction tax details (month)</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_transaction_details_with_quarter');">Transaction tax details (quarter)</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_aggregation_gst');">GST aggregation</a>
+						<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_aggregation_tax_return');">Tax return</a>
                     </div>
                 </li>
 				<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="c_nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Setup</a>
                     <div class="dropdown-menu" aria-labelledby="c_nav_dropdown__ID">
-                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_predefined_transaction_item');">Predefined transaction item</a>
+                        <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_predefined_transaction_item');">Predefined transaction item</a>
                     </div>
                 </li>
 				<li class="nav-item dropdown" id=signin__ID>

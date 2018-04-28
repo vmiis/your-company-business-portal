@@ -1,7 +1,7 @@
 <div header id=header__ID>
     <nav id=nav__ID class="navbar navbar-expand-lg navbar-dark">
 		<div id=brand__ID>
-	        <a class="navbar-brand d-none d-lg-block" onclick="$vm.nav_load_module('home');">
+	        <a class="navbar-brand d-none d-lg-block" onclick="$vm.load_module_v2('home');">
 	            <div class=large_logo__ID>
 	                <div class=large_logo_large_label__ID>
 	                    Business Portal
@@ -11,7 +11,7 @@
 	                </div>
 	            </div>
 	        </a>
-	        <a class="navbar-brand d-lg-none" onclick="$vm.nav_load_module('home');">
+	        <a class="navbar-brand d-lg-none" onclick="$vm.load_module_v2('home');">
 	            <div class=small_logo__ID>Business Portal</div>
 	        </a>
 		</div>
@@ -20,19 +20,19 @@
         </button>
         <div id="navbars__ID" class="navbar-collapse collapse">
             <ul class="navbar-nav mr-auto" id=vm_system_menu style="display:none">
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('home');"><i class="fa fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-about');">About</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-services');">Services</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-prices');">Prices</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-booking');">Booking</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-contact-us-form');">Contact us</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('home');"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-about');">About</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-services');">Services</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-prices');">Prices</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-booking');">Booking</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-contact-us-form');">Contact us</a></li>
 				<ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator</a>
                         <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
-							<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-availability');">Availability setup</a>
-							<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-booking-record');">Booking records</a>
-                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.nav_load_module('pages_mp-contact-us-data');">Contact us records</a>
+							<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-availability');">Availability setup</a>
+							<a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-booking-record');">Booking records</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_mp-contact-us-data');">Contact us records</a>
                         </div>
                     </li>
                 </ul>

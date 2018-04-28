@@ -14,8 +14,7 @@
         //-------------------------------------
         $('#new__ID').off('click').on('click',function(){
             var record={}
-            var input=$vm.vm['__ID'].input;
-            var input_record=input.record;
+            var input_record=$vm.vm['__ID'].input.record;
             if(input_record!==undefined){
                 record.Topic=input_record.Name;
                 record.Topic_uid=input_record.UID;

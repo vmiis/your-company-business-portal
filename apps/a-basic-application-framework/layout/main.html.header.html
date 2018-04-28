@@ -36,7 +36,7 @@
     }
     $('#vm_system_menu a').on('click',function(){
         var module=$(this).attr('module');
-        if(module!=undefined) $vm.nav_load_module(module);
+        if(module!=undefined) $vm.load_module_v2(module);
         if( $(this).attr('toggle')==undefined){
             var x = document.getElementById("vm_system_menu");
             if(x.className==='responsive') x.className="";
@@ -49,8 +49,8 @@
     })
     $(".vm_dropdown").mouseleave(function (){  $(".vm_dropdown-content").hide();  })
     $(".vm_dropdown-content").mouseleave(function (){  $(this).hide();  })
-    $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.nav_load_module(module);    })
-    $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.nav_load_module(module);    })
+    $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+    $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
     //---------------------------------------------
     var init_loop=setInterval(function (){
         console.log('init_loop...')

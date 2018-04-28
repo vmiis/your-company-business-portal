@@ -35,7 +35,7 @@
                     td.html(html);
                     td.find('u').on('click',function(){
                         var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
-                        $vm.nav_load_module(prefix+'invoice-print',$vm.root_layout_content_slot,{record:records[I],invoice_uid:records[I].UID});
+                        $vm.load_module_v2(prefix+'invoice-print',$vm.root_layout_content_slot,{record:records[I],invoice_uid:records[I].UID});
                     })
                 break;
             }
