@@ -12,7 +12,7 @@ var edc_notes_module	=prefix+'edc-notes-data';
 _record_type="s2";
 var _task_fields='';
 //-------------------------------------
-$('#new__ID').off('click').on('click',function(){$vm.nav_load_module(form_module,'',{goback:1})})
+$('#new__ID').off('click').on('click',function(){$vm.load_module_v2(form_module,'',{goback:1})})
 $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
 //-------------------------------------
 _set_req=function(){
@@ -73,7 +73,7 @@ var _default_cell_render=function(records,I,field,td,set_value,source){
             td.html("<u style='cursor:pointer;color:"+color+"'>"+value+"</u>");
             td.find('u').on('click',function(){
 				var pid=$vm.module_list[$vm.vm['__ID'].name].table_id;
-				$vm.nav_load_module(edc_notes_module,$vm.root_layout_content_slot,{record:records[I],pid:pid,task_module:$vm.vm['__ID'].name});
+				$vm.load_module_v2(edc_notes_module,$vm.root_layout_content_slot,{record:records[I],pid:pid,task_module:$vm.vm['__ID'].name});
             });
             break;
     }

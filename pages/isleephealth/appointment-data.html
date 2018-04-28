@@ -25,7 +25,7 @@
         ];
 		var second_pid_list=[];
         //-------------------------------------
-		$('#new__ID').off('click').on('click',function(){$vm.nav_load_module(prefix+form_module,'',{goback:1})})
+		$('#new__ID').off('click').on('click',function(){$vm.load_module_v2(prefix+form_module,'',{goback:1})})
 		//-------------------------------------
         $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
         //-------------------------------------
@@ -67,7 +67,7 @@
 					td.html("<u style='cursor:pointer'>Send Email</u>");
 					td.find('u').on('click',function(){
                         var email_module_id=prefix+prefix2+"email-001";
-                        $vm.nav_load_module(email_module_id,$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2(email_module_id,$vm.root_layout_content_slot,{record:records[I]});
 					});
 					break;
 				case '_Results':
@@ -76,7 +76,7 @@
                     td.html("<u style='cursor:pointer'>Results</u>");
                     td.find('u').on('click',function(){
                         records[I].PID=_db_pid;
-                        $vm.nav_load_module("panel-initial",$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2("panel-initial",$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Report':
@@ -84,7 +84,7 @@
 					if(records[I].UID===undefined) return;
 					td.html("<u style='cursor:pointer'>Report</u>");
 					td.find('u').on('click',function(){
-                        $vm.nav_load_module(prefix+prefix2+"report",$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2(prefix+prefix2+"report",$vm.root_layout_content_slot,{record:records[I]});
 					});
 					break;
                 case '_Patient_Info':
@@ -92,7 +92,7 @@
 					if(records[I].UID===undefined) return;
 					td.html("<u style='cursor:pointer'>Patient Info</u>");
 					td.find('u').on('click',function(){
-                        $vm.nav_load_module(prefix+prefix2+"patient-info",$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2(prefix+prefix2+"patient-info",$vm.root_layout_content_slot,{record:records[I]});
 					});
 					break;
             }

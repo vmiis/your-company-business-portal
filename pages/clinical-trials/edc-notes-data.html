@@ -41,7 +41,7 @@
             var GUID=parent_record.Participant_uid;
             var PUID=parent_record.UID;
             var PPID=$vm.vm['__ID'].op.input.pid;
-            $vm.nav_load_module(form_module,'',{
+            $vm.load_module_v2(form_module,'',{
                 record:{
                     Participant_ID:parent_record.Participant_uid,
                     Participant:parent_record.Participant,

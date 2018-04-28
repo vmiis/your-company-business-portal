@@ -16,7 +16,7 @@
 		var login_setup_tid=this_module.login_setup;
 		var form_module=prefix+this_module.form_module;
 		//-------------------------------------
-		$('#new__ID').off('click').on('click',function(){$vm.nav_load_module(form_module,'',{goback:1})})
+		$('#new__ID').off('click').on('click',function(){$vm.load_module_v2(form_module,'',{goback:1})})
 		//-------------------------------------
         $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
         //-------------------------------------
@@ -41,14 +41,14 @@
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Data Entry</u>");
                     td.find('u').on('click',function(){
-                        $vm.nav_load_module('panel-child',$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2('panel-child',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Setup':
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Login Setup</u>");
                     td.find('u').on('click',function(){
-						$vm.nav_load_module(prefix+'login-setup',$vm.root_layout_content_slot,{record:records[I]});
+						$vm.load_module_v2(prefix+'login-setup',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Quest':

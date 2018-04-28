@@ -13,7 +13,7 @@
     	var booking_tid	        =this_module.table_id;
     	//--------------------------------------------------------
     	_on_day_click_fun=function(date){
-    		$vm.nav_load_module(daily_module,$vm.root_layout_content_slot,{day:date})
+    		$vm.load_module_v2(daily_module,$vm.root_layout_content_slot,{day:date})
     	}
     	//--------------------------------------------------------
     	_request_and_render=function(){
@@ -40,7 +40,7 @@
     	    var event="<div class=event__ID data-author="+author+" id=event__ID"+id+">"+info+"</div>";
     		$div.append(event);
     		$('#event__ID'+id).on('click',function(){
-                $vm.nav_load_module(booking_form,'',{record:record});
+                $vm.load_module_v2(booking_form,'',{record:record});
     		});
     	}
     	//--------------------------------------------------------

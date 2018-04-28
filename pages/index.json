@@ -1,4 +1,11 @@
 {"modules":{
+"vb-monthly":        {"table_id":"20005048","url":"clinical-trials-participant-visit-booking/monthly.html",	"daily_module":"vb-daily","booking_form":"vb-booking-form"},
+"vb-daily":          {"table_id":"20005048","url":"clinical-trials-participant-visit-booking/daily.html",   "booking_form":"vb-booking-form"},
+"vb-booking-data":   {"table_id":"20005048","url":"clinical-trials-participant-visit-booking/booking-data.html","form_module":"vb-booking-form"},
+"vb-booking-form":   {"table_id":"20005048","url":"clinical-trials-participant-visit-booking/booking-form.html","participant_tid":"20005031"},
+"vb-participant-data":   {"table_id":"20005031","url":"clinical-trials-participant-visit-booking/participant-data.html","form_module":"vb-participant-form"},
+"vb-participant-form":   {"table_id":"20005031","url":"clinical-trials-participant-visit-booking/participant-form.html"},
+
 "dc-topic-data":        {"table_id":"20005052","url":"document-collaboration-tracking/topic-data.html", "file_tid":"20005053","file_module":"dc-file-data","comments_tid":"20005054","comments_module":"dc-comments-data","form_module":"dc-topic-form"},
 "dc-topic-form":        {"table_id":"20005052","url":"document-collaboration-tracking/topic-form.html"},
 "dc-file-data":         {"table_id":"20005053","url":"document-collaboration-tracking/file-data.html","form_module":"dc-file-form"},

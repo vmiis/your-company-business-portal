@@ -67,7 +67,7 @@
                             Date:date,
                             Time:time
                         }
-                        $vm.nav_load_module(booking_form,'',{record:record,puid:uid,goback:1});
+                        $vm.load_module_v2(booking_form,'',{record:record,puid:uid,goback:1});
     				})
     				$cell.css('cursor','pointer');
     			}
@@ -118,7 +118,7 @@
             $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:rid},callback:function(res){
                 if(res.records.length==1){
                     res.records[0].Date=$vm.au_date_to_string_yyyymmdd(res.records[0].Date); //convert the existed date to the new standard format
-                    $vm.nav_load_module(booking_form,'',{record:res.records[0],goback:1});
+                    $vm.load_module_v2(booking_form,'',{record:res.records[0],goback:1});
                 }
             }});
     	};

@@ -67,7 +67,7 @@
                     if($li.data('record_id')==''){
 						$li.on('click',function(){
 							var m=prefix+$(this).attr('module');
-							$vm.nav_load_module(m,$vm.root_layout_content_slot,{goback:"1"});
+							$vm.load_module_v2(m,$vm.root_layout_content_slot,{goback:"1"});
 						});
                     }
                 });
