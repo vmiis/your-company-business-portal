@@ -24,7 +24,7 @@ $('#F__ID').submit(function(event){
     //--------------------------------------------------------
     var data=$vm.serialize('#F__ID');
     var dbv={}
-    if(typeof(before_submit)!=undefined) before_submit(data,dbv);
+    if(typeof(before_submit)!='undefined') before_submit(data,dbv);
     //--------------------------------------------------------
     var db_pid=this_module.table_id;
     //-------------------------------------------------------
@@ -35,7 +35,7 @@ $('#F__ID').submit(function(event){
     if(rid==undefined){
         input=input.input;
         input_record=input.record;
-        rid=input_record.ID;
+        if(input_record!=undefined) rid=input_record.ID;
     }
     //-------------------------------------------------------
     var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};

@@ -1,14 +1,14 @@
 <section>
-    VmInclude:__COMPONENT__/grid/grid.v3.html
+    VmInclude:__PARTS__/grid/grid.v3.html
 </section>
 <script>
     function F__ID(){
         //-------------------------------------
-        var fields="Room_Number,Room_Name,Date,Time,Duration,Color,Description,Contact_Name,Contact_Phone,Contact_Email";
-        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
-        //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
         VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+        var fields="Equipment,Date,Time,Duration,Color,Description,Contact_Name,Contact_Phone,Contact_Email";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
         $('#new__ID').hide();
         $('#save__ID').hide();
@@ -20,6 +20,7 @@
                     $vm.render_color_field(records[I],'__ID',td,html)
                     break;
             }
+            //-------------------------------------
         }
         //-------------------------------------
         //convert the existed au date to the new standard format
@@ -32,5 +33,5 @@
     }
 </script>
 <style>
-    VmInclude:__COMPONENT__/grid/grid.v3.css
+    VmInclude:__PARTS__/grid/grid.v3.css
 </style>

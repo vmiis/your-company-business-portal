@@ -95,7 +95,6 @@ var vm_init=function(){
 	var init         =function(){
 		$vm.init_v3({callback:function(){$vm.init_status=1;}})
 		$vm.load_first_module_to_body({url:'/layout/main.html'});
-		//setTimeout(function (){	load_system_modules(); },10);
 	}
 	//--------------------------------------------------------
 	var load_js=function(url,next){

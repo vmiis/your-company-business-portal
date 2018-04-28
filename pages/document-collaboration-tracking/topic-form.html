@@ -1,30 +1,14 @@
 VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
-		Car
+		Topic
 	</div>
 	<form id=F__ID>
 		<div class="container">
 			<div class="row row__ID">
                 <div class="col">
-                    <span>Image</span>
-                    <div class="col-sm" id=Image__ID data-id=Image></div>
-                </div>
-            </div>
-			<div class="row row__ID">
-                <div class="col-sm col-lg-6">
-                    <span>Plate Number</span>
-                    <input type=text class="form-control" name="Number" required>
-                </div>
-				<div class="col-sm col-lg-6">
-                    <span>Model</span>
-                    <input type=text class="form-control" name="Model" required>
-                </div>
-            </div>
-            <div class="row row__ID">
-                <div class="col">
-                    <span>Description</span>
-                    <textarea class="form-control" name="Description" style='min-height:200px'></textarea>
+                    <span>Name</span>
+                    <input type=text class="form-control" name="Name" required>
                 </div>
             </div>
             <br>
@@ -41,22 +25,13 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
         //-------------------------------------
         VmInclude:__CURRENT_PATH__/task_form.js
         //-------------------------------------
-		var on_load=function(record){
-			$vm.render_image_field(record,'__ID',$('#Image__ID'));
-		}
-		//-------------------------------------
+        var before_submit=function(record,dbv){
+            dbv.S1=record.Name;
+        }
+        //-------------------------------------
     }
 </script>
 <style>
-	.file_button__ID{
-		cursor: pointer;
-		padding-left: 10px;
-		float: right;
-		line-height: 10px;
-		margin-top:4px;
-		margin-right:3px;
-		color: #888;
-	}
 	#D__ID{
 		height:100%;
 		overflow:auto;

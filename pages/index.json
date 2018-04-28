@@ -1,5 +1,21 @@
 {"modules":{
+"dc-topic-data":        {"table_id":"20005052","url":"document-collaboration-tracking/topic-data.html", "file_tid":"20005053","file_module":"dc-file-data","comments_tid":"20005054","comments_module":"dc-comments-data","form_module":"dc-topic-form"},
+"dc-topic-form":        {"table_id":"20005052","url":"document-collaboration-tracking/topic-form.html"},
+"dc-file-data":         {"table_id":"20005053","url":"document-collaboration-tracking/file-data.html","form_module":"dc-file-form"},
+"dc-file-form":         {"table_id":"20005053","url":"document-collaboration-tracking/file-form.html","topic_tid":"20005052"},
+"dc-comments-data":     {"table_id":"20005054","url":"document-collaboration-tracking/comments-data.html","form_module":"dc-comments-form"},
+"dc-comments-form":     {"table_id":"20005054","url":"document-collaboration-tracking/comments-form.html","topic_tid":"20005052"},
 
+"eb-monthly":        {"table_id":"20002163","url":"equipment-booking/monthly.html",	"daily_module":"eb-daily","booking_form":"eb-booking-form"},
+"eb-daily":          {"table_id":"20002163","url":"equipment-booking/daily.html",      "eqipment_tid":"20002162","booking_form":"eb-booking-form"},
+"eb-booking-data":   {"table_id":"20002163","url":"equipment-booking/booking-data.html","form_module":"eb-booking-form"},
+"eb-booking-form":   {"table_id":"20002163","url":"equipment-booking/booking-form.html"},
+"eb-equipment-data": {"table_id":"20002162","url":"equipment-booking/equipment-data.html","form_module":"eb-equipment-form"},
+"eb-equipment-form": {"table_id":"20002162","url":"equipment-booking/equipment-form.html"},
+
+
+"eq-enquiry-data":       {"table_id":"20009702","v3":"18033002","url":"enquiry/enquiry-data.html","form_module":"eq-enquiry-form","name_for_search":"Enquiry data"},
+"eq-enquiry-form":       {"table_id":"20009702","v3":"18033002","url":"enquiry/enquiry-form.html","name_for_search":"Enquiry form"},
 
 "cb-monthly":               {"table_id":"20000908","url":"car-booking/monthly.html",	"daily_module":"cb-daily","booking_form":"cb-booking-record-form"},
 "cb-daily":                 {"table_id":"20000908","url":"car-booking/daily.html",      "car_tid":"20000906","booking_form":"cb-booking-record-form"},
@@ -116,8 +132,6 @@
 "appointment-form":   {"table_id":"20009702","v3":"18033102","url":"modules/appointment-form.html","name_for_search":"Appointment form"},
 "contact-us-data":    {"table_id":"20009702","v3":"18033101","url":"modules/contact-us-data.html","form_module":"contact-us-form","name_for_search":"Contact us data"},
 "contact-us-form":    {"table_id":"20009702","v3":"18033101","url":"modules/contact-us-form.html","name_for_search":"Contact us form"},
-"enquiry-data":       {"table_id":"20009702","v3":"18033002","url":"modules/enquiry-data.html","form_module":"enquiry-form","name_for_search":"Enquiry data"},
-"enquiry-form":       {"table_id":"20009702","v3":"18033002","url":"modules/enquiry-form.html","name_for_search":"Enquiry form"},
 "registration-data":  {"table_id":"20009702","v3":"18033001","url":"modules/registration-data.html","form_module":"registration-form","name_for_search":"Registration data"},
 "registration-form":  {"table_id":"20009702","v3":"18033001","url":"modules/registration-form.html","name_for_search":"Registration form"},
 "isi-data":           {"table_id":"20011372",                "url":"clinical-trials/insomnia-severity-index-data.html","form_module":"isi-form","name_for_search":"Insomnia Severity Index data"},

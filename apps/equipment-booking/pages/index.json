@@ -1,9 +1,11 @@
 {
 	"modules":
 	{
-        "monthly":          {"table_id":"20002163","url":"modules/monthly.html",		"name_for_search":"Monthly calendar"},
-        "daily":            {"table_id":"20002163","url":"modules/daily.html",		  	"name_for_search":"Booking a equipment"},
-        "booking_record":   {"table_id":"20002163","url":"modules/booking_record.html","name_for_search":"Booking records"},
-        "equipment":        {"table_id":"20002162","url":"modules/equipment.html",	  	"name_for_search":"Add/Remove equipments"}
+        "eb-monthly":        {"table_id":"20002163","url":"../../../pages/equipment-booking/monthly.html",	    "daily_module":"eb-daily","booking_form":"eb-booking-form"},
+        "eb-daily":          {"table_id":"20002163","url":"../../../pages/equipment-booking/daily.html",        "eqipment_tid":"20002162","booking_form":"eb-booking-form"},
+        "eb-booking-data":   {"table_id":"20002163","url":"../../../pages/equipment-booking/booking-data.html", "form_module":"eb-booking-form"},
+        "eb-booking-form":   {"table_id":"20002163","url":"../../../pages/equipment-booking/booking-form.html"},
+        "eb-equipment-data": {"table_id":"20002162","url":"../../../pages/equipment-booking/equipment-data.html","form_module":"eb-equipment-form"},
+        "eb-equipment-form": {"table_id":"20002162","url":"../../../pages/equipment-booking/equipment-form.html"}
 	}
 }

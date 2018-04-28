@@ -1,5 +1,5 @@
 <section>
-    VmInclude:__COMPONENT__/grid/grid.v3.html
+      VmInclude:__PARTS__/grid/grid.v3.html
 </section>
 <script>
     function F__ID(){
@@ -7,8 +7,8 @@
         VmInclude:__COMPONENT__/grid/grid.v3.js
         VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
-        var fields="Image,Number,Model,Description";
-        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        var fields="Image,Name,Description";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Modified";
         //-------------------------------------
 		_cell_render=function(records,I,field,td,set_value,source){
             switch(field){
@@ -21,5 +21,5 @@
     }
 </script>
 <style>
-    VmInclude:__COMPONENT__/grid/grid.v3.css
+    VmInclude:__PARTS__/grid/grid.v3.css
 </style>

@@ -9,17 +9,17 @@
         var this_module         =$vm.module_list[$vm.vm['__ID'].name];
         var prefix              =this_module.prefix; if(prefix==undefined) prefix="";
         var booking_form        =prefix+this_module.booking_form;
-    	var booking_record_tid	=this_module.table_id;
-    	var car_tid	 		    =this_module.car_tid;
+    	var booking_tid	        =this_module.table_id;
+    	var eqipment_tid	    =this_module.eqipment_tid;
     	//--------------------------------------------------------
     	_request_and_render=function(){
     	    layout_render();
     	}
     	//--------------------------------------------------------
         var layout_render=function(){
-            var sql="select ID,UID,Information from [TABLE-"+car_tid+"] order by S1";
+            var sql="select ID,UID,Information from [TABLE-"+eqipment_tid+"] order by S1";
     		$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
-    			var txt="<tr><th style='width:200px;text-align:left'>Car</th>";
+    			var txt="<tr><th style='width:200px;text-align:left'>Eqipment</th>";
     			for(var j=0;j<12;j++){
     				txt+="<th colspan=2 style='width:8%;text-align:left'>"+$vm.pad((8+j),2)+":00</th>";
     			}
@@ -31,11 +31,10 @@
     			for(var i=0;i<res.records.length;i++){
     				var id=res.records[i].ID;
     				var uid=res.records[i].UID;
-    				var car_number=res.records[i].Number;
-    				var car_model=res.records[i].Model;
-    				txt+="<tr><td style='display:none'>"+id+"</td><td style='display:none'>"+uid+"</td>";
-    				txt+="<td style='display:none'>"+car_number+"</td><td style='display:none'>"+car_model+"</td>";
-    				txt+="<td style='width:100px'>"+car_number+' - '+car_model+"</td>";
+                    var equipment_name=res.records[i].Name;
+        			txt+="<tr><td style='display:none'>"+id+"</td><td style='display:none'>"+uid+"</td>";
+        			txt+="<td style='display:none'></td><td style='display:none'>"+equipment_name+"</td>";
+        			txt+="<td style='width:100px'>"+equipment_name+"</td>";
     				for(j=0;j<24;j++){
     					txt+="<td></td>";
     				}
@@ -51,9 +50,8 @@
     		$('#tbody__ID tr').each(function(){
     			var id  =$(this).children().eq(0).text();
     			var uid =$(this).children().eq(1).text();
-                var car_number  =$(this).children().eq(2).text();
-    			var car_model  =$(this).children().eq(3).text();
-    			// name  =$(this).children().eq(4).text();
+                var equipment_name  =$(this).children().eq(3).text();
+    			//var name  =$(this).children().eq(4).text();
     			for(var j=0;j<24;j++){
     				var $cell=$(this).children().eq(5+j);
     				$cell.data('j',j);
@@ -62,7 +60,7 @@
     				    var date=$('#date__ID').val();
     				    var time=$vm.pad((8+Math.floor(j/2)),2)+":"+$vm.pad(30*(j%2),2);
                         var record={
-                            Car:car_number,
+                            Equipment:equipment_name,
                             Date:date,
                             Time:time
                         }
@@ -74,12 +72,12 @@
     	};
     	//-----------------------------------
     	var put_on_bookings=function(){
-    	    var sql="select ID,PUID,Author,Information from [TABLE-"+booking_record_tid+"] where Convert(date,dt1)=@T1";
+    	    var sql="select ID,PUID,Author,Information from [TABLE-"+booking_tid+"] where Convert(date,dt1)=@T1";
     	    $VmAPI.request({data:{cmd:'query_records',sql:sql,t1:$('#date__ID').val()},callback:function(res){
     	        for(var i=0;i<res.records.length;i++){
     				var rid			=res.records[i].ID;
     				var uid			=res.records[i].PUID;
-                    var contact		=res.records[i].Booked_by; if(contact==='') contact='No Contact';
+                    var contact		=res.records[i].Contact_Name; if(contact==='') contact='No Contact';
     				var date		=res.records[i].Date; date=$vm.date_parse(date);
     				var time		=res.records[i].Time;
     				var duration_0	=res.records[i].Duration;
@@ -113,7 +111,7 @@
     	//-----------------------------------
     	var on_click_edit_fun=function(){
     	    var rid=$(this).data('rid');
-            var sql="select ID,Information from [TABLE-"+booking_record_tid+"] where ID=@I1";
+            var sql="select ID,Information from [TABLE-"+booking_tid+"] where ID=@I1";
             $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:rid},callback:function(res){
                 if(res.records.length==1){
                     res.records[0].Date=$vm.au_date_to_string_yyyymmdd(res.records[0].Date); //convert the existed date to the new standard format

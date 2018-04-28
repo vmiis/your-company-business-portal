@@ -1,0 +1,7 @@
+{
+    "modules":
+	{
+        "eq-enquiry-data":       {"table_id":"20009702","v3":"18033002","url":"../../../pages/enquiry/enquiry-data.html","form_module":"eq-enquiry-form","name_for_search":"Enquiry data"},
+        "eq-enquiry-form":       {"table_id":"20009702","v3":"18033002","url":"../../../pages/enquiry/enquiry-form.html","name_for_search":"Enquiry form"}
+	}
+}

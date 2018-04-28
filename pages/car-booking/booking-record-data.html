@@ -4,15 +4,15 @@
 <script>
     function F__ID(){
         //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
         var fields="Car,Date,Time,Duration,Color,Purpose of Journey|Purpose";
 		fields+=",I have<br>a valid<br>driving<br>licence|Q1";
 	    fields+=",I have not<br>had an<br>insurance<br>claim<br>refused|Q2";
 	    fields+=",I have<br>Manager's<br>approval|Q3";
 	    fields+=",Project Code|Code,Booked_by,Contact_Phone,Contact_Email,Addtional_Information,Odometer (Start)|Odometer_Start,Odometer (End)|Odometer_End";
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
-        //-------------------------------------
-        VmInclude:__COMPONENT__/grid/grid.v3.js
-        VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
         $('#new__ID').hide();
         $('#save__ID').hide();
@@ -26,8 +26,9 @@
 				case 'Q1':
 	            case 'Q2':
 	            case 'Q3':
-	                td.html('<input type=checkbox />');
-	                VmInclude:__COMPONENT__/grid/field_checkbox.js
+                    var html='<input type=checkbox />';
+                    $vm.render_checkbox_field(records[I],'__ID',td,html)
+                    break;
             }
         }
         //-------------------------------------

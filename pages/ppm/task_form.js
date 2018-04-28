@@ -19,7 +19,7 @@ $('#F__ID').submit(function(event){
     //--------------------------------------------------------
     var data=$vm.serialize('#F__ID');
     var dbv={}
-    if(typeof(before_submit)!=undefined) before_submit(record,dbv);
+    if(typeof(before_submit)!='undefined') before_submit(record,dbv);
     //--------------------------------------------------------
     var db_pid=this_module.table_id;
     var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;

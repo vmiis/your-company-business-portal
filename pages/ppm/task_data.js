@@ -10,6 +10,6 @@ $('#new__ID').off('click').on('click',function(){$vm.nav_load_module(form_module
 $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
 //-------------------------------------
 var _before_submit=function(record,dbv){
-    if(typeof(before_submit)!=undefined) before_submit(record,dbv);
+    if(typeof(before_submit)!='undefined') before_submit(record,dbv);
 };
 //-------------------------------------

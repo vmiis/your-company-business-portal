@@ -18,7 +18,7 @@ if(v3!=undefined){
     //-------------------------------------
     _before_submit=function(record,dbv){
         dbv.V3=v3;
-        if(typeof(before_submit)!=undefined) before_submit(record,dbv);
+        if(typeof(before_submit)!='undefined') before_submit(record,dbv);
     };
     //-------------------------------------
     _set_req=function(){
@@ -37,7 +37,7 @@ if(v3!=undefined){
 }
 else{
     _before_submit=function(record,dbv){
-        if(typeof(before_submit)!=undefined) before_submit(record,dbv);
+        if(typeof(before_submit)!='undefined') before_submit(record,dbv);
     };
 }
 //-------------------------------------

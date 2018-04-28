@@ -1,9 +1,0 @@
-{
-    "modules":
-	{
-		"about":	  				{"url":"restaurant/modules/about.html",								  			"name_for_search":"About restaurant"},
-		"our-menu":	      			{"url":"restaurant/modules/our-menu.html",											"name_for_search":"Our menu"},
-		"book-your-table":			{"table_id":"20009702","demo_id":"17111801","url":"restaurant/modules/book-your-table.html",	"name_for_search":"Book your table"},
-		"book-your-table-record":  	{"table_id":"20009702","demo_id":"17111801","url":"restaurant/modules/book-your-table-record.html","name_for_search":"Book your table record"}
-	}
-}
