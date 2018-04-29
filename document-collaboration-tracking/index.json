@@ -1,8 +1,0 @@
-{
-    "modules":
-	{
-        "topic":        {"table_id":"20005052","url":"document-collaboration-tracking/modules/topic.html",        "name_for_search":"Topics"},
-        "file":         {"table_id":"20005053","url":"document-collaboration-tracking/modules/file.html",         "name_for_search":"Files"},
-        "discussion":   {"table_id":"20005054","url":"document-collaboration-tracking/modules/discussion.html",   "name_for_search":"Discussion"}
-	}
-}

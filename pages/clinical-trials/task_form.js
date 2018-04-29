@@ -20,7 +20,7 @@ $('#D__ID').on('load',function(){
 	$vm.deserialize(grid_record,'#F__ID');
 	//--------------------------
 	//particioant info from parent grid
-	var input=$vm.vm['__ID'].op.input; if(input==undefined) input=$vm.vm['__ID'].op
+	var input=$vm.vm['__ID'].input; if(input==undefined) input=$vm.vm['__ID'].op
 	if($("#F__ID input[name=Participant]").val()=='' && input!=undefined){
 		$("#F__ID input[name=Participant]").val(input.participant_name);
 		$("#F__ID input[name=Participant_uid]").val(input.participant_uid);
@@ -56,7 +56,7 @@ $('#F__ID').submit(function(event){
 	$VmAPI.request({data:req,callback:function(res){
 		$vm.refresh=1;
 		if(rid!=undefined) window.history.go(-1);
-		else if($vm.vm['__ID'].op.input!=undefined && $vm.vm['__ID'].op.input.goback!=undefined) window.history.go(-1);
+		else if($vm.vm['__ID'].input!=undefined && $vm.vm['__ID'].input.goback!=undefined) window.history.go(-1);
 		else $vm.alert('Your data has been successfully submitted');
 	}});
 	//--------------------------------------------------------

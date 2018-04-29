@@ -4,7 +4,7 @@
 			<br>
 			<h1>Modular Distributed Web Applications</h1>
 			<hr style='border-top:1px solid #f05f40;'></hr>
-			<p>A web application with unlimited number of shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
+			<p>A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!</p>
 			<br><br>
 		</div>
 	</div>
@@ -19,8 +19,8 @@
 	#D__ID{
 		height:100%;
         overflow:auto;
-		animation: vm_module_fadein 1.0s;
-		/*background:rgba(255,255,255,0.3);*/
+		animation: vm_module_fadein 1.0s, D__ID 3s;
+        padding-bottom:10%;
 	}
 	#page__ID{
 		height:100%;
@@ -29,7 +29,17 @@
 	}
 	.panel__ID{
 		color:#fff;
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.3);
 		border-radius: 25px;
+		padding:10px;
 	}
+	@keyframes D__ID {
+		from {padding-top: 300px;}
+		to {padding-top: 0px;}
+	}
+    @media screen and (max-width: 992px) {
+        #D__ID{
+            animation: vm_module_fadein 1.0s;
+        }
+    }
 </style>

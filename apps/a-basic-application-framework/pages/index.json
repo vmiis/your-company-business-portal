@@ -1,8 +1,9 @@
 {
     "modules":
 	{
-        "link-1":	      {"url":"../../../pages/framework/under-construction.html","name_for_search":"Link 1","text":"Under Construction"},
-		"link-2":	      {"url":"../../../pages/framework/under-construction.html","name_for_search":"Link 2","text":"Not Ready"},
-		"link-3":	      {"url":"../../../pages/framework/under-construction.html","name_for_search":"Link 3","text":"Comming soon..."}
+        "link-1":	      {"url":"modules/under-construction.html","name_for_search":"Link 1","text":"Under Construction"},
+		"link-2":	      {"url":"modules/under-construction.html","name_for_search":"Link 2","text":"Not Ready"},
+		"link-3":	      {"url":"modules/under-construction.html","name_for_search":"Link 3","text":"Comming soon..."},
+        "p-home":	      {"url":"modules/home.html"}
 	}
 }

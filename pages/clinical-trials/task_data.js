@@ -22,7 +22,7 @@ _set_req=function(){
     }
     var participant_where="";
     var participant_uid="";
-	if($vm.vm['__ID'].op.input!=undefined) participant_uid=$vm.vm['__ID'].op.input.participant_uid;
+	if($vm.vm['__ID'].input!=undefined) participant_uid=$vm.vm['__ID'].input.participant_uid;
     if(participant_uid!=="" && participant_uid!==undefined){
         site_sql_where='';
         participant_where=" where uid="+participant_uid;

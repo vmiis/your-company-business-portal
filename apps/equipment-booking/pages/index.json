@@ -1,11 +1,11 @@
 {
 	"modules":
 	{
-        "eb-monthly":        {"table_id":"20002163","url":"../../../pages/equipment-booking/monthly.html",	    "daily_module":"eb-daily","booking_form":"eb-booking-form"},
-        "eb-daily":          {"table_id":"20002163","url":"../../../pages/equipment-booking/daily.html",        "eqipment_tid":"20002162","booking_form":"eb-booking-form"},
-        "eb-booking-data":   {"table_id":"20002163","url":"../../../pages/equipment-booking/booking-data.html", "form_module":"eb-booking-form"},
-        "eb-booking-form":   {"table_id":"20002163","url":"../../../pages/equipment-booking/booking-form.html"},
-        "eb-equipment-data": {"table_id":"20002162","url":"../../../pages/equipment-booking/equipment-data.html","form_module":"eb-equipment-form"},
-        "eb-equipment-form": {"table_id":"20002162","url":"../../../pages/equipment-booking/equipment-form.html"}
+        "monthly":        {"table_id":"20002163","url":"modules/monthly.html",	    "daily_module":"daily","booking_form":"booking-form"},
+        "daily":          {"table_id":"20002163","url":"modules/daily.html",        "eqipment_tid":"20002162","booking_form":"booking-form"},
+        "booking-data":   {"table_id":"20002163","url":"modules/booking-data.html", "form_module":"booking-form"},
+        "booking-form":   {"table_id":"20002163","url":"modules/booking-form.html"},
+        "equipment-data": {"table_id":"20002162","url":"modules/equipment-data.html","form_module":"equipment-form"},
+        "equipment-form": {"table_id":"20002162","url":"modules/equipment-form.html"}
 	}
 }

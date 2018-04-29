@@ -6,6 +6,22 @@
 	"panels":{
         "website":		{"url":"",                          	"modules":["website/index.json"]},
 		"pages":       	{"url":"pages/panel.html", 				"modules":["pages|index.json"]},
+        "fm":       	{"url":"",                              "modules":["apps/a-basic-application-framework/pages|index.json"]},
+        "ft":       	{"url":"",                              "modules":["apps/fitness/pages|index.json"]},
+        "bf":       	{"url":"",                              "modules":["apps/basic-form-fields/pages|index.json"]},
+        "cb":       	{"url":"",                              "modules":["apps/car-booking/pages|index.json"]},
+        "vb":       	{"url":"",                              "modules":["apps/clinical-trials-participant-visit-booking/pages|index.json"]},
+        "dc":       	{"url":"",                              "modules":["apps/document-collaboration-tracking/pages|index.json"]},
+        "eq":       	{"url":"",                              "modules":["apps/enquiry/pages|index.json"]},
+        "eb":       	{"url":"",                              "modules":["apps/equipment-booking/pages|index.json"]},
+        "ir":       	{"url":"",                              "modules":["apps/incident-reporting/pages|index.json"]},
+        "mp":       	{"url":"",                              "modules":["apps/medical-practitioner/pages|index.json"]},
+        "hw":       	{"url":"",                              "modules":["apps/my-first-hello-world-module-in-an-application/pages|index.json"]},
+        "re":       	{"url":"",                              "modules":["apps/restaurant/pages|index.json"]},
+        "rb":       	{"url":"",                              "modules":["apps/room-booking/pages|index.json"]},
+        "st":       	{"url":"",                              "modules":["apps/sales-tracking/pages|index.json"]},
+        "sv":       	{"url":"",                              "modules":["apps/survey/pages|index.json"]},
+        "pf":       	{"url":"",                              "modules":["apps/portfolio/pages|index.json"]},
 		"portal":		{"url":"portal/panel.html",         	"modules":[
 			"about/index.json",
             "purchase-order-request/index.json",
@@ -19,8 +35,6 @@
 		"bookkeeping":						{"url":"bookkeeping/panel.html",					"modules":["bookkeeping/index.json"]},
 		"clinic-online-questionnaire-01":	{"url":"clinic-online-questionnaire-01/panel.html",	"modules":["clinic-online-questionnaire-01/index.json"]},
 		"dynamic":            				{"url":"dynamic/panel.html",						"modules":["dynamic/index.json"]},
-		"equipment-booking":				{"url":"equipment-booking/panel.html",  			"modules":["equipment-booking/index.json"]},
-		"incident-reporting":				{"url":"incident-reporting/panel.html",				"modules":["incident-reporting/index.json"]},
 		"invoice":	    					{"url":"invoice/panel.html",						"modules":["invoice/index.json"]},
 		"module-example":	    			{"url":"distributed-module-testing/panel.html",   	"modules":["distributed-module-testing/index.json"]},
 		"panel_shadow_dom":     			{"url":"shadow-dom/panel.html",						"modules":["shadow-dom/index.json"]},
@@ -36,25 +50,10 @@
         "team-event-calendar":				{"url":"team-event-calendar/panel.html",			"modules":["team-event-calendar/index.json"]},
 		"wk-it":                     		{"url":"wk-it/management/panel.html",		        "modules":["wk-it|management/index.json"]},
 		"service-booking":             		{"url":"service-booking/panel.html",		        "modules":["service-booking/index.json"]},
-		"document-collaboration-tracking": 	{"url":"document-collaboration-tracking/panel.html","modules":["document-collaboration-tracking/index.json"]},
         "form-and-data-examples":           {"url":"form-and-data-examples/panel.html", 		"modules":["form-and-data-examples|index.json"]},
 		"report-examples":           		{"url":"report-examples/panel.html", 					"modules":["report-examples|index.json"]},
 		"isleephealth-task":           		{"url":"isleephealth/task/panel.html", 					"modules":["isleephealth/task/index.json"]},
 		"panel-initial":					{"url":"isleephealth-patients-portal/initial/panel.html","modules":["isleephealth-patients-portal/initial/index.json"]},
-
-		"clinical-trials-participant-visit-booking":{"url":"clinical-trials-participant-visit-booking/panel.html","modules":["clinical-trials-participant-visit-booking/index.json"]},
-		"research-volunteer-registration":	{"url":"research-volunteer-registration/panel.html",										"modules":["https://volunteer-database.rt.org.au|configurations/main.json"]},
-		"research-volunteer-management":	{"url":"research-volunteer-management/panel.html",
-			"modules":[
-				"https://volunteer-database-management.rt.org.au|modules/research-projects/module.json",
-				"https://volunteer-database-management.rt.org.au|modules/admin/module.json",
-				"https://volunteer-database-management.rt.org.au|modules/project/module.json",
-				"https://volunteer-database-management.rt.org.au|modules/project-approval/module.json",
-				"https://volunteer-database-management.rt.org.au|modules/others/module.json",
-				"https://volunteer-database-management.rt.org.au|modules/builder/module.json"
-		]},
-
-		"panel_nightstudy":     	{"url":"https://nightstudy.rt.org.au/modules/panel/main.html",										"modules":["https://nightstudy.rt.org.au|configurations/main.json","https://nightstudy.rt.org.au|configurations/task.json"]},
 
 		"amazes":  					{"url":"amazes/panel/main.html",	"modules":["amazes|participant-and-others/index.json","amazes|edc/index.json"]},
         "sfix":                     {"url":"sfix/modules/panel/sfix.html",		                        "modules":["sfix|modules/participant-and-others/module.json","sfix|modules/edc/module.json"]},
@@ -74,8 +73,6 @@
 
         "windfarm-lab-study-screening-questionnaire-main":  {"url":"windfarm-lab-study-screening-questionnaire/panel/main.html",	"modules":["windfarm-lab-study-screening-questionnaire|participant-and-others/index.json","windfarm-lab-study-screening-questionnaire|edc/index.json"]},
         "windfarm-lab-study-screening-questionnaire-child": {"url":"windfarm-lab-study-screening-questionnaire/panel/child.html",	"modules":["windfarm-lab-study-screening-questionnaire|participant-and-others/index.json","windfarm-lab-study-screening-questionnaire|edc/index.json"]},
-        "windfarm-lab-study-screening-questionnaire-report":{"url":"windfarm-lab-study-screening-questionnaire/report/panel.html",	"modules":["windfarm-lab-study-screening-questionnaire|report/index.json"]},
-
-		"ron-grunstein-first-visit":{"url":"https://wappsystem.github.io/ron-grunstein/modules/first-visit/panel.html",					"modules":["https://wappsystem.github.io/ron-grunstein|modules/first-visit/module.json"]}
+        "windfarm-lab-study-screening-questionnaire-report":{"url":"windfarm-lab-study-screening-questionnaire/report/panel.html",	"modules":["windfarm-lab-study-screening-questionnaire|report/index.json"]}
 	}
 }

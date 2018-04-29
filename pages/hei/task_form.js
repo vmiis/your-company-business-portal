@@ -28,7 +28,7 @@ $('#F__ID').submit(function(event){
     $VmAPI.request({data:req,callback:function(res){
         $vm.refresh=1;
         if(rid!=undefined) window.history.go(-1);
-        else if($vm.vm['__ID'].op.input!=undefined && $vm.vm['__ID'].op.input.goback!=undefined) window.history.go(-1);
+        else if($vm.vm['__ID'].input!=undefined && $vm.vm['__ID'].input.goback!=undefined) window.history.go(-1);
         else $vm.alert('Your data has been successfully submitted');
     }});
     //--------------------------------------------------------

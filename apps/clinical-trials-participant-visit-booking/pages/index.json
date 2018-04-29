@@ -1,9 +1,11 @@
 {
     "modules":
 	{
-        "participant":      {"table_id":"20005031","url":"modules/participant.html",      "name_for_search":"Participants"},
-        "monthly":          {"table_id":"20005048","url":"modules/monthly.html",          "name_for_search":"Monthly calendar"},
-        "daily":            {"table_id":"20005048","url":"modules/daily.html",            "name_for_search":"Daily calendar"},
-        "booking-record":	{"table_id":"20005048","url":"modules/booking-record.html",	"name_for_search":"Booking records"}
+        "monthly":        {"table_id":"20005048","url":"modules/monthly.html",	"daily_module":"daily","booking_form":"booking-form"},
+        "daily":          {"table_id":"20005048","url":"modules/daily.html",   "booking_form":"booking-form"},
+        "booking-data":   {"table_id":"20005048","url":"modules/booking-data.html","form_module":"booking-form"},
+        "booking-form":   {"table_id":"20005048","url":"modules/booking-form.html","participant_tid":"20005031"},
+        "participant-data":   {"table_id":"20005031","url":"modules/participant-data.html","form_module":"participant-form"},
+        "participant-form":   {"table_id":"20005031","url":"modules/participant-form.html"}
 	}
 }

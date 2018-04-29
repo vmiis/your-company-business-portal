@@ -36,11 +36,11 @@
 			var task_name=$vm.module_list[task_module].name_for_search;
             var Color="#008800";
             */
-            var parent_record=$vm.vm['__ID'].op.input.record;
-            var task_module=$vm.vm['__ID'].op.input.task_module;
+            var parent_record=$vm.vm['__ID'].input.record;
+            var task_module=$vm.vm['__ID'].input.task_module;
             var GUID=parent_record.Participant_uid;
             var PUID=parent_record.UID;
-            var PPID=$vm.vm['__ID'].op.input.pid;
+            var PPID=$vm.vm['__ID'].input.pid;
             $vm.load_module_v2(form_module,'',{
                 record:{
                     Participant_ID:parent_record.Participant_uid,
@@ -58,10 +58,10 @@
         })
         /*
 		_new_pre_data_process=function(){
-			var record=$vm.vm['__ID'].op.input.record;
+			var record=$vm.vm['__ID'].input.record;
 			_records[0].Participant_ID=record.Participant_uid;
 			_records[0].Participant=record.Participant;
-			var task_module=$vm.vm['__ID'].op.input.task_module;
+			var task_module=$vm.vm['__ID'].input.task_module;
 			var task_name=$vm.module_list[task_module].name_for_search;
 			_records[0].Task=task_name;
             _records[0].Color="#008800";
@@ -69,9 +69,9 @@
         //-------------------------------------
         */
         _before_submit=function(record,dbv){
-			var input_record=$vm.vm['__ID'].op.input.record;
+			var input_record=$vm.vm['__ID'].input.record;
 			if(input_record!=undefined){
-				var task_pid=$vm.vm['__ID'].op.input.pid;
+				var task_pid=$vm.vm['__ID'].input.pid;
 	            var task_record_uid=input_record.UID;
 	            var task_record_pid=task_pid;
 	            if(task_record_uid!==undefined) dbv.PUID=task_record_uid;
@@ -88,8 +88,8 @@
 		_set_req=function(){
             //-------------------
             $('#new__ID').show();
-			var record=$vm.vm['__ID'].op.input.record;
-			var pid=$vm.vm['__ID'].op.input.pid;
+			var record=$vm.vm['__ID'].input.record;
+			var pid=$vm.vm['__ID'].input.pid;
 			if(record===undefined){
 				$('#new__ID').hide();
 			}

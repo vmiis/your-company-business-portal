@@ -21,7 +21,7 @@
         <div id="navbars__ID" class="navbar-collapse collapse">
             <ul class="navbar-nav mr-auto" id=vm_system_menu style="display:none">
                 <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('home');"><i class="fa fa-home"></i> Home</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_incident');">Incidents</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" onclick="$vm.load_module_v2('pages_incident-data');">Incidents</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="nav_dropdown__ID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reports</a>
                     <div class="dropdown-menu" aria-labelledby="nav_dropdown__ID">
@@ -72,7 +72,6 @@
 		}
 		//---------------------------------------------
         if(window.location.hostname!='127.0.0.1'){
-
 			$vm.google_signin_setup('175539446682-1gpn5bil7aoff1cnur5uev84o9e5am1c.apps.googleusercontent.com','google__ID',show_user);
             $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
         }

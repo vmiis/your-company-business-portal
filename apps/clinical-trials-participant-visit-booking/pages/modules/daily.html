@@ -1,19 +1,22 @@
 <section>
-	VmInclude:__COMPONENT__/calendar/day.v3.html
+	VmInclude:__COMPONENT__/calendar/day.v5.html
     <span style='font-size:60%'>Click the "Time header" to create an evend.</span>
 </section>
 <script>
     function F__ID(){
     	//--------------------------------------------------------
-    	VmInclude:__COMPONENT__/calendar/day.v3.js
+    	VmInclude:__COMPONENT__/calendar/day.v5.js
     	//--------------------------------------------------------
-    	var prefix=_mlist[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
-        var booking_recort_tid=$vm.module_list[prefix+'booking-record'].table_id;
+        var this_module         =$vm.module_list[$vm.vm['__ID'].name];
+        var prefix              =this_module.prefix; if(prefix==undefined) prefix="";
+        var booking_form        =prefix+this_module.booking_form;
+    	var booking_record_tid	=this_module.table_id;
+    	var participant_tid	    =this_module.participant_tid;
     	//--------------------------------------------------------
     	_request_and_render=function(){
-            jQuery.ajaxSetup({async:false});
+            //jQuery.ajaxSetup({async:false});
     	    layout_render();
-            jQuery.ajaxSetup({async:true});
+            //jQuery.ajaxSetup({async:true});
     	}
     	//--------------------------------------------------------
     	var layout_render=function(){
@@ -32,15 +35,17 @@
     	var put_on_click_for_create_booking=function(){
             $('#thead__ID th').each(function(){
     		    $(this).on('click',function(){
-    		        var date=$('#date__ID').val();
-    		        var time=$(this).html();
-                    $vm.load_module_v2(prefix+'booking-record',"hidden",{date:date,time:time,sql_where:'id=-1'});
+                    var record={
+                        Date:$('#date__ID').val(),
+                        Time:$(this).html()
+                    }
+                    $vm.load_module_v2(booking_form,"",{record:record,goback:1});
     		    });
     		});
     	};
     	//-----------------------------------
 		var put_on_bookings=function(){
-        	var sql="select ID,V1,Information from [TABLE-"+booking_recort_tid+"] where DT1=@T1 order by S1";
+        	var sql="select ID,V1,Information from [TABLE-"+booking_record_tid+"] where DT1=@T1 order by S1";
             $VmAPI.request({data:{cmd:'query_records',sql:sql,t1:$('#date__ID').val()},callback:function(res){
         		for(var i=0;i<res.records.length;i++){
         			var cc="#EEEEEE"; if(i%2===0) cc="#ffffff";
@@ -67,18 +72,30 @@
     	//-----------------------------------
     	var on_click_edit_fun=function(){
     	    var rid=$(this).data('rid');
-    	    $vm.load_module_v2(prefix+'booking-record',"hidden",{sql_where:" ID="+rid});
+            var sql="select ID,Information from [TABLE-"+booking_record_tid+"] where ID=@I1";
+            $VmAPI.request({data:{cmd:'query_records',sql:sql,i1:rid},callback:function(res){
+                if(res.records.length==1){
+                    res.records[0].Date=$vm.au_date_to_string_yyyymmdd(res.records[0].Date); //convert the existed date to the new standard format
+                    $vm.load_module_v2(booking_form,'',{record:res.records[0],goback:1});
+                }
+            }});
     	};
     	//--------------------------------------------------------
     	$('#D__ID').on('load',function(){
+            /*
             var d=$vm.date_to_string_dmy($vm.date_today());
             if($('#date__ID').val()!='') d=$('#date__ID').val();
-            if($vm.vm['__ID'].op.input!=undefined && $vm.vm['__ID'].op.input.day!=undefined) d=$vm.vm['__ID'].op.input.day;
+            if($vm.vm['__ID'].input!=undefined && $vm.vm['__ID'].input.day!=undefined) d=$vm.vm['__ID'].input.day;
     	    $('#date__ID').val(d);
+    	    $('#date__ID').triggerHandler('change');
+            */
+            var d=undefined;
+            if($vm.vm['__ID'].input!=undefined) d=$vm.vm['__ID'].input.day;
+    	    if(d!=undefined) $('#date__ID').val(d);
     	    $('#date__ID').triggerHandler('change');
     	});
     	//--------------------------------------------------------
-        $('#D__ID').on('show',function(){_request_and_render();});
+        $('#D__ID').on('show',function(){if($vm.refresh==1){$vm.refresh=0;_request_and_render();}});
     	//--------------------------------------------------------
     }
 </script>

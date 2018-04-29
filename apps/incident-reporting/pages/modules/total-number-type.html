@@ -3,7 +3,7 @@
         <form class="form-inline">
             <button type=button id=aquery__ID class='btn btn-secondary'>Query</button>
             <button type=button id=export__ID class='btn btn-secondary'>Export</button>
-            Total Number of Incident Compensation Reporting
+            Total number of each type incident
         </form>
 		<span id=elapsed__ID style='float:right'></span>
     </div>
@@ -37,7 +37,6 @@
         //-------------------------------------
         _fields="Year,Incident_only,Workers_Comp,Total";
         //-------------------------------------
-        //$('#name__ID').text('Total Number of Incident Compensation Reporting');
         $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
         //-------------------------------------
         _set_req=_set_req_export=function(){

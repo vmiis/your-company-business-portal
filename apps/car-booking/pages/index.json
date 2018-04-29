@@ -1,11 +1,11 @@
 {
     "modules":
 	{
-        "cb-monthly":               {"table_id":"20000908", "url":"../../../pages/car-booking/monthly.html",	"daily_module":"cb-daily","booking_form":"cb-booking-record-form"},
-        "cb-daily":                 {"table_id":"20000908", "url":"../../../pages/car-booking/daily.html",      "car_tid":"20000906","booking_form":"cb-booking-record-form"},
-        "cb-booking-record-data":   {"table_id":"20000908", "url":"../../../pages/car-booking/booking-record-data.html","form_module":"cb-booking-record-form"},
-        "cb-booking-record-form":   {"table_id":"20000908", "url":"../../../pages/car-booking/booking-record-form.html"},
-        "cb-car-data":              {"table_id":"20000906", "url":"../../../pages/car-booking/car-data.html","form_module":"cb-car-form"},
-        "cb-car-form":              {"table_id":"20000906", "url":"../../../pages/car-booking/car-form.html"}
+        "monthly":               {"table_id":"20000908", "url":"modules/monthly.html",	"daily_module":"daily","booking_form":"booking-record-form"},
+        "daily":                 {"table_id":"20000908", "url":"modules/daily.html",      "car_tid":"20000906","booking_form":"booking-record-form"},
+        "booking-record-data":   {"table_id":"20000908", "url":"modules/booking-record-data.html","form_module":"booking-record-form"},
+        "booking-record-form":   {"table_id":"20000908", "url":"modules/booking-record-form.html"},
+        "car-data":              {"table_id":"20000906", "url":"modules/car-data.html","form_module":"car-form"},
+        "car-form":              {"table_id":"20000906", "url":"modules/car-form.html"}
 	}
 }
