@@ -1,0 +1,11 @@
+{
+    "modules":
+	{
+		"inspection-data":	{"table_id":"20003822","url":"modules/inspection-data.html","item_tid":"20003820","site_tid":"20003821","form_module":"inspection-form","name_for_search":"Inspection"},
+        "inspection-form":	{"table_id":"20003822","url":"modules/inspection-form.html","item_tid":"20003820","site_tid":"20003821"},
+		"item-data":        {"table_id":"20003820","url":"modules/item-data.html","form_module":"item-form"},
+        "item-form":        {"table_id":"20003820","url":"modules/item-form.html"},
+        "site-data":        {"table_id":"20003821","url":"modules/site-data.html","form_module":"site-form"},
+        "site-form":        {"table_id":"20003821","url":"modules/site-form.html"}
+	}
+}

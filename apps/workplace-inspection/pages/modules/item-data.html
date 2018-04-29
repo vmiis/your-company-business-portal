@@ -5,11 +5,10 @@
     function F__ID(){
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
-        _fields="_Form,Item";
-        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
-        //-------------------------------------
-        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        var fields="Item";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
     }
 </script>

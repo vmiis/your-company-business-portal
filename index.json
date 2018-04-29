@@ -22,6 +22,7 @@
         "st":       	{"url":"",                              "modules":["apps/sales-tracking/pages|index.json"]},
         "sv":       	{"url":"",                              "modules":["apps/survey/pages|index.json"]},
         "pf":       	{"url":"",                              "modules":["apps/portfolio/pages|index.json"]},
+		"wi":       	{"url":"",                              "modules":["apps/workplace-inspection/pages|index.json"]},
 		"portal":		{"url":"portal/panel.html",         	"modules":[
 			"about/index.json",
             "purchase-order-request/index.json",

@@ -5,22 +5,22 @@
     function F__ID(){
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
-        _fields="_Form,Site,Inspection_Date,Inspectors,Item/Question|Item,Answer,Action,Responsible_For_Action,Date_Implemented,Hazard_Priority,Completed";
-        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        var fields="Site,Inspection_Date,Inspectors,Item/Question|Item,Answer,Action,Responsible_For_Action,Date_Implemented,Hazard_Priority,Completed";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
-		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
-		var item_tid=$vm.module_list[prefix+'item'].table_id;
-		var site_tid=$vm.module_list[prefix+'site'].table_id;
+		var item_tid=this_module.item_tid;
+		var site_tid=this_module.site_tid;
 		//-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
                 case 'Site':
-                    var sql="with tb as (select distinct name=@('Site'),UID from [TABLE-"+site_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    var sql="with tb as (select distinct name=JSON_VALUE(Information,'$.Site'),UID from [TABLE-"+site_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
                     VmInclude:__COMPONENT__/grid/field_auto.js
                     break;
                 case 'Item':
-                    var sql="with tb as (select distinct name=@('Item'),UID from [TABLE-"+item_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
+                    var sql="with tb as (select distinct name=JSON_VALUE(Information,'$.Item'),UID from [TABLE-"+item_tid+"]) select top 10 name,value=name,value2=UID from tb where name like '%'+@S1+'%' ";
                     VmInclude:__COMPONENT__/grid/field_auto.js
                     break;
                 case 'Time':
@@ -61,7 +61,14 @@
             }
         }
         //-------------------------------------
-        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //convert the existed au date to the new standard format and checkbox
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].Inspection_Date=$vm.au_date_to_string_yyyymmdd(_records[i].Inspection_Date);
+                _records[i].Date_Implemented=$vm.au_date_to_string_yyyymmdd(_records[i].Date_Implemented);
+                if(_records[i].Completed=='True') _records[i].Completed='on';
+            }
+        }
         //-------------------------------------
     }
 </script>
