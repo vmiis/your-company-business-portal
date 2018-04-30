@@ -1,8 +1,0 @@
-{
-	"modules":
-	{
-		"participant":	  {"table_id":"20011366","url":"/modules/participant-and-others/task/participant.html", "name_for_search":"Participant"},
-		"edc-notes":	  {"table_id":"20011367","url":"/modules/participant-and-others/task/edc-notes.html", "name_for_search":"EDC notes"},
-		"login-setup":	  {"table_id":"20011368","url":"/modules/participant-and-others/task/participant-login-setup.html", "name_for_search":"Login setup"}
-	}
-}

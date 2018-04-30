@@ -23,6 +23,7 @@
         "sv":       	{"url":"",                              "modules":["apps/survey/pages|index.json"]},
         "pf":       	{"url":"",                              "modules":["apps/portfolio/pages|index.json"]},
 		"wi":       	{"url":"",                              "modules":["apps/workplace-inspection/pages|index.json"]},
+		"ec":       	{"url":"",                              "modules":["apps/team-event-calendar/pages|index.json"]},
 		"portal":		{"url":"portal/panel.html",         	"modules":[
 			"about/index.json",
             "purchase-order-request/index.json",
@@ -57,10 +58,6 @@
 		"panel-initial":					{"url":"isleephealth-patients-portal/initial/panel.html","modules":["isleephealth-patients-portal/initial/index.json"]},
 
 		"amazes":  					{"url":"amazes/panel/main.html",	"modules":["amazes|participant-and-others/index.json","amazes|edc/index.json"]},
-        "sfix":                     {"url":"sfix/modules/panel/sfix.html",		                        "modules":["sfix|modules/participant-and-others/module.json","sfix|modules/edc/module.json"]},
-        "sfix-child":               {"url":"sfix/modules/panel/sfix.child.html",                        "modules":["sfix|modules/participant-and-others/module.json","sfix|modules/edc/module.json"]},
-        "sfix-online-home":         {"url":"sfix-online-questionnaire/modules/website/task/home.html",  "modules":[]},
-        "sfix-quest-panel":         {"url":"sfix-online-questionnaire/modules/panel/quest.html",        "modules":["sfix-online-questionnaire|modules/edc/module.json"]},
         "sfix-registration":        {"url":"sfix-registration/modules/website/task/home.html",		    "modules":["sfix-registration|modules/website/module.json","sfix-registration|modules/edc/module.json"]},
 
         "circomed":                 {"url":"circomed/modules/panel/circomed.html",						    "modules":["circomed|modules/participant-and-others/module.json","circomed|modules/edc/module.json"]},

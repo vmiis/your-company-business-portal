@@ -1,0 +1,9 @@
+{
+    "modules":
+	{
+        "client":           {"table_id":"20003827","url":"modules/client.html",      "name_for_search":"Clients"},
+        "monthly":          {"table_id":"20003946","url":"modules/monthly.html",          "name_for_search":"Monthly calendar"},
+        "daily":            {"table_id":"20003946","url":"modules/daily.html",            "name_for_search":"Daily calendar"},
+        "booking-record":	{"table_id":"20003946","url":"modules/booking-record.html",	"name_for_search":"Booking records"}
+	}
+}

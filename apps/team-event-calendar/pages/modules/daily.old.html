@@ -1,0 +1,89 @@
+<section>
+	VmInclude:__COMPONENT__/calendar/day.v3.html
+    <span style='font-size:60%'>Click the "Time header" to create an evend.</span>
+</section>
+<script>
+    function F__ID(){
+    	//--------------------------------------------------------
+    	VmInclude:__COMPONENT__/calendar/day.v3.js
+    	//--------------------------------------------------------
+    	var prefix=_mlist[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+        var event_recort_tid=$vm.module_list[prefix+'event-data'].table_id;
+    	//--------------------------------------------------------
+    	_request_and_render=function(){
+            jQuery.ajaxSetup({async:false});
+    	    layout_render();
+            jQuery.ajaxSetup({async:true});
+    	}
+    	//--------------------------------------------------------
+    	var layout_render=function(){
+            var txt="<tr>";
+        	for(var j=0;j<12;j++){
+    			txt+="<th colspan=12 style='width:8%;cursor:pointer'>"+$vm.pad((8+j),2)+":00</th>";
+    		}
+    		txt+="</tr>";
+            $('#thead__ID').html(txt);
+    		txt="<tr><td colspan=144></td></tr>";
+    		$('#tbody__ID').html(txt);
+            put_on_click_for_create_event();
+            put_on_events();
+    	};
+    	//-----------------------------------
+    	var put_on_click_for_create_event=function(){
+            $('#thead__ID th').each(function(){
+    		    $(this).on('click',function(){
+    		        var date=$('#date__ID').val();
+    		        var time=$(this).html();
+                    $vm.load_module_v2(prefix+'event-data',"hidden",{date:date,time:time,sql_where:'id=-1'});
+    		    });
+    		});
+    	};
+    	//-----------------------------------
+    	var put_on_events=function(){
+            var sql="select ID,V1,Information from [TABLE-"+event_recort_tid+"] where DT1=@T1 order by S1";
+            $VmAPI.request({data:{cmd:'query_records',sql:sql,t1:$('#date__ID').val()},callback:function(res){
+        		for(var i=0;i<res.records.length;i++){
+        			var cc="#EEEEEE"; if(i%2===0) cc="#ffffff";
+                    var rid         =res.records[i].ID;
+                    var time    	=res.records[i].Time;
+                    var description =res.records[i].Description;
+                    var color       =res.records[i].Color;
+                    var aa          =time.split(':');
+                    var startmargin =100*(parseInt(aa[0])+(parseInt(aa[1])/60)-8)/12;
+        			var txt="<div style='background-color:"+cc+";position: relative;'>";
+                    txt+="<div style='position:relative;z-index:10;margin-left:"+startmargin+"%'><u id=B"+rid+" style='cursor:pointer;color:"+color+"'>"+$vm.time12(time)+"&nbsp;&nbsp;&nbsp;"+description+"</u></div>";
+                    txt+="</div>";
+                    var $td=$('#table__ID').find('tbody tr:last').find('td').eq(0);
+        			$td.append(txt);
+                    $('#B'+rid).data('rid',rid);
+                    $('#B'+rid).on('click',on_click_edit_fun);
+        		}
+    		}});
+    	};
+    	//-----------------------------------
+    	var on_click_edit_fun=function(){
+    	    var rid=$(this).data('rid');
+    	    $vm.load_module_v2(prefix+'event-data',"hidden",{sql_where:" ID="+rid});
+    	};
+    	//--------------------------------------------------------
+    	$('#D__ID').on('load',function(){
+            var d=$vm.date_to_string_dmy($vm.date_today());
+            if($('#date__ID').val()!='') d=$('#date__ID').val();
+            if($vm.vm['__ID'].op.input!=undefined && $vm.vm['__ID'].op.input.day!=undefined) d=$vm.vm['__ID'].op.input.day;
+    	    $('#date__ID').val(d);
+    	    $('#date__ID').triggerHandler('change');
+    	});
+    	//--------------------------------------------------------
+        $('#D__ID').on('show',function(){_request_and_render();});
+    	//--------------------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+	    background-color:#fff;
+	    font-size:13px;
+	    font-family: Helvetica, Arial, sans-serif;
+		height:100%;
+		overflow: auto;
+	}
+</style>

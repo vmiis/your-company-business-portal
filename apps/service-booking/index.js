@@ -95,7 +95,6 @@ var vm_init=function(){
 	var init         =function(){
 		$vm.init_v3({callback:function(){$vm.init_status=1;}})
 		$vm.load_first_module_to_body({url:'/layout/main.html'});
-		//setTimeout(function (){	load_system_modules(); },10);
 	}
 	//--------------------------------------------------------
 	var load_js=function(url,next){
@@ -140,10 +139,7 @@ var vm_init=function(){
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://vmiis.github.io/modules');
 
 			text=text.replace(/https:\/\/woolcock-imr.github.io/g,					window.location.protocol+'//'+window.location.host+'/woolcock-imr');
-			text=text.replace(/https:\/\/volunteer-database.rt.org.au/g,			window.location.protocol+'//'+window.location.host+'/woolcock-imr/volunteer-database-2');
-			text=text.replace(/https:\/\/volunteer-database-management.rt.org.au/g,	window.location.protocol+'//'+window.location.host+'/woolcock-imr/volunteer-database-management-2');
 			text=text.replace(/https:\/\/wappsystem.github.io/g,					window.location.protocol+'//'+window.location.host+'/wappsystem');
-
 		}
 		if(window.location.toString().indexOf('_d=1')!=-1){
 			//use local system files
@@ -164,10 +160,6 @@ var vm_init=function(){
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/component/g,'https://raw.githubusercontent.com/vmiis/component/master');
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://raw.githubusercontent.com/vmiis/modules/master');
 		}
-		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix\//g,'https://sfix.rt.org.au/');
-		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix\|/g,'https://sfix.rt.org.au|');
-		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\//g,'https://sfix-online-questionnaire.rt.org.au/');
-		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\|/g,'https://sfix-online-questionnaire.rt.org.au|');
 		return text;
 	}
 	//------------------------------------
