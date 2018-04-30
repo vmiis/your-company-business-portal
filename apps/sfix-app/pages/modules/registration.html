@@ -1,0 +1,265 @@
+<div id=page__ID>
+	<div id=panel__ID class="container-fluid" style='max-width:1000px'>
+		<div class="text-center">
+		<img src="__CURRENT_PATH__/registration.html.crc.png" class="" alt="CRC Alertness Safety and Productivity" style="width:250px">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="__CURRENT_PATH__/registration.html.usyd_new_logo.png" class="" alt="Sydney University" style="width:150px">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="__CURRENT_PATH__/registration.html.woolcock.gif" class="" alt="Woolcock Intitute of Medical Research"style="width:300px"><br><br>
+	</div>
+        <form id=F_01__ID>
+			VmInclude:__CURRENT_PATH__/registration.html.isi.html
+			<button type="submit" class="btn btn-secondary">Next</button>
+			<br><br>
+        </form>
+		<form id=F_02__ID>
+			VmInclude:__CURRENT_PATH__/registration.html.psqi.html
+			<br>
+			<button type="button" id=f2_p__ID class="btn btn-secondary">Previous</button>
+			<button type="submit" class="btn btn-secondary">Next</button>
+			<br><br>
+		</form>
+		<form id=F_03__ID>
+			VmInclude:__CURRENT_PATH__/registration.html.pis.html
+			<br>
+			<button type="button" id=f3_p__ID class="btn btn-secondary">Previous</button>
+			<button type="submit" class="btn btn-secondary">Next</button>
+			<br><br>
+		</form>
+		<form id=F_04__ID>
+			VmInclude:__CURRENT_PATH__/registration.html.consent.html
+			<br>
+			<button type="button" id=f4_p__ID class="btn btn-secondary">Previous</button>
+			<button type="submit" id=f4_n__ID class="btn btn-secondary" style='display:none'>Next</button>
+			<br><br>
+		</form>
+		<form id=F_05__ID>
+			VmInclude:__CURRENT_PATH__/registration.html.app-survey.html
+			<br>
+			<button type="button" id=f5_p__ID class="btn btn-secondary">Previous</button>
+			<button type="submit" class="btn btn-secondary">Next</button>
+			<br><br>
+		</form>
+		<form id=F_06__ID>
+			VmInclude:__CURRENT_PATH__/registration.html.thanks-ok.html
+			<br><br>
+		</form>
+		<form id=F_07__ID>
+			VmInclude:__CURRENT_PATH__/registration.html.thanks-no.html
+		</form>
+	</div>
+</div>
+<script>
+    function F__ID(){
+        //----------------------------------------
+        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+		//----------------------------------------
+		var record={};
+		var hide_all=function(){
+			$('#F_01__ID').hide();
+            $('#F_02__ID').hide();
+            $('#F_03__ID').hide();
+			$('#F_04__ID').hide();
+			$('#F_05__ID').hide();
+			$('#F_06__ID').hide();
+			$('#F_07__ID').hide();
+		}
+		//----------------------------------------
+        $('#D__ID').on('load',function(){
+			$('#F_01__ID')[0].reset();
+			$('#F_02__ID')[0].reset();
+			$('#F_03__ID')[0].reset();
+			$('#F_04__ID')[0].reset();
+			$('#F_05__ID')[0].reset();
+			$('#F_06__ID')[0].reset();
+			$('#F_07__ID')[0].reset();
+			//psqi_onload__ID();
+			hide_all();
+			//$('#F_01__ID').show();
+			var form=1;
+			var a=window.location.toString().split('_form=');
+			if(a.length==2){
+				form=a[1];
+			}
+			$('#F_0'+form+'__ID').show();
+        })
+        //-------------------------------------
+        $('#F_01__ID').submit(		function(event){	event.preventDefault();	hide_all(); $('#F_02__ID').show();  page_isi_serialize__ID(record); 	})
+		//-------------------------------------
+        $('#f2_p__ID').on('click',	function(event){	event.preventDefault();	hide_all(); $('#F_01__ID').show();	})
+        $('#F_02__ID').submit(		function(event){	event.preventDefault();	hide_all();
+            page_psqi_serialize__ID(record);
+            record.Include="No";
+            if(parseInt(record.PSQI)>5 || parseInt(record.ISI)>14) {
+				record.Include="Yes";
+			}
+			if(record.Include=='No') submit_record_no();
+			else $('#F_03__ID').show();
+		})
+        //--------------------------------------------------------
+		$('#f3_p__ID').on('click',	function(event){	event.preventDefault();	hide_all(); $('#F_02__ID').show();	})
+		$('#F_03__ID').submit(		function(event){	event.preventDefault();	hide_all(); $('#F_04__ID').show();})
+		//--------------------------------------------------------
+		$('#f4_p__ID').on('click',	function(event){	event.preventDefault();	hide_all(); $('#F_03__ID').show();	})
+		$('#F_04__ID').submit(		function(event){	event.preventDefault();	hide_all(); $('#F_05__ID').show();})
+		//--------------------------------------------------------
+		$('#f5_p__ID').on('click',	function(event){	event.preventDefault();	hide_all(); $('#F_04__ID').show();	})
+		$('#F_05__ID').submit(		function(event){	event.preventDefault();
+			var R=page_sfix_app_check_checkbox_A();	if(R==false) return;
+			    R=page_sfix_app_check_checkbox_B();	if(R==false) return;
+				R=page_sfix_app_check_checkbox_C();	if(R==false) return;
+			hide_all(); submit_record_ok();
+		})
+		//--------------------------------------------------------
+		$("#F_04__ID input[name=Consent]").on('click',function(){
+			if($(this).attr('value')=='Yes') $('#f4_n__ID').show();
+			else $('#f4_n__ID').hide();
+		})
+		//--------------------------------------------------------
+        var submit_record_no=function(){
+			//-------------
+            var dbv={}
+            var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id;
+			var req={cmd:"add_json_record_anonymous",db_pid:db_pid,data:record,dbv:dbv};
+            $VmAPI.request({data:req,callback:function(res){
+                if(res.ret<=0)	$vm.alert("Sorry there is a network problem. You can try again later.")
+                else{
+					$('#F_07__ID').show();
+                }
+            }});
+			//-------------
+		}
+		//--------------------------------------------------------
+		var submit_record_ok=function(){
+            page_sfix_app_serialize__ID(record);
+            var dbv={}
+            var db_pid=$vm.module_list[$vm.vm["__ID"].name].table_id;
+			var req={cmd:"add_json_record_anonymous",db_pid:db_pid,data:record,dbv:dbv};
+            $VmAPI.request({data:req,callback:function(res){
+                if(res.ret<=0)	$vm.alert("Sorry there is a problem. You can try again later.")
+                else{
+					$('#F_06__ID').show();
+                }
+            }});
+			//-------------
+		}
+		//--------------------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+		background: rgba(151,164,181,0.95);
+	}
+	#form_container__ID{
+		padding-top:50px;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+
+		font-family: Verdana,sans-serif;
+		font-size: 15px;
+		line-height: 1.5;
+		color: #000;
+	}
+	#form_container__ID .row__ID{
+		padding:6px 0;
+	}
+	#form_container__ID .row__ID:hover{
+		/*background-color: #727b84;*/
+	}
+	#header__ID{
+		background-color:#727b84;
+		color:#000;
+		padding:10px 15px 10px 15px;
+		font-size:150%;
+	}
+	#quest__ID{
+		padding:5px 5px 5px 5px;
+		font-size:120%;
+	}
+	#F__ID{
+		border:1px solid #000;
+		padding:6px 15px 20px 15px;
+	}
+	#F__ID label
+		display: inline-block;
+		margin: .6rem 0 .3rem 0;
+	}
+
+	#F__ID fieldset {
+		border: 0px solid #c0c0c0;
+		margin: 0;
+		padding: 0;
+	}
+	@media screen and (max-width:768px){
+		#form_container__ID{
+			padding:20px 10px 50px 10px;
+		}
+	}
+	.control {
+		font-family: arial;
+		/*display: block;*/
+		position: relative;
+		padding-left: 30px;
+	   /* margin-bottom: 20px;*/
+		padding-top: 3px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+	.control input {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+	.control_indicator {
+		position: absolute;
+		top: 2px;
+		left: 0;
+		height: 20px;
+		width: 20px;
+		background: #e6e6e6;
+		border: 0px solid #000000;
+	}
+	.control-radio .control_indicator {
+		border-radius: 50%;
+	}
+
+	.control:hover input ~ .control_indicator,
+	.control input:focus ~ .control_indicator {
+		background: #cccccc;
+	}
+
+	.control input:checked ~ .control_indicator {
+		background: #A51C3D;
+	}
+	.control:hover input:not([disabled]):checked ~ .control_indicator,
+	.control input:checked:focus ~ .control_indicator {
+		background: #0e6647d;
+	}
+	.control input:disabled ~ .control_indicator {
+		background: #e6e6e6;
+		opacity: 0.6;
+		pointer-events: none;
+	}
+	.control_indicator:after {
+		box-sizing: unset;
+		content: '';
+		position: absolute;
+		display: none;
+	}
+	.control input:checked ~ .control_indicator:after {
+		display: block;
+	}
+	.control-radio .control_indicator:after {
+		left: 7px;
+		top: 7px;
+		height: 0px;
+		width: 0px;
+		border-radius: 50%;
+		background: #ffffff;
+	}
+	.control-radio input:disabled ~ .control_indicator:after {
+		background: #7b7b7b;
+	}
+</style>

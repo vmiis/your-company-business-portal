@@ -1,0 +1,89 @@
+<div id=header__ID>
+    <div id=vm_logo module=home>
+    </div>
+	<div module=home id=title>
+		<h1>SFIX Online Questionnaire</h1>
+	</div>
+    <span module=home id=m_title>Woolcock</span>
+</div>
+<script>
+	$('#vm_logo').on('click',function(){  var module=$(this).attr('module');   $vm.nav_load_module(module);   })
+	$('#title'  ).on('click',function(){  var module=$(this).attr('module');   $vm.nav_load_module(module);   })
+    $('#m_title').on('click',function(){  var module=$(this).attr('module');   $vm.nav_load_module(module);   })
+    //---------------------------------------------
+    var init_loop=setInterval(function (){
+        console.log('init_loop...')
+        if($vm.init_status==1){
+            clearInterval(init_loop);
+            show_user();
+            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* init is done ************************");
+        }
+    },100);
+    //---------------------------------------------
+    var show_user=function(){
+        var third=""
+        if($vm.user_puid=="1") third=" (Google)";
+        if($vm.user_puid=="2") third=" (Facebook)";
+        if($vm.user=='guest'){
+            $('#username__ID').text('');
+            $('#signin__ID').show();
+            $('#signout__ID').hide();
+        }
+        else{
+            $('#username__ID').text('Signed in as '+ $vm.user+third);
+            $('#signin__ID').hide();
+            $('#signout__ID').show();
+        }
+    }
+    //---------------------------------------------
+    if(window.location.hostname!='127.0.0.1'){
+        $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
+        $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+    }
+    //---------------------------------------------
+</script>
+<style>
+    #header__ID{
+        height:105px;
+        background: rgba(0,0,0,0.3);
+    }
+    #vm_logo{
+		float:left;
+        display:inline-block;
+		padding:15px;
+		padding-left:90px;
+        cursor:pointer;
+    }
+	#title{
+		float:left;
+		display:inline-block;
+		padding-top:30px;
+        padding-left:50px;
+	}
+	#title h1{
+		color:rgba(255,255,255,1);
+		cursor:pointer;
+	}
+	#m_title{
+        display:none;
+    }
+    @media screen and (max-width: 1280px) {
+        #header__ID{
+            height:unset;
+            background: rgba(0,0,0,0.3);
+        }
+        #vm_logo{
+            display:none;
+        }
+		#title{
+	        display:none;
+	    }
+		#m_title{
+            color:#fff;
+            font-size: 28px;
+            display:inline-block;
+            padding: 7px 0 0 12px;
+            cursor: pointer;
+        }
+    }
+</style>

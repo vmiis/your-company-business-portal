@@ -1,0 +1,417 @@
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Comment Text Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:35.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:#006EAB;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Comment Subject Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Cambria","serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Cambria","serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Cambria","serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-link:"List Paragraph Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Cambria","serif";}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;}
+span.ListParagraphChar
+	{mso-style-name:"List Paragraph Char";
+	mso-style-link:"List Paragraph";
+	font-family:"Cambria","serif";}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+span.CommentTextChar
+	{mso-style-name:"Comment Text Char";
+	mso-style-link:"Comment Text";}
+span.CommentSubjectChar
+	{mso-style-name:"Comment Subject Char";
+	mso-style-link:"Comment Subject";
+	font-weight:bold;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection2
+	{page:WordSection2;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+<div class=WordSection1>
+
+	<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+	text-align:center'><b><span style='font-size:14.0pt;line-height:115%'>Development
+	of a Personalised Sleep App for Insomnia</span></b></p>
+
+	<p class=MsoNormal align=center style='text-align:center'><b><span
+	style='font-size:14.0pt;line-height:115%'>Participant Information Sheet</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify;line-height:12.0pt'><span
+	style='font-size:12.0pt'>You are invited to take part in a research study </span><span
+	style='font-size:12.0pt'>to develop an App </span><span style='font-size:12.0pt'>for
+	people with insomnia. In this study, </span><span style='font-size:12.0pt'>we
+	aim to develop an App to treat patients with insomnia by providing an
+	individualised sleep intervention.  </span></p>
+
+	<p class=MsoNormal style='text-align:justify;line-height:normal'><span
+	style='font-size:12.0pt'>You have been invited to participate in this study
+	because you have insomnia or have poor sleep. This Participant Information
+	Statement tells you about the research study. Knowing what is involved will
+	help you decide if you want to take part in the research. Please read this
+	sheet carefully and ask questions about anything that you don’t understand or
+	want to know more about.</span></p>
+
+	<p class=MsoNormal style='text-align:justify;line-height:normal'><span
+	style='font-size:12.0pt'>Participation in this research study is voluntary. So
+	it’s up to you whether you wish to take part or not. </span></p>
+
+	<p class=MsoNormal style='text-align:justify;line-height:normal'><span
+	style='font-size:12.0pt'>By giving your consent to take part in this study you
+	are telling us that you:</span></p>
+
+	<p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;text-align:justify;
+	text-indent:0cm;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'><span style='font-size:12.0pt;font-family:Wingdings'>ü<span
+	style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+	style='font-size:12.0pt'>Understand what you have read</span></p>
+
+	<p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;text-align:justify;
+	text-indent:0cm;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'><span style='font-size:12.0pt;font-family:Wingdings'>ü<span
+	style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+	style='font-size:12.0pt'>Agree to take part in the research study as outlined
+	below</span></p>
+
+	<p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;text-align:justify;
+	text-indent:0cm;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'><span style='font-size:12.0pt;font-family:Wingdings'>ü<span
+	style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+	style='font-size:12.0pt'>Agree to the use of your personal information as
+	described.</span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+	justify;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'><span style='font-size:12.0pt'>&nbsp;</span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+	justify;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'>You can print <span style='font-size:12.0pt'>a copy of
+	this Participant Information Statement to keep.</span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+	justify;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'><span style='font-size:12.0pt'>&nbsp;</span></p>
+
+	<p class=MsoNormal style='text-align:justify'><u><span style='font-size:12.0pt;
+	line-height:115%'>The study is being conducted at:</span></u></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>Woolcock Institute of Medical Research, University of Sydney
+	(NSW)</span></p>
+
+	<p class=MsoNormal style='text-align:justify'><u><span style='font-size:12.0pt;
+	line-height:115%'>Principal Investigators:</span></u></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+	normal'><span style='font-size:12.0pt'>Dr Christopher Gordon <br>
+	Dr Christopher Miller<br>
+	Professor Rafael Calvo<br>
+	Ms Dorian Peters<br>
+	Professor Nick Glozier</span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+	style='font-size:12.0pt;line-height:115%'>Dr Delwyn Bartlett </span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+	style='font-size:12.0pt;line-height:115%'>Ms Melissa Aji</span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><i><span
+	style='font-size:12.0pt;line-height:115%'>&nbsp;</span></i></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>This project is funded by the Cooperative Research Centre
+	(CRC) for Alertness, Safety and Productivity. This is an Australian Government
+	Initiative that brings together industry, government, and university sectors in
+	a coordinated program. The major aim of the CRC is to reduce the burden of
+	impaired alertness on the safety, productivity and health of Australians. The
+	Alertness CRC will develop and deploy the next generation of shift scheduling and
+	workplace design techniques; alertness assessment devices; individualised
+	programs for better sleep health; and, a range of innovative strategies to
+	reduce fatigue.</span></p>
+
+
+	<p class=MsoNormal style='line-height:normal'><b><span style='font-size:12.0pt'>‘What
+	are the aims of this study?’</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify;line-height:normal'><span
+	style='font-size:12.0pt'>The main aim of this study is to develop an App which
+	will help patients with insomnia treat their condition through a personalised
+	sleep consolidation program. Your input will be used to determine the design
+	features of the App. </span></p>
+
+	<p class=MsoNormal><span style='font-size:12.0pt;line-height:115%'>‘<b>What
+	does this study involve?’</b></span></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>If you decide to participate,
+	you will first be asked to complete two short questionnaires assessing insomnia symptoms and poor sleep (5 minutes).
+	If eligible, you will then be asked to complete an online survey. The survey takes about 10-15 minutes and consists of questions about your phone usage,
+	preferences relating to sleep mobile application features and previous experiences with health mobile applications or websites.</span></p>
+
+	<p class=MsoNormal style='margin-top:12.0pt;text-align:justify'><b><span
+	style='font-size:12.0pt;line-height:115%'> ‘How much time will the study take?’</span></b></p>
+
+	<p class=MsoNormal style='margin-top:12.0pt;text-align:justify'><span
+	style='font-size:12.0pt;line-height:115%'>The study will take approximately 15-20
+	minutes to complete. </span></p>
+
+	<p class=MsoNormal style='text-align:justify'><b><span style='font-size:12.0pt;
+	line-height:115%'>'Who can take part in the study?''</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>You can complete the survey if you have insomnia or poor
+	sleep, and if you are over the age of 18. </span></p>
+
+	<p class=MsoNormal style='line-height:normal'><b><span style='font-size:12.0pt'> ‘Is
+	participation in this study voluntary? Can I withdraw from the study once I've
+	started?''</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>Participation in this study is entirely voluntary. You do not
+	have to take part in it.</span><span style='font-size:12.0pt;line-height:115%'>
+	Your decision whether to participate will not affect your current or future
+	relationship with the researchers or anyone else at the University of Sydney or
+	Woolcock Institute of Medical Research.</span></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>Submitting your completed questionnaire is an indication of
+	your consent to participate in the study. You can withdraw your responses any
+	time before you have submitted the questionnaire. Once you have submitted it,
+	your responses cannot be withdrawn because they are anonymous and therefore we
+	will not be able to tell which one is yours. </span></p>
+
+	<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:115%'>‘Are
+	there any side-effects and/or risks associated with this study?’</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify;line-height:normal'><span
+	style='font-size:12.0pt'>Aside from giving up your time, we do not expect that
+	there will be any risks or costs associated with taking part in this study.</span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+	justify;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'><b><span style='font-size:12.0pt'> </span></b><b><span
+	style='font-size:12.0pt'>‘Are there any benefits associated with being in the
+	study?’</span></b></p><br>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>It is hoped that by taking part in this research, you will be
+	providing valuable information regarding the impact of treatment on sleep for
+	insomnia. </span></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>We are offering participants who wish to voluntarily take
+	part in a prize draw for 1 of 5 Westfield Gift Cards valued at $50. </span></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>If you wish to take part in the prize draw, you will need to
+	provide a mobile number following completion of the survey (on the last page). Your
+	mobile number will then go into a draw with the other participants who
+	completed the survey. When the survey completion time closes, a random draw of
+	supplied mobiles will be undertaken by a researcher who is not involved in the
+	study. The successful participant will be notified by a telephone call to the
+	mobile number. Please note, participation in the prize draw is voluntary. </span></p>
+
+	<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+	justify;line-height:normal;punctuation-wrap:simple;text-autospace:none;
+	vertical-align:baseline'><b><span style='font-size:12.0pt'> </span></b><b><span
+	style='font-size:12.0pt'>'Will I be told the results of the study?’</b></span></p>
+
+	<p style='margin:0cm;margin-bottom:.0001pt;text-align:justify'><span
+	lang=EN-US style='font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>You have a right to receive feedback about the overall results of this study. You can tell
+	us that you wish to receive feedback by providing your contact details in the survey. This
+	feedback will be in the form of a summary of the project’s findings. You will
+	receive this feedback after the study is finished.</span></p>
+
+	<p class=MsoNormal style='line-height:12.0pt'><a name="_Toc31010456"></a><a
+	name="_Toc27398475"></a><a name="_Toc27396396"></a><a name="_Toc26785579"></a><a
+	name="_Toc25743878"></a><a name="_Toc24290858"></a><a name="_Toc21773398"></a><a
+	name="_Toc21773302"></a><a name="_Toc21701227"></a><a name="_Toc21700594"></a><a
+	name="_Toc21700328"></a><a name="_Toc21445475"></a><a name="_Toc17700469"></a><a
+	name="_Toc17697472"></a><a name="_Toc17688899"></a><a name="_Toc17646678"><b><span
+	lang=EN-US style='font-size:12.0pt'> </span></b></a><b><span style='font-size:
+	12.0pt'>‘Confidentiality and Disclosures of Information’</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>All information obtained during this
+	study, personal data and research data will be kept confidential. Any
+	information taken from these records will be coded with a study number and your
+	initials. By providing consent, you are agreeing to these conditions and understand that data
+	published in scientific journals will not identify you.</span></p>
+
+	<p class=MsoNormal style='line-height:12.0pt'><b><span style='font-size:12.0pt'>‘Further
+	Information’</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+	line-height:115%'>After you have read this information, Dr Christopher Gordon will be available to discuss it with you further
+	and answer any questions you may have. If you would like to know more at any
+	stage during the study, please feel free to contact Dr Christopher Gordon,Senior Lecturer and Director of
+	Post-Graduate Studies, Sydney Nursing School, The University of Sydney,
+	Telephone: 9351 0586 or email:christopher.gordon@sydney.edu.au </span></p>
+
+	<p class=MsoNormal style='line-height:12.0pt'><b><span style='font-size:12.0pt'> ‘Ethics
+	Approval and Complaints’</span></b></p>
+
+	<p class=MsoNormal style='text-align:justify;line-height:normal'><span
+	style='font-size:12.0pt'>The Sydney Local Health District Research Ethics
+	Committee has reviewed and approved this study in accordance with the National
+	Statement on Ethical Conduct in Human Research (2007) incorporating all
+	updates. This Statement has been developed to protect the interests of people
+	who agree to participate in human research studies. Should you wish to discuss
+	the study or view a copy of the Complaint procedure with someone not directly
+	involved, particularly in relation to matters concerning policies, information
+	or complaints about the conduct of the study or your rights as a participant,
+	you may contact the Executive Officer on 9515 6766 and quote protocol number </span><span
+	style='font-size:12.0pt'>X17-0177</span><span style='font-size:12.0pt'>.<b> </b></span></p>
+
+	<p class=MsoNormal align=center style='text-align:center;line-height:normal'><b><span
+	style='font-size:12.0pt'>If you wish to continue please click <b>NEXT</b></span></b></p>
+
+</div>
