@@ -1,0 +1,33 @@
+<section>
+    VmInclude:__PARTS__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+		//-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		$('#new__ID').hide();
+        //-------------------------------------
+		var fields="\
+ISI_1a,ISI_1b,ISI_1c,ISI_2,ISI_3,ISI_4,ISI_5,ISI,ISI_1,PSQI1,PSQI2,PSQI3,PSQI4,PSQI5a,PSQI5b,PSQI5c,PSQI5d,PSQI5e,PSQI5f,\
+PSQI5g,PSQI5h,PSQI5i,PSQI5j,PSQI5ji,PSQI6,PSQI7,PSQI8,PSQI9,PSQI10,PSQI10a,PSQI10b,PSQI10c,PSQI10d,PSQI10e,PSQI10ei,PSQI,\
+Consent,Sex,DOB,Education,Employment_full_time,Employment_part_time,Employment_unemployed,Employment_student,\
+Employment_retired,Employment_other,Employment_other_specify,occupation,smartphone_use,smartphone,Wearabledevice_1,\
+Wearabledevice_2,Wearabledevice_3_Communication,Wearabledevice_3_Fitness,Wearabledevice_3_Health,Wearabledevice_3_Navigation,\
+Wearabledevice_3_Sport,Wearabledevice_4_Breathing_or_relaxation_exercises,Wearabledevice_4_Heart_rate_monitoring,\
+Wearabledevice_4_Wearabledevice_4_Sleep_tracking,Wearabledevice_4_Step_tracking,Wearabledevice_4_Stress_tracking,\
+Wearabledevice_4_Sports_or_physical_activity_tracking,Wearabledevice_4_Workout_intensity,Wearabledevice_4_Other,\
+Wearabledevice_4_Other_specify,sleep_context_1,sleep_context_2,sleep_context_3,sleep_app_1,sleep_app_2,sleep_app_3,\
+sleep_app_4a,sleep_app_4b,sleep_app_4c,sleep_app_4d,sleep_app_4e,sleep_app_4f,sleep_app_4g,app_used_1,app_used_2,\
+app_used_2a_1,app_used_2a_2,app_used_3,app_used_3a_1,app_used_3a_2,last_1,draw,mobile,email\
+";
+		_fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+		$("#new__ID").hide();
+		$("#save__ID").hide();
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.v3.css
+</style>

@@ -1,5 +1,7 @@
 {"modules":{
 
+"flash-data":   {"table_id":"20009702","v3":"18050101","url":"modules/flash-data.html","form_module":"flash-form"},
+"flash-form":   {"table_id":"20009702","v3":"18050101","url":"modules/flash-form.html"},
 
 "sfix-system-usability-scale-data": {"table_id":"91000094",  "url":"clinical-trials/system-usability-scale-data.html","form_module":"sfix-system-usability-scale-form"},
 "sfix-system-usability-scale-form": {"table_id":"91000094",  "url":"clinical-trials/system-usability-scale-form.html"},

@@ -24,6 +24,7 @@
         "pf":       	{"url":"",                              "modules":["apps/portfolio/pages|index.json"]},
 		"wi":       	{"url":"",                              "modules":["apps/workplace-inspection/pages|index.json"]},
 		"ec":       	{"url":"",                              "modules":["apps/team-event-calendar/pages|index.json"]},
+		"sm":       	{"url":"",                              "modules":["apps/sfix-app-survey-management/pages|index.json"]},
 		"portal":		{"url":"portal/panel.html",         	"modules":[
 			"about/index.json",
             "purchase-order-request/index.json",

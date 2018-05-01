@@ -1,0 +1,126 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="Document,Version,Number_RT,Mean_RT,Median_RT,StDev_RT,Lapses,Number_Crashes,RT1,RT2,RT3,RT4,RT5,RT6,RT7,RT8,RT9,RT10,STDVC_F,STDVM_F,SPDEV_F,STDVC_P1,STDVM_P1,SPDEV_P1,STDVC_P2,STDVM_P2,SPDEV_P2,STDVC_P3,STDVM_P3,SPDEV_P3,STDVC_P4,STDVM_P4,SPDEV_P4";
+        _fields="_Form|form_module,Status|S2,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                case 'Document':
+                    records[I].vm_custom[field]=true;
+                    if(records[I][field]===undefined) records[I][field]="";
+                    td.data('filename_field',field);
+                    var html="<u style='cursor:pointer'>"+records[I][field]+"</u>";
+                    html+="<span class=file_buttons><a title='Remove the file' class=remove_file>X<a> <a title='Choose a file' class=choose_file>&#9783;<a></span>";
+                    html+="<form><input type=file style='display:none'></input></form>";
+                    td.html(html);
+                    if(records[I][field]==="" || records[I][field]===null || records[I][field]===undefined) td.find('a.remove_file').css('visibility','hidden');
+                    td.find('u').on('click',function(){
+                        var f_name=$(this).html();
+                        var rid=records[I].ID;
+                        if(rid!==undefined){
+                            $vm.open_link({rid:rid,filename:f_name});
+                        }
+                        else alert("No file was found on server.")
+                    });
+                    td.find('a.choose_file').on('click',function(){
+                        if(td.find('form')[0]!==undefined) td.find('form')[0].reset();
+                        td.find('input[type=file]').trigger('click');
+                    })
+                    td.find('a.remove_file').on('click',function(){
+                        td.find('a.remove_file').css('visibility','hidden');
+                        change_file_name("");
+                    })
+                    td.find('input[type=file]').on('change',function(evt){
+                        td.find('a.remove_file').css('visibility','');
+                        var file = this.files[0];
+                        change_file_name(file.name);
+                        read_file(file);
+                    })
+                    var change_file_name=function(name){
+                        set_value(name,records,I,field);
+                        if(source=='grid'){
+                            td.parent().find("td[data-id='"+field+"']").find('u').html(name);
+                        }
+                        else{
+                            td.parent().parent().find("td[data-id='"+field+"']").find('u').html(name);
+                        }
+                    }
+                    var read_file=function(file){
+                        var reader = new FileReader();
+                        reader.onload = (function(e) {
+                            var contents = e.target.result;
+                            var lines=contents.replace(/"/g,'').replace(/\r/g,'\n').replace(/\n\n/g,'\n').split('\n');
+                            for(i=0;i<lines.length;i++){
+                                var row=lines[i].split('=');
+                                switch(row[0]) {
+                                    case 'Version': records[I]['Version']=row[1];break;
+                                    case 'Number_RT':  records[I]['Number_RT']=row[1];break;
+                                    case 'Mean_RT':  records[I]['Mean_RT']=row[1];break;
+                                    case 'Median_RT':  records[I]['Median_RT']=row[1];break;
+                                    case 'StDev_RT':  records[I]['StDev_RT']=row[1];break;
+                                    case 'Lapses':  records[I]['Lapses']=row[1];break;
+                                    case 'Number_Crashes':  records[I]['Number_Crashes']=row[1];break;
+                                    case 'RT1':  records[I]['RT1']=row[1];break;
+                                    case 'RT2':  records[I]['RT2']=row[1];break;
+                                    case 'RT3':  records[I]['RT3']=row[1];break;
+                                    case 'RT4':  records[I]['RT4']=row[1];break;
+                                    case 'RT5':  records[I]['RT5']=row[1];break;
+                                    case 'RT6':  records[I]['RT6']=row[1];break;
+                                    case 'RT7':  records[I]['RT7']=row[1];break;
+                                    case 'RT8':  records[I]['RT8']=row[1];break;
+                                    case 'RT9':  records[I]['RT9']=row[1];break;
+                                    case 'RT10':  records[I]['RT10']=row[1];break;
+                                    case 'STDVC_F':  records[I]['STDVC_F']=row[1];break;
+                                    case 'STDVM_F':  records[I]['STDVM_F']=row[1];break;
+                                    case 'SPDEV_F':  records[I]['SPDEV_F']=row[1];break;
+                                    case 'STDVC_P1':  records[I]['STDVC_P1']=row[1];break;
+                                    case 'STDVM_P1':  records[I]['STDVM_P1']=row[1];break;
+                                    case 'SPDEV_P1':  records[I]['SPDEV_P1']=row[1];break;
+                                    case 'STDVC_P2':  records[I]['STDVC_P2']=row[1];break;
+                                    case 'STDVM_P2':  records[I]['STDVM_P2']=row[1];break;
+                                    case 'SPDEV_P2':  records[I]['SPDEV_P2']=row[1];break;
+                                    case 'STDVC_P3':  records[I]['STDVC_P3']=row[1];break;
+                                    case 'STDVM_P3':  records[I]['STDVM_P3']=row[1];break;
+                                    case 'SPDEV_P3':  records[I]['SPDEV_P3']=row[1];break;
+                                    case 'STDVC_P4':  records[I]['STDVC_P4']=row[1];break;
+                                    case 'STDVM_P4':  records[I]['STDVM_P4']=row[1];break;
+                                    case 'SPDEV_P4':  records[I]['SPDEV_P4']=row[1];break;
+                                }
+                            }
+                        });
+                        reader.readAsText(file);
+                    }
+                    break;
+                }
+            }
+            //-------------------------------------
+            //document.getElementById('PVT_File_Name').addEventListener('change', handleFileSelect,false);
+            //-------------------------------------
+            _before_submit=function(record,dbv){
+                return _set_status_and_participant(record,dbv);
+            }
+            //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

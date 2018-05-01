@@ -1,0 +1,93 @@
+<section id=form_container__ID>
+</section>
+<script>
+    function F__ID(){
+		//------------------------------------
+		$('#D__ID').on('load',function(){
+			$('#form_container__ID').css('height',$vm.min_height);
+			third_party(data_process);
+		})
+		//------------------------------------
+		var data_process=function(record){
+			alert(record.A);
+		}
+		//------------------------------------
+		var third_party=function(callback){
+			var record={A:1,B:2,C:3}
+			//callback(record);
+			class Particle {
+	    		constructor() {
+	    			this.damp = 0.00002; // remember a very small amount of the last direction
+	    			this.accel = 4000; // move very quickly
+	    			this.init();
+	    		}
+	    		init() {
+	    			this.x = Math.random() * canvas.width;
+	    			this.y = Math.random() * canvas.height;
+	    			this.vx = this.accel * (Math.random() - Math.random());
+	    			this.vy = this.accel * (Math.random() - Math.random());
+	    		}
+	    		step() {
+	    			for (const a of attractors) {
+	    				const dx = a.x - this.x;
+	    				const dy = a.y - this.y;
+	    				const d2 = dx * dx + dy * dy;
+	    				if (d2 > 0.1) {
+	    					this.vx += this.accel * dx / d2;
+	    					this.vy += this.accel * dy / d2;
+	    				}
+	    			}
+	    			this.x += this.vx;
+	    			this.y += this.vy;
+	    			this.vx *= this.damp;
+	    			this.vy *= this.damp;
+	    			ctx.fillRect(this.x, this.y, 0.5, 0.5);
+	    		}
+	    	}
+	    	const canvas = {
+	    		init() {
+	                this.frame = 0;
+	    			this.elem = document.createElement("canvas");
+	                var node=document.getElementById('form_container__ID');
+	                node.appendChild(this.elem);
+	                this.width = this.elem.width = this.elem.offsetWidth=$(window).width();
+	                this.height = this.elem.height = this.elem.offsetHeight=$vm.min_height;
+	    			window.addEventListener("click", e => this.reset(), false);
+	    			return this.elem.getContext("2d");
+	    		},
+	    		reset() {
+	    			ctx.globalCompositeOperation = "source-over";
+	    			ctx.fillStyle = "#000";
+	    			ctx.fillRect(0, 0, canvas.width, canvas.height);
+	    			ctx.fillStyle = "#321";
+	    			ctx.globalCompositeOperation = "lighter";
+	    			for (const p of particles) p.init();
+	    			for (const a of attractors) a.init();
+	    			canvas.frame = 0;
+	    		}
+	    	};
+	    	const ctx = canvas.init();
+	    	const attractors = Array.from({ length: 8 }, () => new Particle());
+	    	const particles = Array.from({ length: 4000 }, () => new Particle());
+	    	canvas.reset();
+	    	const run = () => {
+	    		requestAnimationFrame(run);
+	    		if (canvas.frame++ < 1000) {
+	    			for (const p of particles) p.step();
+	    		}
+	    	};
+	    	run();
+		}
+		//------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+    #form_container__ID{
+		overflow: hidden;
+	}
+</style>
