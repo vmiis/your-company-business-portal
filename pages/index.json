@@ -121,9 +121,6 @@
 "pie-chart-001-form":   {"table_id":"20009702","v3":"18041801","url":"reports/pie-chart-001-form.html"},
 
 "aerial":					{"url":"__HOST__/distributed-modules/bridge.html","path":"template/aerial/index.html","page":""},
-"my-first-bootstrap-page":	{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"my-first-bootstrap-page.html"},
-"dark-table":				{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"dark-table.html"},
-"carousel":					{"url":"__HOST__/distributed-modules/bridge.html","path":"bootstrap4/examples/index.html","page":"carousel.html"},
 
 "cogs-codepen":	    {"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/codevember-9-infinite-scrolling-cogs","page":""},
 "lately-codepen":	{"url":"__HOST__/distributed-modules/bridge.html","path":"codepen/lately","page":""},

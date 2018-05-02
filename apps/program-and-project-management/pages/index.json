@@ -1,0 +1,29 @@
+{
+    "modules":
+	{
+        "site-list-data": {"table_id":"20000513",                "url":"setup/site-list-data.html","form_module":"site-list-form"},
+        "site-list-form": {"table_id":"20000513",                "url":"setup/site-list-form.html"},
+        "document-type-data": {"table_id":"20000022",            "url":"setup/document-type-data.html","form_module":"document-type-form"},
+        "document-type-form": {"table_id":"20000022",            "url":"setup/document-type-form.html"},
+        "region-list-data": {"table_id":"20000018",            "url":"setup/region-list-data.html","form_module":"region-list-form"},
+        "region-list-form": {"table_id":"20000018",            "url":"setup/region-list-form.html"},
+        "country-list-data": {"table_id":"20000021",            "url":"setup/country-list-data.html","form_module":"country-list-form"},
+        "country-list-form": {"table_id":"20000021",            "url":"setup/country-list-form.html"},
+        "sector-list-data": {"table_id":"20000020",            "url":"setup/sector-list-data.html","form_module":"sector-list-form"},
+        "sector-list-form": {"table_id":"20000020",            "url":"setup/sector-list-form.html"},
+        "location-list-data": {"table_id":"20003861",            "url":"setup/location-list-data.html","form_module":"location-list-form"},
+        "location-list-form": {"table_id":"20003861",            "url":"setup/location-list-form.html"},
+        "funding-source-list-data": {"table_id":"20000019",            "url":"setup/funding-source-list-data.html","form_module":"funding-source-list-form"},
+        "funding-source-list-form": {"table_id":"20000019",            "url":"setup/funding-source-list-form.html"},
+        "theme-list-data": {"table_id":"20009703",            "url":"setup/theme-list-data.html","form_module":"theme-list-form"},
+        "theme-list-form": {"table_id":"20009703",            "url":"setup/theme-list-form.html"},
+        "ia-data": {"table_id":"20009704",            "url":"setup/ia-list-data.html","form_module":"ia-form"},
+        "ia-form": {"table_id":"20009704",            "url":"setup/ia-list-form.html"},
+        "drr-data": {"table_id":"20009705",            "url":"setup/drr-list-data.html","form_module":"drr-form"},
+        "drr-form": {"table_id":"20009705",            "url":"setup/drr-list-form.html"},
+        "approval-status-data": {"table_id":"20000685",            "url":"setup/approval-status-data.html","form_module":"approval-status-form"},
+        "approval-status-form": {"table_id":"20000685",            "url":"setup/approval-status-form.html"},
+        "program-list-data": {"table_id":"20000013",            "url":"setup/program-list-data.html","form_module":"program-list-form"},
+        "program-list-form": {"table_id":"20000013",            "url":"setup/program-list-form.html"}
+	}
+}
