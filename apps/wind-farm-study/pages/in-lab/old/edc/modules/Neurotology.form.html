@@ -1,0 +1,505 @@
+<section>
+    <html_toolbar>
+        <div id=toolbar__ID>
+            <a id=back__ID>Back</a> <a id=save__ID>Save & Back</a>
+        </div>
+    </html_toolbar>
+    <form id=F__ID>
+        <table id=tb__ID>
+
+            <thead style='background-color: #eee;'>
+            </thead>
+            <tbody>
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Participant</td><td data-id="Participant" style="min-width:200px" contenteditable="true" class="ui-autocomplete-input" autocomplete="off">hgf Male </td></tr>
+                <tr><td colspan="2"><b><center><br>Examination</center></b><br></td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Matted Romberg Test</td><td data-id="Romberg" style="min-width:200px">
+                <select style="border:1">
+                <option>Positive </option>
+                <option>Negative </option>
+                </select>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px"> Unterberger </td> <td input type="numbers" min="-360" max="360" data-id="Unterberger" style="min-width:200px" contenteditable="true">1</td></tr>
+
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Tandem Walking</td><td data-id="Tandem" style="min-width:200px">
+                <select style="border:1">
+                <option value="1">Normal</option>
+                <option value="2">Abnormal</option>
+                </select></td></tr>
+
+                <tr> <td style="background-color:#C6C6C6;min-width:120px"><b>Comments</b></td><td data-id ="examcomments"><br><br></td></tr>
+
+                <tr><td colspan="2"><b><center><br>Videonystagmography (VNG)</center></b><br></td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Spontaneous Nystagmus (Vision Denied)</td><td data-id="Spon_VNG" style="min-width:200px" >
+                <!--select style="border:1">
+                <option value="1" style="min-width:500px" >Nil</option>
+                <option value="2" style="min-width:500px"> N/A </option>
+                <option value="3" style="min-width:500px">Right Beating </option>
+                <option value="4" style="min-width:500px">Left Beating</option>
+                <option value="5" style="min-width:500px">Up Beating </option>
+                <option value="6" style="min-width:500px">Down Beating </option>
+                <option value="7" style="min-width:500px">Right and up Beating </option>
+                <option value="8" style="min-width:500px">Left and up Beating </option>
+                <option value="9" style="min-width:500px">Right and Down Beating </option>
+                <option value="10" style="min-width:500px">Left and Down Beating </option-->
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description" style="min-width:200px">
+                </td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Right Gaze (Vision Denied)</td><td  data-id="R_Gaze_VNG" style="min-width:200px" >
+
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_RG" style="min-width:200px">
+                </td></tr>
+
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Left Gaze (Vision Denied)</td><td data-id="L_Gaze_VNG" style="min-width:200px">
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_LG" style="min-width:200px">
+                </td></tr>
+
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Headshaking Nystagmus (Vision Denied)</td><td data-id="Headshake_VNG" style="min-width:200px" >
+                <select style="border:1">
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_HS" style="min-width:200px">
+                </td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Left DixHallpike (Vision Denied)</td><td  data-id="L_DixHallPike" style="min-width:200px">
+                <select style="border:1" >
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_LDHP" style="min-width:200px">
+                </td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Right DixHallpike (Vision Denied)</td><td data-id="R_Dixhallpike" style="min-width:200px">
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_RDHP" style="min-width:200px">
+                </td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Supine (Vision Denied)</td><td data-id="Supine" style="min-width:200px" >
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_Supine" style="min-width:200px">
+                </td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Left Head Roll (Vision Denied)</td><td  data-id="L_Head_Roll" style="min-width:200px">
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_LHR" style="min-width:200px">
+                </td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px">Right Head Roll (Vision Denied)</td><td data-id="R_Head_Roll" style="min-width:200px">
+
+                <tr><tr><td style="background-color:#C6C6C6;min-width:120px">Nystagmus Description</td><td data-id="Nystag_description_RHR" style="min-width:200px">
+                </td></tr>
+
+
+                <tr><td colspan="2"><b><center><br>Otoscopic Inspection</center></b><br></td></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">Otoscopy</td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_Otoscopy" style="min-width:200px">
+                      <select style="border:1">
+                      <option value="1" style="min-width:500px">NAD</option>
+                      <option value="2" style="min-width:500px">Wax Occlusion </option>
+                      <option value="3" style="min-width:500px">Non-Occluding Wax</option>
+                      <option value="4" style="min-width:500px">Middle Ear Pathology</option>
+                  </select></td></tr>
+
+
+                <tr><td><b>Left ear</b></td><td data-id="L_Otoscopy" style="min-width:200px">
+                      <select style="border:1">
+                      <option value="1" style="min-width:500px">NAD</option>
+                      <option value="2" style="min-width:500px">Wax Occlusion </option>
+                      <option value="3" style="min-width:500px">Non-Occluding Wax</option>
+                      <option value="4" style="min-width:500px">Middle Ear Pathology</option>
+                  </select></td></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comments</b></td><td data-id="Otocomment"></td></tr>
+                <br><br>
+                <tr><td colspan="2"><b><center><br>Tympanometry</center></b><br></td></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">Static Compliance (mmho)</td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_Static_compliance"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_Static_compliance"></td></tr>
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">Middle Ear Pressure Left (daPa)</td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_Middle_ear_presssure"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_Middle_ear_presssure"></td></tr>
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">Ear Canal Volume (cc)</td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_Ear_Canal_Volume"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_Ear_Canal_Pressure"></td></tr>
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comments</b></td><td data-id="Tympcomment"></td></tr>
+
+                <tr><td colspan="2"><b><center><br>Pure Tone Audiometry (PTA AC250Hz-AC8000Hz)</center></b><br></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px" >PTA AC250Hz</td><td>Masked &nbsp <input type="checkbox" data-custom=1 data-id="MaskedAC250"> </td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC250Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC250Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC500Hz</td><td>Masked &nbsp <input type="checkbox" data-custom=1 data-id="MaskedAC500" ></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC500Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC500Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC1000Hz</td><td> Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedAC1000"></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC1000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC1000Hz"></td></tr>
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC1500Hz</td><td> Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedAC1500" ></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC1500Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC1500Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC2000Hz</td><td>Masked &nbsp <input type="checkbox" data-custom=1 data-id="MaskedAC2000" ></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC2000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC2000Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC3000Hz</td><td>Masked &nbsp <input type="checkbox" data-custom=1 data-id="MaskedAC3000" ></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC3000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC3000Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC4000Hz</td><td>Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedAC4000" ></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC4000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC4000Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC6000Hz</td><td> Masked &nbsp <input type="checkbox" data-custom=1 data-id="MaskedAC6000" ></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC6000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC6000Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA AC8000Hz</td><td> Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedAC8000" ></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_AC8000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_AC8000Hz"></td></tr>
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comment</b></td><td data-id=ACPTACOMMENT></td></tr>
+
+                <tr><td colspan="2"><b><center><br>Pure Tone Audiometry (PTA BC500Hz-BC4000Hz)</center></b><br></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA BC500Hz</td><td>Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedBC500"></td> </tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_BC500Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_BC500Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA BC1000Hz</td><td>Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedBC1000"></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_BC1000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_BC1000Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA BC1500Hz</td><td>Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedBC1500"></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_BC1500Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_BC1500Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA BC2000Hz</td><td>Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedBC2000"></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_BC2000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_BC2000Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA BC3000Hz</td><td>Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedBC3000"></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_BC3000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_BC3000Hz"></td></tr>
+
+                <tr><td colspan="1" style="background-color:#C6C6C6;min-width:120px">PTA BC4000Hz</td><td>Masked &nbsp<input type="checkbox" data-custom=1 data-id="MaskedBC4000"></td></tr>
+                <tr><td><b>Right ear</b></td><td data-id="R_PTA_BC4000Hz"></td></tr>
+                <tr><td><b>Left ear</b></td><td data-id="L_PTA_BC4000Hz"></td></tr>
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comment</b></td><td data-id=BCPTACOMMENT></td></tr>
+
+                <tr><td colspan="2"><b><center><br>Transient Evoked Otoacoustic Emissions (TEOAE)</center></b><br></td></tr>
+
+                <tr><td colspan="2"style="background-color:#C6C6C6;min-width:120px">TEOAE 1000Hz</td></tr>
+                <!--<tr><td><b>Right ear</b></td>
+                <td data-id="R_TEOAE_1000Hz">
+                <select>
+                <option value="1" style="min-width:500px">Present </option>
+                <option value="2" style="min-width:500px">Not Present </option>
+              </select></tr></td>-->
+
+              <tr><td><b>Right Signal</b></td><td data-id="R_TEOAE_1000Hz"></tr>
+              <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_TEOAE_1000Hz"></tr>
+              <tr><td><b>Left Signal</b></td><td data-id="L_TEOAE_1000Hz"></tr>
+              <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_TEOAE_1000Hz"></tr>
+
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">TEOAE 1400Hz</td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_TEOAE_1400Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_TEOAE_1400Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_TEOAE_1400Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_TEOAE_1400Hz"></tr>
+
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">TEOAE 2000Hz</td></td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_TEOAE_2000Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_TEOAE_2000Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_TEOAE_2000Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_TEOAE_2000Hz"></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">TEOAE 2800Hz</td></td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_TEOAE_2800Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_TEOAE_2800Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_TEOAE_2800Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_TEOAE_2800Hz"></tr>
+
+                <tr><td colspan="2"  style="background-color:#C6C6C6;min-width:120px">TEOAE 4000Hz</td></td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_TEOAE_4000Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_TEOAE_4000Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_TEOAE_4000Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_TEOAE_4000Hz"></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comment</b></td><td data-id=TEOAECOMMENT></td></tr>
+
+                <!-----------------------DPOAE---------------------------->
+
+                <tr><td colspan="2"><b><center><br>Distortion Product Otoacoustic Emissions(DPOAE)</center></b><br></td></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">DPOAE 500Hz</td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_DPOAE_500Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_DPOAE_500Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_DPOAE_500Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_DPOAE_500Hz"></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">DPOAE 1000Hz</td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_DPOAE_1000Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_DPOAE_1000Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_DPOAE_1000Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_DPOAE_1000Hz"></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">DPOAE 2000Hz</td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_DPOAE_2000Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="R_DPOAE_2000Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_DPOAE_2000Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_DPOAE_2000Hz"></tr>
+
+                <tr><td colspan="2"style="background-color:#C6C6C6;min-width:120px">DPOAE 3000Hz</td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_DPOAE_3000Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_DPOAE_3000Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_DPOAE_3000Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_DPOAE_3000Hz"></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">DPOAE 4000Hz</td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_DPOAE_4000Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_DPOAE_4000Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_DPOAE_4000Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_DPOAE_4000Hz"></tr>
+
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">DPOAE 6000Hz</td></tr>
+                <tr><td><b>Right Signal</b></td><td data-id="R_DPOAE_6000Hz"></tr>
+                <tr><td><b>Right Signal to Noise Ratio</b></td><td data-id="RSNR_DPOAE_6000Hz"></tr>
+                <tr><td><b>Left Signal</b></td><td data-id="L_DPOAE_6000Hz"></tr>
+                <tr><td><b>Left Signal to Noise Ratio</b></td><td data-id="LSNR_DPOAE_6000Hz"></tr>
+
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comment</b></td><td data-id=DPOAECOMMENT></td></tr>
+
+                <!--Ocular VEMPS-->
+
+                <tr><td colspan="2"><b><center><br>Ocular Vestibular Evoked Myogenic Potentials (oVEMP)</center></b><br></td></tr>
+
+
+                  <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Right Ear -BC oVEMP</b></td></tr>
+                <tr><td>pp Amp (Bc oVEMP)</td><td data-id=R_pp_BCoVEMP></td></tr>
+                <tr><td>n10 Latency (Bc oVEMP)</td><td data-id=R_NLatency_BCoVEMP></td></tr>
+                <tr><td>p15 Latency (Bc oVEMP)</td><td data-id=R_PLatency_oVEMP></td></tr>
+                  <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Right Ear- AC oVEMp</b></td></tr>
+                <tr><td>pp Amp (AC oVEMP)</td><td data-id=R_pp_ACoVEMP></td></tr>
+                <tr><td>N10 Latency (AC oVEMP)</td><td data-id=R_NLatency_ACoVEMP></td></tr>
+
+
+                  <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Left Ear -BC oVEMP</b></td></tr>
+                <tr><td>pp Amp (Bc oVEMP)</td><td data-id=L_pp_BCoVEMP></td></tr>
+                <tr><td>n10 Latency (Bc oVEMP)</td><td data-id=L_NLatency_BCoVEMP></td></tr>
+                <tr><td>p15 Latency (Bc oVEMP)</td><td data-id=L_PLatency_oVEMP></td></tr>
+                  <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Left Ear -AC oVEMP</b></td></tr>
+                <tr><td>pp Amp (AC oVEMP)</td><td data-id=L_pp_ACoVEMP></td></tr>
+                <tr><td>N10 Latency (AC oVEMP)</td><td data-id=L_NLatency_ACoVEMP></td></tr>
+                  <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>AR% Difference</b></td></tr>
+                <tr><td>pp AMP (BC oVEMP) - AR% Difference</td><td data-id="BCOVEMP_AR"></td></tr>
+                <tr><td>pp AMP (AC oVEMP) - AR% Difference</td><td data-id="ACOVEMP_AR"></td></tr>
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comment</b></td><td data-id="BCOARVEMPCOMMENT"></td></tr>
+
+
+                <tr><td colspan="2"><b><center><br>Cervical Vestibular Evoked Myogenic Potentials (cVEMP)</center></b><br></td></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Right Ear AC cCVEMP</b></td></tr>
+                <tr><td>Corrected Amp (AC cVEMP)</td><td data-id=R_Corrected_ACCVEMP></td></tr>
+                <tr><td>p13 latency (AC cVEMP)</td><td data-id=R_PLatency_ACCVEMP></td></tr>
+                <tr><td>n23 latency (AC cVEMP)</td><td data-id=R_NLatency_ACCVEMP></td></tr>
+                <tr><td>Mean Rect EMG (AC cVEMP)</td><td data-id=R_MRE_ACCVEMP></td></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Right Ear BC cCVEMP</b></td></tr>
+
+                <tr><td>Corrected Amp (BC cVEMP)</td><td data-id=R_Corrected_BCCVEMP></td></tr>
+                <tr><td>p13 latency (BC cVEMP)</td><td data-id=R_PLatency_BCCVEMP></td></tr>
+                <tr><td>n23 latency (BC cVEMP)</td><td data-id=R_NLatency_BCCVEMP></td></tr>
+                <tr><td>Mean Rect EMG (BC cVEMP)</td><td data-id=R_MRE_BCCVEMP></td></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Left Ear AC cCVEMP</b></td></tr>
+                <tr><td>Corrected Amp (AC cVEMP)</td><td data-id=L_Corrected_ACVEMP></td></tr>
+                  <tr><td>p13 latency (AC cVEMP)</td><td data-id=L_PLatency_ACcVEMP></td></tr>
+                  <tr><td>n23 latency (AC cVEMP)</td><td data-id=L_NLatency_ACcVEMP></td></tr>
+                  <tr><td>Mean Rect EMG (AC cVEMP)</td><td data-id=L_MRE_ACcVEMP></td></tr>
+
+                  <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>Left Ear BC cCVEMP</b></td></tr>
+                  <tr><td>Corrected Amp (BC cVEMP)</td><td data-id=L_Corrected_BCCVEMP></td></tr>
+                  <tr><td>p13 latency (BC cVEMP)</td><td data-id=L_PLatency_BCCVEMP></td></tr>
+                  <tr><td>n23 latency (BC cVEMP)</td><td data-id=L_NLatency_BCCVEMP></td></tr>
+                  <tr><td>Mean Rect EMG (BC cVEMP)</td><td data-id=L_MRE_BCCVEMP></td></tr>
+
+                  <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px"><b>AR% Difference</b></td></tr>
+                  <tr><td>pp AMP (BC cVEMP) - AR% Difference</td><td data-id="BCCVEMP_AR"></td></tr>
+                  <tr><td>pp AMP (AC cVEMP) - AR% Difference</td><td data-id="ACCVEMP_AR"></td></tr>
+                  <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comment</b></td><td data-id="BCOARVEMPCOMMENT"></td></tr>
+
+
+                <tr><td colspan="2"><b><center><br>Video Head Impulse Test (vHIT)</center></b><br></td></tr>
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">Lateral VHIT</td></tr>
+                <tr><td><b>Right Gain</b></td><td data-id="L_VHIT_RIGHTGAIN"></td></tr>
+                <!--tr><td><b>Saccades</b></td><td data-id="L_VHIT_RIGHTGAIN_SACCADES"></td></tr-->
+                <tr><td><b>Saccades</b></td><td> <input type="checkbox" data-custom=1 data-id="L_VHIT_RIGHTGAIN_SACCADES"></td>
+                <tr><td><b>Left Gain</b></td><td data-id="L_VHIT_LEFTGAIN"></td></tr>
+                <!--tr><td><b>Saccades</b></td><td data-id="L_VHIT_LEFTGAIN_SACCADES"></td></tr-->
+                <tr><td><b>Saccades</b></td><td> <input type="checkbox" data-custom=1 data-id="L_VHIT_LEFTGAIN_SACCADES"></td>
+
+                <tr><td colspan="2"style="background-color:#C6C6C6;min-width:120px">Anterior VHIT</td></tr>
+                <tr><td><b>Right Gain</b></td><td data-id="A_VHIT_RIGHTGAIN"></td></tr>
+                <!--tr><td><b>Saccades</b></td><td data-id="A_VHIT_RIGHTGAIN_SACCADES"></td></tr-->
+                <tr><td><b>Saccades</b></td><td> <input type="checkbox" data-custom=1 data-id="R_VHIT_RIGHTGAIN_SACCADES"></td>
+                <tr><td><b>Left Gain</b></td><td data-id="A_VHIT_LEFTGAIN"></td></tr>
+                <!--tr><td><b>Saccades</b></td><td data-id="A_VHIT_LEFTGAIN_SACCADES"></td></tr-->
+                <tr><td><b>Saccades</b></td><td> <input type="checkbox" data-custom=1 data-id="R_VHIT_LEFTGAIN_SACCADES"></td>
+
+
+                <tr><td colspan="2" style="background-color:#C6C6C6;min-width:120px">Posterior VHIT</td></tr>
+
+               <tr><td><b>Right Gain</b></td><td data-id="P_VHIT_RIGHTGAIN"></td></tr>
+                <!--tr><td><b>Saccades</b></td><td data-id="P_VHIT_RIGHTGAIN_SACCADES"></td></tr-->
+                <tr><td><b>Saccades</b></td><td> <input type="checkbox" data-custom=1 data-id="P_VHIT_RIGHTGAIN_SACCADES"></td>
+
+                <tr><td><b>Left Gain</b></td><td data-id="P_VHIT_LEFTGAIN"></td></tr>
+                <!--tr><td><b>Saccades</b></td><td data-id="P_VHIT_LEFTGAIN_SACCADES"></td></tr-->
+                <tr><td><b>Saccades</b></td><td> <input type="checkbox" data-custom=1 data-id="P_VHIT_LEFTGAIN_SACCADES"></td>
+                <tr><td style="background-color:#C6C6C6;min-width:120px"><b>Comment</b></td><td data-id=VHITCOMMENT></td></tr>
+                <tr><td colspan="2"></tr></td>
+                <tr><td colspan="2"><b><center><br>Overall Comments</center></b><br></td></tr>
+                <tr><td colspan="2" data-id=OverallComment style="width:800px; height:150px"></td></tr>
+
+
+
+
+            </tbody>
+        </table>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //---------------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/grid/form.js
+        
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            //_build_form();
+            _field_process();
+            custom_field_process();
+            $('#save__ID').show(); if(_save_style=='none') $('#save__ID').hide();
+        });
+        //---------------------------------------------
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case 'MaskedAC250':
+                    case 'MaskedAC500':
+                    case 'MaskedAC1000':
+                    case 'MaskedAC1500':
+                    case 'MaskedAC2000':
+                    case 'MaskedAC3000':
+                    case 'MaskedAC4000':
+                    case 'MaskedAC6000':
+                    case 'MaskedAC8000':
+                    case 'MaskedBC500':
+                    case 'MaskedBC1000':
+                    case 'MaskedBC1500':
+                    case 'MaskedBC2000':
+                    case 'MaskedBC3000':
+                    case 'MaskedBC4000':
+                    case 'BCOVEMPRIGHTDELAY':
+                    case 'BCOVEMPLEFTDELAY':
+                    case 'ACOVEMPRIGHTDELAY':
+                    case 'ACOVEMPLEFTDELAY':
+                    case 'ACCVEMPRIGHTDELAY':
+                    case 'ACCVEMPLEFTDELAY':
+                    case 'BCCVEMPRIGHTDELAY':
+                    case 'BCCVEMPLEFTDELAY':
+
+
+
+
+
+
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+    }
+</script>
+
+<style>
+    #toolbar__ID *{
+        margin:0;
+        padding:0;
+        vertical-align:middle;
+    }
+    #toolbar__ID{
+        padding:6px;
+        background-color:#ddd;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size:11pt;
+        border-bottom: 1px solid #aaa;
+    }
+    #toolbar__ID a{
+        background-color:#697b7b;
+        border:0px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font: 9pt/30px Arial;
+        padding-left:15px;
+        padding-right:15px;
+        text-decoration:none;
+        text-shadow:1px 1px 0px #2f6627;
+        -moz-border-radius:8px;
+        -webkit-border-radius:8px;
+        border-radius:8px;
+        transition: all 0.2s ease-in-out;
+    }
+    #toolbar__ID a:hover {
+    	background-color:#525959;
+    }
+    #tb__ID{
+        /*min-width:100px;*/
+        border-collapse:collapse; ;
+    }
+    #tb__ID td{
+        border:1px solid #000;
+        padding:6px;
+    }
+    #title__ID{
+        font-weight:700;
+    }
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        #tb__ID, #tb__ID * {
+            visibility: visible;
+        }
+        #tb__ID {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+</style>

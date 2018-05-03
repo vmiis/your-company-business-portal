@@ -1,0 +1,41 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+		/*
+        var _task_fields="sleep_med,sleep_suppl,past6_aspirin,curr_aspirin,past6_fentanyl,curr_fentanyl,past6_hydromorphone,curr_hydromorphone,past6_ibuprofen,curr_ibuprofen,past6_ibuprofen_co,curr_ibuprofen_co,past6_morphine,curr_morphine,past6_oxycodone,curr_oxycodone,past6_paracetamol,curr_paracetamol,past6_paracetamol_co,curr_paracetamol_co,past6_tramadol,curr_tramadol,past6_antihistamine,curr_antihistaminee,past6_pseudoephedrine,curr_pseudoephedrine,past6_betamethasone,curr_betamethasone,past6_celecoxib,curr_celecoxib,past6_diclofenac,curr_diclofenac,past6_indomethacin,curr_indomethacin,past6_meloxicam,curr_meloxicam,past6_naproxen,curr_naproxen,past6_prednisolone,curr_prednisolone,past6_prednisone,curr_prednisone,past6_alprazolam,curr_alprazolam,past6_clonazepam,curr_clonazepam,past6_diazepam,curr_diazepam,past6_flunitrazepam,curr_flunitrazepam,past6_lorazepam,curr_lorazepam,past6_melatonin,curr_melatonin,past6_nitrazepam,curr_nitrazepam,past6_oxazepam,curr_oxazepam,past6_tema...n,curr_pregabalin,past6_primidone,curr_primidone,past6_valproate,curr_valproate,past6_tiagabine,curr_tiagabine,past6_thyroxine,curr_thyroxine,past6_amoxycillin,curr_amoxycillin,past6_amox_clav,curr_amox_clav,past6_cephalexin,curr_cephalexin,past6_chloramphenicol,curr_chloramphenicol,past6_roxithromycin,curr_roxithromycin,past6_esomeprazole,curr_esomeprazole,past6_omeprazole,curr_omeprazole,past6_pantoprazole,curr_pantoprazole,past6_rabeprazol,curr_rabeprazol,past6_ranitidine,curr_ranitidine,past6_gliclazide,curr_gliclazide,past6_insulin,curr_insulin,past6_metformin,curr_metformin,past6_met_gliben,curr_met_gliben,past6_pioglitazone,curr_pioglitazone,past6_rosiglitazone,curr_rosiglitazone,past6_cyp_ethin,curr_cyp_ethin,past6_drosp_ethin,curr_drosp_ethin,past6_levon_ethin,curr_levon_ethin,past6_topical_steroids,curr_topical_steroids,past6_other_hormonal_contraception,curr_other_hormonal_contraception,past6_sex_steroids,curr_sex_steroids,past6_herbal_remedies,curr_herbal_remedies,add_med";
+		*/
+		var _task_fields="sleep_med,sleep_suppl,past6_aspirin,curr_aspirin,past6_fentanyl,curr_fentanyl,past6_hydromorphone,curr_hydromorphone,past6_ibuprofen,curr_ibuprofen,past6_ibuprofen_co,curr_ibuprofen_co,past6_morphine,curr_morphine,past6_oxycodone,curr_oxycodone,past6_paracetamol,curr_paracetamol,past6_paracetamol_co,curr_paracetamol_co,past6_tramadol,curr_tramadol,past6_antihistamine,curr_antihistamine,past6_pseudoephedrine,curr_pseudoephedrine,past6_betamethasone,curr_betamethasone,past6_celecoxib,curr_celecoxib,past6_diclofenac,curr_diclofenac,past6_indomethacin,curr_indomethacin,past6_meloxicam,curr_meloxicam,past6_naproxen,curr_naproxen,past6_prednisolone,curr_prednisolone,past6_prednisone,curr_prednisone,past6_alprazolam,curr_alprazolam,past6_clonazepam,curr_clonazepam,past6_diazepam,curr_diazepam,past6_flunitrazepam,curr_flunitrazepam,past6_lorazepam,curr_lorazepam,past6_melatonin,curr_melatonin,past6_nitrazepam,curr_nitrazepam,past6_oxazepam,curr_oxazepam,past6_temazepam,curr_temazepam,past6_zopiclone,curr_zopiclone,past6_zolpidem,curr_zolpidem,past6_agomelatine,curr_agomelatine,past6_citalopram,curr_citalopram,past6_escitalopram,curr_escitalopram,past6_fluoxetine,curr_fluoxetine,past6_lithium,curr_lithium,past6_mirtazapine,curr_mirtazapine,past6_paroxetine,curr_paroxetine,past6_sertraline,curr_sertraline,past6_venlafaxine,curr_venlafaxine,past6_dexamphetamine,curr_dexamphetamine,past6_methylpenidate,curr_methylpenidate,past6_modafinil,curr_modafinil,past6_phentermine,curr_phentermine,past6_aldomet,curr_aldomet,past6_amiodarone,curr_amiodarone,past6_amlodipine,curr_amlodipine,past6_atenolol,curr_atenolol,past6_candesartan,curr_candesartan,past6_captopril,curr_captopril,past6_carvedilol,curr_carvedilol,past6_diltiazem,curr_diltiazem,past6_disopyramide,curr_disopyramide,past6_enalapril,curr_enalapril,past6_felodipine,curr_felodipine,past6_fosinopril,curr_fosinopril,past6_irbesartan,curr_irbesartan,past6_lisinopril,curr_lisinopril,past6_metoprolol,curr_metoprolol,past6_nifedipine,curr_nifedipine,past6_olmesartan,curr_olmesartan,past6_perindopril,curr_perindopril,past6_propranolol,curr_propranolol,past6_ramipril,curr_ramipril,past6_telmisartan,curr_telmisartan,past6_warfarin,curr_warfarin,past6_atorvastatin,curr_atorvastatin,past6_ezet_atorva,curr_ezet_atorva,past6_ezetimibe,curr_ezetimibe,past6_pravastatin,curr_pravastatin,past6_rosuvastatin,curr_rosuvastatin,past6_simvastatin,curr_simvastatin,past6_simv_eze,curr_simv_eze,past6_aclidinium,curr_aclidinium,past6_budesonide,curr_budesonide,past6_bud_eform,curr_bud_eform,past6_ciclesonide,curr_ciclesonide,past6_fluticasone,curr_fluticasone,past6_flut_eform,curr_flut_eform,past6_flut_salm,curr_flut_salm,past6_glycopyrronium,curr_glycopyrronium,past6_indacterol,curr_indacterol,past6_salbutamol,curr_salbutamol,past6_tiotropium,curr_tiotropium,past6_chlorpromazine,curr_chlorpromazine,past6_haloperidol,curr_haloperidol,past6_olanzapine,curr_olanzapine,past6_quetiapine,curr_quetiapine,past6_risperidone,curr_risperidone,past6_benztropine,curr_benztropine,past6_bromocriptine,curr_bromocriptine,past6_cabergoline,curr_cabergoline,past6_gabapentin,curr_gabapentin,past6_hyoscyamine,curr_hyoscyamine,past6_levodopa,curr_levodopa,past6_phenytoin,curr_phenytoin,past6_pramipexole,curr_pramipexole,past6_ropinirole,curr_ropinirole,past6_other_rl_parkinson,curr_other_rl_parkinson,past6_selegiline,curr_selegiline,past6_carnamazepine,curr_carnamazepine,past6_ethosuximide,curr_ethosuximide,past6_phenobarbitone,curr_phenobarbitone,past6_epi_gabapentin,curr_epi_gabapentin,past6_lamotrigine,curr_lamotrigine,past6_epi_phenytoin,curr_epi_phenytoin,curr_pregabalin,past6_primidone,curr_primidone,past6_valproate,curr_valproate,past6_tiagabine,curr_tiagabine,past6_thyroxine,curr_thyroxine,past6_amoxycillin,curr_amoxycillin,past6_amox_clav,curr_amox_clav,past6_cephalexin,curr_cephalexin,past6_chloramphenicol,curr_chloramphenicol,past6_roxithromycin,curr_roxithromycin,past6_esomeprazole,curr_esomeprazole,past6_omeprazole,curr_omeprazole,past6_pantoprazole,curr_pantoprazole,past6_rabeprazol,curr_rabeprazol,past6_ranitidine,curr_ranitidine,past6_gliclazide,curr_gliclazide,past6_insulin,curr_insulin,past6_metformin,curr_metformin,past6_met_gliben,curr_met_gliben,past6_pioglitazone,curr_pioglitazone,past6_rosiglitazone,curr_rosiglitazone,past6_cyp_ethin,curr_cyp_ethin,past6_drosp_ethin,curr_drosp_ethin,past6_levon_ethin,curr_levon_ethin,past6_topical_steroids,curr_topical_steroids,past6_other_hormonal_contraception,curr_other_hormonal_contraception,past6_sex_steroids,curr_sex_steroids,past6_herbal_remedies,curr_herbal_remedies,add_med"
+
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+VmInclude:__COMPONENT__/grid/grid.v3.css
+ul.ui-autocomplete.ui-menu{font-size:12px}
+.ui-autocomplete li:hover{
+    color:White;
+    background:#96B202;
+    font-weight:normal;
+    outline:none;
+}
+</style>

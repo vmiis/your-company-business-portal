@@ -1,0 +1,158 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:650px;'>
+            <colgroup><col />
+                <col style='width:50px' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+                <col style='width:100px' />
+            </colgroup>
+
+            <tr><td colspan=6 class='header__ID'>Consent</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=6 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=6>Dear Sir/Madam,
+            <br><br>
+            Taking part in this research is completely voluntary and all information obtained in this questionnaire will be kept confidential and de-identified prior to any research use. Any research information will be de-identified and stored completely anonymously and separate from your personal information on a CRC database with the same high level of security as your personal medical record. Your information will not be provided to any third party unless required by law.        <br><br>
+            <br>
+            If you have any concerns or questions we encourage you to contact our research team on <label id=_phone ></label>  as early as possible prior to your study date.        <br><br>
+            <br>
+        </td></tr>
+            <tr><td colspan=6>
+                    <b>I have read and understood the above information and:</b>
+
+            <br><br>Please select<br>
+            <input class=modified_radio__ID name=consent id=consent type=radio value=Yes \>Yes, I agree to participate in this research study and I understand that I may be contacted and<br><span class=C__ID__rb> invited to participate in future research if I am deemed eligible</span><br><br>
+            <input class=modified_radio__ID name=consent type=radio value=No>No, I do not wish to take part in this or future research
+            <br><br><i>
+            By selecting ‘Yes’, you are stating that you understand the information provided and give consent for your de-identified responses to be used for research purposes. You understand that your participation in this research study is entirely voluntary, you are under no obligation to participate and you can withdraw at any time. You also understand that all data collected under this research study is strictly confidential.</i>.
+            <br><br>
+            </td></tr>        </table>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "ISI_1a":
+                    case "ISI_1b":
+                    case "ISI_1c":
+                    case "ISI_2":
+                    case "ISI_3":
+                    case "ISI_4":
+                    case "ISI_5":
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if( $('#tb__ID').find('input[name=ISI_1a]:checked').val()===undefined){ alert("Please answer question 1a"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_1b]:checked').val()===undefined){ alert("Please answer question 1b"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_1c]:checked').val()===undefined){ alert("Please answer question 1c"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_2]:checked').val()===undefined){ alert("Please answer question 2"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_3]:checked').val()===undefined){ alert("Please answer question 3"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_4]:checked').val()===undefined){ alert("Please answer question 4"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_5]:checked').val()===undefined){ alert("Please answer question 5"); return false; }
+        	var v2=parseInt($('#tb__ID').find('input[name=ISI_1a]:checked').val());
+        	var v3=parseInt($('#tb__ID').find('input[name=ISI_1b]:checked').val());
+        	var v4=parseInt($('#tb__ID').find('input[name=ISI_1c]:checked').val());
+        	var v5=parseInt($('#tb__ID').find('input[name=ISI_2]:checked').val());
+        	var v6=parseInt($('#tb__ID').find('input[name=ISI_3]:checked').val());
+        	var v7=parseInt($('#tb__ID').find('input[name=ISI_4]:checked').val());
+        	var v8=parseInt($('#tb__ID').find('input[name=ISI_5]:checked').val());
+        	var v9=v2+v3+v4+v5+v6+v7+v8;
+            var v10=v2+v3+v4;
+            _records[I].ISI=v9;
+            _records[I].ISI_1=v10;
+            return true;
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID tr td:nth-child(2),
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    #tb__ID tr td:nth-child(5),
+    #tb__ID tr td:nth-child(6)
+    {
+        text-align: center;
+        padding: 5px;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+</style>

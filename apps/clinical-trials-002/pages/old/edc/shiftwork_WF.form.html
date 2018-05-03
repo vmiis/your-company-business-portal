@@ -1,0 +1,385 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:750px;'>
+            <colgroup>
+                <col style='width:300px' />
+                <col style='width:150px' />
+                <col style='width:150px' />
+                <col style='width:150px' />
+            </colgroup>
+
+            <tr><td colspan=4 class='header__ID'>Shift work</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=4 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+            <tr>
+                <td colspan=4 class=subheader__ID ><br><b>Definition of shift work:</b> Shift work includes "rotating shifts, irregular shifts, evening shifts, afternoon shifts, morning shifts or split shifts".
+                    <br><br><b>Definition of night work:</b> at least 6 h on duty between 22:00 and 08:00
+                </td>
+            </tr>
+            <tr><td data-id=current_work data-custom=1>1. Are you currently a shift worker according to the definition above?</td><td colspan=3 style='padding:3px;text-align:left'><input class=modified_radio__ID type=radio value=1 name=current_work id=current_work ><label class=modified_number_yes__ID>Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class=modified_radio__ID type=radio value=0 name=current_work  ><label class=modified_number_yes__ID>No</label></td></tr>
+            <tr id=tr_curr_work>
+                <td data-id=shift_no data-custom=1>2. How many different types of shifts have you worked in the past month?</td><td colspan=3 style='padding:3px;text-align:left'>
+                    <input class=modified_radio_2__ID type=radio value=1 name=shift_no id=shift_no ><label class=modified_number_no__ID>1</label>&nbsp;&nbsp;&nbsp;
+                    <input class=modified_radio_2__ID type=radio value=2 name=shift_no  ><label class=modified_number_no__ID>2</label>&nbsp;&nbsp;&nbsp;
+                    <input class=modified_radio_2__ID type=radio value=3 name=shift_no  ><label class=modified_number_no__ID>3</label>&nbsp;&nbsp;&nbsp;
+                    <input class=modified_radio_2__ID type=radio value=4 name=shift_no  ><label class=modified_number_no__ID>4</label>&nbsp;&nbsp;&nbsp;
+                    <input class=modified_radio_2__ID type=radio value=5 name=shift_no  ><label class=modified_number_no__ID>5</label>&nbsp;&nbsp;&nbsp;
+                    <input class=modified_radio_2__ID type=radio value=6 name=shift_no  ><label class=modified_number_no__ID>6</label>&nbsp;&nbsp;&nbsp;
+                    <input class=modified_radio_2__ID type=radio value=7 name=shift_no  ><label class=modified_number_no__ID>7</label>&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+            <tr id=tr_shift_0><td colspan=4><br>3. Please enter the start time and end time for each of the your shifts you have worked in the past month.<br>Enter information on one line per shift using 24 hour clock<br><br></td>
+            <tr id=tr_shift_01>
+                <td ></td>
+                <td >Start Time</td>
+                <td >End Time</td>
+                <td >Total number of shifts of this type over the past month</td>
+            </tr>
+            <tr id=tr_shift1 >
+                <td >Type 1</td>
+                <td><input type=text class=input_box__ID name=shift_start1  data-custom=1 data-id=shift_start1 id=shift_start1 placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_end1  data-custom=1 data-id=shift_end1 id=shift_end1  placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_month1  data-custom=1 data-id=shift_month1 id=shift_month1  placeholder="# months"></td>
+            </tr>
+            <tr id=tr_shift2>
+                <td >Type 2</td>
+                <td><input type=text class=input_box__ID name=shift_start2  data-custom=1 data-id=shift_start2 id=shift_start2 placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_end2  data-custom=1 data-id=shift_end2 id=shift_end2  placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_month2  data-custom=1 data-id=shift_month2 id=shift_month2  placeholder="# months"></td>
+            </tr>
+            <tr id=tr_shift3>
+                <td >Type 3</td>
+                <td><input type=text class=input_box__ID name=shift_start3  data-custom=1 data-id=shift_start3 id=shift_start3 placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_end3  data-custom=1 data-id=shift_end3 id=shift_end3  placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_month3  data-custom=1 data-id=shift_month3 id=shift_month3  placeholder="# months"></td>
+            </tr>
+            <tr id=tr_shift4>
+                <td >Type 4</td>
+                <td><input type=text class=input_box__ID name=shift_start4  data-custom=1 data-id=shift_start4 id=shift_start4 placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_end4  data-custom=1 data-id=shift_end4 id=shift_end4  placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_month4  data-custom=1 data-id=shift_month4 id=shift_month4  placeholder="# months"></td>
+            </tr>
+            <tr id=tr_shift5>
+                <td >Type 5</td>
+                <td><input type=text class=input_box__ID name=shift_start5  data-custom=1 data-id=shift_start5 id=shift_start5 placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_end5  data-custom=1 data-id=shift_end5 id=shift_end5  placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_month5  data-custom=1 data-id=shift_month5 id=shift_month5  placeholder="# months"></td>
+            </tr>
+            <tr id=tr_shift6>
+                <td >Type 6</td>
+                <td><input type=text class=input_box__ID name=shift_start6  data-custom=1 data-id=shift_start6 id=shift_start6 placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_end6  data-custom=1 data-id=shift_end6 id=shift_end6  placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_month6  data-custom=1 data-id=shift_month6 id=shift_month6  placeholder="# months"></td>
+            </tr>
+            <tr id=tr_shift7>
+                <td >Type 7</td>
+                <td><input type=text class=input_box__ID name=shift_start7  data-custom=1 data-id=shift_start7 id=shift_start7 placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_end7  data-custom=1 data-id=shift_end7 id=shift_end7  placeholder="HH:MM"></td>
+                <td><input type=text class=input_box__ID name=shift_month7  data-custom=1 data-id=shift_month7 id=shift_month7  placeholder="# months"></td>
+            </tr>
+        </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+            react_changes();
+            display_page();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID tbody *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    //Radio buttons
+                    case 'current_work':
+                    case 'shift_no':
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                    //Checkbox
+                    case 'xxxxxxxx':
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                        });
+                    break;
+                    //Date picker
+                    case 'xxxxxxxx':
+                        $(this).val(_records[I][field]);
+                        $(this).datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true,onClose:function(dateText){
+                            _set_value($(this).val(),_records,I,field);
+                        }});
+                    break;
+                    //Text
+                    case 'shift_start1':
+                    case 'shift_start2':
+                    case 'shift_start3':
+                    case 'shift_start4':
+                    case 'shift_start5':
+                    case 'shift_start6':
+                    case 'shift_start7':
+                    case 'shift_end1':
+                    case 'shift_end2':
+                    case 'shift_end3':
+                    case 'shift_end4':
+                    case 'shift_end5':
+                    case 'shift_end6':
+                    case 'shift_end7':
+                    case 'shift_month1':
+                    case 'shift_month2':
+                    case 'shift_month3':
+                    case 'shift_month4':
+                    case 'shift_month5':
+                    case 'shift_month6':
+                    case 'shift_month7':
+                        $(this).val(_records[I][field]);
+                        $(this).on('change', function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        _before_submit_form=function(){
+            if( $('#tb__ID').find('input[name=shift_start1]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_start1]').val()!==''){ $vm.alert("Shift Start 1 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_start2]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_start2]').val()!=='' ){ $vm.alert("Shift Start 2 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_start3]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_start3]').val()!=='' ){ $vm.alert("Shift Start 3 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_start4]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_start4]').val()!=='' ){ $vm.alert("Shift Start 4 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_start5]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_start5]').val()!=='' ){ $vm.alert("Shift Start 5 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_start6]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_start6]').val()!=='' ){ $vm.alert("Shift Start 6 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_start7]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_start7]').val()!=='' ){ $vm.alert("Shift Start 7 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_end1]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_end1]').val()!=='' ){ $vm.alert("Shift End 1 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_end2]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_end2]').val()!=='' ){ $vm.alert("Shift End 2 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_end3]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_end3]').val()!=='' ){ $vm.alert("Shift End 3 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_end4]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_end4]').val()!=='' ){ $vm.alert("Shift End 4 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_end5]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_end5]').val()!=='' ){ $vm.alert("Shift End 5 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_end6]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_end6]').val()!=='' ){ $vm.alert("Shift End 6 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_end7]').val().match(/^(20|21|22|23|[01]\d|\d)(([:][0-5]\d){1,2})$/g)===null && $('#tb__ID').find('input[name=shift_end7]').val()!=='' ){ $vm.alert("Shift End 7 - Wrong format! Must be 24 hours clock"); return false;}
+            if( $('#tb__ID').find('input[name=shift_month1]').val().match(/^(\d{1,2})$/g)===null && $('#tb__ID').find('input[name=shift_month1]').val()!=='' ){ $vm.alert("Shift Number of Month 1 - Wrong format! A number 0..99"); return false;}
+            if( $('#tb__ID').find('input[name=shift_month2]').val().match(/^(\d{1,2})$/g)===null && $('#tb__ID').find('input[name=shift_month2]').val()!=='' ){ $vm.alert("Shift Number of Month 2 - Wrong format! A number 0..99"); return false;}
+            if( $('#tb__ID').find('input[name=shift_month3]').val().match(/^(\d{1,2})$/g)===null && $('#tb__ID').find('input[name=shift_month3]').val()!=='' ){ $vm.alert("Shift Number of Month 3 - Wrong format! A number 0..99"); return false;}
+            if( $('#tb__ID').find('input[name=shift_month4]').val().match(/^(\d{1,2})$/g)===null && $('#tb__ID').find('input[name=shift_month4]').val()!=='' ){ $vm.alert("Shift Number of Month 4 - Wrong format! A number 0..99"); return false;}
+            if( $('#tb__ID').find('input[name=shift_month5]').val().match(/^(\d{1,2})$/g)===null && $('#tb__ID').find('input[name=shift_month5]').val()!=='' ){ $vm.alert("Shift Number of Month 5 - Wrong format! A number 0..99"); return false;}
+            if( $('#tb__ID').find('input[name=shift_month6]').val().match(/^(\d{1,2})$/g)===null && $('#tb__ID').find('input[name=shift_month6]').val()!=='' ){ $vm.alert("Shift Number of Month 6 - Wrong format! A number 0..99"); return false;}
+            if( $('#tb__ID').find('input[name=shift_month7]').val().match(/^(\d{1,2})$/g)===null && $('#tb__ID').find('input[name=shift_month7]').val()!=='' ){ $vm.alert("Shift Number of Month 7 - Wrong format! A number 0..99"); return false;}
+
+            if($('#tb__ID').find('input[name=current_work]:checked').val()===undefined){ alert("Please answer question 1");	return false;}
+            if($('#tb__ID').find('input[name=current_work]:checked').val()==='1' && $('#tb__ID').find('input[name=shift_no]:checked').val()===undefined){ alert("Please answer question 2");	return false;}
+            var shift_number=parseInt($('#tb__ID').find('input[name=shift_no]:checked').val());
+            if(shift_number>0 &&
+                ($('#tb__ID').find('input[name=shift_start1]').val()==='' || $('#tb__ID').find('input[name=shift_end1]').val()==='' || $('#tb__ID').find('input[name=shift_month1]').val()==='')
+            ){ alert("Please answer shift type 1 fully");	return false;}
+            if(shift_number>1 &&
+                ($('#tb__ID').find('input[name=shift_start2]').val()==='' || $('#tb__ID').find('input[name=shift_end2]').val()==='' || $('#tb__ID').find('input[name=shift_month2]').val()==='')
+            ){ alert("Please answer shift type 2 fully");	return false;}
+            if(shift_number>2 &&
+                ($('#tb__ID').find('input[name=shift_start3]').val()==='' || $('#tb__ID').find('input[name=shift_end3]').val()==='' || $('#tb__ID').find('input[name=shift_month3]').val()==='')
+            ){ alert("Please answer shift type 3 fully");	return false;}
+            if(shift_number>3 &&
+                ($('#tb__ID').find('input[name=shift_start4]').val()==='' || $('#tb__ID').find('input[name=shift_end4]').val()==='' || $('#tb__ID').find('input[name=shift_month4]').val()==='')
+            ){ alert("Please answer shift type 4 fully");	return false;}
+            if(shift_number>4 &&
+                ($('#tb__ID').find('input[name=shift_start5]').val()==='' || $('#tb__ID').find('input[name=shift_end5]').val()==='' || $('#tb__ID').find('input[name=shift_month5]').val()==='')
+            ){ alert("Please answer shift type 5 fully");	return false;}
+            if(shift_number>5 &&
+                ($('#tb__ID').find('input[name=shift_start6]').val()==='' || $('#tb__ID').find('input[name=shift_end6]').val()==='' || $('#tb__ID').find('input[name=shift_month6]').val()==='')
+            ){ alert("Please answer shift type 6 fully");	return false;}
+            if(shift_number>6 &&
+                ($('#tb__ID').find('input[name=shift_start7]').val()==='' || $('#tb__ID').find('input[name=shift_end7]').val()==='' || $('#tb__ID').find('input[name=shift_month7]').val()==='')
+            ){ alert("Please answer shift type 7 fully");	return false;}
+        }
+        //----------------------------------
+        var display_page=function(){
+            var vcurrent_work=$('#tb__ID').find('input[name=current_work]:checked').val();
+            if (vcurrent_work=='1')$('#tr_curr_work').show();
+            else $('#tr_curr_work').hide();
+            var vshift_no=$('#tb__ID').find('input[name=shift_no]:checked').val();
+            if (vshift_no===undefined)
+                {$('#tr_shift_0').hide();$('#tr_shift_01').hide();$('#tr_shift1').hide();$('#tr_shift2').hide(); $('#tr_shift3').hide();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+            if (vshift_no=='1')
+                {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').hide(); $('#tr_shift3').hide();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+            if (vshift_no=='2')
+                {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show();$('#tr_shift3').hide();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+            if (vshift_no=='3')
+                {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+            if (vshift_no=='4')
+                {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+            if (vshift_no=='5')
+                {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').show();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+            if (vshift_no=='6')
+                {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').show();$('#tr_shift6').show();$('#tr_shift7').hide()}
+            if (vshift_no=='7')
+                {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').show();$('#tr_shift6').show();$('#tr_shift7').show();}
+        };
+        var react_changes=function(){
+            $('#tb__ID').find('input[name=current_work]').change(function() {
+                var vcurrent_work=$('#tb__ID').find('input[name=current_work]:checked').val();
+                if (vcurrent_work=='1')$('#tr_curr_work').show();
+                else $('#tr_curr_work').hide();
+            });
+            $('#tb__ID').find('input[name=shift_no]').change(function() {
+                 var vshift_no=$('#tb__ID').find('input[name=shift_no]:checked').val();
+                 if (vshift_no===undefined)
+                    {$('#tr_shift_0').hide();$('#tr_shift_01').hide();$('#tr_shift1').hide();$('#tr_shift2').hide(); $('#tr_shift3').hide();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+                 if (vshift_no=='1')
+                     {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').hide(); $('#tr_shift3').hide();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+                 if (vshift_no=='2')
+                     {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show();$('#tr_shift3').hide();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+                 if (vshift_no=='3')
+                     {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').hide();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+                 if (vshift_no=='4')
+                     {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').hide();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+                 if (vshift_no=='5')
+                     {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').show();$('#tr_shift6').hide();$('#tr_shift7').hide();}
+                 if (vshift_no=='6')
+                     {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').show();$('#tr_shift6').show();$('#tr_shift7').hide()}
+                 if (vshift_no=='7')
+                     {$('#tr_shift_0').show();$('#tr_shift_01').show();$('#tr_shift1').show();$('#tr_shift2').show(); $('#tr_shift3').show();$('#tr_shift4').show();$('#tr_shift5').show();$('#tr_shift6').show();$('#tr_shift7').show();}
+         	})
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+        #tb__ID input[type=radio]{
+            cursor:pointer;
+        }
+        #tb__ID tr td:nth-child(2),
+        #tb__ID tr td:nth-child(3),
+        #tb__ID tr td:nth-child(4),
+        #tb__ID tr td:nth-child(5)
+        {
+            text-align: center;
+            padding-top: 0px;
+            vertical-align:middle;
+        }
+        #tb__ID tr td:nth-child(1){
+            text-align: left;
+            vertical-align:middle;
+        }
+        tr:hover{ background-color:#f0f0f0;}
+        .answ__ID{
+            font-weight:normal;
+            font-style:italic;
+            font-size:15px;
+            border:1px solid #B8BDBF;
+        }
+        .modified_radio__ID {
+        	-webkit-appearance: none;
+        	-moz-appearance: button;
+        /*	background-color: #fafafa;*/
+        	border: 1px solid #B8BDBF;
+        	width:52px;
+        	height:26px;
+        /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+        	padding: 0px;
+        	border-radius: 3px;
+        	display: inline-block;
+        	position: relative;
+        	opacity:0.3;
+        }
+        .modified_radio__ID:active, .modified_radio__ID:checked:active {
+        	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+        }
+
+        .modified_radio__ID:checked {
+            	-moz-appearance: button;
+        	background-color: #888;
+        	border: 1px solid #333;
+        /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+        	color: #99a1a7;
+        	opacity:0.85;
+        }
+        .modified_radio__ID:checked:after {
+        	/*content: '\2714';*/
+        	font-size: 14px;
+        	position: absolute;
+        	top: 0px;
+        	left: 3px;
+        	color: #99a1a7;
+        }
+        .modified_radio_2__ID {
+        	-webkit-appearance: none;
+        	-moz-appearance: button;
+        /*	background-color: #fafafa;*/
+        	border: 1px solid #B8BDBF;
+        	width:30px;
+        	height:26px;
+        /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+        	padding: 0px;
+        	border-radius: 3px;
+        	display: inline-block;
+        	position: relative;
+        	opacity:0.3;
+        }
+        .modified_radio_2__ID:active, .modified_radio__ID:checked:active {
+        	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+        }
+
+        .modified_radio_2__ID:checked {
+            	-moz-appearance: button;
+        	background-color: #888;
+        	border: 1px solid #333;
+        /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+        	color: #99a1a7;
+        	opacity:0.85;
+        }
+        .modified_radio_2__ID:checked:after {
+        	/*content: '\2714';*/
+        	font-size: 14px;
+        	position: absolute;
+        	top: 0px;
+        	left: 3px;
+        	color: #99a1a7;
+        }
+        .modified_number_no__ID{
+            vertical-align: top;
+            margin-left:-22px;
+            font-size:14pt;
+        }
+        .modified_number_yes__ID{
+            vertical-align: top;
+            margin-left:-42px;
+            font-size:14pt;
+        }
+        .modified_number_sometimes__ID{
+            vertical-align: top;
+            margin-left:-112px;
+            font-size:14pt;
+        }
+
+        .rb__ID{
+            padding-top:5px!important;
+            text-align: center!important;
+            vertical-align: middle;
+        }
+</style>

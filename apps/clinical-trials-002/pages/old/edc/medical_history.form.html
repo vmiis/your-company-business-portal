@@ -1,0 +1,463 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:550px;'>
+            <colgroup>
+                <col class=colA style='width:350px' />
+                <col class=colA style='width:80px' />
+                <col />
+            </colgroup>
+
+            <tr><td colspan=3 class='header__ID'>Medical History</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=3 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=3 class=' '></br><b>1. Have you <u>ever</u> had any of these <u>doctor-diagnosed</u> illnesses or procedures?</b><br>
+            If yes, how <b><u>old were you</u></b> when <b><u>first</u></b> diagnosed?</br></br>
+            Please read through the list of medical conditions in the table below and tick only those conditions that you were diagnosed with and your age at the time of diagnosis.<br><br></td></tr>
+            <tr><td class=subheader__ID>Illness or Proceedure</td><td  class=subheader__ID>Tick if diagnosed</td><td class=subheader__ID>Age of diagnosis</td></tr>
+            <tr><td>Adenoidectomy (adenoids surgically removed)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=adenoidectomy name=adenoidectomy id=adenoidectomy /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=adenoidectomy_age  name=adenoidectomy_age  id=adenoidectomy_age  /></td></tr>
+            <tr><td>Alcohol abuse</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=alcohol_abuse name=alcohol_abuse id=alcohol_abuse /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=alcohol_abuse_age  name=alcohol_abuse_age  id=alcohol_abuse_age  /></td></tr>
+            <tr><td>Anaemia</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=anaemia name=anaemia id=anaemia /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=anaemia_age  name=anaemia_age  id=anaemia_age  /></td></tr>
+            <tr><td>Angina or chest pain from a heart condition</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=heart_condition name=heart_condition id=heart_condition /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=heart_condition_age  name=heart_condition_age  id=heart_condition_age  /></td></tr>
+            <tr><td>Anxiety disorder</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=anxiety name=anxiety id=anxiety /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=anxiety_age  name=anxiety_age  id=anxiety_age  /></td></tr>
+            <tr><td>Arthritis</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=arthritis name=arthritis id=arthritis /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=arthritis_age  name=arthritis_age  id=arthritis_age  /></td></tr>
+            <tr><td>Atrial fibrillation</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=AF name=AF id=AF /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=AF_age  name=AF_age  id=AF_age  /></td></tr>
+            <tr><td>Attention deficit disorder</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=AttDD name=AttDD id=AttDD /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=ADD_age  name=ADD_age  id=ADD_age  /></td></tr>
+            <tr><td>Asthma</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=asthma name=asthma id=asthma /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=asthma_age  name=asthma_age  id=asthma_age  /></td></tr>
+            <tr><td>Auditory defects or hearing impairments</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=auditory_defects name=auditory_defects id=auditory_defects /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=auditory_defects_age  name=auditory_defects_age  id=auditory_defects_age  /></td></tr>
+            <tr><td>Bipolar Disorder</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=bipolar name=bipolar id=bipolar /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=bipolar_age  name=bipolar_age  id=bipolar_age  /></td></tr>
+            <tr><td>Cancer <i>Please specify:</i> <input class=input_box__ID type=text data-custom=1 data-id=cancer_specify name=cancer_specify id=cancer_specify /></td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=cancer name=cancer id=cancer /></td><td><input class=input_box_small__ID type=number data-custom=1 data-id=cancer_age name=cancer_age id=cancer_age /></td></tr>
+            <tr><td>Carotid surgery (either endarterectomy or stent)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=carotid_surgery name=carotid_surgery id=carotid_surgery /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=carotid_surgery_age  name=carotid_surgery_age  id=carotid_surgery_age  /></td></tr>
+            <tr><td>Chronic back or neck pain</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=backneck_pain name=backneck_pain id=backneck_pain /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=backneck_pain_age  name=backneck_pain_age  id=backneck_pain_age  /></td></tr>
+            <tr><td>Chronic bronchitis</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=bronchitis name=bronchitis id=bronchitis /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=bronchitis_age  name=bronchitis_age  id=bronchitis_age  /></td></tr>
+            <tr><td>Chronic fatigue syndrome</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=fatigue name=fatigue id=fatigue /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=fatigue_age  name=fatigue_age  id=fatigue_age  /></td></tr>
+            <tr><td>Cirrhosis of the liver</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=cirrhosis name=cirrhosis id=cirrhosis /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=cirrhosis_age  name=cirrhosis_age  id=cirrhosis_age  /></td></tr>
+            <tr><td>Colour blindness</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=Colour_blindness name=Colour_blindness id=Colour_blindness /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=Colour_blindness_age  name=Colour_blindness_age  id=Colour_blindness_age  /></td></tr>
+            <tr><td>Coronary bypass</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=bypass name=bypass id=bypass /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=bypass_age  name=bypass_age  id=bypass_age  /></td></tr>
+            <tr><td>Coronary angioplasty or stent insertion</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=angioplasty_stent name=angioplasty_stent id=angioplasty_stent /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=angioplasty_stent_age  name=angioplasty_stent_age  id=angioplasty_stent_age  /></td></tr>
+            <tr><td>Congestive heart failure</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=heart_failure name=heart_failure id=heart_failure /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=heart_failure_age  name=heart_failure_age  id=heart_failure_age  /></td></tr>
+            <tr><td>Depression</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=depression name=depression id=depression /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=depression_age  name=depression_age  id=depression_age  /></td></tr>
+            <tr><td>Diabetes</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=diabetes name=diabetes id=diabetes /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=diabetes_age  name=diabetes_age  id=diabetes_age  /></td></tr>
+            <tr><td>Elevated cholesterol</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=cholesterol name=cholesterol id=cholesterol /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=cholesterol_age  name=cholesterol_age  id=cholesterol_age  /></td></tr>
+            <tr><td>Emphysema or Chronic Obstructive Pulmonary Disease (COPD)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=emphysema name=emphysema id=emphysema /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=emphysema_age  name=emphysema_age  id=emphysema_age  /></td></tr>
+            <tr><td>Erectile dysfunction</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=erectile_dys name=erectile_dys id=erectile_dys /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=erectile_dys_age  name=erectile_dys_age  id=erectile_dys_age  /></td></tr>
+            <tr><td>Eye disorder or disease </td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=eye_disorder name=eye_disorder id=eye_disorder /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=eye_disorder_age  name=eye_disorder_age  id=eye_disorder_age  /></td></tr>
+            <tr><td>Gastric or duodenal ulcer</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=gastric name=gastric id=gastric /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=gastric_age  name=gastric_age  id=gastric_age  /></td></tr>
+            <tr><td>Gastro-oesophageal reflux (heartburn)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=reflux name=reflux id=reflux /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=reflux_age  name=reflux_age  id=reflux_age  /></td></tr>
+            <tr><td>Gout</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=gout name=gout id=gout /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=gout_age  name=gout_age  id=gout_age  /></td></tr>
+            <tr><td>Hay fever</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=hayfever name=hayfever id=hayfever /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=hayfever_age  name=hayfever_age  id=hayfever_age  /></td></tr>
+            <tr><td>Hepatitis</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=hepatitis name=hepatitis id=hepatitis /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=hepatitis_age  name=hepatitis_age  id=hepatitis_age  /></td></tr>
+            <tr><td>High blood pressure (hypertension)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=hypertension name=hypertension id=hypertension /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=hypertension_age  name=hypertension_age  id=hypertension_age  /></td></tr>
+            <tr><td>Implant of cardiac pacemaker</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=pacemaker name=pacemaker id=pacemaker /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=pacemaker_age  name=pacemaker_age  id=pacemaker_age  /></td></tr>
+            <tr><td>Inflammatory bowel disease (including Crohn’s Disease and Ulcerative Colitis)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=bowel name=bowel id=bowel /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=bowel_age  name=bowel_age  id=bowel_age  /></td></tr>
+            <tr><td>Kidney failure</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=kidney_failure name=kidney_failure id=kidney_failure /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=kidney_failure_age  name=kidney_failure_age  id=kidney_failure_age  /></td></tr>
+            <tr><td>Kidney stones</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=kidney_stones name=kidney_stones id=kidney_stones /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=kidney_stones_age  name=kidney_stones_age  id=kidney_stones_age  /></td></tr>
+            <tr><td>Liver disease</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=liver name=liver id=liver /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=liver_age  name=liver_age  id=liver_age  /></td></tr>
+            <tr><td>Motor neurone disease</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=motor name=motor id=motor /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=motor_age  name=motor_age  id=motor_age  /></td></tr>
+            <tr><td>Multiple sclerosis</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=MS name=MS id=MS /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=MS_age  name=MS_age  id=MS_age  /></td></tr>
+            <tr><td>Muscular dystrophy</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=musdystrophy name=musdystrophy id=musdystrophy /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=musdystrophy_age  name=musdystrophy_age  id=musdystrophy_age  /></td></tr>
+            <tr><td>Myocardial infarction (heart attack)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=heart_attack name=heart_attack id=heart_attack /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=heart_attack_age  name=heart_attack_age  id=heart_attack_age  /></td></tr>
+            <tr><td>Nose with a deviated septum</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=dev_septum name=dev_septum id=dev_septum /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=dev_septum_age  name=dev_septum_age  id=dev_septum_age  /></td></tr>
+            <tr><td>Osteoporosis</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=osteoporosis name=osteoporosis id=osteoporosis /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=osteoporosis_age  name=osteoporosis_age  id=osteoporosis_age  /></td></tr>
+            <tr><td>Parkinson’s disease</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=parkinsons name=parkinsons id=parkinsons /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=parkinsons_age  name=parkinsons_age  id=parkinsons_age  /></td></tr>
+            <tr><td>Peripheral vascular disease of legs or claudication</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=vascular name=vascular id=vascular /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=vascular_age  name=vascular_age  id=vascular_age  /></td></tr>
+            <tr><td>Pneumonia</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=pneumonia name=pneumonia id=pneumonia /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=pneumonia_age  name=pneumonia_age  id=pneumonia_age  /></td></tr>
+            <tr><td>Polycystic ovarian syndrome</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=polycystic name=polycystic id=polycystic /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=polycystic_age  name=polycystic_age  id=polycystic_age  /></td></tr>
+            <tr><td>Poliomyelitis</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=poliomyelitis name=poliomyelitis id=poliomyelitis /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=poliomyelitis_age  name=poliomyelitis_age  id=poliomyelitis_age  /></td></tr>
+            <tr><td>Post-Traumatic Stress Disorder</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=posttrauma name=posttrauma id=posttrauma /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=posttrauma_age  name=posttrauma_age  id=posttrauma_age  /></td></tr>
+            <tr><td>Sinus disease</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=sinus name=sinus id=sinus /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=sinus_age  name=sinus_age  id=sinus_age  /></td></tr>
+            <tr><td>Stroke (CVA)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=stroke name=stroke id=stroke /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=stroke_age  name=stroke_age  id=stroke_age  /></td></tr>
+            <tr><td>Thyroid disease</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=thyroid name=thyroid id=thyroid /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=thyroid_age  name=thyroid_age  id=thyroid_age  /></td></tr>
+            <tr><td>Transient ischemic attack (TIA)</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=TIA name=TIA id=TIA /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=TIA_age  name=TIA_age  id=TIA_age  /></td></tr>
+            <tr><td>Tonsillectomy</td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=tonsillectomy name=tonsillectomy id=tonsillectomy /></td><td><input class=input_box_small__ID type=number  data-custom=1 data-id=tonsillectomy_age  name=tonsillectomy_age  id=tonsillectomy_age  /></td></tr>
+            <tr><td>Other psychiatric disease <i>Please specify:</i> <input class=input_box__ID type=text data-custom=1 data-id=other_psychiatric_specify name=other_psychiatric_specify id=other_psychiatric_specify /></td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=other_psychiatric name=other_psychiatric id=other_psychiatric /></td><td><input class=input_box_small__ID type=number data-custom=1 data-id=other_psychiatric_age name=other_psychiatric_age id=other_psychiatric_age /></td></tr>
+            <tr><td>Other heart disease <i>Please specify:</i> <input class=input_box__ID type=text data-custom=1 data-id=other_heart_specify name=other_heart_specify id=other_heart_specify /></td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=loss_consciousness name=loss_consciousness id=loss_consciousness /></td><td><input class=input_box_small__ID type=number data-custom=1 data-id=other_heart_age name=other_heart_age id=other_heart_age /></td></tr>
+            <tr><td>Any history of a loss of consciousness  <i>Please specify:</i> <input class=input_box__ID type=text data-custom=1 data-id=loss_consciousness_specify name=loss_consciousness_specify id=loss_consciousness_specify /></td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=other_heart name=other_heart id=other_heart /></td><td><input class=input_box_small__ID type=number data-custom=1 data-id=loss_consciousness_age name=loss_consciousness_age id=loss_consciousness_age /></td></tr>
+            <tr><td>Other major surgery <i>Please specify:</i> <input class=input_box__ID type=text data-custom=1 data-id=other_surgery_specify name=other_surgery_specify id=other_surgery_specify /></td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=other_surgery name=other_surgery id=other_surgery /></td><td><input class=input_box_small__ID type=number data-custom=1 data-id=other_surgery_age name=other_surgery_age id=other_surgery_age /></td></tr>
+            <tr><td>Other significant medical condition <i>Please specify:</i> <input class=input_box__ID type=text data-custom=1 data-id=other_medical_specify name=other_medical_specify id=other_medical_specify /></td><td><input type=checkbox class=modified_checkbox__ID data-custom=1 data-id=other_medical name=other_medical id=other_medical /></td><td><input class=input_box_small__ID type=number data-custom=1 data-id=other_medical_age name=other_medical_age id=other_medical_age /></td></tr>
+<!--           <tr><td colspan=3 class='subheader__ID'>THE NEXT SET OF QUESTIONS ARE FOR WOMEN ONLY</td></tr>
+    		<tr><td colspan=2 >2. Have your menstrual periods stopped because you reached menopause or had your ovaries removed?</td>
+			<td><input type=radio class=modified_radio__ID  value=1 data-custom=1 data-id=menstral_stop name=menstral_stop id=menstral_stop /> Yes&nbsp;&nbsp;<input type=radio class=modified_radio__ID  value=0 name=menstral_stop /> No</td></tr>
+	    	<tr id=tr_mentrual_stop><td class=C__ID__indent colspan=2>What age were you when your menstrual periods stopped?</td>
+			<td><input class=input_box_small__ID type=number data-custom=1 data-id=menstralstop_age name=menstralstop_age id=menstralstop_age ></input></td></tr>
+    		<tr id=tr_hysterctomy><td colspan=2 >3. Have you ever had a hysterectomy?</td>
+			<td><input type=radio class=modified_radio__ID  value=1  data-custom=1 data-id=hysterectomy name=hysterectomy id=hysterectomy /> Yes&nbsp;&nbsp;<input type=radio class=modified_radio__ID  value=0 name=hysterectomy /> No</td></tr>
+	    	<tr id=tr_hysterectomy_age><td class=C__ID__indent colspan=2>How old were you when you had a hysterectomy?</td>
+			<td><input class=input_box_small__ID type=number data-custom=1 data-id=hysterectomy_age name=hysterectomy_age id=hysterectomy_age ></input></td></tr>
+        	<tr id=tr_pregnancy><td colspan=2 >4. Are you currently pregnant, breastfeeding, or planning to become pregnant?</td>
+			<td><input type=radio class=modified_radio__ID  value=1 data-custom=1 data-id=pregnancy name=pregnancy id=pregnancy /> Yes&nbsp;&nbsp;<input type=radio class=modified_radio__ID  value=0 name=pregnancy /> No</td></tr>
+    		<tr id=tr_htr><td colspan=2 >5. Have you ever taken hormone replacement therapy?</td>
+			<td><input type=radio class=modified_radio__ID  value=1 data-custom=1 data-id=hrt name=hrt id=hrt /> Yes&nbsp;&nbsp;<input type=radio class=modified_radio__ID  value=0 name=hrt /> No</td></tr>
+	    	<tr id=tr_htrmonths><td class=C__ID__indent colspan=2>For how many months have you used/did you use hormone replacement therapy?</td>
+			<td><input class=input_box_small__ID type=number data-custom=1 data-id=hrt_months name=hrt_months id=hrt_months ></input></td></tr>
+    		<tr id=tr_htr_current><td class=C__ID__indent colspan=2>Are you still taking hormone replacement therapy?</td>
+			<td><input type=radio class=modified_radio__ID  value=1 data-custom=1 data-id=hrt_current name=hrt_current id=hrt_current /> Yes&nbsp;&nbsp;<input type=radio class=modified_radio__ID  value=0 name=hrt_current /> No</td></tr>
+        	<tr id=tr_cycle_lenght><td  colspan=2 >6.    How long is your current menstrual cycle</td>
+			<td><input class=input_box_small__ID type=number data-custom=1 data-id=cycle_lenght name=cycle_lenght id=cycle_lenght ></input>&nbsp;days</td></tr>
+        	<tr id=tr_cycle_consistent><td class=C__ID__indent colspan=2> Is this consistent? </td>
+			<td><input type=radio class=modified_radio__ID  value=1 data-custom=1 data-id=cycle_consistent name=cycle_consistent id=cycle_consistent /> Yes&nbsp;&nbsp;<input type=radio class=modified_radio__ID  value=0 name=cycle_consistent /> No</td></tr>
+            <tr id=tr_cycle_range><td class=C__ID__indent colspan=2 >If not, what is the range?</td>
+			<td><input class=input_box_small__ID type=number data-custom=1 data-id=cycle_range_min name=cycle_range_min id=cycle_range_min ></input>&nbsp;to&nbsp;<input class=input_box_small__ID type=number data-custom=1 data-id=cycle_range_max name=cycle_range_max id=cycle_range_max /> days</td></tr>
+            <tr id=tr_last_period_start><td  colspan=2 >7.    When did your last period begin?</td>
+    		<td><input class=input_box__ID type=text data-custom=1 data-id=last_period_start name=last_period_start id=last_period_start placeholder="DD/MM/YYYY" /></td></tr>
+            <tr id=tr_last_period_end><td  colspan=2 >8.    When did it finish? </td>
+    		<td><input class=input_box__ID type=text data-custom=1 data-id=last_period_end name=last_period_end id=last_period_end placeholder="DD/MM/YYYY" /></td></tr> -->
+        </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID tbody *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    //Radio buttons
+                    case 'menstral_stop':
+                    case 'hysterectomy':
+                    case 'pregnancy':
+                    case 'hrt':
+                    case 'hrt_current':
+                    case 'cycle_consistent':
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                    //Checkbox
+                    case 'adenoidectomy':
+                    case 'alcohol_abuse':
+                    case 'anaemia':
+                    case 'heart_condition':
+                    case 'anxiety':
+                    case 'arthritis':
+                    case 'AF':
+                    case 'AttDD':
+                    case 'asthma':
+                    case 'auditory_defects':
+                    case 'bipolar':
+                    case 'cancer':
+                    case 'carotid_surgery':
+                    case 'backneck_pain':
+                    case 'bronchitis':
+                    case 'fatigue':
+                    case 'cirrhosis':
+                    case 'Colour_blindness':
+                    case 'bypass':
+                    case 'angioplasty_stent':
+                    case 'heart_failure':
+                    case 'depression':
+                    case 'diabetes':
+                    case 'cholesterol':
+                    case 'emphysema':
+                    case 'erectile_dys':
+                    case 'eye_disorder':
+                    case 'gastric':
+                    case 'reflux':
+                    case 'gout':
+                    case 'hayfever':
+                    case 'hepatitis':
+                    case 'hypertension':
+                    case 'pacemaker':
+                    case 'bowel':
+                    case 'kidney_failure':
+                    case 'kidney_stones':
+                    case 'liver':
+                    case 'motor':
+                    case 'MS':
+                    case 'musdystrophy':
+                    case 'heart_attack':
+                    case 'dev_septum':
+                    case 'osteoporosis':
+                    case 'parkinsons':
+                    case 'vascular':
+                    case 'pneumonia':
+                    case 'polycystic':
+                    case 'poliomyelitis':
+                    case 'posttrauma':
+                    case 'sinus':
+                    case 'stroke':
+                    case 'thyroid':
+                    case 'TIA':
+                    case 'tonsillectomy':
+                    case 'other_psychiatric':
+                    case 'other_heart':
+                    case 'loss_consciousness':
+                    case 'other_surgery':
+                    case 'other_medical':
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                        });
+                    break;
+                    //Text
+                    case 'adenoidectomy_age':
+                    case 'alcohol_abuse_age':
+                    case 'anaemia_age':
+                    case 'heart_condition_age':
+                    case 'anxiety_age':
+                    case 'arthritis_age':
+                    case 'AF_age':
+                    case 'ADD_age':
+                    case 'asthma_age':
+                    case 'auditory_defects_age':
+                    case 'bipolar_age':
+                    case 'cancer_age':
+                    case 'carotid_surgery_age':
+                    case 'backneck_pain_age':
+                    case 'bronchitis_age':
+                    case 'fatigue_age':
+                    case 'cirrhosis_age':
+                    case 'Colour_blindness_age':
+                    case 'bypass_age':
+                    case 'angioplasty_stent_age':
+                    case 'heart_failure_age':
+                    case 'depression_age':
+                    case 'diabetes_age':
+                    case 'cholesterol_age':
+                    case 'emphysema_age':
+                    case 'erectile_dys_age':
+                    case 'eye_disorder_age':
+                    case 'gastric_age':
+                    case 'reflux_age':
+                    case 'gout_age':
+                    case 'hayfever_age':
+                    case 'hepatitis_age':
+                    case 'hypertension_age':
+                    case 'pacemaker_age':
+                    case 'bowel_age':
+                    case 'kidney_failure_age':
+                    case 'kidney_stones_age':
+                    case 'liver_age':
+                    case 'motor_age':
+                    case 'MS_age':
+                    case 'musdystrophy_age':
+                    case 'heart_attack_age':
+                    case 'dev_septum_age':
+                    case 'osteoporosis_age':
+                    case 'parkinsons_age':
+                    case 'vascular_age':
+                    case 'pneumonia_age':
+                    case 'polycystic_age':
+                    case 'poliomyelitis_age':
+                    case 'posttrauma_age':
+                    case 'sinus_age':
+                    case 'stroke_age':
+                    case 'thyroid_age':
+                    case 'TIA_age':
+                    case 'tonsillectomy_age':
+                    case 'other_psychiatric_age':
+                    case 'other_heart_age':
+                    case 'loss_consciousness_age':
+                    case 'other_surgery_age':
+                    case 'other_medical_age':
+                    case 'cancer_specify':
+                    case 'other_psychiatric_specify':
+                    case 'other_heart_specify':
+                    case 'loss_consciousness_specify':
+                    case 'other_surgery_specify':
+                    case 'other_medical_specify':
+                    case 'menstralstop_age':
+                    case 'hysterectomy_age':
+                    case 'hrt_months':
+                    case 'cycle_lenght':
+                    case 'cycle_range_min':
+                    case 'cycle_range_max':
+                    case 'last_period_start':
+                    case 'last_period_end':
+                        $(this).val(_records[I][field]);
+                        $(this).on('change', function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if($('#tb__ID').find('input[name=adenoidectomy_age]').val()==='' && $('#tb__ID').find('input[name=adenoidectomy]').is(':checked')===true ) { $vm.alert("Please put in 'Age of diagnosis for Adenoidectomy'");return false;}
+            if($('#tb__ID').find('input[name=adenoidectomy_age]').val()==='' && $('#tb__ID').find('input[name=adenoidectomy]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Adenoidectomy (adenoids surgically removed)'");return false;}
+            if($('#tb__ID').find('input[name=alcohol_abuse_age]').val()==='' && $('#tb__ID').find('input[name=alcohol_abuse]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Alcohol abuse'");return false;}
+            if($('#tb__ID').find('input[name=anaemia_age]').val()==='' && $('#tb__ID').find('input[name=anaemia]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Anaemia'");return false;}
+            if($('#tb__ID').find('input[name=heart_condition_age]').val()==='' && $('#tb__ID').find('input[name=heart_condition]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Angina or chest pain from a heart condition'");return false;}
+            if($('#tb__ID').find('input[name=anxiety_age]').val()==='' && $('#tb__ID').find('input[name=anxiety]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Anxiety disorder'");return false;}
+            if($('#tb__ID').find('input[name=arthritis_age]').val()==='' && $('#tb__ID').find('input[name=arthritis]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Arthritis'");return false;}
+            if($('#tb__ID').find('input[name=AF_age]').val()==='' && $('#tb__ID').find('input[name=AF]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Atrial fibrillation'");return false;}
+            if($('#tb__ID').find('input[name=ADD_age]').val()==='' && $('#tb__ID').find('input[name=AttDD]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Attention deficit disorder'");return false;}
+            if($('#tb__ID').find('input[name=asthma_age]').val()==='' && $('#tb__ID').find('input[name=asthma]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Asthma'");return false;}
+            if($('#tb__ID').find('input[name=auditory_defects_age]').val()==='' && $('#tb__ID').find('input[name=auditory_defects]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Auditory defects or hearing impairments'");return false;}
+            if($('#tb__ID').find('input[name=bipolar_age]').val()==='' && $('#tb__ID').find('input[name=bipolar]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Bipolar Disorder'");return false;}
+            if($('#tb__ID').find('input[name=cancer_age]').val()==='' && $('#tb__ID').find('input[name=cancer]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Cancer Please specify: '");return false;}
+            if($('#tb__ID').find('input[name=carotid_surgery_age]').val()==='' && $('#tb__ID').find('input[name=carotid_surgery]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Carotid surgery (either endarterectomy or stent)'");return false;}
+            if($('#tb__ID').find('input[name=backneck_pain_age]').val()==='' && $('#tb__ID').find('input[name=backneck_pain]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Chronic back or neck pain'");return false;}
+            if($('#tb__ID').find('input[name=bronchitis_age]').val()==='' && $('#tb__ID').find('input[name=bronchitis]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Chronic bronchitis'");return false;}
+            if($('#tb__ID').find('input[name=fatigue_age]').val()==='' && $('#tb__ID').find('input[name=fatigue]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Chronic fatigue syndrome'");return false;}
+            if($('#tb__ID').find('input[name=cirrhosis_age]').val()==='' && $('#tb__ID').find('input[name=cirrhosis]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Cirrhosis of the liver'");return false;}
+            if($('#tb__ID').find('input[name=Colour_blindness_age]').val()==='' && $('#tb__ID').find('input[name=Colour_blindness]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Colour blindness'");return false;}
+            if($('#tb__ID').find('input[name=bypass_age]').val()==='' && $('#tb__ID').find('input[name=bypass]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Coronary bypass'");return false;}
+            if($('#tb__ID').find('input[name=angioplasty_stent_age]').val()==='' && $('#tb__ID').find('input[name=angioplasty_stent]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Coronary angioplasty or stent insertion'");return false;}
+            if($('#tb__ID').find('input[name=heart_failure_age]').val()==='' && $('#tb__ID').find('input[name=heart_failure]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Congestive heart failure'");return false;}
+            if($('#tb__ID').find('input[name=depression_age]').val()==='' && $('#tb__ID').find('input[name=depression]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Depression'");return false;}
+            if($('#tb__ID').find('input[name=diabetes_age]').val()==='' && $('#tb__ID').find('input[name=diabetes]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Diabetes'");return false;}
+            if($('#tb__ID').find('input[name=cholesterol_age]').val()==='' && $('#tb__ID').find('input[name=cholesterol]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Elevated cholesterol'");return false;}
+            if($('#tb__ID').find('input[name=emphysema_age]').val()==='' && $('#tb__ID').find('input[name=emphysema]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Emphysema or Chronic Obstructive Pulmonary Disease (COPD)'");return false;}
+            if($('#tb__ID').find('input[name=erectile_dys_age]').val()==='' && $('#tb__ID').find('input[name=erectile_dys]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Erectile dysfunction'");return false;}
+            if($('#tb__ID').find('input[name=eye_disorder_age]').val()==='' && $('#tb__ID').find('input[name=eye_disorder]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Eye disorder or disease'");return false;}
+            if($('#tb__ID').find('input[name=gastric_age]').val()==='' && $('#tb__ID').find('input[name=gastric]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Gastric or duodenal ulcer'");return false;}
+            if($('#tb__ID').find('input[name=reflux_age]').val()==='' && $('#tb__ID').find('input[name=reflux]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Gastro-oesophageal reflux (heartburn)'");return false;}
+            if($('#tb__ID').find('input[name=gout_age]').val()==='' && $('#tb__ID').find('input[name=gout]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Gout'");return false;}
+            if($('#tb__ID').find('input[name=hayfever_age]').val()==='' && $('#tb__ID').find('input[name=hayfever]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Hay fever'");return false;}
+            if($('#tb__ID').find('input[name=hepatitis_age]').val()==='' && $('#tb__ID').find('input[name=hepatitis]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Hepatitis'");return false;}
+            if($('#tb__ID').find('input[name=hypertension_age]').val()==='' && $('#tb__ID').find('input[name=hypertension]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'High blood pressure (hypertension)'");return false;}
+            if($('#tb__ID').find('input[name=pacemaker_age]').val()==='' && $('#tb__ID').find('input[name=pacemaker]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Implant of cardiac pacemaker'");return false;}
+            if($('#tb__ID').find('input[name=bowel_age]').val()==='' && $('#tb__ID').find('input[name=bowel]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Inflammatory bowel disease (including Crohn’s Disease and Ulcerative Colitis)'");return false;}
+            if($('#tb__ID').find('input[name=kidney_failure_age]').val()==='' && $('#tb__ID').find('input[name=kidney_failure]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Kidney failure'");return false;}
+            if($('#tb__ID').find('input[name=kidney_stones_age]').val()==='' && $('#tb__ID').find('input[name=kidney_stones]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Kidney stones'");return false;}
+            if($('#tb__ID').find('input[name=liver_age]').val()==='' && $('#tb__ID').find('input[name=liver]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Liver disease'");return false;}
+            if($('#tb__ID').find('input[name=motor_age]').val()==='' && $('#tb__ID').find('input[name=motor]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Motor neurone disease'");return false;}
+            if($('#tb__ID').find('input[name=MS_age]').val()==='' && $('#tb__ID').find('input[name=MS]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Multiple sclerosis'");return false;}
+            if($('#tb__ID').find('input[name=musdystrophy_age]').val()==='' && $('#tb__ID').find('input[name=musdystrophy]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Muscular dystrophy'");return false;}
+            if($('#tb__ID').find('input[name=heart_attack_age]').val()==='' && $('#tb__ID').find('input[name=heart_attack]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Myocardial infarction (heart attack)'");return false;}
+            if($('#tb__ID').find('input[name=dev_septum_age]').val()==='' && $('#tb__ID').find('input[name=dev_septum]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Nose with a deviated septum'");return false;}
+            if($('#tb__ID').find('input[name=osteoporosis_age]').val()==='' && $('#tb__ID').find('input[name=osteoporosis]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Osteoporosis'");return false;}
+            if($('#tb__ID').find('input[name=parkinsons_age]').val()==='' && $('#tb__ID').find('input[name=parkinsons]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Parkinson’s disease'");return false;}
+            if($('#tb__ID').find('input[name=vascular_age]').val()==='' && $('#tb__ID').find('input[name=vascular]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Peripheral vascular disease of legs or claudication'");return false;}
+            if($('#tb__ID').find('input[name=pneumonia_age]').val()==='' && $('#tb__ID').find('input[name=pneumonia]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Pneumonia'");return false;}
+            if($('#tb__ID').find('input[name=polycystic_age]').val()==='' && $('#tb__ID').find('input[name=polycystic]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Polycystic ovarian syndrome'");return false;}
+            if($('#tb__ID').find('input[name=poliomyelitis_age]').val()==='' && $('#tb__ID').find('input[name=poliomyelitis]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Poliomyelitis'");return false;}
+            if($('#tb__ID').find('input[name=posttrauma_age]').val()==='' && $('#tb__ID').find('input[name=posttrauma]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Post-Traumatic Stress Disorder'");return false;}
+            if($('#tb__ID').find('input[name=sinus_age]').val()==='' && $('#tb__ID').find('input[name=sinus]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Sinus disease'");return false;}
+            if($('#tb__ID').find('input[name=stroke_age]').val()==='' && $('#tb__ID').find('input[name=stroke]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Stroke (CVA)'");return false;}
+            if($('#tb__ID').find('input[name=thyroid_age]').val()==='' && $('#tb__ID').find('input[name=thyroid]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Thyroid disease'");return false;}
+            if($('#tb__ID').find('input[name=TIA_age]').val()==='' && $('#tb__ID').find('input[name=TIA]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Transient ischemic attack (TIA)'");return false;}
+            if($('#tb__ID').find('input[name=tonsillectomy_age]').val()==='' && $('#tb__ID').find('input[name=tonsillectomy]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Tonsillectomy'");return false;}
+            if($('#tb__ID').find('input[name=other_psychiatric_age]').val()==='' && $('#tb__ID').find('input[name=other_psychiatric]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Other psychiatric disease'");return false;}
+            if($('#tb__ID').find('input[name=other_heart_age]').val()==='' && $('#tb__ID').find('input[name=other_heart]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Other heart disease'");return false;}
+            if($('#tb__ID').find('input[name=loss_consciousness_age]').val()==='' && $('#tb__ID').find('input[name=loss_consciousness]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Any history of a loss of consciousness'");return false;}
+            if($('#tb__ID').find('input[name=other_surgery_age]').val()==='' && $('#tb__ID').find('input[name=other_surgery]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Other major surgery'");return false;}
+            if($('#tb__ID').find('input[name=other_medical_age]').val()==='' && $('#tb__ID').find('input[name=other_medical]').is(':checked')===true ) { $vm.alert("Please put in Age of diagnosis for 'Other significant medical condition'");return false;}
+            return true;
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID tr td:nth-child(2),
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    #tb__ID tr td:nth-child(5),
+    #tb__ID tr td:nth-child(6)
+    {
+        text-align: center;
+        padding: 5px;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+    .input_box_small__ID{
+        border: 1px solid #adb8c0!important;
+        width:100px!important;
+    }
+    .input_box__ID{
+        border: 1px solid #adb8c0!important;
+        width:99%!important;
+    }
+    .modified_checkbox__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: checkbox;
+    	background-color: #fafafa;
+    	border: 1px solid #cacece;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    	padding: 9px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    }
+    .modified_checkbox__ID:active, .modified_checkbox__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .modified_checkbox__ID:checked {
+        -moz-appearance: checkbox;
+    	background-color: #e9ecee;
+    	border: 1px solid #adb8c0;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    	color: #99a1a7;
+    }
+    .modified_checkbox__ID:checked:after {
+    	content: '\2714';
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+</style>

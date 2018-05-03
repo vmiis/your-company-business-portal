@@ -1,0 +1,53 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="dizziness_yes_no,dizziness_1,dizziness_2,dizziness_3,dizziness_4,dizziness_5,dizziness_6,dizziness_7,dizziness_8,dizziness_9,dizziness_10,dizziness_11,dizziness_12,dizziness_13,dizziness_14,dizziness_15,dizziness_16,dizziness_17,dizziness_18,dizziness_19,dizziness_20,dizziness_21,dizziness_22,dizziness_23,dizziness_24,dizziness_25,dizziness_p,dizziness_e,dizziness_f,dizziness";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _grid_to_form_parameters={task_fields:_task_fields};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'dizziness':
+                case 'dizziness_p':
+                case 'dizziness_e':
+                case 'dizziness_f':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            var total_p=parseInt(record.dizziness_1)+parseInt(record.dizziness_4)+parseInt(record.dizziness_11)+parseInt(record.dizziness_13)+parseInt(record.dizziness_17)+parseInt(record.dizziness_25);
+            var total_e=parseInt(record.dizziness_2)+parseInt(record.dizziness_9)+parseInt(record.dizziness_10)+parseInt(record.dizziness_15)+parseInt(record.dizziness_18)+parseInt(record.dizziness_20)+parseInt(record.dizziness_21)+parseInt(record.dizziness_22)+parseInt(record.dizziness_23);
+            var total_f=parseInt(record.dizziness_3)+parseInt(record.dizziness_5)+parseInt(record.dizziness_6)+parseInt(record.dizziness_7)+parseInt(record.dizziness_8)+parseInt(record.dizziness_12)+parseInt(record.dizziness_14)+parseInt(record.dizziness_16)+parseInt(record.dizziness_19)+parseInt(record.dizziness_24);
+            var total=total_p+total_e+total_f;
+            record.dizziness_p=total_p.toString();
+            record.dizziness_e=total_e.toString();
+            record.dizziness_f=total_f.toString();
+            record.dizziness=total.toString();
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

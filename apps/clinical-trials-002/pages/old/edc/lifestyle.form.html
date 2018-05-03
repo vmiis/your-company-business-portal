@@ -1,0 +1,275 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:800px;'>
+            <colgroup>
+                <col class=colA style='width:250px' />
+                <col />
+            </colgroup>
+
+            <tr><td colspan=2 class='header__ID'>Lifestyle</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=2 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=2 class='subheader__ID'>General Health</td></tr>
+            <tr><td class=C__ID__indent>How would you describe your general health?</td><td data-custom=1 data-id=general_health >
+            <input type=radio class=modified_radio__ID value=4 name=general_health id=general_health/>Excellent<br>
+            <input type=radio class=modified_radio__ID value=3 name=general_health />Very Good<br>
+            <input type=radio class=modified_radio__ID value=2 name=general_health />Good<br>
+            <input type=radio class=modified_radio__ID value=1 name=general_health />Fair<br>
+            <input type=radio class=modified_radio__ID value=0 name=general_health />Poor
+             <tr><td colspan=2 class='subheader__ID'>Physical Activity</td></tr>
+            <tr><td class=C__ID__indent>How often, on average, do you do at least 30 minutes of moderate physical activity - like walking?</td><td data-custom=1 data-id=physical_activity >
+            <input type=radio class=modified_radio__ID value=0 name=physical_activity id=physical_activity/>Never<br>
+            <input type=radio class=modified_radio__ID value=1 name=physical_activity />Sometimes<br>
+            <input type=radio class=modified_radio__ID value=2 name=physical_activity />A couple of days a week<br>
+            <input type=radio class=modified_radio__ID value=3 name=physical_activity />Most days a week<br>
+            <input type=radio class=modified_radio__ID value=4 name=physical_activity />Everyday
+             <tr><td colspan=2 class='subheader__ID'>Smoking</td></tr>
+             <tr><td class=C__ID__indent>Do you think you will be able to go 3 weekends without smoking?</td><td  data-custom=1 data-id=no_smoke_3_weeks>
+             <input type=radio class=modified_radio__ID value=0 name=no_smoke_3_weeks id=no_smoke_3_weeks/>No&nbsp;
+             <input type=radio class=modified_radio__ID value=1 name=no_smoke_3_weeks >Yes
+             </td></tr>
+             <tr><td class=C__ID__indent>Have you ever smoked?</td><td  data-custom=1 data-id=smoke>
+             <input type=radio class=modified_radio__ID value=0 name=smoke id=smoke/>No&nbsp;
+             <input type=radio class=modified_radio__ID value=1 name=smoke >Yes
+             </td></tr>
+            <tr id=tr_smoke_regular><td class=C__ID__indent>Do you or did you smoke regularly?<br>
+                <i>("No" means less than 20 packs in a lifetime or less than 1 cigarette per day for 1 year).</i> </td><td data-custom=1 data-id=smoke_regular>
+            <input type=radio class=modified_radio__ID value=0 name=smoke_regular id=smoke_regular/>No&nbsp;
+            <input type=radio class=modified_radio__ID value=1 name=smoke_regular  />Yes
+            </td></tr>
+            <tr id=tr_smoke_stop><td class=C__ID__indent>If you previously smoked but have stopped, in which year did you last smoke?</td><td>
+            <input type=text class=input_box_small__ID data-custom=1 data-id=smoke_stop name=smoke_stop id=smoke_stop/>
+            </td></tr>
+            <tr id=tr_smoke_age><td class=C__ID__indent>How old were you when you <u>first started regular</u> cigarette smoking?</td><td>
+            <input type=text class=input_box_small__ID data-custom=1 data-id=smoke_age name=smoke_age id=smoke_age/>
+            </td></tr>
+            <tr id=tr_smoke_per_day><td class=C__ID__indent>On average, over the entire time you smoked, how many cigarettes did you smoke <u>each day</u>?</td><td>
+            <input type=text class=input_box_small__ID data-custom=1 data-id=smoke_per_day name=smoke_per_day id=smoke_per_day/>
+            </td></tr>
+             <tr><td colspan=2 class='subheader__ID'>Alcohol
+            </td></tr>
+            <tr><td class=C__ID__indent>Do you think you will be able to go 3 weekends without alcohol?</td><td  data-custom=1 data-id=no_alcohol_3_weeks>
+            <input type=radio class=modified_radio__ID value=0 name=no_alcohol_3_weeks id=no_alcohol_3_weeks/>No&nbsp;
+            <input type=radio class=modified_radio__ID value=1 name=no_alcohol_3_weeks >Yes
+            </td></tr>
+            <tr><td class=C__ID__indent><u>In a typical week during the past year</u>, on how many days did you consume an alcoholic drink of any type? Please check the appropriate answer.</td><td data-custom=1 data-id=alcohol>
+            <input type=radio class=modified_radio__ID value=0 name=alcohol id=alcohol/>0 days / do not drink alcohol<br>
+            <input type=radio class=modified_radio__ID value=1 name=alcohol />1 day<br>
+            <input type=radio class=modified_radio__ID value=2 name=alcohol />2 days<br>
+            <input type=radio class=modified_radio__ID value=3 name=alcohol />3 days<br>
+            <input type=radio class=modified_radio__ID value=4 name=alcohol />4 days<br>
+            <input type=radio class=modified_radio__ID value=5 name=alcohol />5 days<br>
+            <input type=radio class=modified_radio__ID value=6 name=alcohol />6 days<br>
+            <input type=radio class=modified_radio__ID value=7 name=alcohol />7 days
+            </td></tr>
+            <tr id=tr_alcohol_standard ><td class=C__ID__indent>On days <u>when you drink alcohol</u>, how many <u>standard drinks</u> of beer, wine / or other type of alcohol would you have?
+                <i>(<a href="https://cbs.wappsystem.com/users/astn/files/116_Standard_Drinks.png" target="_blank">Click here</a> for list of standard drinks)</i>
+                Please check the appropriate answer.</td><td data-custom=1 data-id=alcohol_standard_wd>
+            Workday(s)<br>
+            <input type=radio class=modified_radio__ID value=0 name=alcohol_standard_wd id=alcohol_standard_wd/>None<br>
+            <input type=radio class=modified_radio__ID value=1 name=alcohol_standard_wd />1-2 drinks<br>
+            <input type=radio class=modified_radio__ID value=2 name=alcohol_standard_wd />3-5 drinks<br>
+            <input type=radio class=modified_radio__ID value=3 name=alcohol_standard_wd />6-9 drinks<br>
+            <input type=radio class=modified_radio__ID value=4 name=alcohol_standard_wd />10 or more drinks<br><br>
+            </td></tr>
+            <tr><td></td><td data-custom=1 data-id=alcohol_standard_nwd>
+            Non-workday(s)<br>
+            <input type=radio class=modified_radio__ID value=0 name=alcohol_standard_nwd id=alcohol_standard_nwd/>None<br>
+            <input type=radio class=modified_radio__ID value=1 name=alcohol_standard_nwd />1-2 drinks<br>
+            <input type=radio class=modified_radio__ID value=2 name=alcohol_standard_nwd />3-5 drinks<br>
+            <input type=radio class=modified_radio__ID value=3 name=alcohol_standard_nwd />6-9 drinks<br>
+            <input type=radio class=modified_radio__ID value=4 name=alcohol_standard_nwd />10 or more drinks
+            </td></tr>
+            <tr><td colspan=2 class='subheader__ID'>Caffeine</td></tr>
+
+			<tr><td class=C__ID__indent>Do you think you will be able to go 3 weekends without caffeine?</td>
+				<td  data-custom=1 data-id=no_caffeine_3_weeks>
+                 	<input type=radio class=modified_radio__ID value=0 name=no_caffeine_3_weeks id=no_caffeine_3_weeks />No&nbsp;
+                 	<input type=radio class=modified_radio__ID value=1 name=no_caffeine_3_weeks />Yes
+            	</td>
+		    </tr>
+
+			<tr><td class=C__ID__indent><u>In  a typical day during the past week</u>, how many <u>caffeinated drinks</u> did you have e.g. coffee, tea, coca cola, hot chocolate, energy drinks, soft drinks, ice teas?
+            <i>(If you’re unsure whether your drink contains caffeine
+                    <a href="https://cbs.wappsystem.com/users/astn/files/117_Contain_Caffeine.png" target="_blank">click here</a>
+                to find out.)</i> Please check the appropriate answer.</td><td>
+            <input type=checkbox class=modified_radio__ID data-custom=1 data-id=caffeine name=caffeine id=caffeine />0 drinks / I do not drink caffeine<br><br>
+        </td></tr>
+        <tr><td></td><td data-custom=1 data-id=caffeine_wd>
+            Workday(s)<br>
+            <input type=radio class=modified_radio__ID value=0 name=caffeine_wd id=caffeine_wd/>None<br>
+            <input type=radio class=modified_radio__ID value=1 name=caffeine_wd />1-2 drinks<br>
+            <input type=radio class=modified_radio__ID value=2 name=caffeine_wd />3-5 drinks<br>
+            <input type=radio class=modified_radio__ID value=3 name=caffeine_wd />6-9 drinks<br>
+            <input type=radio class=modified_radio__ID value=4 name=caffeine_wd />10 or more drinks<br><br>
+        </td></tr>
+        <tr><td></td><td data-custom=1 data-id=caffeine_nwd>
+            Non-workday(s)<br>
+            <input type=radio class=modified_radio__ID value=0 name=caffeine_nwd id=caffeine_nwd/>None<br>
+            <input type=radio class=modified_radio__ID value=1 name=caffeine_nwd />1-2 drinks<br>
+            <input type=radio class=modified_radio__ID value=2 name=caffeine_nwd />3-5 drinks<br>
+            <input type=radio class=modified_radio__ID value=3 name=caffeine_nwd />6-9 drinks<br>
+            <input type=radio class=modified_radio__ID value=4 name=caffeine_nwd />10 or more drinks
+            </td></tr>
+            <tr id=tr_caffeine_bed><td class=C__ID__indent>How many hours before bedtime would you normally have your last drink containing caffeine? </td><td>
+             Workday(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=number min='0' max='24' class=input_box_small__ID data-custom=1 data-id=caffeine_bed_wd name=caffeine_bed_wd id=caffeine_bed_wd/><br>
+         </td></tr>
+         <tr><td></td><td >
+             Non-workday(s)&nbsp;&nbsp;&nbsp;<input type=number min='0' max='24' class=input_box_small__ID data-custom=1 data-id=caffeine_bed_nwd name=caffeine_bed_nwd id=caffeine_bed_nwd/>
+            </td></tr>
+        </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID tbody *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case 'general_health':
+                    case 'physical_activity':
+                    case 'smoke':
+                    case 'smoke_regular':
+                    case 'alcohol':
+                    case 'alcohol_standard_wd':
+                    case 'alcohol_standard_nwd':
+                    case 'caffeine_wd':
+                    case 'caffeine_nwd':
+                    case 'no_caffeine_3_weeks':
+                    case 'no_smoke_3_weeks':
+                    case 'no_alcohol_3_weeks':
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                    case 'caffeine':
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                        });
+                    break;
+                    case 'smoke_stop':
+                    case 'smoke_age':
+                    case 'smoke_per_day':
+                    case 'caffeine_bed_wd':
+                    case 'caffeine_bed_nwd':
+                        $(this).val(_records[I][field]);
+                        $(this).on('change', function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if( $('#tb__ID').find('input[name=general_health]:checked').val()===undefined){ $vm.alert("Please answer General Health question"); return false; }
+            if( $('#tb__ID').find('input[name=physical_activity]:checked').val()===undefined){ $vm.alert("Please answer Physical Activity question"); return false; }
+            if( $('#tb__ID').find('input[name=smoke]:checked').val()===undefined){ $vm.alert("Please answer Smoke question"); return false; }
+            if( $('#tb__ID').find('input[name=smoke]:checked').val()==='1' && $('#tb__ID').find('input[name=smoke_regular]:checked').val()===undefined ){ $vm.alert("Please answer Smoke Regulary question"); return false; }
+            if( $('#tb__ID').find('input[name=smoke]:checked').val()==='1' && $('#tb__ID').find('input[name=smoke_regular]:checked').val()==='1' &&
+                $('#tb__ID').find('input[name=smoke_age]').val()==='') { $vm.alert("Please answer 'How old' question"); return false; }
+            if( $('#tb__ID').find('input[name=smoke]:checked').val()==='1' && $('#tb__ID').find('input[name=smoke_regular]:checked').val()==='1' &&
+                $('#tb__ID').find('input[name=smoke_per_day]').val()==='') { $vm.alert("Please answer 'Smoked each day' question"); return false; }
+
+
+            if( $('#tb__ID').find('input[name=alcohol]:checked').val()===undefined){$vm.alert("Please answer 'Consume Alcohol' question"); return false; }
+            if( $('#tb__ID').find('input[name=alcohol]:checked').val()!=='0' &&
+                $('#tb__ID').find('input[name=alcohol_standard_wd]:checked').val()===undefined
+            ){$vm.alert("Please answer 'No drinks on Workdays' question"); return false; }
+            if( $('#tb__ID').find('input[name=alcohol]:checked').val()!=='0' &&
+                $('#tb__ID').find('input[name=alcohol_standard_nwd]:checked').val()===undefined
+            ){$vm.alert("Please answer 'No drinks on Non Workdays' question"); return false; }
+
+            if( $('#tb__ID').find('input[name=caffeine]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=caffeine_wd]:checked').val()===undefined ) {$vm.alert("Please answer 'Caffein drink on Workdays' question"); return false; }
+            if( $('#tb__ID').find('input[name=caffeine]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=caffeine_nwd]:checked').val()===undefined ) {$vm.alert("Please answer 'Caffein drink on Non Workdays' question"); return false; }
+            if( $('#tb__ID').find('input[name=caffeine]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=caffeine_bed_wd]').val()==='' ) {$vm.alert("Please answer 'Caffein before bedtime on Workdays' question"); return false; }
+            if( $('#tb__ID').find('input[name=caffeine]').is(':checked')===false &&
+                $('#tb__ID').find('input[name=caffeine_bed_nwd]').val()==='') {$vm.alert("Please answer Caffein before bedtime on Non Workdays' question"); return false; }
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+    .input_box_small__ID{
+        border: 1px solid #adb8c0!important;
+        width:100px!important;
+    }
+</style>

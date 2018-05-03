@@ -1,0 +1,160 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:900px;'>
+            <colgroup><col style='width:250px'/>
+                <col style='width:100mm;' />
+                <col />
+            </colgroup>
+
+                    <tr><td colspan=6 class='header__ID'>Visual Analogue Scale</td></tr>
+                   <!-- -->
+                   <tr id=tr_participant__ID style='display:none'><td colspan=3 data-id=Participant data-custom=1>
+                       <input name=Participant     id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                       <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                       <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+                   </td></tr>
+            	    <!-- -->
+                    <tr><td colspan=3 style='text-align:left'><br><b>Residents living within the area of Wind turbines present with complaints of the following symptoms.<br>
+                            After each symptom listed, please click along the line in which best describes your current state and symptom.
+                            </b><br><br></td></tr>
+
+                            <tr><td colspan=3 style='text-align:center'><br>HEADACHE</td></tr>
+                            <tr><td>Not at all</td><td data-id=HEADACHES data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>RINGING IN THE EARS</td></tr>
+                            <tr><td>Not at all</td><td data-id=RINGING data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>ITCHY SKIN</td></tr>
+                            <tr><td>Not at all</td><td data-id=ITCH data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>BLURRED VISION</td></tr>
+                            <tr><td>Not at all</td><td data-id=BLUR data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>DIZZINESS</td></tr>
+                            <tr><td>Not at all</td><td data-id=DIZZY data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>RACING HEART</td></tr>
+                            <tr><td>Not at all</td><td data-id=HEART data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>VERTIGO</td></tr>
+                            <tr><td>Not at all</td><td data-id=VERTIGO data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>NAUSEA</td></tr>
+                            <tr><td>Not at all</td><td data-id=NAUSEA data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>TIREDNESS</td></tr>
+                            <tr><td>Not at all</td><td data-id=TIREDNESS data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>FEELING FAINT</td></tr>
+                            <tr><td>Not at all</td><td data-id=FAINT data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>SLEEPINESS</td></tr>
+                            <tr><td>Not at all</td><td data-id=SLEEPINESS data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>DIFFICULTY CONCENTRATING</td></tr>
+                            <tr><td>Not at all</td><td data-id=CONCENTRATING data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>DIFFICULTY REMEMBERING</td></tr>
+                            <tr><td>Not at all</td><td data-id=MEMORY data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>FATIGUE</td></tr>
+                            <tr><td>Not at all</td><td data-id=FATIGUE data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>IRRITABILITY</td></tr>
+                            <tr><td>Not at all</td><td data-id=IRRITABILITY data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>MUSCLE SPASMS</td></tr>
+                            <tr><td>Not at all</td><td data-id=MUSCLE data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>DISRUPTION WHILE FALLING ASLEEP</td></tr>
+                            <tr><td>Not at all</td><td data-id=DISRUPTEDSLEEP data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>AWAKENING FROM SLEEP</td></tr>
+                            <tr><td>Not at all</td><td data-id=AWAKEN data-custom=1></td><td>Worst I can imagine</td></tr>
+                            <tr><td colspan=3 style='text-align:center'><br>ANXIETY</td></tr>
+                            <tr><td>Not at all</td><td data-id=ANXIETY data-custom=1></td><td>Worst I can imagine</td></tr>
+                            
+                </table>
+            </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__BASE__/woolcock-imr/windfarm/common-code/participant.js
+        VmInclude:__BASE__/vmiis/Common-Code/grid/form.js
+        var _task_fields;
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case 'HEADACHES':
+                    case 'RINGING':
+                    case 'ITCH':
+                    case 'BLUR':
+                    case 'DIZZY':
+                    case 'HEART':
+                    case 'VERTIGO': 
+                    case 'NAUSEA':
+                    case 'TIREDNESS':
+                    case 'FAINT':
+                    case 'SLEEPINESS':
+                    case 'CONCENTRATING':
+                    case 'MEMORY':
+                    case 'FATIGUE':
+                    case 'IRRITABILITY':
+                    case 'MUSCLE':
+                    case 'DISRUPTEDSLEEP':
+                    case 'AWAKEN':
+                    case 'ANXIETY':               
+                        var txt="<div class="+field+" style='position:relative;height:16px'>";
+                        txt+="<hr style='border:1px solid black;position:absolute;width:100%;top:8px;left:0px;z-index:100'>";
+                        txt+="<div style='margin-left:20px;position:absolute;top:0px;left:0px;width:5px;height:16px;background-color:red;z-index:200'></div></div>";
+                        $(this).html(txt);
+                        var v=_records[I][field];
+
+                        $(this).find('div.'+field).find('div').show();
+                        if(v===undefined || v===null ||v==='') $(this).find('div.'+field).find('div').hide();
+
+                        if(v===undefined || v===null ||v==='') v=0;
+                        var w=$(this).outerWidth()-6
+                        var left=(w)*v/100;
+                        $(this).find('div.'+field).find('div').css('margin-left',left.toString()+'px');
+                        $(this).find('div.'+field).on('click',function(event){
+                            $(this).find('div').show();
+                            var x0=$(this).position().left
+                            var x1=event.pageX
+                            var dx=x1-x0;
+                            var pos=100*dx/w;
+                            $(this).find('div').css('margin-left',dx.toString()+'px');
+                            if(pos<0) pos=0
+                            _set_value((pos).toFixed(0),_records,I,field);
+                        })
+                        break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            return true;
+        }
+    }
+</script>
+<style>
+VmInclude:__BASE__/vmiis/Common-Code/toolbar/toolbar.css
+VmInclude:__BASE__/vmiis/Common-Code/grid/form.css
+    #tb__ID input[type=radio]{
+        cursor:pointer;
+    }
+    #tb__ID tr td:nth-child(3),
+    {
+        text-align:left;
+        padding-top: 0px;
+        vertical-align:middle;
+    }
+    #tb__ID tr td:nth-child(2),
+    {
+        text-align:center;
+        padding-top: 0px;
+        vertical-align:middle;
+    }
+    #tb__ID tr td:nth-child(1){
+        text-align: right;
+        vertical-align:middle;
+    }

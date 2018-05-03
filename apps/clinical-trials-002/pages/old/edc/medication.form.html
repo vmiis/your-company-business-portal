@@ -1,0 +1,639 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:800px;'>
+            <colgroup>
+                <col class=colA style='width:110px' />
+                <col class=colA style='width:110px' />
+                <col />
+            </colgroup>
+
+            <tr><td colspan=3 class='header__ID'>Medication</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=3 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=3  class='subheader__ID'><br>1.    Do you take prescribed medications to help you sleep?</td></tr>
+             <tr><td colspan=3 class=C__ID__notopliner>&nbsp;&nbsp;&nbsp;<input class=modified_radio__ID data-custom=1 data-id=sleep_med name=sleep_med id=sleep_med_1 type=radio value=0 /><label for=sleep_med_1>&nbsp;not at all</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_med type=radio value=1 id=sleep_med_2 /><label for=sleep_med_2>&nbsp;occasionally (1-2 times per month)</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_med type=radio value=2 id=sleep_med_3 /><label for=sleep_med_3>&nbsp;sometimes (3-4 times per month)</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_med type=radio value=3 id=sleep_med_4 /><label for=sleep_med_4>&nbsp;often (1-2 times per week)</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_med type=radio value=4 id=sleep_med_5 /><label for=sleep_med_5>&nbsp;frequently (3 or more times per week)</label><br>
+             </td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>2.    Do you take other medications (including herbal or other supplements) to help you sleep?</td></tr>
+             <tr><td colspan=3 class=C__ID__notopliner>&nbsp;&nbsp;&nbsp;<input class=modified_radio__ID data-custom=1 data-id=sleep_suppl name=sleep_suppl id=sleep_suppl_1 type=radio value=0 /><label for=sleep_suppl_1>&nbsp;not at all</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_suppl type=radio value=1 id=sleep_suppl_2 /><label for=sleep_suppl_2>&nbsp;occasionally (1-2 times per month)</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_suppl type=radio value=2 id=sleep_suppl_3 /><label for=sleep_suppl_3>&nbsp;sometimes (3-4 times per month)</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_suppl type=radio value=3 id=sleep_suppl_4 /><label for=sleep_suppl_4>&nbsp;often (1-2 times per week)</label><br>
+             &nbsp;&nbsp;&nbsp;<input class=modified_radio__ID name=sleep_suppl type=radio value=4 id=sleep_suppl_5 /><label for=sleep_suppl_5>&nbsp;frequently (3 or more times per week)</label><br>
+             </td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>3.    Please tick any medications that you currently take. If any of your medications are not listed below please list these medications in the last section of this question</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Pain Killers and others</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_aspirin name=past6_aspirin id=past6_aspirin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_aspirin name=curr_aspirin id=curr_aspirin type=checkbox class=modified_checkbox__ID  /></td><td>Aspirin (e.g. Solprin, Aspro, Disprin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_fentanyl name=past6_fentanyl id=past6_fentanyl type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_fentanyl name=curr_fentanyl id=curr_fentanyl type=checkbox class=modified_checkbox__ID  /></td><td>Fentanyl (e.g. Actiq Lozenge, Durogesic Patches)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_hydromorphone name=past6_hydromorphone id=past6_hydromorphone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_hydromorphone name=curr_hydromorphone id=curr_hydromorphone type=checkbox class=modified_checkbox__ID  /></td><td>Hydromorphone (e.g. Dilaudid)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ibuprofen name=past6_ibuprofen id=past6_ibuprofen type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ibuprofen name=curr_ibuprofen id=curr_ibuprofen type=checkbox class=modified_checkbox__ID  /></td><td>Ibuprofen (e.g. Nurofen, Advil)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ibuprofen_co name=past6_ibuprofen_co id=past6_ibuprofen_co type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ibuprofen_co name=curr_ibuprofen_co id=curr_ibuprofen_co type=checkbox class=modified_checkbox__ID  /></td><td>Ibuprofen–codeine (e.g. Chemists’ Own Ibuprofen Plus Codeine, Nurofen Plus)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_morphine name=past6_morphine id=past6_morphine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_morphine name=curr_morphine id=curr_morphine type=checkbox class=modified_checkbox__ID  /></td><td>Morphine (e.g. Anamorph, Kapanol, MS Contin, MS Mono)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_oxycodone name=past6_oxycodone id=past6_oxycodone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_oxycodone name=curr_oxycodone id=curr_oxycodone type=checkbox class=modified_checkbox__ID  /></td><td>Oxycodone (e.g. Endone, OxyContin, OxyNorm, Targin) </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_paracetamol name=past6_paracetamol id=past6_paracetamol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_paracetamol name=curr_paracetamol id=curr_paracetamol type=checkbox class=modified_checkbox__ID  /></td><td>Paracetamol (e.g. Panadol, Panamax)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_paracetamol_co name=past6_paracetamol_co id=past6_paracetamol_co type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_paracetamol_co name=curr_paracetamol_co id=curr_paracetamol_co type=checkbox class=modified_checkbox__ID  /></td><td>Paracetamol–codeine (e.g. Codalgin, Mersyndol, Panadeine, Chemists’ Own Pain Relief)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_tramadol name=past6_tramadol id=past6_tramadol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_tramadol name=curr_tramadol id=curr_tramadol type=checkbox class=modified_checkbox__ID  /></td><td>Tramadol (e.g. Lodam, Tramal, Zydol)</td></tr>
+                 <tr><td colspan=3  class='subheader__ID'><br>Cold and Flu medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_antihistamine name=past6_antihistamine id=past6_antihistamine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_antihistaminee name=curr_antihistaminee id=curr_antihistaminee type=checkbox class=modified_checkbox__ID  /></td><td>Antihistamine</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_pseudoephedrine name=past6_pseudoephedrine id=past6_pseudoephedrine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_pseudoephedrine name=curr_pseudoephedrine id=curr_pseudoephedrine type=checkbox class=modified_checkbox__ID  /></td><td>Pseudoephedrine (e.g. Benadryl, Chemists’ Own Cold & Flu, Codral, Demazin, Sudafed Sinus)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Anti-inflammatory medication</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_betamethasone name=past6_betamethasone id=past6_betamethasone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_betamethasone name=curr_betamethasone id=curr_betamethasone type=checkbox class=modified_checkbox__ID  /></td><td>Betamethasone (e.g. Antroquoril)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_celecoxib name=past6_celecoxib id=past6_celecoxib type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_celecoxib name=curr_celecoxib id=curr_celecoxib type=checkbox class=modified_checkbox__ID  /></td><td>Celecoxib (e.g. Celebrex)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_diclofenac name=past6_diclofenac id=past6_diclofenac type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_diclofenac name=curr_diclofenac id=curr_diclofenac type=checkbox class=modified_checkbox__ID  /></td><td>Diclofenac (e.g. Voltaren)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_indomethacin name=past6_indomethacin id=past6_indomethacin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_indomethacin name=curr_indomethacin id=curr_indomethacin type=checkbox class=modified_checkbox__ID  /></td><td>Indomethacin (e.g. Indocid)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_meloxicam name=past6_meloxicam id=past6_meloxicam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_meloxicam name=curr_meloxicam id=curr_meloxicam type=checkbox class=modified_checkbox__ID  /></td><td>Meloxicam (e.g. Melox, Movalis, Mobic)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_naproxen name=past6_naproxen id=past6_naproxen type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_naproxen name=curr_naproxen id=curr_naproxen type=checkbox class=modified_checkbox__ID  /></td><td>Naproxen (e.g. Anaprox, Inza, Naprogesic)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_prednisolone name=past6_prednisolone id=past6_prednisolone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_prednisolone name=curr_prednisolone id=curr_prednisolone type=checkbox class=modified_checkbox__ID  /></td><td>Prednisolone (e.g. Panafcortelone)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_prednisone name=past6_prednisone id=past6_prednisone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_prednisone name=curr_prednisone id=curr_prednisone type=checkbox class=modified_checkbox__ID  /></td><td>Prednisone (e.g. Panafcort)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Sleep and Anti-anxiety medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_alprazolam name=past6_alprazolam id=past6_alprazolam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_alprazolam name=curr_alprazolam id=curr_alprazolam type=checkbox class=modified_checkbox__ID  /></td><td>Alprazolam (e.g. Xanax, Kalma)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_clonazepam name=past6_clonazepam id=past6_clonazepam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_clonazepam name=curr_clonazepam id=curr_clonazepam type=checkbox class=modified_checkbox__ID  /></td><td>Clonazepam (e.g. Rivotril, Paxam)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_diazepam name=past6_diazepam id=past6_diazepam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_diazepam name=curr_diazepam id=curr_diazepam type=checkbox class=modified_checkbox__ID  /></td><td>Diazepam (e.g. Valium, Antenex, Ducene)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_flunitrazepam name=past6_flunitrazepam id=past6_flunitrazepam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_flunitrazepam name=curr_flunitrazepam id=curr_flunitrazepam type=checkbox class=modified_checkbox__ID  /></td><td>Flunitrazepam (e.g. Hypnodorm)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_lorazepam name=past6_lorazepam id=past6_lorazepam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_lorazepam name=curr_lorazepam id=curr_lorazepam type=checkbox class=modified_checkbox__ID  /></td><td>Lorazepam (e.g. Ativan)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_melatonin name=past6_melatonin id=past6_melatonin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_melatonin name=curr_melatonin id=curr_melatonin type=checkbox class=modified_checkbox__ID  /></td><td>Melatonin (e.g. Circadin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_nitrazepam name=past6_nitrazepam id=past6_nitrazepam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_nitrazepam name=curr_nitrazepam id=curr_nitrazepam type=checkbox class=modified_checkbox__ID  /></td><td>Nitrazepam (e.g. Mogadon, Alodorm)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_oxazepam name=past6_oxazepam id=past6_oxazepam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_oxazepam name=curr_oxazepam id=curr_oxazepam type=checkbox class=modified_checkbox__ID  /></td><td>Oxazepam (e.g. Serepax, Alepam, Murelax)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_temazepam name=past6_temazepam id=past6_temazepam type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_temazepam name=curr_temazepam id=curr_temazepam type=checkbox class=modified_checkbox__ID  /></td><td>Temazepam (e.g. Normison, Temaze, Temtabs, Euhypnos)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_zopiclone name=past6_zopiclone id=past6_zopiclone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_zopiclone name=curr_zopiclone id=curr_zopiclone type=checkbox class=modified_checkbox__ID  /></td><td>Zopiclone (e.g. Imovane)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_zolpidem name=past6_zolpidem id=past6_zolpidem type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_zolpidem name=curr_zolpidem id=curr_zolpidem type=checkbox class=modified_checkbox__ID  /></td><td>Zolpidem (e.g. Stilnox)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Anti-depressants</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_agomelatine name=past6_agomelatine id=past6_agomelatine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_agomelatine name=curr_agomelatine id=curr_agomelatine type=checkbox class=modified_checkbox__ID  /></td><td>Agomelatine (e.g. Valdoxan)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_citalopram name=past6_citalopram id=past6_citalopram type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_citalopram name=curr_citalopram id=curr_citalopram type=checkbox class=modified_checkbox__ID  /></td><td>Citalopram (e.g. Cipramil, Talam)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_escitalopram name=past6_escitalopram id=past6_escitalopram type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_escitalopram name=curr_escitalopram id=curr_escitalopram type=checkbox class=modified_checkbox__ID  /></td><td>Escitalopram (e.g. Lexapro, Lexam)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_fluoxetine name=past6_fluoxetine id=past6_fluoxetine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_fluoxetine name=curr_fluoxetine id=curr_fluoxetine type=checkbox class=modified_checkbox__ID  /></td><td>Fluoxetine (e.g. Prozac, Lovan)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_lithium name=past6_lithium id=past6_lithium type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_lithium name=curr_lithium id=curr_lithium type=checkbox class=modified_checkbox__ID  /></td><td>Lithium (e.g. Lithicarb, Quilonum)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_mirtazapine name=past6_mirtazapine id=past6_mirtazapine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_mirtazapine name=curr_mirtazapine id=curr_mirtazapine type=checkbox class=modified_checkbox__ID  /></td><td>Mirtazapine (e.g. Avanza, Axit)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_paroxetine name=past6_paroxetine id=past6_paroxetine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_paroxetine name=curr_paroxetine id=curr_paroxetine type=checkbox class=modified_checkbox__ID  /></td><td>Paroxetine (e.g. Aropax)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_sertraline name=past6_sertraline id=past6_sertraline type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_sertraline name=curr_sertraline id=curr_sertraline type=checkbox class=modified_checkbox__ID  /></td><td>Sertraline (e.g. Zoloft)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_venlafaxine  name=past6_venlafaxine  id=past6_venlafaxine  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_venlafaxine  name=curr_venlafaxine  id=curr_venlafaxine  type=checkbox class=modified_checkbox__ID  /></td><td>Venlafaxine (e.g. Efexor)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Stimulants or Weight Reducing medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_dexamphetamine  name=past6_dexamphetamine  id=past6_dexamphetamine  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_dexamphetamine  name=curr_dexamphetamine  id=curr_dexamphetamine  type=checkbox class=modified_checkbox__ID  /></td><td>Dexamphetamine </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_methylpenidate name=past6_methylpenidate id=past6_methylpenidate type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_methylpenidate name=curr_methylpenidate id=curr_methylpenidate type=checkbox class=modified_checkbox__ID  /></td><td>Methylphenidate (e.g. Ritalin, Concerta)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_modafinil name=past6_modafinil id=past6_modafinil type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_modafinil name=curr_modafinil id=curr_modafinil type=checkbox class=modified_checkbox__ID  /></td><td>Modafinil (e.g. Modavigil, Provigil)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_phentermine name=past6_phentermine id=past6_phentermine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_phentermine name=curr_phentermine id=curr_phentermine type=checkbox class=modified_checkbox__ID  /></td><td>Phentermine (e.g. Duromine, Metermine)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Blood Pressure and Heart medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_aldomet name=past6_aldomet id=past6_aldomet type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_aldomet name=curr_aldomet id=curr_aldomet type=checkbox class=modified_checkbox__ID  /></td><td>Aldomet (e.g. Methyldopa)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_amiodarone name=past6_amiodarone id=past6_amiodarone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_amiodarone name=curr_amiodarone id=curr_amiodarone type=checkbox class=modified_checkbox__ID  /></td><td>Amiodarone (e.g. Aratac, Cordarone)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_amlodipine name=past6_amlodipine id=past6_amlodipine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_amlodipine name=curr_amlodipine id=curr_amlodipine type=checkbox class=modified_checkbox__ID  /></td><td>Amlodipine (e.g. Caduet, Norvasc)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_atenolol name=past6_atenolol id=past6_atenolol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_atenolol name=curr_atenolol id=curr_atenolol type=checkbox class=modified_checkbox__ID  /></td><td>Atenolol (e.g. Noten, Tenormin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_candesartan name=past6_candesartan id=past6_candesartan type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_candesartan name=curr_candesartan id=curr_candesartan type=checkbox class=modified_checkbox__ID  /></td><td>Candesartan (e.g. Atacand)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_captopril name=past6_captopril id=past6_captopril type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_captopril name=curr_captopril id=curr_captopril type=checkbox class=modified_checkbox__ID  /></td><td>Captopril (e.g. Acenorm, Capoten)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_carvedilol name=past6_carvedilol id=past6_carvedilol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_carvedilol name=curr_carvedilol id=curr_carvedilol type=checkbox class=modified_checkbox__ID  /></td><td>Carvedilol (e.g. Kredex)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_diltiazem name=past6_diltiazem id=past6_diltiazem type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_diltiazem name=curr_diltiazem id=curr_diltiazem type=checkbox class=modified_checkbox__ID  /></td><td>Diltiazem (e.g. Cardizem)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_disopyramide name=past6_disopyramide id=past6_disopyramide type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_disopyramide name=curr_disopyramide id=curr_disopyramide type=checkbox class=modified_checkbox__ID  /></td><td>Disopyramide (e.g. Rythmodan)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_enalapril name=past6_enalapril id=past6_enalapril type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_enalapril name=curr_enalapril id=curr_enalapril type=checkbox class=modified_checkbox__ID  /></td><td>Enalapril (e.g. Renitec) </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_felodipine name=past6_felodipine id=past6_felodipine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_felodipine name=curr_felodipine id=curr_felodipine type=checkbox class=modified_checkbox__ID  /></td><td>Felodipine (e.g. Plendil, Felodur)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_fosinopril name=past6_fosinopril id=past6_fosinopril type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_fosinopril name=curr_fosinopril id=curr_fosinopril type=checkbox class=modified_checkbox__ID  /></td><td>Fosinopril (e.g. Monace)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_irbesartan name=past6_irbesartan id=past6_irbesartan type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_irbesartan name=curr_irbesartan id=curr_irbesartan type=checkbox class=modified_checkbox__ID  /></td><td>Irbesartan (e.g. Avapro, Karvea)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_lisinopril name=past6_lisinopril id=past6_lisinopril type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_lisinopril name=curr_lisinopril id=curr_lisinopril type=checkbox class=modified_checkbox__ID  /></td><td>Lisinopril (e.g. Zestril)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_metoprolol name=past6_metoprolol id=past6_metoprolol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_metoprolol name=curr_metoprolol id=curr_metoprolol type=checkbox class=modified_checkbox__ID  /></td><td>Metoprolol (e.g. Betaloc, Lopresor)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_nifedipine name=past6_nifedipine id=past6_nifedipine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_nifedipine name=curr_nifedipine id=curr_nifedipine type=checkbox class=modified_checkbox__ID  /></td><td>Nifedipine (e.g. Adalat, Adefin, Addos)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_olmesartan name=past6_olmesartan id=past6_olmesartan type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_olmesartan name=curr_olmesartan id=curr_olmesartan type=checkbox class=modified_checkbox__ID  /></td><td>Olmesartan (e.g. Olmetec)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_perindopril name=past6_perindopril id=past6_perindopril type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_perindopril name=curr_perindopril id=curr_perindopril type=checkbox class=modified_checkbox__ID  /></td><td>Perindopril (e.g. Coversyl, Coveram)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_propranolol name=past6_propranolol id=past6_propranolol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_propranolol name=curr_propranolol id=curr_propranolol type=checkbox class=modified_checkbox__ID  /></td><td>Propranolol (e.g. Deralin, Inderal)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ramipril name=past6_ramipril id=past6_ramipril type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ramipril name=curr_ramipril id=curr_ramipril type=checkbox class=modified_checkbox__ID  /></td><td>Ramipril (e.g. Prilace, Ramipril, Tryzan)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_telmisartan name=past6_telmisartan id=past6_telmisartan type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_telmisartan name=curr_telmisartan id=curr_telmisartan type=checkbox class=modified_checkbox__ID  /></td><td>Telmisartan (e.g. Micardis)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_warfarin name=past6_warfarin id=past6_warfarin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_warfarin name=curr_warfarin id=curr_warfarin type=checkbox class=modified_checkbox__ID  /></td><td>Warfarin sodium (e.g. Coumadin, Marevan)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Cholesterol medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_atorvastatin name=past6_atorvastatin id=past6_atorvastatin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_atorvastatin name=curr_atorvastatin id=curr_atorvastatin type=checkbox class=modified_checkbox__ID  /></td><td>Atorvastatin (e.g. Lipitor)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ezet_atorva name=past6_ezet_atorva id=past6_ezet_atorva type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ezet_atorva name=curr_ezet_atorva id=curr_ezet_atorva type=checkbox class=modified_checkbox__ID  /></td><td>Ezetimibe / Atorvastatin (e.g. Atozet)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ezetimibe name=past6_ezetimibe id=past6_ezetimibe type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ezetimibe name=curr_ezetimibe id=curr_ezetimibe type=checkbox class=modified_checkbox__ID  /></td><td>Ezetimibe (e.g. Ezetrol)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_pravastatin name=past6_pravastatin id=past6_pravastatin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_pravastatin name=curr_pravastatin id=curr_pravastatin type=checkbox class=modified_checkbox__ID  /></td><td>Pravastatin (e.g. Pravachol)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_rosuvastatin name=past6_rosuvastatin id=past6_rosuvastatin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_rosuvastatin name=curr_rosuvastatin id=curr_rosuvastatin type=checkbox class=modified_checkbox__ID  /></td><td>Rosuvastatin (e.g. Crestor)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_simvastatin name=past6_simvastatin id=past6_simvastatin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_simvastatin name=curr_simvastatin id=curr_simvastatin type=checkbox class=modified_checkbox__ID  /></td><td>Simvastatin (e.g. Zocor)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_simv_eze name=past6_simv_eze id=past6_simv_eze type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_simv_eze name=curr_simv_eze id=curr_simv_eze type=checkbox class=modified_checkbox__ID  /></td><td>Simvastatin / Ezetimibe (e.g. Vytorin)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Asthma and Airway medication</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_aclidinium  name=past6_aclidinium  id=past6_aclidinium  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_aclidinium  name=curr_aclidinium  id=curr_aclidinium  type=checkbox class=modified_checkbox__ID  /></td><td>Aclidinium (e.g. Bretaris)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_budesonide name=past6_budesonide id=past6_budesonide type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_budesonide name=curr_budesonide id=curr_budesonide type=checkbox class=modified_checkbox__ID  /></td><td>Budesonide (e.g. Pulmicort)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_bud_eform name=past6_bud_eform id=past6_bud_eform type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_bud_eform name=curr_bud_eform id=curr_bud_eform type=checkbox class=modified_checkbox__ID  /></td><td>Budesonide / Eformoterol (e.g. Symbicort)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ciclesonide name=past6_ciclesonide id=past6_ciclesonide type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ciclesonide name=curr_ciclesonide id=curr_ciclesonide type=checkbox class=modified_checkbox__ID  /></td><td>Ciclesonide (e.g. Alvesco)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_fluticasone name=past6_fluticasone id=past6_fluticasone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_fluticasone name=curr_fluticasone id=curr_fluticasone type=checkbox class=modified_checkbox__ID  /></td><td>Fluticasone (e.g. Flixotide)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_flut_eform name=past6_flut_eform id=past6_flut_eform type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_flut_eform name=curr_flut_eform id=curr_flut_eform type=checkbox class=modified_checkbox__ID  /></td><td>Fluticasone / Eformoterol (e.g. Flutiform)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_flut_salm name=past6_flut_salm id=past6_flut_salm type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_flut_salm name=curr_flut_salm id=curr_flut_salm type=checkbox class=modified_checkbox__ID  /></td><td>Fluticasone / Salmeterol (e.g. Seretide)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_glycopyrronium name=past6_glycopyrronium id=past6_glycopyrronium type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_glycopyrronium name=curr_glycopyrronium id=curr_glycopyrronium type=checkbox class=modified_checkbox__ID  /></td><td>Glycopyrronium (e.g. Seebri)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_indacterol name=past6_indacterol id=past6_indacterol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_indacterol name=curr_indacterol id=curr_indacterol type=checkbox class=modified_checkbox__ID  /></td><td>Indacaterol (e.g. Onbrez)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_salbutamol name=past6_salbutamol id=past6_salbutamol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_salbutamol name=curr_salbutamol id=curr_salbutamol type=checkbox class=modified_checkbox__ID  /></td><td>Salbutamol (e.g. Ventolin, Asmol)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_tiotropium name=past6_tiotropium id=past6_tiotropium type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_tiotropium name=curr_tiotropium id=curr_tiotropium type=checkbox class=modified_checkbox__ID  /></td><td>Tiotropium (e.g. Spiriva)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Anti-psychotics</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_chlorpromazine name=past6_chlorpromazine id=past6_chlorpromazine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_chlorpromazine name=curr_chlorpromazine id=curr_chlorpromazine type=checkbox class=modified_checkbox__ID  /></td><td>Chlorpromazine (e.g. Largactil)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_haloperidol name=past6_haloperidol id=past6_haloperidol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_haloperidol name=curr_haloperidol id=curr_haloperidol type=checkbox class=modified_checkbox__ID  /></td><td>Haloperidol (e.g. Serenace)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_olanzapine name=past6_olanzapine id=past6_olanzapine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_olanzapine name=curr_olanzapine id=curr_olanzapine type=checkbox class=modified_checkbox__ID  /></td><td>Olanzapine (e.g. Zyprexa, Zydis) </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_quetiapine name=past6_quetiapine id=past6_quetiapine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_quetiapine name=curr_quetiapine id=curr_quetiapine type=checkbox class=modified_checkbox__ID  /></td><td>Quetiapine (e.g. Seroquel)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_risperidone name=past6_risperidone id=past6_risperidone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_risperidone name=curr_risperidone id=curr_risperidone type=checkbox class=modified_checkbox__ID  /></td><td>Risperidone (e.g. Risperdal)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Restless Legs or Parkinson’s Disease medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_benztropine name=past6_benztropine id=past6_benztropine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_benztropine name=curr_benztropine id=curr_benztropine type=checkbox class=modified_checkbox__ID  /></td><td>Benztropine (e.g. Benztrop, Cogentin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_bromocriptine name=past6_bromocriptine id=past6_bromocriptine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_bromocriptine name=curr_bromocriptine id=curr_bromocriptine type=checkbox class=modified_checkbox__ID  /></td><td>Bromocriptine (e.g. Kripton, Parlodel)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_cabergoline name=past6_cabergoline id=past6_cabergoline type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_cabergoline name=curr_cabergoline id=curr_cabergoline type=checkbox class=modified_checkbox__ID  /></td><td>Cabergoline (e.g. Cabaser, Bergoline)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_gabapentin name=past6_gabapentin id=past6_gabapentin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_gabapentin name=curr_gabapentin id=curr_gabapentin type=checkbox class=modified_checkbox__ID  /></td><td>Gabapentin (e.g. Gabatine, Neurontin, Gabahexol)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_hyoscyamine  name=past6_hyoscyamine  id=past6_hyoscyamine  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_hyoscyamine  name=curr_hyoscyamine  id=curr_hyoscyamine  type=checkbox class=modified_checkbox__ID  /></td><td>Hyoscyamine (e.g. Donnatab)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_levodopa name=past6_levodopa id=past6_levodopa type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_levodopa name=curr_levodopa id=curr_levodopa type=checkbox class=modified_checkbox__ID  /></td><td>Levodopa (e.g. Madopar, Sinemet)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_phenytoin name=past6_phenytoin id=past6_phenytoin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_phenytoin name=curr_phenytoin id=curr_phenytoin type=checkbox class=modified_checkbox__ID  /></td><td>Phenytoin (e.g. Dilantin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_pramipexole name=past6_pramipexole id=past6_pramipexole type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_pramipexole name=curr_pramipexole id=curr_pramipexole type=checkbox class=modified_checkbox__ID  /></td><td>Pramipexole (e.g. Sifrol)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ropinirole name=past6_ropinirole id=past6_ropinirole type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ropinirole name=curr_ropinirole id=curr_ropinirole type=checkbox class=modified_checkbox__ID  /></td><td>Ropinirole (e.g. Repreve, Appese)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_other_rl_parkinson name=past6_other_rl_parkinson id=past6_other_rl_parkinson type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_other_rl_parkinson name=curr_other_rl_parkinson id=curr_other_rl_parkinson type=checkbox class=modified_checkbox__ID  /></td><td>Other Restless Legs or Parkinson’s disease medications cont. </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_selegiline name=past6_selegiline id=past6_selegiline type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_selegiline name=curr_selegiline id=curr_selegiline type=checkbox class=modified_checkbox__ID  /></td><td>Selegiline (e.g. Eldepryl)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Epilepsy medications (some also used for pain)</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_carnamazepine name=past6_carnamazepine id=past6_carnamazepine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_carnamazepine name=curr_carnamazepine id=curr_carnamazepine type=checkbox class=modified_checkbox__ID  /></td><td>Carbamazepine (e.g. Tegretol)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ethosuximide name=past6_ethosuximide id=past6_ethosuximide type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ethosuximide name=curr_ethosuximide id=curr_ethosuximide type=checkbox class=modified_checkbox__ID  /></td><td>Ethosuximide (e.g. Zarontin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_phenobarbitone name=past6_phenobarbitone id=past6_phenobarbitone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_phenobarbitone name=curr_phenobarbitone id=curr_phenobarbitone type=checkbox class=modified_checkbox__ID  /></td><td>Phenobarbitone</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_epi_gabapentin name=past6_epi_gabapentin id=past6_epi_gabapentin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_epi_gabapentin name=curr_epi_gabapentin id=curr_epi_gabapentin type=checkbox class=modified_checkbox__ID  /></td><td>Gabapentin (e.g. Gabatine, Neurontin, Gabahexol)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_lamotrigine name=past6_lamotrigine id=past6_lamotrigine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_lamotrigine name=curr_lamotrigine id=curr_lamotrigine type=checkbox class=modified_checkbox__ID  /></td><td>Lamotrigine (e.g. Lamictal, Lamogine)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_epi_phenytoin name=past6_epi_phenytoin id=past6_epi_phenytoin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_epi_phenytoin name=curr_epi_phenytoin id=curr_epi_phenytoin type=checkbox class=modified_checkbox__ID  /></td><td>Phenytoin (e.g. Dilantin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_pregabalin name=past6_pregabalin id=past6_pregabalin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_pregabalin name=curr_pregabalin id=curr_pregabalin type=checkbox class=modified_checkbox__ID  /></td><td>Pregabalin (e.g. Lyrica)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_primidone name=past6_primidone id=past6_primidone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_primidone name=curr_primidone id=curr_primidone type=checkbox class=modified_checkbox__ID  /></td><td>Primidone (e.g. Mysoline)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_valproate name=past6_valproate id=past6_valproate type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_valproate name=curr_valproate id=curr_valproate type=checkbox class=modified_checkbox__ID  /></td><td>Sodium valproate (e.g. Epilim, Valpro)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_tiagabine name=past6_tiagabine id=past6_tiagabine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_tiagabine name=curr_tiagabine id=curr_tiagabine type=checkbox class=modified_checkbox__ID  /></td><td>Tiagabine (e.g. Gabitril)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Thyroid Deficiency medication</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_thyroxine name=past6_thyroxine id=past6_thyroxine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_thyroxine name=curr_thyroxine id=curr_thyroxine type=checkbox class=modified_checkbox__ID  /></td><td>Thyroxine (e.g. Eutroxsig, Oroxine)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Antibiotic medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_amoxycillin name=past6_amoxycillin id=past6_amoxycillin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_amoxycillin name=curr_amoxycillin id=curr_amoxycillin type=checkbox class=modified_checkbox__ID  /></td><td>Amoxycillin (e.g. Amoxil, Alphamox)  </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_amox_clav name=past6_amox_clav id=past6_amox_clav type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_amox_clav name=curr_amox_clav id=curr_amox_clav type=checkbox class=modified_checkbox__ID  /></td><td>Amoxycillin / Clavulanic Acid (e.g. Augmentin Duo)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_cephalexin name=past6_cephalexin id=past6_cephalexin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_cephalexin name=curr_cephalexin id=curr_cephalexin type=checkbox class=modified_checkbox__ID  /></td><td>Cephalexin (e.g. Keflex,  Cilex)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_chloramphenicol name=past6_chloramphenicol id=past6_chloramphenicol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_chloramphenicol name=curr_chloramphenicol id=curr_chloramphenicol type=checkbox class=modified_checkbox__ID  /></td><td>Chloramphenicol eye (e.g. Chlorsing eye drops)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_roxithromycin name=past6_roxithromycin id=past6_roxithromycin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_roxithromycin name=curr_roxithromycin id=curr_roxithromycin type=checkbox class=modified_checkbox__ID  /></td><td>Roxithromycin (e.g. Biaxsig, Roxar, Roximycin) </td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Gastrointestinal System medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_esomeprazole name=past6_esomeprazole id=past6_esomeprazole type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_esomeprazole name=curr_esomeprazole id=curr_esomeprazole type=checkbox class=modified_checkbox__ID  /></td><td>Esomeprazole (e.g. Nexium)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_omeprazole name=past6_omeprazole id=past6_omeprazole type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_omeprazole name=curr_omeprazole id=curr_omeprazole type=checkbox class=modified_checkbox__ID  /></td><td>Omeprazole (e.g. Losec, Acimax)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_pantoprazole name=past6_pantoprazole id=past6_pantoprazole type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_pantoprazole name=curr_pantoprazole id=curr_pantoprazole type=checkbox class=modified_checkbox__ID  /></td><td>Pantoprazole (e.g. Somac)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_rabeprazol name=past6_rabeprazol id=past6_rabeprazol type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_rabeprazol name=curr_rabeprazol id=curr_rabeprazol type=checkbox class=modified_checkbox__ID  /></td><td>Rabeprazole (e.g. Pariet)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_ranitidine name=past6_ranitidine id=past6_ranitidine type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_ranitidine name=curr_ranitidine id=curr_ranitidine type=checkbox class=modified_checkbox__ID  /></td><td>Ranitidine (e.g. Zantac) </td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Blood glucose lowering medication</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_gliclazide name=past6_gliclazide id=past6_gliclazide type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_gliclazide name=curr_gliclazide id=curr_gliclazide type=checkbox class=modified_checkbox__ID  /></td><td>Gliclazide (e.g. Diamicron)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_insulin name=past6_insulin id=past6_insulin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_insulin name=curr_insulin id=curr_insulin type=checkbox class=modified_checkbox__ID  /></td><td>Insulin (e.g. Novorapid, Humalog, Actrapid, Humulin, Mixtard, Novomix, Levemir, Lantus)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_metformin name=past6_metformin id=past6_metformin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_metformin name=curr_metformin id=curr_metformin type=checkbox class=modified_checkbox__ID  /></td><td>Metformin (e.g. Diabex, Diaformin)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_met_gliben name=past6_met_gliben id=past6_met_gliben type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_met_gliben name=curr_met_gliben id=curr_met_gliben type=checkbox class=modified_checkbox__ID  /></td><td>Metformin / Glibenclamide (e.g. Glucovance)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_pioglitazone name=past6_pioglitazone id=past6_pioglitazone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_pioglitazone name=curr_pioglitazone id=curr_pioglitazone type=checkbox class=modified_checkbox__ID  /></td><td>Pioglitazone (e.g. Actos)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_rosiglitazone name=past6_rosiglitazone id=past6_rosiglitazone type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_rosiglitazone name=curr_rosiglitazone id=curr_rosiglitazone type=checkbox class=modified_checkbox__ID  /></td><td>Rosiglitazone (e.g. Avandia)</td></tr>
+
+             <tr id=tr_femaleonly ><td colspan=3  class='subheader__ID'><br>Oral Contraception (for women only)</td></tr>
+             <tr id=tr_femaleonly><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_cyp_ethin  name=past6_cyp_ethin  id=past6_cyp_ethin  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_cyp_ethin  name=curr_cyp_ethin  id=curr_cyp_ethin  type=checkbox class=modified_checkbox__ID  /></td><td>Cyproterone / Ethinyloestradiol (e.g. Brenda, Diane, Estelle, Juliet)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_drosp_ethin name=past6_drosp_ethin id=past6_drosp_ethin type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_drosp_ethin name=curr_drosp_ethin id=curr_drosp_ethin type=checkbox class=modified_checkbox__ID  /></td><td>Drospirenone / Ethinyloestradiol (e.g. Yasmin, Yaz) </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_levon_ethin  name=past6_levon_ethin  id=past6_levon_ethin  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_levon_ethin  name=curr_levon_ethin  id=curr_levon_ethin  type=checkbox class=modified_checkbox__ID  /></td><td>Levonorgestrel / Ethinyloestradiol (e.g. Levlen, Microgynon, Logynon, Trifeme, Triphasil)</td></tr>
+             <tr><td colspan=3  class='subheader__ID'><br>Other medications</td></tr>
+             <tr ><td class=cb_td__ID ><b>Taken in the past 6 months</b></td><td class=cb_td__ID><b>Currently taken</b></td><td><b>Name</b></td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_topical_steroids  name=past6_topical_steroids  id=past6_topical_steroids  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_topical_steroids  name=curr_topical_steroids  id=curr_topical_steroids  type=checkbox class=modified_checkbox__ID  /></td><td>Topical steroids</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_other_hormonal_contraception name=past6_other_hormonal_contraception id=past6_other_hormonal_contraception type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_other_hormonal_contraception name=curr_other_hormonal_contraception id=curr_other_hormonal_contraception type=checkbox class=modified_checkbox__ID  /></td><td>Other hormonal contraception </td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_sex_steroids  name=past6_sex_steroids  id=past6_sex_steroids  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_sex_steroids  name=curr_sex_steroids  id=curr_sex_steroids  type=checkbox class=modified_checkbox__ID  /></td><td>Sex steroids (for males only)</td></tr>
+             <tr ><td class=cb_td__ID><input data-custom=1 data-id=past6_herbal_remedies  name=past6_herbal_remedies  id=past6_herbal_remedies  type=checkbox class=modified_checkbox__ID  /></td><td class=cb_td__ID><input data-custom=1 data-id=curr_herbal_remedies  name=curr_herbal_remedies  id=curr_herbal_remedies  type=checkbox class=modified_checkbox__ID  /></td><td>Any health food supplements or herbal remedies</td></tr>
+              <tr ><td colspan=3> <br><b>If you take any medications which are not listed above, please specify these below.</b><br>
+                  <textarea class=input_box__ID data-custom=1 data-id=add_med id=add_med name=add_med ></textarea>
+             </td></tr>
+         </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID tbody *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    //Radio buttons
+                    case 'sleep_med':
+                    case 'sleep_suppl':
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                    //Checkbox
+                    case 'curr_aspirin':
+                    case 'curr_fentanyl':
+                    case 'curr_hydromorphone':
+                    case 'curr_ibuprofen':
+                    case 'curr_ibuprofen_co':
+                    case 'curr_morphine':
+                    case 'curr_oxycodone':
+                    case 'curr_paracetamol':
+                    case 'curr_paracetamol_co':
+                    case 'curr_tramadol':
+                    case 'curr_antihistaminee':
+                    case 'curr_pseudoephedrine':
+                    case 'curr_betamethasone':
+                    case 'curr_celecoxib':
+                    case 'curr_diclofenac':
+                    case 'curr_indomethacin':
+                    case 'curr_meloxicam':
+                    case 'curr_naproxen':
+                    case 'curr_prednisolone':
+                    case 'curr_prednisone':
+                    case 'curr_alprazolam':
+                    case 'curr_clonazepam':
+                    case 'curr_diazepam':
+                    case 'curr_flunitrazepam':
+                    case 'curr_lorazepam':
+                    case 'curr_melatonin':
+                    case 'curr_nitrazepam':
+                    case 'curr_oxazepam':
+                    case 'curr_temazepam':
+                    case 'curr_zopiclone':
+                    case 'curr_zolpidem':
+                    case 'curr_agomelatine':
+                    case 'curr_citalopram':
+                    case 'curr_escitalopram':
+                    case 'curr_fluoxetine':
+                    case 'curr_lithium':
+                    case 'curr_mirtazapine':
+                    case 'curr_paroxetine':
+                    case 'curr_sertraline':
+                    case 'curr_venlafaxine ':
+                    case 'curr_dexamphetamine ':
+                    case 'curr_methylpenidate':
+                    case 'curr_modafinil':
+                    case 'curr_phentermine':
+                    case 'curr_aldomet':
+                    case 'curr_amiodarone':
+                    case 'curr_amlodipine':
+                    case 'curr_atenolol':
+                    case 'curr_candesartan':
+                    case 'curr_captopril':
+                    case 'curr_carvedilol':
+                    case 'curr_diltiazem':
+                    case 'curr_disopyramide':
+                    case 'curr_enalapril':
+                    case 'curr_felodipine':
+                    case 'curr_fosinopril':
+                    case 'curr_irbesartan':
+                    case 'curr_lisinopril':
+                    case 'curr_metoprolol':
+                    case 'curr_nifedipine':
+                    case 'curr_olmesartan':
+                    case 'curr_perindopril':
+                    case 'curr_propranolol':
+                    case 'curr_ramipril':
+                    case 'curr_telmisartan':
+                    case 'curr_warfarin':
+                    case 'curr_atorvastatin':
+                    case 'curr_ezet_atorva':
+                    case 'curr_ezetimibe':
+                    case 'curr_pravastatin':
+                    case 'curr_rosuvastatin':
+                    case 'curr_simvastatin':
+                    case 'curr_simv_eze':
+                    case 'curr_aclidinium ':
+                    case 'curr_budesonide':
+                    case 'curr_bud_eform':
+                    case 'curr_ciclesonide':
+                    case 'curr_fluticasone':
+                    case 'curr_flut_eform':
+                    case 'curr_flut_salm':
+                    case 'curr_glycopyrronium':
+                    case 'curr_indacterol':
+                    case 'curr_salbutamol':
+                    case 'curr_tiotropium':
+                    case 'curr_chlorpromazine':
+                    case 'curr_haloperidol':
+                    case 'curr_olanzapine':
+                    case 'curr_quetiapine':
+                    case 'curr_risperidone':
+                    case 'curr_benztropine':
+                    case 'curr_bromocriptine':
+                    case 'curr_cabergoline':
+                    case 'curr_gabapentin':
+                    case 'curr_hyoscyamine ':
+                    case 'curr_levodopa':
+                    case 'curr_phenytoin':
+                    case 'curr_pramipexole':
+                    case 'curr_ropinirole':
+                    case 'curr_other_rl_parkinson':
+                    case 'curr_selegiline':
+                    case 'curr_carnamazepine':
+                    case 'curr_ethosuximide':
+                    case 'curr_phenobarbitone':
+                    case 'curr_epi_gabapentin':
+                    case 'curr_lamotrigine':
+                    case 'curr_epi_phenytoin':
+                    case 'curr_pregabalin':
+                    case 'curr_primidone':
+                    case 'curr_valproate':
+                    case 'curr_tiagabine':
+                    case 'curr_thyroxine':
+                    case 'curr_amoxycillin':
+                    case 'curr_amox_clav':
+                    case 'curr_cephalexin':
+                    case 'curr_chloramphenicol':
+                    case 'curr_roxithromycin':
+                    case 'curr_esomeprazole':
+                    case 'curr_omeprazole':
+                    case 'curr_pantoprazole':
+                    case 'curr_rabeprazol':
+                    case 'curr_ranitidine':
+                    case 'curr_gliclazide':
+                    case 'curr_insulin':
+                    case 'curr_metformin':
+                    case 'curr_met_gliben':
+                    case 'curr_pioglitazone':
+                    case 'curr_rosiglitazone':
+                    case 'curr_cyp_ethin ':
+                    case 'curr_drosp_ethin':
+                    case 'curr_levon_ethin ':
+                    case 'curr_topical_steroids ':
+                    case 'curr_other_hormonal_contraception':
+                    case 'curr_sex_steroids ':
+                    case 'curr_herbal_remedies ':
+                    case 'past6_aspirin':
+                    case 'past6_fentanyl':
+                    case 'past6_hydromorphone':
+                    case 'past6_ibuprofen':
+                    case 'past6_ibuprofen_co':
+                    case 'past6_morphine':
+                    case 'past6_oxycodone':
+                    case 'past6_paracetamol':
+                    case 'past6_paracetamol_co':
+                    case 'past6_tramadol':
+                    case 'past6_antihistamine':
+                    case 'past6_pseudoephedrine':
+                    case 'past6_betamethasone':
+                    case 'past6_celecoxib':
+                    case 'past6_diclofenac':
+                    case 'past6_indomethacin':
+                    case 'past6_meloxicam':
+                    case 'past6_naproxen':
+                    case 'past6_prednisolone':
+                    case 'past6_prednisone':
+                    case 'past6_alprazolam':
+                    case 'past6_clonazepam':
+                    case 'past6_diazepam':
+                    case 'past6_flunitrazepam':
+                    case 'past6_lorazepam':
+                    case 'past6_melatonin':
+                    case 'past6_nitrazepam':
+                    case 'past6_oxazepam':
+                    case 'past6_temazepam':
+                    case 'past6_zopiclone':
+                    case 'past6_zolpidem':
+                    case 'past6_agomelatine':
+                    case 'past6_citalopram':
+                    case 'past6_escitalopram':
+                    case 'past6_fluoxetine':
+                    case 'past6_lithium':
+                    case 'past6_mirtazapine':
+                    case 'past6_paroxetine':
+                    case 'past6_sertraline':
+                    case 'past6_venlafaxine ':
+                    case 'past6_dexamphetamine ':
+                    case 'past6_methylpenidate':
+                    case 'past6_modafinil':
+                    case 'past6_phentermine':
+                    case 'past6_aldomet':
+                    case 'past6_amiodarone':
+                    case 'past6_amlodipine':
+                    case 'past6_atenolol':
+                    case 'past6_candesartan':
+                    case 'past6_captopril':
+                    case 'past6_carvedilol':
+                    case 'past6_diltiazem':
+                    case 'past6_disopyramide':
+                    case 'past6_enalapril':
+                    case 'past6_felodipine':
+                    case 'past6_fosinopril':
+                    case 'past6_irbesartan':
+                    case 'past6_lisinopril':
+                    case 'past6_metoprolol':
+                    case 'past6_nifedipine':
+                    case 'past6_olmesartan':
+                    case 'past6_perindopril':
+                    case 'past6_propranolol':
+                    case 'past6_ramipril':
+                    case 'past6_telmisartan':
+                    case 'past6_warfarin':
+                    case 'past6_atorvastatin':
+                    case 'past6_ezet_atorva':
+                    case 'past6_ezetimibe':
+                    case 'past6_pravastatin':
+                    case 'past6_rosuvastatin':
+                    case 'past6_simvastatin':
+                    case 'past6_simv_eze':
+                    case 'past6_aclidinium ':
+                    case 'past6_budesonide':
+                    case 'past6_bud_eform':
+                    case 'past6_ciclesonide':
+                    case 'past6_fluticasone':
+                    case 'past6_flut_eform':
+                    case 'past6_flut_salm':
+                    case 'past6_glycopyrronium':
+                    case 'past6_indacterol':
+                    case 'past6_salbutamol':
+                    case 'past6_tiotropium':
+                    case 'past6_chlorpromazine':
+                    case 'past6_haloperidol':
+                    case 'past6_olanzapine':
+                    case 'past6_quetiapine':
+                    case 'past6_risperidone':
+                    case 'past6_benztropine':
+                    case 'past6_bromocriptine':
+                    case 'past6_cabergoline':
+                    case 'past6_gabapentin':
+                    case 'past6_hyoscyamine ':
+                    case 'past6_levodopa':
+                    case 'past6_phenytoin':
+                    case 'past6_pramipexole':
+                    case 'past6_ropinirole':
+                    case 'past6_other_rl_parkinson':
+                    case 'past6_selegiline':
+                    case 'past6_carnamazepine':
+                    case 'past6_ethosuximide':
+                    case 'past6_phenobarbitone':
+                    case 'past6_epi_gabapentin':
+                    case 'past6_lamotrigine':
+                    case 'past6_epi_phenytoin':
+                    case 'past6_pregabalin':
+                    case 'past6_primidone':
+                    case 'past6_valproate':
+                    case 'past6_tiagabine':
+                    case 'past6_thyroxine':
+                    case 'past6_amoxycillin':
+                    case 'past6_amox_clav':
+                    case 'past6_cephalexin':
+                    case 'past6_chloramphenicol':
+                    case 'past6_roxithromycin':
+                    case 'past6_esomeprazole':
+                    case 'past6_omeprazole':
+                    case 'past6_pantoprazole':
+                    case 'past6_rabeprazol':
+                    case 'past6_ranitidine':
+                    case 'past6_gliclazide':
+                    case 'past6_insulin':
+                    case 'past6_metformin':
+                    case 'past6_met_gliben':
+                    case 'past6_pioglitazone':
+                    case 'past6_rosiglitazone':
+                    case 'past6_cyp_ethin ':
+                    case 'past6_drosp_ethin':
+                    case 'past6_levon_ethin ':
+                    case 'past6_topical_steroids ':
+                    case 'past6_other_hormonal_contraception':
+                    case 'past6_sex_steroids ':
+                    case 'past6_herbal_remedies ':
+                        if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" ) $(this).prop('checked', true);
+                        $(this).on('click', function(){
+                            if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                            else                                  _set_value("0",_records,I,field);
+                        });
+                    break;
+                    //Text
+                    case 'add_med':
+                        $(this).val(_records[I][field]);
+                        $(this).on('change', function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID tr td:nth-child(2)
+    {
+        text-align: center;
+        padding: 5px;
+    }
+    #tb__ID tr td:nth-child(3)
+    {
+        text-align: left;
+        vertical-align: middle;
+        padding: 5px;
+    }
+    .input_box__ID{border: 1px #B8BDBF solid!important;width:99%!important;}
+    .cb_td__ID{
+        text-align:center!important;
+        border: 1px #B8BDBF solid!important;
+        color: #333333!important;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+    .input_box_small__ID{
+        border: 1px solid #adb8c0!important;
+        width:100px!important;
+    }
+    .input_box__ID{
+        border: 1px solid #adb8c0!important;
+        width:99%!important;
+    }
+	/*
+    .modified_checkbox__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: checkbox;
+    	background-color: #fafafa;
+    	border: 1px solid #cacece;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    	padding: 9px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    }
+    .modified_checkbox__ID:active, .modified_checkbox__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .modified_checkbox__ID:checked {
+        -moz-appearance: checkbox;
+    	background-color: #e9ecee;
+    	border: 1px solid #adb8c0;
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    	color: #99a1a7;
+    }
+    .modified_checkbox__ID:checked:after {
+    	content: '\2714';
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+	*/
+</style>

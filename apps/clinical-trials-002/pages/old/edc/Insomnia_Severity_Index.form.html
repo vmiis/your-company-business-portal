@@ -1,0 +1,168 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:800px;'>
+            <colgroup><col />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+                <col class=colA style='width:100px' />
+            </colgroup>
+
+            <tr><td colspan=6 class='header__ID'>Insomnia Severity Index</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=6 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+            <tr><td colspan=6 class='subheader__ID '>For each question, please click on the number that best describes your answer.</td></tr>
+             <tr><td colspan=6 class=' '><br /><b>1. Please rate the CURRENT (i.e. LAST 2 WEEKS) SEVERITY of your insomnia problem(s).</b>
+            </td></tr>
+            <tr><th></th><th>None</th><th>Mild</th><th>Moderate</th><th>Severe</th><th>Very Severe</th></tr>
+            <tr><td>a. Difficulty falling asleep </td><td data-id=ISI_1a data-custom=1><input class=modified_radio__ID type=radio value=0 name=ISI_1a ><label class=modified_number__ID>0</label></td><td><input class=modified_radio__ID type=radio value=1 name=ISI_1a  ><label class=modified_number__ID>1</label></td><td><input class=modified_radio__ID type=radio value=2 name=ISI_1a  ><label class=modified_number__ID>2</label></td><td><input class=modified_radio__ID type=radio value=3 name=ISI_1a  ><label class=modified_number__ID>3</label></td><td><input class=modified_radio__ID type=radio value=4 name=ISI_1a  ><label class=modified_number__ID>4</label></td></tr>
+            <tr><td>b. Difficulty staying asleep</td><td data-id=ISI_1b data-custom=1><input class=modified_radio__ID type=radio value=0 name=ISI_1b ><label class=modified_number__ID>0</label></td><td><input class=modified_radio__ID type=radio value=1 name=ISI_1b  ><label class=modified_number__ID>1</label></td><td><input class=modified_radio__ID type=radio value=2 name=ISI_1b  ><label class=modified_number__ID>2</label></td><td><input class=modified_radio__ID type=radio value=3 name=ISI_1b  ><label class=modified_number__ID>3</label></td><td><input class=modified_radio__ID type=radio value=4 name=ISI_1b  ><label class=modified_number__ID>4</label></td></tr>
+            <tr><td>c. Problem waking up too early</td><td data-id=ISI_1c data-custom=1><input class=modified_radio__ID type=radio value=0 name=ISI_1c  ><label class=modified_number__ID>0</label></td><td><input class=modified_radio__ID type=radio value=1 name=ISI_1c ><label class=modified_number__ID>1</label></td><td><input class=modified_radio__ID type=radio value=2 name=ISI_1c  ><label class=modified_number__ID>2</label></td><td><input class=modified_radio__ID type=radio value=3 name=ISI_1c  ><label class=modified_number__ID>3</label></td><td><input class=modified_radio__ID type=radio value=4 name=ISI_1c  ><label class=modified_number__ID>4</label></td></tr>
+
+             <tr><td colspan=6><br><b>2. How SATISFIED/DISSATISFIED are you with your CURRENT sleep pattern?</b></td></tr>
+            <tr><th></th><th>Very Satisfied</th><th>Satisfied</th><th>Neutral</th><th>Dissatisfied</th><th>Very Dissatisfied</th></tr>
+            <tr><td></td><td data-id=ISI_2 data-custom=1><input class=modified_radio__ID type=radio value=0 name=ISI_2 ><label class=modified_number__ID>0</label></td><td><input class=modified_radio__ID type=radio value=1 name=ISI_2 ><label class=modified_number__ID>1</label></td><td><input class=modified_radio__ID type=radio value=2 name=ISI_2  ><label class=modified_number__ID>2</label></td><td><input class=modified_radio__ID type=radio value=3 name=ISI_2  ><label class=modified_number__ID>3</label></td><td><input class=modified_radio__ID type=radio value=4 name=ISI_2  ><label class=modified_number__ID>4</label></td></tr>
+             <tr><td colspan=6><br><b>3. To what extent do you consider your sleep problem to INTERFERE with your daily functioning (e.g. daytime fatigue, mood, ability to function at work/daily chores, concentration, memory, mood, etc.) CURRENTLY?</b></td></tr>
+            <tr><th></th><th>Not at all Interfering</th><th>A Little</th><th>Somewhat</th><th>Much</th><th>Very Much Interfering</th></tr>
+            <tr><td></td><td data-id=ISI_3 data-custom=1><input class=modified_radio__ID type=radio value=0 name=ISI_3 ><label class=modified_number__ID>0</label></td><td><input class=modified_radio__ID type=radio value=1 name=ISI_3 ><label class=modified_number__ID>1</label></td><td><input class=modified_radio__ID type=radio value=2 name=ISI_3  ><label class=modified_number__ID>2</label></td><td><input class=modified_radio__ID type=radio value=3 name=ISI_3  ><label class=modified_number__ID>3</label></td><td><input class=modified_radio__ID type=radio value=4 name=ISI_3  ><label class=modified_number__ID>4</label></td></tr>
+             <tr><td colspan=6><br><b>4.How NOTICEABLE to others do you think your sleep problem is in terms of impairing the quality of your life?</b></td></tr>
+            <tr><th></th><th>Not at all Noticeable</th><th>A Little</th><th>Somewhat</th><th>Much</th><th>Very Much Noticeable</th></tr>
+            <tr><td></td><td data-id=ISI_4 data-custom=1><input class=modified_radio__ID type=radio value=0 name=ISI_4 ><label class=modified_number__ID>0</label></td><td><input class=modified_radio__ID type=radio value=1 name=ISI_4 ><label class=modified_number__ID>1</label></td><td><input class=modified_radio__ID type=radio value=2 name=ISI_4  ><label class=modified_number__ID>2</label></td><td><input class=modified_radio__ID type=radio value=3 name=ISI_4  ><label class=modified_number__ID>3</label></td><td><input class=modified_radio__ID type=radio value=4 name=ISI_4  ><label class=modified_number__ID>4</label></td></tr>
+             <tr><td colspan=6><br><b>5. How WORRIED/DISTRESSED are you about your current sleep problem?</b></td></tr>
+            <tr><th></th><th>Not at all Worried</th><th>A Little</th><th>Somewhat</th><th>Much</th><th>Very Much Worried</th></tr>
+            <tr><td></td><td data-id=ISI_5 data-custom=1><input class=modified_radio__ID type=radio value=0 name=ISI_5 ><label class=modified_number__ID>0</label></td><td><input class=modified_radio__ID type=radio value=1 name=ISI_5 ><label class=modified_number__ID>1</label></td><td><input class=modified_radio__ID type=radio value=2 name=ISI_5  ><label class=modified_number__ID>2</label></td><td><input class=modified_radio__ID type=radio value=3 name=ISI_5  ><label class=modified_number__ID>3</label></td><td><input class=modified_radio__ID type=radio value=4 name=ISI_5  ><label class=modified_number__ID>4</label></td></tr>
+
+            <tr style='display:none' ><td>Total ISI</td><td colspan=4 ><input type=text name=ISI id=ISI ></td></tr>
+            <tr style='display:none' ><td>Question 1 Score</td><td colspan=4 ><input type=text name=ISI_1 id=ISI_1 ></td></tr>
+        </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.form.js
+        
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "ISI_1a":
+                    case "ISI_1b":
+                    case "ISI_1c":
+                    case "ISI_2":
+                    case "ISI_3":
+                    case "ISI_4":
+                    case "ISI_5":
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+        _before_submit_form=function(){
+            if( $('#tb__ID').find('input[name=ISI_1a]:checked').val()===undefined){ alert("Please answer question 1a"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_1b]:checked').val()===undefined){ alert("Please answer question 1b"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_1c]:checked').val()===undefined){ alert("Please answer question 1c"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_2]:checked').val()===undefined){ alert("Please answer question 2"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_3]:checked').val()===undefined){ alert("Please answer question 3"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_4]:checked').val()===undefined){ alert("Please answer question 4"); return false; }
+            if( $('#tb__ID').find('input[name=ISI_5]:checked').val()===undefined){ alert("Please answer question 5"); return false; }
+        	var v2=parseInt($('#tb__ID').find('input[name=ISI_1a]:checked').val());
+        	var v3=parseInt($('#tb__ID').find('input[name=ISI_1b]:checked').val());
+        	var v4=parseInt($('#tb__ID').find('input[name=ISI_1c]:checked').val());
+        	var v5=parseInt($('#tb__ID').find('input[name=ISI_2]:checked').val());
+        	var v6=parseInt($('#tb__ID').find('input[name=ISI_3]:checked').val());
+        	var v7=parseInt($('#tb__ID').find('input[name=ISI_4]:checked').val());
+        	var v8=parseInt($('#tb__ID').find('input[name=ISI_5]:checked').val());
+        	var v9=v2+v3+v4+v5+v6+v7+v8;
+            var v10=v2+v3+v4;
+            _records[I].ISI=v9;
+            _records[I].ISI_1=v10;
+            return true;
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/toolbar/toolbar.css
+    VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID tr td:nth-child(2),
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    #tb__ID tr td:nth-child(5),
+    #tb__ID tr td:nth-child(6)
+    {
+        text-align: center;
+        padding: 5px;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #000;
+    	width:22px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.15;
+        vertical-align: middle;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+    	background-color: #554055;
+    	border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-18px;
+        font-size:14pt;
+        vertical-align:middle;
+    }
+</style>

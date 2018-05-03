@@ -1,0 +1,257 @@
+<section>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:900px;'>
+            <colgroup><col style='width:500px'/>
+                <col style='width:100px;' />
+                <col style='width:200px;' />
+                <col style='width:100px;' />
+            </colgroup>
+
+                    <tr><td colspan=4 class='header__ID'>Tinnitus Handicap Inventory</td></tr>
+                   <!-- -->
+                   <tr id=tr_participant__ID style='display:none'><td colspan=4 data-id=Participant data-custom=1>
+                       <input name=Participant     id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                       <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                       <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+                   </td></tr>
+            	    <!-- -->
+                    <tr><td data-id=tinnitus_yes_no data-custom=1>Do you have tinnitus (ringing or buzzing in the ears)?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=1 id=tinnitus_yes_no  name=tinnitus_yes_no ><label ></label><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_yes_no  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td colspan=4 class=' '><br><b>INSTRUCTIONS:</b> The purpose of this questionnaire is to identify difficulties that you may be experiencing because of your tinnitus. Please answer every question. Please do not skip any questions.<br><br></td></tr>
+
+                    <tr><td data-id=tinnitus_1 data-custom=1>1. Because of your tinnitus, is it difficult for you to concentrate?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 id=tinnitus_1  name=tinnitus_1 ><label ></label><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_1  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_1  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_2 data-custom=1>2. Does the loudness of your tinnitus make it difficult for you to hear people?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 id=tinnitus_2  name=tinnitus_2 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_2  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_2  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_3 data-custom=1>3. Does your tinnitus make you angry?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_3 id=tinnitus_3 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_3  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_3  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_4 data-custom=1>4. Does your tinnitus make you feel confused?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_4 id=tinnitus_4 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_4  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_4  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_5 data-custom=1>5. Because of your tinnitus, do you feel desperate?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_5 id=tinnitus_5 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_5  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_5  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_6 data-custom=1>6. Do you complain a great deal about your tinnitus?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_6 id=tinnitus_6 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_6  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_6  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_7 data-custom=1>7. Because of your tinnitus, do you have trouble falling to sleep at night?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_7 id=tinnitus_7 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_7  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_7  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_8 data-custom=1>8. Do you feel as though you cannot escape your tinnitus?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_8 id=tinnitus_8 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_8  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_8  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_9 data-custom=1>9. Does your tinnitus interfere with your ability to enjoy your social activities (such as going out to dinner, to the movies)?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_9 id=tinnitus_9 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_9  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_9  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_10 data-custom=1>10. Because of your tinnitus, do you feel frustrated?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_10 id=tinnitus_10 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_10  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_10  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_11 data-custom=1>11. Because of your tinnitus, do you feel that you have a terrible disease?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 id=tinnitus_11  name=tinnitus_11 ><label ></label><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_11  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_11  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_12 data-custom=1>12. Does your tinnitus make it difficult for you to enjoy life?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 id=tinnitus_12  name=tinnitus_12 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_12  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_12  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_13 data-custom=1>13. Does your tinnitus interfere with your job or household responsibilities?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_13 id=tinnitus_13 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_13  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_13  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_14 data-custom=1>14. Because of your tinnitus, do you find that you are often irritable?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_14 id=tinnitus_14 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_14  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_14  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_15 data-custom=1>15. Because of your tinnitus, is it difficult for you to read?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_15 id=tinnitus_15 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_15  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_15  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_16 data-custom=1>16. Does your tinnitus make you upset?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_16 id=tinnitus_16 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_16  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_16  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_17 data-custom=1>17. Do you feel that your tinnitus problem has placed stress on your relationships with members of your family and friends?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_17 id=tinnitus_17 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_17  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_17  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_18 data-custom=1>18. Do you find it difficult to focus your attention away from your tinnitus and on other things?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_18 id=tinnitus_18 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_18  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_18  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_19 data-custom=1>19. Do you feel that you have no control over your tinnitus?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_19 id=tinnitus_19 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_19  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_19  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_20 data-custom=1>20. Because of your tinnitus, do you often feel tired?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_20 id=tinnitus_20 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_20  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_20  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_21 data-custom=1>21. Because of your tinnitus, do you feel depressed?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_21 id=tinnitus_21 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_21  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_21  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_22 data-custom=1>22. Does your tinnitus make you feel anxious?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_22 id=tinnitus_22 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_22  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_22  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_23 data-custom=1>23. Do you feel that you can no longer cope with your tinnitus?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_23 id=tinnitus_23 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_23  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_23  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_24 data-custom=1>24. Does your tinnitus get worse when you are under stress?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_24 id=tinnitus_24 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_24  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_24  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr><td data-id=tinnitus_25 data-custom=1>25. Does your tinnitus make you feel insecure?</td><td class=rb__ID><input class=modified_radio__ID type=radio value=4 name=tinnitus_25 id=tinnitus_25 ><label class=modified_number_yes__ID>Yes</label></td><td class=rb__ID><input class=modified_radio_2__ID type=radio value=2 name=tinnitus_25  ><label class=modified_number_sometimes__ID>Sometimes</label></td><td class=rb__ID><input class=modified_radio__ID type=radio value=0 name=tinnitus_25  ><label class=modified_number_no__ID>No</label></td></tr>
+                    <tr style='display:none'><td>Tinnitus Total Score</td><td colspan="3"><input type=text name=tinnitus id=tinnitus  /></td></tr>
+
+                </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+            </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__CURRENT_PATH__/task.form.js
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        var _task_fields;
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "tinnitus_yes_no":
+                    case "tinnitus_1":
+                    case "tinnitus_2":
+                    case "tinnitus_3":
+                    case "tinnitus_4":
+                    case "tinnitus_5":
+                    case "tinnitus_6":
+                    case "tinnitus_7":
+                    case "tinnitus_8":
+                    case "tinnitus_9":
+                    case "tinnitus_10":
+                    case "tinnitus_11":
+                    case "tinnitus_12":
+                    case "tinnitus_13":
+                    case "tinnitus_14":
+                    case "tinnitus_15":
+                    case "tinnitus_16":
+                    case "tinnitus_17":
+                    case "tinnitus_18":
+                    case "tinnitus_19":
+                    case "tinnitus_20":
+                    case "tinnitus_21":
+                    case "tinnitus_22":
+                    case "tinnitus_23":
+                    case "tinnitus_24":
+                    case "tinnitus_25":
+                        $(this).parent().find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $(this).parent().find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            if($('#tb__ID input[name=tinnitus_yes_no]:checked').val()===undefined){ $vm.alert("Please answer question 'Do you have Tinnitus'");	return false;}
+            if($('#tb__ID input[name=tinnitus_yes_no]:checked').val()==='1'){
+                if($('#tb__ID input[name=tinnitus_1]:checked').val()===undefined){ $vm.alert("Please answer question 1");	return false;}
+                if($('#tb__ID input[name=tinnitus_2]:checked').val()===undefined){ $vm.alert("Please answer question 2");	return false;}
+                if($('#tb__ID input[name=tinnitus_3]:checked').val()===undefined){ $vm.alert("Please answer question 3");	return false;}
+                if($('#tb__ID input[name=tinnitus_4]:checked').val()===undefined){ $vm.alert("Please answer question 4");	return false;}
+                if($('#tb__ID input[name=tinnitus_5]:checked').val()===undefined){ $vm.alert("Please answer question 5");	return false;}
+                if($('#tb__ID input[name=tinnitus_6]:checked').val()===undefined){ $vm.alert("Please answer question 6");	return false;}
+                if($('#tb__ID input[name=tinnitus_7]:checked').val()===undefined){ $vm.alert("Please answer question 7");	return false;}
+                if($('#tb__ID input[name=tinnitus_8]:checked').val()===undefined){ $vm.alert("Please answer question 8");	return false;}
+                if($('#tb__ID input[name=tinnitus_9]:checked').val()===undefined){ $vm.alert("Please answer question 9");	return false;}
+                if($('#tb__ID input[name=tinnitus_10]:checked').val()===undefined){ $vm.alert("Please answer question 10");	return false;}
+                if($('#tb__ID input[name=tinnitus_11]:checked').val()===undefined){ $vm.alert("Please answer question 11");	return false;}
+                if($('#tb__ID input[name=tinnitus_12]:checked').val()===undefined){ $vm.alert("Please answer question 12");	return false;}
+                if($('#tb__ID input[name=tinnitus_13]:checked').val()===undefined){ $vm.alert("Please answer question 13");	return false;}
+                if($('#tb__ID input[name=tinnitus_14]:checked').val()===undefined){ $vm.alert("Please answer question 14");	return false;}
+                if($('#tb__ID input[name=tinnitus_15]:checked').val()===undefined){ $vm.alert("Please answer question 15");	return false;}
+                if($('#tb__ID input[name=tinnitus_16]:checked').val()===undefined){ $vm.alert("Please answer question 16");	return false;}
+                if($('#tb__ID input[name=tinnitus_17]:checked').val()===undefined){ $vm.alert("Please answer question 17");	return false;}
+                if($('#tb__ID input[name=tinnitus_18]:checked').val()===undefined){ $vm.alert("Please answer question 18");	return false;}
+                if($('#tb__ID input[name=tinnitus_19]:checked').val()===undefined){ $vm.alert("Please answer question 19");	return false;}
+                if($('#tb__ID input[name=tinnitus_20]:checked').val()===undefined){ $vm.alert("Please answer question 20");	return false;}
+                if($('#tb__ID input[name=tinnitus_21]:checked').val()===undefined){ $vm.alert("Please answer question 21");	return false;}
+                if($('#tb__ID input[name=tinnitus_22]:checked').val()===undefined){ $vm.alert("Please answer question 22");	return false;}
+                if($('#tb__ID input[name=tinnitus_23]:checked').val()===undefined){ $vm.alert("Please answer question 23");	return false;}
+                if($('#tb__ID input[name=tinnitus_24]:checked').val()===undefined){ $vm.alert("Please answer question 24");	return false;}
+                if($('#tb__ID input[name=tinnitus_25]:checked').val()===undefined){ $vm.alert("Please answer question 25");	return false;}
+            }
+            return true;
+        }
+    }
+</script>
+<style>
+VmInclude:__COMPONENT__/toolbar/toolbar.css
+VmInclude:__COMPONENT__/grid/form.css
+    #tb__ID input[type=radio]{
+        cursor:pointer;
+    }
+    #tb__ID tr td:nth-child(2),
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4),
+    #tb__ID tr td:nth-child(5)
+    {
+        text-align: center;
+        padding-top: 0px;
+        vertical-align:middle;
+    }
+    #tb__ID tr td:nth-child(1){
+        text-align: left;
+        vertical-align:middle;
+    }
+    tr:hover{ background-color:#f0f0f0;}
+    .answ__ID{
+        font-weight:normal;
+        font-style:italic;
+        font-size:15px;
+        border:1px solid #B8BDBF;
+    }
+    .modified_radio__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #B8BDBF;
+    	width:52px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.3;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        	-moz-appearance: button;
+    	background-color: #888;
+    	border: 1px solid #333;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.85;
+    }
+    .modified_radio__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_radio_2__ID {
+    	-webkit-appearance: none;
+    	-moz-appearance: button;
+    /*	background-color: #fafafa;*/
+    	border: 1px solid #B8BDBF;
+    	width:120px;
+    	height:26px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    	padding: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    	position: relative;
+    	opacity:0.3;
+    }
+    .modified_radio_2__ID:active, .modified_radio__ID:checked:active {
+    	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio_2__ID:checked {
+        	-moz-appearance: button;
+    	background-color: #888;
+    	border: 1px solid #333;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+    	color: #99a1a7;
+    	opacity:0.85;
+    }
+    .modified_radio_2__ID:checked:after {
+    	/*content: '\2714';*/
+    	font-size: 14px;
+    	position: absolute;
+    	top: 0px;
+    	left: 3px;
+    	color: #99a1a7;
+    }
+    .modified_number_no__ID{
+        vertical-align: top;
+        margin-left:-38px;
+        font-size:14pt;
+    }
+    .modified_number_yes__ID{
+        vertical-align: top;
+        margin-left:-42px;
+        font-size:14pt;
+    }
+    .modified_number_sometimes__ID{
+        vertical-align: top;
+        margin-left:-112px;
+        font-size:14pt;
+    }
+
+    .rb__ID{
+        padding-top:5px!important;
+        text-align: center!important;
+        vertical-align: middle;
+    }
