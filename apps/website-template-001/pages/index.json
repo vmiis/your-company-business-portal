@@ -1,0 +1,7 @@
+{
+	"modules":
+	{
+		"about":	{"url":"modules/bridge.html","path":"templatemo/snapshot/index.html","page":"about.html"},
+		"contact":	{"url":"modules/bridge.html","path":"templatemo/snapshot/index.html","page":"contact.html"}
+	}
+}

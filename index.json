@@ -28,6 +28,7 @@
 		"bp":       	{"url":"",                              "modules":["apps/bootstrap-pages/pages|index.json"]},
 		"pt":       	{"url":"",                              "modules":["apps/particles/pages|index.json"]},
 		"pp":       	{"url":"",                              "modules":["apps/program-and-project-management/pages|index.json"]},
+		"w001":       	{"url":"",                              "modules":["apps/website-template-001/pages|index.json"]},
 		"portal":		{"url":"portal/panel.html",         	"modules":[
 			"about/index.json",
             "purchase-order-request/index.json",
