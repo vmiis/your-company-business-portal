@@ -18,7 +18,7 @@
 		//This is the place we can add background image to body (Asynchronous)
 		var $image1 = $("<img>");
 		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
-        $image1.attr("src", "__CURRENT_PATH__/__CURRENT_NAME__.background.jpg");
+        $image1.attr("src", "__CURRENT_PATH__/__CURRENT_NAME__.background.jpg?v=1");
 		console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
 		//------------------------------------
 		var website_item_list_for_search=[]
