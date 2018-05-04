@@ -206,8 +206,22 @@
 		var load_hot_modules=function(){
 			//pre load into memory, for fast showing on screen
 			//-------------------------------------
-	        //$vm.load_module_v2('page-examples_snapshot-about','hidden',{})
-	        //-------------------------------------
+			var nm=[];
+			for(var k in $vm.module_list){
+				if($vm.module_list[k].preload!=undefined) nm.push(k);
+			}
+			var i=0
+			var N=nm.length;
+			if(N>0){
+				var load_module_loop=setInterval(function (){
+					if(i>=N){
+						clearInterval(load_module_loop);
+						return;
+					}
+					$vm.nav_load_module(nm[i],'hidden',{})
+					i++;
+				},100);
+			}
 		}
 		//------------------------------------
 	}

@@ -858,47 +858,14 @@
 		return R;
 	}
 	//------------------------------
-	*/
 	$("#test__ID").on('click',function(){
-		var txt="";var nm0="";
-		var x=document.getElementById("F_01__ID");
-		for (var i=0; i < x.length; i++) {
-			var nm=x.elements[i].getAttribute("name");
-			if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-		}
-		var x=document.getElementById("F_02__ID");
-		for (var i=0; i < x.length; i++) {
-			var nm=x.elements[i].getAttribute("name");
-			if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-		}
-		var x=document.getElementById("F_03__ID");
-		for (var i=0; i < x.length; i++) {
-			var nm=x.elements[i].getAttribute("name");
-			if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-		}
-		var x=document.getElementById("F_04__ID");
-		for (var i=0; i < x.length; i++) {
-			var nm=x.elements[i].getAttribute("name");
-			if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-		}
-		var x=document.getElementById("F_05__ID");
-		for (var i=0; i < x.length; i++) {
-			var nm=x.elements[i].getAttribute("name");
-			if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-		}
-		var x=document.getElementById("F_06__ID");
-		for (var i=0; i < x.length; i++) {
-			var nm=x.elements[i].getAttribute("name");
-			if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-		}
-		var x=document.getElementById("F_07__ID");
-		for (var i=0; i < x.length; i++) {
-			var nm=x.elements[i].getAttribute("name");
-			if(nm!=null && nm!=nm0){ if(txt!="") txt+=", "; txt+=nm; nm0=nm;}
-		}
-		$vm.alert(txt)
+		var R=page_sfix_app_check_checkbox_A();	if(R==false) return;
+			R=page_sfix_app_check_checkbox_B();	if(R==false) return;
+			R=page_sfix_app_check_checkbox_C();	if(R==false) return;
+			alert("OK!")
 	})
 	//------------------------------
+	*/
 </script>
 <style>
 	#D__ID{

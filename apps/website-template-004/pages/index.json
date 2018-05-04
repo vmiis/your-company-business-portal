@@ -1,0 +1,10 @@
+{
+	"modules":
+	{
+		"about":			{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"home.html","preload":1},
+		"service":			{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"service.html","preload":1},
+		"team":				{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"team.html","preload":1},
+		"work":				{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"work.html","preload":1},
+		"info":				{"url":"modules/info.html","preload":1}
+	}
+}
