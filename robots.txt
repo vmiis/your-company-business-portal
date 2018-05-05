@@ -1,0 +1,4 @@
+﻿User-agent: *
+Disallow:
+
+SITEMAP: https://www.vmiis.com/sitemap.txt
