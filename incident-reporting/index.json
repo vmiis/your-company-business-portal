@@ -1,9 +1,0 @@
-{
-    "modules":
-	{
-		"incident":					{"table_id":"20000844","url":"incident-reporting/modules/incident.html",					"name_for_search":"Incident"},
-		"total-number":         	{"table_id":"20000844","url":"incident-reporting/modules/total-number.html",				"name_for_search":"Total number"},
-        "total-number-compensation":{"table_id":"20000844","url":"incident-reporting/modules/total-number-compensation.html",	"name_for_search":"Total number compensation"},
-		"total-number-type":        {"table_id":"20000844","url":"incident-reporting/modules/total-number-type.html",			"name_for_search":"Total number type"}
-	}
-}

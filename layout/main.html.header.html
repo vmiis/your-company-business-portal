@@ -1,14 +1,12 @@
 <div id=header__ID>
-    <div id=vm_logo module=website_home>
+    <div id=vm_logo module=home>
         <span id=vm_logo_label_A>Your Company Business Portal</span><br>
         <span id=vm_logo_label_B>Collect, manage and maintain your business data<br>and tracking your business activities</span>
     </div>
     <div id="vm_system_menu">
-        <a module=website_home _class="vm_active"><i class="fa fa-home"></i> Home</a>
-        <!--<a module=portal><i class="fa fa-file-text-o"></i> Business Portal</a>-->
+        <a module=home _class="vm_active"><i class="fa fa-home"></i> Home</a>
         <a module=pages><i class="fa fa-th"></i> Web Pages and Applications</a>
-        <!--<a module=template><i class="fa fa-list"></i> Apps</a>-->
-        <a module=portal_myself><i class="fa fa-info-circle"></i> About</a>
+        <a module=pages_about><i class="fa fa-info-circle"></i> About</a>
         <div class="vm_dropdown" id=signin__ID>
             <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
             <div class="vm_dropdown-content">
@@ -21,7 +19,7 @@
         <a id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
         <input id=vm_system_search  type="text" placeholder="Search pages..." />
     </div>
-    <span module=website_home id=m_title>Business Portal</span>
+    <span module=home id=m_title>Business Portal</span>
     <a toggle id="vm_icon" onclick="vm_toggle()"><i class="fa fa-bars"></i></a>
 </div>
 <script>

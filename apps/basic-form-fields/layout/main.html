@@ -54,20 +54,6 @@
 		var load_home_module=function(){
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* loading home module... **************************")
 			$vm.load_module_v2(home_page_module);
-			/*
-			var a=window.location.href.split('module=');
-			if(a.length!=2)	$vm.load_module_v2(home_page_module);
-			else{
-				var name=a[1].split('&')[0];
-				if(name.length>0){
-					if($vm.module_list[name]!=undefined){
-						$vm.load_module_v2(name);
-						return;
-					}
-				};
-				alert("The module "+name+" doesn't exist!");
-			}
-			*/
 		}
 		//********************************************************
 		//add all modules to module list

@@ -34,7 +34,8 @@
 		//-----------------------------------------
         var set_height=function(){
 			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
-			var footer_height=$('#footer__ID').outerHeight();
+			var footer_height=$('#footer__ID').outerHeight(); $vm.footer_height=footer_height;
+            var window_height=$(window).height();             $vm.window_height=window_height;
 			$vm.min_height=($(window).height()-header_height-footer_height);
 			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
 		}

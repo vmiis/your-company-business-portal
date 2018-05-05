@@ -4,8 +4,8 @@
 	"api_path_woolcock":"https://rt.woolcock.org.au/",
 	"default_production":"No",
 	"panels":{
-        "website":		{"url":"",                          	"modules":["website/index.json"]},
-		"pages":       	{"url":"pages/panel.html", 				"modules":["pages|index.json"]},
+        "home":		    {"url":"panels/home.html",             	"modules":[]},
+		"pages":       	{"url":"panels/pages.html", 			"modules":["pages|index.json"]},
         "fm":       	{"url":"",                              "modules":["apps/a-basic-application-framework/pages|index.json"]},
         "ft":       	{"url":"",                              "modules":["apps/fitness/pages|index.json"]},
         "bf":       	{"url":"",                              "modules":["apps/basic-form-fields/pages|index.json"]},
@@ -30,45 +30,6 @@
 		"w002":       	{"url":"",                              "modules":["apps/website-template-002/pages|index.json"]},
 		"w003":       	{"url":"",                              "modules":["apps/website-template-003/pages|index.json"]},
 		"w004":       	{"url":"",                              "modules":["apps/website-template-004/pages|index.json"]},
-		"w005":       	{"url":"",                              "modules":["apps/website-template-005/pages|index.json"]},
-		"portal":		{"url":"portal/panel.html",         	"modules":[
-			"about/index.json",
-            "purchase-order-request/index.json",
-            "purchase-order-approval/index.json",
-			"purchase-order-process/index.json",
-			"business-management/index.json"
-        ]},
-		"blog":	        					{"url":"blog/panel.html",   						"modules":["blog/index.json"]},
-		"clinic-online-questionnaire-01":	{"url":"clinic-online-questionnaire-01/panel.html",	"modules":["clinic-online-questionnaire-01/index.json"]},
-		"dynamic":            				{"url":"dynamic/panel.html",						"modules":["dynamic/index.json"]},
-		"module-example":	    			{"url":"distributed-module-testing/panel.html",   	"modules":["distributed-module-testing/index.json"]},
-		"panel_shadow_dom":     			{"url":"shadow-dom/panel.html",						"modules":["shadow-dom/index.json"]},
-		"staff-management":	        		{"url":"staff-management/panel.html",				"modules":["staff-management/index.json"]},
-        "staff-management-child":			{"url":"staff-management/staff-child-panel.html",	"modules":["staff-management/index.json"]},
-		"staff-my-records":	        		{"url":"staff-my-records/panel.html",				"modules":["staff-my-records/index.json"]},
-		"static":            				{"url":"static/panel.html",							"modules":["static/index.json"]},
-		"template":		        			{"url":"template/panel.html",   					"modules":[]},
-		"wk-it":                     		{"url":"wk-it/management/panel.html",		        "modules":["wk-it|management/index.json"]},
-		"service-booking":             		{"url":"service-booking/panel.html",		        "modules":["service-booking/index.json"]},
-        "form-and-data-examples":           {"url":"form-and-data-examples/panel.html", 		"modules":["form-and-data-examples|index.json"]},
-		"report-examples":           		{"url":"report-examples/panel.html", 					"modules":["report-examples|index.json"]},
-		"isleephealth-task":           		{"url":"isleephealth/task/panel.html", 					"modules":["isleephealth/task/index.json"]},
-		"panel-initial":					{"url":"isleephealth-patients-portal/initial/panel.html","modules":["isleephealth-patients-portal/initial/index.json"]},
-
-		"amazes":  					{"url":"amazes/panel/main.html",	"modules":["amazes|participant-and-others/index.json","amazes|edc/index.json"]},
-        "sfix-registration":        {"url":"sfix-registration/modules/website/task/home.html",		    "modules":["sfix-registration|modules/website/module.json","sfix-registration|modules/edc/module.json"]},
-
-        "circomed":                 {"url":"circomed/modules/panel/circomed.html",						    "modules":["circomed|modules/participant-and-others/module.json","circomed|modules/edc/module.json"]},
-        "circomed-child":           {"url":"circomed/modules/panel/circomed.child.html",                    "modules":["circomed|modules/participant-and-others/module.json","circomed|modules/edc/module.json"]},
-        "circomed-online-home":     {"url":"circomed-online-questionnaire/modules/website/task/home.html",  "modules":[]},
-        "circomed-quest-panel":     {"url":"circomed-online-questionnaire/modules/panel/quest.html",        "modules":["circomed-online-questionnaire|modules/edc/module.json"]},
-
-        "windfarm-about":                  {"url":"windfarm-website/panel.html",                            "modules":["windfarm-website|modules/website/module.json"]},
-        "windfarm-lab-study-registration": {"url":"windfarm-website/modules/website/task/lab-study.html",   "modules":["windfarm-website|modules/website/module.json","windfarm-website|modules/registration/module.json"]},
-        "windfarm-home-study-registration":{"url":"windfarm-website/modules/website/task/home-study.html",  "modules":["windfarm-website|modules/website/module.json","windfarm-website|modules/registration/module.json"]},
-
-        "windfarm-lab-study-screening-questionnaire-main":  {"url":"windfarm-lab-study-screening-questionnaire/panel/main.html",	"modules":["windfarm-lab-study-screening-questionnaire|participant-and-others/index.json","windfarm-lab-study-screening-questionnaire|edc/index.json"]},
-        "windfarm-lab-study-screening-questionnaire-child": {"url":"windfarm-lab-study-screening-questionnaire/panel/child.html",	"modules":["windfarm-lab-study-screening-questionnaire|participant-and-others/index.json","windfarm-lab-study-screening-questionnaire|edc/index.json"]},
-        "windfarm-lab-study-screening-questionnaire-report":{"url":"windfarm-lab-study-screening-questionnaire/report/panel.html",	"modules":["windfarm-lab-study-screening-questionnaire|report/index.json"]}
+		"w005":       	{"url":"",                              "modules":["apps/website-template-005/pages|index.json"]}
 	}
 }

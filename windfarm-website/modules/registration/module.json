@@ -1,7 +1,0 @@
-{
-	"modules":
-	{
-		"lab-study-registration":  	{"table_id":"20008858","url":"modules/registration/task/lab-study-registration.html", "name_for_search":"Lab study registration"},
-		"home-study-registration":  	{"table_id":"20008858","url":"modules/registration/task/home-study-registration.html", "name_for_search":"Home study registration"}
-	}
-}
