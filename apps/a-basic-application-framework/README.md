@@ -1,6 +1,6 @@
-# a-basic-application-framework
+# A basic application framework
 
 https://vmiis.github.io/your-company-business-portal/apps/a-basic-application-framework/index.html
 
 
-You can copy this folder to a folder under your GitHub account or any static web server and run over there.
+You can copy this folder to a folder under your GitHub account or any other static web server and run over there.
