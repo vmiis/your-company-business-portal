@@ -26,6 +26,7 @@
 		"sm":       	{"url":"",                              "modules":["apps/sfix-app-survey-management/pages|index.json"]},
 		"pt":       	{"url":"",                              "modules":["apps/particles/pages|index.json"]},
 		"pp":       	{"url":"",                              "modules":["apps/program-and-project-management/pages|index.json"]},
+		"bk":       	{"url":"",                              "modules":["apps/bookkeeping/pages|index.json"]},
 		"w001":       	{"url":"",                              "modules":["apps/website-template-001/pages|index.json"]},
 		"w002":       	{"url":"",                              "modules":["apps/website-template-002/pages|index.json"]},
 		"w003":       	{"url":"",                              "modules":["apps/website-template-003/pages|index.json"]},

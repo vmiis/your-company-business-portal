@@ -4,6 +4,11 @@ _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
 var prefix=_mlist[$vm.vm['__ID'].name].prefix;
 var predefined_transaction_item_tid=_mlist[prefix+'predefined_transaction_item'].table_id;
 //-------------------------------------
+var this_module=$vm.module_list[$vm.vm['__ID'].name];
+var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+var form_module=prefix+this_module.form_module;
+$('#new__ID').off('click').on('click',function(){$vm.load_module_v2(form_module,'',{goback:1})})
+//-------------------------------------
 $('#name__ID').autocomplete({
     minLength:0,
     source:function(request,response){
@@ -47,4 +52,12 @@ _before_submit=function(record,dbv){
 };
 //-------------------------------------
 $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+//-------------------------------------
+//convert the existed date to the new standard format
+_data_process=function(){
+    for(var i=0;i<_records.length;i++){
+        _records[i].Date=$vm.au_date_to_string_yyyymmdd(_records[i].Date);
+        _records[i].Date_of_Payment=$vm.au_date_to_string_yyyymmdd(_records[i].Date_of_Payment);
+    }
+}
 //-------------------------------------
