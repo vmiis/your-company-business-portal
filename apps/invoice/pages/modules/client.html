@@ -14,6 +14,12 @@
         _fields+=",_gridHidden|Login_Name";
         _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
+        var this_module=$vm.module_list[$vm.vm['__ID'].name];
+        var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+        var form_module=prefix+this_module.form_module;
+        //-------------------------------------
+        $('#new__ID').off('click').on('click',function(){$vm.load_module_v2(form_module,'',{goback:1})})
+        //-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
                 /*
@@ -118,6 +124,27 @@
 			}
 		}
 		//-------------------------------------
+        */
+        /*
+        $('#toolbar__ID').on('dblclick',function(){
+            var txt="";
+            var flds=_fields.replace('_Form,','').replace(',Submit Date|DateTime,Submitted by|Author,_Delete','');
+            var A=[],B=[];
+            var s=flds.split(',');
+            for(var i=0;i<s.length;i++){
+                var L=s[i].split('|')[0].replace(/_/g,' ');
+                if(L==" gridHidden") L=s[i].split('|').pop().replace(/_/g,' ');
+                var N=s[i].split('|').pop();
+                txt+="<div class='row row__"+"ID'>\r\n\t";
+                txt+="<div class=col>\r\n\t\t";
+                txt+="<span>"+L.trim()+"</span>\r\n\t\t";
+                txt+="<input type=text class=form-control name="+N+">\r\n\t";
+                txt+="</div>\r\n";
+                txt+="</div>\r\n";
+            }
+            $vm.view_code(txt,"Form")
+        })
+        //-------------------------------------
         */
     }
 </script>
