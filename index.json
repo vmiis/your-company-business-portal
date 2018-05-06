@@ -29,6 +29,7 @@
 		"bk":       	{"url":"",                              "modules":["apps/bookkeeping/pages|index.json"]},
         "po":       	{"url":"",                              "modules":["apps/purchase-order-request/pages|index.json"]},
         "iv":       	{"url":"",                              "modules":["apps/invoice/pages|index.json"]},
+		"ei":       	{"url":"",                              "modules":["apps/education-and-immigration/pages|index.json"]},
 		"w001":       	{"url":"",                              "modules":["apps/website-template-001/pages|index.json"]},
 		"w002":       	{"url":"",                              "modules":["apps/website-template-002/pages|index.json"]},
 		"w003":       	{"url":"",                              "modules":["apps/website-template-003/pages|index.json"]},

@@ -24,8 +24,6 @@
 "hs-consent-1-data": {"table_id":"91000062",                "url":"clinical-trials/consent-1-data.html","form_module":"hs-consent-1-form"},
 "hs-consent-1-form": {"table_id":"91000062",                "url":"clinical-trials/consent-1-form.html"},
 
-"hei-client-data": {"table_id":"20003689",                "url":"hei/client-data.html","form_module":"hei-client-form"},
-"hei-client-form": {"table_id":"20003689",                "url":"hei/client-form.html"},
 "ppm-site-list-data": {"table_id":"20000513",                "url":"ppm/site-list-data.html","form_module":"ppm-site-list-form"},
 "ppm-site-list-form": {"table_id":"20000513",                "url":"ppm/site-list-form.html"},
 "ppm-document-type-data": {"table_id":"20000022",            "url":"ppm/document-type-data.html","form_module":"ppm-document-type-form"},
@@ -163,7 +161,5 @@
 "sfix-registration":	{"url":"modules/sfix-registration.html","name_for_search":"Sfix registration"},
 "team":	  				{"url":"modules/team.html","name_for_search":"Team"},
 "medical-services":	  	{"url":"modules/medical-services.html","name_for_search":"Medical services"},
-"normative":	  	    {"url":"modules/normative.html","name_for_search":"Normative"},
-"ecos":	  	    		{"url":"modules/ecos.html","name_for_search":"Ecos"},
 "contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/contact-us.html","name_for_search":"Contact us"}
 }}

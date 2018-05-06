@@ -1,8 +1,7 @@
 {
     "modules":
 	{
-        "link-1":	      {"url":"modules/my-first-bootstrap-page.html"},
-        "link-2":	      {"url":"modules/dark-table.html"},
-        "link-3":	      {"url":"modules/carousel.html"}
+        "client-data":	      {"table_id":"20003689","url":"modules/client-data.html","form_module":"client-form","preload":true},
+        "client-form":	      {"table_id":"20003689","url":"modules/client-form.html","preload":true}
 	}
 }

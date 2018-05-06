@@ -1,8 +1,10 @@
 {
     "modules":
 	{
-        "link-1":	      {"url":"modules/my-first-bootstrap-page.html"},
-        "link-2":	      {"url":"modules/dark-table.html"},
-        "link-3":	      {"url":"modules/carousel.html"}
+        "link-1":	      {"url":"modules/my-first-bootstrap-page.html","preload":true},
+        "link-2":	      {"url":"modules/dark-table.html","preload":true},
+        "link-3":	      {"url":"modules/carousel.html","preload":true},
+        "ecos":	          {"url":"modules/ecos.html","preload":true},
+        "normative":	  {"url":"modules/normative.html","preload":true}
 	}
 }
