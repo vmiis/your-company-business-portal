@@ -34,13 +34,12 @@
 		//-----------------------------------------
         var set_height=function(){
 			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
-			var footer_height=$('#footer__ID').outerHeight(); $vm.footer_height=footer_height;
-            var window_height=$(window).height();             $vm.window_height=window_height;
+			var footer_height=$('#footer__ID').outerHeight();
 			$vm.min_height=($(window).height()-header_height-footer_height);
 			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
 		}
 		//------------------------------------
-		set_height(); window.onresize=function(){set_height();}
+		set_height();window.onresize=function(){set_height();}
         //-----------------------------------------
 		//over write vm alert
 		$vm.alert=function(msg){
@@ -54,7 +53,21 @@
 		//load home module
 		var load_home_module=function(){
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* loading home module... **************************")
-			$vm.load_module_v2(home_page_module);
+			$vm.nav_load_module(home_page_module);
+			/*
+			var a=window.location.href.split('module=');
+			if(a.length!=2)	$vm.nav_load_module(home_page_module);
+			else{
+				var name=a[1].split('&')[0];
+				if(name.length>0){
+					if($vm.module_list[name]!=undefined){
+						$vm.nav_load_module(name);
+						return;
+					}
+				};
+				alert("The module "+name+" doesn't exist!");
+			}
+			*/
 		}
 		//********************************************************
 		//add all modules to module list
@@ -89,7 +102,7 @@
 					var a=window.location.href.split('module=');
 					if(a.length!=2){
 						console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* loading home module... **************************")
-						$vm.load_module_v2(home_page_module);
+						$vm.nav_load_module(home_page_module);
 					}
 				}
 			}
@@ -122,14 +135,14 @@
 				load_search_modules();
 				load_system_modules();
 				load_hot_modules();
-                set_height();
 				return;
 			}
 			var property=panel_names[panelI];
 			if(property!=undefined){
 				$vm.module_list[property]={"url":panels[property].url}
 				var prefix=property+"_";
-				$vm.module_list[property].prefix=prefix;
+				if(panels[property].prefix==undefined) $vm.module_list[property].prefix=prefix;
+				else $vm.module_list[property].prefix=panels[property].prefix+"_";
 				var json_files=panels[property].modules;
 				for(var i=0;i<json_files.length;i++){
 					var url=$vm.url(json_files[i]);
@@ -164,16 +177,18 @@
 					$("#vm_system_search").val('');
 					$("#vm_system_search").blur();
 					$('.ui-helper-hidden-accessible').html('');
-					$vm.load_module_v2(ui.item.value);
+					$vm.nav_load_module(ui.item.value);
 				}
 			});
 			$("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
 		}
 		//------------------------------------
         var search_loop=setInterval(function (){
-			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1 ){
+            console.log('search_loop'+"-"+$vm['jquery-ui-min-js']+"-"+$vm.search_list+"-"+$vm['popper-min-js']);
+			if($vm['jquery-ui-min-js']==1 && $vm.search_list==1 /*&& $vm['popper-min-js']==1*/){
 				clearInterval(search_loop);
 				set_module_search();
+				//$('#vm_system_menu').show();
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* menu bar is ready ************************");
 			}
 		},100);
@@ -184,7 +199,7 @@
 				var name=a[1].split('&')[0];
 				if(name.length>0){
 					if($vm.module_list[name]!=undefined){
-						$vm.load_module_v2(name);
+						$vm.nav_load_module(name);
 						return;
 					}
                     else alert("The module "+name+" is not in the module list!");
@@ -196,34 +211,20 @@
 		var load_system_modules=function(){
 			//-------------------------------------
 	        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html'};
-	        $vm.load_module_v2('_system_export_dialog_module','hidden',{})
+	        $vm.nav_load_module('_system_export_dialog_module','hidden',{})
 	        //-------------------------------------
 	        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html'};
-	        $vm.load_module_v2('_system_import_dialog_module','hidden',{})
+	        $vm.nav_load_module('_system_import_dialog_module','hidden',{})
 			//-------------------------------------
 			$vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html'};
-	        $vm.load_module_v2('uploading_file_dialog_module','hidden',{})
+	        $vm.nav_load_module('uploading_file_dialog_module','hidden',{})
 			//-------------------------------------
 		}
 		var load_hot_modules=function(){
 			//pre load into memory, for fast showing on screen
 			//-------------------------------------
-			var nm=[];
-			for(var k in $vm.module_list){
-				if($vm.module_list[k].preload!=undefined) nm.push(k);
-			}
-			var i=0
-			var N=nm.length;
-			if(N>0){
-				var load_module_loop=setInterval(function (){
-					if(i>=N){
-						clearInterval(load_module_loop);
-						return;
-					}
-					$vm.load_module_v2(nm[i],'hidden',{"preload":true})
-					i++;
-				},100);
-			}
+	        //$vm.nav_load_module('page-examples_snapshot-about','hidden',{})
+	        //-------------------------------------
 		}
 		//------------------------------------
 	}
@@ -267,18 +268,5 @@
         display: grid;
         grid-template-rows: auto 1fr auto;
         overflow:hidden;
-    }
-    @media print {
-        html,body{
-            width:100%;
-            height:100%;
-            overflow:visible;
-        }
-        body * {
-            visibility: hidden;
-        }
-        #content_container_0, #content_container_0 *{
-            visibility: visible;
-        }
     }
 </style>

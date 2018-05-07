@@ -1,0 +1,82 @@
+{
+	"modules":
+	{
+		"acta-b":	{"table_id":"20011369","url":"old/edc/acta.html","form_module":"acta-b-form"},	"acta-b-form":  {"table_id":"20011369","url":"old/edc/acta.form.html"},
+		"gses-b":   {"table_id":"20011370","url":"old/edc/gses.html","form_module":"gses-b-form"},	"gses-b-form":  {"table_id":"20011370","url":"old/edc/gses.form.html"},
+		"isi-s":    {"table_id":"20011371","url":"old/edc/isi.html","form_module":"isi-s-form"},	"isi-s-form":   {"table_id":"20011371","url":"old/edc/isi.form.html"},
+		"isi-b":    {"table_id":"20011372","url":"old/edc/isi.html","form_module":"isi-b-form"},	"isi-b-form":   {"table_id":"20011372","url":"old/edc/isi-w.form.html"},
+		"isi-1":    {"table_id":"20011373","url":"old/edc/isi.html","form_module":"isi-1-form"},	"isi-1-form":   {"table_id":"20011373","url":"old/edc/isi-w.form.html"},
+		"isi-2":    {"table_id":"20011374","url":"old/edc/isi.html","form_module":"isi-2-form"},	"isi-2-form":   {"table_id":"20011374","url":"old/edc/isi-w.form.html"},
+		"isi-3":    {"table_id":"20011375","url":"old/edc/isi.html","form_module":"isi-3-form"},	"isi-3-form":   {"table_id":"20011375","url":"old/edc/isi-w.form.html"},
+		"isi-6":    {"table_id":"20011376","url":"old/edc/isi.html","form_module":"isi-6-form"},	"isi-6-form":   {"table_id":"20011376","url":"old/edc/isi.form.html"},
+		"ess-b":    {"table_id":"20011377","url":"old/edc/ess.html","form_module":"ess-b-form"},	"ess-b-form":   {"table_id":"20011377","url":"old/edc/ess.form.html"},
+		"ess-1":    {"table_id":"20011378","url":"old/edc/ess.html","form_module":"ess-1-form"},	"ess-1-form":   {"table_id":"20011378","url":"old/edc/ess.form.html"},
+		"ess-2":    {"table_id":"20011379","url":"old/edc/ess.html","form_module":"ess-2-form"},	"ess-2-form":   {"table_id":"20011379","url":"old/edc/ess.form.html"},
+		"ess-3":    {"table_id":"20011380","url":"old/edc/ess.html","form_module":"ess-3-form"},	"ess-3-form":   {"table_id":"20011380","url":"old/edc/ess.form.html"},
+		"ess-6":    {"table_id":"20011381","url":"old/edc/ess.html","form_module":"ess-6-form"},	"ess-6-form":   {"table_id":"20011381","url":"old/edc/ess.form.html"},
+		"ffs-b":    {"table_id":"20011382","url":"old/edc/ffs.html","form_module":"ffs-b-form"},	"ffs-b-form":   {"table_id":"20011382","url":"old/edc/ffs.form.html"},
+		"ffs-1":    {"table_id":"20011383","url":"old/edc/ffs.html","form_module":"ffs-1-form"},	"ffs-1-form":   {"table_id":"20011383","url":"old/edc/ffs-w.form.html"},
+		"ffs-2":    {"table_id":"20011384","url":"old/edc/ffs.html","form_module":"ffs-2-form"},	"ffs-2-form":   {"table_id":"20011384","url":"old/edc/ffs-w.form.html"},
+		"ffs-3":    {"table_id":"20011385","url":"old/edc/ffs.html","form_module":"ffs-3-form"},	"ffs-3-form":   {"table_id":"20011385","url":"old/edc/ffs-w.form.html"},
+		"ffs-6":    {"table_id":"20011386","url":"old/edc/ffs.html","form_module":"ffs-6-form"},	"ffs-6-form":   {"table_id":"20011386","url":"old/edc/ffs.form.html"},
+		"hads-b":   {"table_id":"20011387","url":"old/edc/hads.html","form_module":"hads-b-form"},	"hads-b-form":   {"table_id":"20011387","url":"old/edc/hads.form.html"},
+		"hads-6":   {"table_id":"20011388","url":"old/edc/hads.html","form_module":"hads-6-form"},	"hads-6-form":   {"table_id":"20011388","url":"old/edc/hads.form.html"},
+		"tens-t-1":	{"table_id":"20011389","url":"old/edc/tens-t.html","form_module":"tens-t-1-form"},		"tens-t-1-form": {"table_id":"20011389","url":"old/edc/tens-t.form.html"},
+		"tens-t-2": {"table_id":"20011390","url":"old/edc/tens-t.html","form_module":"tens-t-2-form"},		"tens-t-2-form": {"table_id":"20011390","url":"old/edc/tens-t.form.html"},
+		"tens-t-3": {"table_id":"20011391","url":"old/edc/tens-t.html","form_module":"tens-t-3-form"},		"tens-t-3-form": {"table_id":"20011391","url":"old/edc/tens-t.form.html"},
+		"tens-i-6": {"table_id":"20011392","url":"old/edc/tens-i.html","form_module":"tens-i-6-form"},		"tens-i-6-form": {"table_id":"20011392","url":"old/edc/tens-i.form.html"},
+		"psqi-s":   {"table_id":"20011393","url":"old/edc/psqi.html","form_module":"psqi-s-form"},"psqi-s-form":  {"table_id":"20011393","url":"old/edc/psqi.form.html"},
+		"psqi-b":   {"table_id":"20011394","url":"old/edc/psqi.html","form_module":"psqi-b-form"},"psqi-b-form":  {"table_id":"20011394","url":"old/edc/psqi.form.html"},
+		"psqi-6":   {"table_id":"20011395","url":"old/edc/psqi.html","form_module":"psqi-6-form"},"psqi-6-form":  {"table_id":"20011395","url":"old/edc/psqi.form.html"},
+		"sf-12-b":  {"table_id":"20011396","url":"old/edc/sf-12.html","form_module":"sf-12-b-form"},"sf-12-b-form":  {"table_id":"20011396","url":"old/edc/sf-12.form.html"},
+		"sf-12-6":  {"table_id":"20011397","url":"old/edc/sf-12.html","form_module":"sf-12-6-form"},"sf-12-6-form":  {"table_id":"20011397","url":"old/edc/sf-12.form.html"},
+		"ieuq-6":   {"table_id":"20011398","url":"old/edc/ieuq.html","form_module":"ieuq-6-form"},"ieuq-6-form":  {"table_id":"20011398","url":"old/edc/ieuq.form.html"},
+		"iieq-6":   {"table_id":"20011399","url":"old/edc/iieq.html","form_module":"iieq-6-form"},"iieq-6-form":  {"table_id":"20011399","url":"old/edc/iieq.form.html"},
+		"sus-6":    {"table_id":"91000094","url":"edc/system-usability-scale-form.html"},
+
+		"quest_list":{
+			"list":{
+				"Baseline":[
+					{"table_id":"20011369","task_name":"Baseline - Autonomy and Competence in Technology Adoption Questionnaire"},
+					{"table_id":"20011370","task_name":"Baseline - General Self-Efficacy Scale"},
+					{"table_id":"20011372","task_name":"Baseline - Insomnia Severity Index"},
+					{"table_id":"20011377","task_name":"Baseline - Epworth Sleepiness Scale"},
+					{"table_id":"20011382","task_name":"Baseline - Flinders Fatigue Scale"},
+					{"table_id":"20011387","task_name":"Baseline - HADS-21"},
+					{"table_id":"20011394","task_name":"Baseline - Pittsburgh sleep quality index"},
+					{"table_id":"20011396","task_name":"Baseline - 12-item Short Form Health Survey"}
+				],
+				"Week 1":[
+					{"table_id":"20011373","task_name":"Week 1 - Insomnia Severity Index"},
+					{"table_id":"20011378","task_name":"Week 1 - Epworth Sleepiness Scale"},
+					{"table_id":"20011383","task_name":"Week 1 - Flinders Fatigue Scale"},
+					{"table_id":"20011389","task_name":"Week 1 - TENS – Task "}
+				],
+				"Week 2":[
+					{"table_id":"20011374","task_name":"Week 2 - Insomnia Severity Index"},
+					{"table_id":"20011379","task_name":"Week 2 - Epworth Sleepiness Scale"},
+					{"table_id":"20011384","task_name":"Week 2 - Flinders Fatigue Scale"},
+					{"table_id":"20011390","task_name":"Week 2 - TENS – Task "}
+				],
+				"Week 3":[
+					{"table_id":"20011375","task_name":"Week 3 - Insomnia Severity Index"},
+					{"table_id":"20011380","task_name":"Week 3 - Epworth Sleepiness Scale"},
+					{"table_id":"20011385","task_name":"Week 3 - Flinders Fatigue Scale"},
+					{"table_id":"20011391","task_name":"Week 3 - TENS – Task "}
+				],
+				"Week 6":[
+					{"table_id":"20011376","task_name":"Week 6 - Insomnia Severity Index"},
+					{"table_id":"20011381","task_name":"Week 6 - Epworth Sleepiness Scale"},
+					{"table_id":"20011386","task_name":"Week 6 - Flinders Fatigue Scale"},
+					{"table_id":"20011388","task_name":"Week 6 - HADS"},
+					{"table_id":"20011392","task_name":"Week 6 - TENS – Interface "},
+					{"table_id":"20011395","task_name":"Week 6 - Pittsburgh sleep quality index"},
+					{"table_id":"20011397","task_name":"Week 6 - 12-item Short Form Health Survey"},
+					{"table_id":"20011398","task_name":"Week 6 - Internet Evaluation and Utility Questionnaire"},
+					{"table_id":"20011399","task_name":"Week 6 - Internet Impact and Effectiveness Questionnaire"},
+					{"table_id":"91000094","task_name":"Week 6 - System Usability Scale"}
+				]
+			}
+		}
+	}
+}

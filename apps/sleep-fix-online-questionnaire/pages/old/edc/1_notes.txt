@@ -1,0 +1,4 @@
+form.html 					--- default quest form started from grid
+task.js 					--- used for the grid
+task.old.form.js 			--- used for the old form started from grid
+task.independent.form.js 	--- used for the new independent form

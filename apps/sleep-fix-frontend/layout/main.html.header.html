@@ -3,27 +3,6 @@
         <span id=vm_logo_label_A>Business Portal</span><br>
         <span id=vm_logo_label_B>on-demand business applications</span>
     </div>
-    <div id="vm_system_menu">
-        <a module=home _class="vm_active"><i class="fa fa-home"></i> Home</a>
-        <div class="vm_dropdown">
-            <button class="vm_dropbtn">Data Management <i class="fa fa-caret-down"></i></button>
-            <div class="vm_dropdown-content">
-                <a module=pages_new-unikey-data>New unikey</a>
-                <a module=pages_unikey-extension-data>Unikey extension</a>
-				<a module=pages_woolworths-transaction-data>Woolworths transactions</a>
-            </div>
-        </div>
-        <div class="vm_dropdown" id=signin__ID>
-            <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
-            <div class="vm_dropdown-content">
-                <a id=google__ID >With your Google account</a>
-                <a id=facebook__ID >With your Facebook account</a>
-                <a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
-            </div>
-        </div>
-        <a id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
-        <input id=vm_system_search  type="text" placeholder="Search pages..." />
-    </div>
     <span module=home id=m_title>Business Portal</span>
 	<a toggle id="vm_icon" onclick="vm_toggle()"><i class="fa fa-bars"></i></a>
 </div>

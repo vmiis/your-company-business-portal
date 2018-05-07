@@ -1,0 +1,7 @@
+{
+    "modules":
+	{
+        "insomnia-severity-index-form":	 {"url":"modules/insomnia-severity-index-form.html","preload":true},
+        "isi-no":	                     {"url":"modules/isi-no.html","preload":true}
+	}
+}

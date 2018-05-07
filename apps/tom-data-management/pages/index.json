@@ -1,11 +1,11 @@
 {
     "modules":
 	{
-        "new-unikey-data":	      		{"table_id":"91000092","url":"group-01/new-unikey-data.html","form_module":"new-unikey-form"},
-		"new-unikey-form":	      		{"table_id":"91000092","url":"group-01/new-unikey-form.html"},
-		"unikey-extension-data":  		{"table_id":"91000093","url":"group-01/unikey-extension-data.html","form_module":"unikey-extension-form"},
-		"unikey-extension-form":  		{"table_id":"91000093","url":"group-01/unikey-extension-form.html"},
-		"woolworths-transaction-data":	{"table_id":"20010375","url":"group-01/woolworths-transaction-data.html","form_module":"woolworths-transaction-form"},
-		"woolworths-transaction-form":	{"table_id":"20010375","url":"group-01/woolworths-transaction-form.html"}
+        "new-unikey-data":	      		{"table_id":"91000092","url":"group-01/new-unikey-data.html","form_module":"new-unikey-form","preload":true},
+		"new-unikey-form":	      		{"table_id":"91000092","url":"group-01/new-unikey-form.html","preload":true},
+		"unikey-extension-data":  		{"table_id":"91000093","url":"group-01/unikey-extension-data.html","form_module":"unikey-extension-form","preload":true},
+		"unikey-extension-form":  		{"table_id":"91000093","url":"group-01/unikey-extension-form.html","preload":true},
+		"woolworths-transaction-data":	{"table_id":"20010375","url":"group-01/woolworths-transaction-data.html","form_module":"woolworths-transaction-form","preload":true},
+		"woolworths-transaction-form":	{"table_id":"20010375","url":"group-01/woolworths-transaction-form.html","preload":true}
 	}
 }
