@@ -1,0 +1,20 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		VmInclude:__COMPONENT__/grid/grid.v3.js
+		VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+		var fields="Your_position_in_relation_to_the_account_applicant,Unikey_creation_approver,Why_does_this_account_need_to_be_created,Salutation";
+		fields+=",First_name,Surname,Preferrend_first_name,Date_of_birth,Geder,Phone_number,Enter_postal_address,Has_this_person_on_the_usyd_payrool_before";
+		fields+=",Do_you_need_a_computer_configured_for_them,Has_this_person_a_student_at_usyd_before,What_is_their_relationship_to_usyd,Expiry_date";
+		fields+=",Do_they_require_a_exchange_email_account,What_is_a_master_user_group,Do_they_need_access_to_any_network_shared_file_network";
+		_fields="_Form,"+fields+",SubmitDate|DateTime,Submittedby|Author,_Delete";
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

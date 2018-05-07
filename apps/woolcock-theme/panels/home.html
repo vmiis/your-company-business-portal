@@ -1,0 +1,50 @@
+<div id=page__ID>
+	<div class="container-fluid" style='max-width:800px'>
+		<div class="text-center">
+		  <h3><a id=a1__ID>The Woolcock is a world-class network of specialised researchers and clinicians who deal with the causes, prevention, diagnosis and treatment of respiratory disease and sleep disorders</a></h3>
+		  <!--
+		  <hr id=hr__ID></hr>
+          <button id=a2__ID class="btn btn-primary">SFIX app survey results</button>-->
+		  <br>
+		  <br><br>
+		</div>
+	</div>
+</div>
+<script>
+	function F__ID(){
+        //----------------------------------------
+		$('#a1__ID').on('click',function(){
+			$vm.nav_load_module('pages_survey-results');
+		})
+		//----------------------------------------
+		$('#a2__ID').on('click',function(){
+			$vm.nav_load_module('pages_survey-results');
+		})
+		//----------------------------------------
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+        color:#c76c59;
+		height:100%;
+		display: flex;
+		align-items: center;
+	}
+	#hr__ID{
+		border-top:1px solid #c76c59;
+	}
+	#a1__ID{
+		cursor:pointer;
+	}
+	#a1__ID:hover{
+		color:#a74c39;
+	}
+	#a2__ID{
+		cursor:pointer;
+	}
+</style>

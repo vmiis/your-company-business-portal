@@ -1,0 +1,26 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		var fields="Participant ID|UID,CRC_ID,Site,Screening_Number,Subject_Initials,Gender,DOB";
+        _fields=fields+",Submit Date|DateTime,Submitted by|Author";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		$('#new__ID').hide();
+		$('#save__ID').hide();
+		//-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        $('#D__ID').on('show',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
