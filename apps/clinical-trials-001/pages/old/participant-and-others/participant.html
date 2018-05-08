@@ -53,7 +53,7 @@
                     if(_records[I].UID===undefined) return;
                     td.html("<u style='cursor:pointer'>Data Entry</u>");
                     td.find('u').on('click',function(){
-                        $vm.nav_load_module('windfarm-lab-study-child',$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.nav_load_module('child',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Setup':

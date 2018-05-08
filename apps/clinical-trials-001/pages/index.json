@@ -1,9 +1,12 @@
 {
 	"modules":
 	{
+		"participant-data":	  	{"table_id":"20008848","url":"participant-and-others/participant-data.html","login_setup":"20008849"},
+		"login-setup":	  		{"table_id":"20008849","url":"participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
+
 		"participant":	  {"table_id":"20008848","url":"old/participant-and-others/participant.html", "name_for_search":"Participant"},
 		"edc-notes":	  {"table_id":"20008850","url":"old/participant-and-others/edc-notes.html", "name_for_search":"EDC notes"},
-		"login-setup":	  {"table_id":"20008849","url":"old/participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
+		"_login-setup":	  {"table_id":"20008849","url":"old/participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
 
 		"Screening_neurotology":          {"table_id":"20010428","url":"old/tasks/neurotology.html","name_for_search":"Neurotology Screening","form_module":"Screening_neurotology_form"},
 		"Screening_neurotology_form":     {"table_id":"20010428","url":"old/tasks/neurotology.form.html"},

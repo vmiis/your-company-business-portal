@@ -4,15 +4,13 @@
 <script>
     function F__ID(){
         //-------------------------------------
-		var fields="Participant ID|UID,Screening_ID,Randomisation_ID,Initials,Sex,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
+		var fields="Record_ID,Registration_ID,Randomisation_Number,Randomised_by,Screening_Number,Subject_Initials,Gender,DOB,_Data_Entry,_Setup,_Quest";
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
         //-------------------------------------
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
-		var prefix2=this_module.prefix2; if(prefix2==undefined) prefix2="";
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
-		//-------------------------------------
 		var login_setup_tid=this_module.login_setup;
 		var form_module=prefix+this_module.form_module;
 		//-------------------------------------
@@ -22,9 +20,10 @@
         //-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
-				case 'UID':
-                    records[I].vm_readonly[field]=true;
-                	break;
+				case 'Record_ID':
+                    records[I].vm_custom[field]=true;
+                    td.html(records[I].UID);
+                    break;
 				case 'Sex':
 					var html="<select style='border:0;''>"
 					html+="<option value=''>---</option>";
@@ -41,7 +40,7 @@
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Data Entry</u>");
                     td.find('u').on('click',function(){
-                        $vm.load_module_v2('panel-child',$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2('child',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Setup':
@@ -89,6 +88,14 @@
             var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
             _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
             //-------------------
+        }
+        //-------------------------------------
+		//convert the existed date to the new standard format
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].DOB=$vm.au_date_to_string_yyyymmdd(_records[i].DOB);
+                _records[i].DOB=$vm.au_date_to_string_yyyymmdd(_records[i].DOB);
+            }
         }
         //-------------------------------------
     }

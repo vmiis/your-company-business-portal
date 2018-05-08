@@ -7,8 +7,8 @@
 		VmInclude:__COMPONENT__/grid/grid.v3.js
 		VmInclude:__CURRENT_PATH__/task_data.js
         //-------------------------------------
-        var fields="Name,Source_Code,Web_Address,Description,Contact Person";
-        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        var fields="Name,Source_Code,Web_Address,Description,Contact_Person";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
 		_cell_render=function(records,I,field,td,set_value,source){
 			switch(field){

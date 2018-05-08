@@ -43,7 +43,8 @@
 		set_li_text();
 		//---------------------------------------------
 		$('#D__ID').on('load',function(){
-			record=$vm.vm['__ID'].op.input.record;
+			record=$vm.vm['__ID'].input.record;
+			if(record==undefined) record=$vm.vm['__ID'].op.input.record;
 			var info="Participant ID:"+record.UID;
 			if(old_info!=info){
 				old_info=info;
