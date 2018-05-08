@@ -8,7 +8,7 @@
 		VmInclude:__CURRENT_PATH__/task_data.js
 		//-------------------------------------
         var fields="Date of Visit|Visit_date";
-        _fields="_Form,Status|S3,Notes|NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _fields="_Form,Status|_S3,Notes|_NT,_Participant_ID,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
         //-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             _default_cell_render(records,I,field,td,set_value,source);
@@ -26,6 +26,13 @@
         //-------------------------------------
         _before_submit=function(record,dbv){
             return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+        //convert the existed date to the new standard format
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].Visit_date=$vm.au_date_to_string_yyyymmdd(_records[i].Visit_date);
+            }
         }
         //-------------------------------------
     }

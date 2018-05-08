@@ -3,7 +3,7 @@ var this_module			=$vm.module_list[$vm.vm['__ID'].name];
 var prefix				=this_module.prefix;
 var form_tid      		=this_module.table_id;
 var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
-var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Subject_Initials')";
+var participant_sql		="Convert(varchar,UID)+'-'+@('Subject_Initials')";
 //-------------------------------------
 if(participant_tid!=undefined){
 	var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";

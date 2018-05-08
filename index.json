@@ -33,6 +33,7 @@
 		"ce":       	{"url":"",                              "modules":["apps/crc-stream-b-extension/pages|index.json"]},
 		"tm":       	{"url":"",                              "modules":["apps/tom-data-management/pages|index.json"]},
 		"wk":       	{"url":"",                              "modules":["apps/woolcock-data-management/pages|index.json"]},
+		"il":       	{"url":"",                              "modules":["apps/clinical-trials-001/pages|index.json"]},
 		"w001":       	{"url":"",                              "modules":["apps/website-template-001/pages|index.json"]},
 		"w002":       	{"url":"",                              "modules":["apps/website-template-002/pages|index.json"]},
 		"w003":       	{"url":"",                              "modules":["apps/website-template-003/pages|index.json"]},

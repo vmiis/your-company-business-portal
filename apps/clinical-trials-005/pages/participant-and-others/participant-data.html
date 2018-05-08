@@ -4,7 +4,7 @@
 <script>
     function F__ID(){
         //-------------------------------------
-		var fields="Participant_ID,Site,Randomisation_Number,Screening_Number,Subject_Initials,Gender,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
+		var fields="Record_ID,Registration_ID,Randomisation_Number,Randomised_by,Screening_Number,Subject_Initials,Gender,DOB,_Data_Entry,_Setup,_Quest";
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
@@ -20,9 +20,9 @@
         //-------------------------------------
         _cell_render=function(records,I,field,td,set_value,source){
             switch(field){
-				case 'Participant_ID':
+				case 'Record_ID':
                     records[I].vm_custom[field]=true;
-                    if(records[I].UID!=undefined) td.html(records[I].UID);
+                    td.html(records[I].UID);
                     break;
 				case 'Sex':
 					var html="<select style='border:0;''>"
@@ -57,7 +57,10 @@
 						var d="";
 						if($vm.server=='development') d="&database=development";
 						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
-						var q_url="https://vmiis.github.io/your-company-business-portal/apps/clinical-trials-001-online-questionnaire/index.html"+p;
+						var q_url="https://woolcock-imr.github.io/windfarm-home-online-questionnaire/index.html"+p;
+						if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+							q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/woolcock-imr")
+						};
 						q_url=$vm.url(q_url)
 						window.open(q_url);
                     });

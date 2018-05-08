@@ -5,7 +5,8 @@ var form_module			=prefix+this_module.form_module;
 var form_tid      		=this_module.table_id;
 var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
 var notes_tid			=""; if($vm.module_list[prefix+'edc-notes-data']!=undefined) notes_tid=$vm.module_list[prefix+'edc-notes-data'].table_id;
-var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Subject_Initials')";
+//var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Screening_ID')";
+var participant_sql     ="UID";
 var site_sql_where		="";
 var edc_notes_module	=prefix+'edc-notes-data';
 //-------------------------------------

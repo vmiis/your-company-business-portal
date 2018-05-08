@@ -27,11 +27,11 @@
 	<div class='nav__ID'>
 		<span>Participants</span>
 		<ul>
-			<li><u module=participant-data>Participants</u></li>
+			<li module=participant-data>Participants</li>
 		</ul>
 		<span>Notes</span>
 		<ul>
-			<li><u module=edc-notes-data>All Task Notes</u></li>
+			<li module=edc-notes-data>All Task Notes</li>
 		</ul>
 		<br>
 	</div>
@@ -59,7 +59,7 @@
     	//---------------------------------------------
     	var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
         //---------------------------------------------
-    	$('#panel__ID li u').on('click',function(){
+    	$('#panel__ID li').on('click',function(){
     		if( $(this).hasClass( 'not_allowed__ID' )===true){
     		    alert("No permission!");
     		    return;
@@ -139,53 +139,43 @@
 </script>
 
 <style>
+	VmInclude:__PARTS__/navigation/navigation.css
 	#D__ID{
-        color:#000;
-        font-size:10pt;
-        font-family: Verdana,Helvetica,Arial,sans-serif;
-		background: rgba(255,255,255,0.85);
-        overflow: auto;
+		background-color:rgba(255,255,255,0.8);
+		height:100%;
+		overflow: auto;
 		animation: vm_module_fadein 1.0s;
 	}
-    #info__ID{
-        font-size: 11px;
-        padding:5px 10px 0 10px;
-        color:#222;
-    }
+	#panel__ID{
+		padding:20px 0 0 20px;
+	}
+	#D__ID li {
+		color:#333;
+	}
 	li::before{
 		font-size: 20px!Important;
 	}
-    .nav__ID{
-        padding:6px 26px 6px 6px;
-        color: #202727;
-        float:left;
-    }
-    .nav__ID span{
-		color:#283f55;
-		font-weight: bold;
-		margin:3px 10px;
-    }
-	.nav__ID u:hover{
-		color:red;
-	    cursor:pointer;
+	#D__ID li:hover {
+		color:#fff;
 	}
-	.app__ID{
-		color:#283f55;
-		font-weight: bold;
-		margin:3px 0px 3px 5px;
+	#D__ID a {
+		text-decoration: none;
 	}
-	.ul__ID{
-		color:#283f55;
-		font-weight: bold;
-		margin:3px 0px 3px 5px;
+	#D__ID a:link {
+		color:#555;
 	}
-	.nav__ID ul{
-		margin:0 0 10px 0;
+	#D__ID a:visited {
+		color:#555;
 	}
-	.nav__ID p{
-		margin:0;
+	#D__ID a:hover {
+		color:#fff;
 	}
-	.data__ID{
-		color:#709aab;
+	#D__ID a:active {
+		color:#555;
+	}
+	@media screen and (max-width:768px){
+		#D__ID{
+			padding:10px 0 0 10px;
+		}
 	}
 </style>

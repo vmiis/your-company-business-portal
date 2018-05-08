@@ -1,15 +1,15 @@
 {
 	"modules":
 	{
-		"participant-data":	  	{"table_id":"20005031","url":"participant-and-others/participant-data.html","form_module":"participant-form","login_setup":"20005034"},
-		"participant-form":	  	{"table_id":"20005031","url":"participant-and-others/participant-form.html","login_setup":"20005034"},
-		"login-setup":	  		{"table_id":"20005034","url":"participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
-		"edc-notes-data":	  	{"table_id":"20005033","url":"participant-and-others/edc-notes-data.html","form_module":"edc-notes-form", "name_for_search":"EDC notes"},
-		"edc-notes-form":	  	{"table_id":"20005033","url":"participant-and-others/edc-notes-form.html"},
+		"participant-data":	  	{"table_id":"20008848","url":"participant-and-others/participant-data.html","form_module":"participant-form","login_setup":"20008849"},
+		"participant-form":	  	{"table_id":"20008848","url":"participant-and-others/participant-form.html","login_setup":"20008849"},
+		"login-setup":	  		{"table_id":"20008849","url":"participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
+		"edc-notes-data":	  	{"table_id":"20008850","url":"participant-and-others/edc-notes-data.html","form_module":"edc-notes-form", "name_for_search":"EDC notes"},
+		"edc-notes-form":	  	{"table_id":"20008850","url":"participant-and-others/edc-notes-form.html"},
 
-		"v1-visit_date-data":  {"table_id":"20008394","url":"tasks/date-of-visit-data.html","form_module":"v1-visit_date-form","name_for_search":"Visit 1 - data of visit"},
-		"v1-visit_date-form":  {"table_id":"20008394","url":"tasks/date-of-visit-form.html"},
-
+		"_participant":	  {"table_id":"20008848","url":"old/participant-and-others/participant.html", "name_for_search":"Participant"},
+		"edc-notes":	  {"table_id":"20008850","url":"old/participant-and-others/edc-notes.html", "name_for_search":"EDC notes"},
+		"_login-setup":	  {"table_id":"20008849","url":"old/participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
 
 		"Screening_neurotology":          {"table_id":"20010428","url":"old/tasks/neurotology.html","name_for_search":"Neurotology Screening","form_module":"Screening_neurotology_form"},
 		"Screening_neurotology_form":     {"table_id":"20010428","url":"old/tasks/neurotology.form.html"},
