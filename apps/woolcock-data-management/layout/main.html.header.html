@@ -1,14 +1,23 @@
 <div id=header__ID>
     <div id=vm_logo module=home>
-		<img width=360 src='__CURRENT_PATH__/main.html.header.html.logo.gif'></img>
+        <span id=vm_logo_label_A>Business Portal</span><br>
+        <span id=vm_logo_label_B>on-demand business applications</span>
     </div>
-	<div id="vm_system_menu">
-        <a module=home _class="vm_active"><i class="fa fa-home"></i> Home</a>
-        <!--<a module=home>Menu</a>-->
-		<a id=signin__ID onclick='$vm.nav_wappsystem_signin()'><i class="fa fa-user"></i> Sign In</a>
-        <a id=signout__ID style="display:none" onclick='$vm.nav_signout()'><i class="fa fa-user"></i> Sign Out</a>
+    <div id="vm_system_menu">
+        <a module=home><i class="fa fa-home"></i> Home</a>
+		<a module=data-management><i class="fa fa-th"></i> Data Management</a>
+        <div class="vm_dropdown" id=signin__ID>
+            <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
+            <div class="vm_dropdown-content">
+                <a id=google__ID >With your Google account</a>
+                <a id=facebook__ID >With your Facebook account</a>
+                <a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
+            </div>
+        </div>
+        <a id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+        <input id=vm_system_search  type="text" placeholder="Search pages..." />
     </div>
-	<span module=home id=m_title>Woolcock</span>
+    <span module=home id=m_title>Business Portal</span>
 	<a toggle id="vm_icon" onclick="vm_toggle()"><i class="fa fa-bars"></i></a>
 </div>
 <script>
@@ -20,7 +29,7 @@
     }
     $('#vm_system_menu a').on('click',function(){
         var module=$(this).attr('module');
-        if(module!=undefined) $vm.nav_load_module(module);
+        if(module!=undefined) $vm.load_module_v2(module);
         if( $(this).attr('toggle')==undefined){
             var x = document.getElementById("vm_system_menu");
             if(x.className==='responsive') x.className="";
@@ -33,8 +42,8 @@
     })
     $(".vm_dropdown").mouseleave(function (){  $(".vm_dropdown-content").hide();  })
     $(".vm_dropdown-content").mouseleave(function (){  $(this).hide();  })
-    $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.nav_load_module(module);    })
-    $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.nav_load_module(module);	})
+    $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+    $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
     //---------------------------------------------
     var init_loop=setInterval(function (){
         console.log('init_loop...')
@@ -56,7 +65,7 @@
         }
         else{
             $('#username__ID').text('Signed in as '+ $vm.user+third);
-			$('#signin__ID').hide();
+            $('#signin__ID').hide();
             $('#signout__ID').show();
         }
     }
@@ -68,24 +77,17 @@
     //---------------------------------------------
 </script>
 <style>
-	#header__ID{
-		height:105px;
-		background: rgba(100,100,100,0.2);
-	}
-	#vm_logo{
-		float:left;
-		display:inline-block;
-		padding:15px;
-		padding-left:90px;
-		cursor:pointer;
-	}
+    #header__ID{
+        height:100px;
+        background: rgba(0,0,0,0.5);
+    }
     #vm_system_menu {
-        margin-top:60px;
-        margin-left:120px;
+        margin-top:50px;
+        margin-right:20px;
         overflow: hidden;
         background: rgba(0,0,0,0.0);
         display:inline-block;
-        float:left;
+        float:right;
     }
     #vm_system_search{
         margin-top:5px;
@@ -94,21 +96,21 @@
         padding-left:6px
     }
     #vm_system_menu > a {
-		float: left;
-		display: block;
-		color: #000;
-		text-align: center;
-		padding: 10px 8px;
-		text-decoration: none;
-		font-size: 14px;
-		cursor:pointer;
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 10px 8px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor:pointer;
     }
 	#vm_icon {
-		display: none;
+      display: none;
     }
     .vm_active {
-		background-color: #4CAF50;
-		color: white;
+      background-color: #4CAF50;
+      color: white;
     }
     .vm_dropdown {
         float: left;
@@ -153,6 +155,26 @@
     }
     #m_title{
         display:none;
+    }
+    #vm_logo{
+        display:inline-block;
+        padding-top:35px;
+        padding-left:20px;
+        cursor:pointer;
+    }
+    #vm_logo_label_A{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 200%;
+        line-height:10px;
+        display:inline-block;
+    }
+    #vm_logo_label_B{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 93%;
+        line-height:80%;
+        display:inline-block;
     }
     @media screen and (max-width: 1280px) {
         #m_title{

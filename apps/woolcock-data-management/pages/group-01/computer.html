@@ -1,0 +1,36 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		//-------------------------------------
+		_fields="_Form,PC_Name,IP_Address,Mac_Address,Net_Mask,Default_Gateway,DNS1,DNS2,Room,Level,Model,OS,Name,Login,Unikey,Phone,Additional_Information";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+		_cell_render=function(records,I,field,td,set_value,source){
+			switch(field){
+				case 'OS':
+					records[I].vm_custom[field]=true;
+					var html="<select style='border:0;'>"
+					html+="<option>Windows 7</option>";
+					html+="<option>Windows 10</option>";
+					html+="<option>Windows 2003</option>";
+					html+="<option>Windows 2008</option>";
+					html+="<option>Windows 2012R2</option>";
+					html+="<option>Mac</option>";
+					html+="<option>Linux</option>";
+					html+="</select>"
+					VmInclude:__COMPONENT__/grid/field_select.js
+					break;
+			}
+		}
+		//-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

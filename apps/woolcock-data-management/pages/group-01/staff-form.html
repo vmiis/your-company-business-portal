@@ -1,0 +1,50 @@
+<section>
+    <div id=pvdiv__ID>
+        <form id=F__ID style='padding:30px'>
+            <img id=img__ID />
+			<br><br>
+            <div id=info__ID style='display:block'></div>
+        </form>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        var set_image_url=function($obj,rid,filename,modified){
+			if(filename=='') return;
+            if(rid===undefined) return;
+            var ext=filename.split('.').pop();
+			var thumb=filename+'_thumb.'+ext;
+            var p='S'+rid;
+        	if($vm.vm['__ID'][p]!==undefined) $obj.attr('src',$vm.vm['__ID'][p]);
+        	else{
+            	$vm.s3_link({rid:rid,filename:thumb,days:'1',modified:modified,callback:function(url){
+        	        $vm.vm['__ID'][p]=url;
+        	        $obj.attr('src',url);
+            	}});
+            }
+        };
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+			var record=$vm.vm['__ID'].op.input.record;
+            set_image_url($('#img__ID'),record.ID,record.File,record.modified);
+			var txt="";
+			txt+="Title: "+record.Title+"\n";
+			txt+="First name: "+record.First_Name+"\n";
+			txt+="Last name: "+record.Last_Name+"\n";
+			txt+="Gender: "+record.Gender+"\n";
+			txt+="Department: "+record.Department+"\n";
+			txt+="Email: "+record.Email+"\n";
+			txt+="Phone: "+record.Phone+"\n";
+			txt+="Login Name: "+record.Login_Name+"\n";
+
+			txt=$vm.text(txt);
+			txt=txt.replace(/\n/g,'<br>');
+
+            $('#info__ID').html(txt)
+        })
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/style/default.css
+</style>

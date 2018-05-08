@@ -1,0 +1,22 @@
+{
+    "modules":
+	{
+		"staff-form":		{"table_id":"91000091","url":"group-01/staff-form.html", 	"name_for_search":""},
+		"staff-list":		{"table_id":"91000091","url":"group-01/staff-list.html", 	"name_for_search":"Staff phone and room number"},
+		"staff":			{"table_id":"91000091","url":"group-01/staff.html", 		"name_for_search":"Staff"},
+		"computer":			{"table_id":"91000090","url":"group-01/computer.html", 		"name_for_search":"Computer"},
+		"nas":				{"table_id":"91000089","url":"group-01/nas.html", 			"name_for_search":"NAS"},
+		"printer":			{"table_id":"91000086","url":"group-01/printer.html", 		"name_for_search":"Printer"},
+		"unikey":			{"table_id":"91000088","url":"group-01/unikey.html", 		"name_for_search":"UniKeys"},
+		"ssl":				{"table_id":"91000085","url":"group-01/ssl.html", 			"name_for_search":"SSL"},
+		"domain-name":		{"table_id":"91000084","url":"group-01/domain-name.html", 	"name_for_search":"Domain names"},
+		"knowledge-base":	{"table_id":"20000441","url":"group-01/knowledge-base.html","name_for_search":"Knowledge base"},
+		"job-request":		{"table_id":"91000081","url":"group-01/job-request.html", 	"name_for_search":"Job request"},
+
+		"application-data":				{"table_id":"91000080","url":"group-01/application-data.html","preload":true},
+		"new-unikey-data":	      		{"table_id":"91000092","url":"group-01/new-unikey-data.html","form_module":"new-unikey-form","preload":true},
+		"new-unikey-form":	      		{"table_id":"91000092","url":"group-01/new-unikey-form.html","preload":true},
+		"unikey-extension-data":  		{"table_id":"91000093","url":"group-01/unikey-extension-data.html","form_module":"unikey-extension-form","preload":true},
+		"unikey-extension-form":  		{"table_id":"91000093","url":"group-01/unikey-extension-form.html","preload":true}
+	}
+}

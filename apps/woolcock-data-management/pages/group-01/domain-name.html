@@ -1,0 +1,26 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		//-------------------------------------
+		_fields="_Form,Name,Expired_Date,Registration_Email,Provider,Name_Server";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+		_cell_render=function(records,I,field,td,set_value,source){
+			switch(field){
+			    case 'Expired_Date':
+					VmInclude:__COMPONENT__/grid/field_date.js
+			    	break;
+			}
+		}
+		//-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
