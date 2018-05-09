@@ -3,8 +3,8 @@ var this_module			=$vm.module_list[$vm.vm['__ID'].name];
 var prefix				=this_module.prefix;
 var form_tid      		=this_module.table_id;
 var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
-var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Screening_ID')";
-var _record_type="";
+var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Subject_Initials')";
+participant_name        ='Subject_Initials';
 //-------------------------------------
 if(participant_tid!=undefined){
 	var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";
@@ -17,16 +17,16 @@ if(participant_tid!=undefined){
 $('#D__ID').on('load',function(){
 	$('#F__ID')[0].reset();
 	$('#submit__ID').show();
-	var grid_record=$vm.vm['__ID'].op.record;
+	var grid_record=$vm.vm['__ID'].input.record;
 	$vm.deserialize(grid_record,'#F__ID');
 	//--------------------------
-	//particioant info from parent grid
-	var input=$vm.vm['__ID'].op.input; if(input==undefined) input=$vm.vm['__ID'].op
-	if($("#F__ID input[name=Participant]").val()=='' && input!=undefined){
-		$("#F__ID input[name=Participant]").val(input.participant_name);
-		$("#F__ID input[name=Participant_uid]").val(input.participant_uid);
+	var participant_record=$vm.vm['__ID'].input.participant_record;
+    if(grid_record==undefined && participant_record!=undefined && participant_record.UID!=undefined){
+		$("#F__ID input[name=Participant]").val(participant_record.UID+"-"+participant_record[participant_name]);
+		$("#F__ID input[name=Participant_uid]").val(participant_record.UID);
 	}
-	$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
+	//$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
+    $('#F__ID input[name=Participant]').prop('disabled',false); if($("#F__ID input[name=Participant_uid]").val()!='') $('#F__ID input[name=Participant]').prop('disabled',true);
 	//--------------------------
 	if(typeof(on_load)!='undefined') on_load();
 })
@@ -52,19 +52,13 @@ $('#F__ID').submit(function(event){
 	if(_before_submit(data,dbv)==false) return;
 	//--------------------------------------------------------
 	var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;
-	var sql;
-	if(_record_type==""){
-		req={cmd:"add_json_record",db_pid:form_tid,data:data,dbv:dbv};
-		if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:form_tid,data:data,dbv:dbv};
-	}
-	else if(_record_type=="s2"){
-		req={cmd:"add_json_record_s2",db_pid:form_tid,data:data,dbv:dbv};
-		if(rid!=undefined) req={cmd:"modify_json_record_s2",rid:rid,db_pid:form_tid,data:data,dbv:dbv};
-	}
+	var req={cmd:"add_json_record",db_pid:form_tid,data:data,dbv:dbv};
+	if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:form_tid,data:data,dbv:dbv};
+    if($vm.online_questionnaire==1) req={cmd:"add_json_record_s2",db_pid:form_tid,data:data,dbv:dbv};   
 	$VmAPI.request({data:req,callback:function(res){
 		$vm.refresh=1;
 		if(rid!=undefined) window.history.go(-1);
-		else if($vm.vm['__ID'].op.input!=undefined && $vm.vm['__ID'].op.input.goback!=undefined) window.history.go(-1);
+		else if($vm.vm['__ID'].input!=undefined && $vm.vm['__ID'].input.goback!=undefined) window.history.go(-1);
 		else $vm.alert('Your data has been successfully submitted');
 	}});
 	//--------------------------------------------------------

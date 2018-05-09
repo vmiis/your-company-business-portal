@@ -32,7 +32,6 @@
 	function F__ID(){
 		//--------------------------------------------------------
 		var old_info='';
-		var record;
         var participant_record;
 		var count={}
 		//--------------------------------------------------------
@@ -117,13 +116,13 @@
 			if($vm.module_list[prefix+m]!=undefined){
 				var pid=$vm.module_list[prefix+m].table_id;
 				if(pid!=undefined){
-					var sql="select Num=count(ID) from [TABLE-"+pid+"] where PUID="+record.UID;
+					var sql="select Num=count(ID) from [TABLE-"+pid+"] where PUID="+participant_record.UID;
 					$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
-						if(count[record.UID.toString()]==undefined) count[record.UID.toString()]={}
-						count[record.UID.toString()][m]=res.records[0].Num;
+						if(count[participant_record.UID.toString()]==undefined) count[participant_record.UID.toString()]={}
+						count[participant_record.UID.toString()][m]=res.records[0].Num;
 						var txt=$li.attr('data-li_text');
 			            txt=$('<div/>').html(txt).text();
-			            var num=$('<div/>').html(count[record.UID.toString()][m]).text();
+			            var num=$('<div/>').html(count[participant_record.UID.toString()][m]).text();
 			            $li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
 					}})
 				}

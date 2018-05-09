@@ -54,6 +54,7 @@ $('#F__ID').submit(function(event){
 	var rid=undefined; if($vm.vm['__ID'].op.record!=undefined) rid=$vm.vm['__ID'].op.record.ID;
 	var req={cmd:"add_json_record",db_pid:form_tid,data:data,dbv:dbv};
 	if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:form_tid,data:data,dbv:dbv};
+    if($vm.online_questionnaire==1) req={cmd:"add_json_record_s2",db_pid:form_tid,data:data,dbv:dbv};
 	$VmAPI.request({data:req,callback:function(res){
 		$vm.refresh=1;
 		if(rid!=undefined) window.history.go(-1);

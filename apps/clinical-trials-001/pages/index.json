@@ -13,17 +13,21 @@
         "s-psqi-data":  {"table_id":"20008396","url":"tasks/pittsburgh-sleep-quality-index-data.html","form_module":"s-psqi-form","name_for_search":"Screening - pittsburgh sleep quality index"},
 		"s-psqi-form":  {"table_id":"20008396","url":"tasks/pittsburgh-sleep-quality-index-form.html"},
 
+        "s-dass21-data":	{"table_id":"20008397","url":"tasks/depression-anxiety-stress-scales-data.html","form_module":"s-dass21-form","name_for_search":"Depression anxiety stress scales"},
+        "s-dass21-form":	{"table_id":"20008397","url":"tasks/depression-anxiety-stress-scales-form.html"},
+
 		"v1-visit-date-data":  {"table_id":"20008394","url":"tasks/date-of-visit-data.html","form_module":"v1-visit-date-form","name_for_search":"Visit 1 - data of visit"},
 		"v1-visit-date-form":  {"table_id":"20008394","url":"tasks/date-of-visit-form.html"},
 
         "quest_list":{
             "list":{
                 "Screening":{
-                    "s-ess-data":  {"table_id":"20008395","url":"tasks/epworth-sleepiness-scale-data.html","form_module":"s1-ess-form","name_for_search":"Screening - Epworth Sleepiness Scale"},
-                    "s-psqi-data": {"table_id":"20008396","url":"tasks/pittsburgh-sleep-quality-index-data.html","form_module":"s-psqi-form","name_for_search":"Screening - pittsburgh sleep quality index"}
+                    "s-ess-form":   {"table_id":"20008395","url":"tasks/epworth-sleepiness-scale-form.html","name_for_search":"Screening - Epworth Sleepiness Scale"},
+                    "s-psqi-form":  {"table_id":"20008396","url":"tasks/pittsburgh-sleep-quality-index-form.html","name_for_search":"Screening - pittsburgh sleep quality index"},
+                    "s-dass21-form":{"table_id":"20008397","url":"tasks/depression-anxiety-stress-scales-form.html","name_for_search":"Depression anxiety stress scales"}
     			},
     			"Visit 1":{
-                    "v1-visit_date-data":   {"table_id":"20008394","url":"tasks/date-of-visit-data.html","form_module":"v1-visit_date-form","name_for_search":"Visit 1 - data of visit"}
+                    "v1-visit_date-form":   {"table_id":"20008394","url":"tasks/date-of-visit-form.html","name_for_search":"Visit 1 - data of visit"}
     			}
             }
 		}
