@@ -1,49 +1,15 @@
-<div id=toolbar__ID class="navbar navbar-default">
-	<form class="form-inline">
-		<button type=button id=count__ID class='btn btn-secondary'>Count</button>
-	</form>
-	<span id=elapsed__ID style='float:right'></span>
-</div>
-<style>
-    #toolbar__ID{
-		background-color:#ccc;
-		margin-bottom:0px;
-		overflow:hidden;
-        padding: 5px 0 5px 10px;
-	}
-    #toolbar__ID .form-inline > * {
-        margin-right:5px;
-    }
-	@media screen and (max-width:768px){
-		#toolbar__ID{
-			padding: 3px 10px;
-		}
-		#toolbar__ID div{
-			padding-left:3px;
-		}
-	}
-</style>
 <section id=panel__ID>
 	<div class='nav__ID'>
-		<span>Participants</span>
+		<span>Data management</span>
 		<ul>
-			<li><u module=participant-data>Participants</u></li>
+			<li><u module=contact-data>Contact and consent</u></li>
 		</ul>
-		<span>Notes</span>
-		<ul>
-			<li><u module=edc-notes-data>All Task Notes</u></li>
-		</ul>
-		<br>
 	</div>
-	VmInclude:__CURRENT_PATH__/tasks.html
+	</div>
 </section>
-
 <script>
     function F__ID(){
     	//--------------------------------------------------------
-        var this_module			=$vm.module_list[$vm.vm['__ID'].name];
-        var prefix				=this_module.prefix;
-        //---------------------------------------------
     	var set_li_text=function(){
     	    $('.nav__ID li u').each(function(){
     	        $(this).attr('data-li_text',$(this).text());
@@ -60,6 +26,8 @@
     		})
     	}
     	//---------------------------------------------
+    	var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+        //---------------------------------------------
     	$('#panel__ID li u').on('click',function(){
     		if( $(this).hasClass( 'not_allowed__ID' )===true){
     		    alert("No permission!");
@@ -71,11 +39,26 @@
     			  alert(prefix+m +" is not in the module list.");
     			  return;
     		  }
-    		  $vm.load_module_v2(prefix+m,'',{});
+    		  $vm.nav_load_module(prefix+m,'',{});
     		}
+			var panel=$(this).attr('panel');
+			if(panel!=undefined){
+				if($vm.module_list[panel]==undefined){
+					alert(panel +" is not in the module list.");
+					return;
+				}
+				$vm.nav_load_module(panel);
+			}
     	})
     	//--------------------------------------------------------
     	$('#D__ID').on('load',function(){
+			/*
+			$('#g2__ID').hide();
+			if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+				$('#g1__ID').hide();
+				$('#g2__ID').show();
+			}
+			*/
     		var pids="";
     		if($vm.server==='production'){
     		  $('.nav__ID li u').each(function(index){
@@ -138,7 +121,6 @@
     	//--------------------------------------------------------
     }
 </script>
-
 <style>
 	#D__ID{
         color:#000;

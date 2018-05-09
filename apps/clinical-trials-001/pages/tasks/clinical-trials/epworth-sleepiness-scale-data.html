@@ -1,0 +1,30 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+		//-------------------------------------
+        var fields="ESS_1,ESS_2,ESS_3,ESS_4,ESS_5,ESS_6,ESS_7,ESS_8,ESS";
+        _fields="_Form,Status|_S3,Notes|_NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+			_default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+            }
+        }
+        //-------------------------------------
+		_before_submit=function(record,dbv){
+            if(record.ESS_1!='' && record.ESS_2!='' && record.ESS_3!='' && record.ESS_4!='' && record.ESS_5!='' && record.ESS_6!='' && record.ESS_7!='' && record.ESS_8!=''){
+                record.ESS=(parseInt(record.ESS_1)+parseInt(record.ESS_2)+parseInt(record.ESS_3)+parseInt(record.ESS_4)+parseInt(record.ESS_5)+parseInt(record.ESS_6)+parseInt(record.ESS_7)+parseInt(record.ESS_8)).toString();
+            }
+			return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

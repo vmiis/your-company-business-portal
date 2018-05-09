@@ -7,7 +7,7 @@
             <div class="row row__ID" id=row_participant__ID>
 				<div class="col-sm-12 col-lg-9">
 					<span class=label__ID>Participant</span><br>
-					<input name="Participant" class=form-control id=Participant__ID data-id="Participant">
+					<input name="Participant" class=form-control id=Participant__ID data-id="Participant" required>
 				</div>
 				<div class="col-sm-12 col-lg-3">
 					<span class=label__ID>Participant ID</span><br>
@@ -53,47 +53,40 @@
         var form_tid      		=this_module.table_id;
         var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
         var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Subject_Initials')";
+        var participant_name    ="Subject_Initials";
+        var setup_record;
         //-------------------------------------
         if(participant_tid!=undefined){
         	var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";
         	sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
         	$vm.autocomplete($('#Participant__ID'),sql,function(key,value){
         		$("#F__ID input[name="+key+"]").val($vm.text(value));
+                if(key=='Participant_uid') $("#F__ID input[name=Login_ID]").val($vm.text(value)+"-"+form_tid);
         	})
         }
         //-------------------------------------
 		var setup_pid=this_module.table_id;
-		var record;
-		var q_list=this_module.quest_list.list;
+		var q_list=$vm.module_list[prefix+'quest_list'].list;
         //---------------------------------------------
         $('#name__ID').text('Participant Login Setup');
         //---------------------------------------------
         $('#D__ID').on('load',function(){
             $('#F__ID')[0].reset();
         	$('#submit__ID').show();
-        	record=$vm.vm['__ID'].input.record;
-        	//$vm.deserialize(grid_record,'#F__ID');
-        	//--------------------------
-        	//particioant info from parent grid
-        	var input=$vm.vm['__ID'].input;
-        	if($("#F__ID input[name=Participant]").val()=='' && input!=undefined){
-        		$("#F__ID input[name=Participant]").val(input.participant_name);
-        		$("#F__ID input[name=Participant_uid]").val(input.participant_uid);
-        	}
-        	$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
-        	//--------------------------
 			load_data();
 		})
 		//---------------------------------------------
         var load_data=function(){
+            setup_record={};
             var record=$vm.vm['__ID'].input.record;
-            if(record.UID!=undefined){
-                var sql="select top 1 from [TABLE-"+setup_pid+"] where PUID="+record.UID;
+            if(record!=undefined && record.UID!=undefined){
+                var sql="select top 1 Information from [TABLE-"+setup_pid+"] where PUID="+record.UID;
                 var req_data={ cmd:"query_records",sql:sql}
                 $VmAPI.request({data:req_data,callback:function(res){
                     if(res.records.length>0){
-                        var record=res.records[0];
-                        $vm.deserialize(record,'#F__ID');
+                        setup_record=res.records[0];
+                        $vm.deserialize(setup_record,'#F__ID');
+                        $('#row_participant__ID').prop("disabled",false); if(record.Participant!="" && record.Participant_uid=='') $('#row_participant__ID').prop("disabled",true);
                     }
                     else{
                         $('#F__ID textarea[name=List]').val('');
@@ -102,29 +95,26 @@
     				set_check_list();
                 }})
             }
+            else set_check_list();
         }
         //---------------------------------------------
         var set_check_list=function(){
             var tab="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
             var dot='&#8226;&nbsp;';
             var txtA="";
-            var txt="<tr><th>No.</th><th>Table ID</th><th>Task</th><th>Select</th></tr>";
+            var txt="<tr><th style='width:30px'>No.</th><th>Table ID</th><th>Task</th><th style='width:20px'></th></tr>";
             var No=0;
             for(visit in q_list){
                 No++;
-            	var task=visit,pid="";
+            	var task=visit;
+                var pid="";
             	txt+="<tr><td>"+No+"</td><td></td><td>"+task+"</td><td><input data-visit='"+task+"' type=checkbox class=visit__ID /></td></tr>";
                 var sublist=q_list[visit];
-                for(i in sublist){
+                for(k in sublist){
                     No++;
-                    if($vm.module_list[prefix+sublist[i]]!==undefined){
-                        pid=$vm.module_list[prefix+sublist[i]].table_id;
-                        task=$vm.module_list[prefix+sublist[i]].task;
-                	    txt+="<tr><td>"+No+"</td><td>"+pid+"</td><td>"+tab+dot+task+"</td><td><input id=task"+pid+" type=checkbox /></td></tr>";
-                    }
-                    else{
-						alert(prefix+sublist[i] +' is not in the module list.')
-					}
+                    pid=sublist[k].table_id;
+                    task=sublist[k].name_for_search;
+                    txt+="<tr><td>"+No+"</td><td>"+pid+"</td><td>"+tab+dot+task+"</td><td><input id=task__ID"+pid+" type=checkbox /></td></tr>";
                 }
             }
             $('#table_grid__ID').html(txt);
@@ -136,21 +126,21 @@
                 var sublistA=q_list[data_visit];
                 if( $(this).prop('checked')==true){
                     for(k in sublistA){
-                        var pid=$vm.module_list[prefix+sublistA[k]].table_id;
-                        $("#task"+pid).prop('checked',true);
+                        var pid=sublistA[k].table_id;
+                        $("#task__ID"+pid).prop('checked',true);
                     }
                 }
                 else{
                     for(k in sublistA){
-                        var pid=$vm.module_list[prefix+sublistA[k]].table_id;
-						$("#task"+pid).prop('checked',false);
+                        var pid=sublistA[k].table_id;
+						$("#task__ID"+pid).prop('checked',false);
                     }
                 }
             });
         }
         //---------------------------------------------
         var set_box=function(){
-        	var list_val=$('#List__ID').val();
+        	var list_val=$('#F__ID textarea[name=List]').val();
         	var lines=list_val.split(',');
         	for(var i=0;i<lines.length;i++){
         		var L=lines[i].length;
@@ -186,12 +176,45 @@
         			}
     			}
     		});
-    		$('#List__ID').val(txt);
+    		$('#F__ID textarea[name=List]').val(txt);
     	}
     	//---------------------------------------------
+        $('#F__ID').submit(function(event){
+        	//--------------------------------------------------------
+        	event.preventDefault();
+        	$('#submit__ID').hide();
+        	//--------------------------------------------------------
+            set_list();
+            //--------------------------------------------------------
+        	var data=$vm.serialize('#F__ID');
+            if(data.Participant_uid==""){
+                $vm.alert('No participant was selected.');
+                $('#submit__ID').show();
+                return;
+            }
+            var dbv={PUID:data.Participant_uid,S1:data.Participant,S2:data.Login_ID,S3:data.Password}
+        	//--------------------------------------------------------
+            var sql="select top 1 ID from [TABLE-"+form_tid+"] where PUID="+data.Participant_uid;
+            var req_data={ cmd:"query_records", sql:sql}
+            $VmAPI.request({data:req_data,callback:function(res){
+                var rid=""; if(res.records.length>0)  var rid=res.records[0].ID;
+                var req={cmd:"add_json_record",db_pid:form_tid,data:data,dbv:dbv};
+            	if(rid!="") req={cmd:"modify_json_record",rid:rid,db_pid:form_tid,data:data,dbv:dbv};
+            	$VmAPI.request({data:req,callback:function(res){
+            		$vm.refresh=1;
+            		if(rid!=undefined) window.history.go(-1);
+            		else if($vm.vm['__ID'].input!=undefined && $vm.vm['__ID'].input.goback!=undefined) window.history.go(-1);
+            		else $vm.alert('Your data has been successfully submitted');
+            	}});
+            	//--------------------------------------------------------
+            }})
+
+        })
+        //--------------------------------------------------------
+        /*
         $('#save__ID').on('click', function(){
             set_list();
-            var row_data={Login_ID:$('#Login_ID__ID').val(), Password:$('#Password__ID').val(),List:$('#List__ID').val()}
+            var row_data={Login_ID:$('#F__ID input[name=Login_ID]').val(), Password:$('#F__ID input[name=Password]').val(),List:$('#List__ID').val()}
             var dbv={PUID:record.UID,S1:$('#Participant__ID').val(),S2:$('#Login_ID__ID').val(),S3:$('#Password__ID').val()}
             var sql="select top 1 ID from [TABLE-"+setup_pid+"] where PUID="+record.UID;
             var req_data={ cmd:"query_records", sql:sql}
@@ -209,7 +232,6 @@
         var add_record=function(row_data,dbv){
             var req={cmd:"add_json_record",db_pid:setup_pid.toString(),data:row_data,dbv:dbv};
             $VmAPI.request({data:req,callback:function(res){
-                //$('#back__ID').trigger('click');
 				window.history.go(-1);
             }});
         }
@@ -217,10 +239,10 @@
         var modify_record=function(row_data,dbv,rid){
             var req={cmd:"modify_json_record",rid:rid,db_pid:setup_pid.toString(),data:row_data,dbv:dbv};
             $VmAPI.request({data:req,callback:function(res){
-                //$('#back__ID').trigger('click');
 				window.history.go(-1);
             }});
         }
+        */
         //---------------------------------------------
     }
 </script>

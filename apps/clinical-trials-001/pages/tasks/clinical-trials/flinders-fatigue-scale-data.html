@@ -1,0 +1,46 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+		//-------------------------------------
+        var fields="FFS_1,FFS_2,FFS_3,FFS_4,FFS_5_em,FFS_5_mm,FFS_5_m,FFS_5_ma,FFS_5_la,FFS_5_ee,FFS_5_le,FFS_6,FFS_7,FFS";
+        _fields="_Form,Status|_S3,Notes|_NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+			_default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                case 'FFS_5_em':
+                case 'FFS_5_mm':
+                case 'FFS_5_m':
+                case 'FFS_5_ma':
+                case 'FFS_5_la':
+                case 'FFS_5_ee':
+                case 'FFS_5_le':
+                    var html='<input type=checkbox />';
+                    $vm.render_checkbox_field(records[I],'__ID',td,html)
+                    break;
+            }
+        }
+        //-------------------------------------
+		_before_submit=function(record,dbv){
+            var ffs5=0;
+            if(record.FFS_5_em=='on') ++ffs5;
+            if(record.FFS_5_mm=='on') ++ffs5;
+            if(record.FFS_5_m=='on')  ++ffs5;
+            if(record.FFS_5_ma=='on') ++ffs5;
+            if(record.FFS_5_la=='on') ++ffs5;
+            if(record.FFS_5_ee=='on') ++ffs5;
+            if(record.FFS_5_le=='on') ++ffs5;
+            record.FFS=(ffs5+parseInt(record.FFS_1)+parseInt(record.FFS_2)+parseInt(record.FFS_3)+parseInt(record.FFS_4)+parseInt(record.FFS_6)+parseInt(record.FFS_7)).toString();
+			return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

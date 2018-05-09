@@ -5,18 +5,14 @@ var form_module			=prefix+this_module.form_module;
 var form_tid      		=this_module.table_id;
 var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
 var notes_tid			=""; if($vm.module_list[prefix+'edc-notes-data']!=undefined) notes_tid=$vm.module_list[prefix+'edc-notes-data'].table_id;
-var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Subject_Initials')";
+var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Screening_ID')";
 var site_sql_where		="";
 var edc_notes_module	=prefix+'edc-notes-data';
 //-------------------------------------
 _record_type="s2";
 var _task_fields='';
 //-------------------------------------
-$('#new__ID').off('click').on('click',function(){
-    var participant_record=$vm.vm['__ID'].input.participant_record;
-    if(participant_record==undefined) participant_record={};
-    $vm.load_module_v2(form_module,'',{participant_record:participant_record,goback:1})
-})
+$('#new__ID').off('click').on('click',function(){$vm.load_module_v2(form_module,'',{goback:1})})
 $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
 //-------------------------------------
 _set_req=function(){
@@ -52,10 +48,6 @@ _set_req_export=function(i1,i2){
 //-------------------------------------
 var _default_cell_render=function(records,I,field,td,set_value,source){
     switch(field){
-        case '_Participant_ID':
-            records[I].vm_custom[field]=true;
-            if(records[I].Participant_uid!=undefined) td.html(records[I].Participant_uid);
-            break;
         case 'Participant':
             /*
 			var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";

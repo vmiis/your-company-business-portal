@@ -3,7 +3,8 @@
 	"api_path_production":"https://cbs.wappsystem.com/dev/",
 	"default_production":"No",
 	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+		"home":	              {"url":"panels/home.html","modules":[]},
+        "data-management":	  {"url":"panels/data-management.html","modules":[],"prefix":"pages"},
+		"pages":	          {"url":"","modules":["pages|index.json"]}
 	}
 }

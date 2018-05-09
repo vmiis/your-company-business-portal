@@ -3,8 +3,7 @@ var this_module			=$vm.module_list[$vm.vm['__ID'].name];
 var prefix				=this_module.prefix;
 var form_tid      		=this_module.table_id;
 var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
-var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Subject_Initials')";
-participant_name        ='Subject_Initials';
+var participant_sql		="Convert(varchar,UID)+'-'+JSON_VALUE(Information,'$.Screening_ID')";
 //-------------------------------------
 if(participant_tid!=undefined){
 	var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";
@@ -17,16 +16,16 @@ if(participant_tid!=undefined){
 $('#D__ID').on('load',function(){
 	$('#F__ID')[0].reset();
 	$('#submit__ID').show();
-	var grid_record=$vm.vm['__ID'].input.record;
+	var grid_record=$vm.vm['__ID'].op.record;
 	$vm.deserialize(grid_record,'#F__ID');
 	//--------------------------
-	var participant_record=$vm.vm['__ID'].input.participant_record;
-    if(grid_record==undefined && participant_record!=undefined && participant_record.UID!=undefined){
-		$("#F__ID input[name=Participant]").val(participant_record.UID+"-"+participant_record[participant_name]);
-		$("#F__ID input[name=Participant_uid]").val(participant_record.UID);
+	//particioant info from parent grid
+	var input=$vm.vm['__ID'].input; if(input==undefined) input=$vm.vm['__ID'].op
+	if($("#F__ID input[name=Participant]").val()=='' && input!=undefined){
+		$("#F__ID input[name=Participant]").val(input.participant_name);
+		$("#F__ID input[name=Participant_uid]").val(input.participant_uid);
 	}
-	//$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
-    $('#F__ID input[name=Participant]').prop('disabled',false); if($("#F__ID input[name=Participant_uid]").val()!='') $('#F__ID input[name=Participant]').prop('disabled',true);
+	$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
 	//--------------------------
 	if(typeof(on_load)!='undefined') on_load();
 })

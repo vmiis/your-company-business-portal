@@ -33,19 +33,19 @@
 		//--------------------------------------------------------
 		var old_info='';
 		var record;
+        var participant_record;
 		var count={}
 		//--------------------------------------------------------
 		var set_li_text=function(){
-		    $('.nav__ID li').each(function(){
+		    $('.nav__ID li u').each(function(){
 		        $(this).attr('data-li_text',$(this).text());
 		    })
 		}
 		set_li_text();
 		//---------------------------------------------
 		$('#D__ID').on('load',function(){
-			record=$vm.vm['__ID'].input.record;
-			if(record==undefined) record=$vm.vm['__ID'].op.input.record;
-			var info="Participant ID:"+record.UID;
+			participant_record=$vm.vm['__ID'].input.record;
+			var info="Participant ID:"+participant_record.UID;
 			if(old_info!=info){
 				old_info=info;
 				set_counting();
@@ -54,7 +54,7 @@
 		})
 		//--------------------------------------------------------
 		var clear_counting=function(){
-			$('.nav__ID li').each(function(){
+			$('.nav__ID li u').each(function(){
 				var txt=$(this).attr('data-li_text');
 				if(txt!=undefined){
 					$(this).text(txt);
@@ -63,11 +63,11 @@
 		}
 		//---------------------------------------------
 		var set_counting=function(){
-			$('.nav__ID li').each(function(){
+			$('.nav__ID li u').each(function(){
 				var $li=$(this);
 				var m=$li.attr('module');
-				if(count[record.UID.toString()]!==undefined){
-					var num=$('<div/>').html(count[record.UID.toString()][m]).text();
+				if(count[participant_record.UID.toString()]!==undefined){
+					var num=$('<div/>').html(count[participant_record.UID.toString()][m]).text();
 					if(num!=undefined){
 			            var txt=$('<div/>').html($li.attr('data-li_text')).text();
 			            $li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
@@ -78,7 +78,7 @@
 		}
 		//---------------------------------------------
 		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
-		$('#panel__ID li').on('click',function(){
+		$('#panel__ID li u').on('click',function(){
 			if( $(this).hasClass( 'not_allowed__ID' )===true){
 				  alert("No permission!");
 				  return;
@@ -89,14 +89,15 @@
 					alert(prefix+m +" is not in the module list.");
 					return;
 				}
-				$vm.nav_load_module(prefix+m,"",{participant_uid:record.UID});
+				//$vm.nav_load_module(prefix+m,"",{participant_uid:record.UID});
+                $vm.load_module_v2(prefix+m,"",{participant_record:participant_record});
 			}
 		})
 		//--------------------------------------------------------
 		$('#count__ID').on('click',function(){
 			clear_counting();
 			var N=0;
-			$('#panel__ID li').each(function(){
+			$('#panel__ID li u').each(function(){
 				var $li=$(this);
 				N++;
 				var m=$li.attr('module');
@@ -133,43 +134,53 @@
 </script>
 
 <style>
-	VmInclude:__COMPONENT__/navigation/navigation.css
 	#D__ID{
-		background-color:rgba(255,255,255,0.8);
-		height:100%;
-		overflow: auto;
+        color:#000;
+        font-size:10pt;
+        font-family: Verdana,Helvetica,Arial,sans-serif;
+		background: rgba(255,255,255,0.85);
+        overflow: auto;
 		animation: vm_module_fadein 1.0s;
 	}
-	#panel__ID{
-		padding:20px 0 0 20px;
-	}
-	#D__ID li {
-		color:#333;
-	}
+    #info__ID{
+        font-size: 11px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
 	li::before{
 		font-size: 20px!Important;
 	}
-	#D__ID li:hover {
-		color:#fff;
+    .nav__ID{
+        padding:6px 26px 6px 6px;
+        color: #202727;
+        float:left;
+    }
+    .nav__ID span{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 10px;
+    }
+	.nav__ID u:hover{
+		color:red;
+	    cursor:pointer;
 	}
-	#D__ID a {
-		text-decoration: none;
+	.app__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
 	}
-	#D__ID a:link {
-		color:#666;
+	.ul__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
 	}
-	#D__ID a:visited {
-		color:#666;
+	.nav__ID ul{
+		margin:0 0 10px 0;
 	}
-	#D__ID a:hover {
-		color:#fff;
+	.nav__ID p{
+		margin:0;
 	}
-	#D__ID a:active {
-		color:#666;
-	}
-	@media screen and (max-width:768px){
-		#D__ID{
-			padding:10px 0 0 10px;
-		}
+	.data__ID{
+		color:#709aab;
 	}
 </style>

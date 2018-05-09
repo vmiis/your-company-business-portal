@@ -4,6 +4,17 @@
 	</div>
 	<form id=F__ID>
 		<div class="container">
+            <div class="row row__ID" id=row_participant__ID>
+				<div class="col-sm-12 col-lg-9 input__ID">
+					<span class=label__ID>Participant</span><br>
+					<input name="Participant" class=form-control id=Participant__ID data-id="Participant">
+				</div>
+				<div class="col-sm-12 col-lg-3 input__ID">
+					<span class=label__ID>Participant ID</span><br>
+					<input name="Participant_uid" class=form-control readonly>
+				</div>
+				<hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+			</div>
 			<div class="row row__ID">
                 <span class=label__ID>1. Please rate the CURRENT (i.e. PAST WEEK) SEVERITY of your insomnia problem(s).</span>
                 <div class=radio__ID>
@@ -98,13 +109,8 @@
 		VmInclude:__CURRENT_PATH__/task_form.js
 		//-------------------------------------
 		var before_submit=function(record,dbv){
-            record.ISI=parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c);
-            //record.ISI_1=(parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
-
-            if(record.ISI<=15) $vm.load_module_v2(prefix+'isi-no','',{});
-            else $vm.load_module_v2(prefix+'isi-yes','',{});
-            $vm.load_module_v2(prefix+'isi-yes','',{record:{ISI:16}});
-			return false;
+            record.ISI=(parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
+            record.ISI_1=(parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
 		}
 		//-------------------------------------
 	}

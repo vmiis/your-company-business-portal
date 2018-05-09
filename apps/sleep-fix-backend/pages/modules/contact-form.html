@@ -72,6 +72,7 @@
         //-------------------------------------
         var on_load=function(record){
             $('#submit__ID').prop('disabled',true);
+            $('#F__ID input[name=Consent]').triggerHandler('click');
         }
         //-------------------------------------
         var before_submit=function(record,dbv){

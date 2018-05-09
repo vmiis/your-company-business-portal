@@ -129,7 +129,8 @@
 			if(property!=undefined){
 				$vm.module_list[property]={"url":panels[property].url}
 				var prefix=property+"_";
-				$vm.module_list[property].prefix=prefix;
+				if(panels[property].prefix==undefined) $vm.module_list[property].prefix=prefix;
+				else $vm.module_list[property].prefix=panels[property].prefix+"_";
 				var json_files=panels[property].modules;
 				for(var i=0;i<json_files.length;i++){
 					var url=$vm.url(json_files[i]);
@@ -220,7 +221,7 @@
 						clearInterval(load_module_loop);
 						return;
 					}
-					$vm.nav_load_module(nm[i],'hidden',{})
+					$vm.load_module_v2(nm[i],'hidden',{"preload":true})
 					i++;
 				},100);
 			}

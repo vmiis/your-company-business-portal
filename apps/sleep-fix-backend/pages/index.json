@@ -1,9 +1,7 @@
 {
     "modules":
 	{
-        "link-1":	      {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 1","text":"Under Construction"},
-		"link-2":	      {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 2","text":"Not Ready"},
-		"link-3":	      {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 3","text":"Comming soon..."},
-        "p-home":	      {"url":"modules/home.html"}
+        "contact-data":	    {"table_id":"20011491","url":"modules/contact-data.html","form_module":"contact-form","preload":true},
+        "contact-form":	    {"table_id":"20011491","url":"modules/contact-form.html","preload":true}
 	}
 }
