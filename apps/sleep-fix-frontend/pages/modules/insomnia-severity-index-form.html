@@ -102,7 +102,7 @@
             //record.ISI_1=(parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
 
             if(record.ISI<=15) $vm.load_module_v2(prefix+'isi-no','',{});
-            else $vm.load_module_v2(prefix+'isi-yes','',{record:{ISI:16}});
+            else $vm.load_module_v2(prefix+'isi-yes','',{record:{ISI:record.ISI}});
 			return false;
 		}
 		//-------------------------------------
