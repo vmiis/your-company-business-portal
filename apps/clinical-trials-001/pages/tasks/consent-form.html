@@ -21,27 +21,30 @@
 					<br>
 					Dear Sir/Madam,
 					<br><br>
-					This questionnaire was developed by the Woolcock Institute of Medical Research.
-					<br><br>
-					The Wind Farms and Health study is exclusively funded by the Australian Government through
-					the National Health and Medical Research Council (NHMRC) and aims to study the impact of
-					noise exposures on sleep and health including the inaudible sound that is produced by wind
-					turbines called 'infrasound'.
-					<br><br>
-					This important research is impossible without the generous contributions from volunteers
-					and as such we would like to invite you to contribute to this study, which is designed to
-					better understand the effects of wind farms on health including sleep. We would be grateful
-					if you could complete the following questionnaire which will take up to 15 minutes.
-					Please complete all sections unless it states that you are not required to do so.
-					<br><br>
-					Taking part in this research is completely voluntary and all information obtained in this
-					questionnaire will be kept confidential. Data will be de-identified and stored completely
-					anonymously and separately from your personal information. It will be kept in a Wind Farms
-					database with the same high level of security as your personal medical records.
-					Your information will not be provided to any third party unless required by law.
-					<br><br>
-					If you have any concerns or questions we encourage you to contact our research team on 9114 0493
-					or Windfarmhomestudy@woolcock.org.au
+					Lumino theme is a Bootstrap 4.0 mobile compatible layout for your website.
+            		Cras dolor neque, mollis et tortor eget, ornare hendrerit lectus. Donec
+            		condimentum leo ut elementum consequat. Sed condimentum sagittis neque in
+            		iaculis. Duis quis libero nec mauris porta luctus et sit amet turpis.
+            		Proin auctor tortor quis ipsum dignissim, quis congue tortor.
+            		Aliquam non vestibulum mi, sed volutpat ipsum. Nunc ultricies quam id mi
+            		semper, vitae mattis mi iaculis. Nullam tincidunt vehicula turpis at porttitor.
+            		Sed bibendum odio non maximus suscipit. Pellentesque consectetur orci id rutrum lacinia.
+                    Lumino theme is a Bootstrap 4.0 mobile compatible layout for your website.
+            		Cras dolor neque, mollis et tortor eget, ornare hendrerit lectus. Donec
+            		condimentum leo ut elementum consequat. Sed condimentum sagittis neque in
+            		iaculis. Duis quis libero nec mauris porta luctus et sit amet turpis.
+            		Proin auctor tortor quis ipsum dignissim, quis congue tortor.
+            		Aliquam non vestibulum mi, sed volutpat ipsum. Nunc ultricies quam id mi
+            		semper, vitae mattis mi iaculis. Nullam tincidunt vehicula turpis at porttitor.
+            		Sed bibendum odio non maximus suscipit. Pellentesque consectetur orci id rutrum lacinia.
+                    Lumino theme is a Bootstrap 4.0 mobile compatible layout for your website.
+            		Cras dolor neque, mollis et tortor eget, ornare hendrerit lectus. Donec
+            		condimentum leo ut elementum consequat. Sed condimentum sagittis neque in
+            		iaculis. Duis quis libero nec mauris porta luctus et sit amet turpis.
+            		Proin auctor tortor quis ipsum dignissim, quis congue tortor.
+            		Aliquam non vestibulum mi, sed volutpat ipsum. Nunc ultricies quam id mi
+            		semper, vitae mattis mi iaculis. Nullam tincidunt vehicula turpis at porttitor.
+            		Sed bibendum odio non maximus suscipit. Pellentesque consectetur orci id rutrum lacinia.
 					<br><br>
 				</div>
 			</div>
@@ -87,6 +90,16 @@
 	function F__ID(){
 		//-------------------------------------
 		VmInclude:__CURRENT_PATH__/task_form.js
+		//-------------------------------------
+		var on_load=function(record){
+			$('#submit__ID').prop('disabled',true);
+			$('#F__ID input[name=Consent]').triggerHandler();
+		}
+		//-------------------------------------
+		$('#F__ID input[name=Consent]').on('click',function(){
+			if( $(this).val()=='Yes' ) $('#submit__ID').prop('disabled',false);
+			else $('#submit__ID').prop('disabled',true);
+		})
 		//-------------------------------------
 	}
 </script>

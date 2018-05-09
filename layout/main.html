@@ -187,7 +187,7 @@
 				var name=a[1].split('&')[0];
 				if(name.length>0){
 					if($vm.module_list[name]!=undefined){
-						$vm.nav_load_module(name);
+						$vm.load_module_v2(name,'',{});
 						return;
 					}
                     else alert("The module "+name+" is not in the module list!");

@@ -2,7 +2,7 @@
     "modules":
 	{
         "home":           {"url":"modules/home.html"},
-        "fitness":        {"url":"modules/fitness.html"},
+        "fitness":        {"url":"modules/fitness.html","name_for_search":"Fitness"},
         "prices":         {"url":"modules/prices.html"},
         "trainers":       {"url":"modules/trainers.html"},
         "contact-us-data":{"url":"modules/contact-us-data.html"},

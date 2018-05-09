@@ -114,7 +114,7 @@
                     No++;
                     pid=sublist[k].table_id;
                     task=sublist[k].name_for_search;
-                    txt+="<tr><td>"+No+"</td><td>"+pid+"</td><td>"+tab+dot+task+"</td><td><input id=task__ID"+pid+" type=checkbox /></td></tr>";
+                    txt+="<tr><td>"+No+"</td><td>"+pid+"</td><td>"+tab+dot+task+"</td><td><input id=task__ID"+pid+" type=checkbox class=item__ID /></td></tr>";
                 }
             }
             $('#table_grid__ID').html(txt);
@@ -136,7 +136,11 @@
 						$("#task__ID"+pid).prop('checked',false);
                     }
                 }
+                set_list();
             });
+            $('.item__ID').on('click',function(){
+                set_list();
+            })
         }
         //---------------------------------------------
         var set_box=function(){
