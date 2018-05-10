@@ -1,0 +1,133 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		_json='';
+        //-------------------------------------
+        _fields="_Form,Project_Name,_Approved_by,Access - Name and RT Username|useraccess";
+        _fields+=",_gridHidden|Image,_gridHidden|Catchy_title,_gridHidden|Brief_Description,_gridHidden|Detail_Description";
+        _fields+=",Chief_Investigator,Contact_Name, Contact_Phone,Contact_Email,Start_Recruiting,End_Recruiting,_gridHidden|Ethics,_gridHidden|Others";
+        _fields+=",_gridHidden|Gender,_gridHidden|Age_Min,_gridHidden|Age_Max,_gridHidden|Inc_Asthma,_gridHidden|Inc_COPD";
+		_fields+=",_gridHidden|Inc_Emphysema,_gridHidden|Inc_Lung_Cancer,_gridHidden|Inc_Chronic_Bronchitis,_gridHidden|Inc_Rhintis,_gridHidden|Inc_Insomnia,_gridHidden|Inc_Narcolepsy";
+		_fields+=",_gridHidden|Inc_OSA,_gridHidden|Inc_RLS,_gridHidden|Exc_Asthma,_gridHidden|Exc_COPD,_gridHidden|Exc_Emphysema,_gridHidden|Exc_Lung_Cancer";
+		_fields+=",_gridHidden|Exc_Chronic_Bronchitis,_gridHidden|Exc_Rhintis,_gridHidden|Exc_Insomnia,_gridHidden|Exc_Narcolepsy,_gridHidden|Exc_OSA,_gridHidden|Exc_RLS";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+		//,_gridHidden|Postcode_Min,_gridHidden|Postcode_Max
+        //-------------------------------------
+		_data_process=function(){
+			var flds='Inc_Asthma,Inc_COPD,Inc_Emphysema,Inc_Lung_Cancer,Inc_Chronic_Bronchitis,Inc_Rhintis,Inc_Insomnia,Inc_Narcolepsy,Inc_OSA,Inc_RLS,Exc_Asthma';
+			flds+=',Exc_COPD,Exc_Emphysema,Exc_Lung_Cancer,Exc_Chronic_Bronchitis,Exc_Rhintis,Exc_Insomnia,Exc_Narcolepsy,Exc_OSA,Exc_RLS,Approved,approval_alert';
+			var ids=flds.split(',');
+			for(var i=0;i<_records.length;i++){
+				for(var j=0;j<ids.length;j++){
+					if(_records[i][ids[j]]==undefined) _records[i][ids[j]]='0';
+				}
+			}
+		}
+		//-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				case '_Approved_by':
+					records[I].vm_custom[field]=true;
+					if(records[I].user2!=undefined && records[I].user2!=''){
+						td.html("<u style='cursor:pointer'>"+records[I].user2+' on '+records[I].date2.split(' ')[0]+"</u>");
+						td.find('u').on('click',function(){
+							$vm.nav_load_module(prefix+'project-approval-info','',{record:records[I]});
+						});
+					}
+					break;
+                case 'Start_Recruiting':
+                case 'End_Recruiting':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                    break;
+                case 'Image':
+                    VmInclude:__COMPONENT__/grid/field_image.js
+                    break;
+                case '_More':
+                    records[I].vm_custom[field]=true;
+                    if(records[I].UID==null || records[I].UID==undefined) return;
+                    td.html("<u style='cursor:pointer;'>More...</u>");
+                    td.find('u').on('click',function(){
+                        $vm.load_module_by_name(_app_id+_module.panel,$vm.root_layout_content_slot,{
+                            project_name:records[I].Project_Name,
+                            project_rid:records[I].ID,
+                            project_pid:_db_pid,
+                            project_uid:records[I].UID,
+                        })
+                    })
+                    break;
+                case 'Gender':
+                    records[I].vm_custom[field]=true;
+                    var html="<select style='border:0;'>"
+                    html+="<option>---</option>";
+                    html+="<option>Male</option>";
+                    html+="<option>Female</option>";
+                    html+="<option>Any</option>";
+                    html+="</select>"
+                    VmInclude:__COMPONENT__/grid/field_select.js
+                    break;
+                case 'Inc_Asthma':
+                case 'Inc_COPD':
+                case 'Inc_Emphysema':
+                case 'Inc_Lung_Cancer':
+                case 'Inc_Chronic_Bronchitis':
+				case 'Inc_Rhintis':
+                case 'Inc_Insomnia':
+                case 'Inc_Narcolepsy':
+                case 'Inc_OSA':
+                case 'Inc_RLS':
+                case 'Exc_Asthma':
+                case 'Exc_COPD':
+                case 'Exc_Emphysema':
+                case 'Exc_Lung_Cancer':
+				case 'Exc_Chronic_Bronchitis':
+                case 'Exc_Rhintis':
+                case 'Exc_Insomnia':
+                case 'Exc_Narcolepsy':
+                case 'Exc_OSA':
+                case 'Exc_RLS':
+                case 'Approved':
+                case 'approval_alert':
+					if(records[I][field]=='' || records[I][field]==undefined || records[I][field]==null) records[I][field]='0';
+                    td.html('<input type=checkbox />');
+                    td.css('text-align','center')
+                    VmInclude:__COMPONENT__/grid/field_checkbox.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+		_before_submit=function(record,dbv){
+			var g1=0; if(record.Gender=='Male') g1=1;
+			var g2=0; if(record.Gender=='Female') g2=1;
+			var s=parseInt(record.Inc_Asthma)+2*parseInt(record.Inc_COPD)+4*parseInt(record.Inc_Chronic_Bronchitis)+8*parseInt(record.Inc_Emphysema)+16*parseInt(record.Inc_Rhintis);
+			s+=32*parseInt(record.Inc_Lung_Cancer)+64*parseInt(record.Inc_Insomnia)+128*parseInt(record.Inc_Narcolepsy)+256*parseInt(record.Inc_OSA)+512*parseInt(record.Inc_RLS)+1024*parseInt(g1)+2048*parseInt(g2);
+			dbv.V1=s;
+			var s=parseInt(record.Exc_Asthma)+2*parseInt(record.Exc_COPD)+4*parseInt(record.Exc_Chronic_Bronchitis)+8*parseInt(record.Exc_Emphysema)+16*parseInt(record.Exc_Rhintis);
+			s+=32*parseInt(record.Exc_Lung_Cancer)+64*parseInt(record.Exc_Insomnia)+128*parseInt(record.Exc_Narcolepsy)+256*parseInt(record.Exc_OSA)+512*parseInt(record.Exc_RLS);
+			dbv.V2=s;
+			dbv.S3=record.Project_Name;
+            return true;
+        };
+        //-------------------------------------
+		var prefix=$vm.module_list[$vm.vm["__ID"].name].prefix;
+		var approval_tid=$vm.module_list[prefix+'approval'].table_id;
+		var sql0="with tb1 as (select Information,ID,PID,UID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1])";
+		sql0+=",tb2 as (select user2=Author,date2=DateTime,PID2=PID,UID2=UID,PPID2=PPID,PUID2=PUID from [TABLE-"+approval_tid+"])";
+		sql0+=",tb as (select Information,UID,ID,DateTime,Author,RowNum ,user2,date2 from tb1 left join tb2 on PPID2=PID and PUID2=UID) "
+		//-------------------------------------
+		_set_req=function(){
+			var sql=sql0+"select UID,Information,ID,DateTime,Author,date2,user2 from tb where RowNum between @I6 and @I7";
+			var sql_n="select count(ID) from [TABLE-"+_db_pid+"]";
+            _req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

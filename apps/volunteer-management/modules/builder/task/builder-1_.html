@@ -1,0 +1,63 @@
+<section>
+	<button id=run__ID type=button>Run</button>
+    VmInclude:__PARTS__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.v3.js
+        //-------------------------------------
+		var fields="First_Name,Last_Name,Email";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				/*
+				case 'Approved':
+                    td.html('<input type=checkbox />');
+                    VmInclude:__PARTS__/grid/field_checkbox.js
+                    break;
+					*/
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+		_set_req=function(){
+		    var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] where uid=881)";
+		    sql+="select Information,ID,UID,PUID,DateTime,Author,RowNum from tb ";
+		    var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+			_req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+		}
+		//-------------------------------------
+		$('#run__ID').on('click',function(){
+			for(var i=0;i<_records.length;i++){
+				process_i(i,_records[i]);
+				console.log("aaa"+_records[i].Email)
+			}
+		})
+		//-------------------------------------
+		var process_i=function(i,record){
+    		setTimeout(function(){process(record)}, i*100);
+    	}
+    	//--------------------------------------------------------
+		var process=function(record){
+			var dbv={};
+			dbv.DT1=record.Year_of_Birth+"-01-01";
+			dbv.B1=record.Medical_Research;
+			var g1=0; if(record.Gender=='Male') g1=1;
+			var g2=0; if(record.Gender=='Female') g2=1;
+			var s=parseInt(record.Asthma)+2*parseInt(record.COPD)+4*parseInt(record.Chronic_Bronchitis)+8*parseInt(record.Emphysema)+16*parseInt(record.Rhintis);
+			s+=32*parseInt(record.Lung_Cancer)+64*parseInt(record.Insomnia)+128*parseInt(record.Narcolepsy)+256*parseInt(record.OSA)+512*parseInt(record.RLS)+1024*parseInt(g1)+2048*parseInt(g2);
+			dbv.V1=s;
+			dbv.V2=record.Postcode;
+			var req={cmd:"modify_record",rid:record.ID,data:record,dbv:dbv};
+			$VmAPI.request({data:req,callback:function(res){
+				console.log(res.ret)
+			}});
+		}
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.v3.css
+</style>

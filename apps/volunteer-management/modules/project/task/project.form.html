@@ -1,0 +1,545 @@
+<section id=form_container__ID>
+    <div id=header__ID>
+		Research Project
+	</div>
+    <form id=F__ID>
+        <div class="container">
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Project Name
+                    <input  class="form-control" type="text" name="Project_Name" placeholder="" required >
+                </div>
+                <div class="col-sm-6" >
+                    Users - Name and RT Username
+                    <textarea class="form-control" name="Users" id=Users__ID placeholder="" ></textarea>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Image
+                    <input  class="form-control" type="text" id=Image__ID name="Image" placeholder="" >
+                    <span></span>
+	<!--                    <img width="80" style="display:block;cursor:pointer;margin-bottom:0">
+	                    <span class="file_buttons"><a title="Remove the file" class="remove_file" style="visibility: hidden;">X</a>
+	                        <a> </a>
+	                        <a title="Choose a file" class="choose_file">☷</a>
+	                        <a></a>
+	                    </span>
+	                    <a><input type="file" style="display:none"></a>
+	-->
+				</div>
+                <div class="col-sm-6" >
+                    Catchy title
+                    <textarea class="form-control" name="Catchy_title" id=Catchy_title__ID placeholder="" ></textarea>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Brief Description
+                    <textarea class="form-control" name="Brief_Description" id=Brief_Description__ID placeholder="" ></textarea>
+                </div>
+                <div class="col-sm-6" >
+                    Detail Description
+                    <textarea class="form-control" name="Detail_Description" id=Detail_Description__ID placeholder="" ></textarea>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Chief Investigator
+                    <input  class="form-control" type="text" id=Chief_Investigator__ID name="Chief_Investigator" placeholder="" >
+                </div>
+                <div class="col-sm-6" >
+                    Contact Name
+                    <input  class="form-control" type="text" id=Contact_Name__ID name="Contact_Name" placeholder="" >
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Contact Phone
+                    <input  class="form-control" type="text" id=Contact_Phone__ID name="Contact_Phone" placeholder="" >
+                </div>
+                <div class="col-sm-6" >
+                    Contact Email
+                    <input  class="form-control" type="text" id=Contact_Email__ID name="Contact_Email" placeholder="" >
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Start Recruiting
+                    <input  class="form-control" type="text" id=Start_Recruiting__ID name="Start_Recruiting" placeholder="" >
+                </div>
+                <div class="col-sm-6" >
+                    End Recruiting
+                    <input  class="form-control" type="text" id=End_Recruiting__ID name="End_Recruiting" placeholder="" >
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Ethics Number
+                    <input  class="form-control" type="text" id=Ethics__ID name="Ethics" placeholder="" >
+                </div>
+                <div class="col-sm-6" >
+                    Other
+                    <textarea class="form-control" name="Others" id=Others__ID placeholder="" ></textarea>
+                </div>
+            </div>
+			<!--
+			<div class="row row__ID">
+                <div class="col-sm-6" >
+                    Select a manager for approving this project
+                    <select  class="form-control"  id=Manager_for_Approval__ID  name="Manager_for_Approval" ></select>
+                </div>
+            </div>
+			-->
+            <div id=header__ID>
+        		Search criteria for volunteers
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    Gender
+                    <select  class="form-control" type="text" id=Gender__ID name="Gender" placeholder="" >
+                        <option>---</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Any</option>
+                    </select>
+                </div>
+                <div class="col-sm-3" >
+                    Minimum Age
+                    <input  class="form-control" type="text" id=Age_Min__ID name="Age_Min" placeholder="" >
+                </div>
+                <div class="col-sm-3" >
+                    Maximum Age
+                    <input  class="form-control" type="text" id=Age_Max__ID name="Age_Max" placeholder="" >
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_Asthma" id=Inc_Asthma__ID />
+                            <div class="control_indicator text-center"></div>Include Asthma
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_Asthma" id=Exc_Asthma__ID />
+                            <div class="control_indicator text-center"></div>Exclude Asthma
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_COPD" id=Inc_COPD__ID />
+                            <div class="control_indicator text-center"></div>Include COPD
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_COPD" id=Exc_COPD__ID />
+                            <div class="control_indicator text-center"></div>Exclude COPD
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_Lung_Cancer" id=Inc_Lung_Cancer__ID />
+                            <div class="control_indicator text-center"></div>Include Lung Cancer
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_Lung_Cancer" id=Exc_Lung_Cancer__ID />
+                            <div class="control_indicator text-center"></div>Exclude Lung Cancer
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_Emphysema" id=Inc_Emphysema__ID />
+                            <div class="control_indicator text-center"></div>Include Emphysema
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_Emphysema" id=Exc_Emphysema__ID />
+                            <div class="control_indicator text-center"></div>Exclude Emphysema
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_Chronic_Bronchitis" id=Inc_Chronic_Bronchitis__ID />
+                            <div class="control_indicator text-center"></div>Include Chronic Bronchitis
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_Chronic_Bronchitis" id=Exc_Chronic_Bronchitis__ID />
+                            <div class="control_indicator text-center"></div>Exclude Chronic Bronchitis
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_Rhintis" id=Inc_Rhintis__ID />
+                            <div class="control_indicator text-center"></div>Include Rhinitis
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_Rhintis" id=Exc_Rhintis__ID />
+                            <div class="control_indicator text-center"></div>Exclude Rhinitis
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_Insomnia" id=Inc_Insomnia__ID />
+                            <div class="control_indicator text-center"></div>Include Insomnia
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_Insomnia" id=Exc_Insomnia__ID />
+                            <div class="control_indicator text-center"></div>Exclude Insomnia
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_Narcolepsy" id=Inc_Narcolepsy__ID />
+                            <div class="control_indicator text-center"></div>Include Narcolepsy
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_Narcolepsy" id=Exc_Narcolepsy__ID />
+                            <div class="control_indicator text-center"></div>Exclude Narcolepsy
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_OSA" id=Inc_OSA__ID />
+                            <div class="control_indicator text-center"></div>Include OSA
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_OSA" id=Exc_OSA__ID />
+                            <div class="control_indicator text-center"></div>Exclude OSA
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Inc_RLS" id=Inc_RLS__ID />
+                            <div class="control_indicator text-center"></div>Include RLS
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <div class="col- control-group text-left ">
+                        <label class="control control-checkbox">
+                            <input type="checkbox"  name="Exc_RLS" id=Exc_RLS__ID />
+                            <div class="control_indicator text-center"></div>Exclude RLS
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+			<button id=submit__ID type="submit" style='display:none'></button>
+			<button id=submit1__ID type="button" class="btn btn-secondary">Save</button>
+            <button id=submit2__ID type="button" class="btn btn-secondary">Submit (Send alert email for approval of project</button>
+    	</div>
+    </form>
+</section>
+<script>
+function F__ID(){
+	//--------------------------------------------------------
+	VmInclude:__COMPONENT__/grid/form.v3.js
+	//--------------------------------------------------------
+	var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+	//--------------------------------------------------------
+	/*
+	var list_managers='';
+	var list_m_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-"+$vm.module_list[prefix+"manager-list"].table_id+"]";
+	var req_m={cmd:'query_records',sql:list_m_sql};
+	jQuery.ajaxSetup({async:false});
+	$VmAPI.request({data:req_m,callback:function(res){
+		if(res.records.length>0){
+			list_managers=';;';
+			for(var i=0;i<res.records.length;i++){
+				if(list_managers!='') list_managers+=','
+				list_managers+=res.records[i].Name+";"+res.records[i].Name+"/"+res.records[i].Email+"/"+res.records[i].Login_Name;
+			}
+		}
+	}});
+	jQuery.ajaxSetup({async:true});
+	*/
+    $('#D__ID').on('load',function(){
+		_init();
+		//--------------------------------------
+		//show the tow submit buttons
+		$('#submit1__ID').show();
+		$('#submit2__ID').show();
+		//--------------------------------------
+		//set manager list
+		//$vm.set_dropdown_list_from_text($('#Manager_for_Approval__ID'),list_managers);
+		//--------------------------------------
+		//_field_process();
+		custom_field_process();
+    })
+    //--------------------------------------------------------
+	var custom_field_process=function(){
+		//$('#F__ID input[name=Project_Name]').val(_records[I].Project_Name);
+		deserialize(_records[I]);
+	}
+	//--------------------------------------------------------
+	$('#submit1__ID').on('click',function(event){
+		$vm.g_project_for_approval_submit_button='no-alert'
+		$('#submit__ID').trigger('click');
+	});
+	//--------------------------------------------------------
+	$('#submit2__ID').on('click',function(event){
+		$vm.g_project_for_approval_submit_button='alert'
+		$('#submit__ID').trigger('click');
+	});
+	//--------------------------------------------------------
+    $('#F__ID').submit(function(event){
+        //--------------------------------------------------------
+        event.preventDefault();
+        $('#submit1__ID').hide();
+		$('#submit2__ID').hide();
+        //--------------------------------------------------------
+        var data={}, dbv={};
+		var a=$("#F__ID").serializeArray(); $.each(a, function () {	data[this.name]=this.value || '';});
+		$vm.g_project_record=data;
+		//--------------------------------------
+		$("#F__ID input[type=checkbox]").each(function(){
+			data[this.name]=this.checked ? "1" : "0";
+		})
+        //--------------------------------------------------------
+		if(_before_submit!=''){
+			_before_submit(data,dbv)
+		}
+		//--------------------------------------------------------
+		var rid=_records[I].ID;
+        if(rid==undefined){
+            var req={cmd:"add_record",db_pid:_db_pid,data:data,dbv:dbv};
+            $VmAPI.request({data:req,callback:function(res){
+				alert_email();
+            }});
+        }
+        else{
+            var req={cmd:"modify_record",db_pid:_db_pid,rid:rid,data:data,dbv:dbv};
+            $VmAPI.request({data:req,callback:function(res){
+				alert_email();
+            }});
+        }
+        //--------------------------------------------------------
+    })
+    //--------------------------------------------------------
+	var deserialize=function(record){
+		$.each(record, function(name, value){
+			var $el = $('#F__ID *[name='+name+']');
+			var type = $el.attr('type');
+			switch(type){
+				case 'checkbox':
+					if(value=='off' || value=='0' || value=='') $el.attr('checked', false);
+					else $el.attr('checked', true);
+					break;
+				case 'radio':
+					//$('#F__ID input[name="' + name+ '"][value="' + value + '"]').prop('checked', true);
+					if($el.attr('value')==value) $el.prop('checked', true);
+					break;
+				default:
+					$el.val(value);
+			}
+		});
+	}
+	//--------------------------------------------------------
+	var alert_email=function(){
+		if($vm.g_project_for_approval_submit_button=='alert'){
+			$vm.nav_load_module(prefix+'email-to-manager','',{});
+		}
+		else{
+			$vm.alert('Your request has been successfully submitted');
+		}
+	}
+	//--------------------------------------------------------
+}
+</script>
+
+<style>
+    #D__ID{
+        height:100%;
+        overflow:auto;
+        animation: vm_module_fadein 1.0s;
+        background:rgba(255,255,255,0.2);
+    }
+	#form_container__ID{
+		padding-top:50px;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+
+        color:#000;
+        font-weight: normal;
+        background: rgba(255,255,255,0.8);
+        padding: 30px 20px 10px 20px;
+        border-radius: 15px;
+	}
+	#form_container__ID .row__ID{
+		padding:6px 0;
+	}
+	#form_container__ID .row__ID:hover{
+		/*background-color: #203342;*/
+	}
+	#header__ID{
+		background-color:#727b84;
+		color:#fff;
+		padding:10px 15px 10px 15px;
+		font-size:150%;
+	}
+	#F__ID{
+		border:1px solid #bbb;
+		padding:6px 15px 20px 15px;
+	}
+	#F__ID label
+    	display: inline-block;
+    	margin: .6rem 0 .3rem 0;
+	}
+
+	#F__ID fieldset {
+	    border: 0px solid #c0c0c0;
+	    margin: 0;
+	    padding: 0;
+	}
+	@media screen and (max-width:768px){
+		#form_container__ID{
+			padding:20px 10px 50px 10px;
+		}
+	}
+    .control {
+        font-family: arial;
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 5px;
+        padding-top: 3px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .control {
+        font-family: arial;
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 5px;
+        padding-top: 3px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+        .control input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+    .control_indicator {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background: #e6e6e6;
+        border: 1px solid #000000;
+    }
+    .control-radio .control_indicator {
+        border-radius: 50%;
+    }
+
+    .control:hover input ~ .control_indicator,
+    .control input:focus ~ .control_indicator {
+        background: #cccccc;
+    }
+
+    .control input:checked ~ .control_indicator {
+        background: #A51C3D;
+    }
+    .control:hover input:not([disabled]):checked ~ .control_indicator,
+    .control input:checked:focus ~ .control_indicator {
+        background: #0e6647d;
+    }
+    .control input:disabled ~ .control_indicator {
+        background: #e6e6e6;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+    .control_indicator:after {
+        box-sizing: unset;
+        content: '';
+        position: absolute;
+        display: none;
+    }
+    .control input:checked ~ .control_indicator:after {
+        display: block;
+    }
+    .control-radio .control_indicator:after {
+        left: 7px;
+        top: 7px;
+        height: 0px;
+        width: 0px;
+        border-radius: 50%;
+        background: #ffffff;
+    }
+    .control-radio input:disabled ~ .control_indicator:after {
+        background: #7b7b7b;
+    }
+</style>

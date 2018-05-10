@@ -1,0 +1,11 @@
+{
+	"modules":
+	{
+		"project":						{"table_id":"20009716","url":"modules/project/task/project.html","form_module":"project-form","name_for_search":"Projects"},
+		"project-form":					{"table_id":"20009716","url":"modules/project/task/project.form.html","name_for_search":"Project Form"},
+		"email-to-manager":				{"url":"modules/project/task/email-to-manager.html","name_for_search":"Email to a manager"},
+		"project-approval-info":	{"table_id":"91000065","url":"modules/project/task/project-approval-info.html","name_for_search":""},
+		"email-list":					{"table_id":"91000066"},
+		"approval":						{"table_id":"91000065"}
+	}
+}

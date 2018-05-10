@@ -1,0 +1,67 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Volunteer,Project,Date,Notes|Call_log";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Volunteer_uid";
+        //-------------------------------------
+		var volunteer='';
+		var Project_Name='';
+		//-------------------------------------
+		$('#new__ID').hide();
+		//-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Volunteer':
+                    records[I].vm_readonly[field]=true;
+                    break;
+				case 'Project':
+                    records[I].vm_readonly[field]=true;
+                    break;
+                case 'Call_log':
+                    td.css('width','300px')
+                    break;
+                case 'Date':
+					records[I].vm_readonly[field]=true;
+                    break;
+            }
+        }
+        //-----------------------
+		$('#D__ID').on('load',function(){
+			volunteer=$vm.vm['__ID'].op.input.record;
+			Project_Name=$vm.vm['__ID'].op.input.Project_Name;
+            _set_req(); _request_data();
+        })
+        //-------------------------------------
+		_data_process_after_render=function(){
+			$('#new__ID').click();
+		}
+		//-------------------------------------
+        _set_req=function(){
+            var sql="select ID,Information,DateTime,Author from [TABLE-"+_db_pid+"] where PUID=@i1 order by ID desc"
+            _req={cmd:'query_records',sql:sql,i1:volunteer.volunteer_UID}
+        }
+        //-------------------------------------
+        _new_pre_data_process=function(){
+			var d=$vm.date_to_string_dmy($vm.date_today())
+			if(Project_Name!=='')   _records[0].Project=Project_Name; else _records[0].Project='Admin';
+			if(volunteer.First_Name!==undefined)  _records[0].Volunteer=volunteer.First_Name+' '+volunteer.Last_Name;
+			if(volunteer.volunteer_UID!==undefined)   _records[0].Volunteer_uid=volunteer.volunteer_UID;
+            _records[0].Date=d;
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.PPID='20008533';
+            dbv.PUID=volunteer.volunteer_UID;
+            return true;
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

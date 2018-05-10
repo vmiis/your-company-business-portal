@@ -1,0 +1,58 @@
+<section>
+	<button id=run__ID type=button>Run</button>
+    VmInclude:__PARTS__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.v3.js
+        //-------------------------------------
+		var fields="S1,S2,S3,VUID";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				/*
+				case 'Approved':
+                    td.html('<input type=checkbox />');
+                    VmInclude:__PARTS__/grid/field_checkbox.js
+                    break;
+					*/
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+		_set_req=function(){
+		    var sql="with tb as (select Information,S1,S2,S3,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] where uid=19)";
+			sql+=",vol as (select VS2='system_20008533_'+S2,VUID=UID from [TABLE-20008533])";
+		    sql+="select Information,VUID,S1,S2,S3,ID,UID,PUID,DateTime,Author,RowNum from tb join vol on S2=VS2";
+		    var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+			_req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+		}
+		//-------------------------------------
+		$('#run__ID').on('click',function(){
+			for(var i=0;i<_records.length;i++){
+				process_i(i,_records[i]);
+			}
+		})
+		//-------------------------------------
+		var process_i=function(i,record){
+    		setTimeout(function(){process(record)}, i*200);
+    	}
+    	//--------------------------------------------------------
+		var process=function(record){
+			var dbv={};
+			dbv.PUID=record.VUID;
+			var req={cmd:"modify_record",rid:record.ID,data:{},dbv:dbv};
+			$VmAPI.request({data:req,callback:function(res){
+				console.log(res.ret)
+			}});
+		}
+        //-------------------------------------
+
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.v3.css
+</style>

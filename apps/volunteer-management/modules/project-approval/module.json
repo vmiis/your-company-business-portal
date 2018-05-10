@@ -1,0 +1,9 @@
+{
+	"modules":
+	{
+		"a-project":			{"table_id":"20009716","url":"modules/project-approval/task/project.html","form_module":"a-project-form","name_for_search":"Project approving"},
+		"a-project-form":		{"table_id":"20009716","url":"modules/project-approval/task/project.form.html","name_for_search":""},
+		"a-project-approving":	{"table_id":"91000065","url":"modules/project-approval/task/project-approving.html","name_for_search":""},
+		"a-project-approval-info":	{"table_id":"91000065","url":"modules/project-approval/task/project-approval-info.html","name_for_search":""}
+	}
+}

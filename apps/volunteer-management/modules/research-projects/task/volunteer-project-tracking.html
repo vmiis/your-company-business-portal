@@ -1,0 +1,274 @@
+<section>
+    <section>
+    	<div id=toolbar__ID class="navbar navbar-default">
+    	    	<div id=row_1__ID class="col-sm _col-lg-3 form-inline">
+    		        	<button id=new__ID  type=button class='btn btn-secondary' title='New'><i class="fa fa-plus"></i></button>
+    		        	<button id=save__ID type=button class='btn btn-secondary' title='Save'><i class="fa fa-upload" ></i></button>
+    					<input id=keyword__ID type="text" placeholder="keyword" class="form-control" style="width: 150px; display:inline-block;">
+    					Filter:&nbsp;<select id=filter__ID class="form-control" style='margin-right:20px;display:inline-block;width:auto;'><option>All</option value='NULL' >Empty<option></option><option>Screening</option><option>Screening Failure</option><option>Enrolled</option><option>Withdrawn</option><option>Completed</option></select>
+                        <button id=query__ID type=button class="btn btn-secondary" title='Search'><i class="fa fa-search" ></i></button>
+    	    	</div>
+    	    	<div class="col-sm _col-lg-3 form-inline">
+    		            Page Size:
+    		            <select id=page_size__ID class="form-control" style='margin-right:20px;display:inline-block;width:auto;'><option>30</option><option>50</option><option>100</option><option>200</option></select>
+    		            <span id=I__ID style="display:none">0</span><span id=A__ID></span>
+    		            <button id=p__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-left"></i></button>
+    		            <button id=n__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-right"></i></button>
+    	    	</div>
+    			<div class="d-none d-lg-inline-block col-lg-4 form-inline">
+    					Start page:	<input id=start__ID type=text class="form-control" style="width:45px; display:inline-block;" />
+    		            Num of page: <input id=num__ID type=text class="form-control" style="width:45px; display:inline-block;" />
+    					<button id=export__ID type=button class="btn btn-secondary">Export</button>
+    	    	</div>
+    	       	<span id=elapsed__ID style='float:right'></span>
+        </div>
+        <div id=table__ID>
+            <table id=grid__ID></table>
+        </div>
+    </section>
+    <style>
+    	#toolbar__ID{
+    		background-color:#ccc;
+    		padding:5px 0px;
+    		margin-bottom:0px;
+    		overflow:hidden
+    	}
+    	#toolbar__ID *{
+    		margin-right:3px;
+    	}
+    	@media screen and (max-width:768px){
+    		#toolbar__ID{
+    			padding: 3px 0;
+    		}
+    		#toolbar__ID div{
+    			padding-left:3px;
+    		}
+    		#row_1__ID{
+    			padding-bottom: 3px;
+    		}
+    	}
+    </style>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		_json='';
+		$('#keyword__ID').hide();
+		//-------------------------------------
+		_fields="_Form";
+        //_fields+=",ID,bID,Age_Min,Age_Max,bFlag,jflag,R_V1,P_V1,P_V2,volunteer_UID|UID"; //gp,b,R_V1,P_V1,RP1,P_V2,RP2
+		_fields+=",Volunteer ID|UID,Source,Status,_Call_Log,_Hidden|_Summary,Start_date,End_date";
+		_fields+=",First_Name,Last_Name,Volunteering|Medical_Research,Gender,Age,Year_of_Birth,Asthma,COPD,Emphysema,Lung_Cancer";
+        _fields+=",Rhintis,Insomnia,Narcolepsy,OSA,RLS,Phone";
+		_fields+=",Submit Date|DateTime,_Delete";
+		//-------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+		var project="";
+		//-------------------------------------
+		$('#D__ID').on('load',function(){
+			project=$vm.vm['__ID'].op.input.record;
+			_set_req(); _request_data();
+		})
+		//-------------------------------------
+		_cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case '_Call_Log':
+                    records[I].vm_custom[field]=true;
+                    td.html("<u style='cursor:pointer;'>Call Log...</u>");
+                    td.find('u').on('click',function(){
+						$vm.nav_load_module(prefix+'volunteer-call-log','',{record:records[I],Project_Name:project.Project_Name});
+	                })
+                    break;
+                case '_Summary':
+                        records[I].vm_custom[field]=true;
+                        td.html("<u style='cursor:pointer;'>Summary...</u>");
+						td.find('u').on('click',function(){
+							$vm.nav_load_module(prefix+'volunteer-summary','',{record:records[I]});
+		                })
+                        break;
+                case 'Status':
+                            records[I].vm_custom[field]=true;
+                            var html="<select style='border:0;'>"
+                            if(records[I].Reserved=='Reserved'){
+                                html+="<option>Registration</option>";
+                                html+="<option>Screening Failure</option>";
+                                html+="</select>"
+                            }
+                            else{
+                                html+="<option>Screening</option>";
+                                html+="<option>Screening Failure</option>";
+                                html+="<option>Enrolled</option>";
+                                html+="<option>Withdrawn</option>";
+                                html+="<option>Completed</option>";
+                                html+="</select>"
+                            }
+                            td.html(html)
+                            td.find('select').val(records[I][field])
+                            td.find('select').on('change', function(){
+                                set_value($(this).val(),records,I,field);
+                                var today = new Date();
+                                var dd = today.getDate();
+                                var mm = today.getMonth()+1; //January is 0!
+                                var yyyy = today.getFullYear();
+                                if(dd<10){dd='0'+dd;}
+                                if(mm<10){mm='0'+mm;}
+                                var today = dd+'/'+mm+'/'+yyyy;
+                                if($(this).val()==='DO NOT CALL' || $(this).val()==='Screening'){
+                                    set_value(today,records,I,'Start_date');
+                                    _render(I);
+                                }
+                                if($(this).val()==='Completed' || $(this).val()==='Withdrawn'){
+                                    set_value(today,records,I,'End_date');
+                                    _render(I);
+                                }
+                            });
+                            break;
+					case 'Reserved':
+                        if(records[I].Reserved=='Reserved'){
+                            td.css('color','red');
+                        }
+                        td.attr('contenteditable','false')
+                        td.find('div').attr('contenteditable','false')
+                        break;
+                    case 'Start_date':
+                    case 'End_date':
+	                    if(records[I].Reserved=='Reserved'){
+	                        td.css('color','red');
+	                        td.attr('contenteditable','false')
+	                        td.find('div').attr('contenteditable','false')
+	                    }
+	                    else{
+	                        VmInclude:__COMPONENT__/grid/field_date.js
+	                    }
+                        break;
+					case 'First_Name':
+					case 'Last_Name':
+                    case 'Gender':
+                    case 'YOB':
+                    case 'Phone':
+						records[I].vm_readonly[field]=true;
+						break;
+					case 'Medical_Research':
+					case 'Asthma':
+                    case 'COPD':
+                    case 'Chronic_Bronchitis':
+                    case 'Emphysema':
+                    case 'Rhintis':
+                    case 'Lung_Cancer':
+                    case 'Insomnia':
+                    case 'Narcolepsy':
+                    case 'OSA':
+                    case 'RLS':
+                        records[I].vm_readonly[field]=true;
+						td.html('<input type=checkbox />');
+						VmInclude:__COMPONENT__/grid/field_checkbox.js
+						td.find('input').off('click').on('click', function(){return false;})
+						break;
+            }
+        }
+        $('#filter__ID').on('change',function(){
+            if($('#filter__ID').val()!='All' && $('#filter__ID').val()!='') filter="and Status='"+$('#filter__ID').val()+"'";
+            else if($('#filter__ID').val()=='') filter="and Status is NULL";
+            else filter='';
+        });
+		//-------------------------------------
+		//B1=1 	Medical_Research;
+		//20008533: registration
+		//20009716: project
+		//20011360: volunteer status
+		//@S2: project name
+
+		//var filter=" and Status='Completed'";
+		//var filter=" and jFlag is not NULL ";
+		var filter='';
+
+		//current project, use V1,V2 to filter out registrations
+        var sql_0="";
+        var set_sql_0=function(){
+            sql_0="with current_project as (select project_UID=UID,Age_Min=case when @('Age_Min')<>'' then convert(int,@('Age_Min')) else -9999 end";
+    		sql_0+=",Age_Max=case when @('Age_Max')<>'' then convert(int,@('Age_Max')) else 9999 end ,P_V1=convert(int,V1),P_V2=convert(int,V2) from [TABLE-20009716] where S3=@S2 )";
+
+    		//all registration
+    		sql_0+=",registration as (select volunteer_UID=UID,UID,Information, Age=DATEDIFF(year, DT1,GetDate()),R_V1=convert(int,V1),B1 from [TABLE-20008533] where B1=1 )";
+
+    		//A join or not join a project
+    		sql_0+=",join_project_flag as (select jflag=ID, PUID from [TABLE-20009681] where S1=@S2)";
+
+    		//A registration(with UID=PUID) is free or busy in a project
+    		sql_0+=",busy_flag as (select bID=ID,bFlag=S1,PUID from [TABLE-20011361])";
+
+    		//A registration(with UID=PUID)'s status in current project (Registration, Screening, Completed,...)
+    		sql_0+=",status as (select ID,PUID,Status=S1 from [TABLE-20011360] where S3=@S2)";
+
+    		//volunteers (filter out from all registrations) in a project
+    		sql_0+=",volunteer as (select Information,volunteer_UID,project_UID,Age,Age_Max,Age_Min,ID,bID,bFlag,jflag,Status,Source=case when jflag is not NULL then 'Registration' else 'Search' end,UID,R_V1,P_V1,P_V2,RowNum=row_number() over (order by UID DESC) from registration ";
+    		sql_0+="left join busy_flag on UID=busy_flag.PUID "; //get busy flag
+    		sql_0+="left join status    on UID=status.PUID ";    //get project tracking status
+    		sql_0+="left join join_project_flag on UID=join_project_flag.PUID ";    //get join or not join flag
+    		sql_0+="join current_project on (R_V1&P_V1=P_V1 and R_V1&P_V2=0 and Age>=Age_Min and Age<=Age_Max) or jflag is not NULL or status is not NULL "; //apply "1"-current project filter, "2"-join project flag, "3"-status is not nall in this project'
+    		sql_0+="where (bFlag=@S2 or bFlag='' or bFlag is NULL or status is not NULL ) "+filter+") "; //busy in current project or is Free or status is not null in this project
+
+        }
+		//-------------------------------------
+		_set_req=function(){
+            set_sql_0();
+			var sql  =sql_0+" select * from volunteer where RowNum between @I6 and @I7"
+			var sql_n=sql_0+" select count(UID) from volunteer";
+			_req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val(),s2:project.Project_Name}
+		}
+		//-------------------------------------
+		_set_req_export=function(i1,i2){
+            set_sql_0();
+			var sql  =sql_0+" select * from volunteer where RowNum between @I1 and @I2"
+			_req={cmd:'query_records',sql:sql,i1:i1,i2:i2,s2:project.Project_Name};
+		}
+		//-----------------------------------------------
+		_before_submit=function(record,dbv){
+			dbv.S1=record.Status;
+			//dbv.S2=record.First_Name+' '+record.Last_Name;
+            dbv.S2="system_20008533_"+record.Email;
+			dbv.S3=project.Project_Name;
+			dbv.PUID=record.volunteer_UID;
+			dbv.GUID=record.project_UID;
+			//record={}
+            return true;
+        };
+        //-------------------------------------
+		_after_submit=function(I,res,type,dbv){
+			//BI processing. first caculate busy state, second get busy record's ID,
+			jQuery.ajaxSetup({async:false});
+			var busy="";
+			//get all project status of this voulunteer
+			var sqlA="select S1,S3 from [TABLE-20011360] where PUID=@I1";
+			var reqA={cmd:'query_records',sql:sqlA,i1:_records[I].UID/*,s2:project.Project_Name*/};
+			$VmAPI.request({data:reqA,callback:function(res){
+				for(var i=0;i<res.records.length;i++){
+					if(res.records[i].S1=="Screening" || res.records[i].S1=="Enrolled"){
+						busy=res.records[i].S3;
+						break;
+					}
+				}
+				//get busy record ID of this volunteer
+				var sqlB="select ID from [TABLE-20011361] where PUID=@I1";
+				var reqB={cmd:'query_records',sql:sqlB,i1:_records[I].UID};
+				$VmAPI.request({data:reqB,callback:function(res){
+					var reqC="";
+					if(res.records.length!=0){
+						var rid=res.records[0].ID;
+						reqC={cmd:"modify_record",rid:rid.toString(),data:{},dbv:{S1:busy,PUID:_records[I].UID}};
+					}
+					else{
+						reqC={cmd:"add_record",db_pid:"20011361",data:{},dbv:{S1:busy,PUID:_records[I].UID}};
+					}
+					$VmAPI.request({data:reqC,callback:function(res){}})
+				}})
+			}});
+			jQuery.ajaxSetup({async:true});
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

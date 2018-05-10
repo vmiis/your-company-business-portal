@@ -1,0 +1,62 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+		_json='';
+        //-------------------------------------
+        _fields="_Form,Volunteer ID|UID,First_Name,Last_Name,Phone,Postcode,Email,Medical_Research,Newsletters,Gender,Year_of_Birth,Asthma,COPD,Chronic_Bronchitis,Emphysema,Rhintis,Lung_Cancer,Insomnia,Narcolepsy,OSA,RLS";
+        _fields+=",Submit Date|DateTime,_Delete";
+        //-------------------------------------
+        $('#new__ID').hide();
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'UID':
+                    records[I].vm_readonly[field]=true;
+                    break;
+				case 'Medical_Research':
+				case 'Newsletters':
+				case 'Asthma':
+                case 'COPD':
+                case 'Chronic_Bronchitis':
+                case 'Emphysema':
+                case 'Rhintis':
+                case 'Lung_Cancer':
+                case 'Insomnia':
+                case 'Narcolepsy':
+                case 'OSA':
+                case 'RLS':
+					td.html('<input type=checkbox />');
+					VmInclude:__COMPONENT__/grid/field_checkbox.js
+                    break;
+            }
+        }
+        $('#D__ID').on('load',function(){
+            var sql="select Information from [TABLE-91000071]";
+            var req_m={cmd:'query_records',sql:sql};
+            $VmAPI.request({data:req_m,callback:function(res){
+                _set_req(); _request_data();
+            }});
+        })
+        //-------------------------------------
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            //if(record.Password!=='') dbv.ES3=record.Password;
+            if(record.Year_of_Birth!=='') dbv.DT1=record.Year_of_Birth+"-01-01";
+ 			dbv.B1=record.Medical_Research;
+ 			var g1=0; if(record.Gender=='Male') g1=1;
+ 			var g2=0; if(record.Gender=='Female') g2=1;
+ 			var s=parseInt(record.Asthma)+2*parseInt(record.COPD)+4*parseInt(record.Chronic_Bronchitis)+8*parseInt(record.Emphysema)+16*parseInt(record.Rhintis);
+ 			s+=32*parseInt(record.Lung_Cancer)+64*parseInt(record.Insomnia)+128*parseInt(record.Narcolepsy)+256*parseInt(record.OSA)+512*parseInt(record.RLS)+1024*parseInt(g1)+2048*parseInt(g2);
+ 			dbv.V1=s;
+ 			dbv.V2=record.Postcode;
+            return true;
+        };
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

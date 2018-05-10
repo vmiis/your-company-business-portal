@@ -1,0 +1,8 @@
+{
+	"modules":
+	{
+		"call-log-child":				{"table_id":"20009655","url":"/modules/others/task/call-log-child.html","name_for_search":""},
+		"summary":						{"table_id":"20009681","url":"/modules/others/task/summary.html","name_for_search":""},
+		"research-participation": 		{"table_id":"20009681","url":"/modules/others/task/research-participation.html","name_for_search":""}
+	}
+}

@@ -1,0 +1,107 @@
+<section>
+    <section id=grid1__ID class="w3s"></section>
+</section>
+<script>
+function F__ID(){
+    //---------------------------------------------
+	var call_log_tid="20009655";
+	var research_participation_tid="20009681";
+    var volunteer_tid="20008533";
+    //-------------------------------------
+	var volunteer=''
+	$('#D__ID').on('load',function(){
+		volunteer=$vm.vm['__ID'].op.input.record;
+		var pn="";
+		var pname="";
+		var Phone="";
+		var Postcode="";
+		var Email="";
+		var Gender="";
+		var Year_of_Birth="";
+		var ast='';
+		var cop='';
+		var chr='';
+		var emp='';
+		var rhi='';
+		var lun='';
+		var ins='';
+		var nar='';
+		var osa='';
+		var rls='';
+
+		pname=volunteer.First_Name;
+		pn=volunteer.Last_Name;
+		Phone=volunteer.Phone;
+		Postcode=volunteer.Postcode;
+		Email=volunteer.Email;
+		Gender=volunteer.Gender;
+		Year_of_Birth=volunteer.Year_of_Birth;
+		if(volunteer.Asthma=='1') ast='checked'; else ast='';
+		if(volunteer.COPD=='1')  cop='checked'; else cop='';
+		if(volunteer.Chronic_Bronchitis=='1') chr='checked'; else chr='';
+		if(volunteer.Emphysema=='1') emp='checked'; else emp='';
+		if(volunteer.Rhintis=='1') rhi='checked'; else rhi='';
+		if(volunteer.Insomnia=='1') ins='checked'; else ins='';
+		if(volunteer.Lung_Cancer=='1') lun='checked'; else lun='';
+		if(volunteer.Narcolepsy=='1') nar='checked'; else nar='';
+		if(volunteer.OSA=='1') osa='checked'; else osa='';
+		if(volunteer.RLS=='1') rls='checked'; else rls='';
+
+		txt='<div class="w3-container w3-content w3-medium" >'
+		txt+=' <div class="w3-container w3-left">';
+		txt+='   <h4 class="" >'+pname+' '+pn+'</h4>';
+		txt+='        </div>';
+		txt+='  <table  class="w3-table w3-medium">';
+		txt+='  <colgroup><col style="width:100px"></col><col></col></colgroup>';
+		txt+='    <tr >';
+		txt+='      <td>Phone:</td>';
+		txt+='      <td>'+Phone+'</td>';
+		txt+='    </tr>';
+		txt+='    <tr >';
+		txt+='      <td>Email:</td>';
+		txt+='      <td>'+Email+'</td>';
+		txt+='    </tr>';
+		txt+='    <tr >';
+		txt+='      <td>Postcode:</td>';
+		txt+='      <td>'+Postcode+'</td>';
+		txt+='    </tr>';
+		txt+='    <tr >';
+		txt+='      <td>Gender:</td>';
+		txt+='      <td>'+Gender+'</td>';
+		txt+='    </tr>';
+		txt+='    <tr >';
+		txt+='      <td>Year_of_Birth:</td>';
+		txt+='      <td>'+Year_of_Birth+'</td>';
+		txt+='    </tr>';
+		txt+='  </table>';
+		txt+='  <table  class="w3-table w3-medium">';
+		txt+='  <colgroup><col></col><col></col><col></col><col></col><col></col></colgroup>';
+		txt+='    <tr >';
+		txt+='      <td><input class="w3-check" type="checkbox" '+ast+'>Asthma</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+cop+'>COPD</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+chr+'>Chronic Bronchitis</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+emp+'>Emphysema</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+rhi+'>Rhintis</td>';
+		txt+='    </tr>';
+		txt+='    <tr >';
+		txt+='      <td><input class="w3-check" type="checkbox" '+lun+'>Lung Cancer</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+ins+'>Insomnia</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+nar+'>Narcolepsy</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+osa+'>OSA</td>';
+		txt+='      <td><input class="w3-check" type="checkbox" '+rls+'>RLS</td>';
+		txt+='    </tr>';
+		txt+='  </table>';
+		txt+='</div>';
+		$('#grid1__ID').html(txt);
+		//-----------------------------------------------------------------------------
+    })
+}
+</script>
+<style>
+	#D__ID{
+	  height:100%;
+	  overflow:auto;
+	  animation: vm_module_fadein 1.0s;
+	  background-color:#fff;
+	}
+</style>

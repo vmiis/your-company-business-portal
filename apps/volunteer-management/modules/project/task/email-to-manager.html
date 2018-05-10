@@ -1,0 +1,77 @@
+<section>
+    <div style='padding:30px'>
+        <br><br>
+        <div id=contents__ID>
+            Dear <span id=manager__ID></span>,<br><br>
+            There is a new project needs to be approved.
+            <br>
+            <br>
+            <span id=info__ID></span>
+            <br><br>
+            <br>Best Regards,
+            <br>Database Administrator
+        </div>
+        <br><br>
+        <input type=button id=send__ID value=Send class='btn btn-secondary' />
+    </div>
+</section>
+<script>
+    function F__ID(){
+		//-------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+		//-------------------------------------
+		var record,info;
+        var manager="manager";
+        //-------------------------------------
+		var email_list='';
+		var list_m_sql="select Email=S2 from [TABLE-"+$vm.module_list[prefix+"email-list"].table_id+"]";
+		var req_m={cmd:'query_records',sql:list_m_sql};
+		jQuery.ajaxSetup({async:false});
+		$VmAPI.request({data:req_m,callback:function(res){
+			if(res.records.length>0){
+				for(var i=0;i<res.records.length;i++){
+					if(email_list!='') email_list+=','
+					email_list+=res.records[i].Email;
+				}
+			}
+		}});
+		jQuery.ajaxSetup({async:true});
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            record=$vm.g_project_record;
+            info="";
+            $('#manager__ID').text(manager);
+            $('#info__ID').html(info);
+        })
+        //-------------------------------------
+        $('#send__ID').on('click',function(){
+     	   	var From_Address="noresponse@wappsystem.com";
+     		var From_Name="Database Administrator";
+     		var To=email_list;
+            if(To.length<5){
+                alert('No email address.')
+                return;
+            }
+     		var Title="Project";
+     		var Body=$('#contents__ID').html();
+			//---------
+			if($vm.user=='guest'){ $vm.alert('The alert email (to: '+To+') has been sent out'); return;}
+			//---------
+            $VmAPI.request({data:{cmd:'send_email',From_Address:From_Address,From_Name:From_Name,To:To,Title:Title,Body:Body},callback:function(res){
+                $vm.alert('The alert email (to: '+To+') has been sent out');
+            }})
+        });
+        //-------------------------------------
+    }
+</script>
+<style>
+    #D__ID{
+        background-color:#fff;
+    	color:#000;
+        font-size:14px;
+        font-family: Helvetica, Arial, sans-serif;
+    	height:100%;
+    	overflow: auto;
+    	animation: vm_module_fadein 1.0s;
+    }
+</style>

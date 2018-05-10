@@ -1,0 +1,97 @@
+<section>
+	<button id=run__ID type=button>Run</button>
+    VmInclude:__PARTS__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.v3.js
+        //-------------------------------------
+		var fields="S1,S2,S3,VUID,prjUID";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				/*
+				case 'Approved':
+                    td.html('<input type=checkbox />');
+                    VmInclude:__PARTS__/grid/field_checkbox.js
+                    break;
+					*/
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+		_set_req=function(){
+		    var sql="with tb as (select Information,S1,S2,S3,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] where uid=383)";
+			sql+=",vol as (select VS2='system_20008533_'+S2,VUID=UID from [TABLE-20008533])";
+			sql+=",prj as (select Project_Name=@('Project_Name'),prjUID=UID from [TABLE-20009716])";
+		    sql+="select Information,VUID,prjUID,S1,S2,S3,ID,UID,PUID,DateTime,Author,RowNum from tb join vol on S2=VS2 join prj on Project_Name=S1";
+		    var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+			_req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+		}
+		//-------------------------------------
+		$('#run__ID').on('click',function(){
+			for(var i=0;i<_records.length;i++){
+				process_i(i,_records[i]);
+			}
+		})
+		//-------------------------------------
+		var process_i=function(i,record){
+    		setTimeout(function(){process(record)}, i*200);
+    	}
+    	//--------------------------------------------------------
+		var process=function(record){
+			var dbv={};
+			dbv.S3=record.S1;
+			dbv.S2=record.S2;
+			dbv.S1=record.S3;
+			dbv.PUID=record.VUID;
+			dbv.GUID=record.prjUID;
+			var req={cmd:"add_record",db_pid:'20011360',data:{},dbv:dbv};
+			$VmAPI.request({data:req,callback:function(res){
+				console.log(res.ret)
+				this_after_submit(record.VUID)
+			}});
+		}
+
+		//-------------------------------------
+		this_after_submit=function(VUID){
+			//BI processing. first caculate busy state, second get busy record's ID,
+			jQuery.ajaxSetup({async:false});
+			var busy="";
+			//get all project status of this voulunteer
+			var sqlA="select S1,S3 from [TABLE-20011360] where PUID=@I1";
+			var reqA={cmd:'query_records',sql:sqlA,i1:VUID};
+			$VmAPI.request({data:reqA,callback:function(res){
+				for(var i=0;i<res.records.length;i++){
+					if(res.records[i].S1=="Screening" || res.records[i].S1=="Enrolled"){
+						busy=res.records[i].S3;
+						break;
+					}
+				}
+				//get busy record ID of this volunteer
+				var sqlB="select ID from [TABLE-20011361] where PUID=@I1";
+				var reqB={cmd:'query_records',sql:sqlB,i1:VUID};
+				$VmAPI.request({data:reqB,callback:function(res){
+					var reqC="";
+					if(res.records.length!=0){
+						var rid=res.records[0].ID;
+						reqC={cmd:"modify_record",rid:rid.toString(),data:{},dbv:{S1:busy,PUID:VUID}};
+					}
+					else{
+						reqC={cmd:"add_record",db_pid:"20011361",data:{},dbv:{S1:busy,PUID:VUID}};
+					}
+					$VmAPI.request({data:reqC,callback:function(res){}})
+				}})
+			}});
+			jQuery.ajaxSetup({async:true});
+        };
+        //-------------------------------------
+
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.v3.css
+</style>

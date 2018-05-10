@@ -1,0 +1,66 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        _fields="_Form,Volunteer,Project,Date,Notes|Call_log";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Volunteer_uid";
+        //-------------------------------------
+		$('#new__ID').hide();
+		//-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Volunteer':
+                    records[I].vm_readonly[field]=true;
+                    break;
+                case 'Call_log':
+                    td.css('width','300px')
+                    break;
+                case 'Date':
+                    VmInclude:__COMPONENT__/grid/field_date.js
+                    break;
+            }
+        }
+        //-----------------------
+		var input;
+		$('#D__ID').on('load',function(){
+			input=$vm.vm['__ID'].op.input;
+            //jQuery.ajaxSetup({async:false});
+            _set_req(); _request_data();
+            //if($vm.vm['__ID'].op.new_call=='1'){
+            //$('#new__ID').click();
+            //}
+            //jQuery.ajaxSetup({async:true});
+        })
+        //-------------------------------------
+		_data_process_after_render=function(){
+			$('#new__ID').click();
+		}
+		//-------------------------------------
+        _set_req=function(){
+            var sql="select ID,Information,DateTime,Author from [TABLE-"+_db_pid+"] where PUID=@i1 order by ID desc"
+            _req={cmd:'query_records',sql:sql,i1:input.record.V_UID}
+        }
+        //-------------------------------------
+        _new_pre_data_process=function(){
+			var d=$vm.date_to_string_dmy($vm.date_today())
+			if(input.record.Project!==undefined)   _records[0].Project=input.record.Project; else _records[0].Project='Admin';
+			if(input.record.Volunteer!==undefined)  _records[0].Volunteer=input.record.Volunteer;
+			if(input.record.V_UID!==undefined)   _records[0].Volunteer_uid=input.record.V_UID;
+            _records[0].Date=d;
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.PPID='20008533';
+            dbv.PUID=input.record.V_UID;
+            return true;
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>
