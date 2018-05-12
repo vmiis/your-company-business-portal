@@ -4,9 +4,22 @@
         <span id=vm_logo_label_B>Collect, manage and maintain your business data<br>and tracking your business activities</span>
     </div>
     <div id="vm_system_menu">
-        <a module=home _class="vm_active"><i class="fa fa-home"></i> Home</a>
+        <a module=home><i class="fa fa-home"></i> Home</a>
         <a module=pages><i class="fa fa-th"></i> Web Pages and Applications</a>
-        <a module=pages_about><i class="fa fa-info-circle"></i> About</a>
+        <div class="vm_dropdown">
+            <button class="vm_dropbtn"><i class="fa fa-info-circle"></i> About  <i class="fa fa-caret-down"></i></button>
+            <div class="vm_dropdown-content">
+                <a module=pages_about-this-website>About this website</a>
+                <a module=pages_what-i-can-do>What I can do</a>
+                <a module=pages_business-data-sharing-and-collaboration>Business data sharing and collaboration</a>
+                <a module=pages_structure>Cloud based single page application structure</a>
+                <a module=pages_business-data-system-structure>Business data system structure</a>
+                <a module=pages_faq>Modular distributed web application</a>
+                <a module=pages_big-data-solutions>'Big' data solutions</a>
+                <!--<a module=pages_big-data-visualization>Data visualization</a>-->
+            </div>
+        </div>
+
         <div class="vm_dropdown" id=signin__ID>
             <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
             <div class="vm_dropdown-content">

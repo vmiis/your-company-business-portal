@@ -1,0 +1,53 @@
+<div id=page__ID>
+	<div class="container-fluid" style='max-width:700px;padding-top:20px'>
+		<div _class="text-center">
+			<h3>Big data solutions</h3>
+			<hr style='border-top:1px solid #f05f40; margin:12px 0'></hr>
+			Big data is a term that may have a very wide meaning. Here what I am
+			talking about the 'Big' data is the database tables have a large number
+			of records.	One of the typical business report is an aggregation query
+			for something total, such as total of sales, total of income etc.
+			it is very expensive to generate aggregation reports in real time because
+			we need to process all records in the table. We must find a solution to
+			balance the gig data and the real time. The solution I am using in some
+			applications is to generate some partial aggregation (for example a day,
+			a month or a quarter) and save it as middle results. When we need a big
+			aggregation (for example a year or all records in the database), we can
+			use these middle results for aggregation so as to make it available in real
+			time. The drawback is that if one or more original records modified, or we
+			add new records, we need to reprocess the corresponding partial aggregations,
+			but this can be done instantly by trigging another process or automatically
+			process in a fixed period. We usually process the partial aggregations in
+			midnight. This will make the query reflect the results a day ago. In many
+			situations this is good enough. For example if a manager wants to know the
+			total sales of this year, the results actually does not cover the changes
+			since the midnight.
+			<br><br>
+			<h3>Info</h3>
+	        <hr style='border-top:1px solid #f05f40; margin:12px 0'></hr>
+			Contact email: <a href="mailto:zzm.vmiis@gmail.com">zzm.vmiis@gmail.com</a>
+		</div>
+	</div>
+</div>
+<style>
+    #D__ID{
+        height:100%;
+        overflow:auto;
+        animation: vm_module_fadein 1.0s;
+        /*background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3));*/
+		background: rgba(255,255,255,0.85);
+    }
+    #page__ID{
+        color:#000;
+        height: 100%;
+    }
+    #page__ID ul{
+        color:#121840;
+    }
+    #page__ID b{
+        color:#121840;
+    }
+    #page__ID h3{
+        color:#191935;
+    }
+</style>
