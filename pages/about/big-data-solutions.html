@@ -9,12 +9,12 @@
 			for something total, such as total of sales, total of income etc.
 			it is very expensive to generate aggregation reports in real time because
 			we need to process all records in the table. We must find a solution to
-			balance the gig data and the real time. The solution I am using in some
+			balance the big data and the real time. The solution I am using in some
 			applications is to generate some partial aggregation (for example a day,
 			a month or a quarter) and save it as middle results. When we need a big
 			aggregation (for example a year or all records in the database), we can
 			use these middle results for aggregation so as to make it available in real
-			time. The drawback is that if one or more original records modified, or we
+			time. The drawback is that if one or more original records are modified, or we
 			add new records, we need to reprocess the corresponding partial aggregations,
 			but this can be done instantly by trigging another process or automatically
 			process in a fixed period. We usually process the partial aggregations in
