@@ -171,9 +171,9 @@ var vm_init=function(){
 
 		"https://unpkg.com/react@16/umd/react.production.min.js",
 		"https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
-		"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
-		"https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js",
-		
+		//"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
+		//"https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js",
+
 		"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
 		"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
 		"https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",

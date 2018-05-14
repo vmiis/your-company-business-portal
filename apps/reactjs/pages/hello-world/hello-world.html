@@ -1,0 +1,28 @@
+<div id=page__ID>
+    <div id=container__ID></div>
+    <br><pre><code id=code__ID></code></pre>
+</div>
+<script>
+	function F__ID(){
+        VmInclude:__CURRENT_PATH__/hello-world.html.js
+        $.get('__CURRENT_PATH__/hello-world.html.jsx?_='+$vm.ver[1]+$vm.reload,function(code){
+            $('#code__ID').text(code);
+        },'text');
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+        background-color: #fff;
+	}
+    #page__ID{
+        padding:30px;
+        animation: page__ID 3.0s;
+    }
+    @keyframes page__ID {
+		from {padding-top: 300px;}
+		to {padding-top: 30px;}
+	}
+</style>
