@@ -36,6 +36,7 @@
         "ct":       	{"url":"",                              "modules":["apps/clinical-trials-001/pages|index.json"]},
 		"il":       	{"url":"",                              "modules":["apps/clinical-trials-005/pages|index.json"]},
 		"rj":       	{"url":"",                              "modules":["apps/reactjs/pages|index.json"]},
+		"aj":       	{"url":"",                              "modules":["apps/angularjs/pages|index.json"]},
 		"w001":       	{"url":"",                              "modules":["apps/website-template-001/pages|index.json"]},
 		"w002":       	{"url":"",                              "modules":["apps/website-template-002/pages|index.json"]},
 		"w003":       	{"url":"",                              "modules":["apps/website-template-003/pages|index.json"]},
