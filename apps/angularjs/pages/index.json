@@ -1,0 +1,6 @@
+{
+    "modules":
+	{
+        "hello":	                	{"url":"modules/hello.html"}
+	}
+}
