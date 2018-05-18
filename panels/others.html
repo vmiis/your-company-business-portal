@@ -95,6 +95,11 @@
 		<p></p><u class=ul__ID><i class="fa fa-folder-open-o"></i></u><u class=app__ID app=sleep-fix-online-questionnaire>Sleep fix online questionnaire</u>
 		<ul>
 		</ul>
+		<p></p><u class=ul__ID><i class="fa fa-folder-open-o"></i></u><u class=app__ID app=volunteer-management>Volunteer management</u>
+		<ul>
+		</ul>
+
+
 	</div>
 </section>
 <script>
@@ -131,11 +136,11 @@
 				var $i=$(this).find('i');
 				var $ul=$(this).next().next();
 				if($i.hasClass('fa-folder-open-o')){
-					$i.removeClass('fa-folder-open-o').addClass('fa-folder-open-o');
+					$i.removeClass('fa-folder-open-o').addClass('fa-folder-o');
 					$ul.hide();
 				}
-				else if($i.hasClass('fa-folder-open-o')){
-					$i.removeClass('fa-folder-open-o').addClass('fa-folder-open-o');
+				else if($i.hasClass('fa-folder-o')){
+					$i.removeClass('fa-folder-o').addClass('fa-folder-open-o');
 					$ul.show();
 				}
 			}

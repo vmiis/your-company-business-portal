@@ -10,6 +10,7 @@
             <li><u m2=ct_s-psqi-data class=data__ID>data</u> <u m2=ct_s-psqi-form>Screening - Pittsburgh sleep quality index</u></li>
 			<li><u m2=ct_s-ffs-data class=data__ID>data</u> <u m2=ct_s-ffs-form>Screening - Flinders fatigue scale</u></li>
 			<li><u m2=ct_s-fss-data class=data__ID>data</u> <u m2=ct_s-fss-form>Screening - Fatigue severity scale</u></li>
+			<li><u m2=ct_s-isi-data class=data__ID>data</u> <u m2=ct_s-isi-form>Insomnia severity index</u></li>
             <li><u m2=ct_v1-visit-date-data class=data__ID>data</u> <u m2=ct_v1-visit-date-form>Visit 1 - date of visit</u></li>
 		</ul>
 
@@ -73,11 +74,11 @@
 				var $i=$(this).find('i');
 				var $ul=$(this).next().next();
 				if($i.hasClass('fa-folder-open-o')){
-					$i.removeClass('fa-folder-open-o').addClass('fa-folder-open-o');
+					$i.removeClass('fa-folder-open-o').addClass('fa-folder-o');
 					$ul.hide();
 				}
-				else if($i.hasClass('fa-folder-open-o')){
-					$i.removeClass('fa-folder-open-o').addClass('fa-folder-open-o');
+				else if($i.hasClass('fa-folder-o')){
+					$i.removeClass('fa-folder-o').addClass('fa-folder-open-o');
 					$ul.show();
 				}
 			}

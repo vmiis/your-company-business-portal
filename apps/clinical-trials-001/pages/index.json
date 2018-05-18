@@ -26,6 +26,9 @@
 		"s-fss-data":	  	{"table_id":"20008399","url":"tasks/fatigue-severity-scale-data.html","form_module":"s-fss-form","name_for_search":"Fatigue severity scale data"},
 		"s-fss-form":	  	{"table_id":"20008399","url":"tasks/fatigue-severity-scale-form.html","name_for_search":"Fatigue severity scale"},
 
+		"s-isi-data":         {"table_id":"20011372","url":"tasks/insomnia-severity-index-data.html","form_module":"s-isi-form","name_for_search":"Insomnia Severity Index data"},
+		"s-isi-form":         {"table_id":"20011372","url":"tasks/insomnia-severity-index-form.html","name_for_search":"Insomnia Severity Index form"},
+
 		"v1-visit-date-data":  {"table_id":"20008394","url":"tasks/date-of-visit-data.html","form_module":"v1-visit-date-form","name_for_search":"Visit 1 - data of visit"},
 		"v1-visit-date-form":  {"table_id":"20008394","url":"tasks/date-of-visit-form.html"},
 
@@ -37,7 +40,8 @@
                     "s-psqi-form":  	{"table_id":"20008396","url":"tasks/pittsburgh-sleep-quality-index-form.html","name_for_search":"Screening - pittsburgh sleep quality index"},
                     "s-dass21-form":	{"table_id":"20008397","url":"tasks/depression-anxiety-stress-scales-form.html","name_for_search":"Screening - Depression anxiety stress scales"},
 					"s-ffs-form":   	{"table_id":"20008398","url":"tasks/flinders-fatigue-scale-form.html","name_for_search":"Screening - Flinders fatigue scale"},
-					"s-fss-form": 		{"table_id":"20008399","url":"tasks/fatigue-severity-scale-form.html","name_for_search":"Screening - Fatigue severity scale"}
+					"s-fss-form": 		{"table_id":"20008399","url":"tasks/fatigue-severity-scale-form.html","name_for_search":"Screening - Fatigue severity scale"},
+					"isi-form":         {"table_id":"20011372","url":"tasks/insomnia-severity-index-form.html","name_for_search":"Insomnia Severity Index"}
     			},
     			"Visit 1":{
                     "v1-visit_date-form":   {"table_id":"20008394","url":"tasks/date-of-visit-form.html","name_for_search":"Visit 1 - data of visit"}
