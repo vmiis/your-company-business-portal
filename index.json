@@ -8,6 +8,7 @@
         "business":    	    {"url":"panels/business.html", 			"modules":[]},
         "clinical-trials":  {"url":"panels/clinical-trials.html", 	"modules":[]},
         "development": 	    {"url":"panels/development.html", 		"modules":[]},
+		"distributed-modules":{"url":"panels/distributed-modules.html",	"modules":[],"prefix":"pages"},
 		"others":      	    {"url":"panels/others.html", 			"modules":["pages|index.json"]},
         "pages":      	    {"url":"panels/pages.html", 			"modules":["pages|index.json"]},
         "reporting-central":{"url":"panels/reporting-central.html", "modules":[],"prefix":"rc"},

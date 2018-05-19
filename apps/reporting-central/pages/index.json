@@ -2,7 +2,8 @@
     "modules":
 	{
         "pie-chart-001":		{"url":"modules/pie-chart-001.html"},
-        "pie-chart-001-data":   {"table_id":"20011500","url":"modules/pie-chart-001-data.html","_form_module":"pie-chart-001-form"},
-        "pie-chart-001-form":   {"table_id":"20011500","url":"modules/pie-chart-001-form.html"}
+        "pie-chart-001-data":   {"table_id":"20011500","url":"modules/pie-chart-001-data.html"},
+        "table-salary-data":    {"table_id":"20011501","url":"modules/table-salary-data.html"},
+        "table-salary-chart":   {"table_id":"20011501","url":"modules/table-salary-chart.html"}
 	}
 }
