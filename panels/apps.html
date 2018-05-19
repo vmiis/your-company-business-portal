@@ -1,0 +1,116 @@
+<section id=panel__ID>
+    <div>
+        <h2>Application Templates</h2>
+    </div>
+    <div class='nav__ID'>
+		<u class=app__ID app=bookkeeping>Bookkeeping</u><br>
+		<u class=app__ID app=car-booking>Car booking</u><br>
+		<u class=app__ID app=document-collaboration-tracking>Document collaboration tracking</u><br>
+		<u class=app__ID app=education-and-immigration>Education and immigration</u><br>
+		<u class=app__ID app=enquiry>Enquiry</u><br>
+        <u class=app__ID app=equipment-booking>Equipment booking</u><br>
+        <u class=app__ID app=incident-reporting>Incident reporting</u><br>
+		<u class=app__ID app=invoice>Invoice</u><br>
+		<u class=app__ID app=program-and-project-management>Program and project management</u><br>
+		<u class=app__ID app=purchase-order-request>Purchase order request</u><br>
+        <u class=app__ID app=room-booking>Room booking</u><br>
+        <u class=app__ID app=sales-tracking>Sales tracking</u><br>
+        <u class=app__ID app=service-booking>Service booking</u><br>
+		<u class=app__ID app=sfix-app>Sfix app</u><br>
+		<u class=app__ID app=team-event-calendar>Team event calendar</u><br>
+		<u class=app__ID app=tom-data-management>Tom data management</u><br>
+		<u class=app__ID app=woolcock-data-management>Woolcock data management</u><br>
+		<u class=app__ID app=woolworths-credit-card>Woolworths credit card</u><br>
+		<u class=app__ID app=workplace-inspection>Workplace inspection</u><br>
+    </div>
+	<div class='nav__ID'>
+        <u class=app__ID app=clinical-trials-001>Clinical trials (template)</u><br>
+        <u class=app__ID app=clinical-trials-001-online-questionnaire>Clinical trials online questionnaire</u><br>
+        <u class=app__ID app=clinical-trials-participant-visit-booking>Clinical trials participant visit booking</u><br>
+        <u class=app__ID app=clinical-trials-005>Clinical trials (in lab)</u><br>
+    </div>
+    <div class='nav__ID'>
+        <u class=app__ID app=a-basic-application-framework>A basic app framework</u><br>
+        <u class=app__ID app=my-first-hello-world-module-in-an-application>My first hello world website</u><br>
+        <u class=app__ID app=reactjs>ReactJS pages</u><br>
+        <u class=app__ID app=angularjs>AngulartJS pages</u><br>
+        <u class=app__ID app=website-template-005>Bootstrap pages</u><br>
+        <u class=app__ID app=basic-form-fields>Basic form fields</u><br>
+        <u class=app__ID app=fitness>Fitness</u><br>
+        <u class=app__ID app=medical-practitioner>Medical practitioner</u><br>
+        <u class=app__ID app=website-template-002>Website template (bootstrap 4)</u><br>
+        <u class=app__ID app=website-template-003>Website template (lumino)</u><br>
+        <u class=app__ID app=website-template-004>Website template (lexis)</u><br>
+        <u class=app__ID app=crc-stream-b-extension>CRC stream b extension</u><br>
+        <u class=app__ID app=website-template-001>Website template (snapshot)</u><br>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //--------------------------------------------------------
+        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+        $('#panel__ID u').on('click',function(){
+			var app=$(this).attr('app');
+            if(app!=undefined){
+				window.open('apps/'+app+'/index.html');
+            }
+        })
+        //--------------------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+        padding:20px 0 0 30px;
+        color:#000;
+        font-size:10pt;
+        font-family: Verdana,Helvetica,Arial,sans-serif;
+		background: rgba(255,255,255,0.85);
+        overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+    #info__ID{
+        font-size: 11px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	li::before{
+		font-size: 20px!Important;
+	}
+    .nav__ID{
+        padding:6px 26px 6px 6px;
+        color: #202727;
+        float:left;
+    }
+    .nav__ID span{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 10px;
+    }
+	.nav__ID u:hover{
+		color:red;
+	    cursor:pointer;
+	}
+	.app__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.ul__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.nav__ID ul{
+		margin:0 0 3px 0;
+	}
+	.nav__ID p{
+		margin:0;
+	}
+	.data__ID{
+		color:#709aab;
+	}
+    .space__ID{
+        width:34px;
+        display:inline-block;
+    }
+</style>
