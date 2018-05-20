@@ -147,7 +147,6 @@ var vm_init=function(){
 			text=text.replace(/https:\/\/vmiis.github.io\/api/g,host+'/vmiis/api');
 			text=text.replace(/https:\/\/vmiis.github.io\/framework/g,host+'/vmiis/framework');
 			text=text.replace(/https:\/\/vmiis.github.io\/component/g,host+'/vmiis/component');
-			text=text.replace(/https:\/\/vmiis.github.io\/backoffice/g,host+'/vmiis/backoffice');
 			text=text.replace(/https:\/\/vmiis.github.io\//g,host+'/vmiis/applications/');
 		}
 		if(window.location.toString().indexOf('_d=2')!=-1){
@@ -161,6 +160,10 @@ var vm_init=function(){
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/component/g,'https://raw.githubusercontent.com/vmiis/component/master');
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://raw.githubusercontent.com/vmiis/modules/master');
 		}
+		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix\//g,'https://sfix.rt.org.au/');
+		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix\|/g,'https://sfix.rt.org.au|');
+		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\//g,'https://sfix-online-questionnaire.rt.org.au/');
+		text=text.replace(/https:\/\/woolcock-imr.github.io\/sfix-online-questionnaire\|/g,'https://sfix-online-questionnaire.rt.org.au|');
 		return text;
 	}
 	//------------------------------------
@@ -168,11 +171,6 @@ var vm_init=function(){
 		"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
 		"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
 		"https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
-
-		"https://unpkg.com/react@16/umd/react.production.min.js",
-		"https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
-		"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
-		//"https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js",
 
 		"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
 		"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",

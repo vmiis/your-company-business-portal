@@ -8,8 +8,8 @@
         <div class='nav__ID'>
     		<p></p><span class=ul__ID><i class="fa fa-folder-open-o"> </i> <u>Reports</u></span>
     		<ul>
-                <li><u module=pie-chart-001-data class=data__ID>data</u> <u module=pie-chart-001>Daily activities</u></li>
-                <li><u module=table-salary-data class=data__ID>data</u> <u module=table-salary-chart>Staff salary</u></li>
+                <li><u m2=rc_pie-chart-001-data class=data__ID>data</u> <u m2=rc_pie-chart-001>Daily activities</u></li>
+                <li><u m2=rc_table-salary-data class=data__ID>data</u> <u m2=rc_table-salary-chart>Staff salary</u></li>
     		</ul>
         </div>
     	<div class='nav__ID'>
@@ -21,9 +21,9 @@
         //--------------------------------------------------------
         var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
         $('#panel__ID u').on('click',function(){
-            var module=$(this).attr('module');
+            var module=$(this).attr('m2');
             if(module!=undefined){
-                $vm.load_module_v2(prefix+module,'',{});
+                $vm.load_module_v2(module,'',{});
             }
         })
         $('#panel__ID span').on('click',function(){

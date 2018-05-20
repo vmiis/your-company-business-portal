@@ -1,0 +1,7 @@
+{
+    "modules":
+	{
+        "html":	    {"url":"modules/html.html"},
+        "markdown":	{"url":"modules/markdown.html"}
+	}
+}
