@@ -2,6 +2,7 @@
     "modules":
 	{
         "html":	    {"url":"modules/html.html"},
-        "markdown":	{"url":"modules/markdown.html"}
+        "markdown":	{"url":"modules/markdown.html"},
+        "codepen":	{"url":"modules/codepen.html"}
 	}
 }
