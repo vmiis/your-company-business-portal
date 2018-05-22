@@ -1,8 +1,10 @@
 {
     "modules":
 	{
-        "html":	    {"url":"modules/html.html"},
-        "markdown":	{"url":"modules/markdown.html"},
-        "codepen":	{"url":"modules/codepen.html"}
+        "html":	                     {"url":"modules/html.html"},
+        "markdown":	                 {"url":"modules/markdown.html"},
+        "codepen":	                 {"url":"modules/codepen.html"},
+        "two-columns":	             {"url":"modules/two-columns.html"},
+        "bootstrap-4-cards-demo":	 {"url":"modules/bootstrap-4-cards-demo.html"}
 	}
 }
