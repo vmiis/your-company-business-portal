@@ -3,57 +3,30 @@
 <script>
 	function F__ID(){
         //--------------------------------------------------------
-        var url="https://distributed-modules.vmiis.com/examples/markdown.md";
+        var url="https://codepen.io/vmiis/pen/zjXJxg.html";
         //--------------------------------------------------------
-        var local_url=function(txt){
-            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-                txt=txt.replace(/https:\/\/distributed-modules.vmiis.com/g,window.location.protocol+'//'+window.location.host+'/vmiis/distributed-modules');
-            }
+        var custom_parser=function(txt,url){
             return txt;
         }
         //--------------------------------------------------------
-        var custom_parser=function(txt,url){
-            return txt.replace(/__CURRENT_URL__/g,url);
-        }
+        var allowed_tags=['sub','div','form','input','img','name','span','h1','h2','h3','h4','p','hr','i','button','a','b','ul','li','br'];
+        var allowed_attrs=['class','type','value','style','id','src','href','target'];
+        var allowed_css=['position',
+            'padding','padding-top','padding-bottom','padding-left','padding-right',
+            'margin','margin-top','margin-bottom','margin-left','margin-right',
+            'max-width','width','height','font-weight','font-size'
+        ];
         //--------------------------------------------------------
-        var html_filter=function(code){
-            //--------------------------------------------------------
-            var allowed_tags=['style','div','form','input','img','name','span','strong','h1','h2','h3','h4','p','hr','i','button','a','b','ul','li','br'];
-            var allowed_attrs=['class','type','value','style','id','src'];
-            //--------------------------------------------------------
-            var $dom=$("<div />").html(code);
-            //tag
-            var tags=$dom.find("*");
-            tags.each(function(){
-                var tag=$(this).prop('tagName').toLowerCase();
-                if(allowed_tags.includes(tag)==false){
-                    $dom.find( this ).remove();
-                }
-            })
-            //attrs and inline style
-            var tags=$dom.find("*");
-            tags.each(function(){
-                var element=$(this);
-                $.each(this.attributes, function(i, attrib){
-                    if(attrib!=undefined){
-                        var name = attrib.name;
-                        if(allowed_attrs.includes(name)==false){
-                            element.removeAttr(name);
-                        }
-                    }
-                });
-            })
-            return $dom.html();
-        }
-        //--------------------------------------------------------
-        url=local_url(url);
         $vm.load_module_content(url,function(txt){
-            txt=local_url(txt);
+            //--------------------------------------------------------
+            var find = '__'+'ID';
+            var re=new RegExp(find, 'g');
+            txt=txt.replace(re, '__ID');
+            //--------------------------------------------------------
             txt=custom_parser(txt,url);
-
             var converter = new showdown.Converter();
             txt=converter.makeHtml(txt);
-            txt=html_filter(txt);
+            txt=$vm.content_filter(txt,allowed_tags,allowed_attrs,allowed_css);
             $('#page__ID').html(txt);
         });
         //--------------------------------------------------------

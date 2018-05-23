@@ -5,6 +5,7 @@
         "markdown":	                 {"url":"modules/markdown.html"},
         "codepen":	                 {"url":"modules/codepen.html"},
         "two-columns":	             {"url":"modules/two-columns.html"},
-        "bootstrap-4-cards-demo":	 {"url":"modules/bootstrap-4-cards-demo.html"}
+        "bootstrap-4-cards-demo":	 {"url":"modules/bootstrap-4-cards-demo.html"},
+        "indenting-featured-images": {"url":"modules/indenting-featured-images.html"}
 	}
 }
