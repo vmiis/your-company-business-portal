@@ -3,8 +3,8 @@
 <script>
 	function F__ID(){
         //--------------------------------------------------------
-        var url="https://codepen.io/vmiis/pen/ELJOKe.html";
-		var css="https://codepen.io/vmiis/pen/ELJOKe.css";
+        var url="https://codepen.io/vmiis/pen/BxeEMV.html?_="+$vm.ver[1]+$vm.reload;
+		var css="https://codepen.io/vmiis/pen/BxeEMV.css?_="+$vm.ver[1]+$vm.reload;
         //--------------------------------------------------------
         var custom_parser=function(txt,url){
             var find = '__'+'ID';
@@ -13,7 +13,10 @@
             return txt;
         }
         //--------------------------------------------------------
-        var allowed_tags=['div','form','input','img','name','span','h1','h2','h3','h4','p','hr','i','button','a','b','ul','li','br'];
+        var allowed_tags=[
+			'div','form','input','img','name','span','h1','h2','h3','h4','p','hr','i','button','a','b','ul','li','br',
+			'table','thead','tbody','tr','th','td'
+		];
         var allowed_attrs=['class','type','value','style','id','src','href','target'];
         var allowed_css=['position','text-align','float','clear','background','color','font-family','line-height','content','display',
             'padding','padding-top','padding-bottom','padding-left','padding-right',
