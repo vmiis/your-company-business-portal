@@ -9,6 +9,8 @@
         "indenting-featured-images": {"url":"modules/indenting-featured-images.html"},
         "my-first-bootstrap-page":   {"url":"modules/my-first-bootstrap-page.html"},
         "table":                     {"url":"modules/table.html"},
+        "contact-us-data":           {"table_id":"20011502","url":"https://codepen.io/vmiis/pen/MGNWZE.html","form_module":"contact-us-form"},
+        "contact-us-form":           {"table_id":"20011502","url":"https://codepen.io/vmiis/pen/WJVNmR.html"},
         "images":                    {"url":"modules/images.html"}
 	}
 }
