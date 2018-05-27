@@ -1,9 +1,11 @@
 //------------------------------------
 $vm.module_list={
-    "Home":     {"url":"modules/home.html"},
-    "link-1":	{"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 1","text":"Under Construction"},
-    "link-2":	{"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 2","text":"Not Ready"},
-    "link-3":	{"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 3","text":"Comming soon..."}
+    "Home":           {"url":"modules/home.html"},
+    "link-1":	      {"url":"modules/my-first-bootstrap-page.html","preload":true},
+    "link-2":	      {"url":"modules/dark-table.html","preload":true},
+    "link-3":	      {"url":"modules/carousel.html","preload":true},
+    "ecos":	          {"url":"modules/ecos.html","preload":true},
+    "normative":	  {"url":"modules/normative.html","preload":true}
 }
 //------------------------------------
 $vm.app_config={
