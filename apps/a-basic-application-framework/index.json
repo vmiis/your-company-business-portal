@@ -1,0 +1,8 @@
+{
+    "modules":
+	{
+        "link-1": {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 1","text":"Under Construction"},
+		"link-2": {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 2","text":"Not Ready"},
+		"link-3": {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 3","text":"Comming soon..."}
+	}
+}

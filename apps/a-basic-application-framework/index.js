@@ -1,9 +1,9 @@
+$vm.module_links=[
+    "index.json"
+];
 //------------------------------------
 $vm.module_list={
-    "Home":     {"url":"modules/home.html"},
-    "link-1":	{"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 1","text":"Under Construction"},
-    "link-2":	{"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 2","text":"Not Ready"},
-    "link-3":	{"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 3","text":"Comming soon..."}
+    "Home":     {"url":"modules/home.html"}
 }
 //------------------------------------
 $vm.app_config={
@@ -307,6 +307,56 @@ vm_init(function(){
         $image1.attr("src", "index.jpg");
     }
     //------------------------------------
+    var module_links=function(){
+        var rm=$vm.module_links;
+        var process=function(prefix,nm){
+            $.get(nm+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+                var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
+                var modules=config.modules;
+                var path=nm.replace('index.json','');
+                for (var k in modules){
+                    modules[k].url=path+modules[k].url;
+                    $vm.module_list[prefix+k]=modules[k];
+                    var snm=modules[k]['name_for_search'];
+                    if(snm!=""){
+                        if(snm==undefined) snm=prefix+k;
+                        $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
+                    }
+                }
+            },'text');
+        }
+        var i=0
+        var N=rm.length;
+        if(N>0){
+            var link_remote_module_loop=setInterval(function (){
+                if(i>=N){
+                    clearInterval(link_remote_module_loop);
+                    load_search_modules();
+                    return;
+                }
+                var ns=rm[i].split('|');
+                if(ns.length==1) process("",ns[0])
+                else process(ns[0]+"_",ns[1]);
+                i++;
+            },10);
+        }
+    }
+    //------------------------------------
+    var load_search_modules=function(){
+        var a=window.location.href.split('page=');
+        if(a.length==2){
+            var name=a[1].split('&')[0];
+            if(name.length>0){
+                if($vm.module_list[name]!=undefined){
+                    $vm.load_module_v2(name,'',{});
+                    return;
+                }
+                else alert("The module "+name+" is not in the module list!");
+            }
+            else alert("The module "+name+" is not correct!");
+        }
+    }
+    //------------------------------------
     vm_layout();
     vm_top_right_corner();
     vm_header();
@@ -317,5 +367,6 @@ vm_init(function(){
     loading_back_image();
     over_write_alert();
     set_module_search();
+    module_links();
 })
 //------------------------------------
