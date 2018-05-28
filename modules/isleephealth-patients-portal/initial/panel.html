@@ -1,0 +1,120 @@
+<div id=page__ID>
+	<div id=panel__ID class="container-fluid" style='max-width:800px'>
+		<div class="text-center panel__ID">
+			<h2>Online Registration and Questionnaires<br>Initial Consultaion</h2>
+    	  	  <hr style='border-top:1px solid #000;'></hr>
+    				  <h5 class= "text-left">
+                          Please complete each of the following sections. Please call us on XX or email us on XXX if you are having trouble completing these questionnaires or there are questions you do not understand.<br><br>
+                      </h5>
+                      <div class="text-left">
+                          <ul>
+							<li module=contact-details><div id=contact-details></div> Contact Details</li>
+							<li module=medicare-referrals><div id="medicare-referrals"></div> Medicare - DVA - Self Funded Details</li>
+							<li module=sleep-history><div id="sleep-history"></div> Sleep History</li>
+							<li module=health-history><div id="health-history"></div> Health History</li>
+							<li module=ess><div id="ess"></div> Epworth Sleepiness Scale</li>
+							<li module=dass><div id="dass"></div> Depression Anxiety Stress Scales</li>
+							<li module=isi><div id="isi"></div> Insomnia Severity Index</li>
+							<li module=phq><div id="phq"></div> Patient Health Questionnaire</li>
+							<li module=fss><div id="fss"></div> Fatigue Severity Scale</li>
+                        </ul>
+                      </div>
+                      <h5 class= "text-left">
+                          Once they are completed please click on ‘sign-out’ below, to exit the system. <br>Thank you for your time in helping us help you during your upcoming visit. We look forward to seeing you soon.<br><br>
+                      </h5>
+                      <a name=signinout onclick="$vm.nav_click_process('vm_signinout');" class="btn btn-primary" style='cursor:pointer'>Sign out</a>
+    			  </div>
+              </div>
+		</div>
+	</div>
+</div>
+<script>
+	function F__ID(){
+		//--------------------------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+        //---------------------------------------------
+		$('#D__ID').on('load',function(){	set_link();	})
+		$('#D__ID').on('show',function(){	set_link();	})
+		//--------------------------------------------------------
+		var set_link=function(){
+			var req={cmd:'participant_task_status_v2',participant_username:$vm.user,check_uid:"1",json:"1"};
+			$VmAPI.request({data:req,callback:function(res){
+                $('#panel__ID li').each(function(){
+					var $li=$(this);
+                    $li.data("record_id","");
+					$li.off('click');
+					$li.removeClass('li_not_allowed__ID')
+					$li.addClass('li_allowed__ID')
+                    var module=$li.attr('module');
+					$('#'+module).attr("class", "fa fa-remove")
+
+                    var li_pid=0;
+                    if($vm.module_list[prefix+module]!=undefined){
+                        var li_pid=$vm.module_list[prefix+module].table_id;
+                    }
+                    for(var i=0;i<res.records.length;i++){
+                        if(res.records[i]['PID']==li_pid){
+                            $li.data('record_id',res.records[i]['ID']);
+                            $li.data('record_pid',res.records[i]['PID']);
+							$li.removeClass('li_allowed__ID')
+							$li.addClass('li_not_allowed__ID')
+							$('#'+module).attr("class", "fa fa-check")
+                        }
+                    }
+                });
+                $('#panel__ID li').each(function(){
+					var $li=$(this);
+                    if($li.data('record_id')==''){
+						$li.on('click',function(){
+							var m=prefix+$(this).attr('module');
+							$vm.load_module_v2(m,$vm.root_layout_content_slot,{goback:"1"});
+						});
+                    }
+                });
+            }})
+			//--------------------------------------------------------
+		}
+		//--------------------------------------------------------
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+		/*background:rgba(100,103,94,0.2);*/
+	}
+	#page__ID{
+		height:100%;
+		display: flex;
+		align-items: center;
+	}
+	.panel__ID{
+		color:#000;
+		font-weight: normal;
+		background: rgba(151,164,181,0.9);
+	    padding: 30px 20px 10px 20px;
+	    border-radius: 15px;
+	}
+	@media screen and (max-width:786px){
+		#page__ID{
+			display: block;
+		}
+	}
+    #panel__ID li{
+		cursor:pointer;
+	}
+	ul {
+		list-style:none;
+	}
+	.li_not_allowed__ID{
+		color:#666!Important;
+		cursor:not-allowed!Important;
+	}
+	.li_allowed__ID{
+		color:#000!Important;
+		cursor:pointer!Important;
+	}
+
+
+</style>

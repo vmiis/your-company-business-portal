@@ -127,16 +127,15 @@
 <script>
     function F__ID(){
         //--------------------------------------------------------
-        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
         $('#panel__ID u').on('click',function(){
             var m=$(this).attr('module');
             if(m!=undefined){
-                if($vm.module_list[prefix+m]==undefined){
-                    alert(prefix+m +" is not in the module list.");
+                if($vm.module_list[m]==undefined){
+                    alert(m +" is not in the module list.");
                     return;
                 }
-                $vm.module_list[prefix+m].alert='1';
-                $vm.load_module_v2(prefix+m,'',{});
+                $vm.module_list[m].alert='1';
+                $vm.load_module_v2(m,'',{});
             }
             var p=$(this).attr('panel');
             if(p!=undefined){

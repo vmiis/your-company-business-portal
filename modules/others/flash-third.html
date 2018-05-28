@@ -1,0 +1,57 @@
+<div id=thirdparty_container__ID>
+    <span style='color:rgba(0,0,0,0.5)'>click 4 times to finish the task and return the results;</span>
+</div>
+<script>
+    function F__ID(){
+		//------------------------------------
+        var this_module=$vm.module_list[$vm.vm['__ID'].name];
+        //------------------------------------
+		$('#D__ID').on('load',function(){
+			$('#thirdparty_container__ID').css('height',$vm.min_height);
+			third_party("thirdparty_container__ID",data_process);
+		})
+		//------------------------------------
+		var data_process=function(record){
+			alert(JSON.stringify(record));
+            var req={cmd:"add_json_record",db_pid:this_module.table_id,data:record,dbv:{V3:this_module.v3}};
+            $VmAPI.request({data:req,callback:function(res){
+                $vm.refresh=1;
+                $vm.alert('Your data has been successfully submitted');
+            }});
+            //--------------------------------------------------------
+		}
+		//------------------------------------
+		var third_party=function(containerID,callback){
+            $('#'+containerID).css('background-color','#789');
+            var N=0;
+			var record={}
+            $('#thirdparty_container__ID').on('click',function(){
+                var R=Math.floor(Math.random()*255)+1;
+                var G=Math.floor(Math.random()*255)+1;
+                var B=Math.floor(Math.random()*255)+1;
+                $('#'+containerID).css('background-color','rgb('+R+','+G+','+B+')');
+                var V=Math.floor(Math.random()*100)+1;
+                if(N==0) record.A=V;
+                if(N==1) record.B=V;
+                if(N==2) record.C=V;
+                if(N>=3){
+                    $('#thirdparty_container__ID').off('click');
+                    callback(record);
+                }
+                N++;
+            })
+            //------------------------------------
+        }
+        //------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+    #thirdparty_container__ID{
+		overflow: hidden;
+	}
+</style>

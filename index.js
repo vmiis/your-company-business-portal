@@ -1,9 +1,10 @@
 //------------------------------------
 $vm.module_links=[
     "index.json",
+    "fm|apps/a-basic-application-framework/index.json",
+    "aj|apps/angularjs/index.json",
     "rc|apps/reporting-central/pages/index.json",
     "dm|apps/distributed-modules/pages/index.json",
-    "fm|apps/a-basic-application-framework/index.json",
     "ft|apps/fitness/pages/index.json",
     "bf|apps/basic-form-fields/pages/index.json",
     "cb|apps/car-booking/pages/index.json",
@@ -33,7 +34,6 @@ $vm.module_links=[
     "ct|apps/clinical-trials-001/pages/index.json",
     "il|apps/clinical-trials-005/pages/index.json",
     "rj|apps/reactjs/pages/index.json",
-    "aj|apps/angularjs/pages/index.json",
     "w001|apps/website-template-001/pages/index.json",
     "w002|apps/website-template-002/pages/index.json",
     "w003|apps/website-template-003/pages/index.json",
@@ -41,7 +41,7 @@ $vm.module_links=[
     "w005|apps/website-template-005/pages/index.json"
 ];
 $vm.module_list={
-    "Home":                 {"url":"modules/home.html"}
+    "Home":  {"url":"modules/home.html"}
 }
 //------------------------------------
 $vm.app_config={
@@ -209,6 +209,9 @@ vm_init(function(){
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
 
+      "https://unpkg.com/react@16/umd/react.production.min.js",
+      "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
@@ -326,7 +329,8 @@ vm_init(function(){
                         $("#vm_system_search").blur();
                         $('.ui-helper-hidden-accessible').html('');
                         $vm.load_module_v2(ui.item.value,'',{});
-                    }
+                    },
+                    position: {  collision: "flip"  }
                 });
                 $("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* search is ready ************************");
@@ -342,7 +346,7 @@ vm_init(function(){
             $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
         }));
-        $image1.attr("src", "index.jpg");
+        $image1.attr("src", "layout.jpg");
     }
     //------------------------------------
     var module_links=function(){

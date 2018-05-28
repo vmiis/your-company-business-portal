@@ -1,0 +1,91 @@
+<section>
+    <div id=toolbar__ID class="navbar navbar-default">
+        <div id=row_1__ID class="col-sm _col-lg-3 form-inline">
+                <button id=new__ID  type=button class='btn btn-secondary' ><i class="fa fa-plus" title='New'></i></button>
+                <button id=save__ID type=button class='btn btn-secondary'><i class="fa fa-upload" title='Save'></i></button>
+                <input placeholder='filter' id=keyword__ID type=text class="form-control" style="width: 150px; display:inline-block;" />
+                <input placeholder='category' id=category__ID type=text class="form-control" style="width: 150px; display:inline-block;" />
+                <input placeholder='subcategory' id=subcategory__ID type=text class="form-control" style="width: 150px; display:inline-block;" />
+                <button id=query__ID type=button class="btn btn-secondary"><i class="fa fa-search" title='Search'></i></button>
+        </div>
+        <div class="col-sm _col-lg-3 form-inline">
+                Page Size:
+                <select id=page_size__ID class="form-control" style='margin-right:20px;display:inline-block;width:auto;'><option>30</option><option>50</option><option>100</option><option>200</option></select>
+                <span id=I__ID style="display:none">0</span><span id=A__ID></span>
+                <button id=p__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-left"></i></button>
+                <button id=n__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-right"></i></button>
+        </div>
+        <span id=elapsed__ID style='float:right'></span>
+    </div>
+    <table id=grid__ID></table>
+</section>
+<style>
+	#toolbar__ID{
+		background-color:#ccc;
+		padding:5px 0px;
+		margin-bottom:0px;
+		overflow:hidden
+	}
+	#toolbar__ID *{
+		margin-right:3px;
+	}
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 0;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+		#row_1__ID{
+			padding-bottom: 3px;
+		}
+	}
+</style>
+<script>
+function F__ID(){
+	//-------------------------------------
+	VmInclude:__COMPONENT__/grid/grid.v3.js
+	//-------------------------------------
+	_fields="_Form,Order,_Title,Category,Subcategory,_Hidden|Title,_Hidden|Contents";
+	_fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+	//-------------------------------------
+    var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix;
+    //-------------------------------------
+	$('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+	//-------------------------------------
+	_cell_render=function(records,I,field,td,set_value,source){
+		switch(field){
+			case '_Title':
+				records[I].vm_custom[field]=true;
+				if(_records[I].UID===undefined) return;
+				td.html("<u style='cursor:pointer'>"+records[I].Title+"</u>");
+				td.find('u').on('click',function(){
+					var contents=records[I].Contents;
+					//$vm.load_module_by_name(prefix+'user_help_view',$vm.root_layout_content_slot,{contents:contents,});
+                    $vm.nav_load_module(prefix+'user_help_view',$vm.root_layout_content_slot,{contents:contents,});
+				});
+				td.css('min-width','500px');
+				td.css('padding-left','10px');
+				break;
+			}
+	}
+	//-------------------------------------
+	_before_submit=function(record,dbv){
+	    dbv.S1=record.Category;
+	    dbv.S2=record.Subcategory;
+	    dbv.S3=record.Order;
+	    return true;
+	};
+	//-------------------------------------
+	var _set_req=function(){
+	    var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by S1 DESC) from [TABLE-"+_db_pid+"-@S1] where S1 like '%'+@S2+'%' and S2 like '%'+@S3+'%')";
+	    sql+="select Information,ID,UID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+	    var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+	    _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val(),s2:$('#category__ID').val(),s3:$('#subcategory__ID').val()}
+	}
+	//-------------------------------------
+}
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

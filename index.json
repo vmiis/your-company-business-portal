@@ -1,12 +1,125 @@
-{
-	"modules":{
-		"about-this-website":   {"url":"modules/about/about-this-website.html","name_for_search":"About this website"},
-	    "business":    	    	{"url":"modules/panels/business.html"},
-	    "clinical-trials":  	{"url":"modules/panels/clinical-trials.html"},
-	    "development": 	    	{"url":"modules/panels/development.html"},
-	    "distributed-modules":	{"url":"modules/panels/distributed-modules.html"},
-	    "others":      	    	{"url":"modules/panels/others.html"},
-	    "reporting-central":	{"url":"modules/panels/reporting-central.html"},
-	    "apps":             	{"url":"modules/panels/apps.html"}
-	}
-}
+{"modules":{
+	"about-this-website":   {"url":"modules/about/about-this-website.html","name_for_search":"About this website"},
+    "business":    	    	{"url":"modules/panels/business.html"},
+    "clinical-trials":  	{"url":"modules/panels/clinical-trials.html"},
+    "development": 	    	{"url":"modules/panels/development.html"},
+    "distributed-modules":	{"url":"modules/panels/distributed-modules.html"},
+    "others":      	    	{"url":"modules/panels/others.html"},
+    "reporting-central":	{"url":"modules/panels/reporting-central.html"},
+    "apps":             	{"url":"modules/panels/apps.html"},
+	"about":              	{"url":"modules/about/about.html","name_for_search":"About"},
+	"about-this-website": 	{"url":"modules/about/about-this-website.html","name_for_search":"About this website"},
+	"business-data-sharing-and-collaboration":	{"url":"modules/about/business-data-sharing-and-collaboration.html"},
+	"business-data-system-structure":			{"url":"modules/about/solution.html"},
+	"big-data-solutions":	{"url":"modules/about/big-data-solutions.html"},
+	"basic-principles":		{"url":"modules/about/basic-principles.html"},
+	"what-i-can-do":      	{"url":"modules/about/what-i-can-do.html","name_for_search":"What I can do"},
+	"user-help":		  	{"table_id":"20010425","url":"modules/help/help.html","form_module":"user_help_form","view":"user_help_view"},
+	"user_help_form":	  	{"table_id":"20010425","url":"modules/help/help.form.html"},
+	"user_help_view":	  	{"table_id":"20010425","url":"modules/help/help.view.html"},
+	"dev-help":		      	{"table_id":"20010426","url":"modules/help/help.html","form_module":"dev_help_form","view":"dev_help_view"},
+	"dev_help_form":	  	{"table_id":"20010426","url":"modules/help/help.form.html"},
+	"dev_help_view":	  	{"table_id":"20010426","url":"modules/help/help.view.html"},
+	"faq":			      	{"url":"modules/help/faq.html","name_for_search":"FAQ"},
+	"structure":	      	{"url":"modules/help/structure.html","name_for_search":"Structure"},
+	"flash-data":   {"table_id":"20009702","v3":"18050101","url":"modules/flash-data.html","form_module":"flash-form"},
+	"flash-form":   {"table_id":"20009702","v3":"18050101","url":"modules/flash-form.html"},
+	"flash-third":  {"table_id":"20009702","v3":"18050101","url":"modules/flash-third.html"},
+
+	"sfix-system-usability-scale-data": {"table_id":"91000094",  "url":"modules/clinical-trials/system-usability-scale-data.html","form_module":"sfix-system-usability-scale-form"},
+	"sfix-system-usability-scale-form": {"table_id":"91000094",  "url":"modules/clinical-trials/system-usability-scale-form.html"},
+
+	"hs-shiftwork-data": {"table_id":"91000057",                "url":"modules/clinical-trials/shiftwork-data.html","form_module":"hs-shiftwork-form"},
+	"hs-shiftwork-form": {"table_id":"91000057",                "url":"modules/clinical-trials/shiftwork-form.html"},
+	"hs-general-information-data": {"table_id":"91000063",                "url":"modules/clinical-trials/general-information-data.html","form_module":"hs-general-information-form"},
+	"hs-general-information-form": {"table_id":"91000063",                "url":"modules/clinical-trials/general-information-form.html"},
+	"hs-consent-1-data": {"table_id":"91000062",                "url":"modules/clinical-trials/consent-1-data.html","form_module":"hs-consent-1-form"},
+	"hs-consent-1-form": {"table_id":"91000062",                "url":"modules/clinical-trials/consent-1-form.html"},
+
+	"staff-data":         {"table_id":"20009675",                "url":"modules/others/staff-data.html","form_module":"staff-form","name_for_search":"Staff data"},
+	"staff-form":         {"table_id":"20009675",                "url":"modules/others/staff-form.html","name_for_search":"Staff form"},
+	"appointment-data":   {"table_id":"20009702","v3":"18033102","url":"modules/others/appointment-data.html","form_module":"appointment-form","name_for_search":"Appointment data"},
+	"appointment-form":   {"table_id":"20009702","v3":"18033102","url":"modules/others/appointment-form.html","name_for_search":"Appointment form"},
+	"contact-us-data":    {"table_id":"20009702","v3":"18033101","url":"modules/others/contact-us-data.html","form_module":"contact-us-form","name_for_search":"Contact us data"},
+	"contact-us-form":    {"table_id":"20009702","v3":"18033101","url":"modules/others/contact-us-form.html","name_for_search":"Contact us form"},
+	"registration-data":  {"table_id":"20009702","v3":"18033001","url":"modules/others/registration-data.html","form_module":"registration-form","name_for_search":"Registration data"},
+	"registration-form":  {"table_id":"20009702","v3":"18033001","url":"modules/others/registration-form.html","name_for_search":"Registration form"},
+
+
+	"i-appointment-data": {"table_id":"20011471", "url":"modules/isleephealth/appointment-data.html","physician_tid":"20011472","appointment_type_tid":"20011473","form_module":"i-appointment-form","prefix2":"i-"},
+	"i-appointment-form": {"table_id":"20011471", "url":"modules/isleephealth/appointment-form.html","physician_tid":"20011472","appointment_type_tid":"20011473"},
+
+	"hs-phone-screening-hearing-data":{"table_id":"91000060", "url":"modules/clinical-trials/phone-screening-hearing-data.html","form_module":"hs-phone-screening-hearing-form","name_for_search":"Phone screening hearing"},
+	"hs-phone-screening-hearing-form":{"table_id":"91000060", "url":"modules/clinical-trials/phone-screening-hearing-form.html","participant_tid":"91000001"},
+
+	"i-p-p-contact-details-data":{"table_id":"20011470","url":"modules/isleephealth-patients-portal/data/initial/modules/contact-details.html","form_module":"i-p-p-contact-details"},
+	"i-p-p-contact-details":	{"table_id":"20011470","url":"modules/isleephealth-patients-portal/initial/modules/contact-details.html"},
+
+	"i-p-p-medicare-referrals-data":	{"table_id":"20011363","url":"modules/isleephealth-patients-portal/data/initial/modules/medicare-referrals.html","form_module":"i-p-p-medicare-referrals"},
+	"i-p-p-medicare-referrals":			{"table_id":"20011363","url":"modules/isleephealth-patients-portal/initial/modules/medicare-referrals.html"},
+
+	"i-p-p-sleep-history-data":		{"table_id":"20011469","url":"modules/isleephealth-patients-portal/data/initial/modules/sleep-history.html","form_module":"i-p-p-sleep-history"},
+	"i-p-p-sleep-history":			{"table_id":"20011469","url":"modules/isleephealth-patients-portal/initial/modules/sleep-history.html"},
+
+	"i-p-p-health-history-data":		{"table_id":"20011365","url":"modules/isleephealth-patients-portal/data/initial/modules/health-history.html","form_module":"i-p-p-health-history"},
+	"i-p-p-health-history":				{"table_id":"20011365","url":"modules/isleephealth-patients-portal/initial/modules/health-history.html"},
+
+	"i-p-p-ess-data":				{"table_id":"20011364","url":"modules/isleephealth-patients-portal/data/initial/modules/ess.html","form_module":"i-p-p-ess"},
+	"i-p-p-ess":					{"table_id":"20011364","url":"modules/isleephealth-patients-portal/initial/modules/ess.html"},
+
+	"i-p-p-dass-data":				{"table_id":"20011464","url":"modules/isleephealth-patients-portal/data/initial/modules/dass.html","form_module":"i-p-p-dass"},
+	"i-p-p-dass":					{"table_id":"20011464","url":"modules/isleephealth-patients-portal/initial/modules/dass.html"},
+
+	"i-p-p-isi-data":				{"table_id":"20011465","url":"modules/isleephealth-patients-portal/data/initial/modules/isi.html","form_module":"i-p-p-isi"},
+	"i-p-p-isi":					{"table_id":"20011465","url":"modules/isleephealth-patients-portal/initial/modules/isi.html"},
+
+	"i-p-p-psqi-data":				{"table_id":"20011466","url":"modules/isleephealth-patients-portal/data/initial/modules/psqi.html","form_module":"i-p-p-psqi"},
+	"i-p-p-psqi":					{"table_id":"20011466","url":"modules/isleephealth-patients-portal/initial/modules/psqi.html"},
+
+	"i-p-p-phq-data":				{"table_id":"20011467","url":"modules/isleephealth-patients-portal/data/initial/modules/phq.html","form_module":"i-p-p-phq"},
+	"i-p-p-phq":					{"table_id":"20011467","url":"modules/isleephealth-patients-portal/initial/modules/phq.html"},
+
+	"i-p-p-fss-data":				{"table_id":"20011468","url":"modules/isleephealth-patients-portal/data/initial/modules/fss.html","form_module":"i-p-p-fss"},
+	"i-p-p-fss":					{"table_id":"20011468","url":"modules/isleephealth-patients-portal/initial/modules/fss.html"},
+
+	"contact-us-sydney":	{"url":"modules/contact-us-sydney.html"},
+	"contact-us-creative":	{"url":"modules/contact-us-creative.html"},
+
+	"column-chart-001":		{"url":"distributed-modules/google-chart.html","path":"google-chart/index.html","page":"column-chart-001.html"},
+	"_pie-chart-001":		{"url":"distributed-modules/google-chart.html","path":"google-chart/index.html","page":"pie-chart-001.html"},
+	"pie-chart-001":		{"url":"modules/reports/pie-chart-001.html"},
+	"pie-chart-001-data":   {"table_id":"20009702","v3":"18041801","url":"modules/reports/pie-chart-001-data.html","form_module":"pie-chart-001-form"},
+	"pie-chart-001-form":   {"table_id":"20009702","v3":"18041801","url":"modules/reports/pie-chart-001-form.html"},
+
+	"aerial":					{"url":"modules/distributed-modules/bridge.html","path":"template/aerial/index.html","page":""},
+
+	"cogs-codepen":	    {"url":"modules/distributed-modules/bridge.html","path":"codepen/codevember-9-infinite-scrolling-cogs/index.html","page":""},
+	"lately-codepen":	{"url":"modules/distributed-modules/bridge.html","path":"codepen/lately/index.html","page":""},
+	"pricing-table-codepen":	{"url":"modules/distributed-modules/bridge.html","path":"codepen/pricing-table/index.html","page":""},
+	"scenery-codepen":	{"url":"modules/distributed-modules/bridge.html","path":"codepen/scenery/index.html","page":""},
+	"text-patch-work-codepen":	{"url":"modules/distributed-modules/bridge.html","path":"codepen/text-patch-work","page":""},
+
+	"big-city-home":	{"url":"modules/distributed-modules/bridge.html","path":"tooplate/big-city/index.html","page":"home.html"},
+
+	"ocean-about":		{"url":"modules/distributed-modules/bridge.html","path":"templatemo/ocean/index.html","page":"about.html"},
+	"ocean-home":		{"url":"modules/distributed-modules/bridge.html","path":"templatemo/ocean/index.html","page":"home.html"},
+	"ocean-info":	    {"url":"modules/distributed-modules/bridge.html","path":"templatemo/ocean/index.html","page":"info.html"},
+	"ocean-contact":	{"url":"modules/distributed-modules/bridge.html","path":"templatemo/ocean/index.html","page":"contact.html"},
+
+	"studio-about":		    {"url":"modules/distributed-modules/bridge.html","path":"free-css/studio/index.html","page":"about.html"},
+	"studio-contact":	    {"url":"modules/distributed-modules/bridge.html","path":"free-css/studio/index.html","page":"contact.html"},
+	"studio-home":		    {"url":"modules/distributed-modules/bridge.html","path":"free-css/studio/index.html","page":"home.html"},
+	"studio-portfolio":	    {"url":"modules/distributed-modules/bridge.html","path":"free-css/studio/index.html","page":"portfolio.html"},
+	"studio-service":	    {"url":"modules/distributed-modules/bridge.html","path":"free-css/studio/index.html","page":"service.html"},
+	"studio-team":		    {"url":"modules/distributed-modules/bridge.html","path":"free-css/studio/index.html","page":"team.html"},
+
+	"lab-study":	   		{"url":"modules/modules/others/lab-study.html","name_for_search":"Lab study"},
+	"windfarm-home":		{"url":"modules/others/windfarm-home.html","name_for_search":"Windfarm home"},
+	"one-thing":			{"url":"modules/others/one-thing.html","name_for_search":"One thing"},
+	"services":	    		{"url":"modules/others/services.html","name_for_search":"Services"},
+	"portfolio":			{"url":"modules/others/portfolio.html","name_for_search":"Portfolio"},
+	"sfix-registration":	{"url":"modules/others/sfix-registration.html","name_for_search":"Sfix registration"},
+	"team":	  				{"url":"modules/others/team.html","name_for_search":"Team"},
+	"medical-services":	  	{"url":"modules/others/medical-services.html","name_for_search":"Medical services"},
+	"contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/others/contact-us.html","name_for_search":"Contact us"}
+}}
