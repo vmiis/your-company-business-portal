@@ -1,0 +1,84 @@
+<section>
+	<div id=toolbar__ID class="navbar navbar-default">
+            <div id=row_1__ID class="col-sm col-lg-3">
+                Year: <select id=yy__ID type=text style="width: auto; display:inline-block;" class="form-control"/>
+                Quarter: <select id=qq__ID type=text style="width: auto; display:inline-block;" class="form-control"/>
+            </div>
+	    	<div id=row_2__ID class="col-sm col-lg-3">
+		        	<button id=new__ID  type=button class='btn btn-secondary' ><i class="fa fa-plus" title='New'></i></button>
+		        	<button id=save__ID type=button class='btn btn-secondary'><i class="fa fa-upload" title='Save'></i></button>
+                    <input placeholder='name' id=name__ID type=text style="width: 150px; display:inline-block;" class="form-control" />
+
+                    <button id=query__ID type=button class="btn btn-secondary"><i class="fa fa-search" title='Search'></i></button>
+	    	</div>
+	    	<div class="col-sm col-lg-3">
+		            Page Size:
+		            <select id=page_size__ID class="form-control" style='margin-right:20px;display:inline-block;width:auto;'><option>30</option><option>50</option><option>100</option><option>200</option></select>
+		            <span id=I__ID style="display:none">0</span><span id=A__ID></span>
+		            <button id=p__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-left"></i></button>
+		            <button id=n__ID type=button class="btn btn-secondary"><i class="fa fa-arrow-right"></i></button>
+	    	</div>
+	       	<span id=elapsed__ID style='float:right'></span>
+    </div>
+    <div id=table__ID>
+        <table id=grid__ID></table>
+    </div>
+</section>
+<style>
+	#toolbar__ID{
+		background-color:#ccc;
+		padding-left:2px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 0;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+		#row_1__ID, #row_2__ID{
+			padding-bottom: 3px;
+		}
+	}
+</style>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        _json='';
+        VmInclude:__CURRENT_PATH__/bookkeeping.js
+        //-------------------------------------
+        //year dropdown
+        var $List1=$('#yy__ID');
+        var y=new Date().getFullYear();
+        for(var i=0;i<10;i++){
+            $List1.append(  $('<option></option>').val(y-i).html(y-i)  );
+        }
+        $List1.val(y);
+        //-------------------------------------
+        //quater dropdown
+        var $List2=$('#qq__ID');
+        var m=new Date().getMonth()+1;
+        for(var i=0;i<4;i++){
+            $List2.append(  $('<option></option>').val(i+1).html(i+1)  );
+        }
+        $List2.val( Math.floor((new Date().getMonth())/3) + 1);
+        //---------------------------------------------
+        _set_req=function(){
+            var y=$('#yy__ID').val(), q=$('#qq__ID').val();
+            var m=(parseInt(q)-1)*3;
+        	var t1=new Date(y,m,1,0,0,0,0);
+            var t2=new Date(y,m+3,1,0,0,0,0);
+            var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by DT1 DESC) from [TABLE-"+_db_pid+"] where DT1>=@T1 and DT1<=@T2 and S1 like '%'+@S1+'%')";
+            sql+="select Information,ID,UID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7 order by RowNum";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"] where DT1>=@T1 and DT1<@T2 and S1 like '%'+@S1+'%'";
+            _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:$('#name__ID').val(),t1:t1,t2:t2,I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

@@ -3,10 +3,11 @@ $vm.module_links=[
     "index.json",
     "fm|apps/a-basic-application-framework/index.json",
     "aj|apps/angularjs/index.json",
+    "bf|apps/basic-form-fields/index.json",
+
     "rc|apps/reporting-central/pages/index.json",
     "dm|apps/distributed-modules/pages/index.json",
     "ft|apps/fitness/pages/index.json",
-    "bf|apps/basic-form-fields/pages/index.json",
     "cb|apps/car-booking/pages/index.json",
     "vb|apps/clinical-trials-participant-visit-booking/pages/index.json",
     "dc|apps/document-collaboration-tracking/pages/index.json",

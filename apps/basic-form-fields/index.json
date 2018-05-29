@@ -1,9 +1,25 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "checkbox-data":      {"table_id":"20008498",  "url":"modules/checkbox-data.html","form_module":"checkbox-form","name_for_search":"Checkbox data"},
+        "checkbox-form":      {"table_id":"20008498",  "url":"modules/checkbox-form.html","name_for_search":"Checkbox form"},
+        "caculation-data":    {"table_id":"20008496",  "url":"modules/caculation-data.html","form_module":"caculation-form","name_for_search":"Caculation data"},
+        "caculation-form":    {"table_id":"20008496",  "url":"modules/caculation-form.html","name_for_search":"Caculation form"},
+        "postcode-data":  	  {"table_id":"20008494",  "url":"modules/postcode-data.html","form_module":"postcode-form","name_for_search":"Postcode data"},
+        "postcode-form":  	  {"table_id":"20008494",  "url":"modules/postcode-form.html","name_for_search":"Postcode form"},
+        "autocomplete-data":  {"table_id":"20008495",  "url":"modules/autocomplete-data.html","form_module":"autocomplete-form","name_for_search":"Autocomplete data"},
+        "autocomplete-form":  {"table_id":"20008495",  "url":"modules/autocomplete-form.html","name_for_search":"Autocomplete form"},
+        "image-data":  	  	  {"table_id":"20008501",  "url":"modules/image-data.html","form_module":"image-form","name_for_search":"Image data"},
+        "image-form":  	  	  {"table_id":"20008501",  "url":"modules/image-form.html","name_for_search":"Image form"},
+        "file-data":  	  	  {"table_id":"20008500",  "url":"modules/file-data.html","form_module":"file-form","name_for_search":"File data"},
+        "file-form":  	  	  {"table_id":"20008500",  "url":"modules/file-form.html","name_for_search":"File form"},
+        "date-data":  	  	  {"table_id":"20008491",  "url":"modules/date-data.html","form_module":"date-form","name_for_search":"Date data"},
+        "date-form":  	  	  {"table_id":"20008491",  "url":"modules/date-form.html","name_for_search":"Date form"},
+        "color-data":  	  	  {"table_id":"20008493",  "url":"modules/color-data.html","form_module":"color-form","name_for_search":"Color data"},
+        "color-form":  	  	  {"table_id":"20008493",  "url":"modules/color-form.html","name_for_search":"Color form"},
+        "radio-data":  		  {"table_id":"20008499",  "url":"modules/radio-data.html","form_module":"radio-form","name_for_search":"Radio data"},
+        "radio-form":  		  {"table_id":"20008499",  "url":"modules/radio-form.html","name_for_search":"Radio form"},
+        "select-data": 		  {"table_id":"20008497",  "url":"modules/select-data.html","form_module":"select-form","name_for_search":"Select data"},
+        "select-form": 		  {"table_id":"20008497",  "url":"modules/select-form.html","name_for_search":"Select form"}
 	}
 }
