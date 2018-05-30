@@ -1,7 +1,7 @@
+//------------------------------------
 $vm.module_links=[
     "index.json"
 ];
-//------------------------------------
 $vm.module_list={
     "Home":     {"url":"modules/home.html"}
 }
@@ -33,7 +33,7 @@ function vm_init(callback){
     var lastChar=path[path.length-1];
     if(lastChar=='/') path=path.substring(0,path.length-1);
     $vm.hosting_path=path;
-    //if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.debug =true;
+    if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
     //--------------------------------------------------------
     $vm.reload='';
     if(window.location.toString().indexOf('_d=3')!=-1){
@@ -88,8 +88,8 @@ function vm_init(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null){
-            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading '+url+'?_='+$vm.ver[1]);
+        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
+            console.log('loading from url. '+url)
             $.get(url+'?_='+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
                 localStorage.setItem(url+"_ver",$vm.ver[1]);
@@ -97,7 +97,10 @@ function vm_init(callback){
                 next();
             },'text');
         }
-        else{ $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next(); }
+        else{
+            console.log('loading from stotage. '+url)
+            $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next();
+        }
         //------------------------------------------
     }
     //--------------------------------------------------------
@@ -171,6 +174,9 @@ vm_init(function(){
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
 
+      "https://unpkg.com/react@16/umd/react.production.min.js",
+      "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
@@ -318,6 +324,7 @@ vm_init(function(){
                 for (var k in modules){
                     modules[k].url=path+modules[k].url;
                     $vm.module_list[prefix+k]=modules[k];
+                    $vm.module_list[prefix+k].prefix=prefix;
                     var snm=modules[k]['name_for_search'];
                     if(snm!=""){
                         if(snm==undefined) snm=prefix+k;

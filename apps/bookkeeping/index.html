@@ -12,7 +12,7 @@
             $.ajaxSetup({cache:true});
             $.get('version.html',function(v){
 				//------------------------------------------
-                console.log(v);	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.http127=1;
+				console.log(v);	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.localhost=true;
                 $vm.ver=v.trim().split(',');
                 var url=window.location.href.split('?')[0];
                 var ver_h=localStorage.getItem(url+"h_ver");
@@ -30,8 +30,8 @@
 					}
 				}
 				//------------------------------------------
-                if(ver_h!=$vm.ver[0] || txt_h===null || $vm.http127==1){
-					console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading layout.html?_='+$vm.ver[0]);
+				if(ver_h!=$vm.ver[0] || txt_h===null || $vm.localhost==true){
+					console.log('loading from url. layout.html');
 					$.get('layout.html?_='+$vm.ver[0],function(new_txt){
 						new_txt_h=new_txt;
 						localStorage.setItem(url+"h_txt",new_txt_h);
@@ -40,11 +40,12 @@
 					},'text');
 				}
 				else{
+					console.log('loading from storage. layout.html');
 					new_txt_h=txt_h;
 					process();
 				}
-				if(ver_j!=$vm.ver[0] || txt_j===null || $vm.http127==1){
-					console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading index.js?_='+$vm.ver[0]);
+				if(ver_j!=$vm.ver[0] || txt_j===null || $vm.localhost==true){
+					console.log('loading from url. index.js');
 					$.get('index.js?_='+$vm.ver[0]+$vm.reload,function(new_txt){
 						new_txt_j=new_txt;
 						localStorage.setItem(url+"j_txt",new_txt_j);
@@ -53,6 +54,7 @@
 					},'text');
 				}
 				else{
+					console.log('loading from storage. layout.html');
 					new_txt_j=txt_j;
 					process();
 				}

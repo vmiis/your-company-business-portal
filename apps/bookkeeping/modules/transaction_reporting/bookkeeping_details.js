@@ -1,8 +1,9 @@
 var fields="Date,Name,Description,Transaction Type|I2_IE,Tax|I2_Tax_Rate,Item of Tax Return|I2_Tax_Return,Accounting Code|I2_Accounting_Code,Amount";
 _fields="_Form,"+fields;
 //-------------------------------------
-//var prefix=_mlist[$vm.vm['__ID'].name].prefix;
-var predefined_transaction_item_tid=_mlist['predefined_transaction_item'].table_id;
+var this_module=$vm.module_list[$vm.vm['__ID'].name];
+var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+var predefined_transaction_item_tid=_mlist[prefix+'predefined_transaction_item'].table_id;
 //-------------------------------------
 $('#name__ID').autocomplete({
     minLength:0,

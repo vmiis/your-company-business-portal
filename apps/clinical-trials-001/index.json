@@ -1,11 +1,54 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	    {"url":"panels/home.html","modules":[]},
-		"pages":	{"url":"","modules":["pages|index.json"]},
-		"main":		{"url":"panels/main.html",	"modules":[],"prefix":"pages"},
-		"child":	{"url":"panels/child.html",	"modules":[],"prefix":"pages"}
+    "modules":
+	{
+        "main":	  	{"url":"modules/panels/main.html"},
+        "child":	{"url":"modules/panels/child.html"},
+
+        "participant-data":	  	{"table_id":"20005031","url":"modules/participant-and-others/participant-data.html","form_module":"participant-form","login_setup":"20005034"},
+		"participant-form":	  	{"table_id":"20005031","url":"modules/participant-and-others/participant-form.html","login_setup":"20005034"},
+		"login-setup":	  		{"table_id":"20005034","url":"modules/participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
+		"edc-notes-data":	  	{"table_id":"20005033","url":"modules/participant-and-others/edc-notes-data.html","form_module":"edc-notes-form", "name_for_search":"EDC notes"},
+		"edc-notes-form":	  	{"table_id":"20005033","url":"modules/participant-and-others/edc-notes-form.html"},
+
+		"s-consent-data":  {"table_id":"20008387","url":"modules/tasks/consent-data.html","form_module":"s-consent-form","name_for_search":"Screening - consent - data"},
+		"s-consent-form":  {"table_id":"20008387","url":"modules/tasks/consent-form.html","name_for_search":"Screening - consent"},
+
+        "s-ess-data":  {"table_id":"20008395","url":"modules/tasks/epworth-sleepiness-scale-data.html","form_module":"s-ess-form","name_for_search":"Screening - epworth sleepiness scale"},
+		"s-ess-form":  {"table_id":"20008395","url":"modules/tasks/epworth-sleepiness-scale-form.html"},
+
+        "s-psqi-data":  {"table_id":"20008396","url":"modules/tasks/pittsburgh-sleep-quality-index-data.html","form_module":"s-psqi-form","name_for_search":"Screening - pittsburgh sleep quality index"},
+		"s-psqi-form":  {"table_id":"20008396","url":"modules/tasks/pittsburgh-sleep-quality-index-form.html"},
+
+        "s-dass21-data":	{"table_id":"20008397","url":"modules/tasks/depression-anxiety-stress-scales-data.html","form_module":"s-dass21-form","name_for_search":"Depression anxiety stress scales"},
+        "s-dass21-form":	{"table_id":"20008397","url":"modules/tasks/depression-anxiety-stress-scales-form.html"},
+
+		"s-ffs-data":       {"table_id":"20008398","url":"modules/tasks/flinders-fatigue-scale-data.html","form_module":"s-ffs-form","name_for_search":"Flinders Fatigue Scale data"},
+		"s-ffs-form":       {"table_id":"20008398","url":"modules/tasks/flinders-fatigue-scale-form.html","name_for_search":"Flinders fatigue scale"},
+
+		"s-fss-data":	  	{"table_id":"20008399","url":"modules/tasks/fatigue-severity-scale-data.html","form_module":"s-fss-form","name_for_search":"Fatigue severity scale data"},
+		"s-fss-form":	  	{"table_id":"20008399","url":"modules/tasks/fatigue-severity-scale-form.html","name_for_search":"Fatigue severity scale"},
+
+		"s-isi-data":         {"table_id":"20011372","url":"modules/tasks/insomnia-severity-index-data.html","form_module":"s-isi-form","name_for_search":"Insomnia Severity Index data"},
+		"s-isi-form":         {"table_id":"20011372","url":"modules/tasks/insomnia-severity-index-form.html","name_for_search":"Insomnia Severity Index form"},
+
+		"v1-visit-date-data":  {"table_id":"20008394","url":"modules/tasks/date-of-visit-data.html","form_module":"v1-visit-date-form","name_for_search":"Visit 1 - data of visit"},
+		"v1-visit-date-form":  {"table_id":"20008394","url":"modules/tasks/date-of-visit-form.html"},
+
+        "quest_list":{
+            "list":{
+                "Screening":{
+					"s-consent-form":  	{"table_id":"20008387","url":"modules/tasks/consent-form.html","name_for_search":"Screening - consent"},
+                    "s-ess-form":   	{"table_id":"20008395","url":"modules/tasks/epworth-sleepiness-scale-form.html","name_for_search":"Screening - Epworth Sleepiness Scale"},
+                    "s-psqi-form":  	{"table_id":"20008396","url":"modules/tasks/pittsburgh-sleep-quality-index-form.html","name_for_search":"Screening - pittsburgh sleep quality index"},
+                    "s-dass21-form":	{"table_id":"20008397","url":"modules/tasks/depression-anxiety-stress-scales-form.html","name_for_search":"Screening - Depression anxiety stress scales"},
+					"s-ffs-form":   	{"table_id":"20008398","url":"modules/tasks/flinders-fatigue-scale-form.html","name_for_search":"Screening - Flinders fatigue scale"},
+					"s-fss-form": 		{"table_id":"20008399","url":"modules/tasks/fatigue-severity-scale-form.html","name_for_search":"Screening - Fatigue severity scale"},
+					"isi-form":         {"table_id":"20011372","url":"modules/tasks/insomnia-severity-index-form.html","name_for_search":"Insomnia Severity Index"}
+    			},
+    			"Visit 1":{
+                    "v1-visit_date-form":   {"table_id":"20008394","url":"modules/tasks/date-of-visit-form.html","name_for_search":"Visit 1 - data of visit"}
+    			}
+            }
+		}
 	}
 }

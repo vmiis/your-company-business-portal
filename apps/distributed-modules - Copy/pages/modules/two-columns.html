@@ -1,0 +1,44 @@
+<div id=page__ID>
+</div>
+<script>
+	function F__ID(){
+        //--------------------------------------------------------
+        var url="https://codepen.io/vmiis/pen/YLgvxg.html";
+        //--------------------------------------------------------
+        var custom_parser=function(txt,url){
+            return txt;
+        }
+        //--------------------------------------------------------
+        var allowed_tags=['div','form','input','img','name','span','h1','h2','h3','h4','p','hr','i','button','a','b','ul','li','br'];
+        var allowed_attrs=['class','type','value','style','id','src','href','target'];
+        var allowed_css=['position',
+            'padding','padding-top','padding-bottom','padding-left','padding-right',
+            'margin','margin-top','margin-bottom','margin-left','margin-right',
+            'max-width','width','height','font-weight','font-size'
+        ];
+        //--------------------------------------------------------
+        $vm.load_module_content(url,function(txt){
+            //--------------------------------------------------------
+            var find = '__'+'ID';
+            var re=new RegExp(find, 'g');
+            txt=txt.replace(re, '__ID');
+            //--------------------------------------------------------
+            txt=custom_parser(txt,url);
+            txt=$vm.content_filter(txt,allowed_tags,allowed_attrs,allowed_css);
+            $('#page__ID').html(txt);
+        });
+        //--------------------------------------------------------
+	}
+
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+        background: rgba(255, 255, 255, 1);
+	}
+	#page__ID{
+		height:100%;
+	}
+</style>

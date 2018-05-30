@@ -1,10 +1,11 @@
 var fields="Record_ID,Date,Name,Description,Amount,Additional_Info,Notes,Link,Document";
 _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
 //-------------------------------------
-var predefined_transaction_item_tid=_mlist['predefined_transaction_item'].table_id;
-//-------------------------------------
 var this_module=$vm.module_list[$vm.vm['__ID'].name];
-var form_module=this_module.form_module;
+var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+var predefined_transaction_item_tid=_mlist[prefix+'predefined_transaction_item'].table_id;
+var form_module=prefix+this_module.form_module;
+//-------------------------------------
 $('#new__ID').off('click').on('click',function(){$vm.load_module_v2(form_module,'',{goback:1})})
 //-------------------------------------
 $('#name__ID').autocomplete({

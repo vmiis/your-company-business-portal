@@ -1,0 +1,118 @@
+<div id=page__ID>
+	<h3>Distributed Modules</h3>
+    <br>
+	<section id=panel__ID>
+		<div class='nav__ID'>
+			<ul>
+				<li><u m2=contact-us-data table_id=20011502 url=https://codepen.io/vmiis/pen/MGNWZE.html form_module=contact-us-form><span class=li__ID>Contact us (data)</span></u>https://codepen.io/vmiis/pen/MGNWZE.html</li>
+				<li><u m2=contact-us-form table_id=20011502 url=https://codepen.io/vmiis/pen/WJVNmR.html><span class=li__ID>Contact us (form)</span></u>https://codepen.io/vmiis/pen/WJVNmR.html</li>
+				<li><u m2=images url=https://codepen.io/vmiis/pen/jxooeP.html><span class=li__ID><span class=li__ID>Images</span></u>https://codepen.io/vmiis/pen/jxooeP.html</li>
+				<li><u m2=bootstrap-4-cards-demo url=https://codepen.io/vmiis/pen/zjXqbj.html><span class=li__ID>Bootstrap 4 cards demo</span></u>https://codepen.io/vmiis/pen/zjXqbj.html</u></li>
+				<li><u m2=asthma url=https://codepen.io/vmiis/pen/gzqmGq.html><span class=li__ID>Asthma</span></u>https://codepen.io/vmiis/pen/gzqmGq.html</u></li>
+				<li><u m2=two-columns url=https://codepen.io/vmiis/pen/YLgvxg.html><span class=li__ID>Two columns</span></u>https://codepen.io/vmiis/pen/YLgvxg.html</u></li>
+				<li><u m2=indenting-featured-images url=https://codepen.io/vmiis/pen/ELJOKe.html><span class=li__ID>Indenting featured images</span></u>https://codepen.io/vmiis/pen/ELJOKe.html</u></li>
+				<li><u m2=my-first-bootstrap-page url=https://codepen.io/vmiis/pen/KRLEOQ.html><span class=li__ID>My first bootstrap page</span></u>https://codepen.io/vmiis/pen/KRLEOQ.html</u></li>
+				<li><u m2=table url=https://codepen.io/vmiis/pen/BxeEMV.html><span class=li__ID>Table</span></u>https://codepen.io/vmiis/pen/BxeEMV.html</u></li>
+			</ul>
+		</div>
+	</section>
+</div>
+<script>
+    function F__ID(){
+        //--------------------------------------------------------
+        $('#panel__ID u').on('click',function(){
+            var m=$(this).attr('m');
+            if(m!=undefined){
+                $vm.load_module_v2(m,'',{});
+            }
+			var m2=$(this).attr('m2');
+            if(m2!=undefined){
+				if($vm.module_list[m2]==undefined){
+					$vm.module_list[m2]={
+						table_id:$(this).attr('table_id'),
+						url:$(this).attr('url'),
+						form_module:$(this).attr('form_module')
+					}
+				}
+				$vm.load_module_v2(m2,'',{});
+            }
+			if( $(this).hasClass('ul__ID')  ){
+				var $i=$(this).find('i');
+				var $ul=$(this).next().next();
+				if($i.hasClass('fa-folder-open-o')){
+					$i.removeClass('fa-folder-open-o').addClass('fa-folder-o');
+					$ul.hide();
+				}
+				else if($i.hasClass('fa-folder-o')){
+					$i.removeClass('fa-folder-o').addClass('fa-folder-open-o');
+					$ul.show();
+				}
+			}
+        })
+        //--------------------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+        color:#000;
+        font-size:10pt;
+        font-family: Verdana,Helvetica,Arial,sans-serif;
+		background: rgba(255,255,255,0.85);
+        overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+        padding:10px 0 0 20px;
+    }
+    #info__ID{
+        font-size: 11px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	li::before{
+		font-size: 20px!Important;
+	}
+    .nav__ID{
+        padding:6px 26px 6px 6px;
+        color: #202727;
+        float:left;
+    }
+	/*
+    .nav__ID span{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 10px;
+    }
+	*/
+	.nav__ID u:hover{
+		color:red;
+	    cursor:pointer;
+	}
+	.app__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.ul__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.nav__ID ul{
+		margin:0 0 3px 0;
+	}
+	.nav__ID p{
+		margin:0;
+	}
+	.data__ID{
+		color:#709aab;
+	}
+    .space__ID{
+        width:34px;
+        display:inline-block;
+    }
+	.li__ID{
+		display:inline-block;
+		width:200px;
+	}
+</style>
