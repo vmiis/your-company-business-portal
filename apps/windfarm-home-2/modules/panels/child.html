@@ -1,0 +1,174 @@
+<div id=toolbar__ID class="navbar navbar-default">
+	<form class="form-inline">
+		<button type=button id=count__ID class='btn btn-secondary'>Count</button>
+		<span id=info__ID></span>
+	</form>
+	<span id=elapsed__ID style='float:right'></span>
+</div>
+<style>
+    #toolbar__ID{
+		background-color:#ccc;
+		padding-left:10px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+    #toolbar__ID .form-inline > * {
+        margin-right:5px;
+    }
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+</style>
+<section id=panel__ID>
+	VmInclude:__CURRENT_PATH__/task_links.html
+</section>
+
+<script>
+	function F__ID(){
+		//--------------------------------------------------------
+		var old_info='';
+		var record;
+		var count={}
+		//--------------------------------------------------------
+		var set_li_text=function(){
+		    $('.nav__ID li').each(function(){
+		        $(this).attr('data-li_text',$(this).text());
+		    })
+		}
+		set_li_text();
+		//---------------------------------------------
+		$('#D__ID').on('load',function(){
+			record=$vm.vm['__ID'].op.input.record;
+			var info="Screening ID:"+record.Screening_ID;
+			if(old_info!=info){
+				old_info=info;
+				set_counting();
+			}
+			$('#info__ID').text(info);
+		})
+		//--------------------------------------------------------
+		var clear_counting=function(){
+			$('.nav__ID li').each(function(){
+				var txt=$(this).attr('data-li_text');
+				if(txt!=undefined){
+					$(this).text(txt);
+				}
+		    })
+		}
+		//---------------------------------------------
+		var set_counting=function(){
+			$('.nav__ID li').each(function(){
+				var $li=$(this);
+				var m=$li.attr('module');
+				if(count[record.UID.toString()]!==undefined){
+					var num=$('<div/>').html(count[record.UID.toString()][m]).text();
+					if(num!=undefined){
+			            var txt=$('<div/>').html($li.attr('data-li_text')).text();
+			            $li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
+					}
+				}
+				else clear_counting();
+		    })
+		}
+		//---------------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+		$('#panel__ID li').on('click',function(){
+			if( $(this).hasClass( 'not_allowed__ID' )===true){
+				  alert("No permission!");
+				  return;
+			}
+			var m=$(this).attr('module');
+			if(m!=undefined){
+				if($vm.module_list[prefix+m]==undefined){
+					alert(prefix+m +" is not in the module list.");
+					return;
+				}
+				$vm.nav_load_module(prefix+m,"",{participant_uid:record.UID,participant_name:record.Screening_ID});
+			}
+		})
+		//--------------------------------------------------------
+		$('#count__ID').on('click',function(){
+			clear_counting();
+			var N=0;
+			$('#panel__ID li').each(function(){
+				var $li=$(this);
+				N++;
+				var m=$li.attr('module');
+				if(m!=undefined){
+					check_count($li,N);
+				}
+			});
+		})
+		//--------------------------------------------------------
+		var check_count=function($li,N){
+			//do not send too many requests to the server in a short period
+			setTimeout(function(){check_count_d($li)}, N*200);
+		}
+		//--------------------------------------------------------
+		var check_count_d=function($li){
+			var m=$li.attr('module');
+			if($vm.module_list[prefix+m]!=undefined){
+				var pid=$vm.module_list[prefix+m].table_id;
+				if(pid!=undefined){
+					var sql="select Num=count(ID) from [TABLE-"+pid+"] where PUID="+record.UID;
+					$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+						if(count[record.UID.toString()]==undefined) count[record.UID.toString()]={}
+						count[record.UID.toString()][m]=res.records[0].Num;
+						var txt=$li.attr('data-li_text');
+			            txt=$('<div/>').html(txt).text();
+			            var num=$('<div/>').html(count[record.UID.toString()][m]).text();
+			            $li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
+					}})
+				}
+			}
+		}
+		//--------------------------------------------------------
+	}
+</script>
+
+<style>
+	VmInclude:__COMPONENT__/navigation/navigation.css
+	#D__ID{
+		background-color:#fff;
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#panel__ID{
+		padding:20px 0 0 20px;
+	}
+	#D__ID li {
+		color:#666;
+	}
+	li::before{
+		font-size: 20px!Important;
+	}
+	#D__ID li:hover {
+		color:#fff;
+	}
+	#D__ID a {
+		text-decoration: none;
+	}
+	#D__ID a:link {
+		color:#666;
+	}
+	#D__ID a:visited {
+		color:#666;
+	}
+	#D__ID a:hover {
+		color:#fff;
+	}
+	#D__ID a:active {
+		color:#666;
+	}
+	@media screen and (max-width:768px){
+		#D__ID{
+			padding:10px 0 0 10px;
+		}
+	}
+</style>

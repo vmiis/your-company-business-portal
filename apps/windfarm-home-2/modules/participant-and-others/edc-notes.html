@@ -1,0 +1,86 @@
+<section>
+      VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        //-------------------------------------
+        var fields="Participant_ID,Participant,Task,Short_Title,Contents,Color";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        var participant_pid=$vm.module_list[$vm.vm['__ID'].name].participant;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){ _set_req();_request_data(); });
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Color':
+                    records[I].vm_custom[field]=true;
+                    td.html('<input style="border:0; width:60px" type=Color />')
+                    td.find('input').val(records[I][field])
+                    td.find('input').on('input', function(){
+                        set_value($(this).val(),records,I,field);
+                    });
+                    break;
+                case 'Participant_ID':
+				case 'Participant':
+				case 'Task':
+					records[I].vm_readonly[field]=true;
+                    break;
+            }
+        }
+        //-------------------------------------
+        _new_pre_data_process=function(){
+			var record=$vm.vm['__ID'].op.input.record;
+			_records[0].Participant_ID=record.Participant_uid;
+			_records[0].Participant=record.Participant;
+			var task_module=$vm.vm['__ID'].op.input.task_module;
+			var task_name=$vm.module_list[task_module].name_for_search;
+			_records[0].Task=task_name;
+            _records[0].Color="#008800";
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+			var input_record=$vm.vm['__ID'].op.input.record;
+			if(input_record!=undefined){
+				var task_pid=$vm.vm['__ID'].op.input.pid;
+	            var task_record_uid=input_record.UID;
+	            var task_record_pid=task_pid;
+	            if(task_record_uid!==undefined) dbv.PUID=task_record_uid;
+	            if(task_record_pid!==undefined) dbv.PPID=task_record_pid;
+	            dbv.GUID=input_record.Participant_uid;
+	            dbv.GPID=participant_pid;
+			}
+			dbv.S1=record.Short_Title;
+			dbv.S2=record.Color;
+            return true;
+        };
+        //-------------------------------------
+        _set_req=function(){
+            //-------------------
+            $('#new__ID').show();
+			var record=$vm.vm['__ID'].op.input.record;
+			var pid=$vm.vm['__ID'].op.input.pid;
+			if(record===undefined){
+				$('#new__ID').hide();
+			}
+            //-------------------
+            var sql="with tb as (select Information,ID,UID,PPID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+="select Information,ID,UID,PPID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            //-------------------
+            if(record!==undefined){
+				var sql_where=" PPID="+pid+ "and PUID="+record.UID;
+                sql=sql.replace('RowNum between @I6 and @I7',sql_where);
+                sql_n+=" where "+sql_where;
+            }
+            //-------------------
+            _req={cmd:'query_records',sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

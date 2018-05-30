@@ -1,0 +1,232 @@
+<section>
+    <div id=toolbar__ID>
+		<button id=save__ID type=button class='btn btn-secondary' >Save</button>
+        <span class=tab__ID></span><span id=name__ID></span>
+    </div>
+    <div style='padding:30px'>
+        <form id=F__ID>
+            <table id=table_form__ID style='width:600px;'>
+               <col class=colA /><col /></colgroup>
+                <tr><td colspan=2 class='header__ID'>Login Control</td></tr>
+                <tr><td>Participant</td><td><input name=Participant__ID id=Participant__ID type=text readonly></input></td></tr>
+                <tr><td>Login ID</td><td><input name=Login_ID__ID id=Login_ID__ID type=text readonly></input></td></tr>
+                <tr><td>Password</td><td><input name=Password__ID id=Password__ID type=text></input></td></tr>
+                <tr id=tr_table_grid__ID><td colspan=2><table id=table_grid__ID></table></td></tr>
+                <tr><td>Questionnaires</td><td><textarea name=List__ID id=List__ID type=text></textarea></td></tr>
+            </table>
+        </form>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //---------------------------------------------
+		var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+		var setup_pid=$vm.module_list[$vm.vm['__ID'].name].table_id;
+		var record;
+		var q_list;
+        //---------------------------------------------
+        $('#name__ID').text('Participant Login Setup');
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){
+			setup();
+		})
+		//---------------------------------------------
+		var setup=function(txt){
+			q_list=$vm.module_list[prefix+"quest_list"].list;
+			record=$vm.vm['__ID'].op.input.record;
+            $('#Login_ID__ID').val(record.UID+"-"+setup_pid);
+            $('#Participant__ID').val(record.Initials);
+            $('#Password__ID').val('');
+            load_data();
+        }
+        //-------------------------------------
+        var load_data=function(){
+            var sql="select top 1 Login_ID=@('Login_ID'),Password= @('Password'),List= @('List') from [TABLE-"+setup_pid+"] where PUID="+record.UID;
+			sql=sql.replace(/@\('/g,"JSON_VALUE(Information,'$.");
+            var req_data={ cmd:"query_records",sql:sql}
+            $VmAPI.request({data:req_data,callback:function(res){
+                if(res.records.length>0){
+                    $('#Login_ID__ID').val(res.records[0].Login_ID);
+                    $('#Password__ID').val(res.records[0].Password);
+                    $('#List__ID').val(res.records[0].List);
+                }
+                else{
+                    $('#List__ID').val('');
+                    $('#Password__ID').val($vm.vm_password(8,false));
+                }
+				set_check_list();
+            }})
+        }
+        //---------------------------------------------
+        var set_check_list=function(){
+            var tab="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            var dot='&#8226;&nbsp;';
+            var txtA="";
+            var txt="<tr><th>No.</th><th>Table ID</th><th>Task</th><th>Select</th></tr>";
+            var No=0;
+            for(visit in q_list){
+                No++;
+            	var task=visit,pid="";
+            	txt+="<tr><td>"+No+"</td><td></td><td>"+task+"</td><td><input data-visit='"+task+"' type=checkbox class=visit__ID /></td></tr>";
+                var sublist=q_list[visit];
+                for(i in sublist){
+                    No++;
+                    pid=sublist[i].table_id;
+                    task=sublist[i].task_name;
+            	    txt+="<tr><td>"+No+"</td><td>"+pid+"</td><td>"+tab+dot+task+"</td><td><input id=task"+pid+" type=checkbox /></td></tr>";
+                }
+            }
+            $('#table_grid__ID').html(txt);
+            $('#table_grid__ID th:nth-child(2)').hide();$('#table_grid__ID td:nth-child(2)').hide();
+            set_box();
+            //check and uncheck group checkbox
+            $('.visit__ID').on('click',function(){
+                var data_visit=$(this).attr('data-visit');
+                var sublistA=q_list[data_visit];
+                if( $(this).prop('checked')==true){
+                    for(k in sublistA){
+						var pid=sublistA[k].table_id;
+                        $("#task"+pid).prop('checked',true);
+                    }
+                }
+                else{
+                    for(k in sublistA){
+						var pid=sublistA[k].table_id;
+						$("#task"+pid).prop('checked',false);
+                    }
+                }
+            });
+        }
+        //---------------------------------------------
+        var set_box=function(){
+        	var list_val=$('#List__ID').val();
+        	var lines=list_val.split(',');
+        	for(var i=0;i<lines.length;i++){
+        		var L=lines[i].length;
+        		if(L>1){
+        			var key=lines[i];
+        			set_check(key);
+        		}
+        	}
+        }
+        //---------------------------------------------
+        var set_check=function(key){
+    		$('#table_grid__ID tr').each(function(index){
+    			if(index>0){
+    				var k=$(this).children('td').eq(1).html().trim();
+    				if(k==key){
+    					$(this).children('td').eq(3).find(">:first-child").attr('checked','checked');
+    				}
+    			}
+    		})
+    	}
+    	//---------------------------------------------
+    	var set_list=function(){
+    		var txt="";
+    		$('#table_grid__ID tr').each(function(index){
+    			if(index>0){
+    				var key=$(this).children('td').eq(1).html();
+    				if(key!==""){
+        				var ro=$(this).children('td').eq(3).find(">:first-child").prop('checked');
+        				if(ro===true){
+        					if(txt!='') txt+=",";
+        					txt+=key.trim();
+        				}
+        			}
+    			}
+    		});
+    		$('#List__ID').val(txt);
+    	}
+    	//---------------------------------------------
+        $('#save__ID').on('click', function(){
+            set_list();
+            var row_data={Login_ID:$('#Login_ID__ID').val(), Password:$('#Password__ID').val(),List:$('#List__ID').val()}
+            var dbv={PUID:record.UID,S1:$('#Participant__ID').val(),S2:$('#Login_ID__ID').val(),S3:$('#Password__ID').val()}
+            var sql="select top 1 ID from [TABLE-"+setup_pid+"] where PUID="+record.UID;
+            var req_data={ cmd:"query_records", sql:sql}
+            $VmAPI.request({data:req_data,callback:function(res){
+                if(res.records.length>0){
+                    var rid=res.records[0].ID;
+                    modify_record(row_data,dbv,rid);
+                }
+                else{
+                    add_record(row_data,dbv);
+                }
+            }})
+        })
+        //---------------------------------------------
+        var add_record=function(row_data,dbv){
+            var req={cmd:"add_json_record",db_pid:setup_pid.toString(),data:row_data,dbv:dbv};
+            $VmAPI.request({data:req,callback:function(res){
+				window.history.go(-1);
+            }});
+        }
+        //---------------------------------------------
+        var modify_record=function(row_data,dbv,rid){
+            var req={cmd:"modify_json_record",rid:rid,db_pid:setup_pid.toString(),data:row_data,dbv:dbv};
+            $VmAPI.request({data:req,callback:function(res){
+				window.history.go(-1);
+            }});
+        }
+        //---------------------------------------------
+    }
+</script>
+<style>
+	#toolbar__ID{
+		background-color:#ccc;
+		padding:5px 0 5px 10px;
+		overflow:hidden'
+	}
+	#D__ID{
+		background-color:#fff;
+		height:100%;
+		overflow: auto;
+	}
+	#tb__ID{
+		/*min-width:100px;*/
+		border-collapse: collapse;
+		font-size: 13px;
+		font-family: Helvetica, Arial, sans-serif;
+	}
+	#tb__ID td{
+		border:1px solid #bbb;
+		padding:6px;
+		white-space: pre;
+	}
+	#title__ID{
+		font-weight:700;
+	}
+	@media print {
+		body * {
+			visibility: hidden;
+		}
+		#tb__ID, #tb__ID * {
+			visibility: visible;
+		}
+		#tb__ID {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+	.tab__ID{
+		width:30px;
+		display:inline-block;
+	}
+	#table_form__ID {width:100%;font-size:9pt; font-family:Verdana; margin:0px; border: 3px #B8BDBF solid; border-spacing:0; border-collapse: collapse; table-layout: automatic;}
+	#table_form__ID td{ border: 1px #B8BDBF solid; color: #333333; border-collapse: collapse; text-align: left; padding: 1px;padding-right:4px; vertical-align:top;}
+	#table_form__ID td:first-child{padding:3px;}
+	#table_form__ID input,textarea, select{ font-size:9pt!Important; font-family:Verdana!Important;}
+	#table_form__ID input[type=text],textarea{ margin:1px;padding:1px; border-style:inset; border-width:0px; width:100%;overflow:hidden;}
+	#table_fomn__ID input[type=checkbox]{margin:3px!Important;}
+	#table_form__ID textarea{height:36px;}
+	#table_form__ID td:first-child{padding-left:5px;}
+	#table_form__ID td:nth-child(2){vertical-align:middle;}
+
+	#table_grid__ID{	width:100%; border: 1px #aaaaaa solid; font-size:9pt; font-family:Verdana; border-spacing: 0px;border-collapse: collapse;}
+	#table_grid__ID th{ border: 1px solid #ddd; padding:2px; margin:1px; text-align:left; background-color:#eee;/*#9ab6da;*/ white-space: nowrap;}
+	#table_grid__ID td{ border: 1px solid #ddd; padding:2px; margin:0px; }
+	#table_grid__ID tr:hover {background-color: #ddd;}
+
+	.header__ID {background-color:#B8BDBF;color:#000;text-align:center!Important;font-size:22px;padding:12px!Important;}
+</style>

@@ -1,0 +1,187 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        var _task_fields="Matted Romberg|Romberg,Unterberger,Tandem Walking|Tandem,examcomments,"
+        _task_fields+="SponVNG Vision Denied|Spon_VNG,SponVNG Description|Nystag_description,Right Gaze (VD)|R_Gaze_VNG,RG Nystag Description|Nystag_description_RG,Left Gaze (VD)|L_Gaze_VNG,LG Nystag Description|Nystag_description_LG,Headshake VNG|Headshake_VNG,HS Nystag Description|Nystag_description_HS,L_DixHallPike,Nystag_description_LDHP,R_Dixhallpike,Nystag_description_RDHP,Supine VNG|Supine,Nystag_description_Supine,L_Head_Roll,Left Head Roll Nystag Description|Nystag_description_LHR,R_Head_Roll,Right Head Roll Nystag Description|Nystag_description_RHR,"
+        _task_fields+="R_Otoscopy,L_Otoscopy,Otocomment,R_Static_compliance,L_Static_compliance,R_Middle_ear_presssure,L_Middle_ear_presssure,R_Ear_Canal_Volume,L_Ear_Canal_Pressure,Tympanometry Comments|Tympcomment,"
+        _task_fields+="MaskedAC250,R_PTA_AC250Hz,L_PTA_AC250Hz,MaskedAC500,R_PTA_AC500Hz,L_PTA_AC500Hz,MaskedAC1000,R_PTA_AC1000Hz,L_PTA_AC1000Hz,MaskedAC1500,R_PTA_AC1500Hz,L_PTA_AC1500Hz,MaskedAC2000,R_PTA_AC2000Hz,L_PTA_AC2000Hz,MaskedAC3000,R_PTA_AC3000Hz,L_PTA_AC3000Hz,MaskedAC4000,R_PTA_AC4000Hz,L_PTA_AC4000Hz,MaskedAC6000,R_PTA_AC6000Hz,L_PTA_AC6000Hz,MaskedAC8000,R_PTA_AC8000Hz,L_PTA_AC8000Hz,ACPTACOMMENT,"
+        _task_fields+="MaskedBC500,R_PTA_BC500Hz,L_PTA_BC500Hz,MaskedBC1000,R_PTA_BC1000Hz,L_PTA_BC1000Hz,MaskedBC1500,R_PTA_BC1500Hz,L_PTA_BC1500Hz,MaskedBC2000,R_PTA_BC2000Hz,L_PTA_BC2000Hz,MaskedBC3000,R_PTA_BC3000Hz,L_PTA_BC3000Hz,MaskedBC4000,R_PTA_BC4000Hz,L_PTA_BC4000Hz,BCPTACOMMENT,"
+        _task_fields+="R_TEOAE_1000Hz,RSNR_TEOAE_1000Hz,L_TEOAE_1000Hz,LSNR_TEOAE_1000Hz,R_TEOAE_1400Hz,RSNR_TEOAE_1400Hz,L_TEOAE_1400Hz,LSNR_TEOAE_1400Hz,R_TEOAE_2000Hz,RSNR_TEOAE_2000Hz,L_TEOAE_2000Hz,LSNR_TEOAE_2000Hz,R_TEOAE_2800Hz,RSNR_TEOAE_2800Hz,L_TEOAE_2800Hz,LSNR_TEOAE_2800Hz,R_TEOAE_4000Hz,RSNR_TEOAE_4000Hz,L_TEOAE_4000Hz,LSNR_TEOAE_4000Hz,TEOAECOMMENT,"
+        _task_fields+="R_DPOAE_500Hz,RSNR_DPOAE_500Hz,L_DPOAE_500Hz,LSNR_DPOAE_500Hz,R_DPOAE_1000Hz,RSNR_DPOAE_1000Hz,L_DPOAE_1000Hz,LSNR_DPOAE_1000Hz,R_DPOAE_2000Hz,R_DPOAE_2000Hz,L_DPOAE_2000Hz,LSNR_DPOAE_2000Hz,R_DPOAE_3000Hz,RSNR_DPOAE_3000Hz,L_DPOAE_3000Hz,LSNR_DPOAE_3000Hz,R_DPOAE_4000Hz,RSNR_DPOAE_4000Hz,L_DPOAE_4000Hz,LSNR_DPOAE_4000Hz,R_DPOAE_6000Hz,RSNR_DPOAE_6000Hz,L_DPOAE_6000Hz,LSNR_DPOAE_6000Hz,DPOAECOMMENT,"
+        _task_fields+="R_pp_BCoVEMP,R_NLatency_BCoVEMP,R_PLatency_oVEMP,R_pp_ACoVEMP,R_NLatency_ACoVEMP,L_pp_BCoVEMP,L_NLatency_BCoVEMP,L_PLatency_oVEMP,L_pp_ACoVEMP,L_NLatency_ACoVEMP,BCOVEMP_AR,ACOVEMP_AR,BCOARVEMPCOMMENT,"
+        _task_fields+="R_Corrected_ACCVEMP,R_PLatency_ACCVEMP,R_NLatency_ACCVEMP,R_MRE_ACCVEMP,R_Corrected_BCCVEMP,R_PLatency_BCCVEMP,R_NLatency_BCCVEMP,R_MRE_BCCVEMP,L_Corrected_ACVEMP,L_PLatency_ACcVEMP,L_NLatency_ACcVEMP,L_MRE_ACcVEMP,L_Corrected_BCCVEMP,L_PLatency_BCCVEMP,L_NLatency_BCCVEMP,L_MRE_BCCVEMP,BCCVEMP_AR,ACCVEMP_AR,BCOARVEMPCOMMENT,"
+        _task_fields+="L_VHIT_RIGHTGAIN,L_VHIT_RIGHTGAIN_SACCADES,L_VHIT_LEFTGAIN,L_VHIT_LEFTGAIN_SACCADES,A_VHIT_RIGHTGAIN,R_VHIT_RIGHTGAIN_SACCADES,A_VHIT_LEFTGAIN,R_VHIT_LEFTGAIN_SACCADES,P_VHIT_RIGHTGAIN,P_VHIT_RIGHTGAIN_SACCADES,P_VHIT_LEFTGAIN,P_VHIT_LEFTGAIN_SACCADES,VHITCOMMENT,OverallComment"
+
+
+        _fields="_Form|form_module,Status|S2,Notes|NT,Participant," +_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Romberg':
+                  var html="<select style='border:0;''>\
+                          <option >Positive</option>\
+                          <option >Negative</option>\
+                          <select>\
+                  ";
+                  VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;
+
+                /*case 'Unterberger':
+
+                    var html="<select style='border:0;''>\
+                            <option value=1>Mild</option>\
+                            <option value=2>Moderate</option>\
+                            <option value=3>Severe</option>\
+                        </select>\
+                    ";
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;*/
+
+                case 'Tandem':
+                    var html="<select style='border:0;''>\
+                            <option value=1>Normal</option>\
+                            <option value=2>Abnormal</option>\
+                        </select>\
+                    ";
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;
+
+                case 'Unterberger':
+
+                break;
+
+              /*  case 'Spon_VNG':
+                case 'R_Gaze_VNG':
+                case 'L_Gaze_VNG':
+                case 'Headshake_VNG':
+                case 'L_DixHallPike':
+                case 'R_Dixhallpike':
+                case 'Supine':
+                case 'L_Head_Roll':
+                case 'R_Head_Roll':
+                    var html="<select style='border:0'>\
+                            <option value=1>Nil</option>\
+                            <option value=2>N/A</option>\
+                            <option value=3>Right Beating</option>\
+                            <option value=4>Left Beating</option>\
+                            <option value=5>Up Beating</option>\
+                            <option value=6>Down Beating</option>\
+                            <option value=7>Right and up Beating</option>\
+                            <option value=8>Left and Up Beating</option>\
+                            <option value=9>Right and Down Beating</option>\
+                            <option value=10>Left and Down Beating</option>\
+                        </select>\
+                    ";
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;
+
+            case 'Nystag_description':
+            case 'Nystag_description_RG':
+            case 'Nystag_description_LG':
+            case 'Nystag_description_HS':
+            case 'Nystag_description_LDHP':
+            case 'Nystag_description_RDHP':
+            case 'Nystag_description_Supine':
+            case 'Nystag_description_LHR':
+            case 'Nystag_description_RHR':
+
+                    var html="<select style='border:0;''>\
+                            <option value=1>Persistent</option>\
+                            <option value=2>Paroxysmal</option>\
+                        </select>\
+                    ";*/
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;
+
+            case 'R_Otoscopy':
+            case 'L_Otoscopy':
+            var html="<select style='border:0;''>\
+                    <option value=1>NAD</option>\
+                    <option value=2>Wax Occlusion</option>\
+                    <option value=3>Non-Occluding Wax</option>\
+                    <option value=4>Middle Ear Pathology</option>\
+                </select>\
+            ";
+            VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+        break;
+
+
+                var html="<select style='border:0;''>\
+                        <option value=1>Present</option>\
+                        <option value=2>Not Present</option>\
+                    </select>\
+                ";
+                VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+            break;
+
+            case 'MaskedAC250':
+            case 'MaskedAC500':
+            case 'MaskedAC1000':
+            case 'MaskedAC1500':
+            case 'MaskedAC2000':
+            case 'MaskedAC3000':
+            case 'MaskedAC4000':
+            case 'MaskedAC6000':
+            case 'MaskedAC8000':
+            case 'MaskedBC500':
+            case 'MaskedBC1000':
+            case 'MaskedBC1500':
+            case 'MaskedBC2000':
+            case 'MaskedBC3000':
+            case 'MaskedBC4000':
+            case 'BCOVEMPRIGHTDELAY':
+            case 'BCOVEMPLEFTDELAY':
+            case 'ACOVEMPRIGHTDELAY':
+            case 'ACOVEMPLEFTDELAY':
+            case 'ACCVEMPRIGHTDELAY':
+            case 'ACCVEMPLEFTDELAY':
+            case 'BCCVEMPRIGHTDELAY':
+            case 'BCCVEMPLEFTDELAY':
+            case 'L_VHIT_RIGHTGAIN_SACCADES':
+            case 'L_VHIT_LEFTGAIN_SACCADES':
+            case 'R_VHIT_RIGHTGAIN_SACCADES':
+            case 'R_VHIT_LEFTGAIN_SACCADES':
+            case 'P_VHIT_RIGHTGAIN_SACCADES':
+            case 'P_VHIT_LEFTGAIN_SACCADES':
+          
+
+
+
+                td.html('<input type=checkbox />');
+                        VmInclude:__BASE__/vmiis/Common-Code/grid/field_checkbox.js
+                    break;
+
+
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+
+<style>
+VmInclude:__COMPONENT__/grid/grid.v3.css
+ul.ui-autocomplete.ui-menu{font-size:12px}
+.ui-autocomplete li:hover{
+    color:White;
+    background:#96B202;
+    font-weight:normal;
+    outline:none;
+}
+</style>

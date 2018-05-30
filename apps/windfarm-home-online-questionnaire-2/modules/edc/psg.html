@@ -1,0 +1,391 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="PSG_File_Name,DOB,Study_Date,Study_Start_Time,Study_End_Time,Time_in_Bed_min,Sleep_Latency_min,REM_Latency_min,Sleep_Efficiency_Percent,Total_Time_Awake_During_Sleep_Period_min,Total_Sleep_Time_min,NREM_min,NREM_Percent,REM_min,REM_Percent,Stage_1_min,Stage_1_Percent,Stage_2_min,Stage_2_Percent,Stage_3_min,Stage_3_Percent,Stage_4_min,Stage_4_Percent,Total_Arousal_Count_TST,Total_Arousal_Count_REM,Total_Arousal_Count_NREM,Total_Arousals_Index_TST,Total_Arousals_Index_REM,Total_Arousals_Index_NREM,Respiratory_Arousal_Count_TST,Respiratory_Arousal_Count_REM,Respiratory_Arousal_Count_NREM,Respiratory_Arousals_Index_TST,Respiratory_Arousals_Index_REM,Respiratory_Arousals_Index_NREM,Spontaneous_Arousal_Count_TST,Spontaneous_Arousal_Count_REM,Spontaneous_Arousal_Count_NREM,Spontaneous_Arousals_Index_TST,Spontaneous_Arousals_Index_REM,Spontaneous_Arousals_Index_NREM,Limb_Movement_Arousal_Count_TST,Limb_Movement_Arousal_Count_REM,Limb_Movement_Arousal_Count_NREM,Limb_Movement_Arousals_Index_TST,Limb_Movement_Arousals_Index_REM,Limb_Movement_Arousals_Index_NREM,Total_Apnea_Count_TST,Total_Apnea_Count_REM,Total_Apnea_Count_NREM,Total_Apnea_Index_TST,Total_Apnea_Index_REM,Total_Apnea_Index_NREM,Mean_Apnea_Duration_TST,Max_Apnea_Duration_TST,Central_Apnea_Count_TST,Central_Apnea_Count_REM,Central_Apnea_Count_NREM,Central_Apnea_Count_Supine,Central_Apnea_Count_Prone,Central_Apnea_Count_Left_Side,Central_Apnea_Count_Right_Side,Central_Apnea_Index_TST,Central_Apnea_Index_REM,Central_Apnea_Index_NREM,Central_Apnea_Index_Supine,Central_Apnea_Index_Prone,Central_Apnea_Index_Left_Side,Central_Apnea_Index_Right_Side,Mean_Central_Apnea_Duration_TST,Max_Central_Apnea_Duration_TST,Obstructive_Apnea_Count_TST,Obstructive_Apnea_Count_REM,Obstructive_Apnea_Count_NREM,Obstructive_Apnea_Count_Supine,Obstructive_Apnea_Count_Prone,Obstructive_Apnea_Count_Left_Side,Obstructive_Apnea_Count_Right_Side,Obstructive_Apnea_Index_TST,Obstructive_Apnea_Index_REM,Obstructive_Apnea_Index_NREM,Obstructive_Apnea_Index_Supine,Obstructive_Apnea_Index_Prone,Obstructive_Apnea_Index_Left_Side,Obstructive_Apnea_Index_Right_Side,Mean_Obstructive_Apnea_Duration_TST,Max_Obstructive_Apnea_Duration_TST,Mixed_Apnea_Count_TST,Mixed_Apnea_Count_REM,Mixed_Apnea_Count_NREM,Mixed_Apnea_Count_Supine,Mixed_Apnea_Count_Prone,Mixed_Apnea_Count_Left_Side,Mixed_Apnea_Count_Right_Side,Mixed_Apnea_Index_TST,Mixed_Apnea_Index_REM,Mixed_Apnea_Index_NREM,Mixed_Apnea_Index_Supine,Mixed_Apnea_Index_Prone,Mixed_Apnea_Index_Left_Side,Mixed_Apnea_Index_Right_Side,Mean_Mixed_Apnea_Duration_TST,Max_Mixed_Apnea_Duration_TST,Total_Hypopnea_Count_TST,Total_Hypopnea_Count_REM,Total_Hypopnea_Count_NREM,Total_Hypopnea_Count_Supine,Total_Hypopnea_Count_Prone,Total_Hypopnea_Count_Left_Side,Total_Hypopnea_Count_Right_Side,Total_Hypopnea_Index_TST,Total_Hypopnea_Index_REM,Total_Hypopnea_Index_NREM,Total_Hypopnea_Index_Supine,Total_Hypopnea_Index_Prone,Total_Hypopnea_Index_Left_Side,Total_Hypopnea_Index_Right_Side,Mean_Hypopnea_Duration_TST,Max_Hypopnea_Duration_TST,Central_Hypopnea_Count_TST,Central_Hypopnea_Count_REM,Central_Hypopnea_Count_NREM,Central_Hypopnea_Index_TST,Central_Hypopnea_Index_REM,Central_Hypopnea_Index_NREM,Mean_Central_Hypopnea_Duration_TST,Max_Central_Hypopnea_Duration_TST,Obstructive_Hypopnea_Count_TST,Obstructive_Hypopnea_Count_REM,Obstructive_Hypopnea_Count_NREM,Obstructive_Hypopnea_Index_TST,Obstructive_Hypopnea_Index_REM,Obstructive_Hypopnea_Index_NREM,Mean_Obstructive_Hypopnea_Duration_TST,Max_Obstructive_Hypopnea_Duration_TST,Apnea_Hypopnea_Count_TST,Apnea_Hypopnea_Index_TST,Apnea_Hypopnea_Count_REM,Apnea_Hypopnea_Count_NREM,Total_Respiratory_Count_REM,Total_Respiratory_Count_NREM,Total_Respiratory_Count_Supine,Total_Respiratory_Count_Prone,Total_Respiratory_Count_Left_Side,Total_Respiratory_Count_Right_Side,Total_Respiratory_Index_REM,Total_Respiratory_Index_NREM,Total_Respiratory_Index_Supine,Total_Respiratory_Index_Prone,Total_Respiratory_Index_Left_Side,Total_Respiratory_Index_Right_Side,Total_Apnea_Count_TST_w_Desat,Total_Apnea_Count_REM_w_Desat,Total_Apnea_Count_NREM_w_Desat,Total_Apnea_Index_TST_w_Desat,Total_Apnea_Index_REM_w_Desat,Total_Apnea_Index_NREM_w_Desat,Mean_Apnea_Duration_TST_w_Desat,Max_Apnea_Duration_TST_w_Desat,Central_Apnea_Count_TST_w_Desat,Central_Apnea_Count_REM_w_Desat,Central_Apnea_Count_NREM_w_Desat,Central_Apnea_Count_Supine_w_Desat,Central_Apnea_Count_Prone_w_Desat,Central_Apnea_Count_Left_Side_w_Desat,Central_Apnea_Count_Right_Side_w_Desat,Central_Apnea_Index_TST_w_Desat,Central_Apnea_Index_REM_w_Desat,Central_Apnea_Index_NREM_w_Desat,Central_Apnea_Index_Supine_w_Desat,Central_Apnea_Index_Prone_w_Desat,Central_Apnea_Index_Left_Side_w_Desat,Central_Apnea_Index_Right_Side_w_Desat,Mean_Central_Apnea_Duration_TST_w_Desat,Max_Central_Apnea_Duration_TST_w_Desat,Obstructive_Apnea_Count_TST_w_Desat,Obstructive_Apnea_Count_REM_w_Desat,Obstructive_Apnea_Count_NREM_w_Desat,Obstructive_Apnea_Count_Supine_w_Desat,Obstructive_Apnea_Count_Prone_w_Desat,Obstructive_Apnea_Count_Left_Side_w_Desat,Obstructive_Apnea_Count_Right_Side_w_Desat,Obstructive_Apnea_Index_TST_w_Desat,Obstructive_Apnea_Index_REM_w_Desat,Obstructive_Apnea_Index_NREM_w_Desat,Obstructive_Apnea_Index_Supine_w_Desat,Obstructive_Apnea_Index_Prone_w_Desat,Obstructive_Apnea_Index_Left_Side_w_Desat,Obstructive_Apnea_Index_Right_Side_w_Desat,Mean_Obstructive_Apnea_Duration_TST_w_Desat,Max_Obstructive_Apnea_Duration_TST_w_Desat,Total_Hypopnea_Count_TST_w_Desat,Total_Hypopnea_Count_REM_w_Desat,Total_Hypopnea_Count_NREM_w_Desat,Total_Hypopnea_Count_Supine_w_Desat,Total_Hypopnea_Count_Prone_w_Desat,Total_Hypopnea_Count_Left_Side_w_Desat,Total_Hypopnea_Count_Right_Side_w_Desat,Total_Hypopnea_Index_TST_w_Desat,Total_Hypopnea_Index_REM_w_Desat,Total_Hypopnea_Index_NREM_w_Desat,Total_Hypopnea_Index_Supine_w_Desat,Total_Hypopnea_Index_Prone_w_Desat,Total_Hypopnea_Index_Left_Side_w_Desat,Total_Hypopnea_Index_Right_Side_w_Desat,Mean_Hypopnea_Duration_TST_w_Desat,Max_Hypopnea_Duration_TST_w_Desat,Apnea_Hypopnea_Count_TST_w_Desat,Apnea_Hypopnea_Index_TST_w_Desat,Apnea_Hypopnea_Count_REM_w_Desat,Apnea_Hypopnea_Count_NREM_w_Desat,Total_Respiratory_Count_REM_w_Desat,Total_Respiratory_Count_NREM_w_Desat,Total_Respiratory_Count_Supine_w_Desat,Total_Respiratory_Count_Prone_w_Desat,Total_Respiratory_Count_Left_Side_w_Desat,Total_Respiratory_Count_Right_Side_w_Desat,Total_Respiratory_Index_REM_w_Desat,Total_Respiratory_Index_NREM_w_Desat,Total_Respiratory_Index_Supine_w_Desat,Total_Respiratory_Index_Prone_w_Desat,Total_Respiratory_Index_Left_Side_w_Desat,Total_Respiratory_Index_Right_Side_w_Desat,Desat_Event_Count_WASO,Desat_Event_Count_TST,Desat_Event_Count_REM,Desat_Event_Count_NREM,Desat_Event_Index_WASO,Desat_Event_Index_TST,Desat_Event_Index_REM,Desat_Event_Index_NREM,Mean_Desaturation_Duration_TST_seconds,Mean_Desaturation_Duration_REM_seconds,Mean_Desaturation_Duration_Non_REM_seconds,Desat_Event_Count_TIB,Desat_Event_Count_Supine,Desat_Event_Count_NonSupine,Desat_Event_Index_TIB,Desat_Event_Index_Supine,Desat_Event_Index_NonSupine,Mean_SaO2Percent_Supine,Mean_SaO2Percent_Non_Supine,SaO2_Percentage_In_Range_90_to_100_TIB,SaO2_Percentage_In_Range_80_to_89_TIB,SaO2_Percentage_In_Range_70_to_79_TIB,SaO2_Percentage_In_Range_60_to_69_TIB,SaO2_Percentage_In_Range_50_to_59_TIB,SaO2_Percentage_Below_50_Wake,SaO2_Percentage_Below_50_TIB,SaO2_Percentage_Below_50_TST,SaO2_Percentage_Below_50_REM,SaO2_Percentage_Below_50_NREM,Max_SaO2Percent_TIB,Mean_SaO2Percent_TIB,Min_SaO2Percent_TIB,Max_SaO2Percent_Wake,Mean_SaO2Percent_Wake,Min_SaO2Percent_Wake,Max_SaO2Percent_TST,Mean_SaO2Percent_TST,Min_SaO2Percent_TST,Max_SaO2Percent_REM,Mean_SaO2Percent_REM,Min_SaO2Percent_REM,Max_SaO2Percent_NREM,Mean_SaO2Percent_NREM,Min_SaO2Percent_NREM,Supine_Sleep_Time,Supine_Sleep_Time_Minutes,Supine_Sleep_Time_Hours,Supine_Sleep_Time_PercentTST,Prone_Sleep_Time,Prone_Sleep_Time_Minutes,Prone_Sleep_Time_Hours,Prone_Sleep_Time_PercentTST,Left_Side_Sleep_Time,Left_Side_Sleep_Time_Minutes,Left_Side_Sleep_Time_Hours,Left_Side_Sleep_Time_PercentTST,Right_Side_Sleep_Time,Right_Side_Sleep_Time_Minutes,Right_Side_Sleep_Time_Hours,Right_Side_Sleep_Time_PercentTST,Upright_Sleep_Time,Upright_Sleep_Time_Minutes,Upright_Sleep_Time_Hours,Upright_Sleep_Time_PercentTST,Non_Supine_Sleep_Time_Minutes,Non_Supine_Sleep_Time_PercentTST,PLM_Count_TST,PLM_Duration_TST,PLM_Mean_Duration_TST,PLM_Max_Duration_TST,PLM_Percentage_TST,LimbMovementCount_TIB,LimbMovementCount_Supine,LimbMovementCount_Non_Supine";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'PSG_File_Name':
+                    records[I].vm_custom[field]=true;
+                    if(records[I][field]===undefined) records[I][field]="";
+                    td.data('filename_field',field);
+                    var html="<u style='cursor:pointer'>"+records[I][field]+"</u>";
+                    html+="<span class=file_buttons><a title='Remove the file' class=remove_file>X<a> <a title='Choose a file' class=choose_file>&#9783;<a></span>";
+                    html+="<form><input type=file style='display:none'></input></form>";
+                    td.html(html);
+                    if(records[I][field]==="" || records[I][field]===null || records[I][field]===undefined) td.find('a.remove_file').css('visibility','hidden');
+                    td.find('u').on('click',function(){
+                        var f_name=$(this).html();
+                        var rid=records[I].ID;
+                        if(rid!==undefined){
+                            $vm.open_link({rid:rid,filename:f_name});
+                        }
+                        else alert("No file was found on server.")
+                    });
+                    td.find('a.choose_file').on('click',function(){
+                        if(td.find('form')[0]!==undefined) td.find('form')[0].reset();
+                        td.find('input[type=file]').trigger('click');
+                    })
+                    td.find('a.remove_file').on('click',function(){
+                        td.find('a.remove_file').css('visibility','hidden');
+                        change_file_name("");
+                    })
+                    td.find('input[type=file]').on('change',function(evt){
+                        td.find('a.remove_file').css('visibility','');
+                        var file = this.files[0];
+                        change_file_name(file.name);
+                        read_file(file);
+                    })
+                    var change_file_name=function(name){
+                        set_value(name,records,I,field);
+                        if(source=='grid'){
+                            td.parent().find("td[data-id='"+field+"']").find('u').html(name);
+                        }
+                        else{
+                            td.parent().parent().find("td[data-id='"+field+"']").find('u').html(name);
+                        }
+                    }
+                    var read_file=function(file){
+                        var reader = new FileReader();
+                        reader.onload = (function(e) {
+                            var contents = e.target.result;
+                            var lines=contents.replace(/"/g,'').replace(/\r/,'\n').replace(/\n\n/,'\n').split('\n');
+                            for(i=0;i<lines.length;i++){
+                                 var row=lines[i].split(/=/);
+                                 switch(row[0].trim()) {
+                                     case 'Date of Birth': records[I]['DOB']=row[1];td.parent().find("td[data-id='DOB']").html(row[1]);break;
+                                     case 'Study Date': records[I]['Study_Date']=row[1];td.parent().find("td[data-id='Study_Date']").html(row[1]);break;
+                                     case 'Study Start Time': records[I]['Study_Start_Time']=row[1];td.parent().find("td[data-id='Study_Start_Time']").html(row[1]);break;
+                                     case 'Study End Time': records[I]['Study_End_Time']=row[1];td.parent().find("td[data-id='Study_End_Time']").html(row[1]);break;
+                                     case 'Time in Bed (min)': records[I]['Time_in_Bed_min']=row[1];td.parent().find("td[data-id='Time_in_Bed_min']").html(row[1]);break;
+                                     case 'Sleep Latency (min)': records[I]['Sleep_Latency_min']=row[1];td.parent().find("td[data-id='Sleep_Latency_min']").html(row[1]);break;
+                                     case 'REM Latency (min)': records[I]['REM_Latency_min']=row[1];td.parent().find("td[data-id='REM_Latency_min']").html(row[1]);break;
+                                     case 'Sleep Efficiency (%)': records[I]['Sleep_Efficiency_Percent']=row[1];td.parent().find("td[data-id='Sleep_Efficiency_Percent']").html(row[1]);break;
+                                     case 'Total Time Awake During Sleep Period (min)': records[I]['Total_Time_Awake_During_Sleep_Period_min']=row[1];td.parent().find("td[data-id='Total_Time_Awake_During_Sleep_Period_min']").html(row[1]);break;
+                                     case 'Total Sleep Time (min)': records[I]['Total_Sleep_Time_min']=row[1];td.parent().find("td[data-id='Total_Sleep_Time_min']").html(row[1]);break;
+                                     case 'NREM (min)': records[I]['NREM_min']=row[1];td.parent().find("td[data-id='NREM_min']").html(row[1]);break;
+                                     case 'NREM %': records[I]['NREM_Percent']=row[1];td.parent().find("td[data-id='NREM_Percent']").html(row[1]);break;
+                                     case 'REM (min)': records[I]['REM_min']=row[1];td.parent().find("td[data-id='REM_min']").html(row[1]);break;
+                                     case 'REM %': records[I]['REM_Percent']=row[1];td.parent().find("td[data-id='REM_Percent']").html(row[1]);break;
+                                     case 'Stage 1 (min)': records[I]['Stage_1_min']=row[1];td.parent().find("td[data-id='Stage_1_min']").html(row[1]);break;
+                                     case 'Stage 1 %': records[I]['Stage_1_Percent']=row[1];td.parent().find("td[data-id='Stage_1_Percent']").html(row[1]);break;
+                                     case 'Stage 2 (min)': records[I]['Stage_2_min']=row[1];td.parent().find("td[data-id='Stage_2_min']").html(row[1]);break;
+                                     case 'Stage 2 %': records[I]['Stage_2_Percent']=row[1];td.parent().find("td[data-id='Stage_2_Percent']").html(row[1]);break;
+                                     case 'Stage 3 (min)': records[I]['Stage_3_min']=row[1];td.parent().find("td[data-id='Stage_3_min']").html(row[1]);break;
+                                     case 'Stage 3 %': records[I]['Stage_3_Percent']=row[1];td.parent().find("td[data-id='Stage_3_Percent']").html(row[1]);break;
+                                     case 'Stage 4 (min)': records[I]['Stage_4_min']=row[1];td.parent().find("td[data-id='Stage_4_min']").html(row[1]);break;
+                                     case 'Stage 4 %': records[I]['Stage_4_Percent']=row[1];td.parent().find("td[data-id='Stage_4_Percent']").html(row[1]);break;
+                                     case 'Total Arousal Count (TST)': records[I]['Total_Arousal_Count_TST']=row[1];td.parent().find("td[data-id='Total_Arousal_Count_TST']").html(row[1]);break;
+                                     case 'Total Arousal Count (REM)': records[I]['Total_Arousal_Count_REM']=row[1];td.parent().find("td[data-id='Total_Arousal_Count_REM']").html(row[1]);break;
+                                     case 'Total Arousal Count (NREM)': records[I]['Total_Arousal_Count_NREM']=row[1];td.parent().find("td[data-id='Total_Arousal_Count_NREM']").html(row[1]);break;
+                                     case 'Total Arousals Index (TST)': records[I]['Total_Arousals_Index_TST']=row[1];td.parent().find("td[data-id='Total_Arousals_Index_TST']").html(row[1]);break;
+                                     case 'Total Arousals Index (REM)': records[I]['Total_Arousals_Index_REM']=row[1];td.parent().find("td[data-id='Total_Arousals_Index_REM']").html(row[1]);break;
+                                     case 'Total Arousals Index (NREM)': records[I]['Total_Arousals_Index_NREM']=row[1];td.parent().find("td[data-id='Total_Arousals_Index_NREM']").html(row[1]);break;
+                                     case 'Respiratory Arousal Count (TST)': records[I]['Respiratory_Arousal_Count_TST']=row[1];td.parent().find("td[data-id='Respiratory_Arousal_Count_TST']").html(row[1]);break;
+                                     case 'Respiratory Arousal Count (REM)': records[I]['Respiratory_Arousal_Count_REM']=row[1];td.parent().find("td[data-id='Respiratory_Arousal_Count_REM']").html(row[1]);break;
+                                     case 'Respiratory Arousal Count (NREM)': records[I]['Respiratory_Arousal_Count_NREM']=row[1];td.parent().find("td[data-id='Respiratory_Arousal_Count_NREM']").html(row[1]);break;
+                                     case 'Respiratory Arousals Index (TST)': records[I]['Respiratory_Arousals_Index_TST']=row[1];td.parent().find("td[data-id='Respiratory_Arousals_Index_TST']").html(row[1]);break;
+                                     case 'Respiratory Arousals Index (REM)': records[I]['Respiratory_Arousals_Index_REM']=row[1];td.parent().find("td[data-id='Respiratory_Arousals_Index_REM']").html(row[1]);break;
+                                     case 'Respiratory Arousals Index (NREM)': records[I]['Respiratory_Arousals_Index_NREM']=row[1];td.parent().find("td[data-id='Respiratory_Arousals_Index_NREM']").html(row[1]);break;
+                                     case 'Spontaneous Arousal Count (TST)': records[I]['Spontaneous_Arousal_Count_TST']=row[1];td.parent().find("td[data-id='Spontaneous_Arousal_Count_TST']").html(row[1]);break;
+                                     case 'Spontaneous Arousal Count (REM)': records[I]['Spontaneous_Arousal_Count_REM']=row[1];td.parent().find("td[data-id='Spontaneous_Arousal_Count_REM']").html(row[1]);break;
+                                     case 'Spontaneous Arousal Count (NREM)': records[I]['Spontaneous_Arousal_Count_NREM']=row[1];td.parent().find("td[data-id='Spontaneous_Arousal_Count_NREM']").html(row[1]);break;
+                                     case 'Spontaneous Arousals Index (TST)': records[I]['Spontaneous_Arousals_Index_TST']=row[1];td.parent().find("td[data-id='Spontaneous_Arousals_Index_TST']").html(row[1]);break;
+                                     case 'Spontaneous Arousals Index (REM)': records[I]['Spontaneous_Arousals_Index_REM']=row[1];td.parent().find("td[data-id='Spontaneous_Arousals_Index_REM']").html(row[1]);break;
+                                     case 'Spontaneous Arousals Index (NREM)': records[I]['Spontaneous_Arousals_Index_NREM']=row[1];td.parent().find("td[data-id='Spontaneous_Arousals_Index_NREM']").html(row[1]);break;
+                                     case 'Limb Movement Arousal Count (TST)': records[I]['Limb_Movement_Arousal_Count_TST']=row[1];td.parent().find("td[data-id='Limb_Movement_Arousal_Count_TST']").html(row[1]);break;
+                                     case 'Limb Movement Arousal Count (REM)': records[I]['Limb_Movement_Arousal_Count_REM']=row[1];td.parent().find("td[data-id='Limb_Movement_Arousal_Count_REM']").html(row[1]);break;
+                                     case 'Limb Movement Arousal Count (NREM)': records[I]['Limb_Movement_Arousal_Count_NREM']=row[1];td.parent().find("td[data-id='Limb_Movement_Arousal_Count_NREM']").html(row[1]);break;
+                                     case 'Limb Movement Arousals Index (TST)': records[I]['Limb_Movement_Arousals_Index_TST']=row[1];td.parent().find("td[data-id='Limb_Movement_Arousals_Index_TST']").html(row[1]);break;
+                                     case 'Limb Movement Arousals Index (REM)': records[I]['Limb_Movement_Arousals_Index_REM']=row[1];td.parent().find("td[data-id='Limb_Movement_Arousals_Index_REM']").html(row[1]);break;
+                                     case 'Limb Movement Arousals Index (NREM)': records[I]['Limb_Movement_Arousals_Index_NREM']=row[1];td.parent().find("td[data-id='Limb_Movement_Arousals_Index_NREM']").html(row[1]);break;
+                                     case 'Total Apnea Count (TST)': records[I]['Total_Apnea_Count_TST']=row[1];td.parent().find("td[data-id='Total_Apnea_Count_TST']").html(row[1]);break;
+                                     case 'Total Apnea Count (REM)': records[I]['Total_Apnea_Count_REM']=row[1];td.parent().find("td[data-id='Total_Apnea_Count_REM']").html(row[1]);break;
+                                     case 'Total Apnea Count (NREM)': records[I]['Total_Apnea_Count_NREM']=row[1];td.parent().find("td[data-id='Total_Apnea_Count_NREM']").html(row[1]);break;
+                                     case 'Total Apnea Index (TST)': records[I]['Total_Apnea_Index_TST']=row[1];td.parent().find("td[data-id='Total_Apnea_Index_TST']").html(row[1]);break;
+                                     case 'Total Apnea Index (REM)': records[I]['Total_Apnea_Index_REM']=row[1];td.parent().find("td[data-id='Total_Apnea_Index_REM']").html(row[1]);break;
+                                     case 'Total Apnea Index (NREM)': records[I]['Total_Apnea_Index_NREM']=row[1];td.parent().find("td[data-id='Total_Apnea_Index_NREM']").html(row[1]);break;
+                                     case 'Mean Apnea Duration (TST)': records[I]['Mean_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Mean_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Max Apnea Duration (TST)': records[I]['Max_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Max_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Central Apnea Count (TST)': records[I]['Central_Apnea_Count_TST']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_TST']").html(row[1]);break;
+                                     case 'Central Apnea Count (REM)': records[I]['Central_Apnea_Count_REM']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_REM']").html(row[1]);break;
+                                     case 'Central Apnea Count (NREM)': records[I]['Central_Apnea_Count_NREM']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_NREM']").html(row[1]);break;
+                                     case 'Central Apnea Count (Supine)': records[I]['Central_Apnea_Count_Supine']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Supine']").html(row[1]);break;
+                                     case 'Central Apnea Count (Prone)': records[I]['Central_Apnea_Count_Prone']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Prone']").html(row[1]);break;
+                                     case 'Central Apnea Count (Left Side)': records[I]['Central_Apnea_Count_Left_Side']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Left_Side']").html(row[1]);break;
+                                     case 'Central Apnea Count (Right Side)': records[I]['Central_Apnea_Count_Right_Side']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Right_Side']").html(row[1]);break;
+                                     case 'Central Apnea Index (TST)': records[I]['Central_Apnea_Index_TST']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_TST']").html(row[1]);break;
+                                     case 'Central Apnea Index (REM)': records[I]['Central_Apnea_Index_REM']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_REM']").html(row[1]);break;
+                                     case 'Central Apnea Index (NREM)': records[I]['Central_Apnea_Index_NREM']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_NREM']").html(row[1]);break;
+                                     case 'Central Apnea Index (Supine)': records[I]['Central_Apnea_Index_Supine']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Supine']").html(row[1]);break;
+                                     case 'Central Apnea Index (Prone)': records[I]['Central_Apnea_Index_Prone']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Prone']").html(row[1]);break;
+                                     case 'Central Apnea Index (Left Side)': records[I]['Central_Apnea_Index_Left_Side']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Left_Side']").html(row[1]);break;
+                                     case 'Central Apnea Index (Right Side)': records[I]['Central_Apnea_Index_Right_Side']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Right_Side']").html(row[1]);break;
+                                     case 'Mean Central Apnea Duration (TST)': records[I]['Mean_Central_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Mean_Central_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Max Central Apnea Duration (TST)': records[I]['Max_Central_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Max_Central_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (TST)': records[I]['Obstructive_Apnea_Count_TST']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_TST']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (REM)': records[I]['Obstructive_Apnea_Count_REM']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_REM']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (NREM)': records[I]['Obstructive_Apnea_Count_NREM']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_NREM']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Supine)': records[I]['Obstructive_Apnea_Count_Supine']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Supine']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Prone)': records[I]['Obstructive_Apnea_Count_Prone']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Prone']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Left Side)': records[I]['Obstructive_Apnea_Count_Left_Side']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Left_Side']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Right Side)': records[I]['Obstructive_Apnea_Count_Right_Side']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Right_Side']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (TST)': records[I]['Obstructive_Apnea_Index_TST']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_TST']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (REM)': records[I]['Obstructive_Apnea_Index_REM']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_REM']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (NREM)': records[I]['Obstructive_Apnea_Index_NREM']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_NREM']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Supine)': records[I]['Obstructive_Apnea_Index_Supine']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Supine']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Prone)': records[I]['Obstructive_Apnea_Index_Prone']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Prone']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Left Side)': records[I]['Obstructive_Apnea_Index_Left_Side']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Left_Side']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Right Side)': records[I]['Obstructive_Apnea_Index_Right_Side']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Right_Side']").html(row[1]);break;
+                                     case 'Mean Obstructive Apnea Duration (TST)': records[I]['Mean_Obstructive_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Mean_Obstructive_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Max Obstructive Apnea Duration (TST)': records[I]['Max_Obstructive_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Max_Obstructive_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Mixed Apnea Count (TST)': records[I]['Mixed_Apnea_Count_TST']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Count_TST']").html(row[1]);break;
+                                     case 'Mixed Apnea Count (REM)': records[I]['Mixed_Apnea_Count_REM']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Count_REM']").html(row[1]);break;
+                                     case 'Mixed Apnea Count (NREM)': records[I]['Mixed_Apnea_Count_NREM']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Count_NREM']").html(row[1]);break;
+                                     case 'Mixed Apnea Count (Supine)': records[I]['Mixed_Apnea_Count_Supine']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Count_Supine']").html(row[1]);break;
+                                     case 'Mixed Apnea Count (Prone)': records[I]['Mixed_Apnea_Count_Prone']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Count_Prone']").html(row[1]);break;
+                                     case 'Mixed Apnea Count (Left Side)': records[I]['Mixed_Apnea_Count_Left_Side']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Count_Left_Side']").html(row[1]);break;
+                                     case 'Mixed Apnea Count (Right Side)': records[I]['Mixed_Apnea_Count_Right_Side']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Count_Right_Side']").html(row[1]);break;
+                                     case 'Mixed Apnea Index (TST)': records[I]['Mixed_Apnea_Index_TST']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Index_TST']").html(row[1]);break;
+                                     case 'Mixed Apnea Index (REM)': records[I]['Mixed_Apnea_Index_REM']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Index_REM']").html(row[1]);break;
+                                     case 'Mixed Apnea Index (NREM)': records[I]['Mixed_Apnea_Index_NREM']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Index_NREM']").html(row[1]);break;
+                                     case 'Mixed Apnea Index (Supine)': records[I]['Mixed_Apnea_Index_Supine']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Index_Supine']").html(row[1]);break;
+                                     case 'Mixed Apnea Index (Prone)': records[I]['Mixed_Apnea_Index_Prone']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Index_Prone']").html(row[1]);break;
+                                     case 'Mixed Apnea Index (Left Side)': records[I]['Mixed_Apnea_Index_Left_Side']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Index_Left_Side']").html(row[1]);break;
+                                     case 'Mixed Apnea Index (Right Side)': records[I]['Mixed_Apnea_Index_Right_Side']=row[1];td.parent().find("td[data-id='Mixed_Apnea_Index_Right_Side']").html(row[1]);break;
+                                     case 'Mean Mixed Apnea Duration (TST)': records[I]['Mean_Mixed_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Mean_Mixed_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Max Mixed Apnea Duration (TST)': records[I]['Max_Mixed_Apnea_Duration_TST']=row[1];td.parent().find("td[data-id='Max_Mixed_Apnea_Duration_TST']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (TST)': records[I]['Total_Hypopnea_Count_TST']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_TST']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (REM)': records[I]['Total_Hypopnea_Count_REM']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_REM']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (NREM)': records[I]['Total_Hypopnea_Count_NREM']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_NREM']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Supine)': records[I]['Total_Hypopnea_Count_Supine']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Supine']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Prone)': records[I]['Total_Hypopnea_Count_Prone']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Prone']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Left Side)': records[I]['Total_Hypopnea_Count_Left_Side']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Left_Side']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Right Side)': records[I]['Total_Hypopnea_Count_Right_Side']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Right_Side']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (TST)': records[I]['Total_Hypopnea_Index_TST']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_TST']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (REM)': records[I]['Total_Hypopnea_Index_REM']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_REM']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (NREM)': records[I]['Total_Hypopnea_Index_NREM']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_NREM']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Supine)': records[I]['Total_Hypopnea_Index_Supine']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Supine']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Prone)': records[I]['Total_Hypopnea_Index_Prone']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Prone']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Left Side)': records[I]['Total_Hypopnea_Index_Left_Side']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Left_Side']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Right Side)': records[I]['Total_Hypopnea_Index_Right_Side']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Right_Side']").html(row[1]);break;
+                                     case 'Mean Hypopnea Duration (TST)': records[I]['Mean_Hypopnea_Duration_TST']=row[1];td.parent().find("td[data-id='Mean_Hypopnea_Duration_TST']").html(row[1]);break;
+                                     case 'Max Hypopnea Duration (TST)': records[I]['Max_Hypopnea_Duration_TST']=row[1];td.parent().find("td[data-id='Max_Hypopnea_Duration_TST']").html(row[1]);break;
+                                     case 'Central Hypopnea Count (TST)': records[I]['Central_Hypopnea_Count_TST']=row[1];td.parent().find("td[data-id='Central_Hypopnea_Count_TST']").html(row[1]);break;
+                                     case 'Central Hypopnea Count (REM)': records[I]['Central_Hypopnea_Count_REM']=row[1];td.parent().find("td[data-id='Central_Hypopnea_Count_REM']").html(row[1]);break;
+                                     case 'Central Hypopnea Count (NREM)': records[I]['Central_Hypopnea_Count_NREM']=row[1];td.parent().find("td[data-id='Central_Hypopnea_Count_NREM']").html(row[1]);break;
+                                     case 'Central Hypopnea Index (TST)': records[I]['Central_Hypopnea_Index_TST']=row[1];td.parent().find("td[data-id='Central_Hypopnea_Index_TST']").html(row[1]);break;
+                                     case 'Central Hypopnea Index (REM)': records[I]['Central_Hypopnea_Index_REM']=row[1];td.parent().find("td[data-id='Central_Hypopnea_Index_REM']").html(row[1]);break;
+                                     case 'Central Hypopnea Index (NREM)': records[I]['Central_Hypopnea_Index_NREM']=row[1];td.parent().find("td[data-id='Central_Hypopnea_Index_NREM']").html(row[1]);break;
+                                     case 'Mean Central Hypopnea Duration (TST)': records[I]['Mean_Central_Hypopnea_Duration_TST']=row[1];td.parent().find("td[data-id='Mean_Central_Hypopnea_Duration_TST']").html(row[1]);break;
+                                     case 'Max Central Hypopnea Duration (TST)': records[I]['Max_Central_Hypopnea_Duration_TST']=row[1];td.parent().find("td[data-id='Max_Central_Hypopnea_Duration_TST']").html(row[1]);break;
+                                     case 'Obstructive Hypopnea Count (TST)': records[I]['Obstructive_Hypopnea_Count_TST']=row[1];td.parent().find("td[data-id='Obstructive_Hypopnea_Count_TST']").html(row[1]);break;
+                                     case 'Obstructive Hypopnea Count (REM)': records[I]['Obstructive_Hypopnea_Count_REM']=row[1];td.parent().find("td[data-id='Obstructive_Hypopnea_Count_REM']").html(row[1]);break;
+                                     case 'Obstructive Hypopnea Count (NREM)': records[I]['Obstructive_Hypopnea_Count_NREM']=row[1];td.parent().find("td[data-id='Obstructive_Hypopnea_Count_NREM']").html(row[1]);break;
+                                     case 'Obstructive Hypopnea Index (TST)': records[I]['Obstructive_Hypopnea_Index_TST']=row[1];td.parent().find("td[data-id='Obstructive_Hypopnea_Index_TST']").html(row[1]);break;
+                                     case 'Obstructive Hypopnea Index (REM)': records[I]['Obstructive_Hypopnea_Index_REM']=row[1];td.parent().find("td[data-id='Obstructive_Hypopnea_Index_REM']").html(row[1]);break;
+                                     case 'Obstructive Hypopnea Index (NREM)': records[I]['Obstructive_Hypopnea_Index_NREM']=row[1];td.parent().find("td[data-id='Obstructive_Hypopnea_Index_NREM']").html(row[1]);break;
+                                     case 'Mean Obstructive Hypopnea Duration (TST)': records[I]['Mean_Obstructive_Hypopnea_Duration_TST']=row[1];td.parent().find("td[data-id='Mean_Obstructive_Hypopnea_Duration_TST']").html(row[1]);break;
+                                     case 'Max Obstructive Hypopnea Duration (TST)': records[I]['Max_Obstructive_Hypopnea_Duration_TST']=row[1];td.parent().find("td[data-id='Max_Obstructive_Hypopnea_Duration_TST']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Count (TST)': records[I]['Apnea_Hypopnea_Count_TST']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Count_TST']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Index (TST)': records[I]['Apnea_Hypopnea_Index_TST']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Index_TST']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Count (REM)': records[I]['Apnea_Hypopnea_Count_REM']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Count_REM']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Count (NREM)': records[I]['Apnea_Hypopnea_Count_NREM']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Count_NREM']").html(row[1]);break;
+                                     case 'Total Respiratory Count (REM)': records[I]['Total_Respiratory_Count_REM']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_REM']").html(row[1]);break;
+                                     case 'Total Respiratory Count (NREM)': records[I]['Total_Respiratory_Count_NREM']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_NREM']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Supine)': records[I]['Total_Respiratory_Count_Supine']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Supine']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Prone)': records[I]['Total_Respiratory_Count_Prone']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Prone']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Left Side)': records[I]['Total_Respiratory_Count_Left_Side']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Left_Side']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Right Side)': records[I]['Total_Respiratory_Count_Right_Side']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Right_Side']").html(row[1]);break;
+                                     case 'Total Respiratory Index (REM)': records[I]['Total_Respiratory_Index_REM']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_REM']").html(row[1]);break;
+                                     case 'Total Respiratory Index (NREM)': records[I]['Total_Respiratory_Index_NREM']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_NREM']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Supine)': records[I]['Total_Respiratory_Index_Supine']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Supine']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Prone)': records[I]['Total_Respiratory_Index_Prone']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Prone']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Left Side)': records[I]['Total_Respiratory_Index_Left_Side']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Left_Side']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Right Side)': records[I]['Total_Respiratory_Index_Right_Side']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Right_Side']").html(row[1]);break;
+                                     case 'Total Apnea Count (TST w/ Desat)': records[I]['Total_Apnea_Count_TST_w_Desat']=row[1];td.parent().find("td[data-id='Total_Apnea_Count_TST_w_Desat']").html(row[1]);break;
+                                     case 'Total Apnea Count (REM w/ Desat)': records[I]['Total_Apnea_Count_REM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Apnea_Count_REM_w_Desat']").html(row[1]);break;
+                                     case 'Total Apnea Count (NREM w/ Desat)': records[I]['Total_Apnea_Count_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Apnea_Count_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Total Apnea Index (TST w/ Desat)': records[I]['Total_Apnea_Index_TST_w_Desat']=row[1];td.parent().find("td[data-id='Total_Apnea_Index_TST_w_Desat']").html(row[1]);break;
+                                     case 'Total Apnea Index (REM w/ Desat)': records[I]['Total_Apnea_Index_REM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Apnea_Index_REM_w_Desat']").html(row[1]);break;
+                                     case 'Total Apnea Index (NREM w/ Desat)': records[I]['Total_Apnea_Index_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Apnea_Index_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Mean Apnea Duration (TST w/ Desat)': records[I]['Mean_Apnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Mean_Apnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Max Apnea Duration (TST w/ Desat)': records[I]['Max_Apnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Max_Apnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Count (TST w/ Desat)': records[I]['Central_Apnea_Count_TST_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_TST_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Count (REM w/ Desat)': records[I]['Central_Apnea_Count_REM_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_REM_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Count (NREM w/ Desat)': records[I]['Central_Apnea_Count_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Count (Supine w/ Desat)': records[I]['Central_Apnea_Count_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Count (Prone w/ Desat)': records[I]['Central_Apnea_Count_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Count (Left Side w/ Desat)': records[I]['Central_Apnea_Count_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Count (Right Side w/ Desat)': records[I]['Central_Apnea_Count_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Count_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Index (TST w/ Desat)': records[I]['Central_Apnea_Index_TST_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_TST_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Index (REM w/ Desat)': records[I]['Central_Apnea_Index_REM_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_REM_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Index (NREM w/ Desat)': records[I]['Central_Apnea_Index_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Index (Supine w/ Desat)': records[I]['Central_Apnea_Index_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Index (Prone w/ Desat)': records[I]['Central_Apnea_Index_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Index (Left Side w/ Desat)': records[I]['Central_Apnea_Index_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Central Apnea Index (Right Side w/ Desat)': records[I]['Central_Apnea_Index_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Central_Apnea_Index_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Mean Central Apnea Duration (TST w/ Desat)': records[I]['Mean_Central_Apnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Mean_Central_Apnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Max Central Apnea Duration (TST w/ Desat)': records[I]['Max_Central_Apnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Max_Central_Apnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (TST w/ Desat)': records[I]['Obstructive_Apnea_Count_TST_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_TST_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (REM w/ Desat)': records[I]['Obstructive_Apnea_Count_REM_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_REM_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (NREM w/ Desat)': records[I]['Obstructive_Apnea_Count_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Supine w/ Desat)': records[I]['Obstructive_Apnea_Count_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Prone w/ Desat)': records[I]['Obstructive_Apnea_Count_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Left Side w/ Desat)': records[I]['Obstructive_Apnea_Count_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Count (Right Side w/ Desat)': records[I]['Obstructive_Apnea_Count_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Count_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (TST w/ Desat)': records[I]['Obstructive_Apnea_Index_TST_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_TST_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (REM w/ Desat)': records[I]['Obstructive_Apnea_Index_REM_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_REM_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (NREM w/ Desat)': records[I]['Obstructive_Apnea_Index_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Supine w/ Desat)': records[I]['Obstructive_Apnea_Index_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Prone w/ Desat)': records[I]['Obstructive_Apnea_Index_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Left Side w/ Desat)': records[I]['Obstructive_Apnea_Index_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Obstructive Apnea Index (Right Side w/ Desat)': records[I]['Obstructive_Apnea_Index_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Obstructive_Apnea_Index_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Mean Obstructive Apnea Duration (TST w/ Desat)': records[I]['Mean_Obstructive_Apnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Mean_Obstructive_Apnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Max Obstructive Apnea Duration (TST w/ Desat)': records[I]['Max_Obstructive_Apnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Max_Obstructive_Apnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (TST w/ Desat)': records[I]['Total_Hypopnea_Count_TST_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_TST_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (REM w/ Desat)': records[I]['Total_Hypopnea_Count_REM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_REM_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (NREM w/ Desat)': records[I]['Total_Hypopnea_Count_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Supine w/ Desat)': records[I]['Total_Hypopnea_Count_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Prone w/ Desat)': records[I]['Total_Hypopnea_Count_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Left Side w/ Desat)': records[I]['Total_Hypopnea_Count_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Count (Right Side w/ Desat)': records[I]['Total_Hypopnea_Count_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Count_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (TST w/ Desat)': records[I]['Total_Hypopnea_Index_TST_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_TST_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (REM w/ Desat)': records[I]['Total_Hypopnea_Index_REM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_REM_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (NREM w/ Desat)': records[I]['Total_Hypopnea_Index_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Supine w/ Desat)': records[I]['Total_Hypopnea_Index_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Prone w/ Desat)': records[I]['Total_Hypopnea_Index_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Left Side w/ Desat)': records[I]['Total_Hypopnea_Index_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Total Hypopnea Index (Right Side w/ Desat)': records[I]['Total_Hypopnea_Index_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Hypopnea_Index_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Mean Hypopnea Duration (TST w/ Desat)': records[I]['Mean_Hypopnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Mean_Hypopnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Max Hypopnea Duration (TST w/ Desat)': records[I]['Max_Hypopnea_Duration_TST_w_Desat']=row[1];td.parent().find("td[data-id='Max_Hypopnea_Duration_TST_w_Desat']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Count (TST w/ Desat)': records[I]['Apnea_Hypopnea_Count_TST_w_Desat']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Count_TST_w_Desat']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Index (TST w/ Desat)': records[I]['Apnea_Hypopnea_Index_TST_w_Desat']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Index_TST_w_Desat']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Count (REM w/ Desat)': records[I]['Apnea_Hypopnea_Count_REM_w_Desat']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Count_REM_w_Desat']").html(row[1]);break;
+                                     case 'Apnea Hypopnea Count (NREM w/ Desat)': records[I]['Apnea_Hypopnea_Count_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Apnea_Hypopnea_Count_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Count (REM w/ Desat)': records[I]['Total_Respiratory_Count_REM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_REM_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Count (NREM w/ Desat)': records[I]['Total_Respiratory_Count_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Supine w/ Desat)': records[I]['Total_Respiratory_Count_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Prone w/ Desat)': records[I]['Total_Respiratory_Count_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Left Side w/ Desat)': records[I]['Total_Respiratory_Count_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Count (Right Side w/ Desat)': records[I]['Total_Respiratory_Count_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Count_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Index (REM w/ Desat)': records[I]['Total_Respiratory_Index_REM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_REM_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Index (NREM w/ Desat)': records[I]['Total_Respiratory_Index_NREM_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_NREM_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Supine w/ Desat)': records[I]['Total_Respiratory_Index_Supine_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Supine_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Prone w/ Desat)': records[I]['Total_Respiratory_Index_Prone_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Prone_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Left Side w/ Desat)': records[I]['Total_Respiratory_Index_Left_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Left_Side_w_Desat']").html(row[1]);break;
+                                     case 'Total Respiratory Index (Right Side w/ Desat)': records[I]['Total_Respiratory_Index_Right_Side_w_Desat']=row[1];td.parent().find("td[data-id='Total_Respiratory_Index_Right_Side_w_Desat']").html(row[1]);break;
+                                     case 'Desat Event Count (WASO)': records[I]['Desat_Event_Count_WASO']=row[1];td.parent().find("td[data-id='Desat_Event_Count_WASO']").html(row[1]);break;
+                                     case 'Desat Event Count (TST)': records[I]['Desat_Event_Count_TST']=row[1];td.parent().find("td[data-id='Desat_Event_Count_TST']").html(row[1]);break;
+                                     case 'Desat Event Count (REM)': records[I]['Desat_Event_Count_REM']=row[1];td.parent().find("td[data-id='Desat_Event_Count_REM']").html(row[1]);break;
+                                     case 'Desat Event Count (NREM)': records[I]['Desat_Event_Count_NREM']=row[1];td.parent().find("td[data-id='Desat_Event_Count_NREM']").html(row[1]);break;
+                                     case 'Desat Event Index (WASO)': records[I]['Desat_Event_Index_WASO']=row[1];td.parent().find("td[data-id='Desat_Event_Index_WASO']").html(row[1]);break;
+                                     case 'Desat Event Index (TST)': records[I]['Desat_Event_Index_TST']=row[1];td.parent().find("td[data-id='Desat_Event_Index_TST']").html(row[1]);break;
+                                     case 'Desat Event Index (REM)': records[I]['Desat_Event_Index_REM']=row[1];td.parent().find("td[data-id='Desat_Event_Index_REM']").html(row[1]);break;
+                                     case 'Desat Event Index (NREM)': records[I]['Desat_Event_Index_NREM']=row[1];td.parent().find("td[data-id='Desat_Event_Index_NREM']").html(row[1]);break;
+                                     case 'Mean Desaturation Duration (TST seconds)': records[I]['Mean_Desaturation_Duration_TST_seconds']=row[1];td.parent().find("td[data-id='Mean_Desaturation_Duration_TST_seconds']").html(row[1]);break;
+                                     case 'Mean Desaturation Duration (REM seconds)': records[I]['Mean_Desaturation_Duration_REM_seconds']=row[1];td.parent().find("td[data-id='Mean_Desaturation_Duration_REM_seconds']").html(row[1]);break;
+                                     case 'Mean Desaturation Duration (Non REM seconds)': records[I]['Mean_Desaturation_Duration_Non_REM_seconds']=row[1];td.parent().find("td[data-id='Mean_Desaturation_Duration_Non_REM_seconds']").html(row[1]);break;
+                                     case 'Desat Event Count (TIB)': records[I]['Desat_Event_Count_TIB']=row[1];td.parent().find("td[data-id='Desat_Event_Count_TIB']").html(row[1]);break;
+                                     case 'Desat Event Count (Supine)': records[I]['Desat_Event_Count_Supine']=row[1];td.parent().find("td[data-id='Desat_Event_Count_Supine']").html(row[1]);break;
+                                     case 'Desat Event Count (NonSupine)': records[I]['Desat_Event_Count_NonSupine']=row[1];td.parent().find("td[data-id='Desat_Event_Count_NonSupine']").html(row[1]);break;
+                                     case 'Desat Event Index (TIB)': records[I]['Desat_Event_Index_TIB']=row[1];td.parent().find("td[data-id='Desat_Event_Index_TIB']").html(row[1]);break;
+                                     case 'Desat Event Index (Supine)': records[I]['Desat_Event_Index_Supine']=row[1];td.parent().find("td[data-id='Desat_Event_Index_Supine']").html(row[1]);break;
+                                     case 'Desat Event Index (NonSupine)': records[I]['Desat_Event_Index_NonSupine']=row[1];td.parent().find("td[data-id='Desat_Event_Index_NonSupine']").html(row[1]);break;
+                                     case 'Mean SaO2% (Supine)': records[I]['Mean_SaO2Percent_Supine']=row[1];td.parent().find("td[data-id='Mean_SaO2Percent_Supine']").html(row[1]);break;
+                                     case 'Mean SaO2% (Non Supine)': records[I]['Mean_SaO2Percent_Non_Supine']=row[1];td.parent().find("td[data-id='Mean_SaO2Percent_Non_Supine']").html(row[1]);break;
+                                     case 'SaO2 Percentage In Range 90 to 100 (TIB)': records[I]['SaO2_Percentage_In_Range_90_to_100_TIB']=row[1];td.parent().find("td[data-id='SaO2_Percentage_In_Range_90_to_100_TIB']").html(row[1]);break;
+                                     case 'SaO2 Percentage In Range 80 to 89 (TIB)': records[I]['SaO2_Percentage_In_Range_80_to_89_TIB']=row[1];td.parent().find("td[data-id='SaO2_Percentage_In_Range_80_to_89_TIB']").html(row[1]);break;
+                                     case 'SaO2 Percentage In Range 70 to 79 (TIB)': records[I]['SaO2_Percentage_In_Range_70_to_79_TIB']=row[1];td.parent().find("td[data-id='SaO2_Percentage_In_Range_70_to_79_TIB']").html(row[1]);break;
+                                     case 'SaO2 Percentage In Range 60 to 69 (TIB)': records[I]['SaO2_Percentage_In_Range_60_to_69_TIB']=row[1];td.parent().find("td[data-id='SaO2_Percentage_In_Range_60_to_69_TIB']").html(row[1]);break;
+                                     case 'SaO2 Percentage In Range 50 to 59 (TIB)': records[I]['SaO2_Percentage_In_Range_50_to_59_TIB']=row[1];td.parent().find("td[data-id='SaO2_Percentage_In_Range_50_to_59_TIB']").html(row[1]);break;
+                                     case 'SaO2 Percentage Below 50 (Wake)': records[I]['SaO2_Percentage_Below_50_Wake']=row[1];td.parent().find("td[data-id='SaO2_Percentage_Below_50_Wake']").html(row[1]);break;
+                                     case 'SaO2 Percentage Below 50 (TIB)': records[I]['SaO2_Percentage_Below_50_TIB']=row[1];td.parent().find("td[data-id='SaO2_Percentage_Below_50_TIB']").html(row[1]);break;
+                                     case 'SaO2 Percentage Below 50 (TST)': records[I]['SaO2_Percentage_Below_50_TST']=row[1];td.parent().find("td[data-id='SaO2_Percentage_Below_50_TST']").html(row[1]);break;
+                                     case 'SaO2 Percentage Below 50 (REM)': records[I]['SaO2_Percentage_Below_50_REM']=row[1];td.parent().find("td[data-id='SaO2_Percentage_Below_50_REM']").html(row[1]);break;
+                                     case 'SaO2 Percentage Below 50 (NREM)': records[I]['SaO2_Percentage_Below_50_NREM']=row[1];td.parent().find("td[data-id='SaO2_Percentage_Below_50_NREM']").html(row[1]);break;
+                                     case 'Max SaO2% (TIB)': records[I]['Max_SaO2Percent_TIB']=row[1];td.parent().find("td[data-id='Max_SaO2Percent_TIB']").html(row[1]);break;
+                                     case 'Mean SaO2% (TIB)': records[I]['Mean_SaO2Percent_TIB']=row[1];td.parent().find("td[data-id='Mean_SaO2Percent_TIB']").html(row[1]);break;
+                                     case 'Min SaO2% (TIB)': records[I]['Min_SaO2Percent_TIB']=row[1];td.parent().find("td[data-id='Min_SaO2Percent_TIB']").html(row[1]);break;
+                                     case 'Max SaO2% (Wake)': records[I]['Max_SaO2Percent_Wake']=row[1];td.parent().find("td[data-id='Max_SaO2Percent_Wake']").html(row[1]);break;
+                                     case 'Mean SaO2% (Wake)': records[I]['Mean_SaO2Percent_Wake']=row[1];td.parent().find("td[data-id='Mean_SaO2Percent_Wake']").html(row[1]);break;
+                                     case 'Min SaO2% (Wake)': records[I]['Min_SaO2Percent_Wake']=row[1];td.parent().find("td[data-id='Min_SaO2Percent_Wake']").html(row[1]);break;
+                                     case 'Max SaO2% (TST)': records[I]['Max_SaO2Percent_TST']=row[1];td.parent().find("td[data-id='Max_SaO2Percent_TST']").html(row[1]);break;
+                                     case 'Mean SaO2% (TST)': records[I]['Mean_SaO2Percent_TST']=row[1];td.parent().find("td[data-id='Mean_SaO2Percent_TST']").html(row[1]);break;
+                                     case 'Min SaO2% (TST)': records[I]['Min_SaO2Percent_TST']=row[1];td.parent().find("td[data-id='Min_SaO2Percent_TST']").html(row[1]);break;
+                                     case 'Max SaO2% (REM)': records[I]['Max_SaO2Percent_REM']=row[1];td.parent().find("td[data-id='Max_SaO2Percent_REM']").html(row[1]);break;
+                                     case 'Mean SaO2% (REM)': records[I]['Mean_SaO2Percent_REM']=row[1];td.parent().find("td[data-id='Mean_SaO2Percent_REM']").html(row[1]);break;
+                                     case 'Min SaO2% (REM)': records[I]['Min_SaO2Percent_REM']=row[1];td.parent().find("td[data-id='Min_SaO2Percent_REM']").html(row[1]);break;
+                                     case 'Max SaO2% (NREM)': records[I]['Max_SaO2Percent_NREM']=row[1];td.parent().find("td[data-id='Max_SaO2Percent_NREM']").html(row[1]);break;
+                                     case 'Mean SaO2% (NREM)': records[I]['Mean_SaO2Percent_NREM']=row[1];td.parent().find("td[data-id='Mean_SaO2Percent_NREM']").html(row[1]);break;
+                                     case 'Min SaO2% (NREM)': records[I]['Min_SaO2Percent_NREM']=row[1];td.parent().find("td[data-id='Min_SaO2Percent_NREM']").html(row[1]);break;
+                                     case 'Supine Sleep Time': records[I]['Supine_Sleep_Time']=row[1];td.parent().find("td[data-id='Supine_Sleep_Time']").html(row[1]);break;
+                                     case 'Supine Sleep Time (Minutes)': records[I]['Supine_Sleep_Time_Minutes']=row[1];td.parent().find("td[data-id='Supine_Sleep_Time_Minutes']").html(row[1]);break;
+                                     case 'Supine Sleep Time (Hours)': records[I]['Supine_Sleep_Time_Hours']=row[1];td.parent().find("td[data-id='Supine_Sleep_Time_Hours']").html(row[1]);break;
+                                     case 'Supine Sleep Time %TST': records[I]['Supine_Sleep_Time_PercentTST']=row[1];td.parent().find("td[data-id='Supine_Sleep_Time_PercentTST']").html(row[1]);break;
+                                     case 'Prone Sleep Time': records[I]['Prone_Sleep_Time']=row[1];td.parent().find("td[data-id='Prone_Sleep_Time']").html(row[1]);break;
+                                     case 'Prone Sleep Time (Minutes)': records[I]['Prone_Sleep_Time_Minutes']=row[1];td.parent().find("td[data-id='Prone_Sleep_Time_Minutes']").html(row[1]);break;
+                                     case 'Prone Sleep Time (Hours)': records[I]['Prone_Sleep_Time_Hours']=row[1];td.parent().find("td[data-id='Prone_Sleep_Time_Hours']").html(row[1]);break;
+                                     case 'Prone Sleep Time %TST': records[I]['Prone_Sleep_Time_PercentTST']=row[1];td.parent().find("td[data-id='Prone_Sleep_Time_PercentTST']").html(row[1]);break;
+                                     case 'Left Side Sleep Time': records[I]['Left_Side_Sleep_Time']=row[1];td.parent().find("td[data-id='Left_Side_Sleep_Time']").html(row[1]);break;
+                                     case 'Left Side Sleep Time (Minutes)': records[I]['Left_Side_Sleep_Time_Minutes']=row[1];td.parent().find("td[data-id='Left_Side_Sleep_Time_Minutes']").html(row[1]);break;
+                                     case 'Left Side Sleep Time (Hours)': records[I]['Left_Side_Sleep_Time_Hours']=row[1];td.parent().find("td[data-id='Left_Side_Sleep_Time_Hours']").html(row[1]);break;
+                                     case 'Left Side Sleep Time %TST': records[I]['Left_Side_Sleep_Time_PercentTST']=row[1];td.parent().find("td[data-id='Left_Side_Sleep_Time_PercentTST']").html(row[1]);break;
+                                     case 'Right Side Sleep Time': records[I]['Right_Side_Sleep_Time']=row[1];td.parent().find("td[data-id='Right_Side_Sleep_Time']").html(row[1]);break;
+                                     case 'Right Side Sleep Time (Minutes)': records[I]['Right_Side_Sleep_Time_Minutes']=row[1];td.parent().find("td[data-id='Right_Side_Sleep_Time_Minutes']").html(row[1]);break;
+                                     case 'Right Side Sleep Time (Hours)': records[I]['Right_Side_Sleep_Time_Hours']=row[1];td.parent().find("td[data-id='Right_Side_Sleep_Time_Hours']").html(row[1]);break;
+                                     case 'Right Side Sleep Time %TST': records[I]['Right_Side_Sleep_Time_PercentTST']=row[1];td.parent().find("td[data-id='Right_Side_Sleep_Time_PercentTST']").html(row[1]);break;
+                                     case 'Upright Sleep Time': records[I]['Upright_Sleep_Time']=row[1];td.parent().find("td[data-id='Upright_Sleep_Time']").html(row[1]);break;
+                                     case 'Upright Sleep Time (Minutes)': records[I]['Upright_Sleep_Time_Minutes']=row[1];td.parent().find("td[data-id='Upright_Sleep_Time_Minutes']").html(row[1]);break;
+                                     case 'Upright Sleep Time (Hours)': records[I]['Upright_Sleep_Time_Hours']=row[1];td.parent().find("td[data-id='Upright_Sleep_Time_Hours']").html(row[1]);break;
+                                     case 'Upright Sleep Time %TST': records[I]['Upright_Sleep_Time_PercentTST']=row[1];td.parent().find("td[data-id='Upright_Sleep_Time_PercentTST']").html(row[1]);break;
+                                     case 'Non-Supine Sleep Time (Minutes)': records[I]['Non_Supine_Sleep_Time_Minutes']=row[1];td.parent().find("td[data-id='Non_Supine_Sleep_Time_Minutes']").html(row[1]);break;
+                                     case 'Non-Supine Sleep Time %TST': records[I]['Non_Supine_Sleep_Time_PercentTST']=row[1];td.parent().find("td[data-id='Non_Supine_Sleep_Time_PercentTST']").html(row[1]);break;
+                                     case 'PLM Count TST': records[I]['PLM_Count_TST']=row[1];td.parent().find("td[data-id='PLM_Count_TST']").html(row[1]);break;
+                                     case 'PLM Duration TST': records[I]['PLM_Duration_TST']=row[1];td.parent().find("td[data-id='PLM_Duration_TST']").html(row[1]);break;
+                                     case 'PLM Mean Duration TST': records[I]['PLM_Mean_Duration_TST']=row[1];td.parent().find("td[data-id='PLM_Mean_Duration_TST']").html(row[1]);break;
+                                     case 'PLM Max Duration TST': records[I]['PLM_Max_Duration_TST']=row[1];td.parent().find("td[data-id='PLM_Max_Duration_TST']").html(row[1]);break;
+                                     case 'PLM Percentage TST': records[I]['PLM_Percentage_TST']=row[1];td.parent().find("td[data-id='PLM_Percentage_TST']").html(row[1]);break;
+                                     case 'LimbMovementCount (TIB)': records[I]['LimbMovementCount_TIB']=row[1];td.parent().find("td[data-id='LimbMovementCount_TIB']").html(row[1]);break;
+                                     case 'LimbMovementCount (Supine)': records[I]['LimbMovementCount_Supine']=row[1];td.parent().find("td[data-id='LimbMovementCount_Supine']").html(row[1]);break;
+                                     case 'LimbMovementCount (Non Supine)': records[I]['LimbMovementCount_Non_Supine']=row[1];td.parent().find("td[data-id='LimbMovementCount_Non_Supine']").html(row[1]);break;
+                                }
+                            }
+                        });
+                        reader.readAsText(file);
+                    }
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        //document.getElementById('PVT_File_Name').addEventListener('change', handleFileSelect,false);
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

@@ -1,0 +1,50 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="eysneck_1,eysneck_2,eysneck_3,eysneck_4,eysneck_5,eysneck_6,eysneck_7,eysneck_8,eysneck_9,eysneck_10,eysneck_11,eysneck_12,eysneck_13,eysneck_14,eysneck_15,eysneck_16,eysneck_17,eysneck_18,eysneck_19,eysneck_20,eysneck_21,eysneck_22,eysneck_23,eysneck_24,eysneck_25,eysneck_26,eysneck_27,eysneck_28,eysneck_29,eysneck_30,eysneck_31,eysneck_32,eysneck_33,eysneck_34,eysneck_35,eysneck_36,eysneck_37,eysneck_38,eysneck_39,eysneck_40,eysneck_41,eysneck_42,eysneck_43,eysneck_44,eysneck_45,eysneck_46,eysneck_47,eysneck_48,eysneck_n,eysneck_p,eysneck_e,eysneck_l";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _grid_to_form_parameters={task_fields:_task_fields};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'eysneck':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            var ey_n=parseInt(record.eysneck_1)+parseInt(record.eysneck_5)+parseInt(record.eysneck_9)+parseInt(record.eysneck_13)+parseInt(record.eysneck_17)+parseInt(record.eysneck_21)+parseInt(record.eysneck_25)+parseInt(record.eysneck_30)+parseInt(record.eysneck_34)+parseInt(record.eysneck_38)+parseInt(record.eysneck_42)+parseInt(record.eysneck_46);
+            var ey_p=parseInt(record.eysneck_2)+parseInt(record.eysneck_6)+parseInt(record.eysneck_10)+parseInt(record.eysneck_14)+parseInt(record.eysneck_18)+parseInt(record.eysneck_22)+parseInt(record.eysneck_26)+parseInt(record.eysneck_28)+parseInt(record.eysneck_31)+parseInt(record.eysneck_35)+parseInt(record.eysneck_39)+parseInt(record.eysneck_43);
+            var ey_e=parseInt(record.eysneck_3)+parseInt(record.eysneck_7)+parseInt(record.eysneck_11)+parseInt(record.eysneck_15)+parseInt(record.eysneck_19)+parseInt(record.eysneck_23)+parseInt(record.eysneck_27)+parseInt(record.eysneck_32)+parseInt(record.eysneck_36)+parseInt(record.eysneck_41)+parseInt(record.eysneck_44)+parseInt(record.eysneck_48);
+            var ey_l=parseInt(record.eysneck_4)+parseInt(record.eysneck_8)+parseInt(record.eysneck_12)+parseInt(record.eysneck_16)+parseInt(record.eysneck_20)+parseInt(record.eysneck_24)+parseInt(record.eysneck_29)+parseInt(record.eysneck_33)+parseInt(record.eysneck_37)+parseInt(record.eysneck_40)+parseInt(record.eysneck_45)+parseInt(record.eysneck_47);
+            record.eysneck_n=ey_n.toString();
+            record.eysneck_p=ey_p.toString();
+            record.eysneck_e=ey_e.toString();
+            record.eysneck_l=ey_l.toString();
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>
