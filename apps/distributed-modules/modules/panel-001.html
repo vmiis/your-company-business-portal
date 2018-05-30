@@ -4,15 +4,15 @@
 	<section id=panel__ID>
 		<div class='nav__ID'>
 			<ul>
-				<li><u m2=contact-us-data table_id=20011502 url=https://codepen.io/vmiis/pen/MGNWZE.html form_module=contact-us-form><span class=li__ID>Contact us (data)</span></u>https://codepen.io/vmiis/pen/MGNWZE.html</li>
-				<li><u m2=contact-us-form table_id=20011502 url=https://codepen.io/vmiis/pen/WJVNmR.html><span class=li__ID>Contact us (form)</span></u>https://codepen.io/vmiis/pen/WJVNmR.html</li>
-				<li><u m2=images url=https://codepen.io/vmiis/pen/jxooeP.html><span class=li__ID><span class=li__ID>Images</span></u>https://codepen.io/vmiis/pen/jxooeP.html</li>
-				<li><u m2=bootstrap-4-cards-demo url=https://codepen.io/vmiis/pen/zjXqbj.html><span class=li__ID>Bootstrap 4 cards demo</span></u>https://codepen.io/vmiis/pen/zjXqbj.html</u></li>
-				<li><u m2=asthma url=https://codepen.io/vmiis/pen/gzqmGq.html><span class=li__ID>Asthma</span></u>https://codepen.io/vmiis/pen/gzqmGq.html</u></li>
-				<li><u m2=two-columns url=https://codepen.io/vmiis/pen/YLgvxg.html><span class=li__ID>Two columns</span></u>https://codepen.io/vmiis/pen/YLgvxg.html</u></li>
-				<li><u m2=indenting-featured-images url=https://codepen.io/vmiis/pen/ELJOKe.html><span class=li__ID>Indenting featured images</span></u>https://codepen.io/vmiis/pen/ELJOKe.html</u></li>
-				<li><u m2=my-first-bootstrap-page url=https://codepen.io/vmiis/pen/KRLEOQ.html><span class=li__ID>My first bootstrap page</span></u>https://codepen.io/vmiis/pen/KRLEOQ.html</u></li>
-				<li><u m2=table url=https://codepen.io/vmiis/pen/BxeEMV.html><span class=li__ID>Table</span></u>https://codepen.io/vmiis/pen/BxeEMV.html</u></li>
+				<li><u class=li__ID m2=contact-us-data table_id=20011502 url=https://codepen.io/vmiis/pen/MGNWZE.html form_module=contact-us-form>Contact us (data)</u><u>https://codepen.io/vmiis/pen/MGNWZE.html</u></li>
+				<li><u class=li__ID m2=contact-us-form table_id=20011502 url=https://codepen.io/vmiis/pen/WJVNmR.html>Contact us (form)</u><u>https://codepen.io/vmiis/pen/WJVNmR.html</u></li>
+				<li><u class=li__ID m2=images url=https://codepen.io/vmiis/pen/jxooeP.html><span class=li__ID>Images</u><u>https://codepen.io/vmiis/pen/jxooeP.html</u></li>
+				<li><u class=li__ID m2=bootstrap-4-cards-demo url=https://codepen.io/vmiis/pen/zjXqbj.html>Bootstrap 4 cards demo</u><u>https://codepen.io/vmiis/pen/zjXqbj.html</u></li>
+				<li><u class=li__ID m2=asthma url=https://codepen.io/vmiis/pen/gzqmGq.html>Asthma</u><u>https://codepen.io/vmiis/pen/gzqmGq.html</u></li>
+				<li><u class=li__ID m2=two-columns url=https://codepen.io/vmiis/pen/YLgvxg.html>Two columns</u><u>https://codepen.io/vmiis/pen/YLgvxg.html</u></li>
+				<li><u class=li__ID m2=indenting-featured-images url=https://codepen.io/vmiis/pen/ELJOKe.html>Indenting featured images</u><u>https://codepen.io/vmiis/pen/ELJOKe.html</u></li>
+				<li><u class=li__ID m2=my-first-bootstrap-page url=https://codepen.io/vmiis/pen/KRLEOQ.html>My first bootstrap page</u><u>https://codepen.io/vmiis/pen/KRLEOQ.html</u></li>
+				<li><u class=li__ID m2=table url=https://codepen.io/vmiis/pen/BxeEMV.html>Table</u><u>https://codepen.io/vmiis/pen/BxeEMV.html</u></li>
 			</ul>
 		</div>
 	</section>
@@ -20,21 +20,36 @@
 <script>
     function F__ID(){
         //--------------------------------------------------------
+        var prefix="M__ID_";
+        $('#panel__ID u').each(function(){
+            var m2=$(this).attr('m2');
+            if(m2!=undefined){
+				if($vm.module_list[prefix+m2]==undefined){
+					$vm.module_list[prefix+m2]={
+						table_id:$(this).attr('table_id'),
+						url:$(this).attr('url'),
+						form_module:$(this).attr('form_module'),
+                        prefix:prefix
+					}
+				}
+            }
+        })
+        //--------------------------------------------------------
         $('#panel__ID u').on('click',function(){
             var m=$(this).attr('m');
             if(m!=undefined){
                 $vm.load_module_v2(m,'',{});
+                return;
             }
 			var m2=$(this).attr('m2');
             if(m2!=undefined){
-				if($vm.module_list[m2]==undefined){
-					$vm.module_list[m2]={
-						table_id:$(this).attr('table_id'),
-						url:$(this).attr('url'),
-						form_module:$(this).attr('form_module')
-					}
-				}
-				$vm.load_module_v2(m2,'',{});
+				$vm.load_module_v2(prefix+m2,'',{});
+                return;
+            }
+            var http=$(this).text();
+            if(http.substring(0,4)=='http'){
+                if(http.indexOf('codepen')!=-1)  window.open(http.replace('.html',''));
+                return;
             }
 			if( $(this).hasClass('ul__ID')  ){
 				var $i=$(this).find('i');
