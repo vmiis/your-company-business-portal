@@ -6,7 +6,7 @@
 			<ul>
 				<li><u class=li__ID m2=contact-us-data table_id=20011502 url=https://codepen.io/vmiis/pen/MGNWZE.html form_module=contact-us-form>Contact us (data)</u><u>https://codepen.io/vmiis/pen/MGNWZE.html</u></li>
 				<li><u class=li__ID m2=contact-us-form table_id=20011502 url=https://codepen.io/vmiis/pen/WJVNmR.html>Contact us (form)</u><u>https://codepen.io/vmiis/pen/WJVNmR.html</u></li>
-				<li><u class=li__ID m2=images url=https://codepen.io/vmiis/pen/jxooeP.html><span class=li__ID>Images</u><u>https://codepen.io/vmiis/pen/jxooeP.html</u></li>
+				<li><u class=li__ID m2=images url=https://codepen.io/vmiis/pen/jxooeP.html>Images</u><u>https://codepen.io/vmiis/pen/jxooeP.html</u></li>
 				<li><u class=li__ID m2=bootstrap-4-cards-demo url=https://codepen.io/vmiis/pen/zjXqbj.html>Bootstrap 4 cards demo</u><u>https://codepen.io/vmiis/pen/zjXqbj.html</u></li>
 				<li><u class=li__ID m2=asthma url=https://codepen.io/vmiis/pen/gzqmGq.html>Asthma</u><u>https://codepen.io/vmiis/pen/gzqmGq.html</u></li>
 				<li><u class=li__ID m2=two-columns url=https://codepen.io/vmiis/pen/YLgvxg.html>Two columns</u><u>https://codepen.io/vmiis/pen/YLgvxg.html</u></li>
@@ -36,11 +36,6 @@
         })
         //--------------------------------------------------------
         $('#panel__ID u').on('click',function(){
-            var m=$(this).attr('m');
-            if(m!=undefined){
-                $vm.load_module_v2(m,'',{});
-                return;
-            }
 			var m2=$(this).attr('m2');
             if(m2!=undefined){
 				$vm.load_module_v2(prefix+m2,'',{});
@@ -129,5 +124,8 @@
 	.li__ID{
 		display:inline-block;
 		width:200px;
+	}
+    .nav__ID>ul>li u:nth-child(2){
+        font-size:11px;
 	}
 </style>

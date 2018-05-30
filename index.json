@@ -3,7 +3,7 @@
     "business":    	    	{"url":"modules/panels/business.html"},
     "clinical-trials":  	{"url":"modules/panels/clinical-trials.html"},
     "development": 	    	{"url":"modules/panels/development.html"},
-    "dm_panel-001":	{"url":"modules/panels/distributed-modules.html"},
+    "dm_panel-001":	        {"url":"modules/panels/distributed-modules.html"},
     "others":      	    	{"url":"modules/panels/others.html"},
     "reporting-central":	{"url":"modules/panels/reporting-central.html"},
     "apps":             	{"url":"modules/panels/apps.html"},

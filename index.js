@@ -39,7 +39,10 @@ $vm.module_links=[
     "w002|apps/website-template-002/pages/index.json",
     "w003|apps/website-template-003/pages/index.json",
     "w004|apps/website-template-004/pages/index.json",
-    "w005|apps/website-template-005/pages/index.json"
+    "w005|apps/website-template-005/pages/index.json",
+
+    "wfh|apps/windfarm-home-2/index.json",
+
 ];
 $vm.module_list={
     "Home":  {"url":"modules/home.html"}

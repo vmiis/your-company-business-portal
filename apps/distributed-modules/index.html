@@ -12,7 +12,7 @@
             $.ajaxSetup({cache:true});
             $.get('version.html',function(v){
 				//------------------------------------------
-				console.log(v);	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.localhost=true;
+                console.log(v);	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.localhost=true;
                 $vm.ver=v.trim().split(',');
                 var url=window.location.href.split('?')[0];
                 var ver_h=localStorage.getItem(url+"h_ver");
@@ -21,6 +21,7 @@
                 var txt_j=localStorage.getItem(url+"j_txt");
 				var new_txt_h="";
 				var new_txt_j="";
+                //------------------------------------------
 				var process=function(){
 					if(new_txt_j=="") return;
 					else{
