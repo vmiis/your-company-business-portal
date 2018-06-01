@@ -1,0 +1,6 @@
+{
+    "modules":
+	{
+        "workbench": {"url":"modules/panels/workbench.html"}
+	}
+}

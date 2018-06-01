@@ -1,52 +1,9 @@
 //------------------------------------
 $vm.module_links=[
-    "index.json",
-    "fm|apps/a-basic-application-framework/index.json",
-    "aj|apps/angularjs/index.json",
-    "bf|apps/basic-form-fields/index.json",
-    "bk|apps/bookkeeping/index.json",
-    "cb|apps/car-booking/index.json",
-    "ct|apps/clinical-trials-001/index.json",
-    "dm|apps/distributed-modules/index.json",
-    "sfw|apps/sleep-fix-workbench/index.json",
-
-    "rc|apps/reporting-central/pages/index.json",
-    "ft|apps/fitness/pages/index.json",
-    "vb|apps/clinical-trials-participant-visit-booking/pages/index.json",
-    "dc|apps/document-collaboration-tracking/pages/index.json",
-    "eq|apps/enquiry/pages/index.json",
-    "eb|apps/equipment-booking/pages/index.json",
-    "ir|apps/incident-reporting/pages/index.json",
-    "mp|apps/medical-practitioner/pages/index.json",
-    "hw|apps/my-first-hello-world-module-in-an-application/pages/index.json",
-    "re|apps/restaurant/pages/index.json",
-    "rb|apps/room-booking/pages/index.json",
-    "st|apps/sales-tracking/pages/index.json",
-    "sv|apps/survey/pages/index.json",
-    "wi|apps/workplace-inspection/pages/index.json",
-    "ec|apps/team-event-calendar/pages/index.json",
-    "sm|apps/sfix-app-survey-management/pages/index.json",
-    "pt|apps/particles/pages/index.json",
-    "pp|apps/program-and-project-management/pages/index.json",
-    "po|apps/purchase-order-request/pages/index.json",
-    "iv|apps/invoice/pages/index.json",
-    "ei|apps/education-and-immigration/pages/index.json",
-    "ce|apps/crc-stream-b-extension/pages/index.json",
-    "tm|apps/tom-data-management/pages/index.json",
-    "wk|apps/woolcock-data-management/pages/index.json",
-    "il|apps/clinical-trials-005/pages/index.json",
-    "rj|apps/reactjs/pages/index.json",
-    "w001|apps/website-template-001/pages/index.json",
-    "w002|apps/website-template-002/pages/index.json",
-    "w003|apps/website-template-003/pages/index.json",
-    "w004|apps/website-template-004/pages/index.json",
-    "w005|apps/website-template-005/pages/index.json",
-
-    "wfh|apps/windfarm-home-2/index.json",
-
+    "index.json"
 ];
 $vm.module_list={
-    "Home":  {"url":"modules/home.html"}
+    "Home":     {"url":"modules/home.html"}
 }
 //------------------------------------
 $vm.app_config={
@@ -159,12 +116,11 @@ function vm_init(callback){
 		text=text.replace(/__COMPONENT__\//g,'https://vmiis.github.io/component/');
 		text=text.replace(/https:\/\/vmiis.github.io\/modular-distributed-web-application\//g,'https://www.vmiis.com/');
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-            /*
-            //use local version
+			//use local version
 			text=text.replace(/https:\/\/cbs.wappsystem.com\/dev\/github/g,window.location.protocol+'//'+window.location.host);
 			text=text.replace(/https:\/\/cbs.wappsystem.com\/pro\/github/g,window.location.protocol+'//'+window.location.host);
 			//text=text.replace(/https:\/\/distributed-modules.vmiis.com/g,window.location.protocol+'//'+window.location.host+'/vmiis/distributed-modules');
-            */
+
 			//do not use local system files
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/api/g,'https://vmiis.github.io/api');
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/framework/g,'https://vmiis.github.io/framework');
@@ -172,7 +128,10 @@ function vm_init(callback){
 			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://vmiis.github.io/modules');
 
 			text=text.replace(/https:\/\/woolcock-imr.github.io/g,					window.location.protocol+'//'+window.location.host+'/woolcock-imr');
+			text=text.replace(/https:\/\/volunteer-database.rt.org.au/g,			window.location.protocol+'//'+window.location.host+'/woolcock-imr/volunteer-database-2');
+			text=text.replace(/https:\/\/volunteer-database-management.rt.org.au/g,	window.location.protocol+'//'+window.location.host+'/woolcock-imr/volunteer-database-management-2');
 			text=text.replace(/https:\/\/wappsystem.github.io/g,					window.location.protocol+'//'+window.location.host+'/wappsystem');
+
 		}
 		if(window.location.toString().indexOf('_d=1')!=-1){
 			//use local system files
@@ -181,6 +140,17 @@ function vm_init(callback){
 			text=text.replace(/https:\/\/vmiis.github.io\/framework/g,host+'/vmiis/framework');
 			text=text.replace(/https:\/\/vmiis.github.io\/component/g,host+'/vmiis/component');
 			text=text.replace(/https:\/\/vmiis.github.io\//g,host+'/vmiis/applications/');
+		}
+		if(window.location.toString().indexOf('_d=2')!=-1){
+			//use latest unstable version (master branch, not gh-pages branch)
+			text=text.replace(/https:\/\/vmiis.github.io\/api/g,'https://raw.githubusercontent.com/vmiis/api/master');
+			text=text.replace(/https:\/\/vmiis.github.io\/framework/g,'https://raw.githubusercontent.com/vmiis/framework/master');
+			text=text.replace(/https:\/\/vmiis.github.io\/component/g,'https://raw.githubusercontent.com/vmiis/component/master');
+			text=text.replace(/https:\/\/vmiis.github.io\/modules/g,'https://raw.githubusercontent.com/vmiis/modules/master');
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/api/g,'https://raw.githubusercontent.com/vmiis/api/master');
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/framework/g,'https://raw.githubusercontent.com/vmiis/framework/master');
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/component/g,'https://raw.githubusercontent.com/vmiis/component/master');
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://raw.githubusercontent.com/vmiis/modules/master');
 		}
 		return text;
 	}
