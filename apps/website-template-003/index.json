@@ -1,9 +1,13 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	    {"url":"panels/home.html","modules":[]},
-		"pages":	{"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "gallery":			{"url":"modules/bridge.html","path":"templatemo/lumino/index.html","page":"gallery.html"},
+		"news":				{"url":"modules/bridge.html","path":"templatemo/lumino/index.html","page":"news.html"},
+		"one-column":		{"url":"modules/bridge.html","path":"templatemo/lumino/index.html","page":"one-column.html"},
+		"two-column":		{"url":"modules/bridge.html","path":"templatemo/lumino/index.html","page":"two-column.html"},
+		"three-column":		{"url":"modules/bridge.html","path":"templatemo/lumino/index.html","page":"three-column.html"},
+		"contact":			{"url":"modules/bridge.html","path":"templatemo/lumino/index.html","page":"contact.html"},
+		"contact-us-data":    {"table_id":"20009702","url":"modules/contact-us-data.html","name_for_search":"Contact us data"}
 	}
 }

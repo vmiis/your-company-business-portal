@@ -1,7 +1,7 @@
 {"modules":{
 
     "portal":	{"url":"modules/home.html"},
-    "quest-panel":	{"url":"modules/panels/quest.html"},
+    "quest-panel":	{"url":"modules/quest.html"},
 
     "consent2-s":               {"table_id":"91000078","url":"/modules/edc/consent2.html","form_module":"consent2-s-form"},"consent2-s-form": {"table_id":"91000078","url":"/modules/edc/consent2.form.html"},
     "check-eligibility-s":      {"table_id":"91000077","url":"/modules/edc/check-eligibility.html","form_module":"check-eligibility-s-form"},"check-eligibility-s-form": {"table_id":"91000077","url":"/modules/edc/check-eligibility.form.html"},

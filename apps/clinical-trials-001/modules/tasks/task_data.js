@@ -1,7 +1,7 @@
 //-------------------------------------
 var this_module			=$vm.module_list[$vm.vm['__ID'].name];
 var prefix				=this_module.prefix;
-var form_module			=prefix+this_module.form_module;
+var form_module			=prefix+this_module.form_module;  if(prefix==undefined) prefix="";
 var form_tid      		=this_module.table_id;
 var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
 var notes_tid			=""; if($vm.module_list[prefix+'edc-notes-data']!=undefined) notes_tid=$vm.module_list[prefix+'edc-notes-data'].table_id;

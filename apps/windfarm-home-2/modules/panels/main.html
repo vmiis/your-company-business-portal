@@ -23,6 +23,7 @@
 		}
 	}
 </style>
+<a style='display:inline-block;margin:6px;color:#000' id=app__ID target=_blank href='apps/windfarm-home-2/' ><u>Run as a seperated application</u></a>
 <section id=panel__ID>
 	<div class='nav__ID'>
 		<span>Participants</span>
@@ -135,6 +136,8 @@
     		}
     	}
     	//--------------------------------------------------------
+        if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
+		//--------------------------------------------------------
     }
 </script>
 

@@ -88,7 +88,7 @@ function vm_init(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null){
+        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading '+url+'?_='+$vm.ver[1]);
             $.get(url+'?_='+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
@@ -136,18 +136,6 @@ function vm_init(callback){
 			text=text.replace(/https:\/\/vmiis.github.io\/api/g,host+'/vmiis/api');
 			text=text.replace(/https:\/\/vmiis.github.io\/framework/g,host+'/vmiis/framework');
 			text=text.replace(/https:\/\/vmiis.github.io\/component/g,host+'/vmiis/component');
-			text=text.replace(/https:\/\/vmiis.github.io\//g,host+'/vmiis/applications/');
-		}
-		if(window.location.toString().indexOf('_d=2')!=-1){
-			//use latest unstable version (master branch, not gh-pages branch)
-			text=text.replace(/https:\/\/vmiis.github.io\/api/g,'https://raw.githubusercontent.com/vmiis/api/master');
-			text=text.replace(/https:\/\/vmiis.github.io\/framework/g,'https://raw.githubusercontent.com/vmiis/framework/master');
-			text=text.replace(/https:\/\/vmiis.github.io\/component/g,'https://raw.githubusercontent.com/vmiis/component/master');
-			text=text.replace(/https:\/\/vmiis.github.io\/modules/g,'https://raw.githubusercontent.com/vmiis/modules/master');
-			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/api/g,'https://raw.githubusercontent.com/vmiis/api/master');
-			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/framework/g,'https://raw.githubusercontent.com/vmiis/framework/master');
-			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/component/g,'https://raw.githubusercontent.com/vmiis/component/master');
-			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://raw.githubusercontent.com/vmiis/modules/master');
 		}
 		return text;
 	}

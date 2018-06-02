@@ -1,0 +1,59 @@
+<div id=page__ID>
+    <h3>Sales Department Staff Salary Table</h3>
+    <div id="chart_div__ID"></div>
+</div>
+<script>
+    function F__ID(){
+        //------------------------------------
+        $('#D__ID').on('load',function(){ report(); })
+        //------------------------------------
+        var report=function(){
+            var sql="select top 10 Information from [TABLE-20011501]";
+            $VmAPI.request({
+                data:{cmd:'query_records',sql:sql},
+                callback:function(res){
+                    google.charts.load('current', {'packages':['table']});
+                    google.charts.setOnLoadCallback(drawTable);
+                    function drawTable() {
+                      var data = new google.visualization.DataTable();
+                      data.addColumn('string', 'Name');
+                      data.addColumn('number', 'Salary');
+                      data.addColumn('boolean', 'Full Time Employee');
+                      /*
+                      data.addRows([
+                        ['Mike',  {v: 10000, f: '$10,000'}, true],
+                        ['Jim',   {v: 8000,   f: '$8,000'}, false],
+                        ['Alice', {v: 12500, f: '$12,500'}, true],
+                        ['Bob',   {v: 7000,  f: '$7,000'},  true]
+                      ]);
+                      */
+                      var d=[];
+                      for(var i=0;i<res.records.length;i++){
+                          var f=false; if(res.records[i].Full_Time_Employee==1) f=true;
+                          d.push([res.records[i].Name,parseFloat(res.records[i].Salary),f])
+                      };
+                      data.addRows(d);
+                      var table = new google.visualization.Table(document.getElementById('chart_div__ID'));
+                      table.draw(data, {showRowNumber: true, width: '100%', width: '100%' });
+                    }
+                }
+            })
+        }
+        //------------------------------------
+        $('#chart_div__ID').css('height',$vm.min_height+'px');
+        //------------------------------------
+    }
+</script>
+<style>
+    #D__ID{
+        height:100%;
+        overflow:auto;
+        animation: vm_module_fadein 1.0s;
+        background-color: #fff;
+        overflow:hidden;
+    }
+    #page__ID{
+        padding:30px 0 0 30px;
+        width:500px;
+    }
+</style>

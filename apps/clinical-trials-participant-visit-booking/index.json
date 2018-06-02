@@ -1,9 +1,12 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "monthly":        {"table_id":"20005048","url":"modules/monthly.html",	"daily_module":"daily","booking_form":"booking-form"},
+        "daily":          {"table_id":"20005048","url":"modules/daily.html",   "booking_form":"booking-form"},
+        "booking-data":   {"table_id":"20005048","url":"modules/booking-data.html","form_module":"booking-form"},
+        "booking-form":   {"table_id":"20005048","url":"modules/booking-form.html","participant_tid":"20005031"},
+        "participant-data":   {"table_id":"20005031","url":"modules/participant-data.html","form_module":"participant-form"},
+        "participant-form":   {"table_id":"20005031","url":"modules/participant-form.html"}
 	}
 }

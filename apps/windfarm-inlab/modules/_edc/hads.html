@@ -1,0 +1,43 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="hads_1,hads_2,hads_3,hads_4,hads_5,hads_6,hads_7,hads_8,hads_9,hads_10,hads_a,hads_d";
+        _fields="_Form,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'gses':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            record.hads_a=(parseInt(record.hads_1)+parseInt(record.hads_4)+parseInt(record.hads_5)+parseInt(record.hads_8)+parseInt(record.hads_9)+parseInt(record.hads_12)+parseInt(record.hads_13)).toString();
+            record.hads_d=(parseInt(record.hads_2)+parseInt(record.hads_3)+parseInt(record.hads_6)+parseInt(record.hads_7)+parseInt(record.hads_10)+parseInt(record.hads_11)+parseInt(record.hads_14)).toString();
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

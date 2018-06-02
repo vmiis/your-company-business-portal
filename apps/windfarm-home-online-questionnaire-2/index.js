@@ -88,7 +88,7 @@ function vm_init(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null){
+        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading '+url+'?_='+$vm.ver[1]);
             $.get(url+'?_='+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);

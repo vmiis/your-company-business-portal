@@ -1,0 +1,37 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        var _task_fields="sleep_med,sleep_suppl,past6_aspirin,curr_aspirin,past6_fentanyl,curr_fentanyl,past6_hydromorphone,curr_hydromorphone,past6_ibuprofen,curr_ibuprofen,past6_ibuprofen_co,curr_ibuprofen_co,past6_morphine,curr_morphine,past6_oxycodone,curr_oxycodone,past6_paracetamol,curr_paracetamol,past6_paracetamol_co,curr_paracetamol_co,past6_tramadol,curr_tramadol,past6_antihistamine,curr_antihistaminee,past6_pseudoephedrine,curr_pseudoephedrine,past6_betamethasone,curr_betamethasone,past6_celecoxib,curr_celecoxib,past6_diclofenac,curr_diclofenac,past6_indomethacin,curr_indomethacin,past6_meloxicam,curr_meloxicam,past6_naproxen,curr_naproxen,past6_prednisolone,curr_prednisolone,past6_prednisone,curr_prednisone,past6_alprazolam,curr_alprazolam,past6_clonazepam,curr_clonazepam,past6_diazepam,curr_diazepam,past6_flunitrazepam,curr_flunitrazepam,past6_lorazepam,curr_lorazepam,past6_melatonin,curr_melatonin,past6_nitrazepam,curr_nitrazepam,past6_oxazepam,curr_oxazepam,past6_tema...n,curr_pregabalin,past6_primidone,curr_primidone,past6_valproate,curr_valproate,past6_tiagabine,curr_tiagabine,past6_thyroxine,curr_thyroxine,past6_amoxycillin,curr_amoxycillin,past6_amox_clav,curr_amox_clav,past6_cephalexin,curr_cephalexin,past6_chloramphenicol,curr_chloramphenicol,past6_roxithromycin,curr_roxithromycin,past6_esomeprazole,curr_esomeprazole,past6_omeprazole,curr_omeprazole,past6_pantoprazole,curr_pantoprazole,past6_rabeprazol,curr_rabeprazol,past6_ranitidine,curr_ranitidine,past6_gliclazide,curr_gliclazide,past6_insulin,curr_insulin,past6_metformin,curr_metformin,past6_met_gliben,curr_met_gliben,past6_pioglitazone,curr_pioglitazone,past6_rosiglitazone,curr_rosiglitazone,past6_cyp_ethin,curr_cyp_ethin,past6_drosp_ethin,curr_drosp_ethin,past6_levon_ethin,curr_levon_ethin,past6_topical_steroids,curr_topical_steroids,past6_other_hormonal_contraception,curr_other_hormonal_contraception,past6_sex_steroids,curr_sex_steroids,past6_herbal_remedies,curr_herbal_remedies,add_med";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

@@ -1,0 +1,143 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="PVT_File_Name,PVT_Subject_ID,PVT_Trial_No,PVT_Trial_Date_Time,PVT_Study,PVT_Subj_Initials,PVT_Exp_Initials,PVT_ISIMin,PVT_ISIMax,PVT_HandUsed,PVT_TotalLength,PVT_PreVAS,PVT_PostVAS,PVT_GoodRs,PVT_MeanRT,PVT_SDRT,PVT_MedianRT,PVT_MinRT,PVT_MaxRT,PVT_MeanRRT,PVT_SDRRT,PVT_Lapses,PVT_Lap,PVT_TotalErrors,PVT_RTLess100,PVT_WrongKey,PVT_FalseStartsCorrKey,PVT_FalseStartsInCorrKey,PVT_KeyHeld,PVT_NoR30sec,PVT_DistribAsym,PVT_MeanFRT,PVT_SDFRT,PVT_MeanFRRT,PVT_MeanSDFRRT,PVT_MeanSRT,PVT_SDSRT,PVT_MeanSRRT,PVT_SDSRRT,PVT_RRTSlope,PVT_RRTIntcpt,PVT_RRTR2,PVT_CiSlope,PVT_STdErrOfLine,PVT_tVsZeroSlope,PVT_PercentChange";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'PVT_File_Name':
+                    records[I].vm_custom[field]=true;
+                    if(records[I][field]===undefined) records[I][field]="";
+                    td.data('filename_field',field);
+                    var html="<u style='cursor:pointer'>"+records[I][field]+"</u>";
+                    html+="<span class=file_buttons><a title='Remove the file' class=remove_file>X<a> <a title='Choose a file' class=choose_file>&#9783;<a></span>";
+                    html+="<form><input type=file style='display:none'></input></form>";
+                    td.html(html);
+                    if(records[I][field]==="" || records[I][field]===null || records[I][field]===undefined) td.find('a.remove_file').css('visibility','hidden');
+                    td.find('u').on('click',function(){
+                        var f_name=$(this).html();
+                        var rid=records[I].ID;
+                        if(rid!==undefined){
+                            $vm.open_link({rid:rid,filename:f_name});
+                        }
+                        else alert("No file was found on server.")
+                    });
+                    td.find('a.choose_file').on('click',function(){
+                        if(td.find('form')[0]!==undefined) td.find('form')[0].reset();
+                        td.find('input[type=file]').trigger('click');
+                    })
+                    td.find('a.remove_file').on('click',function(){
+                        td.find('a.remove_file').css('visibility','hidden');
+                        change_file_name("");
+                    })
+                    td.find('input[type=file]').on('change',function(evt){
+                        td.find('a.remove_file').css('visibility','');
+                        var file = this.files[0];
+                        change_file_name(file.name);
+                        read_file(file);
+                    })
+                    var change_file_name=function(name){
+                        set_value(name,records,I,field);
+                        if(source=='grid'){
+                            td.parent().find("td[data-id='"+field+"']").find('u').html(name);
+                        }
+                        else{
+                            td.parent().parent().find("td[data-id='"+field+"']").find('u').html(name);
+                        }
+                    }
+                    var read_file=function(file){
+                        var reader = new FileReader();
+                        reader.onload = (function(e) {
+                            var contents = e.target.result;
+                            var lines=contents.replace(/"/g,'').replace(/\r/,'\n').replace(/\n\n/,'\n').replace(/\t/g,',').split('\n');
+                            if(lines.length>=2){
+                                var header=lines[0].split(',');
+                                var row=lines[1].split(',');
+                                for(i=0;i<header.length;i++){
+                                    switch(header[i]) {
+                                        case "Subject ID": records[I]['PVT_Subject_ID']=row[i];td.parent().find("td[data-id='PVT_Subject_ID']").html(row[i]);break;
+                                        case "Trial No.": records[I]['PVT_Trial_No']=row[i];td.parent().find("td[data-id='PVT_Trial_No']").html(row[i]);break;
+                                        case "Trial Date_Time": records[I]['PVT_Trial_Date_Time']=row[i];td.parent().find("td[data-id='PVT_Trial_Date_Time']").html(row[i]);break;
+                                        case "Study": records[I]['PVT_Study']=row[i];td.parent().find("td[data-id='PVT_Study']").html(row[i]);break;
+                                        case "Subj. Initials": records[I]['PVT_Subj_Initials']=row[i];td.parent().find("td[data-id='PVT_Subj_Initials']").html(row[i]);break;
+                                        case "Exp. Initials": records[I]['PVT_Exp_Initials']=row[i];td.parent().find("td[data-id='PVT_Exp_Initials']").html(row[i]);break;
+                                        case "ISI Minimum": records[I]['PVT_ISIMin']=row[i];td.parent().find("td[data-id='PVT_ISIMin']").html(row[i]);break;
+                                        case "ISI Maximum": records[I]['PVT_ISIMax']=row[i];td.parent().find("td[data-id='PVT_ISIMax']").html(row[i]);break;
+                                        case "Hand": records[I]['PVT_HandUsed']=row[i];td.parent().find("td[data-id='PVT_HandUsed']").html(row[i]);break;
+                                        case "Trial Length": records[I]['PVT_TotalLength']=row[i];td.parent().find("td[data-id='PVT_TotalLength']").html(row[i]);break;
+                                        case "Sleepy Pre": records[I]['PVT_PreVAS']=row[i];td.parent().find("td[data-id='PVT_PreVAS']").html(row[i]);break;
+                                        case "Sleepy Post": records[I]['PVT_PostVAS']=row[i];td.parent().find("td[data-id='PVT_PostVAS']").html(row[i]);break;
+                                        case "Good R's": records[I]['PVT_GoodRs']=row[i];td.parent().find("td[data-id='PVT_GoodRs']").html(row[i]);break;
+                                        case "Mean RT": records[I]['PVT_MeanRT']=row[i];td.parent().find("td[data-id='PVT_MeanRT']").html(row[i]);break;
+                                        case "SD RT": records[I]['PVT_SDRT']=row[i];td.parent().find("td[data-id='PVT_SDRT']").html(row[i]);break;
+                                        case "Median RT": records[I]['PVT_MedianRT']=row[i];td.parent().find("td[data-id='PVT_MedianRT']").html(row[i]);break;
+                                        case "Minimum RT": records[I]['PVT_MinRT']=row[i];td.parent().find("td[data-id='PVT_MinRT']").html(row[i]);break;
+                                        case "Maximum RT": records[I]['PVT_MaxRT']=row[i];td.parent().find("td[data-id='PVT_MaxRT']").html(row[i]);break;
+                                        case "Mean RRT": records[I]['PVT_MeanRRT']=row[i];td.parent().find("td[data-id='PVT_MeanRRT']").html(row[i]);break;
+                                        case "SD RRT": records[I]['PVT_SDRRT']=row[i];td.parent().find("td[data-id='PVT_SDRRT']").html(row[i]);break;
+                                        case "Lapses (RT > 500ms)": records[I]['PVT_Lapses']=row[i];td.parent().find("td[data-id='PVT_Lapses']").html(row[i]);break;
+                                        case "Lap (SQR XFRM)": records[I]['PVT_Lap']=row[i];td.parent().find("td[data-id='PVT_Lap']").html(row[i]);break;
+                                        case "Total Errors": records[I]['PVT_TotalErrors']=row[i];td.parent().find("td[data-id='PVT_TotalErrors']").html(row[i]);break;
+                                        case "RT < 100 ms": records[I]['PVT_RTLess100']=row[i];td.parent().find("td[data-id='PVT_RTLess100']").html(row[i]);break;
+                                        case "Wrong key R's": records[I]['PVT_WrongKey']=row[i];td.parent().find("td[data-id='PVT_WrongKey']").html(row[i]);break;
+                                        case "False Starts (c)": records[I]['PVT_FalseStartsCorrKey']=row[i];td.parent().find("td[data-id='PVT_FalseStartsCorrKey']").html(row[i]);break;
+                                        case "False Starts (e)": records[I]['PVT_FalseStartsInCorrKey']=row[i];td.parent().find("td[data-id='PVT_FalseStartsInCorrKey']").html(row[i]);break;
+                                        case "Key Held > 3 s": records[I]['PVT_KeyHeld']=row[i];td.parent().find("td[data-id='PVT_KeyHeld']").html(row[i]);break;
+                                        case "No R for 30s": records[I]['PVT_NoR30sec']=row[i];td.parent().find("td[data-id='PVT_NoR30sec']").html(row[i]);break;
+                                        case "Distrib. Asym.": records[I]['PVT_DistribAsym']=row[i];td.parent().find("td[data-id='PVT_DistribAsym']").html(row[i]);break;
+                                        case "Mean F RT": records[I]['PVT_MeanFRT']=row[i];td.parent().find("td[data-id='PVT_MeanFRT']").html(row[i]);break;
+                                        case "SD F RT": records[I]['PVT_SDFRT']=row[i];td.parent().find("td[data-id='PVT_SDFRT']").html(row[i]);break;
+                                        case "Mean F RRT": records[I]['PVT_MeanFRRT']=row[i];td.parent().find("td[data-id='PVT_MeanFRRT']").html(row[i]);break;
+                                        case "SD F RRT": records[I]['PVT_MeanSDFRRT']=row[i];td.parent().find("td[data-id='PVT_MeanSDFRRT']").html(row[i]);break;
+                                        case "Mean S RT": records[I]['PVT_MeanSRT']=row[i];td.parent().find("td[data-id='PVT_MeanSRT']").html(row[i]);break;
+                                        case "SD S RT": records[I]['PVT_SDSRT']=row[i];td.parent().find("td[data-id='PVT_SDSRT']").html(row[i]);break;
+                                        case "Mean S RRT": records[I]['PVT_MeanSRRT']=row[i];td.parent().find("td[data-id='PVT_MeanSRRT']").html(row[i]);break;
+                                        case "SD S RRT": records[I]['PVT_SDSRRT']=row[i];td.parent().find("td[data-id='PVT_SDSRRT']").html(row[i]);break;
+                                        case "RRT Slope": records[I]['PVT_RRTSlope']=row[i];td.parent().find("td[data-id='PVT_RRTSlope']").html(row[i]);break;
+                                        case "RRT Intcpt": records[I]['PVT_RRTIntcpt']=row[i];td.parent().find("td[data-id='PVT_RRTIntcpt']").html(row[i]);break;
+                                        case "RRT R2": records[I]['PVT_RRTR2']=row[i];td.parent().find("td[data-id='PVT_RRTR2']").html(row[i]);break;
+                                        case "Ci of Slope": records[I]['PVT_CiSlope']=row[i];td.parent().find("td[data-id='PVT_CiSlope']").html(row[i]);break;
+                                        case "Std Err of Line": records[I]['PVT_STdErrOfLine']=row[i];td.parent().find("td[data-id='PVT_STdErrOfLine']").html(row[i]);break;
+                                        case "t vs Zero Slope": records[I]['PVT_tVsZeroSlope']=row[i];td.parent().find("td[data-id='PVT_tVsZeroSlope']").html(row[i]);break;
+                                        case "% Change": records[I]['PVT_PercentChange']=row[i];td.parent().find("td[data-id='PVT_PercentChange']").html(row[i]);break;
+                                    }
+                                }
+                            }
+                        });
+                        reader.readAsText(file);
+                    }
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        //document.getElementById('PVT_File_Name').addEventListener('change', handleFileSelect,false);
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

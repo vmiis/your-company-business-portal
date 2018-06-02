@@ -1,9 +1,15 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal":               {"url":"modules/portal.html"},
+        "about":	      		{"url":"modules/about.html","name_for_search":"About"},
+		"services":	      	    {"url":"modules/services.html","name_for_search":"Services"},
+        "prices":	      	    {"url":"modules/prices.html","name_for_search":"Prices"},
+		"booking":	      	    {"table_id":"20009702","demo_id":"17111902","demo_id_2":"17111901","url":"modules/booking-panel.html","name_for_search":"Booking"},
+		"booking-form":	    	{"table_id":"20009702","demo_id":"17111902","url":"modules/booking-form.html","name_for_search":""},
+		"booking-record":		{"table_id":"20009702","demo_id":"17111902","url":"modules/booking-record.html","name_for_search":"Booking records"},
+		"contact-us-form":		{"table_id":"20009702","demo_id":"17111803","url":"modules/contact-us-form.html","name_for_search":"Contact us"},
+		"contact-us-data":  	{"table_id":"20009702","demo_id":"17111803","url":"modules/contact-us-data.html","name_for_search":"Contact us record"},
+		"availability":			{"table_id":"20009702","demo_id":"17111901","url":"modules/availability.html","name_for_search":"Availability setup"}
 	}
 }

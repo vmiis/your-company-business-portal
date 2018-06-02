@@ -23,6 +23,7 @@
 		}
 	}
 </style>
+<a style='display:inline-block;margin:6px;color:#000' id=app__ID target=_blank href='apps/clinical-trials-001/' ><u>Run as a seperated application</u></a>
 <section id=panel__ID>
 	<div class='nav__ID'>
 		<span>Participants</span>
@@ -42,7 +43,7 @@
     function F__ID(){
     	//--------------------------------------------------------
         var this_module			=$vm.module_list[$vm.vm['__ID'].name];
-        var prefix				=this_module.prefix;
+        var prefix				=this_module.prefix; if(prefix==undefined) prefix="";
         //---------------------------------------------
     	var set_li_text=function(){
     	    $('.nav__ID li u').each(function(){
@@ -136,6 +137,8 @@
     		}
     	}
     	//--------------------------------------------------------
+        if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
+		//--------------------------------------------------------
     }
 </script>
 

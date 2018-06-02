@@ -1,14 +1,14 @@
-//------------------------------------
 $vm.module_links=[
     "index.json"
 ];
+//------------------------------------
 $vm.module_list={
     "Home":     {"url":"modules/home.html"}
 }
 //------------------------------------
 $vm.app_config={
     "api_path_development":"https://cbs.wappsystem.com/dev/",
-    "api_path_production":"https://cbs.wappsystem.com/pro/",
+    "api_path_production":"https://rt.woolcock.org.au/pro/",
     "default_production":"No",
 }
 //------------------------------------
@@ -33,7 +33,7 @@ function vm_init(callback){
     var lastChar=path[path.length-1];
     if(lastChar=='/') path=path.substring(0,path.length-1);
     $vm.hosting_path=path;
-    if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+    //if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.debug =true;
     //--------------------------------------------------------
     $vm.reload='';
     if(window.location.toString().indexOf('_d=3')!=-1){
@@ -88,8 +88,8 @@ function vm_init(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null){
-            console.log('loading from url. '+url)
+        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
+            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading '+url+'?_='+$vm.ver[1]);
             $.get(url+'?_='+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
                 localStorage.setItem(url+"_ver",$vm.ver[1]);
@@ -97,10 +97,7 @@ function vm_init(callback){
                 next();
             },'text');
         }
-        else{
-            console.log('loading from stotage. '+url)
-            $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next();
-        }
+        else{ $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next(); }
         //------------------------------------------
     }
     //--------------------------------------------------------
@@ -116,8 +113,22 @@ function vm_init(callback){
 		text=text.replace(/__COMPONENT__\//g,'https://vmiis.github.io/component/');
 		text=text.replace(/https:\/\/vmiis.github.io\/modular-distributed-web-application\//g,'https://www.vmiis.com/');
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			//use local version
+			text=text.replace(/https:\/\/cbs.wappsystem.com\/dev\/github/g,window.location.protocol+'//'+window.location.host);
+			text=text.replace(/https:\/\/cbs.wappsystem.com\/pro\/github/g,window.location.protocol+'//'+window.location.host);
+			//text=text.replace(/https:\/\/distributed-modules.vmiis.com/g,window.location.protocol+'//'+window.location.host+'/vmiis/distributed-modules');
+
+			//do not use local system files
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/api/g,'https://vmiis.github.io/api');
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/framework/g,'https://vmiis.github.io/framework');
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/component/g,'https://vmiis.github.io/component');
+			text=text.replace(/http:\/\/127.0.0.1:8000\/vmiis\/modules/g,'https://vmiis.github.io/modules');
+
 			text=text.replace(/https:\/\/woolcock-imr.github.io/g,					window.location.protocol+'//'+window.location.host+'/woolcock-imr');
+			text=text.replace(/https:\/\/volunteer-database.rt.org.au/g,			window.location.protocol+'//'+window.location.host+'/woolcock-imr/volunteer-database-2');
+			text=text.replace(/https:\/\/volunteer-database-management.rt.org.au/g,	window.location.protocol+'//'+window.location.host+'/woolcock-imr/volunteer-database-management-2');
 			text=text.replace(/https:\/\/wappsystem.github.io/g,					window.location.protocol+'//'+window.location.host+'/wappsystem');
+
 		}
 		if(window.location.toString().indexOf('_d=1')!=-1){
 			//use local system files
@@ -148,9 +159,6 @@ vm_init(function(){
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
 
-      "https://unpkg.com/react@16/umd/react.production.min.js",
-      "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
-      "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
@@ -298,7 +306,6 @@ vm_init(function(){
                 for (var k in modules){
                     modules[k].url=path+modules[k].url;
                     $vm.module_list[prefix+k]=modules[k];
-                    $vm.module_list[prefix+k].prefix=prefix;
                     var snm=modules[k]['name_for_search'];
                     if(snm!=""){
                         if(snm==undefined) snm=prefix+k;

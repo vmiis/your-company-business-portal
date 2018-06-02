@@ -1,0 +1,106 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:900px;'>
+            <colgroup><col style='width:250px'/>
+                <col style='width:100mm;' />
+                <col />
+            </colgroup>
+
+                    <tr><td colspan=6 class='header__ID'>Noise Annoyance Scale</td></tr>
+                   <!-- -->
+                   <tr id=tr_participant__ID style='display:none'><td colspan=3 data-id=Participant data-custom=1>
+                       <input name=Participant     id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                       <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                       <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+                   </td></tr>
+            	    <!-- -->
+                    <tr><td colspan=3 style='text-align:left'><br><b> Please click along the line in which best describes your current annoyance with the noise.
+                            </b><br><br></td></tr>
+
+                            <tr><td colspan=3 style='text-align:center'><br>NOISE ANNOYANCE</td></tr>
+                            <tr><td>Not Annoyed</td><td data-id=ANNOYANCE data-custom=1></td><td>Very Annoyed</td></tr>
+                            
+                </table>
+            </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__BASE__/woolcock-imr/windfarm/common-code/participant.js
+        VmInclude:__BASE__/vmiis/Common-Code/grid/form.js
+        var _task_fields;
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _set_participant_field();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case 'ANNOYANCE':
+                               
+                        var txt="<div class="+field+" style='position:relative;height:16px'>";
+                        txt+="<hr style='border:1px solid black;position:absolute;width:100%;top:8px;left:0px;z-index:100'>";
+                        txt+="<div style='margin-left:20px;position:absolute;top:0px;left:0px;width:5px;height:16px;background-color:red;z-index:200'></div></div>";
+                        $(this).html(txt);
+                        var v=_records[I][field];
+
+                        $(this).find('div.'+field).find('div').show();
+                        if(v===undefined || v===null ||v==='') $(this).find('div.'+field).find('div').hide();
+
+                        if(v===undefined || v===null ||v==='') v=0;
+                        var w=$(this).outerWidth()-6
+                        var left=(w)*v/100;
+                        $(this).find('div.'+field).find('div').css('margin-left',left.toString()+'px');
+                        $(this).find('div.'+field).on('click',function(event){
+                            $(this).find('div').show();
+                            var x0=$(this).position().left
+                            var x1=event.pageX
+                            var dx=x1-x0;
+                            var pos=100*dx/w;
+                            $(this).find('div').css('margin-left',dx.toString()+'px');
+                            if(pos<0) pos=0
+                            _set_value((pos).toFixed(0),_records,I,field);
+                        })
+                        break;
+                }
+            })
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+            return true;
+        }
+    }
+</script>
+<style>
+VmInclude:__BASE__/vmiis/Common-Code/toolbar/toolbar.css
+VmInclude:__BASE__/vmiis/Common-Code/grid/form.css
+    #tb__ID input[type=radio]{
+        cursor:pointer;
+    }
+    #tb__ID tr td:nth-child(3),
+    {
+        text-align:left;
+        padding-top: 0px;
+        vertical-align:middle;
+    }
+    #tb__ID tr td:nth-child(2),
+    {
+        text-align:center;
+        padding-top: 0px;
+        vertical-align:middle;
+    }
+    #tb__ID tr td:nth-child(1){
+        text-align: right;
+        vertical-align:middle;
+    }

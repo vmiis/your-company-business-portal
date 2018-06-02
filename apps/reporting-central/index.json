@@ -1,10 +1,10 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-        "main":	        {"url":"panels/main.html","modules":[],"prefix":"pages"},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "pie-chart-001":		{"table_id":"20011500","url":"modules/pie-chart-001.html"},
+        "pie-chart-001-data":   {"table_id":"20011500","url":"modules/pie-chart-001-data.html"},
+        "table-salary-data":    {"table_id":"20011501","url":"modules/table-salary-data.html"},
+        "table-salary-chart":   {"table_id":"20011501","url":"modules/table-salary-chart.html"}
 	}
 }

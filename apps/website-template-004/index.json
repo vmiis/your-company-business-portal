@@ -1,9 +1,9 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	    {"url":"panels/home.html","modules":[]},
-		"pages":	{"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal":   {"url":"modules/portal.html"},
+        "service":	{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"service.html"},
+		"team":		{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"team.html"},
+		"work":		{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"work.html"}
 	}
 }

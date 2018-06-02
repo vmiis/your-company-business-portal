@@ -40,7 +40,7 @@
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Data Entry</u>");
                     td.find('u').on('click',function(){
-                        $vm.load_module_v2('child',$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2(prefix+'child',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Setup':
@@ -58,7 +58,10 @@
 						if($vm.server=='development') d="&database=development";
 						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
 						var q_url="https://vmiis.github.io/your-company-business-portal/apps/clinical-trials-001-online-questionnaire/index.html"+p;
-						q_url=$vm.url(q_url)
+                        if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+							q_url=q_url.replace("https://vmiis.github.io","http://127.0.0.1:8000/vmiis")
+						};
+						//q_url=$vm.url(q_url)
 						window.open(q_url);
                     });
                     break;
