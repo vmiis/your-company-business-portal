@@ -1,9 +1,13 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal":         {"url":"modules/portal.html"},
+        "fitness":        {"url":"modules/fitness.html","name_for_search":"Fitness"},
+        "prices":         {"url":"modules/prices.html"},
+        "trainers":       {"url":"modules/trainers.html"},
+        "contact-us-data":{"url":"modules/contact-us-data.html"},
+        "contact-us-form":{"url":"modules/contact-us-form.html"},
+        "contact-us-data":    {"table_id":"20009702","v3":"17111803","url":"modules/contact-us-data.html","form_module":"contact-us-form"},
+        "contact-us-form":    {"table_id":"20009702","v3":"17111803","url":"modules/contact-us-form.html"}
 	}
 }

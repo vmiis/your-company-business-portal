@@ -1,6 +1,7 @@
 {
     "modules":
 	{
+        "portal":	          {"url":"modules/portal.html"},
         "checkbox-data":      {"table_id":"20008498",  "url":"modules/checkbox-data.html","form_module":"checkbox-form","name_for_search":"Checkbox data"},
         "checkbox-form":      {"table_id":"20008498",  "url":"modules/checkbox-form.html","name_for_search":"Checkbox form"},
         "caculation-data":    {"table_id":"20008496",  "url":"modules/caculation-data.html","form_module":"caculation-form","name_for_search":"Caculation data"},

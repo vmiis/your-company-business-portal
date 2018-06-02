@@ -1,6 +1,16 @@
 //------------------------------------
 $vm.module_links=[
     "index.json",
+    "abf|apps/a-basic-application-framework/index.json",
+    "sfw|apps/sleep-fix-workbench/index.json",
+    "ajs|apps/angularjs/index.json",
+    "bff|apps/basic-form-fields/index.json",
+    "wfh|apps/windfarm-home-2/index.json",
+    "who|apps/windfarm-home-online-questionnaire-2/index.json",
+    "myf|apps/my-first-hello-world-module-in-an-application/index.json",
+    "bsp|apps/bootstrap-pages/index.json",
+    "fns|apps/fitness/index.json",
+
     "fm|apps/a-basic-application-framework/index.json",
     "aj|apps/angularjs/index.json",
     "bf|apps/basic-form-fields/index.json",
@@ -8,17 +18,14 @@ $vm.module_links=[
     "cb|apps/car-booking/index.json",
     "ct|apps/clinical-trials-001/index.json",
     "dm|apps/distributed-modules/index.json",
-    "sfw|apps/sleep-fix-workbench/index.json",
 
     "rc|apps/reporting-central/pages/index.json",
-    "ft|apps/fitness/pages/index.json",
     "vb|apps/clinical-trials-participant-visit-booking/pages/index.json",
     "dc|apps/document-collaboration-tracking/pages/index.json",
     "eq|apps/enquiry/pages/index.json",
     "eb|apps/equipment-booking/pages/index.json",
     "ir|apps/incident-reporting/pages/index.json",
     "mp|apps/medical-practitioner/pages/index.json",
-    "hw|apps/my-first-hello-world-module-in-an-application/pages/index.json",
     "re|apps/restaurant/pages/index.json",
     "rb|apps/room-booking/pages/index.json",
     "st|apps/sales-tracking/pages/index.json",
@@ -40,9 +47,7 @@ $vm.module_links=[
     "w002|apps/website-template-002/pages/index.json",
     "w003|apps/website-template-003/pages/index.json",
     "w004|apps/website-template-004/pages/index.json",
-    "w005|apps/website-template-005/pages/index.json",
 
-    "wfh|apps/windfarm-home-2/index.json",
 
 ];
 $vm.module_list={
@@ -180,7 +185,7 @@ function vm_init(callback){
 			text=text.replace(/https:\/\/vmiis.github.io\/api/g,host+'/vmiis/api');
 			text=text.replace(/https:\/\/vmiis.github.io\/framework/g,host+'/vmiis/framework');
 			text=text.replace(/https:\/\/vmiis.github.io\/component/g,host+'/vmiis/component');
-			text=text.replace(/https:\/\/vmiis.github.io\//g,host+'/vmiis/applications/');
+			//text=text.replace(/https:\/\/vmiis.github.io\//g,host+'/vmiis/applications/');
 		}
 		return text;
 	}
