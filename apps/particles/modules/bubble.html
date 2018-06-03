@@ -1,0 +1,162 @@
+<!-- particles.js container -->
+<div id="particles_js__ID"></div>
+<div id=page__ID style='position:absolute'>
+	<div class="container-fluid" style='max-width:800px'>
+		<div class="text-center">
+		  <h1>Modular Distributed Web Applications.</h1>
+	  	  <hr style='border-top:1px solid #f05f40;'></hr>
+	  	  <p>A web application with unlimited number of shared reusable modules distributed on
+			  different static web servers around the world and maintained by different people
+			  with different skills!</p>
+		  <br>
+	  	  <button id=a1__ID type="button" class="btn btn-primary">Find out more</button>
+		  <br><br>
+		  <br><br>
+		</div>
+	</div>
+</div>
+<script>
+	function F__ID(){
+		$('#a1__ID').on('click',function(){
+			$vm.alert("Key Alt + mouse double click --> View source code of this module.");
+		})
+		$.getScript('https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js',function(){
+			particlesJS("particles_js__ID", {
+			  "particles": {
+			    "number": {
+			      "value": 6,
+			      "density": {
+			        "enable": true,
+			        "value_area": 800
+			      }
+			    },
+			    "color": {
+			      "value": "#1b1e34"
+			    },
+			    "shape": {
+			      "type": "polygon",
+			      "stroke": {
+			        "width": 0,
+			        "color": "#000"
+			      },
+			      "polygon": {
+			        "nb_sides": 6
+			      },
+			      "image": {
+			        "src": "img/github.svg",
+			        "width": 100,
+			        "height": 100
+			      }
+			    },
+			    "opacity": {
+			      "value": 0.3,
+			      "random": true,
+			      "anim": {
+			        "enable": false,
+			        "speed": 1,
+			        "opacity_min": 0.1,
+			        "sync": false
+			      }
+			    },
+			    "size": {
+			      "value": 160,
+			      "random": false,
+			      "anim": {
+			        "enable": true,
+			        "speed": 10,
+			        "size_min": 40,
+			        "sync": false
+			      }
+			    },
+			    "line_linked": {
+			      "enable": false,
+			      "distance": 200,
+			      "color": "#ffffff",
+			      "opacity": 1,
+			      "width": 2
+			    },
+			    "move": {
+			      "enable": true,
+			      "speed": 8,
+			      "direction": "none",
+			      "random": false,
+			      "straight": false,
+			      "out_mode": "out",
+			      "bounce": false,
+			      "attract": {
+			        "enable": false,
+			        "rotateX": 600,
+			        "rotateY": 1200
+			      }
+			    }
+			  },
+			  "interactivity": {
+			    "detect_on": "canvas",
+			    "events": {
+			      "onhover": {
+			        "enable": false,
+			        "mode": "grab"
+			      },
+			      "onclick": {
+			        "enable": false,
+			        "mode": "push"
+			      },
+			      "resize": true
+			    },
+			    "modes": {
+			      "grab": {
+			        "distance": 400,
+			        "line_linked": {
+			          "opacity": 1
+			        }
+			      },
+			      "bubble": {
+			        "distance": 400,
+			        "size": 40,
+			        "duration": 2,
+			        "opacity": 8,
+			        "speed": 3
+			      },
+			      "repulse": {
+			        "distance": 200,
+			        "duration": 0.4
+			      },
+			      "push": {
+			        "particles_nb": 4
+			      },
+			      "remove": {
+			        "particles_nb": 2
+			      }
+			    }
+			  },
+			  "retina_detect": true
+			});
+		});
+	}
+</script>
+
+
+
+<style>
+#particles_js__ID {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #2c2e43;
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+#page__ID{
+	position:absolute;
+	height:100%;
+	width:100%;
+	display: flex;
+	align-items: center;
+    color:#fff;
+	font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+</style>

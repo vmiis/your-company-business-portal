@@ -1,11 +1,25 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/pro/",
-	"api_path_woolcock":"https://rt.woolcock.org.au/pro/",
-	"default_production":"No",
-	"panels":{
-		"home":	        	{"url":"panels/home.html","modules":[]},
-		"data-management":	{"url":"panels/data-management.html","modules":[],"prefix":"pages"},
-		"pages":	    	{"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "staff-form":		{"table_id":"91000091","url":"modules/staff-form.html", 	"name_for_search":""},
+		"staff-list":		{"table_id":"91000091","url":"modules/staff-list.html", 	"name_for_search":"Staff phone and room number"},
+		"staff":			{"table_id":"91000091","url":"modules/staff.html", 		"name_for_search":"Staff"},
+		"nas":				{"table_id":"91000089","url":"modules/nas.html", 			"name_for_search":"NAS"},
+		"printer":			{"table_id":"91000086","url":"modules/printer.html", 		"name_for_search":"Printer"},
+		"unikey":			{"table_id":"91000088","url":"modules/unikey.html", 		"name_for_search":"UniKeys"},
+		"ssl":				{"table_id":"91000085","url":"modules/ssl.html", 			"name_for_search":"SSL"},
+		"domain-name":		{"table_id":"91000084","url":"modules/domain-name.html", 	"name_for_search":"Domain names"},
+		"knowledge-base":	{"table_id":"20000441","url":"modules/knowledge-base.html","name_for_search":"Knowledge base"},
+		"job-request":		{"table_id":"91000081","url":"modules/job-request.html", 	"name_for_search":"Job request"},
+
+		"computer-data":				{"table_id":"91000090","url":"modules/computer-data.html","form_module":"computer-form", "name_for_search":"Computer","preload":true},
+		"computer-form":				{"table_id":"91000090","url":"modules/computer-form.html"},
+		"application-data":				{"table_id":"91000080","url":"modules/application-data.html","form_module":"application-form","preload":true},
+		"application-form":				{"table_id":"91000080","url":"modules/application-form.html","preload":true},
+		"new-unikey-data":	      		{"table_id":"91000092","url":"modules/new-unikey-data.html","form_module":"new-unikey-form","preload":true},
+		"new-unikey-form":	      		{"table_id":"91000092","url":"modules/new-unikey-form.html","preload":true},
+		"unikey-extension-data":  		{"table_id":"91000093","url":"modules/unikey-extension-data.html","form_module":"unikey-extension-form","preload":true},
+		"unikey-extension-form":  		{"table_id":"91000093","url":"modules/unikey-extension-form.html","preload":true}
 	}
 }

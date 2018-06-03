@@ -1,9 +1,10 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "event-data":	  {"table_id":"20003773","url":"modules/event-data.html", "form_module":"event-form",	"name_for_search":"Event records"},
+        "event-form":	  {"table_id":"20003773","url":"modules/event-form.html"	},
+		"monthly":        {"table_id":"20003773","url":"modules/monthly.html",	"event_form":"event-form","daily_module":"daily",	"name_for_search":"Monthly calendar"},
+        "daily":          {"table_id":"20003773","url":"modules/daily.html",	"event_form":"event-form",		"name_for_search":"Daily calendar"}
 	}
 }

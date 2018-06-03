@@ -1,10 +1,12 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/pro/",
-	"api_path_woolcock":"https://rt.woolcock.org.au/pro/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "new-unikey-data":	      		{"table_id":"91000092","url":"modules/new-unikey-data.html","form_module":"new-unikey-form"},
+		"new-unikey-form":	      		{"table_id":"91000092","url":"modules/new-unikey-form.html"},
+		"unikey-extension-data":  		{"table_id":"91000093","url":"modules/unikey-extension-data.html","form_module":"unikey-extension-form"},
+		"unikey-extension-form":  		{"table_id":"91000093","url":"modules/unikey-extension-form.html"},
+		"woolworths-transaction-data":	{"table_id":"20010375","url":"modules/woolworths-transaction-data.html","form_module":"woolworths-transaction-form"},
+		"woolworths-transaction-form":	{"table_id":"20010375","url":"modules/woolworths-transaction-form.html"}
 	}
 }

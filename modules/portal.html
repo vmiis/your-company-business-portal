@@ -15,11 +15,6 @@
                 <li><u m=cbe_portal>CRC stream b extension</u></li>
                 <li><u m=dbm_panel-001>Distributed modules</u></li>
                 <li><u m=dct_portal>Document collaboration tracking</u></li>
-			</ul>
-		</div>
-		<div class='nav__ID'>
-            <span> </span>
-			<ul>
 				<li><u m=eai_portal>Education and immigration</u></li>
 				<li><u m=enq_portal>Enquiry</u></li>
 				<li><u m=eqb_portal>Equipment booking</u></li>
@@ -28,19 +23,21 @@
 				<li><u m=fns_portal>Fitness (web template)</u></li>
                 <li><u m=myf_portal>My first hello world website</u></li>
 				<li><u m=mep_portal>Medical practitioner</u></li>
+				<li><u m=pat_portal>Particles</u></li>
                 <li><u m=ppm_portal>Program and project management</u></li>
-                <li><u m=por_portal>Purchase order request</u></li>
-                <li><u m=rpc_portal>Reporting central</u></li>
-                <li><u m=rmb_portal>Room booking</u></li>
 			</ul>
 		</div>
-        <div class='nav__ID'>
+		<div class='nav__ID'>
             <span> </span>
 			<ul>
-                <li><u m=sat_portal>Sales tracking</u></li>
+                <li><u m=por_portal>Purchase order request</u></li>
+				<li><u m=rjs_portal>ReactJS</u></li>
+                <li><u m=rpc_portal>Reporting central</u></li>
+                <li><u m=rmb_portal>Room booking</u></li>
+				<li><u m=sat_portal>Sales tracking</u></li>
                 <li><u m=svb_portal>Service bokking</u></li>
-                <li><u m=suv_portal>Survey</u></li>
-                <li><u m=sfw_workbench>SleepFix workbench</u></li>
+				<li><u m=suv_portal>Survey</u></li>
+				<li><u m=sfw_workbench>SleepFix workbench</u></li>
 				<li><u m=wfh_main>WFH data management (clinical trials)</u></li>
 				<li><u m=who_portal>WFH online questionnaire</u></li>
                 <li><u m=w01_portal>Website template 01</u></li>
@@ -49,11 +46,27 @@
                 <li><u m=w04_portal>Website template 04</u></li>
 				<li><u m=apps>Templates</u></li>
 				<li><u m=others>Others</u></li>
-                <li><u a=team-event-calendar>Team event calendar</u></li>
-                <li><u a=tom-data-management>Tom data management</u></li>
-                <li><u a=woolcock-data-management>Woolcock data management</u></li>
-                <li><u a=woolworths-credit-card>Woolworths credit card</u></li>
-                <li><u a=workplace-inspection>Workplace inspection</u></li>
+                <li><u m=tec_portal>Team event calendar</u></li>
+                <li><u m=tom_portal>Tom data management</u></li>
+                <li><u m=wdm_portal>Woolcock data management</u></li>
+                <li><u m=wcc_portal>Woolworths credit card</u></li>
+                <li><u m=wpi_portal>Workplace inspection</u></li>
+			</ul>
+		</div>
+		<div class='nav__ID modules__ID'>
+            <span>Recent Modules</span>
+			<ul>
+				<li><u class=li__ID m2=contact-us-data table_id=20011502 url=https://codepen.io/vmiis/pen/MGNWZE.html form_module=contact-us-form>Contact us (data)</u><u>https://codepen.io/vmiis/pen/MGNWZE.html</u></li>
+				<li><u class=li__ID m2=contact-us-form table_id=20011502 url=https://codepen.io/vmiis/pen/WJVNmR.html>Contact us (form)</u><u>https://codepen.io/vmiis/pen/WJVNmR.html</u></li>
+				<li><u class=li__ID m2=images url=https://codepen.io/vmiis/pen/jxooeP.html>Images</u><u>https://codepen.io/vmiis/pen/jxooeP.html</u></li>
+				<li><u class=li__ID m2=bootstrap-4-cards-demo url=https://codepen.io/vmiis/pen/zjXqbj.html>Bootstrap 4 cards demo</u><u>https://codepen.io/vmiis/pen/zjXqbj.html</u></li>
+				<li><u class=li__ID m2=asthma url=https://codepen.io/vmiis/pen/gzqmGq.html>Asthma</u><u>https://codepen.io/vmiis/pen/gzqmGq.html</u></li>
+				<li><u class=li__ID m2=two-columns url=https://codepen.io/vmiis/pen/YLgvxg.html>Two columns</u><u>https://codepen.io/vmiis/pen/YLgvxg.html</u></li>
+				<li><u class=li__ID m2=indenting-featured-images url=https://codepen.io/vmiis/pen/ELJOKe.html>Indenting featured images</u><u>https://codepen.io/vmiis/pen/ELJOKe.html</u></li>
+				<li><u class=li__ID m2=my-first-bootstrap-page url=https://codepen.io/vmiis/pen/KRLEOQ.html>My first bootstrap page</u><u>https://codepen.io/vmiis/pen/KRLEOQ.html</u></li>
+				<li><u class=li__ID m2=table url=https://codepen.io/vmiis/pen/BxeEMV.html>Table</u><u>https://codepen.io/vmiis/pen/BxeEMV.html</u></li>
+				<li><u class=li__ID m2=consent-data table_id=20011504 url=https://codepen.io/vmiis/pen/zjgjdM.html>Consent data</u><u>https://codepen.io/vmiis/pen/zjgjdM.html</u></li>
+				<li><u class=li__ID m2=consent-form url=https://codepen.io/vmiis/pen/VxoxXL.html>Consent form</u><u>https://codepen.io/vmiis/pen/VxoxXL.html</u></li>
 			</ul>
 		</div>
 	</section>
@@ -75,8 +88,34 @@
             }
         })
         //--------------------------------------------------------
-		if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
-		//--------------------------------------------------------
+		var prefix_m="modules_"
+		$('.modules__ID u').each(function(){
+            var m2=$(this).attr('m2');
+            if(m2!=undefined){
+				if($vm.module_list[prefix_m+m2]==undefined){
+					$vm.module_list[prefix_m+m2]={
+						table_id:$(this).attr('table_id'),
+						url:$(this).attr('url'),
+						form_module:$(this).attr('form_module'),
+                        prefix:prefix_m
+					}
+				}
+            }
+        })
+        //--------------------------------------------------------
+		$('.modules__ID u').on('click',function(){
+			var m2=$(this).attr('m2');
+            if(m2!=undefined){
+				$vm.load_module_v2(prefix_m+m2,'',{});
+                return;
+            }
+            var http=$(this).text();
+            if(http.substring(0,4)=='http'){
+                if(http.indexOf('codepen')!=-1)  window.open(http.replace('.html',''));
+                return;
+            }
+        })
+        //--------------------------------------------------------
     }
 </script>
 <style>
@@ -138,9 +177,9 @@
     }
 	.li__ID{
 		display:inline-block;
-		width:150px;
+		width:200px;
 	}
     .nav__ID>ul>li u:nth-child(2){
-        font-size:11px;
+        font-size:9px;
 	}
 </style>

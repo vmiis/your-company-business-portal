@@ -35,16 +35,17 @@ $vm.module_links=[
     "sat|apps/sales-tracking/index.json",
     "svb|apps/service-booking/index.json",
     "suv|apps/survey/index.json",
+    "wpi|apps/workplace-inspection/index.json",
+    "tec|apps/team-event-calendar/index.json",
+    "tom|apps/tom-data-management/index.json",
+    "wdm|apps/woolcock-data-management/index.json",
+    "wcc|apps/woolworths-credit-card/index.json",
+    "rjs|apps/reactjs/index.json",
+    "pat|apps/particles/index.json",
 
     "re|apps/restaurant/pages/index.json",
-    "wi|apps/workplace-inspection/pages/index.json",
-    "ec|apps/team-event-calendar/pages/index.json",
     "sm|apps/sfix-app-survey-management/pages/index.json",
-    "pt|apps/particles/pages/index.json",
-    "tm|apps/tom-data-management/pages/index.json",
-    "wk|apps/woolcock-data-management/pages/index.json",
     "il|apps/clinical-trials-005/pages/index.json",
-    "rj|apps/reactjs/pages/index.json",
 ];
 $vm.module_list={
     "Home":  {"url":"modules/home.html"}

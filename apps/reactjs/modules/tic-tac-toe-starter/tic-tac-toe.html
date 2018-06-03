@@ -1,0 +1,77 @@
+<div class=info__ID>"Modular distributed" means that a module (a page or part of a page) can be hosted on any static web server around the world. Key Alt+mouse double click" will show the source code of this module and where it is hosted.</div>
+<div id=page__ID>
+    <div id=container__ID></div>
+    <br><pre><code id=code__ID></code></pre>
+</div>
+<script>
+	function F__ID(){
+        VmInclude:__CURRENT_PATH__/tic-tac-toe.html.js
+        $.get('__CURRENT_PATH__/tic-tac-toe.html.jsx?_='+$vm.ver[1]+$vm.reload,function(code){
+            $('#code__ID').text(code);
+        },'text');
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+        background-color: #fff;
+	}
+    #page__ID{
+        padding:50px;
+    }
+
+
+    #D__ID ol, #D__ID ul {
+      padding-left: 30px;
+    }
+
+    #D__ID .board-row:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+
+    #D__ID .status {
+      margin-bottom: 10px;
+    }
+
+    #D__ID .square {
+      background: #fff;
+      border: 1px solid #999;
+      float: left;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 34px;
+      height: 34px;
+      margin-right: -1px;
+      margin-top: -1px;
+      padding: 0;
+      text-align: center;
+      width: 34px;
+    }
+
+    #D__ID .square:focus {
+      outline: none;
+    }
+
+    #D__ID .kbd-navigation .square:focus {
+      background: #ddd;
+    }
+
+    #D__ID .game {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #D__ID .game-info {
+      margin-left: 20px;
+    }
+	.info__ID{
+		position:absolute;
+		z-index:1;
+		padding:5px;
+		font-size:10px;
+	}
+</style>
