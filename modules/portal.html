@@ -3,7 +3,6 @@
 		<div class='nav__ID'>
             <span>Application Templates</span>
 			<ul>
-				<li><u m=business>Business Department</u></li>
                 <li><u m=abf_portal>A basic application framework</u></li>
 				<li><u m=ajs_portal>AngularJS</u></li>
 				<li><u m=bff_portal>Basic form fields</u></li>
@@ -15,21 +14,32 @@
                 <li><u m=pvb_portal>Clinical trials participant visit booking</u></li>
                 <li><u m=cbe_portal>CRC stream b extension</u></li>
                 <li><u m=dbm_panel-001>Distributed modules</u></li>
-				<li><u m=dct_portal>Document collaboration tracking</u></li>
-				<li><u m=eai_portal>Education and immigration</u></li>
-				<li><u m=enq_portal>Enquiry</u></li>
+                <li><u m=dct_portal>Document collaboration tracking</u></li>
 			</ul>
 		</div>
 		<div class='nav__ID'>
             <span> </span>
 			<ul>
+				<li><u m=eai_portal>Education and immigration</u></li>
+				<li><u m=enq_portal>Enquiry</u></li>
 				<li><u m=eqb_portal>Equipment booking</u></li>
 				<li><u m=inr_portal>Incident reporting</u></li>
 				<li><u m=inv_portal>Invoice</u></li>
 				<li><u m=fns_portal>Fitness (web template)</u></li>
                 <li><u m=myf_portal>My first hello world website</u></li>
 				<li><u m=mep_portal>Medical practitioner</u></li>
+                <li><u m=ppm_portal>Program and project management</u></li>
+                <li><u m=por_portal>Purchase order request</u></li>
                 <li><u m=rpc_portal>Reporting central</u></li>
+                <li><u m=rmb_portal>Room booking</u></li>
+			</ul>
+		</div>
+        <div class='nav__ID'>
+            <span> </span>
+			<ul>
+                <li><u m=sat_portal>Sales tracking</u></li>
+                <li><u m=svb_portal>Service bokking</u></li>
+                <li><u m=suv_portal>Survey</u></li>
                 <li><u m=sfw_workbench>SleepFix workbench</u></li>
 				<li><u m=wfh_main>WFH data management (clinical trials)</u></li>
 				<li><u m=who_portal>WFH online questionnaire</u></li>
@@ -39,6 +49,11 @@
                 <li><u m=w04_portal>Website template 04</u></li>
 				<li><u m=apps>Templates</u></li>
 				<li><u m=others>Others</u></li>
+                <li><u a=team-event-calendar>Team event calendar</u></li>
+                <li><u a=tom-data-management>Tom data management</u></li>
+                <li><u a=woolcock-data-management>Woolcock data management</u></li>
+                <li><u a=woolworths-credit-card>Woolworths credit card</u></li>
+                <li><u a=workplace-inspection>Workplace inspection</u></li>
 			</ul>
 		</div>
 	</section>
@@ -53,6 +68,10 @@
 			var m=$(this).attr('m');
             if(m!=undefined){
 				$vm.load_module_v2(prefix+m,'',{});
+            }
+            var a=$(this).attr('a');
+            if(a!=undefined){
+				window.open('apps/'+a+'/index.html');
             }
         })
         //--------------------------------------------------------
