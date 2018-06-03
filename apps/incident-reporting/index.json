@@ -1,9 +1,11 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "incident-data":             {"table_id":"20000844","url":"modules/incident-data.html","form_module":"incident-form"},
+        "incident-form":             {"table_id":"20000844","url":"modules/incident-form.html"},
+        "total-number":              {"table_id":"20000844","url":"modules/total-number.html"},
+        "total-number-compensation": {"table_id":"20000844","url":"modules/total-number-compensation.html"},
+        "total-number-type":         {"table_id":"20000844","url":"modules/total-number-type.html"}
 	}
 }

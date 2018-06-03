@@ -1,6 +1,7 @@
 {
     "modules":
 	{
+        "portal": {"url":"modules/portal.html"},
         "monthly":               {"table_id":"20000908", "url":"modules/monthly.html",	"daily_module":"daily","booking_form":"booking-record-form"},
         "daily":                 {"table_id":"20000908", "url":"modules/daily.html",      "car_tid":"20000906","booking_form":"booking-record-form"},
         "booking-record-data":   {"table_id":"20000908", "url":"modules/booking-record-data.html","form_module":"booking-record-form"},

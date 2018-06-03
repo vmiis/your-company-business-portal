@@ -1,9 +1,8 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "client-data":	      {"table_id":"20003689","url":"modules/client-data.html","form_module":"client-form","preload":true},
+        "client-form":	      {"table_id":"20003689","url":"modules/client-form.html","preload":true}
 	}
 }

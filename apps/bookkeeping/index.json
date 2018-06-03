@@ -1,6 +1,7 @@
 {
     "modules":
 	{
+        "portal": {"url":"modules/portal.html"},
         "transactions":	                    {"table_id":"20007172","url":"modules/transaction/transactions_with_basic_toolbar.html","form_module":"transaction-form","name_for_search":"Transactions"},
         "transactions_with_period":	        {"table_id":"20007172","url":"modules/transaction/transactions_with_period_toolbar.html","form_module":"transaction-form","name_for_search":"Transactions (period)"},
         "transactions_with_year_and_month":	{"table_id":"20007172","url":"modules/transaction/transactions_with_year_month_toolbar.html","form_module":"transaction-form","name_for_search":"Transactions (month)"},

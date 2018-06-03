@@ -1,9 +1,8 @@
 {
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
-	"default_production":"No",
-	"panels":{
-		"home":	        {"url":"panels/home.html","modules":[]},
-		"pages":	    {"url":"","modules":["pages|index.json"]}
+    "modules":
+	{
+        "portal": {"url":"modules/portal.html"},
+        "enquiry-data":       {"table_id":"20009702","v3":"18033002","url":"modules/enquiry-data.html","form_module":"enquiry-form","name_for_search":"Enquiry data"},
+        "enquiry-form":       {"table_id":"20009702","v3":"18033002","url":"modules/enquiry-form.html","name_for_search":"Enquiry form"}
 	}
 }
