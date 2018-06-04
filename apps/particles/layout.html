@@ -6,9 +6,19 @@
                     <span id=vm_logo_label_A>Business Portal</span><br>
                     <span id=vm_logo_label_B>on-demand business applications</span>
                 </div>
-                <div id="vm_system_menu">
+                <div id="vm_menu">
                     <a module=Home _class="vm_active"><i class="fa fa-home"></i> Home</a>
-                    <a module=portal>Business Portal</a>
+                    <div class="vm_dropdown">
+                        <button class="vm_dropbtn">Pages <i class="fa fa-caret-down"></i></button>
+                        <div class="vm_dropdown-content">
+                            <a module=link-1>Snow</a>
+                            <a module=link-2>Particles</a>
+                            <a module=link-3>Nasa</a>
+                            <a module=link-4>Nyan cat</a>
+                            <a module=link-5>Bubble</a>
+                        </div>
+                    </div>
+                    <a module=portal>Sitemap</a>
                     <div class="vm_dropdown" id=signin__ID>
                         <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                         <div class="vm_dropdown-content">
@@ -18,6 +28,8 @@
                         </div>
                     </div>
                     <a id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                </div>
+                <div id="vm_search">
                     <input id=vm_system_search  type="text" placeholder="Search pages..." />
                 </div>
                 <span module=Home id=m_title>Business Portal</span>
@@ -28,11 +40,37 @@
                     height:100px;
                     background: rgba(0,0,0,0.5);
                 }
-                #vm_system_menu {
+                #vm_logo{
+                    display:inline-block;
+                    padding-top:35px;
+                    padding-left:20px;
+                    cursor:pointer;
+                    float:left;
+                }
+                #vm_logo_label_A{
+                    font-family: Arial, sans-serif;
+                    color:#fff;
+                    font-size: 200%;
+                    line-height:10px;
+                    display:inline-block;
+                }
+                #vm_logo_label_B{
+                    font-family: Arial, sans-serif;
+                    color:#fff;
+                    font-size: 93%;
+                    line-height:80%;
+                    display:inline-block;
+                }
+                #vm_menu {
                     margin-top:50px;
-                    margin-right:20px;
+                    margin-left:160px;
                     overflow: hidden;
                     background: rgba(0,0,0,0.0);
+                    display:inline-block;
+                    float:left;
+                }
+                #vm_search {
+                    margin-top:50px;
                     display:inline-block;
                     float:right;
                 }
@@ -41,8 +79,9 @@
                     margin-left:200px;
                     border-radius:.25rem;
                     padding-left:6px
+                    float:right;
                 }
-                #vm_system_menu > a {
+                #vm_menu > a {
                   float: left;
                   display: block;
                   color: #f2f2f2;
@@ -91,7 +130,7 @@
                     text-align: left;
                     cursor:pointer;
                 }
-                #vm_system_menu > a:hover, .vm_dropdown:hover .vm_dropbtn {
+                #vm_menu > a:hover, .vm_dropdown:hover .vm_dropbtn {
                   background-color: #555;
                   color: white;
                   border-radius:4px;
@@ -103,26 +142,6 @@
                 #m_title{
                     display:none;
                 }
-                #vm_logo{
-                    display:inline-block;
-                    padding-top:35px;
-                    padding-left:20px;
-                    cursor:pointer;
-                }
-                #vm_logo_label_A{
-                    font-family: Arial, sans-serif;
-                    color:#fff;
-                    font-size: 200%;
-                    line-height:10px;
-                    display:inline-block;
-                }
-                #vm_logo_label_B{
-                    font-family: Arial, sans-serif;
-                    color:#fff;
-                    font-size: 93%;
-                    line-height:80%;
-                    display:inline-block;
-                }
                 @media screen and (max-width: 1280px) {
                     #m_title{
                         color:#fff;
@@ -131,7 +150,7 @@
                         padding: 7px 0 0 12px;
                         cursor: pointer;
                     }
-                    #vm_system_menu a, .vm_dropdown .vm_dropbtn {
+                    #vm_menu a, .vm_dropdown .vm_dropbtn {
                         display: none;
                     }
                     #vm_icon {
@@ -145,20 +164,20 @@
                         cursor:pointer;
                         color:#fff;
                     }
-                    #vm_system_menu.responsive {position: relative;}
-                    #vm_system_menu.responsive a {
+                    #vm_menu.responsive {position: relative;}
+                    #vm_menu.responsive a {
                         float: none;
                         display: block;
                         text-align: left;
                     }
-                    #vm_system_menu.responsive .vm_dropdown {float: none;}
-                    #vm_system_menu.responsive .vm_dropdown-content {position: relative;}
-                    #vm_system_menu.responsive .vm_dropdown .vm_dropbtn {
+                    #vm_menu.responsive .vm_dropdown {float: none;}
+                    #vm_menu.responsive .vm_dropdown-content {position: relative;}
+                    #vm_menu.responsive .vm_dropdown .vm_dropbtn {
                         display: block;
                         width: 100%;
                         text-align: left;
                     }
-                    #vm_system_menu {
+                    #vm_menu {
                         margin-top:0px;
                         margin-right:0px;
                         overflow: hidden;
@@ -181,16 +200,16 @@
             <script>
             	//---------------------------------------------
                 function vm_toggle() {
-                    var x = document.getElementById("vm_system_menu");
+                    var x = document.getElementById("vm_menu");
                     if(x.className==='') x.className="responsive";
                     else x.className="";
                 }
                 var vm_header=function(){
-                    $('#vm_system_menu a').on('click',function(){
+                    $('#vm_menu a').on('click',function(){
                         var module=$(this).attr('module');
                         if(module!=undefined) $vm.load_module_v2(module);
                         if( $(this).attr('toggle')==undefined){
-                            var x = document.getElementById("vm_system_menu");
+                            var x = document.getElementById("vm_menu");
                             if(x.className==='responsive') x.className="";
                         }
                     })

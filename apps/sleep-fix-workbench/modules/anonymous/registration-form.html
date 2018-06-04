@@ -1,0 +1,126 @@
+<div id=D__ID>
+  <div id=form_container__ID>
+    <div id=header__ID>
+      Registration
+    </div>
+    <form id=F__ID>
+      <div class="container">
+        <div class="row row__ID">
+          <div class=col>
+            <span class=label__ID>First name</span>
+            <input type="text" class="form-control" name="First_Name" placeholder="First name" required>
+          </div>
+        </div>
+        <div class="row row__ID">
+          <div class=col>
+            <span class=label__ID>Last name</span>
+            <input type="text" class="form-control" name="Last_Name" placeholder="Last name" required>
+          </div>
+        </div>
+        <div class="row row__ID">
+          <div class=col>
+            <span class=label__ID>Mobile Phone</span>
+            <input type="text" class="form-control" name="Mobile_Phone" placeholder="Mobile phone" required>
+          </div>
+        </div>
+        <div class="row row__ID">
+          <div class=col>
+            <span class=label__ID>Email</span>
+            <input type="email" class="form-control" id=Email__ID name="Email" placeholder="Email" required>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class=col>
+            <button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <style>
+    #D__ID{
+      height:100%;
+      overflow:auto;
+      animation: vm_module_fadein 1.0s;
+      background-color: #fff;
+    }
+    #form_container__ID{
+      margin-top:20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: Verdana,sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    #F__ID{
+      border:1px solid #bbb;
+      border-top-width: 0;
+      padding:6px 15px 20px 15px;
+    }
+    #header__ID{
+      background-color:#727b84;
+      color:#fff;
+      padding:10px 15px 10px 15px;
+      font-size:120%;
+      border:1px solid #bbb;
+      border-bottom-width: 0;
+    }
+    .row__ID{
+      padding:6px 0;
+    }
+    .row__ID:hover{
+      background-color: rgba(0,0,0,0.1);
+    }
+    .row__ID span{
+      font-weight:bold;
+      display: inline-block;
+      padding: 5px 0;
+    }
+    @media screen and (max-width:768px){
+      #form_container__ID{
+        padding:20px 10px 50px 10px;
+      }
+    }
+  </style>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      if($vm.server=="development") $('#vm_dev_info__ID').show();
+      //-------------------------------------
+      var this_module=$vm.module_list[$vm.vm['__ID'].name];
+      //-------------------------------------
+      $('#D__ID').on('load',function(){
+        $('#F__ID')[0].reset();
+        $('#submit__ID').show();
+        var record=$vm.vm['__ID'].input.record;
+        $vm.deserialize(record,'#F__ID');
+      })
+      //-------------------------------------
+      $('#F__ID').submit(function(event){
+        //--------------------------------------------------------
+        event.preventDefault();
+        $('#submit__ID').hide();
+        //--------------------------------------------------------
+        var data=$vm.serialize('#F__ID');
+        var dbv={
+        }
+        //--------------------------------------------------------
+        var db_pid=this_module.table_id;
+        var rid=undefined; if($vm.vm['__ID'].input.record!=undefined) rid=$vm.vm['__ID'].input.record.ID;
+        var req={cmd:"add_json_record",db_pid:db_pid,data:data,dbv:dbv};
+        if(rid!=undefined) req={cmd:"modify_json_record",rid:rid,db_pid:db_pid,data:data,dbv:dbv};
+        $VmAPI.request({data:req,callback:function(res){
+          $vm.refresh=1;
+          if(rid!=undefined) window.history.go(-1);
+          else if($vm.vm['__ID'].input!=undefined && $vm.vm['__ID'].input.goback!=undefined) window.history.go(-1);
+          else $vm.alert('Your data has been successfully submitted');
+        }});
+        //--------------------------------------------------------
+      })
+      //--------------------------------------------------------
+    }
+  </script>
+</div>
