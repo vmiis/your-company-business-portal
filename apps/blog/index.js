@@ -273,14 +273,6 @@ vm_init(function(){
         var search_loop=setInterval(function (){
 			if($vm['jquery-ui-min-js']==1){
 				clearInterval(search_loop);
-                for(k in $vm.module_list){
-                    if($vm.module_list[k].name_for_search!=undefined){
-                        if($vm.module_list[k].name_for_search!=""){
-                            $vm.website_module_list_for_search.push({label:$vm.module_list[k].name_for_search,value:k});
-                        }
-                    }
-                    else $vm.website_module_list_for_search.push({label:k,value:k});
-                }
                 $("#vm_system_search").autocomplete({
                     minLength:0,
                     source: function(request, response) {
