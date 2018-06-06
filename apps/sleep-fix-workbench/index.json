@@ -2,8 +2,8 @@
     "modules":
 	{
         "workbench": {"url":"modules/panels/workbench.html"},
-        "screening-data":       {"table_id":"20011503","url":"modules/anonymous/screening-data.html","form_module":"screening-form"},
-        "screening-form":       {"table_id":"20011503","url":"modules/anonymous/screening-form.html"},
+        "screening-data":       {"table_id":"20011503","url":"https://codepen.io/vmiis/pen/zjgROg.html","form_module":"screening-form"},
+        "screening-form":       {"table_id":"20011503","url":"https://codepen.io/vmiis/pen/zjgNRp.html"},
         "consent-data":         {"table_id":"20011504","url":"modules/anonymous/consent-data.html","form_module":"consent-form"},
         "consent-form":         {"table_id":"20011504","url":"modules/anonymous/consent-form.html"},
         "registration-data":    {"table_id":"20011505","url":"modules/anonymous/registration-data.html","form_module":"registration-form"},
@@ -27,6 +27,33 @@
         "q09-data":             {"table_id":"20011514","url":"modules/questionnaires/q09-data.html","form_module":"q09-form"},
         "q09-form":             {"table_id":"20011514","url":"modules/questionnaires/q09-form.html"},
         "q10-data":             {"table_id":"20011515","url":"modules/questionnaires/q10-data.html","form_module":"q10-form"},
-        "q10-form":             {"table_id":"20011515","url":"modules/questionnaires/q10-form.html"}
+        "q10-form":             {"table_id":"20011515","url":"modules/questionnaires/q10-form.html"},
+
+        "_screening-data":       {"table_id":"20011503","url":"modules/anonymous/screening-data.html","form_module":"screening-form"},
+        "_screening-form":       {"table_id":"20011503","url":"modules/anonymous/screening-form.html"},
+        "_consent-data":         {"table_id":"20011504","url":"modules/anonymous/consent-data.html","form_module":"consent-form"},
+        "_consent-form":         {"table_id":"20011504","url":"modules/anonymous/consent-form.html"},
+        "_registration-data":    {"table_id":"20011505","url":"modules/anonymous/registration-data.html","form_module":"registration-form"},
+        "_registration-form":    {"table_id":"20011505","url":"modules/anonymous/registration-form.html"},
+        "_q01-data":             {"table_id":"20011506","url":"modules/questionnaires/q01-data.html","form_module":"q01-form"},
+        "_q01-form":             {"table_id":"20011506","url":"modules/questionnaires/q01-form.html"},
+        "_q02-data":             {"table_id":"20011507","url":"modules/questionnaires/q02-data.html","form_module":"q02-form"},
+        "_q02-form":             {"table_id":"20011507","url":"modules/questionnaires/q02-form.html"},
+        "_q03-data":             {"table_id":"20011508","url":"modules/questionnaires/q03-data.html","form_module":"q03-form"},
+        "_q03-form":             {"table_id":"20011508","url":"modules/questionnaires/q03-form.html"},
+        "_q04-data":             {"table_id":"20011509","url":"modules/questionnaires/q04-data.html","form_module":"q04-form"},
+        "_q04-form":             {"table_id":"20011509","url":"modules/questionnaires/q04-form.html"},
+        "_q05-data":             {"table_id":"20011510","url":"modules/questionnaires/q05-data.html","form_module":"q05-form"},
+        "_q05-form":             {"table_id":"20011510","url":"modules/questionnaires/q05-form.html"},
+        "_q06-data":             {"table_id":"20011511","url":"modules/questionnaires/q06-data.html","form_module":"q06-form"},
+        "_q06-form":             {"table_id":"20011511","url":"modules/questionnaires/q06-form.html"},
+        "_q07-data":             {"table_id":"20011512","url":"modules/questionnaires/q07-data.html","form_module":"q07-form"},
+        "_q07-form":             {"table_id":"20011512","url":"modules/questionnaires/q07-form.html"},
+        "_q08-data":             {"table_id":"20011513","url":"modules/questionnaires/q08-data.html","form_module":"q08-form"},
+        "_q08-form":             {"table_id":"20011513","url":"modules/questionnaires/q08-form.html"},
+        "_q09-data":             {"table_id":"20011514","url":"modules/questionnaires/q09-data.html","form_module":"q09-form"},
+        "_q09-form":             {"table_id":"20011514","url":"modules/questionnaires/q09-form.html"},
+        "_q10-data":             {"table_id":"20011515","url":"modules/questionnaires/q10-data.html","form_module":"q10-form"},
+        "_q10-form":             {"table_id":"20011515","url":"modules/questionnaires/q10-form.html"}
 	}
 }

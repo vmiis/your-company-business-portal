@@ -42,6 +42,7 @@ $vm.module_links=[
     "wcc|apps/woolworths-credit-card/index.json",
     "rjs|apps/reactjs/index.json",
     "pat|apps/particles/index.json",
+    "blg|apps/blog/index.json",
 
     "re|apps/restaurant/pages/index.json",
     "sm|apps/sfix-app-survey-management/pages/index.json",
@@ -305,6 +306,7 @@ vm_init(function(){
         var search_loop=setInterval(function (){
 			if($vm['jquery-ui-min-js']==1){
 				clearInterval(search_loop);
+                /*
                 for(k in $vm.module_list){
                     if($vm.module_list[k].name_for_search!=undefined){
                         if($vm.module_list[k].name_for_search!=""){
@@ -313,6 +315,7 @@ vm_init(function(){
                     }
                     else $vm.website_module_list_for_search.push({label:k,value:k});
                 }
+                */
                 $("#vm_system_search").autocomplete({
                     minLength:0,
                     source: function(request, response) {
@@ -354,7 +357,10 @@ vm_init(function(){
                 var modules=config.modules;
                 var path=nm.replace('index.json','');
                 for (var k in modules){
-                    modules[k].url=path+modules[k].url;
+                    if(modules[k].url.startsWith('http://') || modules[k].url.startsWith('https://') )
+                        modules[k].url=modules[k].url;
+                    else
+                        modules[k].url=path+modules[k].url;
                     $vm.module_list[prefix+k]=modules[k];
                     $vm.module_list[prefix+k].prefix=prefix;
                     var snm=modules[k]['name_for_search'];
