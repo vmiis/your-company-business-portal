@@ -1,9 +1,12 @@
 <div layout-html id=layout__ID>
-    <div id=main__ID>
+    <div id=header__ID>
         <div id=m_header__ID>
-            <span module=Home id=m_title>Business Portal</span><a toggle id="vm_icon" onclick="vm_toggle()"><i class="fa fa-bars"></i></a>
+            <span module=Home id=m_title__ID>Business Portal</span> <a id=vm_toggle__ID onclick="vm_toggle()"><i class="fa fa-bars"></i></a>
         </div>
-        <div id=navbar__ID class=vm_hide>
+        <div id=d_header__ID>Header</div>
+    </div>
+    <div id=main__ID>
+        <div id=sidebar__ID class=vm_hide>
             <div id=vm_logo module=Home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
@@ -27,402 +30,418 @@
                     </ul>
                     <br>
                 </div>
-                <u id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</u>
+                <div id=signout__ID>
+                    <u style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</u>
+                </div>
             </div>
             <div id="vm_search">
                 <input id=vm_system_search  type="text" placeholder="Search pages..." />
             </div>
-            <style>
-                #vm_menu i{
-                    width:20px;
-                    display:inline-block;
-                }
-                .vm_folder:hover, .vm_li:hover, #vm_menu li:hover{
-                    color:red;
-                }
-                .vm_folder{
-                    display:block;
-                    width:100%;
-                }
-                .vm_li{
-                    width:100%;
-                }
-                #navbar__ID{
-                    background: rgba(0,0,0,0.5);
-                }
-                #vm_logo{
-                    display:inline-block;
-                    padding-top:35px;
-                    padding-left:20px;
-                    cursor:pointer;
-                    float:left;
-                }
-                #vm_logo_label_A{
-                    font-family: Arial, sans-serif;
-                    color:#fff;
-                    font-size: 200%;
-                    line-height:10px;
-                    display:inline-block;
-                }
-                #vm_logo_label_B{
-                    font-family: Arial, sans-serif;
-                    color:#fff;
-                    font-size: 93%;
-                    line-height:80%;
-                    display:inline-block;
-                }
-                #vm_menu {
-                    padding: 20px 0 0 20px;
-                    color:#fff;
-                    background: rgba(0,0,0,0.0);
-                    display:inline-block;
-                    font-size: 14px;
-                }
-                #vm_menu ul{
-                    margin-bottom: 3px;
-                }
-                #vm_menu u {
-                    cursor:pointer;
-                    text-decoration: none;
-                }
-                #vm_menu li {
-                    cursor:pointer;
-                }
-                #vm_search {
-                    padding-top:20px;
-                    display:inline-block;
-                }
-                #vm_system_search{
-                    margin-top:5px;
-                    margin-left:22px;
-                    border-radius:.25rem;
-                }
-            	#vm_icon {
-                  display: none;
-                }
-                .vm_active {
-                  background-color: #4CAF50;
-                  color: white;
-                }
-                #m_title{
-                    display:none;
-                }
-                @media screen and (max-width: 1280px) {
-                    #m_title{
-                        color:#fff;
-                        font-size: 28px;
-                        display:inline-block;
-                        padding: 7px 0 0 12px;
-                        cursor: pointer;
-                    }
-                    #vm_icon {
-                        float: right;
-                        display: block;
-                        font-size:28px;
-                        padding:7px 16px 3px 16px;
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                        cursor:pointer;
-                        color:#fff;
-                    }
-                    #vm_menu {
-                        margin-top:0px;
-                        margin-right:0px;
-                        margin-left:0px;
-                        overflow: hidden;
-                        display:block;
-                        float:unset;
-                    }
-                    #vm_logo{
-                        display:none;
-                    }
-                    #vm_search{
-                        display:none;
-                    }
-                }
-                .vm_menu_show__ID{
-                    display:block;
-                    max-height: 1000px;
-                    overflow: hidden;
-                    animation: vm_menu_show__ID 1.8s;
-                }
-                @keyframes vm_menu_show__ID {
-                    from {max-height: 0px;}
-                    to {max-height: auto;}
-                }
-                .vm_menu_hide__ID{
-                    display:none;
-                    /*
-                    max-height: 0px;
-                    overflow: hidden;
-                    animation: vm_menu_hide__ID 1.8s;
-                    */
-                }
-                @keyframes vm_menu_hide__ID {
-                    from {max-height: 100px;}
-                    to {max-height: 0px;}
-                }
-            </style>
-            <script>
-            	//---------------------------------------------
-                $('#vm_menu .vm_folder').on('click',function(){
-        				var $folder=$(this).find('i');
-                        var $ul=$(this).next('ul');
-        				if($folder.hasClass('fa-folder-open-o')){
-        					$folder.removeClass('fa-folder-open-o').addClass('fa-folder-o');
-                            $ul.removeClass('vm_menu_show__ID').addClass('vm_menu_hide__ID');
-        					//$ul.hide();
-        				}
-        				else if($folder.hasClass('fa-folder-o')){
-        					$folder.removeClass('fa-folder-o').addClass('fa-folder-open-o');
-                            $ul.removeClass('vm_menu_hide__ID').addClass('vm_menu_show__ID');
-        					//$ul.show();
-        				}
-                })
-                //--------------------------------------------------------
-                var click_process=function($li){
-                    var m=$li.attr('module');
-                    if(m!=undefined){
-                        if($vm.module_list[m]==undefined){
-                            alert(m +" is not in the module list.");
-                            return;
-                        }
-                        $vm.load_module_v2(m,'',{});
-                        var d=$('#navbar__ID');
-                        d.removeClass('vm_show').addClass('vm_hide');
-                    }
-                }
-                //--------------------------------------------------------
-                $('#vm_menu li').on('click',function(){ click_process($(this));})
-                //--------------------------------------------------------
-                $('#vm_menu .vm_li').on('click',function(){ click_process($(this));})
-                //--------------------------------------------------------
-                function vm_toggle() {
-                    var d=$('#navbar__ID');
-                    if(d.hasClass('vm_show')){
-                        d.removeClass('vm_show').addClass('vm_hide');
-                    }
-                    else{
-                        d.removeClass('vm_hide').addClass('vm_show');
-                    }
-                }
-                var vm_header=function(){
-                    $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
-                    $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
-                    //---------------------------------------------
-                    var show_user=function(){
-                        var third=""
-                        if($vm.user_puid=="1") third=" (Google)";
-                        if($vm.user_puid=="2") third=" (Facebook)";
-                        if($vm.user=='guest'){
-                            $('#username__ID').text('');
-                            $('#signin__ID').show();
-                            $('#signout__ID').hide();
-                        }
-                        else{
-                            $('#username__ID').text('Signed in as '+ $vm.user+third);
-                            $('#signin__ID').hide();
-                            $('#signout__ID').show();
-                        }
-                    }
-                    show_user();
-                    //---------------------------------------------
-                    if(window.location.hostname!='127.0.0.1'){
-                        $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
-                        $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
-                    }
-                    //---------------------------------------------
-                }
-            </script>
         </div>
         <div id=content__ID>
             <div content-container id="content_container__ID">
             	<div id=vm_loader class="loader__ID"></div>
             </div>
-            <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
-            	<div class="modal-dialog" role="document">
-            		<div class="modal-content">
-            			<div class="modal-header">
-            				<h5 class="modal-title" id="ModalLabel">Information</h5>
-            				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            					<span aria-hidden="true">&times;</span>
-            				</button>
-            			</div>
-            			<div class="modal-body">
-
-            			</div>
-            			<div class="modal-footer">
-            				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            			</div>
-            		</div>
-            	</div>
-            </div>
-            <style>
-            	#content_container__ID{
-            		/*position:fixed;*/
-            		width:100%;
-            		overflow:hidden;
-            	}
-            	#vm_loader{
-            		display:none;
-            		position:absolute;
-            	}
-            	.loader__ID {
-            	  height: 4px;
-            	  width: 100%;
-            	  position: relative;
-            	  overflow: hidden;
-            	  background-color: #ddd;
-            	}
-            	.loader__ID:before{
-            	  display: block;
-            	  position: absolute;
-            	  content: "";
-            	  left: -200px;
-            	  width: 200px;
-            	  height: 4px;
-            	  background-color: #2980b9;
-            	  animation: loading 2s linear infinite;
-            	}
-            	@keyframes loading {
-            		from {left: -200px; width: 30%;}
-            		50% {width: 30%;}
-            		70% {width: 70%;}
-            		80% { left: 50%;}
-            		95% {left: 120%;}
-            		to {left: 100%;}
-            	}
-            </style>
         </div>
-        <style>
-            #main__ID{
-                height:100%;
-            }
-            #m_header__ID{
-                display:none;
-            }
-            #navbar__ID{
-                float: left;
-                width:280px;
-                height:100%;
-            }
-            #content__ID{
-                margin-left:280px;
-            }
-            .vm_hide{
-            }
-            @media screen and (max-width: 1280px) {
-                #content__ID{
-                    display:block;
-                    margin-left:0px;
-                }
-                #m_header__ID{
-                    display:block;
-                }
-                #navbar__ID{
-                    float: none;
-                    min-width:100%;
-                    height:auto;
-                    background: #1c3144;
-                }
-                .vm_show{
-                    display:block;
-                    max-height: 1000px;
-                    overflow: hidden;
-                    animation: vm_menu_show__ID 1.8s;
-                }
-                .vm_hide{
-                    display:none;
-                }
-            }
-        </style>
     </div>
-    <div footer>
-        <div id=footer__ID>
-        	<span id=text__ID></span>
-        	<span id=vm_system_info style='color:#555;float:right'></span>
-        </div>
-        <style>
-            #footer__ID{
-                height:24px;
-                color: #fff;
-                padding: 3px;
-                background-color: #333;
-                font:80%/18px arial;
-                text-align: center;
-            }
-            @media screen and (max-width: 900px){
-                #FL__ID{
-                    display:none;
-                }
-            }
-        </style>
-        <script>
-            var vm_footer=function(){
-                $vm.root_layout_footer='footer__ID';
-                //-----------------------------------------------------
-                $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL__ID>Site Code on GitHub (github.com/vmiis). Pull Requests welcome!</span>");
-                //------------------------------------
-            }
-        </script>
+    <div id=footer__ID>
+    	<span id=text__ID></span><span id=vm_system_info style='color:#555;float:right'></span>
     </div>
 </div>
-<div>
+<div system>
     <div top-right-corner id=top_right_corner__ID class='d-none d-xl-block'>
         <div>
-            <span id=database_p__ID><span style='color:green'>. </span></span>
-            <span id=database_d__ID><span style='color:red'>. </span></span>
+            <span id=database_p__ID style='color:green'>. </span>
+            <span id=database_d__ID style='color:red'>. </span>
             <span id=username__ID></span>
         </div>
-        <style>
-            #top_right_corner__ID{
-                display:block;
-                position:fixed;
-                top:3px;
-                left:3px;
-                font-size:11px;
-                line-height:13px;
-                color:#fff;
-                z-index: 99999;
-            }
-            #username__ID{
-                float:right;
-            }
-            #database_d__ID{
-                display:none;
-            }
-            #database_p__ID{
-                display:none;
-            }
-        </style>
-        <script>
-            var vm_top_right_corner=function(){
-                if($vm.server=='development') $('#database_d__ID').show();
-                else if($vm.server=='production') $('#database_p__ID').show();
-            }
-        </script>
+    </div>
+    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script layout-js>
+    //---------------------------------------------
+	function vm_layout(){
+		//------------------------------------
+        $vm.root_layout_content_slot="content_container__ID";
+		//------------------------------------
+        var set_height=function(){
+			var header_height=$('#m_header__ID').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer__ID').outerHeight();
+			$vm.min_height=($(window).height()-header_height-footer_height);
+			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
+            $('#sidebar__ID').css({'height':($vm.min_height)+'px'});
+		}
+		//------------------------------------
+		set_height();window.onresize=function(){set_height();}
+        //-----------------------------------------
+	}
+    //---------------------------------------------
+    var vm_footer=function(){
+        $vm.root_layout_footer='footer__ID';
+        //-----------------------------------------------------
+        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL__ID>Site Code on GitHub (github.com/vmiis). Pull Requests welcome!</span>");
+        //------------------------------------
+    }
+    //---------------------------------------------
+    var vm_top_right_corner=function(){
+        if($vm.server=='development') $('#database_d__ID').show();
+        else if($vm.server=='production') $('#database_p__ID').show();
+    }
+    //---------------------------------------------
+    $('#vm_menu .vm_folder').on('click',function(){
+        var $folder=$(this).find('i');
+        var $ul=$(this).next('ul');
+        if($folder.hasClass('fa-folder-open-o')){
+            $folder.removeClass('fa-folder-open-o').addClass('fa-folder-o');
+            $ul.removeClass('vm_menu_show__ID').addClass('vm_menu_hide__ID');
+        }
+        else if($folder.hasClass('fa-folder-o')){
+            $folder.removeClass('fa-folder-o').addClass('fa-folder-open-o');
+            $ul.removeClass('vm_menu_hide__ID').addClass('vm_menu_show__ID');
+        }
+    })
+    //--------------------------------------------------------
+    var click_process=function($li){
+        var m=$li.attr('module');
+        if(m!=undefined){
+            if($vm.module_list[m]==undefined){
+                alert(m +" is not in the module list.");
+                return;
+            }
+            $vm.load_module_v2(m,'',{});
+            var d=$('#sidebar__ID');
+            d.removeClass('vm_show').addClass('vm_hide');
+        }
+    }
+    //--------------------------------------------------------
+    $('#vm_menu li').on('click',function(){ click_process($(this));})
+    //--------------------------------------------------------
+    $('#vm_menu .vm_li').on('click',function(){ click_process($(this));})
+    //--------------------------------------------------------
+    function vm_toggle() {
+        var d=$('#sidebar__ID');
+        if(d.hasClass('vm_show')){
+            d.removeClass('vm_show').addClass('vm_hide');
+        }
+        else{
+            d.removeClass('vm_hide').addClass('vm_show');
+        }
+    }
+    var vm_header=function(){
+        $('#m_title__ID').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+        $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+        //---------------------------------------------
+        var show_user=function(){
+            var third=""
+            if($vm.user_puid=="1") third=" (Google)";
+            if($vm.user_puid=="2") third=" (Facebook)";
+            if($vm.user=='guest'){
+                $('#username__ID').text('');
+                $('#signin__ID').show();
+                $('#signout__ID').hide();
+            }
+            else{
+                $('#username__ID').text('Signed in as '+ $vm.user+third);
+                $('#signin__ID').hide();
+                $('#signout__ID').show();
+            }
+        }
+        show_user();
+        //---------------------------------------------
+        if(window.location.hostname!='127.0.0.1'){
+            $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
+            $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+        }
+        //---------------------------------------------
+    }
+</script>
 <style layout-css>
+    /*top -----------------------------------------------*/
     #vm_framework{
         height:100%;
     }
     .vm_module{
-        /*position:absolute;*/
         width:100%;
         height:100%;
     }
 	html,body{
-		/*height:100%;*/
-		/*overflow-y:hidden;*/
         width: 100%;
         height: 100%;
         padding:0;
         margin:0;
         font-family:Arial;
 	}
-	@keyframes vm_module_fadein {
+    /*laypot-----------------------------------------------*/
+    #layout__ID {
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow:hidden;
+    }
+    #m_header__ID{
+        display:none;
+    }
+    #d_header__ID{
+      display:block;
+      height:0px;
+      overflow:hidden;
+    }
+    #main__ID{
+        height:100%;
+    }
+    #sidebar__ID{
+        float: left;
+        width:280px;
+        height:100%;
+        overflow: auto;
+        height: 100%;
+    }
+    #content__ID{
+        margin-left:280px;
+    }
+    .vm_hide{
+    }
+    /*menu-----------------------------------------------*/
+    #vm_menu i{
+        width:20px;
+        display:inline-block;
+    }
+    .vm_folder:hover, .vm_li:hover, #vm_menu li:hover{
+        color:red;
+    }
+    .vm_folder{
+        display:block;
+        width:100%;
+    }
+    .vm_li{
+        width:100%;
+    }
+    #sidebar__ID{
+        background: rgba(0,0,0,0.5);
+    }
+    #vm_logo{
+        display:inline-block;
+        padding-top:35px;
+        padding-left:20px;
+        cursor:pointer;
+        float:left;
+    }
+    #vm_logo_label_A{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 200%;
+        line-height:10px;
+        display:inline-block;
+    }
+    #vm_logo_label_B{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 93%;
+        line-height:80%;
+        display:inline-block;
+    }
+    #vm_menu {
+        padding: 20px 0 0 20px;
+        color:#fff;
+        background: rgba(0,0,0,0.0);
+        display:inline-block;
+        font-size: 14px;
+    }
+    #vm_menu ul{
+        margin-bottom: 3px;
+    }
+    #vm_menu u {
+        cursor:pointer;
+        text-decoration: none;
+    }
+    #vm_menu li {
+        cursor:pointer;
+    }
+    #vm_search {
+        padding-top:20px;
+        display:inline-block;
+    }
+    #vm_system_search{
+        margin-top:5px;
+        margin-left:22px;
+        border-radius:.25rem;
+    }
+    #vm_toggle__ID {
+      display: none;
+    }
+    .vm_active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #m_title__ID{
+        display:none;
+    }
+    .vm_menu_show__ID{
+        display:block;
+        max-height: 1000px;
+        overflow: hidden;
+        animation: vm_menu_show__ID 1.8s;
+    }
+    .vm_menu_hide__ID{
+        display:none;
+        /*
+        max-height: 0px;
+        overflow: hidden;
+        animation: vm_menu_hide__ID 1.8s;
+        */
+    }
+    #footer__ID{
+        height:24px;
+        color: #fff;
+        padding: 3px;
+        background-color: #333;
+        font:80%/18px arial;
+        text-align: center;
+    }
+    @media screen and (max-width: 900px){
+        #FL__ID{
+            display:none;
+        }
+    }
+    #content_container__ID{
+        width:100%;
+        overflow:hidden;
+    }
+    #vm_loader{
+        display:none;
+        position:absolute;
+    }
+    .loader__ID {
+      height: 4px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background-color: #ddd;
+    }
+    .loader__ID:before{
+      display: block;
+      position: absolute;
+      content: "";
+      left: -200px;
+      width: 200px;
+      height: 4px;
+      background-color: #2980b9;
+      animation: loading 2s linear infinite;
+    }
+
+
+
+    @media screen and (max-width: 1280px) {
+        #m_header__ID{
+            display:block;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        #content__ID{
+            display:block;
+            margin-left:0px;
+        }
+        #sidebar__ID{
+            float: none;
+            min-width:100%;
+            height:auto;
+            background: #1c3144;
+        }
+        .vm_show{
+            display:block;
+            max-height: 1000px;
+            overflow: hidden;
+            animation: vm_menu_show__ID 1.8s;
+        }
+        .vm_hide{
+            display:none;
+        }
+        #m_title__ID{
+            color:#fff;
+            font-size: 28px;
+            display:inline-block;
+            padding: 7px 0 0 12px;
+            cursor: pointer;
+        }
+        #vm_toggle__ID {
+            float: right;
+            display: block;
+            font-size:28px;
+            padding:7px 16px 3px 16px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor:pointer;
+            color:#fff;
+        }
+        #vm_menu {
+            margin-top:0px;
+            margin-right:0px;
+            margin-left:0px;
+            overflow: hidden;
+            display:block;
+            float:unset;
+        }
+        #vm_logo{
+            display:none;
+        }
+        #vm_search{
+            display:none;
+        }
+    }
+
+
+    #top_right_corner__ID{
+        display:block;
+        position:fixed;
+        top:3px;
+        left:3px;
+        font-size:11px;
+        line-height:13px;
+        color:#fff;
+        z-index: 99999;
+    }
+    #username__ID{
+        float:right;
+    }
+    #database_d__ID{
+        display:none;
+    }
+    #database_p__ID{
+        display:none;
+    }
+    .ui-widget-content{
+        background:#eff3dc!important;
+    }
+    .ui-autocomplete.ui-menu{font-size:12px}
+	.ui-menu-item .ui-menu-item-wrapper:hover{
+		font-weight:normal;
+	}
+    @keyframes loading {
+        from {left: -200px; width: 30%;}
+        50% {width: 30%;}
+        70% {width: 70%;}
+        80% { left: 50%;}
+        95% {left: 120%;}
+        to {left: 100%;}
+    }
+    @keyframes vm_module_fadein {
 		from { opacity:0; }
 		to {opacity:1;}
 	}
@@ -434,23 +453,16 @@
         from { margin-top:0; }
 		to {margin-top:-50%;}
 	}
-    .ui-widget-content{
-        background:#eff3dc!important;
+    @keyframes vm_menu_show__ID {
+        from {max-height: 0px;}
+        to {max-height: auto;}
     }
-    .ui-autocomplete.ui-menu{font-size:12px}
-	.ui-menu-item .ui-menu-item-wrapper:hover{
-		font-weight:normal;
-	}
-    #layout__ID {
-        height: 100%;
-        display: grid;
-        grid-template-rows: 1fr auto;
-        overflow:hidden;
+    @keyframes vm_menu_hide__ID {
+        from {max-height: 100px;}
+        to {max-height: 0px;}
     }
     @media print {
         html,body{
-            width:100%;
-            height:100%;
             overflow:visible;
         }
         body * {
@@ -461,19 +473,3 @@
         }
     }
 </style>
-<script layout-js>
-	function vm_layout(){
-		//------------------------------------
-        $vm.root_layout_content_slot="content_container__ID";
-		//------------------------------------
-        var set_height=function(){
-			var header_height=$('#m_header__ID').outerHeight(); $vm.header_height=header_height;
-			var footer_height=$('#footer__ID').outerHeight();
-			$vm.min_height=($(window).height()-header_height-footer_height);
-			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
-		}
-		//------------------------------------
-		set_height();window.onresize=function(){set_height();}
-        //-----------------------------------------
-	}
-</script>

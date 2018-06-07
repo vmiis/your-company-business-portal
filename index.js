@@ -2,7 +2,7 @@
 $vm.module_links=[
     "index.json",
     "abf|apps/a-basic-application-framework/index.json",
-    "sfw|apps/sleep-fix-workbench/index.json",
+    "sfw|https://wappsystem.github.io/sleepfix-workbench/index.json",
     "ajs|apps/angularjs/index.json",
     "bff|apps/basic-form-fields/index.json",
     "wfh|apps/windfarm-home-2/index.json",
