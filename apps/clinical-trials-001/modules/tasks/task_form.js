@@ -25,7 +25,6 @@ $('#D__ID').on('load',function(){
 		$("#F__ID input[name=Participant]").val(participant_record.UID+"-"+participant_record[participant_name]);
 		$("#F__ID input[name=Participant_uid]").val(participant_record.UID);
 	}
-	//$('#row_participant__ID').hide(); if(participant_tid!=undefined && $("#F__ID input[name=Participant_uid]").val()=='') $('#row_participant__ID').show();
     $('#F__ID input[name=Participant]').prop('disabled',false); if($("#F__ID input[name=Participant_uid]").val()!='') $('#F__ID input[name=Participant]').prop('disabled',true);
 	//--------------------------
 	if(typeof(on_load)!='undefined') on_load();
