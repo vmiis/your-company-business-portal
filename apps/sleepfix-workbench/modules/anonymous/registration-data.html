@@ -1,0 +1,33 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+  </div>
+  <style>
+        VmInclude:__COMPONENT__/grid/grid.v3.css
+        #D__ID{
+          height:100%;
+          overflow:auto;
+          animation: vm_module_fadein 1.0s;
+          background-color: #fff;
+        }
+  </style>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      if($vm.server=="development") $('#vm_dev_info__ID').show();
+      //-------------------------------------
+      VmInclude:__COMPONENT__/grid/grid.v3.js
+      //-------------------------------------
+      var this_module=$vm.module_list[$vm.vm['__ID'].name];
+      var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+      var form_module=prefix+this_module.form_module;
+      $('#new__ID').off('click').on('click',function(){$vm.load_module_v2(form_module,'',{goback:1})})
+      //-------------------------------------
+      var fields="First_Name,Last_Name,Mobile_Phone,Email";
+      _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      //-------------------------------------
+      $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+      //-------------------------------------
+    }
+  </script>
+</div>

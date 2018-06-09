@@ -1,0 +1,17 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		VmInclude:__COMPONENT__/grid/grid.v3.js
+		VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+		var fields="Q01,Q02";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

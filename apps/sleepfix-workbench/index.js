@@ -105,7 +105,7 @@ function vm_init(callback){
     }
     //--------------------------------------------------------
     $vm.url=function(text){
-		//replace some text in old modules to the correct ones
+        //replace some text in old modules to the correct ones
 		text=text.replace(/__HOST__\//g,$vm.hosting_path+'/');
 		text=text.replace(/__VER__/g,$vm.ver[0]);
 		text=text.replace(/__BASE__\/vmiis\/Common-Code\//g,'__COMPONENT__/');
@@ -114,6 +114,7 @@ function vm_init(callback){
 		text=text.replace(/__LIB__\/vmiis\/common-code\//g,'__COMPONENT__/');
         text=text.replace(/__PARTS__\//g,'__COMPONENT__/');
 		text=text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/');
+
 		if(window.location.toString().indexOf('_d=1')!=-1){
 			//use local system files
             var host=window.location.protocol+'//'+window.location.host;
@@ -123,7 +124,7 @@ function vm_init(callback){
 		}
 		return text;
 	}
-	//------------------------------------
+	//--------------------------------------------------------
     load_vmapi();
     //------------------------------------
 }
