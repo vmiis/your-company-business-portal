@@ -1,8 +1,0 @@
-{
-    "modules":
-	{
-        "hello-world":	                {"url":"hello-world/hello-world.html"},
-        "tic-tac-toe-starter":          {"url":"tic-tac-toe-starter/tic-tac-toe.html"},
-        "tic-tac-toe-passing-value":    {"url":"tic-tac-toe-passing-value/tic-tac-toe.html"}
-	}
-}
