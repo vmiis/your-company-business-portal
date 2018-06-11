@@ -1,0 +1,283 @@
+<div id=toolbar__ID class="navbar navbar-default">
+	<form class="form-inline">
+		<button type=button id=count__ID class='btn btn-secondary'>Count</button>
+	</form>
+	<span id=elapsed__ID style='float:right'></span>
+</div>
+<div id=page__ID>
+	<span style='font-size:200%'>Sleep Fix Data Management</span>
+    <br>
+	<section id=panel__ID>
+		<div class='nav__ID'>
+			<span>Screening</span>
+			<ul>
+				<li m=screening-data>Online screen for eligibility</li>
+                <li m=consent-data>Consent</li>
+                <li m=registration-data>Registration</li>
+			</ul>
+            <br>
+            <span>Baseline</span>
+            <ul>
+				<li m=bl-gses-data>General Self-Efficacy Scale</li>
+				<li m=bl-acta-data>Autonomy and competence in Technology Adoption</li>
+				<li m=bl-isi-data>Insomnia Severity Index (ISI)</li>
+                <li m=bl-sq-data>Sleep Quality</li>
+                <li m=bl-depression-data>Depression (PHQ-9)</li>
+                <li m=bl-anxiety-data>Anxiety (GAD-7)</li>
+                <li m=bl-hads-data>Hospital Anxiety and Depression Scale (HADS)</li>
+                <li m=bl-fatigue-data>Fatigue</li>
+                <li m=bl-ess-data>DataEpworth Sleepiness Scale</li>
+                <li m=bl-hpq-data>DataHealth and Work Performance Questionnaire (HPQ)</li>
+                <li m=bl-bpns-data>Basic Psychological Needs Scale</li>
+            </ul>
+            <br>
+		</div>
+		<div class='nav__ID'>
+            <span>Week 1</span>
+            <ul>
+				<li m=w1-isi-data>Insomnia Severity Index (ISI)</li>
+                <li m=w1-sq-data>Sleep Quality</li>
+                <li m=w1-fatigue-data>Fatigue</li>
+                <li m=w1-tens-data>TENS</li>
+                <li m=w1-std-data>SleepFix therapy delivery</li>
+                <li m=w1-adherenceS-data>Adherence (sleep diary)</li>
+                <li m=w1-adherenceF-data>Adherence (Fitbit wristband if included)</li>
+            </ul>
+            <br>
+			<span>Week 2</span>
+            <ul>
+				<li m=w2-isi-data>Insomnia Severity Index (ISI)</li>
+                <li m=w2-sq-data>Sleep Quality</li>
+                <li m=w2-fatigue-data>Fatigue</li>
+                <li m=w2-tens-data>TENS</li>
+                <li m=w2-std-data>SleepFix therapy delivery</li>
+                <li m=w2-adherenceS-data>Adherence (sleep diary)</li>
+                <li m=w2-adherenceF-data>Adherence (Fitbit wristband if included)</li>
+            </ul>
+            <br>
+			<span>Week 3</span>
+            <ul>
+				<li m=w3-isi-data>Insomnia Severity Index (ISI)</li>
+                <li m=w3-sq-data>Sleep Quality</li>
+                <li m=w3-fatigue-data>Fatigue</li>
+                <li m=w3-tens-data>TENS</li>
+                <li m=w3-std-data>SleepFix therapy delivery</li>
+                <li m=w3-adherenceS-data>Adherence (sleep diary)</li>
+                <li m=w3-adherenceF-data>Adherence (Fitbit wristband if included)</li>
+            </ul>
+            <br>
+		</div>
+		<div class='nav__ID'>
+            <span>Week 6</span>
+            <ul>
+				<li m=w6-isi-data>Insomnia Severity Index (ISI)</li>
+                <li m=w6-sq-data>Sleep Quality</li>
+                <li m=w6-depression-data>Depression (PHQ-9)</li>
+                <li m=w6-anxiety-data>Anxiety (GAD-7)</li>
+                <li m=w6-hads-data>Hospital Anxiety and Depression Scale (HADS)</li>
+                <li m=w6-fatigue-data>Fatigue</li>
+                <li m=w6-ess-data>Epworth Sleepiness Scale</li>
+                <li m=w6-hpq-data>Health and Work Performance Questionnaire (HPQ)</li>
+                <li m=w6-std-data>SleepFix therapy delivery</li>
+                <li m=w6-adherenceS-data>Adherence (sleep diary)</li>
+                <li m=w6-adherenceF-data>Adherence (Fitbit wristband if included)</li>
+            </ul>
+			<br>
+            <span>Week 12</span>
+            <ul>
+				<li m=w12-isi-data>Insomnia Severity Index (ISI)</li>
+                <li m=w12-sq-data>Sleep Quality</li>
+                <li m=w12-depression-data>Depression (PHQ-9)</li>
+                <li m=w12-anxiety-data>Anxiety (GAD-7)</li>
+                <li m=w12-hads-data>Hospital Anxiety and Depression Scale (HADS)</li>
+                <li m=w12-fatigue-data>Fatigue</li>
+                <li m=w12-ess-data>Epworth Sleepiness Scale</li>
+                <li m=w12-hpq-data>Health and Work Performance Questionnaire (HPQ)</li>
+                <li m=w12-bpns-data>Basic Psychological Needs Scale</li>
+                <li m=w12-adherenceS-data>Adherence (sleep diary)</li>
+                <li m=w12-adherenceF-data>Adherence (Fitbit wristband if included)</li>
+            </ul>
+		</div>
+	</section>
+</div>
+<script>
+    function F__ID(){
+        //--------------------------------------------------------
+		var set_li_text=function(){
+    	    $('.nav__ID li').each(function(){
+    	        $(this).attr('data-li_text',$(this).text());
+    	    })
+    	}
+    	set_li_text();
+    	//---------------------------------------------
+    	var clear_counting=function(){
+    		$('.nav__ID li').each(function(){
+    			var txt=$(this).attr('data-li_text');
+    			if(txt!=undefined){
+    				$(this).text(txt);
+    			}
+    		})
+    	}
+    	//---------------------------------------------
+		var this_module=$vm.module_list[$vm.vm['__ID'].name];
+		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+		//--------------------------------------------------------
+        $('#panel__ID li').on('click',function(){
+			if( $(this).hasClass( 'not_allowed__ID' )===true){
+    		    alert("No permission!");
+    		    return;
+    		}
+			var m=$(this).attr('m');
+            if(m!=undefined){
+				$vm.load_module_v2(prefix+m,'',{});
+            }
+        })
+        //--------------------------------------------------------
+		$('#D__ID').on('load',function(){
+    		var pids="";
+    		if($vm.server==='production'){
+    		  $('.nav__ID li').each(function(index){
+    		      var name=$(this).attr('module');
+    		      var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+    		      if(pid!==undefined && pid!=='--------'){
+    		         if(pids!=="") pids+=",";
+    		         pids+=pid;
+    		      }
+    		  });
+    		  if(pids!==""){
+    		      $VmAPI.request({data:{cmd:'permissions',pids:pids},callback:function(res){
+    		          $('.nav__ID li').each(function(index){
+    		              var name=$(this).attr('module');
+    					  var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+    		              if(pid!==undefined && pid!=='--------'){
+    		                  $(this).removeClass('not_allowed__ID');
+    		                  if(res[pid]===undefined){
+    		                      $(this).addClass('not_allowed__ID')
+    		                  }
+    		              }
+    		          })
+    		      }})
+    		  }
+    		}
+    	})
+    	//---------------------------------------------------------------
+    	$('#count__ID').on('click',function(){
+    		clear_counting();
+    		var N=0;
+    		$('#panel__ID li').each(function(){
+    			var $li=$(this);
+    			N++;
+    			var m=$li.attr('m');
+    			if(m!=undefined){
+    				check_count($li,N);
+    			}
+    		});
+    	})
+    	//--------------------------------------------------------
+    	var check_count=function($li,N){
+    		//do not send too many requests to the server in a short period
+    		setTimeout(function(){check_count_d($li)}, N*200);
+    	}
+    	//--------------------------------------------------------
+    	var check_count_d=function($li){
+    		var m=$li.attr('m');
+    		if($vm.module_list[prefix+m]!=undefined){
+    			var pid=$vm.module_list[prefix+m].table_id;
+    			if(pid!=undefined){
+    				var sql="select Num=count(ID) from [TABLE-"+pid+"]";
+    				$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+    					var num=res.records[0].Num;
+    					var txt=$('<div/>').html($li.attr('data-li_text')).text();
+    					$li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
+    				}})
+    			}
+    		}
+    	}
+		//--------------------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+        color:#283f55;
+        font-size:10pt;
+        font-family: Verdana,Helvetica,Arial,sans-serif;
+		background: rgba(255,255,255,0.95);
+        overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+        padding:10px 0 0 20px;
+		display:inline-block;
+    }
+    #info__ID{
+        font-size: 11px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	#toolbar__ID{
+		background-color:#ccc;
+		margin-bottom:0px;
+		overflow:hidden;
+        padding: 5px 0 5px 10px;
+	}
+    #toolbar__ID .form-inline > * {
+        margin-right:5px;
+    }
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+	li::before{
+		font-size: 20px!Important;
+	}
+    .nav__ID{
+        padding:6px 26px 6px 6px;
+        /*color: #202727;*/
+        float:left;
+    }
+    .nav__ID span{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 10px;
+    }
+	.nav__ID li:hover{
+		color:red;
+	    cursor:pointer;
+	}
+	.app__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.ul__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.nav__ID ul{
+		margin:0 0 3px 0;
+	}
+	.nav__ID p{
+		margin:0;
+	}
+	.data__ID{
+		color:#709aab;
+	}
+    .space__ID{
+        width:34px;
+        display:inline-block;
+    }
+	.li__ID{
+		display:inline-block;
+		width:150px;
+	}
+	/*
+    .nav__ID>ul>li u:nth-child(2){
+        font-size:11px;
+	}
+	*/
+</style>
