@@ -372,10 +372,10 @@ vm_init(function(){
         }
     }
     //------------------------------------
-    vm_layout();
-    vm_top_right_corner();
-    vm_header();
-    vm_footer();
+    $vm.layout();
+    $vm.top_right_corner();
+    $vm.header();
+    $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
     $vm.load_module_v2("Home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
