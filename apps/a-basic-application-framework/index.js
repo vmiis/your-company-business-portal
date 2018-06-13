@@ -14,7 +14,7 @@ $vm.app_config={
 //------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
-function vm_init(callback){
+$vm.app_init=function(callback){
     console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* start running init ************************");
     //--------------------------------------------------------
     //check and clear localstorage
@@ -128,7 +128,7 @@ function vm_init(callback){
     //------------------------------------
 }
 //------------------------------------
-vm_init(function(){
+$vm.app_init(function(){
     //-----------------------------------------
     window.onmessage=function(e){
         if(e.data.username!=undefined && e.data.user_id!=undefined){
@@ -319,10 +319,10 @@ vm_init(function(){
         }
     }
     //------------------------------------
-    vm_layout();
-    vm_top_right_corner();
-    vm_header();
-    vm_footer();
+    $vm.layout();
+    $vm.top_right_corner();
+    $vm.header();
+    $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
     $vm.load_module_v2("Home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);

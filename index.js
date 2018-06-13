@@ -60,7 +60,7 @@ $vm.app_config={
 //------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
-function vm_init(callback){
+$vm.app_init=function(callback){
     console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* start running init ************************");
     //--------------------------------------------------------
     //check and clear localstorage
@@ -174,7 +174,7 @@ function vm_init(callback){
     //------------------------------------
 }
 //------------------------------------
-vm_init(function(){
+$vm.app_init(function(){
     //-----------------------------------------
     window.onmessage=function(e){
         if(e.data.username!=undefined && e.data.user_id!=undefined){
