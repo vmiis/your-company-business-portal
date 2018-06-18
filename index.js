@@ -87,7 +87,7 @@ $vm.app_init=function(callback){
     }
     $vm.version=$vm.ver[0];
     //--------------------------------------------------------
-    $vm.parts_path="https://vmiis.github.io/component";
+    $vm.parts_path="https://component.vmiis.com/";
     if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
         $vm.library_path =window.location.protocol+'//'+window.location.host;
     }
