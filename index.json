@@ -122,5 +122,6 @@
 	"sfix-registration":	{"url":"modules/others/sfix-registration.html","name_for_search":"Sfix registration"},
 	"team":	  				{"url":"modules/others/team.html","name_for_search":"Team"},
 	"medical-services":	  	{"url":"modules/others/medical-services.html","name_for_search":"Medical services"},
-	"contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/others/contact-us.html","name_for_search":"Contact us"}
+	"contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/others/contact-us.html","name_for_search":"Contact us"},
+	"permission-test-data": {"table_id":"20011569","url":"modules/others/permission-test-data.html"}
 }}
