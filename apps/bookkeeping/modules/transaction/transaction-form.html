@@ -76,9 +76,11 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 		}
 		//-------------------------------------
         var before_submit=function(record,dbv){
+            dbv.DT1=record.Date;
 			dbv.S1=record.Name;
-            dbv.S2=record.IE;
-            dbv.S3=record.Tax_Rate;
+            //dbv.S2=record.IE;
+            //dbv.S3=record.Tax_Rate;
+            dbv.V1='0'; if(record.Amount!=='') dbv.V1=record.Amount;
             return true;
         };
         //-------------------------------------
