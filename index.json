@@ -123,5 +123,7 @@
 	"team":	  				{"url":"modules/others/team.html","name_for_search":"Team"},
 	"medical-services":	  	{"url":"modules/others/medical-services.html","name_for_search":"Medical services"},
 	"contact-us":	  	    {"table_id":"20009702","v3":"18033101","url":"modules/others/contact-us.html","name_for_search":"Contact us"},
-	"permission-test-data": {"table_id":"20011569","url":"modules/others/permission-test-data.html"}
+	"permission-test-data": {"table_id":"20011569","url":"modules/others/permission-test-data.html","qid":"20011567"},
+	"permission-table-data": {"table_id":"20011568","url":"modules/others/permission-table-data.html"},
+	"permission-query-data": {"table_id":"20011567","url":"modules/others/permission-query-data.html"}
 }}

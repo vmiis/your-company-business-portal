@@ -3,20 +3,22 @@
 </section>
 <script>
     function F__ID(){
-		//-------------------------------------
-        VmInclude:__COMPONENT__/module/grid.v1.js
         //-------------------------------------
-        var fields="Name,Email,Message";
+        VmInclude:__COMPONENT__/module/grid.v1.js
+        VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+        var fields="Client,Booking_Notes";
         m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
         m.form_fields=fields;
         //-------------------------------------
-        $('#D__ID').on('load',function(){  m.set_req(); m.request_data(); })
-        //-------------------------------------
         m.cell_render=function(records,I,field,td,set_value,source){
             switch(field){
-                case '_Name':
-                    var html='<input type=checkbox />';
-                    $vm.render_checkbox_field(records[I],'__ID',td,html)
+                case 'Client':
+                    var sql="with tb as (select name=JSON_VALUE(Information,'$.First_Name')+' '+JSON_VALUE(Information,'$.Last_Name'),value2=uid from [TABLE-20008490])";
+                    sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+                    $vm.autocomplete(td,sql,function(key,value){
+                        records[I][key]=value;
+                    })
                     break;
             }
         }

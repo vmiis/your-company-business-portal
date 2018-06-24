@@ -6,19 +6,15 @@
 		//-------------------------------------
         VmInclude:__COMPONENT__/module/grid.v1.js
         //-------------------------------------
-        var fields="Name,Email,Message";
+        var fields="Type";
         m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
-        m.form_fields=fields;
+        m.form_fields=fields+",Query";
         //-------------------------------------
         $('#D__ID').on('load',function(){  m.set_req(); m.request_data(); })
         //-------------------------------------
-        m.cell_render=function(records,I,field,td,set_value,source){
-            switch(field){
-                case '_Name':
-                    var html='<input type=checkbox />';
-                    $vm.render_checkbox_field(records[I],'__ID',td,html)
-                    break;
-            }
+        m.before_submit=function(record,dbv){
+            dbv.S1=record.Type;
+            return true;
         }
         //-------------------------------------
     }
