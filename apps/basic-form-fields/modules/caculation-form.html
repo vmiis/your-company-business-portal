@@ -1,4 +1,4 @@
-VmInclude:__COMPONENT__/toolbar/form-toolbar.html
+VmInclude:__COMPONENT__/module/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
 		Date
@@ -7,7 +7,7 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 		<div class="container">
 			<div class="row row__ID"><div class="col-sm col-lg-3">Unit Price</div><div class="col-sm"><input type="text" placeholder="Unit Price" class="form-control" id=Unit_Price__ID name="Unit_Price" required /></div></div>
 			<div class="row row__ID"><div class="col-sm col-lg-3">Quantity</div><div class="col-sm"><input type="text" placeholder="Quantity" class="form-control" id=Quantity__ID name="Quantity" required /></div></div>
-			<div class="row row__ID"><div class="col-sm col-lg-3">Sub_Total</div><div class="col-sm"><input type="text" readonly placeholder="Sub Total" class="form-control" id=Sub_Total__ID name="Sub_Total" /></div></div>
+			<div class="row row__ID"><div class="col-sm col-lg-3">Sub Total</div><div class="col-sm"><input type="text" readonly placeholder="Sub Total" class="form-control" id=Sub_Total__ID name="Sub_Total" /></div></div>
 			<br>
 			<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
 		</div>
@@ -16,7 +16,7 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <script>
     function F__ID(){
         //-------------------------------------
-		VmInclude:__CURRENT_PATH__/task_form.js
+		VmInclude:__COMPONENT__/module/form.v1.js
         //-------------------------------------
 		var cal=function(){
 			var v1=parseFloat($('#Unit_Price__ID').val())

@@ -1,16 +1,16 @@
 <section>
-    VmInclude:__COMPONENT__/grid/grid.v3.html
+    VmInclude:__COMPONENT__/module/grid.v1.html
 </section>
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude:__COMPONENT__/grid/grid.v3.js
-        VmInclude:__CURRENT_PATH__/task_data.js
+        VmInclude:__COMPONENT__/module/grid.v1.js
         //-------------------------------------
         var fields="Client,Booking_Notes";
-        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        m.form_fields=fields;
         //-------------------------------------
-        _cell_render=function(records,I,field,td,set_value,source){
+        m.cell_render=function(records,I,field,td,set_value,source){
             switch(field){
                 case 'Client':
                     var sql="with tb as (select name=JSON_VALUE(Information,'$.First_Name')+' '+JSON_VALUE(Information,'$.Last_Name'),value2=uid from [TABLE-20008490])";
@@ -25,5 +25,5 @@
     }
 </script>
 <style>
-    VmInclude:__COMPONENT__/grid/grid.v3.css
+    VmInclude:__COMPONENT__/module/grid.v1.css
 </style>

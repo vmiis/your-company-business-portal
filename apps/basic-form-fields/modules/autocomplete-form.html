@@ -1,4 +1,4 @@
-VmInclude:__COMPONENT__/toolbar/form-toolbar.html
+VmInclude:__COMPONENT__/module/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
 		Autocomplete
@@ -20,7 +20,7 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <script>
     function F__ID(){
 		//-------------------------------------
-        VmInclude:__CURRENT_PATH__/task_form.js
+		VmInclude:__COMPONENT__/module/form.v1.js
         //-------------------------------------
 		var sql="with tb as (select name=JSON_VALUE(Information,'$.First_Name')+' '+JSON_VALUE(Information,'$.Last_Name'),value2=uid from [TABLE-20008490])";
 		sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";

@@ -4,13 +4,13 @@
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude:__COMPONENT__/grid/grid.v3.js
-        VmInclude:__CURRENT_PATH__/task_data.js
+        VmInclude:__COMPONENT__/module/grid.v1.js
         //-------------------------------------
         var fields="Unit_Price,Quantity,Sub_Total";
-        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        m.form_fields=fields;
         //-------------------------------------
-        _cell_render=function(records,I,field,td,set_value,source){
+        m.cell_render=function(records,I,field,td,set_value,source){
             switch(field){
                 case 'Unit_Price':
                 case 'Quantity':
@@ -23,14 +23,14 @@
             }
         }
         //-------------------------------------
-        _after_change=function(records,I,field,td,set_value,source){
+        m.after_change=function(records,I,field,td,set_value,source){
             if(field=='Unit_Price' || field=='Quantity' ){
                 var v1=parseFloat(records[I]['Unit_Price'])
                 var v2=parseFloat(records[I]['Quantity'])
                 var v3=(v1*v2).toFixed(2);
                 if(v3=='NaN') v3="";
                 records[I]['Sub_Total']=v3;
-                set_value(v3,records,I,'Sub_Total');
+                m.set_value(v3,records,I,'Sub_Total');
                 if(source=='grid')  td.parent().find("td[data-id='Sub_Total']").text(v3)
                 else                td.parent().parent().find("td[data-id='Sub_Total']").text(v3)
             }
