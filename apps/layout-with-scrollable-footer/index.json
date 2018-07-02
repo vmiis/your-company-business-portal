@@ -1,0 +1,7 @@
+{
+    "modules":
+	{
+        "link-1": {"url":"modules/long.html"},
+        "link-2": {"url":"modules/short.html"}
+	}
+}
