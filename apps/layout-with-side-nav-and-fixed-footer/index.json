@@ -3,7 +3,8 @@
 	{
         "portal": {"url":"modules/portal.html"},
         "two-columns": {"url":"https://codepen.io/vmiis/pen/YLgvxg.html"},
-		"link-2": {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 2","text":"Not Ready"},
-		"link-3": {"url":"modules/under-construction.html","preload":true,"name_for_search":"Link 3","text":"Comming soon..."}
+        "two-columns":  {"url":"modules/two-columns.html"},
+        "long":  {"url":"modules/long.html"},
+        "short": {"url":"modules/short.html"}
 	}
 }

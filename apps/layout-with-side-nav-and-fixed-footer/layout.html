@@ -16,9 +16,9 @@
                 <u class=vm_li module=Home><i class="fa fa-home"></i>Home</u>
                 <u class=vm_folder><i class="fa fa-folder-open-o"></i>Articles</u>
                 <ul>
-        			<li module=two-columns>Article 1</li>
-                    <li module=link-2>Article 2</li>
-                    <li module=link-3>Article 3</li>
+                    <li module=long>Article 1</li>
+                    <li module=short>Article 2</li>
+        			<li module=two-columns>Article 3</li>
         		</ul>
                 <u class=vm_li module=portal><i class="fa fa-th"></i>Sitemap</u>
                 <div id=signin__ID>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div id="vm_search">
-                <input id=vm_system_search  type="text" placeholder="Search pages..." />
+                <input id=vm_system_search  type="text" placeholder=" Search pages..." />
             </div>
             <div id="vm_social">
                 <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button__ID twitter__ID"><i class="fa fa-twitter"></i><span></span></a>
@@ -105,7 +105,7 @@
     $vm.footer=function(){
         $vm.root_layout_footer='footer__ID';
         //-----------------------------------------------------
-        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL__ID>Site Code on GitHub (github.com/vmiis). Pull Requests welcome!</span>");
+        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL__ID>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).  </span>");
         //------------------------------------
     }
     //---------------------------------------------
@@ -182,14 +182,6 @@
     }
 </script>
 <style layout-css>
-    /*top -----------------------------------------------*/
-    #vm_framework{
-        height:100%;
-    }
-    .vm_module{
-        width:100%;
-        height:100%;
-    }
 	html,body{
         width: 100%;
         height: 100%;
@@ -197,13 +189,28 @@
         margin:0;
         font-family:Arial;
 	}
+    body{
+        background-image: url(layout.jpg);
+        background-size: cover;
+        background-repeat: repeat-x;
+        background-position: center top;
+        background-attachment: fixed;
+    }
     /*laypot-----------------------------------------------*/
+    #vm_framework{
+        height:100%;
+    }
     #layout__ID {
         height: 100%;
         display: grid;
         grid-template-rows: auto 1fr auto;
         overflow:hidden;
     }
+    .vm_module{
+        width:100%;
+        height:100%;
+    }
+    /*side nav-----------------------------------------------*/
     #m_header__ID{
         display:none;
     }

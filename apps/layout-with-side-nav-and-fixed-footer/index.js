@@ -243,14 +243,6 @@ $vm.app_init(function(){
         var search_loop=setInterval(function (){
 			if($vm['jquery-ui-min-js']==1){
 				clearInterval(search_loop);
-                for(k in $vm.module_list){
-                    if($vm.module_list[k].name_for_search!=undefined){
-                        if($vm.module_list[k].name_for_search!=""){
-                            $vm.website_module_list_for_search.push({label:$vm.module_list[k].name_for_search,value:k});
-                        }
-                    }
-                    else $vm.website_module_list_for_search.push({label:k,value:k});
-                }
                 $("#vm_system_search").autocomplete({
                     minLength:0,
                     source: function(request, response) {
@@ -274,19 +266,11 @@ $vm.app_init(function(){
 		//------------------------------------
     }
     //------------------------------------
-    var loading_back_image=function(){
-        //This is the place we can add background image to body (Asynchronous)
-        var $image1 = $("<img>");
-        $image1.on('load',(function(){
-            $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");
-            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
-        }));
-        $image1.attr("src", "layout.jpg");
-    }
-    //------------------------------------
     var module_links=function(){
         var rm=$vm.module_links;
-        var process=function(prefix,nm){
+        var i=0
+        var N=rm.length;
+        var process=function(I,prefix,nm){
             $.get(nm+'?_='+$vm.ver[0]+$vm.reload,function(txt){
                 var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
                 var modules=config.modules;
@@ -301,20 +285,22 @@ $vm.app_init(function(){
                         $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
                     }
                 }
+                if(I==N-1){ //all module's link are ready
+                    if($vm.home_process!=undefined) $vm.home_process();
+                    else load_search_module();
+                }
             },'text');
         }
-        var i=0
-        var N=rm.length;
         if(N>0){
             var link_remote_module_loop=setInterval(function (){
                 if(i>=N){
                     clearInterval(link_remote_module_loop);
-                    load_search_module();
+                    //load_search_module();
                     return;
                 }
                 var ns=rm[i].split('|');
-                if(ns.length==1) process("",ns[0])
-                else process(ns[0]+"_",ns[1]);
+                if(ns.length==1) process(i,"",ns[0])
+                else process(i,ns[0]+"_",ns[1]);
                 i++;
             },10);
         }
@@ -327,7 +313,6 @@ $vm.app_init(function(){
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
     $vm.load_module_v2("Home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
-    loading_back_image();
     over_write_alert();
     set_module_search();
     module_links();

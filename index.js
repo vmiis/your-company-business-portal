@@ -321,16 +321,6 @@ $vm.app_init(function(){
 		//------------------------------------
     }
     //------------------------------------
-    var loading_back_image=function(){
-        //This is the place we can add background image to body (Asynchronous)
-        var $image1 = $("<img>");
-        $image1.on('load',(function(){
-            $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");
-            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
-        }));
-        $image1.attr("src", "layout.jpg");
-    }
-    //------------------------------------
     var module_links=function(){
         var rm=$vm.module_links;
         var process=function(prefix,nm){
@@ -379,7 +369,6 @@ $vm.app_init(function(){
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
     $vm.load_module_v2("Home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
-    loading_back_image();
     over_write_alert();
     set_module_search();
     module_links();
