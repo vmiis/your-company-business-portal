@@ -1,7 +1,7 @@
 {
     "modules":
 	{
-        "link-1": {"url":"modules/long.html"},
-        "link-2": {"url":"modules/short.html"}
+        "long":  {"url":"modules/long.html"},
+        "short": {"url":"modules/short.html"}
 	}
 }

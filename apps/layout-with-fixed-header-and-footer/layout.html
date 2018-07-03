@@ -73,8 +73,8 @@
         var set_height=function(){
 			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
 			var footer_height=$('#footer__ID').outerHeight();
-            $vm.min_height=($(window).height()-header_height-footer_height-1);
-			$('#content_container__ID').css({'min-height':($vm.min_height)+'px'});
+			$vm.min_height=($(window).height()-header_height-footer_height);
+			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
 		}
 		//------------------------------------
 		set_height();window.onresize=function(){set_height();}
@@ -157,11 +157,13 @@
     /*----------------------*/
     /*layout*/
     #vm_framework{
+        height:100%;
     }
     #layout__ID {
+        height: 100%;
         display: grid;
         grid-template-rows: auto 1fr auto;
-        overflow:auto;
+        overflow:hidden;
     }
     .vm_module{
         width:100%;
@@ -347,7 +349,7 @@
     #content_container__ID{
         /*position:fixed;*/
         width:100%;
-        /*overflow:hidden;*/
+        overflow:hidden;
     }
     #vm_loader{
         display:none;

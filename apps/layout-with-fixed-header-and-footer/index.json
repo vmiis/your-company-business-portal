@@ -1,6 +1,7 @@
 {
     "modules":
 	{
+        "portal": {"url":"modules/portal.html"},
         "long":  {"url":"modules/long.html"},
         "short": {"url":"modules/short.html"}
 	}
