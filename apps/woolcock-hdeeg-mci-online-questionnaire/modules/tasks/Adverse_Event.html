@@ -1,0 +1,80 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="Adverse Event,Onset Date and Time,Resolution Date and Time,Was AE Serious?|Was_AE_Serious,Intensity,Frequency,Treatment Required,Treatment Description,Outcome";
+        _fields="_Form,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _grid_to_form_parameters={task_fields:_task_fields};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                case 'Was_AE_Serious':
+                    td.html('<input type=checkbox />');
+                    VmInclude:__PARTS__/grid/field_checkbox.js
+                break;
+                case 'CPAP_Related':
+                    td.html('<input type=checkbox />');
+                    VmInclude:__PARTS__/grid/field_checkbox.js
+                break;
+                case 'Intensity':
+                    var html="<select style='border:0;''>\
+                            <option>Mild</option>\
+                            <option>Moderate</option>\
+                            <option>Severe</option>\
+                        </select>\
+                    ";
+                    VmInclude:__PARTS__/grid/field_select.js
+                break;
+                case 'Frequency':
+                    var html="<select style='border:0;''>\
+                            <option>Single continuous episode</option>\
+                            <option>Intermittent</option>\
+                            </select>\
+                    ";
+                    VmInclude:__PARTS__/grid/field_select.js
+                break;
+                case 'Treatment_Required':
+                    var html="<select style='border:0;''>\
+                            <option>None</option>\
+                            <option>Concomitant Medication</option>\
+                            <option>Non-drug Tx</option>\
+                            <option>Hospitalization</option>\
+                            <option>Other (specify)</option>\
+                        </select>\
+                    ";
+                    VmInclude:__PARTS__/grid/field_select.js
+                break;
+                case 'Outcome':
+                    var html="<select style='border:0;''>\
+                            <option>Resolved w/no Sequelae</option>\
+                            <option>Resolved w/Sequelae</option>\
+                            <option>Continuing</option>\
+                            <option>Fatal</option>\
+                            <option>Unknown</option>\
+                        </select>\
+                    ";
+                    VmInclude:__PARTS__/grid/field_select.js
+                break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

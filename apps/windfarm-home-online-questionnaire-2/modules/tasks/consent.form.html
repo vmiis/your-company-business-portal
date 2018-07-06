@@ -1,0 +1,175 @@
+<section id=form_container__ID>
+    <div id=header__ID>
+		CONSENT
+	</div>
+	<form id=F__ID>
+        <div class="container">
+
+            Dear Sir/Madam,<br><br>
+           This questionnaire was developed by the Woolcock Institute of Medical Research.<br><br>
+           The Wind Farms and Health study is exclusively funded by the Australian Government through the National Health and Medical Research Council (NHMRC) and aims to study the impact of noise exposures on sleep and health including the inaudible sound that is produced by wind turbines called 'infrasound'.<br><br>
+           This important research is impossible without the generous contributions from volunteers and as such we would like to invite you to contribute to this study, which is designed to better understand the effects of wind farms on health including sleep. We would be grateful if you could complete the following questionnaire which will take up to 15 minutes. Please complete all sections unless it states that you are not required to do so.<br><br>
+           Taking part in this research is completely voluntary and all information obtained in this questionnaire will be kept confidential. Data will be de-identified and stored completely anonymously and separately from your personal information. It will be kept in a Wind Farms database with the same high level of security as your personal medical records. Your information will not be provided to any third party unless required by law.<br><br>
+           If you have any concerns or questions we encourage you to contact our research team on 9114 0493 or Windfarmhomestudy@woolcock.org.au <br><br><br>
+           <b>I have read and understood the above information and:<br><br> </b>Please select</label><br>
+           <div class="row row__ID">
+               <div class="col- control-group pl-4">
+                   <label class="control control-radio">
+                           <input type="radio"  name="Consent" id=Consent__ID required value=Yes />
+                       <div class="control_indicator text-center"></div>Yes, I agree to participate in this research study and I understand that I may be contacted and invited to participate in future stages of screening if suitable
+                   </label>
+                   <label class="control control-radio">
+                           <input type="radio"  name="Consent" value=No />
+                       <div class="control_indicator text-center"></div> No, I do not wish to take part in this or future research
+                   </label>
+               </div>
+           </div>
+           <i>By selecting ‘Yes’, you are stating that you understand the information provided and give consent for your de-identified responses to be used for research purposes.<br><br>
+            <ul style="list-style-type:circle">
+           <li>You understand that your participation in this research study is entirely voluntary</li><br>
+           <li>You are under no obligation to participate and you can withdraw at any time<br><br></li>
+           <li>You also understand that all data collected under this research study is strictly confidential.</li></i></label></li><br>
+           <hr style='border-top:1px solid #727b84;'></hr>
+           <br>
+           <button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+    </form>
+</section>
+<script>
+function F__ID(){
+    VmInclude:__CURRENT_PATH__/task.independent.form.js
+    _before_submit=function(record,dbv){
+        if(record.Consent=="No") {alert("You can't take part in this research if you don't consent. Please contact our research team on 9114 0493 or Windfarmhomestudy@woolcock.org.au");return false;}
+        return true
+    }
+}
+</script>
+<style>
+#D__ID{
+    height:100%;
+    overflow: auto;
+    animation: vm_module_fadein 1.0s;
+    background: rgba(151,164,181,0.95);
+}
+#form_container__ID{
+    padding-top:50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #000;
+}
+#form_container__ID .row__ID{
+    padding:6px 0;
+}
+#form_container__ID .row__ID:hover{
+    /*background-color: #727b84;*/
+}
+#header__ID{
+    background-color:#727b84;
+    color:#000;
+    padding:10px 15px 10px 15px;
+    font-size:150%;
+}
+#quest__ID{
+    padding:5px 5px 5px 5px;
+    font-size:120%;
+}
+#F__ID{
+    border:1px solid #727b84;
+    padding:6px 15px 20px 15px;
+}
+#F__ID label
+    display: inline-block;
+    margin: .6rem 0 .3rem 0;
+}
+
+#F__ID fieldset {
+    border: 0px solid #c0c0c0;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width:768px){
+    #form_container__ID{
+        padding:20px 10px 50px 10px;
+    }
+}
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+}
+.control-radio .control_indicator {
+    border-radius: 50%;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #A51C3D;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: #0e6647d;
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-radio .control_indicator:after {
+    left: 7px;
+    top: 7px;
+    height: 0px;
+    width: 0px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+.control-radio input:disabled ~ .control_indicator:after {
+    background: #7b7b7b;
+}
+</style>

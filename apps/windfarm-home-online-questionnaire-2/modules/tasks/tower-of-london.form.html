@@ -1,0 +1,123 @@
+<section style='display:none'>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+    <div id=pvdiv__ID>
+        <form id=F__ID>
+            <table id=tb__ID style='width:500px;'>
+                <col class=colA style='width:350px' /><col /></colgroup>
+                <tr><td colspan=2 class='header__ID'>Tower of London</td></tr>
+                <tr id=tr_participant__ID style='display:none'><td colspan=2 data-id=Participant data-custom=1>
+                    <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                    <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                    <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+                </td></tr>
+                <tr><td data-id=TGME data-custom=1 >TGME <i>(Grand mean number of errors)</i></td><td><input name=TGME type=text /></td></tr>
+                <tr><td data-id=TGMT data-custom=1 >TGMT <i>(Grand mean execution time)</i></td><td><input name=TGMT type=text /></td></tr>
+                <tr><td data-id=TMIS data-custom=1 >TMIS <i>(Grand number of missed goals)</i></td><td><input name=TMIS type=text /></td></tr>
+                <tr><td data-id=TPLAN data-custom=1 >TPLAN <i>(Grand mean of number of seconds between when tests starts and first move is made)</i></td><td><input name=TPLAN type=text /></td></tr>
+                <tr><td data-id=TPT data-custom=1 >TPT Planning</td><td><input name=TPT type=text /></td></tr>
+                <tr><td data-id=TFT data-custom=1 >TFT Finishing</td><td><input name=TFT type=text /></td></tr>
+                <tr><td data-id=TSS data-custom=1 >TSS Success</td><td><input name=NNO type=text /></td></tr>
+                <tr><td data-id=TNO data-custom=1 >TNO Number</i></td><td><input name=NRT type=text /></td></tr>
+            </table>
+        </form>
+    </div>
+</section>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1100" height="800" align="middle">
+    <param value="__CURRENT_PATH__/flash/Tower_London.swf"/>
+    <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="__CURRENT_PATH__/flash/Tower_London.swf" width="1100" height="800">
+        <param value="__CURRENT_PATH__/flash/Tower_London.swf"/>
+    <!--<![endif]-->
+        <a href="//www.adobe.com/go/getflash">
+            <img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/>
+        </a>
+    <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+</object>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.old.form.js
+        _json=''
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "TGME":
+                    case "TGMT":
+                    case "TMIS":
+                    case "TPLAN":
+                    case "TPT":
+                    case "TFT":
+                    case "TSS":
+                    case "TNO":
+                        $('#tb__ID').find("input[name='"+field+"']").val(_records[I][field]);
+                        $('#tb__ID').find("input[name='"+field+"']").on('blur',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+        _before_submit_form=function(){
+            calc();
+            return true;
+        }
+        //-------------------------------------
+        g_tower_of_london_callback=function(param){
+            var a=param.split('&');
+            for(var i=0;i<a.length;i++){
+                var b=a[i].split('=');
+                try{
+                    _records[I][b[0]]=b[1];
+                }catch(e){}
+            }
+            $('#save__ID').triggerHandler('click');
+        };
+        //-------------------------------------
+        var calc=function(){
+    	    var tpt=_records[I].TPT.split(",");
+            var tft=_records[I].TFT.split(",");
+            var tss=_records[I].TSS.split(",");
+            var tno=_records[I].TNO.split(",");
+            var ss=0;
+            var plan=0.0;
+            var finish=0.0;
+            for (var i=0;i<tpt.length;i++){
+     	        plan=plan+parseInt(tpt[i]);
+     	        finish=finish+parseInt(tft[i]);
+     	        if(tss[i]=='false') ss++;
+            }
+            _records[I].TGME=(ss/tpt.length).toFixed(2).toString();
+            _records[I].TGMT=((plan+finish)/tpt.length*0.001).toFixed(3).toString();
+            _records[I].TMIS=ss.toString();
+            _records[I].TPLAN=((plan)/tpt.length*0.001).toFixed(3).toString();
+        }
+        //-------------------------------------
+    };
+</script>
+<style>
+    VmInclude:__COMPONENT__/style/default.css
+    VmInclude:__COMPONENT__/style/form.css
+</style>

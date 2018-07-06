@@ -41,36 +41,29 @@
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Data Entry</u>");
                     td.find('u').on('click',function(){
-                        $vm.nav_load_module(prefix+'child',$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.load_module_v2('child',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Setup':
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Login Setup</u>");
                     td.find('u').on('click',function(){
-						$vm.nav_load_module(prefix+'login-setup',$vm.root_layout_content_slot,{record:records[I]});
+						$vm.load_module_v2(prefix+'login-setup',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Quest':
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Online Questionnaire</u>");
                     td.find('u').on('click',function(){
-                        var d="";
-						if($vm.server=='development') d="&database=development";
-						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
-						var q_url="https://vmiis.github.io/your-company-business-portal/apps/windfarm-home-online-questionnaire-2/index.html"+p;
-                        if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-							q_url=q_url.replace("https://vmiis.github.io","http://127.0.0.1:8000/vmiis")
-						};
-                        /*
-                        var d="";
+						var d="";
 						if($vm.server=='development') d="&database=development";
 						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
 						var q_url="https://woolcock-imr.github.io/windfarm-home-online-questionnaire-2/index.html"+p;
 						if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-							q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/woolcock-imr")
+							//q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/woolcock-imr")
+                            q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/vmiis/your-company-business-portal/apps")
 						};
-                        */
+						q_url=$vm.url(q_url)
 						window.open(q_url);
                     });
                     break;

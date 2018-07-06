@@ -1,0 +1,164 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a> <a id=start__ID>Start</a> <a id=pause__ID>Pause</a>  <a id=stop__ID>Stop</a>
+    </div>
+    <img id=img__ID />
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+      VmInclude:__PARTS__/toolbar/back.js
+        //-------------------------------------
+        var pause_array=[
+            {src:'__CURRENT_PATH__/../../../images/Set1/2.Slide33.JPG',time:1000},
+        ]
+        var img_array=[
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_1.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_2.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_3.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_4.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_5.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_6.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_7.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_8.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_9.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_10.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_11.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_12.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_13.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_14.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_15.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_16.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_17.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_18.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_19.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_20.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_21.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_22.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_23.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_24.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_25.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_26.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_27.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_28.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_29.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_30.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_31.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Pres/pres_32.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/2.Slide33.JPG',time:5000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_67.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_68.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_69.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_70.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_71.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_72.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_73.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_74.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_75.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_76.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_77.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_78.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_79.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_80.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_81.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_82.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_83.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_84.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_85.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_86.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_87.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_88.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_89.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_90.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_91.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_92.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_93.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_94.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_95.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_96.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_97.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_98.JPG',time:12000},
+            {src:'__CURRENT_PATH__/../../../images/images/Set1/8.Slide100.JPG',time:5000},
+
+        ]
+        //----------------------------------
+        var random_array=function(array){
+            var currentIndex=array.length, temporaryValue, randomIndex;
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            return array;
+        }
+        //----------------------------------
+        var group1=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+        var group1_random=random_array(group1);
+		var group2=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+        var group2_random=random_array(group2);
+        //----------------------------------
+		var all=[];
+		for(i=0;i<32;i++){
+			all.push(0+group1[i])
+		}
+		all.push(32)
+		for(i=0;i<32;i++){
+			all.push(33+group2[i])
+		}
+		//all.push(65)
+		console.dir(all)
+		//----------------------------------
+        var I=-1;
+        var N=img_array.length;
+            var pause=false;
+        $('#D__ID').on('load',function(){
+            I=-1;
+        })
+        $('#start__ID').on('click',function(){
+            if(I<0){
+                I=0;
+                set_img();
+            }
+            else{
+                I=0
+            }
+        })
+        $('#pause__ID').on('click',function(){
+            if (pause==false) {
+                $("#pause__ID").html('Continue');
+                pause=true;
+            }
+            else {
+                $("#pause__ID").html('Pause');
+                pause=false;
+            }
+        })
+        $('#stop__ID').on('click',function(){
+            I=-1;
+        })
+        var set_img=function(){
+            if(I>=0 && I<=64){
+                if(pause==false){
+					var r_I=all[I];
+					console.log(I+'---'+r_I);
+	                $("#img__ID").attr("src",img_array[r_I].src);
+					setTimeout(set_img, img_array[r_I].time);
+	                I++;
+            	}
+            }
+			else{
+				$("#img__ID").attr("src",pause_array[0].src);
+			}
+        }
+	}
+</script>
+<style>
+   VmInclude:__PARTS__/style/default.css
+    
+    
+    #img__ID{
+    height:1000px !important ;
+    }
+</style>

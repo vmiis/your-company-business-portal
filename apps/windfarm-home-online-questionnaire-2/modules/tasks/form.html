@@ -1,0 +1,84 @@
+<section>
+	<div id=toolbar__ID class="navbar navbar-default">
+		<form class="form-inline">
+			<button type=button id=save__ID class='btn btn-secondary'>Submit</button>
+		</form>
+	</div>
+    <form id=F__ID>
+        <table id=tb__ID>
+            <thead style='background-color: #eee;'>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //---------------------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            //------------
+            _build_form();
+            //------------
+            //hide first 3 lines (status,notes and participant)
+            $('#F__ID tbody tr:first').hide();
+            $('#F__ID tbody tr:nth-child(2)').hide();
+            $('#F__ID tbody tr:nth-child(3)').hide();
+            //------------
+            _field_process();
+            $('#save__ID').show(); $('#delete__ID').hide();
+        });
+        //---------------------------------------------
+    }
+</script>
+<style>
+	#toolbar__ID{
+		background-color:#ccc;
+		padding-left:10px;
+		margin-bottom:0px;
+		overflow:hidden'
+	}
+	#toolbar__ID .form-inline > * {
+		margin-right:5px;
+	}
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+	#D__ID{
+		background-color:#fff;
+		height:100%;
+		overflow: auto;
+		padding-bottom:260px;
+	}
+    #tb__ID{
+        border-collapse: collapse;
+    }
+    #tb__ID td{
+        border:1px solid #bbb;
+        padding:6px;
+    }
+    #title__ID{
+        font-weight:700;
+    }
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        #tb__ID, #tb__ID * {
+            visibility: visible;
+        }
+        #tb__ID {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+</style>

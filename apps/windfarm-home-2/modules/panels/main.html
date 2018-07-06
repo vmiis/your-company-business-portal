@@ -23,7 +23,6 @@
 		}
 	}
 </style>
-<a style='display:inline-block;margin:6px;color:#000' id=app__ID target=_blank href='apps/windfarm-home-2/' ><u>Run as a seperate application </u></a>
 <section id=panel__ID>
 	<div class='nav__ID'>
 		<span>Participants</span>
@@ -32,7 +31,7 @@
 		</ul>
 		<span>Notes</span>
 		<ul>
-			<li module=edc-notes>All Task Notes</li>
+			<li module=task-notes>All Task Notes</li>
 		</ul>
 		<br>
 	</div>
@@ -136,15 +135,13 @@
     		}
     	}
     	//--------------------------------------------------------
-        if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
-		//--------------------------------------------------------
     }
 </script>
 
 <style>
 	VmInclude:__PARTS__/navigation/navigation.css
 	#D__ID{
-		background-color:#ffffff;
+		background-color:#ffffffb0;
 		height:100%;
 		overflow: auto;
 		animation: vm_module_fadein 1.0s;

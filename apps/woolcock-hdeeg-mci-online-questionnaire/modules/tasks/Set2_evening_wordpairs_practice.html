@@ -1,0 +1,77 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a> <a id=start__ID>Start</a> <a id=stop__ID>Stop</a>
+    </div>
+    <img id=img__ID />
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/toolbar/back.js
+        //-------------------------------------
+        var img_array=[
+          {src:'__CURRENT_PATH__/../../../images/Set2/Practice/Set2Slide1.JPG',time:5000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Practice/Set2Slide2.JPG',time:5000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Practice/Set2Slide3.JPG',time:5000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Practice/Set2Slide4.JPG',time:5000},]
+        //----------------------------------
+        /*var random_array=function(array){
+            var currentIndex=array.length, temporaryValue, randomIndex;
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            return array;
+        }
+        //----------------------------------
+        var group1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32];
+        var group1_random=random_array(group1);
+        var group2=[34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65];
+        var group2_random=random_array(group2);
+        var group3=[67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98];
+        var group3_random=random_array(group3);
+        var group4=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32];
+        var group4_random_0=random_array(group4);
+        var group4_random=[];
+        for(var i=0;i<32;i++){
+            group4_random.push(98+2*group4_random_0[i])
+            group4_random.push(98+2*group4_random_0[i]+1)
+        }*/
+        //----------------------------------
+        var I=-1;
+        var N=img_array.length;
+        $('#D__ID').on('load',function(){
+            I=-1;
+        })
+        $('#start__ID').on('click',function(){
+            if(I<0){
+                I=0;
+                set_img();
+            }
+            else{
+                I=0
+            }
+        })
+        $('#stop__ID').on('click',function(){
+            I=-1;
+        })
+        var set_img=function(){
+            if(I>=0 && I<=3){ //total 163 images
+                var new_I=I+1;
+                $("#img__ID").attr("src",img_array[new_I-1].src);
+                setTimeout(set_img, img_array[new_I-1].time);
+                I++;
+            }
+        }
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/style/default.css
+    
+    #img__ID {
+    height:1000px!important;
+    }
+</style>

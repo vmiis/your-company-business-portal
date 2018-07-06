@@ -1,0 +1,194 @@
+<section>
+    VmInclude:__PARTS__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:550px;'>
+            <colgroup>
+                <col class=colA style='width:350px' />
+                <col class=colA style='width:150px' />
+                <col class=ColA style='width:150px'/>
+                <col />
+            </colgroup>
+
+            <tr><td colspan=4 class='header__ID'>Inclusion Exclusion Criteria</td></tr>
+
+            <tr id=tr_participant__ID style='display:none'><td colspan=5 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+
+
+            <tr  colspan=4><td class=subheader__ID>Inclusion (Must be all YES)</td><td  class=subheader__ID>Tick (If yes)</td><td class=subheader__ID>Tick (If no) </td><td class=subheader__ID>Comment</td></tr>
+
+            <tr>
+				<td data-custom=1 data-id=HBA>Assessed for eligibility through Clinical Staging Study at HBA Clinic <b>(Protocol no. 02-2011/13515)</b></td>
+              	<td><input type=radio value='Yes' name=HBA />Yes</td>
+		            <td><input type=radio value='No' name=HBA />No</td>
+              	<td><input class=input_box_small__ID type=text  data-custom=1 data-id=HBA_comment  name=HBA_comment  id=HBA_comment  /></td>
+			</tr>
+
+
+             <tr>
+               <td data-custom=1 data-id=Age>Aged 50-90 years old at time of assessment</td>
+               <td><input type=radio value='Yes' name=Age />Yes</td>
+               <td><input type=radio value='No' name=Age />No</td>
+               <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Age_comment  name=Age_comment  id=Age_comment  /></td>
+             </tr>
+
+             <tr><td data-custom=1 data-id=MCI_Control>Meet criteria for <li>1) MCI</li> or<li> 2) present with subjective cognitive complaints</li> or<li> 3) Control participant </li></td>
+               <td><input type=radio value='Yes' name=MCI_Control />Yes</td>
+               <td><input type=radio value='No' name=MCI_Control />No</td>
+               <td><input class=input_box_small__ID type=text  data-custom=1 data-id=MCI_Control_comment  name=MCI_Control_comment  id=MCI_Control_comment  /></td>
+             </tr>
+
+            <tr><td  data-custom=1 data-id=Woolcock>Be willing to attend an overnight sleep study with high density EEG at the Woolcock Institute of Medical Research in Glebe.</td>
+              <td><input type=radio value='Yes' name=Woolcock />Yes</td>
+              <td><input type=radio value='No' name=Woolcock />No</td>
+              <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Woolcock_comment  name=Woolcock_comment  id=Woolcock_comment  /></td>
+            </tr>
+
+            <tr><td data-custom=1 data-id=Twoyearfup>Be willing to attend for 2 year follow-up assessment</td>
+              <td><input type=radio value='Yes' name=Twoyearfup />Yes</td>
+              <td><input type=radio value='No' name=Twoyearfup />No</td>
+              <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Twoyearfup_comment  name=Twoyearfup_comment  id=Twoyearfup_comment  /></td>
+              </tr>
+            <!--<tr><td>Diagnosed with Obstructive Sleep Apnea (AHI >15)</td><td><input type=checkbox class=radio data-custom=1 data-id=OSA15 name=OSA15 id=OSA15 /></td><td><input           class=input_box_small__ID  type=text  data-custom=1 data-id=OSA15_comment  name=OSA15_comment  id=OSA15_comment  /></td></tr-->
+
+            <!--EXCLUSION- NEED TO FIX - ONE ANSWERS ONLY-->
+
+            <tr colspan=5  ><td class=subheader__ID>Exclusion (Must be all NO)</td><td class=subheader__ID>Tick (If yes) </td><td class=subheader__ID>Tick (If no) </td><td class=subheader__ID>Comment</td></tr>
+
+            <tr>
+              <td data-custom=1 data-id=Language>Have insufficient language skills for neuropsychological assessment.</td>
+              <td><input type=radio value='Yes' name=Language />Yes</td>
+              <td><input type=radio value='No' name=Language />No</td>
+              <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Language_comment  name=Language_comment  id=Language_comment  /></td>
+              </tr>
+
+              <tr>
+              <td data-custom=1 data-id=Head_disorders>History of head injury or psychiatric/neurological disorder (including stroke)</td>
+              <td><input type=radio value='Yes' name=Head_disorders />Yes</td>
+              <td><input type=radio value='No' name=Head_disorders />No</td>
+              <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Head_disorders_comments  name=Head_disorders_comments  id=Head_disorders_comments  /></td>
+              </tr>
+
+            <tr>
+            <td data-custom=1 data-id=Mental_health>Have a severe mental health disorder (e.g. schizophrenia, major depression, bipolar disorder)</td>
+            <td><input type=radio value='Yes' name=Mental_health />Yes</td>
+            <td><input type=radio value='No' name=Mental_health />No</td>
+            <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Mental_health_comment  name=Mental_health_comment  id=Mental_health_comment  /></td>
+            </tr>
+
+            <tr>
+            <td data-custom=1 data-id=Medical_con>Have any other serious medical conditions, such as cancer</td>
+            <td><input type=radio value='Yes' name=Medical_con />Yes</td>
+            <td><input type=radio value='No' name=Medical_con />No</td>
+            <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Medical_con_comment  name=Medical_con_comment  id=Medical_con_comment  /></td>
+            </tr>
+
+            <tr>
+            <td data-custom=1 data-id=Shift_travel>Current shift-worker or travelled overseas within the last 2 weeks</td>
+            <td><input type=radio value='Yes' name=Shift_travel />Yes</td>
+            <td><input type=radio value='No' name=Shift_travel />No</td>
+            <td><input class=input_box_small__ID type=text  data-custom=1 data-id=Shift_travel_comment  name=Shift_travel_comment  id=Shift_travel_comment  /></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </table><br>&nbsp;<a id=save2__ID class=save_and_back__ID >Save &amp; Back</a>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        
+    		VmInclude:__CURRENT_PATH__/task.form.js
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID tbody *[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    	break;
+
+                    case 'HBA':
+                    case 'Age':
+                    case 'MCI_Control':
+                    case 'Woolcock':
+                    case 'Twoyearfup':
+                    case 'Language':
+                    case 'Head_disorders':
+                    case 'Mental_health':
+                    case 'Medical_con':
+                    case 'Shift_travel':
+
+
+                  						$('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+	                    $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+	                        _set_value(this.value,_records,I,field);
+	                    })
+						break;
+
+
+                    //Text
+                    case 'HBA_comment':
+                    case 'Age_comment':
+                    case 'MCI_Control_comment':
+                    case 'Woolcock_comment':
+                    case 'twoyear_fup_comment':
+                    case 'Language_comment':
+                    case 'Head_disorders_comments':
+                    case 'Mental_health_comment':
+                    case 'Medical_con_comment':
+                    case 'Shift_travel_comment':
+
+                        $(this).val(_records[I][field]);
+                        $(this).on('change', function(){
+                            _set_value($(this).val(),_records,I,field);
+                        });
+                    break;
+                }
+
+            });
+        }
+        //----------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //----------------------------------
+        _before_submit_form=function(){
+        }
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/toolbar/toolbar.css
+    VmInclude:__PARTS__/grid/form.css
+    #tb__ID tr td:nth-child(2),
+    #tb__ID tr td:nth-child(3),
+    #tb__ID tr td:nth-child(4)
+    {
+        text-align: center;
+        padding: 5px;
+		vertical-align: middle;
+    }
+    .input_box_small__ID{
+        border: 1px solid #adb8c0!important;
+        width:100px!important;
+    }
+</style>

@@ -1,0 +1,124 @@
+<section style='display:none'>
+    <form id=F__ID>
+        <table id=tb__ID style='width:600px;'>
+            <tr><td data-id=Participant data-custom=1>
+            	<input name=Participant  id=Participant__ID  type=text class=sel__ID />
+    			<input name=Participant_uid id=Participant_uid__ID type=text />
+    	    </td></tr>
+        </table>
+    </form>
+</section>
+<section style='margin:auto'>
+    VmInclude:__PARTS__/toolbar/back_save.html
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1100" height="800" align="middle">
+        <param value="__CURRENT_PATH__/../../../flash/Tapping_12.swf?v=7"/>
+        <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="__CURRENT_PATH__/../../../flash/Tapping_12.swf?v=7" width="1100" height="800">
+            <param value="__CURRENT_PATH__/../../../flash/Tapping_12.swf?v=7"/>
+        <!--<![endif]-->
+            <a href="//www.adobe.com/go/getflash">
+                <img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/>
+            </a>
+        <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+    </object>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+
+    		VmInclude:__CURRENT_PATH__/task.form.js
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            $('#save__ID').hide();
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //-------------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        g_tapping_12_callback=function(param){
+            _records[I].Participant=$('#Participant__ID').val()
+            _records[I].Participant_uid=$('#Participant_uid__ID').val()
+            var a=param.split('&');
+            for(var i=0;i<a.length;i++){
+                var b=a[i].split('=');
+                try{
+                    _records[I][b[0]]=b[1]
+                }catch(e){}
+            }
+            calc();
+            $('#save__ID').triggerHandler('click');
+        };
+        //-------------------------------------
+        var calc=function(){
+    	    var tt=_records[I]['Tapping_Time'].split(",");
+            var m=_records[I]['Match'].split(",");
+            var sn=_records[I]['Sequence_Number'].split(",");
+            var k=0;
+            var correct=true;
+            var group=0;
+            var speed=[];
+            var acc=[];
+            for (var i=0;i<12;i++) {speed[i]=0;acc[i]=0;}
+            for(var i=0;i<tt.length;i++){
+                if(parseInt(sn[i])-1!=k){
+                    group=0;
+                    correct=true;
+                }
+                k=parseInt(sn[i])-1;
+                speed[k]++;
+                if(m[i]=="N") correct=false;
+                group++
+                if(group==5){
+                    group=0;
+                    if(correct==false) acc[k]++;
+                    correct=true;
+                }
+            }
+            _records[I]['Speed_1']=Math.floor(speed[0]/5);
+            _records[I]['Speed_2']=Math.floor(speed[1]/5);
+            _records[I]['Speed_3']=Math.floor(speed[2]/5);
+            _records[I]['Speed_4']=Math.floor(speed[3]/5);
+            _records[I]['Speed_5']=Math.floor(speed[4]/5);
+            _records[I]['Speed_6']=Math.floor(speed[5]/5);
+            _records[I]['Speed_7']=Math.floor(speed[6]/5);
+            _records[I]['Speed_8']=Math.floor(speed[7]/5);
+            _records[I]['Speed_9']=Math.floor(speed[8]/5);
+            _records[I]['Speed_10']=Math.floor(speed[9]/5);
+            _records[I]['Speed_11']=Math.floor(speed[10]/5);
+            _records[I]['Speed_12']=Math.floor(speed[11]/5);
+            _records[I]['Accuracy_1']=(acc[0]/Math.floor(speed[0]/5)).toFixed(2);
+            _records[I]['Accuracy_2']=(acc[1]/Math.floor(speed[1]/5)).toFixed(2);
+            _records[I]['Accuracy_3']=(acc[2]/Math.floor(speed[2]/5)).toFixed(2);
+            _records[I]['Accuracy_4']=(acc[3]/Math.floor(speed[3]/5)).toFixed(2);
+            _records[I]['Accuracy_5']=(acc[4]/Math.floor(speed[4]/5)).toFixed(2);
+            _records[I]['Accuracy_6']=(acc[5]/Math.floor(speed[5]/5)).toFixed(2);
+            _records[I]['Accuracy_7']=(acc[6]/Math.floor(speed[6]/5)).toFixed(2);
+            _records[I]['Accuracy_8']=(acc[7]/Math.floor(speed[7]/5)).toFixed(2);
+            _records[I]['Accuracy_9']=(acc[8]/Math.floor(speed[8]/5)).toFixed(2);
+            _records[I]['Accuracy_10']=(acc[9]/Math.floor(speed[9]/5)).toFixed(2);
+            _records[I]['Accuracy_11']=(acc[10]/Math.floor(speed[10]/5)).toFixed(2);
+            _records[I]['Accuracy_12']=(acc[11]/Math.floor(speed[11]/5)).toFixed(2);
+    	}
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/toolbar/toolbar.css
+</style>

@@ -1,0 +1,43 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="wemwbs_1,wemwbs_2,wemwbs_3,wemwbs_4,wemwbs_5,wemwbs_6,wemwbs_7,wemwbs_8,wemwbs_9,wemwbs_10,wemwbs_11,wemwbs_12,wemwbs_13,wemwbs_14,wemwbs";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _grid_to_form_parameters={task_fields:_task_fields};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'wemwbs':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            var sum=parseInt(record.wemwbs_1)+parseInt(record.wemwbs_2)+parseInt(record.wemwbs_3)+parseInt(record.wemwbs_4)+parseInt(record.wemwbs_5)+parseInt(record.wemwbs_6)+parseInt(record.wemwbs_7)+parseInt(record.wemwbs_8)+parseInt(record.wemwbs_9)+parseInt(record.wemwbs_10)+parseInt(record.wemwbs_11)+parseInt(record.wemwbs_12)+parseInt(record.wemwbs_13)+parseInt(record.wemwbs_14);
+            record.wemwbs=sum.toString();
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

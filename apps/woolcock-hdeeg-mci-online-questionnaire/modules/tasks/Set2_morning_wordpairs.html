@@ -1,0 +1,271 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a> <a id=start__ID>Start</a> <a id=pause__ID>Pause</a> <a id=stop__ID>Stop</a>
+    </div>
+    <img id=img__ID />
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/toolbar/back.js
+        //-------------------------------------
+        var pause_array=[
+            {src:'__CURRENT_PATH__/../../../images/Set1/2.Slide33.JPG',time:1000},
+        ]
+
+        var img_array=[
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_67.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_68.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_69.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_70.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_71.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_72.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_73.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_74.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_75.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_76.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_77.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_78.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_79.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_80.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_81.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_82.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_83.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_84.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_85.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_86.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_87.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_88.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_89.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_90.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_91.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_92.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_93.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_94.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_95.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_96.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_97.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recall/recall_98.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/8.Slide100.JPG',time:3000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_100a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_100b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_101a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_101b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_102a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_102b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_103a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_103b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_104a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_104b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_105a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_105b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_106a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_106b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_107a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_107b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_108a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_108b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_109a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_109b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_110a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_110b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_111a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_111b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_112a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_112b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_113a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_113b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_114a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_114b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_115a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_115b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_116a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_116b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_117a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_117b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_118a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_118b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_119a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_119b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_120a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_120b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_121a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_121b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_122a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_122b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_123a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_123b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_124a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_124b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_125a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_125b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_126a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_126b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_127a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_127b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_128a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_128b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_129a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_129b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_130a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_130b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_131a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set2/Recognition/recog_131b.JPG',time:2000},
+      ]
+      //----------------------------------
+
+	  //----------------------------------
+	  var random_array=function(array){
+	           var currentIndex=array.length, temporaryValue, randomIndex;
+	           while (0 !== currentIndex) {
+	               randomIndex = Math.floor(Math.random() * currentIndex);
+	               currentIndex -= 1;
+	               temporaryValue = array[currentIndex];
+	               array[currentIndex] = array[randomIndex];
+	               array[randomIndex] = temporaryValue;
+	           }
+	           return array;
+	  }
+       //----------------------------------
+       var group1=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+       var group1_random=random_array(group1);
+       //var group2=[34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97];
+       //var group2_random=random_array(group2);
+       //----------------------------------
+ 	  var group4=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+ 	  var group4_random_0=random_array(group4);
+ 	  var group4_random=[];
+ 	  for(var i=0;i<32;i++){
+ 		  group4_random.push(2*group4_random_0[i])
+ 		  group4_random.push(2*group4_random_0[i]+1)
+ 	  }
+ 	  //----------------------------------
+ 	  var random_img=[]
+ 	  for(var i=0;i<32;i++) random_img.push(group1[i])
+ 	  random_img.push(32)
+ 	  for(var i=0;i<64;i++) random_img.push(33+group4_random[i])
+ 	  console.dir(random_img)
+
+       var I=-1;
+       var N=img_array.length;
+         var pause=false;
+       $('#D__ID').on('load',function(){
+           I=-1;
+       })
+       $('#start__ID').on('click',function(){
+           if(I<0){
+               I=0;
+               set_img();
+           }
+           else{
+               I=0
+           }
+       })
+       $('#pause__ID').on('click',function(){
+           if (pause==false) {
+               $("#pause__ID").html('Continue');
+               pause=true;
+           }
+           else {
+               $("#pause__ID").html('Pause');
+               pause=false;
+             }
+         })
+       $('#stop__ID').on('click',function(){
+           I=-1;
+       })
+       var set_img=function(){
+ 			if(pause==false){
+ 				var r_I=random_img[I];
+ 				console.log(I+'---'+r_I)
+ 				if(I>=97){
+ 					$("#img__ID").attr("src",pause_array[0].src);
+ 					return;
+ 				}
+ 				$("#img__ID").attr("src",img_array[r_I].src);
+ 				setTimeout(set_img, img_array[r_I].time);
+ 				I++;
+ 			}
+ 			else{
+             	$("#img__ID").attr("src",pause_array[0].src);
+             	setTimeout(set_img, pause_array[0].time);
+         	}
+		}
+
+
+
+
+	  /*
+
+	  var random_array=function(array){
+          var currentIndex=array.length, temporaryValue, randomIndex;
+          while (0 !== currentIndex) {
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+              temporaryValue = array[currentIndex];
+              array[currentIndex] = array[randomIndex];
+              array[randomIndex] = temporaryValue;
+          }
+          return array;
+      }
+
+      //----------------------------------
+      var group1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32];
+      var group1_random=random_array(group1);
+      var group2=[34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65];
+      var group2_random=random_array(group2);
+      //----------------------------------
+      var I=-1;
+      var N=img_array.length;
+        var pause=false;
+      $('#D__ID').on('load',function(){
+          I=-1;
+      })
+      $('#start__ID').on('click',function(){
+          if(I<0){
+              I=0;
+              set_img();
+          }
+          else{
+              I=0
+          }
+      })
+      $('#pause__ID').on('click',function(){
+          if (pause==false) {
+              $("#pause__ID").html('Continue');
+              pause=true;
+          }
+          else {
+              $("#pause__ID").html('Pause');
+              pause=false;
+          }
+      })
+      $('#stop__ID').on('click',function(){
+          I=-1;
+      })
+      var set_img=function(){
+          if(I>=0 && I <=64){ //total 65 images
+              if(pause==false){
+              var new_I=I+1;
+              if(new_I>=1 && new_I<=32) new_I=group1_random[new_I-1];
+              else if(new_I>=34 && new_I<=65) new_I=group2_random[new_I-34];
+              $("#img__ID").attr("src",img_array[new_I-1].src);
+              setTimeout(set_img, img_array[new_I-1].time);
+              I++;
+          }
+          else{
+              $("#img__ID").attr("src",pause_array[0].src);
+              setTimeout(set_img, pause_array[0].time);
+            }
+          }
+      }
+	  */
+  }
+</script>
+<style>
+    VmInclude:__PARTS__/style/default.css
+
+    #img__ID {
+    height:1000px!important;
+    }
+</style>

@@ -10,10 +10,6 @@
 </section>
 <script>
     function F__ID(){
-        //---------------------
-        var participant_pid="91000003";
-        //---------------------
-        var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
 		$('#username_0').text('');
 		var search=window.location.search
 		if(search.indexOf('username=')!=-1){
@@ -26,9 +22,6 @@
 			var password=txt.split('&')[0];
 			$('#password__ID').val(password);
 		}
-        $('#D__ID').on('load',function(){
-            $('#vm_signout').hide();
-		})
         $('#signin__ID').on('click',function(){
 			//------------------------------------
 			$('#ErrMsg__ID').text("");
@@ -42,7 +35,7 @@
             var participant_uid=a[0];
             var setup_pid=a[1];
 			//------------------------------------
-			$vm.g_participant_pid=participant_pid;
+			$vm.g_participant_pid="91000003";
 			$vm.g_participant_uid=participant_uid;
 			$vm.g_participant=participant_uid;
 			$vm.g_setup_pid=setup_pid;
@@ -52,12 +45,12 @@
                     $vm.online_questionnaire=1;
                     $vm.user=username;
                     $vm.user_id=res.user_id;
-					$('#username_0').text('Signed in as '+username);
+					$('#vm_username').text('Signed in as '+username);
+                    $('#vm_signout').show();
                     $VmAPI.set_token(res.token,'');
                     if(res.S1!=undefined) $vm.g_participant=res.S1;
 					$vm.g_task_list=res.List;
-                    $('#vm_signout').show();
-                    $vm.load_module_v2(prefix+"quest-panel",'',{});
+					$vm.load_module_v2("quest-panel",'',{});
                 }
                 else{
                     $('#ErrMsg__ID').text("Invalid participant login ID or password.")
@@ -78,7 +71,7 @@
         font: 18pt "Arial";
         padding:80px;
 		display: inline-block;
-		background: rgba(255,255,255,0.9);
+		background: rgba(255,255,255,0.6);
     }
     .C__ID__s span{
         color:#FF0000;

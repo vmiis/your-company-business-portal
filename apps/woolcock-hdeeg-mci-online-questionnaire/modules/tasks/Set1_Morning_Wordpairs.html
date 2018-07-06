@@ -1,0 +1,307 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a> <a id=start__ID>Start</a> <a id=pause__ID>Pause</a> <a id=stop__ID>Stop</a>
+    </div>
+    <img id=img__ID />
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/toolbar/back.js
+        //-------------------------------------
+
+        var pause_array=[
+            {src:'__CURRENT_PATH__/../../../images/Set1/2.Slide33.JPG',time:1000},
+          ]
+        var img_array=[
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_68.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_69.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_70.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_71.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_72.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_73.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_74.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_75.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_76.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_77.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_78.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_79.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_80.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_81.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_82.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_83.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_84.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_85.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_86.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_87.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_88.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_89.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_90.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_91.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_92.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_93.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_94.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_95.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_96.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_97.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_98.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recall/Recall_99.JPG',time:12000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/8.Slide100.JPG',time:3000},
+
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_101a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_101b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_102a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_102b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_103a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_103b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_104a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_104b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_105a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_105b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_106a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_106b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_107a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_107b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_108a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_108b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_109a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_109b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_110a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_110b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_111a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_111b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_112a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_112b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_113a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_113b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_114a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_114b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_115a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_115b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_116a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_116b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_117a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_117b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_118a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_118b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_119a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_119b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_120a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_120b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_121a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_121b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_122a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_122b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_123a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_123b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_124a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_124b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_125a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_125b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_126a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_126b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_127a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_127b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_128a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_128b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_129a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_129b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_130a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_130b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_131a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_131b.JPG',time:2000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_132a.JPG',time:7000},
+          {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_132b.JPG',time:2000},
+          /*  {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_101a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_102a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_103a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_104a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_105a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_106a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_107a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_108a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_109a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_110a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_111a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_112a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_113a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_114a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_115a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_116a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_117a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_118a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_119a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_120a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_121a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_122a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_123a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_124a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_125a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_126a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_127a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_128a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_129a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_130a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_131a.JPG',time:7000},
+            {src:'__CURRENT_PATH__/../../../images/Set1/Recognition/Recog_132a.JPG',time:7000},*/
+                ]
+
+
+
+
+
+				//----------------------------------
+		  	  var random_array=function(array){
+		  	           var currentIndex=array.length, temporaryValue, randomIndex;
+		  	           while (0 !== currentIndex) {
+		  	               randomIndex = Math.floor(Math.random() * currentIndex);
+		  	               currentIndex -= 1;
+		  	               temporaryValue = array[currentIndex];
+		  	               array[currentIndex] = array[randomIndex];
+		  	               array[randomIndex] = temporaryValue;
+		  	           }
+		  	           return array;
+		  	  }
+		         //----------------------------------
+		         var group1=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+		         var group1_random=random_array(group1);
+		         //var group2=[34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97];
+		         //var group2_random=random_array(group2);
+		         //----------------------------------
+		   	  var group4=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+		   	  var group4_random_0=random_array(group4);
+		   	  var group4_random=[];
+		   	  for(var i=0;i<32;i++){
+		   		  group4_random.push(2*group4_random_0[i])
+		   		  group4_random.push(2*group4_random_0[i]+1)
+		   	  }
+		   	  //----------------------------------
+		   	  var random_img=[]
+		   	  for(var i=0;i<32;i++) random_img.push(group1[i])
+		   	  random_img.push(32)
+		   	  for(var i=0;i<64;i++) random_img.push(33+group4_random[i])
+		   	  console.dir(random_img)
+
+		         var I=-1;
+		         var N=img_array.length;
+		           var pause=false;
+		         $('#D__ID').on('load',function(){
+		             I=-1;
+		         })
+		         $('#start__ID').on('click',function(){
+		             if(I<0){
+		                 I=0;
+		                 set_img();
+		             }
+		             else{
+		                 I=0
+		             }
+		         })
+		         $('#pause__ID').on('click',function(){
+		             if (pause==false) {
+		                 $("#pause__ID").html('Continue');
+		                 pause=true;
+		             }
+		             else {
+		                 $("#pause__ID").html('Pause');
+		                 pause=false;
+		               }
+		           })
+		         $('#stop__ID').on('click',function(){
+		             I=-1;
+		         })
+		         var set_img=function(){
+		   			if(pause==false){
+		   				var r_I=random_img[I];
+		   				console.log(I+'---'+r_I)
+		   				if(I>=97){
+		   					$("#img__ID").attr("src",pause_array[0].src);
+		   					return;
+		   				}
+		   				$("#img__ID").attr("src",img_array[r_I].src);
+		   				setTimeout(set_img, img_array[r_I].time);
+		   				I++;
+		   			}
+		   			else{
+		               	$("#img__ID").attr("src",pause_array[0].src);
+		               	setTimeout(set_img, pause_array[0].time);
+		           	}
+		  		}
+
+
+
+				/*
+      //----------------------------------
+      var random_array=function(array){
+          var currentIndex=array.length, temporaryValue, randomIndex;
+          while (0 !== currentIndex) {
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+              temporaryValue = array[currentIndex];
+              array[currentIndex] = array[randomIndex];
+              array[randomIndex] = temporaryValue;
+          }
+          return array;
+      }
+      //----------------------------------
+      var group1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32];
+      var group1_random=random_array(group1);
+      var group2=[34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65];
+      var group2_random=random_array(group2);
+      //----------------------------------
+      var I=-1;
+      var N=img_array.length;
+        var pause=false;
+      $('#D__ID').on('load',function(){
+          I=-1;
+      })
+      $('#start__ID').on('click',function(){
+          if(I<0){
+              I=0;
+              set_img();
+          }
+          else{
+              I=0
+          }
+      })
+      $('#pause__ID').on('click',function(){
+          if (pause==false) {
+              $("#pause__ID").html('Continue');
+              pause=true;
+          }
+          else {
+              $("#pause__ID").html('Pause');
+              pause=false;
+            }
+        })
+      $('#stop__ID').on('click',function(){
+          I=-1;
+      })
+      var set_img=function(){
+          if(I>=0 && I <=64){ //total 65 images
+              if(pause==false){
+              var new_I=I+1;
+              if(new_I>=1 && new_I<=32) new_I=group1_random[new_I-1];
+              else if(new_I>=34 && new_I<=65) new_I=group2_random[new_I-34];
+              $("#img__ID").attr("src",img_array[new_I-1].src);
+              setTimeout(set_img, img_array[new_I-1].time);
+              I++;
+          }
+
+        else{
+            $("#img__ID").attr("src",pause_array[0].src);
+            setTimeout(set_img, pause_array[0].time);
+        }
+    }
+  }
+  */
+}
+
+</script>
+<style>
+    VmInclude:__PARTS__/style/default.css
+
+    #img__ID {
+    height:1000px!important;
+    }
+</style>

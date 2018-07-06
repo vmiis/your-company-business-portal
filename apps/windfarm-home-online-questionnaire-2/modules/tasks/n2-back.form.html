@@ -1,0 +1,105 @@
+<section style='display:none'>
+    VmInclude:__COMPONENT__/toolbar/back_save.html
+    <form id=F__ID>
+        <table id=tb__ID>
+            <tr><td data-id=Participant data-custom=1>
+            	<input name=Participant  id=Participant__ID  type=text class=sel__ID />
+    			<input name=Participant_uid id=Participant_uid__ID type=text />
+    	    </td></tr>
+        </table>
+    </form>
+</section>
+<section style='margin:auto'>
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1100" height="800" align="middle">
+        <param value="__CURRENT_PATH__/flash/NBack2.swf"/>
+        <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="__CURRENT_PATH__/flash/NBack2.swf" width="1100" height="800">
+            <param value="__CURRENT_PATH__/flash/NBack2.swf"/>
+        <!--<![endif]-->
+            <a href="//www.adobe.com/go/getflash">
+                <img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/>
+            </a>
+        <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+    </object>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        VmInclude:__CURRENT_PATH__/task.old.form.js
+        _json=''
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            $('#save__ID').hide();
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //-------------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+        g_nback2_callback=function(param){
+            _records[I].Participant=$('#Participant__ID').val()
+            _records[I].Participant_uid=$('#Participant_uid__ID').val()
+            var a=param.split('&');
+            for(var i=0;i<a.length;i++){
+                var b=a[i].split('=');
+                try{
+                    _records[I][b[0]]=b[1]
+                }catch(e){}
+            }
+            calc();
+            $('#save__ID').triggerHandler('click');
+        };
+        //-------------------------------------
+        var calc=function(){
+            var nno=_records[I]['NNO'].split(",");
+            var nrt=_records[I]['NRT'].split(",");
+            var nac=_records[I]['NAC'].split(",");
+            var ngta=0;
+            var nrgt=0;
+            var ntcr=0;
+            var ntic=0;
+            var ntmr=0;
+            var nmis=0;
+            for (var i=0;i<nno.length;i++){
+    	        if( nac[i]=='CM' && nno[i]!='PRE')   ntcr++;
+    	        if( nac[i]=='CN' && nno[i]!='PRE')   ntcr++;
+    	        if( nac[i]=='O' && nno[i]!='PRE')    nmis++;
+    	        if( nac[i]=='FM' && nno[i]!='PRE')   ntic++;
+    	        if( nac[i]=='FN' && nno[i]!='PRE')   ntic++;
+    	        if( nac[i]=='W' && nno[i]!='PRE')    ntic++;
+    	        if( nno[i]!='PRE')   nrgt=nrgt+parseInt(nrt[i]);
+            }
+            if( ntcr+ntic > 0){
+                ngta=(100*ntcr/(ntcr+ntic)).toFixed(1)
+                _records[I]['NGTA']=ngta;
+            }
+            else  _records[I]['NGTA']='0';
+            _records[I]['NBACK']='2';
+            _records[I]['NTCR']=ntcr;
+            _records[I]['NMIS']=nmis;
+            _records[I]['NTIC']=ntic;
+            _records[I]['NGRT']=nrgt;
+        }
+        //-------------------------------------
+    };
+</script>
+<style>
+    VmInclude:__COMPONENT__/style/default.css
+    VmInclude:__COMPONENT__/style/form.css
+</style>

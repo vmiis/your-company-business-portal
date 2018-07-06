@@ -1,0 +1,113 @@
+<section>
+    VmInclude:__PARTS__/toolbar/back_save.html
+	<form id=F__ID>
+        <table id=tb__ID style='width:700px;'>
+            <tr><td colspan=2 class='header__ID'>The Karolinska Sleepiness Scale (KSS)<input style='border:0;width:0;height:0' /></td></tr>
+            <tr id=tr_participant__ID style='display:none'><td colspan=2 data-id=Participant data-custom=1>
+                <input name=Participant  id=Participant__ID  type=text class=sel__ID placeholder='select a partcipant...'/>
+                <input name=Participant_uid id=Participant_uid__ID type=text readonly style="width:50px;color:#ccc;" />
+                <u style='cursor:pointer;float:right;' id=Participant_r__ID>Remove</u>
+            </td></tr>
+		    <tr><td colspan=2 class=' '><br/><p style='text-align:center;color:#000000; font-size:12px'>Please indicate your sleepiness during the last 5 minutes. Give yourself a rating by clicking in the appropriate box. Remember that you may also use intermediate steps.</p><br/></td></tr>
+            <tr><td data-id=KSS data-custom=1 style='width:50px;border:0;'></td><td style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=1  id=KSS__ID name=KSS ><label for=KSS__ID class=rb__ID>1 - Extremely Alert</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=2  id=tr_kss2 name=KSS ><label for=tr_kss2 class=rb__ID>2 -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td  style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=3  id=tr_kss3 name=KSS ><label for=tr_kss3 class=rb__ID>3 - Alert</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td  style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=4  id=tr_kss4 name=KSS ><label for=tr_kss4 class=rb__ID>4 -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td  style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=5  id=tr_kss5 name=KSS ><label for=tr_kss5 class=rb__ID>5 - Neither alert nor sleepy</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td  style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=6  id=tr_kss6 name=KSS ><label for=tr_kss6 class=rb__ID>6 -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td  style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=7  id=tr_kss7 name=KSS ><label for=tr_kss7 class=rb__ID>7 - Sleepy-but no difficulty remaining awake</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td  style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=8  id=tr_kss8 name=KSS ><label for=tr_kss8 class=rb__ID>8 -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td></tr>
+		    <tr><td style='width:50px;border:0;'></td><td  style='border: 0;padding:5px'><input class=modified_radio__ID type=radio value=9  id=tr_kss9 name=KSS ><label for=tr_kss9 class=rb__ID>9 - Extremely sleepy - fighting sleep</label></td></tr>
+         </table>
+    </form>
+</section>
+<script>
+    function F__ID(){
+        //----------------------------------
+        VmInclude:__COMPONENT__/grid/form.v3.js
+        
+    		VmInclude:__CURRENT_PATH__/task.form.js
+        //----------------------------------
+        $('#D__ID').on('load',function(){
+            _init();
+            _field_process();
+            _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+            _set_participant_field();
+            custom_field_process();
+        })
+        //----------------------------------
+        var custom_field_process=function(){
+            $('#tb__ID td[data-custom=1]').each(function(){
+                var field=$(this).attr('data-id');
+                switch(field){
+                    case "Participant":
+                        $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                        $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                    break;
+                    case "KSS":
+                        $('#tb__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                        $('#tb__ID').find("input[name='"+field+"']").on('click',function(){
+                            _set_value(this.value,_records,I,field);
+                        })
+                    break;
+                }
+            })
+        }
+        //----------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/toolbar/toolbar.css
+    VmInclude:__PARTS__/grid/form.css
+    .rb__ID{
+        font-size: 14px;
+        padding-left: 5px;
+        vertical-align:top!important;
+    }
+    .modified_radio__ID {
+        -webkit-appearance: none;
+        -moz-appearance: button;
+    /*	background-color: #fafafa;*/
+        border: 1px solid #000;
+        width:14px;
+        height:18px;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+        padding: 3px;
+        border-radius: 3px;
+        display: inline-block;
+        position: relative;
+        opacity:0.15;
+    }
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+        /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);*/
+    }
+
+    .modified_radio__ID:checked {
+        -moz-appearance: button;
+        background-color: #888;
+        border: 1px solid #adb8c0;
+    /*	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);*/
+        color: #99a1a7;
+        opacity:0.9;
+    }
+    .modified_radio__ID:checked:after {
+        /*content: '\2714';*/
+        font-size: 14px;
+        position: absolute;
+        top: 0px;
+        left: 3px;
+        color: #99a1a7;
+    }
+    .modified_number__ID{
+        margin-left:-19px;
+        font-size:14pt;
+    }
+
+    .modified_radio__ID:active, .modified_radio__ID:checked:active {
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    .modified_number__ID{
+        margin-left:-19px;
+        font-size:14pt;
+    }
+</style>

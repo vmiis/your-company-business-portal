@@ -1,0 +1,217 @@
+<section id=form_container__ID>
+    <div id=header__ID>
+		Check Eligibility
+	</div>
+	<form id=F__ID>
+        <div class="container">
+            <label> Thank you for you completing the first section of our online questionnaire
+                We are currently checking your answers to see if you are eligible to continue. <br><br>
+                   Please click on the "Check Eligibility" button to see if you are eligible.<br><br>
+            <hr style='border-top:1px solid #727b84;'></hr>
+            <br>
+            <button id=submit__ID type="submit" class="btn btn-secondary">Check Eligibility</button></label>
+        </div>
+    </form>
+</section>
+<script>
+function F__ID(){
+    //----------------------------------
+    VmInclude:__CURRENT_PATH__/task.independent.form.js
+    var _task_fields;
+    //----------------------------------
+    _before_submit=function(){
+        var check;
+        if($vm.online_questionnaire==1) check=check_2();
+        else check=check_1();
+        if(check===0){
+            $vm.alert('Thank you for taking the time to complete our questionnaire. Unfortunately, due to the responses you have given, you are ineligible to continue with the questionnaires and this study. If you have any questions please contact Wafaa Ezz on 9114 0493 or email windfarmhomestudy@woolcock.org.au. If you would like more information on other research  projects that you may be suitable for, please visit www.woolcock.org.au');
+            return false;
+        }
+        else {return true;}
+    }
+    //----------------------------------
+    /*
+    stop if
+    pid=91000062 Consent=='No'
+    or
+    pid=91000063 travel=='Yes'
+    or
+    pid=91000063 pregnant=='Yes'
+    or
+    pid=91000063 children=='Yes'
+    or
+    pid=91000057 current_work=='Yes'
+    or
+    pid=91000004 wnss < 58
+    */
+    //----------------------------------
+    var check_1=function(){
+        jQuery.ajaxSetup({async:false});
+        var p_uid=$vm.vm['__ID'].op.input.participant_uid;
+        var sql="with tb1 as (select PUID,Consent=@('Consent') from [TABLE-91000062]) \
+        ,tb2 as (select PUID,travel=@('travel'),pregnant=@('pregnant'),children=@('children') from [TABLE-91000063]) \
+        ,tb3 as (select PUID,wnss=@('wnss') from [TABLE-91000004]) \
+        ,tb4 as (select PUID,current_work=@('current_work') from [TABLE-91000057]) \
+            select Consent,travel,pregnant,wnss,current_work \
+            from tb1 join tb2 on tb1.PUID=@I1 and tb1.PUID=tb2.PUID join tb3 on tb1.PUID=@I1 and tb1.PUID=tb3.PUID join tb4 on tb1.PUID=@I1 and tb1.PUID=tb4.PUID  \
+        ";
+            $VmAPI.request({data:{cmd:'query_records_s2',sql:sql,i1:p_uid},callback:function(res){
+            if(res.records.length==1){
+                if(res.records[0].Consent=='No') {output=0;}
+                else if(res.records[0].recent_travel=='Yes') {output=0;}
+                else if(res.records[0].pregnant=='Yes') {output=0;}
+                else if(res.records[0].current_work=='Yes') {output=0;}
+                else if(parseInt(res.records[0].wnss)<58) {output=0;}
+            }
+            else {output=1;}
+        }})
+        jQuery.ajaxSetup({async:true});
+        return output;
+    }
+    //----------------------------------
+    var check_2=function(){
+        var output=1;
+        jQuery.ajaxSetup({async:false});
+        var req_data={cmd:'query_special_records',sql:'windfarm_home_screening_eligibility_check',owner:'woolcock',i1:$vm.vm['__ID'].op.input.participant_uid}
+        $VmAPI.request({data:req_data,callback:function(res){
+            if(res.records[0].Consent=='No') {output=0;}
+            else if(res.records[0].travel=='Yes') {output=0;}
+            else if(res.records[0].pregnant=='Yes') {output=0;}
+            else if(res.records[0].current_work=='Yes') {output=0;}
+            else if(parseInt(res.records[0].wnss)<58) {output=0;}
+        }})
+        jQuery.ajaxSetup({async:true});
+        return output;
+    }
+    //----------------------------------
+}
+</script>
+<style>
+#D__ID{
+    height:100%;
+    overflow: auto;
+    animation: vm_module_fadein 1.0s;
+    background: rgba(151,164,181,0.95);
+}
+#form_container__ID{
+    padding-top:50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #000;
+}
+#form_container__ID .row__ID{
+    padding:6px 0;
+}
+#form_container__ID .row__ID:hover{
+    /*background-color: #727b84;*/
+}
+#header__ID{
+    background-color:#727b84;
+    color:#000;
+    padding:10px 15px 10px 15px;
+    font-size:150%;
+}
+#quest__ID{
+    padding:5px 5px 5px 5px;
+    font-size:120%;
+}
+#F__ID{
+    border:1px solid #727b84;
+    padding:6px 15px 20px 15px;
+}
+#F__ID label
+    display: inline-block;
+    margin: .6rem 0 .3rem 0;
+}
+
+#F__ID fieldset {
+    border: 0px solid #c0c0c0;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width:768px){
+    #form_container__ID{
+        padding:20px 10px 50px 10px;
+    }
+}
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+}
+.control-radio .control_indicator {
+    border-radius: 50%;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #A51C3D;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: #0e6647d;
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-radio .control_indicator:after {
+    left: 7px;
+    top: 7px;
+    height: 0px;
+    width: 0px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+.control-radio input:disabled ~ .control_indicator:after {
+    background: #7b7b7b;
+}
+</style>
