@@ -1,0 +1,29 @@
+<div id=D__ID>
+   <div id=page__ID>
+   </div>
+   <script>
+      function F__ID(){
+        $('#vm_system_username').text('');
+        $('#vm_system_signout').hide();
+        $vm.home_process=function(){
+          var module="bl-login";
+          var a=window.location.href.split('TP=');
+          if(a.length==2){
+              var name=a[1].split('&')[0];
+              if(name.length>0){
+                  switch(name){
+                      case "w1": module="w1-login"; break;
+                      case "w2": module="w2-login"; break;
+                      case "w3": module="w3-login"; break;
+                      case "w6": module="w6-login"; break;
+                      case "w12": module="w12-login"; break;
+                  }
+              }
+          }
+          $vm.load_module_v2(module,'',{});
+        }
+      }
+   </script>
+   <style>
+   </style>
+</div>

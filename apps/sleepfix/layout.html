@@ -1,0 +1,279 @@
+<div layout-html id=layout__ID>
+    <div header id=header__ID>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light _fixed-top">
+          <div class="container"> <a style='cursor:pointer' module=Home><img src="images/sleepfix-logo.png" width="auto" height="45px" alt=""></a>
+            <button type="button" id=btn1__ID class="btn btn-outline-light">SLEEPFIX DATA COLLECTION</button>
+          </div>
+        </nav>
+    </div>
+    <div content id=content__ID>
+        <div content-container id="content_container__ID">
+        	<div id=vm_loader class="loader__ID"></div>
+        </div>
+        <footer>
+            <div class="container mt-0">
+              <div class="row justify-content-end px-0">
+                <div class="col"><a href="#"><img src="images/AppStore.png" alt="Download from the App Store"/></a><a href="#"><img src="images/GooglePlay.png" alt="Download from Google Play"/></a> </div>
+              </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<div system-html>
+    <div style='position:absolute;right:20px;bottom:0'>
+        <span id=database_p__ID style='color:green'>.</span>
+        <span id=database_d__ID style='color:red'>. <span id=vm_system_info style='color:#555';></span></span>
+    </div>
+    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script layout-js>
+    //-------------------------------------
+    $('#btn1__ID').on('click',function(){
+       alert("Where to go?");
+    })
+    //-------------------------------------
+    $vm.layout=function(){
+		//------------------------------------
+        $vm.root_layout_content_slot="content_container__ID";
+		//------------------------------------
+        var set_height=function(){
+			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer__ID').outerHeight();
+			$vm.min_height=($(window).height()-header_height-footer_height-1);
+			$('#content_container__ID').css({'min-height':($vm.min_height)+'px'});
+            $('#content__ID').css({'height':(($(window).height()-header_height-1))+'px'});
+		}
+		//------------------------------------
+		set_height();window.onresize=function(){set_height();}
+        //-----------------------------------------
+	}
+    $vm.top_right_corner=function(){
+        if($vm.server=='development') $('#database_d__ID').show();
+        else if($vm.server=='production') $('#database_p__ID').show();
+    }
+    $vm.footer=function(){
+        $vm.root_layout_footer='footer__ID';
+        //-----------------------------------------------------
+        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", SleepFix. <span id=FL__ID>Powered by Wappsystem</span>");
+        //------------------------------------
+    }
+    //---------------------------------------------
+    $vm.toggle=function() {
+        var x = document.getElementById("vm_menu");
+        if(x.className==='') x.className="responsive";
+        else x.className="";
+    }
+    $vm.header=function(){
+        $('#header__ID a').on('click',function(){
+            var module=$(this).attr('module');
+            if(module!=undefined) $vm.load_module_v2(module);
+            //if( $(this).attr('toggle')==undefined){
+            //    var x = document.getElementById("vm_menu");
+            //    if(x.className==='responsive') x.className="";
+            //}
+        })
+        $('.vm_dropdown').on('click',function(){
+            var d=$(this).find('.vm_dropdown-content');
+            if(d.css('display')=='block') d.css('display','none');
+            else d.css('display','block');
+        })
+        $(".vm_dropdown").mouseleave(function (){  $(".vm_dropdown-content").hide();  })
+        $(".vm_dropdown-content").mouseleave(function (){  $(this).hide();  })
+        $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+        $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+        //---------------------------------------------
+        var show_user=function(){
+            var third=""
+            if($vm.user_puid=="1") third=" (Google)";
+            if($vm.user_puid=="2") third=" (Facebook)";
+            if($vm.user=='guest'){
+                $('#username__ID').text('');
+                $('#signin__ID').show();
+                $('#signout__ID').hide();
+            }
+            else{
+                $('#username__ID').text('Signed in as '+ $vm.user+third);
+                $('#signin__ID').hide();
+                $('#signout__ID').show();
+            }
+        }
+        show_user();
+        //---------------------------------------------
+        //if(window.location.hostname!='127.0.0.1'){
+        //    $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
+        //    $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+        //}
+        //---------------------------------------------
+    }
+</script>
+<style layout-css>
+	html,body{
+        width: 100%;
+        height: 100%;
+        padding:0;
+        margin:0;
+        font-family:Arial;
+	}
+    body{
+        background-color: #004955 !important;
+        background-image: url(layout.jpg);
+        background-size: cover;
+        background-repeat: repeat-x;
+        background-position: center top;
+        background-attachment: fixed;
+    }
+    .vm_module{
+        width:100%;
+        height:100%;
+    }
+    /*----------------------*/
+    /*layout*/
+    #vm_framework{
+        height:100%;
+    }
+    #layout__ID {
+        display: grid;
+        grid-template-rows: auto 1fr;
+    }
+    #content__ID {
+        overflow:auto;
+    }
+    /*----------------------*/
+    @media screen and (max-width: 1280px) {
+    }
+    @keyframes vm_menu_show {
+        from {max-height: 0px;}
+        to {max-height: 1000px;}
+    }
+    /*----------------------*/
+    /*content*/
+    #content_container__ID{
+        width:100%;
+        /*overflow:hidden;*/
+    }
+    #vm_loader{
+        display:none;
+        position:absolute;
+    }
+    .loader__ID {
+      height: 4px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background-color: #ddd;
+    }
+    .loader__ID:before{
+      display: block;
+      position: absolute;
+      content: "";
+      left: -200px;
+      width: 200px;
+      height: 4px;
+      background-color: #2980b9;
+      animation: loading 2s linear infinite;
+    }
+    @keyframes loading {
+        from {left: -200px; width: 30%;}
+        50% {width: 30%;}
+        70% {width: 70%;}
+        80% { left: 50%;}
+        95% {left: 120%;}
+        to {left: 100%;}
+    }
+    /*----------------------*/
+    #database_d__ID{
+        display:none;
+    }
+    #database_p__ID{
+        display:none;
+    }
+    /*----------------------*/
+	@keyframes vm_module_fadein {
+		from { opacity:0; }
+		to {opacity:1;}
+	}
+    @keyframes vm_module_slide_in {
+		from { margin-top:50%; }
+		to {margin-top:0;}
+	}
+    @keyframes vm_module_slide_out {
+        from { margin-top:0; }
+		to {margin-top:-50%;}
+	}
+    .ui-widget-content{
+        background:#eff3dc!important;
+    }
+    .ui-autocomplete.ui-menu{font-size:12px}
+	.ui-menu-item .ui-menu-item-wrapper:hover{
+		font-weight:normal;
+	}
+    @media print {
+        html,body{
+            width:100%;
+            height:100%;
+            overflow:visible;
+        }
+        body * {
+            visibility: hidden;
+        }
+        #content_container_0, #content_container_0 *{
+            visibility: visible;
+        }
+    }
+    /*------------------------*/
+</style>
+<style third-party>
+    @import url('https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab');
+    .navbar {
+        background-color: rgba(162, 213, 203, 0.7) !important;
+        border-bottom: 1px solid #fff !important;
+        height: 80px;
+    }
+    .btn-outline-light {
+    	font-family: Nunito-Light;
+    	font-size: 12px;
+    	letter-spacing: 1px;
+    	color: #FFFFFF;
+    	text-align: center;
+    	line-height: 18px;
+    	text-transform: uppercase;
+    	border-radius: 15px;
+    	border-width: 2px;
+    	padding-left: 25px;
+    	padding-right: 25px
+    }
+    .btn-outline-light:hover {
+    	color: #23807F;
+    }
+    footer {
+    	background-color: #23807F !important;
+    	height: 180px !important;
+    	padding-top: 35px;
+    }
+
+    footer img {
+    	width: 170px;
+    	height: auto;
+    	float: right;
+    	margin-left:5px;
+    	margin-right:5px;
+    }
+    /*------------------------*/
+</style>

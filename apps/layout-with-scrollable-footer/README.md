@@ -1,6 +1,6 @@
-# A basic application framework
+# layout-with-scrollable-footer
 
-https://vmiis.github.io/your-company-business-portal/apps/a-basic-application-framework/index.html
+https://vmiis.github.io/your-company-business-portal/apps/layout-with-scrollable-footer/index.html
 
 
 You can copy this folder to any static web server and run over there.

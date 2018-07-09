@@ -1,0 +1,11 @@
+{
+    "modules":
+	{
+        "consent-form":                     {"table_id":"20011504", "url":"modules/tasks/mirror/consent-form.html"},
+        "registration-form":                {"table_id":"20011505", "url":"modules/tasks/mirror/registration-form.html"},
+
+        "screening-form":                   {"table_id":"20011503", "url":"modules/tasks/new-forms/screening-form.html"},
+        "screen-failure-thank-you-page":    {                       "url":"modules/tasks/screen-failure-thank-you-page.html"},
+        "registration-thank-you-page":      {                       "url":"modules/tasks/registration-thank-you-page.html"}
+	}
+}

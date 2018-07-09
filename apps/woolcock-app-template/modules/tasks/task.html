@@ -1,0 +1,97 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        $('#new__ID').hide();
+        //$('#save__ID').hide();
+        //-------------------------------------
+        var fields="Participant ID|Participant_uid,Participant,Pre_post,Week,Day_number,Morning_1,Morning_2,In_lab,S1_Todays_date,S2_Time,S3_Bed_time";
+        fields+=",S4_Attempt_to_fall_asleep_min,S5_How_long_to_fall_asleep_min,S6_Wake_up_time,S7_Sleep_duration_hours_min";
+        fields+=",S8_Time_in_bed_before_getting_up_minutes,S9_How_many_times_awake,WASO_minutes,S10_Did_anything_disturb_your_sleep";
+        fields+=",S10_Noise,S10_Work_duties,S10_Thoughts_on_mind,S10_Toilet,S10_Light,S10_Aches_pain_physical_discomfort,S10_Air_temperature";
+        fields+=",S10_Eletronic_media,S10_Other,S11_Rate_quality_of_sleep,S12_How_sleepy_you_have_felt_5_min,S13_Did_you_have_any_caffeine";
+        fields+=",S13_Coffee_cups,S13_Tea_cups,S13_Caffeinated_soft_drinks,S13_Caffeine_pills_100mg,S14_Did_you_have_any_alcohol,S14_Beer";
+        fields+=",S14_Wine_150mL,S14_Spirits_30mL,S15_Did_exercise,S15_ow_many_times_exercised,S15_When_exercised,S15_For_how_long_exercised_minutes";
+        fields+=",S15_How_strenuous,S16_Did_you_nap_yesterday,S16_Nap_how_many_times,S16_Nap_start,S16_Nap_end,S17_Did_you_take_sleep_pills";
+        fields+=",S17_Type_of_medication,S18_How_many_times_removed_actiwatch,S18_Actiwatch_removed_at,S18_Actiwatch_put_back_on_at";
+        _fields=""+fields+",Submit Date|DateTime";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        var _before_submit=function(record,dbv){
+            dbv.V1=record.Participant_uid;
+            //dbv.V2=record.Day_number;
+        }
+        //-------------------------------------
+        /*
+        var import_handleFileSelect=function(evt) {
+            var Dialog_module_id=$vm.get_module_id({name:'_system_import_dialog_module'})
+            var files = evt.target.files;
+            if(files.length>0){
+                var reader = new FileReader();
+                reader.onload = (function(e) {
+                    var contents = e.target.result;
+                    var lines=contents.replace(/\r/g,'\n').replace(/\n\n/g,'\n').split('\n');
+                    if(lines.length>1){
+                        var tab='\t';
+                        var n1=lines[0].split('\t').length;
+                        var n2=lines[0].split(',').length;
+                        if(n2>n1) tab=',';
+                        var header=lines[0].replace(/ /g,'_').splitCSV(tab);
+                        var flds=_fields.split(',');
+                        var fn=$('#import_file__ID').val().substring($('#import_file__ID').val().lastIndexOf('\\')+1);
+                        if(confirm("Are you sure to import "+fn+"?\n")){
+                            $vm.open_dialog({name:'_system_import_dialog_module'});
+                            var I=0;
+                            var i=1;
+                            jQuery.ajaxSetup({async:false});
+                            (function looper(){
+                                if( i<lines.length ) {
+                                    var items=lines[i].splitCSV(tab);
+                                    if(items.length>=2 || (items.length==1 && items[0]!=='') ){
+                                        var rd={};
+                                        for(var j=0;j<flds.length;j++){
+                                            var field_name=flds[j].split('|')[0];
+                                            var field_id=flds[j].split('|').pop();
+                                            var index=header.indexOf(field_name.replace(/ /g,'_'));
+                                            if(index!=-1)  rd[field_id]=items[index];
+                                        }
+                                        if(jQuery.isEmptyObject(rd)===false){
+                                            if(_before_submit!==''){
+                                                _dbv={};
+                                                _before_submit(rd,_dbv);
+                                            }
+                                            I++;
+                                            //var req={cmd:"add_record",db_pid:_db_pid.toString(),data:rd,dbv:_dbv};
+                                            var req={cmd:"add_json_record",db_pid:_db_pid.toString(),data:rd,dbv:_dbv};
+                                            $VmAPI.request({data:req,callback:function(res){}})
+                                        }
+                                        $('#import_num'+Dialog_module_id).text(I.toString());
+                                    }
+                                    i++;
+                                    setTimeout( looper, 100);
+                                }
+                                else{
+                                    $vm.close_dialog({name:'_system_import_dialog_module'});
+                                    alert(I.toString()+" records have been imported.");
+                                    _request_data();
+                                }
+                            })();
+                            jQuery.ajaxSetup({async:true});
+                        }
+                    }
+                    else alert("No data rows in the file.");
+                });
+                reader.readAsText(files[0]);
+            }
+        }
+        if(document.getElementById('import_file__ID')!==null) document.getElementById('import_file__ID').addEventListener('change', import_handleFileSelect,false);
+        */
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

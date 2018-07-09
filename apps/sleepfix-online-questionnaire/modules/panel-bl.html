@@ -1,0 +1,183 @@
+<div id=D__ID>
+  <div id=panel__ID>
+    <div id=header__ID>
+      Baseline questionnaires
+    </div>
+    <div id=quest__ID>
+      <div class="container">
+          <!--
+        <div class="row row__ID" id=row_participant__ID>
+          <div class="col-sm-12 col-lg-9 input__ID">
+            <span class=label__ID>Participant</span><br>
+            <input name="Participant" class=form-control id=Participant__ID readonly>
+          </div>
+          <div class="col-sm-12 col-lg-3 input__ID">
+            <span class=label__ID>Participant ID</span><br>
+            <input name="Participant_uid" class=form-control readonly id=Participant_uid__ID>
+          </div>
+          <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+        </div>
+    -->
+        <div>
+          <span class=label__ID>Instruction</span><br>
+          <p>
+            rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
+            quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+            magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          </p>
+        </div>
+        <div>
+          <ul>
+            <li m=bl-questionnaire-form >Baseline questionnaire</li>
+            <li m=m01 >General Self-Efficacy Scale</li>
+            <li m=m02 >Autonomy and competence in Technology Adoption</li>
+            <li m=m01 >Insomnia Severity Index (ISI)</li>
+            <li m=m01 >Sleep Quality</li>
+            <li m=m01 >Depression (PHQ-9)</li>
+            <li m=m01 >Anxiety (GAD-7)</li>
+            <li m=m01 >Hospital Anxiety and Depression Scale (HADS)</li>
+            <li m=m01 >Fatigue</li>
+            <li m=m01 >Epworth Sleepiness Scale</li>
+            <li m=m01 >Health and Work Performance Questionnaire (HPQ)</li>
+            <li m=m01 >Basic Psychological Needs Scale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function F__ID(){
+        //-------------------------------------
+        var status={};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  request_data();  })
+        $('#D__ID').on('show',function(){  if($vm.refresh==1){ $vm.refresh=0; request_data();}  })
+        //-------------------------------------
+        var request_data=function(){
+            /*
+            $('#row_participant__ID').hide();
+            var input=$vm.vm['__ID'].input;
+            //--------------------------
+            if(input!=undefined && input.username!=undefined && input.user_id!=undefined){
+              $("#Participant__ID").val(input.username);
+              $("#Participant_uid__ID").val(input.user_id);
+            }
+            */
+            //--------------------------
+            $('#quest__ID li').each(function(){
+		        var $li=$(this);
+				$li.removeClass('li_allowed__ID')
+				$li.addClass('li_not_allowed__ID')
+			})
+			//----------------------------------
+            $('#quest__ID li').each(function(){
+		        var $li=$(this);
+		        var m=$li.attr('m');
+                if($vm.module_list[m]!=undefined){
+                    var pid=$vm.module_list[m].table_id;
+                    var exist=1;
+    		        if(pid!=undefined && status[pid]==undefined){
+    		            //-----------------
+    		            var req={cmd:'read-s2',db_pid:pid,qid:$vm.qid};
+    		            //-----------------
+    		            jQuery.ajaxSetup({async:false});
+    		            $VmAPI.request({data:req,callback:function(res){
+    		                if(res.records.length==0){
+                                status[pid]=1;
+                                exist=0;
+    		                }
+    		                else{
+    		                }
+    		            }})
+    		            jQuery.ajaxSetup({async:true});
+    		        }
+                    if(exist==0){
+                        $li.removeClass('li_not_allowed__ID');
+                        $li.addClass('li_allowed__ID');
+                        return false;
+                    }
+                }
+            })
+            //----------------------------------
+        }
+        //-------------------------------------
+        $('#quest__ID li').on('click',function(){
+            if( $(this).hasClass( 'li_not_allowed__ID' )===true){
+    		    return;
+    		}
+            var m=$(this).attr('m');
+            $vm.load_module_v2(m,$vm.root_layout_content_slot,{participant_record:$vm.participant_record,goback:1});
+        })
+        //-------------------------------------
+    }
+  </script>
+  <style>
+    #D__ID{
+      height:100%;
+      overflow:auto;
+      animation: vm_module_fadein 1.0s;
+      background-color: #fff;
+    }
+    #apanel__ID{
+      padding:50px;
+      max-width:800px;
+    }
+      #panel__ID{
+         margin-top:20px;
+         max-width: 700px;
+         margin-left: auto;
+         margin-right: auto;
+
+         font-family: Verdana,sans-serif;
+         font-size: 15px;
+         line-height: 1.5;
+      }
+      #panel__ID .row__ID{
+         padding:6px 5px;
+      }
+      #header__ID{
+         background-color:#727b84;
+         color:#fff;
+         padding:10px 15px 10px 15px;
+         font-size:120%;
+         border:1px solid #bbb;
+         border-bottom-width: 0;
+      }
+      #quest__ID{
+         border:1px solid #bbb;
+         border-top-width: 0;
+         padding:6px 15px 20px 15px;
+         margin-bottom:200px;
+      }
+      #quest__ID div span{
+         display:inline-block;
+         padding-bottom:5px;
+      }
+      #quest__ID div label{
+         display:inline-block;
+      }
+      .label__ID{
+         font-weight: bold;
+         padding:8px 0 5px 0;
+      }
+    #panel__ID li{
+      cursor:pointer;
+    }
+    #panel__ID li:hover{
+      color:red;
+    }
+
+    .li_not_allowed__ID{
+		color:#999!Important;
+		cursor:not-allowed!Important;
+	}
+	.li_allowed__ID{
+		color:#000!Important;
+		cursor:pointer!Important;
+	}
+
+  </style>
+  <script>
+  </script>
+</div>

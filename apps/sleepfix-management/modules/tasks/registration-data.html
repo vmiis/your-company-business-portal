@@ -1,0 +1,43 @@
+<div id=D__ID>
+  <div>
+      VmInclude:__COMPONENT__/module/grid.v1.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      //-------------------------------------
+      var fields="Screening Record ID|PUID,First_Name,Last_Name,Mobile_Phone,Email,Password,Address,Suburb,Postcode,State,Start_Date,SMS";
+      m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      m.cell_render=function(records,I,field,td,set_value,source){
+        switch(field){
+          case 'UID':
+          case 'PUID':
+            records[I].vm_readonly[field]=true;
+            break;
+        }
+      }
+      //-------------------------------------
+      m.before_submit_2=function(record,dbv){
+        dbv.S2=record.Email;
+        dbv.S3=record.Password;
+        return true;
+      }
+      //-------------------------------------
+      $('#new__ID').off('click').on('click',function(){$vm.load_module_v2(m.form_module,'',{goback:1})})
+      $('#D__ID').on('load',function(){  if(m.preload==true) return; m.set_req(); m.request_data(); })
+      //-------------------------------------
+    }
+  </script>
+  <style>
+  VmInclude:__COMPONENT__/module/grid.v1.css
+    #D__ID{
+      height:100%;
+      overflow:auto;
+      animation: vm_module_fadein 1.0s;
+      background-color: #fff;
+    }
+  </style>
+</div>

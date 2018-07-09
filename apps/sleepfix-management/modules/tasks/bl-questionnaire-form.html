@@ -1,0 +1,412 @@
+<div id=D__ID>
+
+<!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+
+        <!-- form container start -->
+
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+
+              <!-- form start -->
+
+              <form id="F__ID">
+                  <!-- participant name and study id -->
+
+                  <div class="form-group" style='display:none!Important'>
+                    <div class="row" style="padding-bottom:10px">
+                      <div class="col-lg-9 col-sm-12">
+                        <label for="participant-name">Participant</label>
+                        <input type="text" class="form-control" id="participant-name" placeholder="">
+                      </div>
+                      <div class="col-lg-3 col-sm-12">
+                        <label for="participant-id">Participant ID</label>
+                        <input type="text" class="form-control" id="participant-id" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3>Baseline Questionnaire</h3>
+                 <div class="form-group">
+                     <h4>1. What is your gender?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Gender" value="Male" required>
+                               <span class="checkmark"></span> Male</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Gender" value="Female">
+                               <span class="checkmark"></span> Female</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Gender" value="Prefer not to say">
+                               <span class="checkmark"></span> Prefer not to say</label><br>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div class="form-group">
+                   <h4>Age</h4>
+                   <fieldset>
+                     <input type="Number" min="18" class="form-control" name="Age" id="age" required placeholder="Age">
+                   </fieldset>
+                 </div>
+                 <div class="form-group">
+                     <h4>3.	Which of these best describes the highest level of education you have completed?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Secondary school" required>
+                               <span class="checkmark"></span> Secondary school</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Trade certificate">
+                               <span class="checkmark"></span> Trade certificate</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Bachelor degree">
+                               <span class="checkmark"></span> Bachelor degree</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Postgraduate Degree">
+                               <span class="checkmark"></span> Postgraduate Degree</label><br>                         
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div class="form-group">
+                     <h4>4.	What is your current employment status? (select all that apply)</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Employment_Full_Time" id="Employment_Full_Time__ID">
+                               <span class="check_checkmark"></span> Employment Full Time</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Employment_Part_Time" id="Employment_Part_Time__ID">
+                               <span class="check_checkmark"></span> Employment Part Time</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Unemployed" id="Unemployed__ID">
+                               <span class="check_checkmark"></span> Unemployed</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Student" id="Student__ID">
+                               <span class="check_checkmark"></span> Student</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Retired" id="Retired__ID">
+                               <span class="check_checkmark"></span> Retired</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Other" id="Other__ID">
+                               <span class="check_checkmark"></span> Other</label><br>
+                             <div id=specify__ID>
+                               <label for="firstName">(please specify)</label>
+                               <input type="text" class="form-control" name="Other_Specify" id="Other_Specify__ID"  required >
+                             </div>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div id=Occupation__ID >
+                 <div class="form-group" >
+                     <h4>5.	What is your current occupation?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                               <input type="text" class="form-control" name="Occupation" required >
+                         </fieldset>
+                    </div>
+     		     </div>
+             </div>
+                 <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+  </div>
+  <script>
+      function F__ID(){
+          //-------------------------------------
+          VmInclude:__COMPONENT__/module/form.v1.js
+          VmInclude:__CURRENT_PATH__/task-form.js
+          //-------------------------------------
+          m.load_2=function(){
+              if($('#Employment_Full_Time__ID').is(":checked")==true || $('#Employment_Part_Time__ID').is(":checked")==true ){
+                  $('#Occupation__ID').show() ;
+              }
+              else {
+                  $('#Occupation__ID').hide();
+              }
+              if($('#Other__ID').is(":checked")==true ){
+                  $('#specify__ID').show() ;
+                  $('#Other_Specify__ID').prop('required', true);
+              }
+              else {
+                  $('#Other_Specify__ID').prop('required',false);
+                  $('#specify__ID').hide();
+              }
+          }
+          //-------------------------------------
+          m.before_submit_2=function(record,dbv){
+              if($('#Employment_Full_Time__ID').is(":checked")!==true &&
+                  $('#Employment_Part_Time__ID').is(":checked")!==true &&
+                  $('#Unemployed__ID').is(":checked")!==true &&
+                  $('#Student__ID').is(":checked")!==true &&
+                  $('#Retired__ID').is(":checked")!==true &&
+                  $('#Other__ID').is(":checked")!==true){
+                      $vm.alert('Please select at least one employment status'); return false;
+              }
+          }
+          //-------------------------------------
+          $('#Employment_Full_Time__ID').on('click', function(){
+              if($('#Employment_Full_Time__ID').is(":checked")==true || $('#Employment_Part_Time__ID').is(":checked")==true ){
+              $('#Occupation__ID').show() ;
+              }
+              else {
+                  $('#Occupation__ID').hide();
+              }
+          })
+          $('#Employment_Part_Time__ID').on('click', function(){
+              if($('#Employment_Full_Time__ID').is(":checked")==true || $('#Employment_Part_Time__ID').is(":checked")==true ){
+              $('#Occupation__ID').show() ;
+              }
+              else {
+                  $('#Occupation__ID').hide();
+              }
+          })
+          $('#Other__ID').on('click', function(){
+              if($('#Other__ID').is(":checked")==true ){
+                  $('#specify__ID').show() ;
+                  $('#Other_Specify__ID').prop('required', true);
+              }
+              else {
+                  $('#Other_Specify__ID').prop('required',false);
+                  $('#specify__ID').hide();
+              }
+          })
+          //-------------------------------------
+      }
+</script>
+
+  <style>
+      .formbox h3 {
+        font-family: RobotoSlab-Regular;
+        font-size: 24px;
+        color: #FCFBF5;
+        letter-spacing: 0;
+        display: block;
+        background-color: #45496A;
+        padding: 15px;
+        border-radius: 3px 3px 0 0;
+        margin-top: -5px
+      }
+      /* TOP OF FORM MARGIN */
+      .mt-95 {
+        margin-top: 15px !important
+      }
+      .form-group {
+        display: block !important;
+        border-bottom: 1px solid #E5EEF0 !important
+      }
+      .form-group h4 {
+        font-family: RobotoSlab-Regular;
+        font-size: 18px;
+        color: #45496A;
+        letter-spacing: 0;
+        line-height: 28px;
+      }
+      /*modified by Zhiming: add #D__ID to avoid conflic */
+      #D__ID label {
+        font-family: Nunito-Bold;
+        font-size: 14px;
+        color: #444645;
+        line-height: 21px;
+      }
+
+      /*modified by Zhiming: add #D__ID to avoid conflic */
+      #D__ID input[type="radio"] {
+        margin-right: 5px !important
+      }
+      .formbox {
+        background-color: white;
+        padding: 0px !important;
+        border-radius: 3px 3px 3px 3px !important
+      }
+      .form-group {
+        padding: 5px 15px !important;
+        margin-bottom: 0px !important
+      }
+      .form-group:hover {
+        background-color: #FCFBF5
+      }
+      /* SUBMIT BUTTON */
+
+      /*modified by Zhiming: add #D__ID to avoid conflic, we use default .btn-primary somewhere else */
+
+      #D__ID .btn-primary, #D__ID .btn-primary:active, #D__ID .btn-primary:visited, #D__ID .btn-primary:focus {
+        background-color: #45496A;
+        border-color: #45496A;
+        font-family: Nunito-Light;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 18px;
+        text-transform: uppercase;
+        border-radius: 5px;
+        padding: 16px 35px;
+        margin: 15px;
+      }
+      #D__ID .btn-primary:hover {
+        background-color: #35395D;
+        border-color: #35395D;
+        font-family: Nunito-Light;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 18px;
+        text-transform: uppercase;
+        border-radius: 5px;
+        padding: 16px 35px;
+        margin: 15px;
+      }
+      .btn-outline-light {
+        font-family: Nunito-Light;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 18px;
+        text-transform: uppercase;
+        border-radius: 15px;
+        border-width: 2px;
+        padding-left: 25px;
+        padding-right: 25px
+      }
+      .btn-outline-light:hover {
+        color: #23807F;
+      }
+      p.note {
+        font-family: Nunito-Light;
+        font-size: 14px;
+        color: #939597;
+        margin-left: 15px;
+      }
+      /* RADIO BUTTONS */
+      .radiobuttons {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        padding-left: 30px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .radiobuttons input {
+        position: absolute !important;
+        opacity: 0 !important;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 22px;
+        width: 22px;
+        background-color: #A2D5CB;
+        border-radius: 50%;
+      }
+      .radiobuttons:hover input ~ .checkmark {
+        background-color: #23807F;
+      }
+      .radiobuttons input:checked ~ .checkmark {
+        background-color: #23807F;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute !important;
+        display: none;
+      }
+      /* CHECK BOX */
+      .checkboxes {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        padding-left: 30px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .checkboxes input {
+        position: absolute !important;
+        opacity: 0 !important;
+        cursor: pointer;
+      }
+      .check_checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 22px;
+        width: 22px;
+        background-color: #A2D5CB;
+        border-radius: 0%;
+      }
+      .checkboxes:hover input ~ .check_checkmark {
+        background-color: #23807F;
+      }
+      .checkboxes input:checked ~ .check_checkmark {
+        background-color: #23807F;
+      }
+      .check_checkmark:after {
+        content: "";
+        position: absolute !important;
+        display: none;
+      }
+      /* Show the indicator (dot/circle) when checked */
+      .checkboxes input:checked ~ .check_checkmark:after {
+        display: block !important;
+      }
+      /* Style the indicator (dot/circle) */
+      .container .checkmark:after {
+        top: 7px;
+        left: 7px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white !important;
+      }
+      /* Style the indicator (dot/circle) */
+      .container .check_checkmark:after {
+        top: 7px;
+        left: 7px;
+        width: 8px;
+        height: 8px;
+        border-radius: 0%;
+        background: white !important;
+      }
+      .form-group input[type=text] {
+        font-family: Nunito-Regular;
+        font-size: 16px;
+        color: #6D6F72;
+      }
+      fieldset.subquestions legend {
+        font-family: Nunito-Regular;
+        font-size: 16px;
+        color: #45496A;
+        line-height: 21px;
+        padding-top: 20px;
+      }
+    .form-group .questiongroup {
+        margin-left: 15px;
+    }
+    .form-group .questiongroup label.radiobuttons {
+        margin-right: 10px;
+    }
+    .form-group .questiongroup label.checkboxes {
+        margin-right: 10px;
+    }
+  </style>
+<!--third css end -->
+<style>
+    #D__ID{
+      height:100%;
+      animation: vm_module_fadein 1.0s;
+      /*background-color: #fff;*/
+    }
+  </style>
+  </div>

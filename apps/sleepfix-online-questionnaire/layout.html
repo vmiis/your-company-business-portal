@@ -1,0 +1,429 @@
+<div layout-html id=layout__ID>
+    <div header id=header__ID>
+        <div>
+            <div mobile>
+                <span module=Home id=m_title>SleepFix</span>
+                <a toggle id="vm_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+            </div>
+            <div desktop id=vm_logo module=Home>
+                <span id=vm_logo_label_A>SleepFix</span><br>
+                <span id=vm_logo_label_B>Online Questionnaire</span>
+            </div>
+            <div menu id="vm_menu">
+                <a id=vm_system_signout style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+            </div>
+        </div>
+    </div>
+    <div content>
+        <div content-container id="content_container__ID">
+        	<div id=vm_loader class="loader__ID"></div>
+        </div>
+    </div>
+    <div footer id=footer__ID>
+    	<span id=text__ID></span>
+    	<span id=vm_system_info style='color:#555;float:right'></span>
+    </div>
+</div>
+<div system-html>
+    <div top-right-corner id=top_right_corner__ID class='d-none d-xl-block'>
+        <div>
+            <span id=database_p__ID><span style='color:green'>&#11044; </span></span>
+            <span id=database_d__ID><span style='color:red'>&#11044; </span></span>
+            <span id=vm_system_username></span>
+        </div>
+    </div>
+    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script layout-js>
+    $vm.layout=function(){
+		//------------------------------------
+        $vm.root_layout_content_slot="content_container__ID";
+		//------------------------------------
+        var set_height=function(){
+			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer__ID').outerHeight();
+			$vm.min_height=($(window).height()-header_height-footer_height);
+			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
+		}
+		//------------------------------------
+		set_height();window.onresize=function(){set_height();}
+        //-----------------------------------------
+	}
+    $vm.top_right_corner=function(){
+        if($vm.server=='development') $('#database_d__ID').show();
+        else if($vm.server=='production') $('#database_p__ID').show();
+    }
+    $vm.footer=function(){
+        $vm.root_layout_footer='footer__ID';
+        //-----------------------------------------------------
+        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", SleepFix. <span id=FL__ID>Powered by Wappsystem</span>");
+        //------------------------------------
+    }
+    //---------------------------------------------
+    $vm.toggle=function() {
+        var x = document.getElementById("vm_menu");
+        if(x.className==='') x.className="responsive";
+        else x.className="";
+    }
+    $vm.header=function(){
+        $('#vm_menu a').on('click',function(){
+            var module=$(this).attr('module');
+            if(module!=undefined) $vm.load_module_v2(module);
+            if( $(this).attr('toggle')==undefined){
+                var x = document.getElementById("vm_menu");
+                if(x.className==='responsive') x.className="";
+            }
+        })
+        $('.vm_dropdown').on('click',function(){
+            var d=$(this).find('.vm_dropdown-content');
+            if(d.css('display')=='block') d.css('display','none');
+            else d.css('display','block');
+        })
+        $(".vm_dropdown").mouseleave(function (){  $(".vm_dropdown-content").hide();  })
+        $(".vm_dropdown-content").mouseleave(function (){  $(this).hide();  })
+        $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+        $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+        //---------------------------------------------
+        var show_user=function(){
+            var third=""
+            if($vm.user_puid=="1") third=" (Google)";
+            if($vm.user_puid=="2") third=" (Facebook)";
+            if($vm.user=='guest'){
+                $('#username__ID').text('');
+                $('#signin__ID').show();
+                $('#signout__ID').hide();
+            }
+            else{
+                $('#username__ID').text('Signed in as '+ $vm.user+third);
+                $('#signin__ID').hide();
+                $('#signout__ID').show();
+            }
+        }
+        show_user();
+        //---------------------------------------------
+        if(window.location.hostname!='127.0.0.1'){
+            $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
+            $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+        }
+        //---------------------------------------------
+    }
+</script>
+<style layout-css>
+    #vm_framework{
+        height:100%;
+    }
+    .vm_module{
+        width:100%;
+        height:100%;
+    }
+	html,body{
+        width: 100%;
+        height: 100%;
+        padding:0;
+        margin:0;
+        font-family:Arial;
+	}
+    /*----------------------*/
+    /*header*/
+    #header__ID{
+        height:100px;
+        background: rgba(0,0,0,0.5);
+    }
+    #vm_logo{
+        display:inline-block;
+        padding-top:35px;
+        padding-left:20px;
+        cursor:pointer;
+        float:left;
+    }
+    #vm_logo_label_A{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 220%;
+        line-height:10px;
+        display:inline-block;
+    }
+    #vm_logo_label_B{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 90%;
+        line-height:80%;
+        display:inline-block;
+    }
+    #vm_menu {
+        margin-top:50px;
+        margin-left:160px;
+        overflow: hidden;
+        background: rgba(0,0,0,0.0);
+        display:inline-block;
+        float:left;
+    }
+    #vm_search {
+        margin-top:50px;
+        margin-right:10px;
+        display:inline-block;
+        float:right;
+    }
+    #vm_system_search{
+        margin-top:5px;
+        margin-left:200px;
+        border-radius:.25rem;
+        padding-left:6px
+    }
+    #vm_menu > a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 10px 8px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor:pointer;
+    }
+    #vm_icon {
+      display: none;
+    }
+    .vm_active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .vm_dropdown {
+        float: left;
+        overflow: hidden;
+    }
+    .vm_dropdown .vm_dropbtn {
+        font-size: 14px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 10px 8px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+    .vm_dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        max-height: 1000px;
+        overflow-y: hidden;
+        border-radius: 0px 3px 3px 3px;
+        animation: vm_menu_show 1.8s;
+    }
+    .vm_dropdown-content a {
+        float: none;
+        font-size: 14px;
+        color: #666!important;
+        padding: 3px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        cursor:pointer;
+        border-bottom:1px solid #ddd;
+    }
+    #vm_menu > a:hover, .vm_dropdown:hover .vm_dropbtn {
+      background-color: #555;
+      color: white;
+      border-radius:4px;
+    }
+    .vm_dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    #m_title{
+        display:none;
+    }
+    @media screen and (max-width: 1280px) {
+        #m_title{
+            color:#fff;
+            font-size: 28px;
+            display:inline-block;
+            padding: 7px 0 0 12px;
+            cursor: pointer;
+        }
+        #vm_menu a, .vm_dropdown .vm_dropbtn {
+            display: none;
+        }
+        #vm_icon {
+            float: right;
+            display: block;
+            font-size:28px;
+            padding:7px 16px 3px 16px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor:pointer;
+            color:#fff;
+        }
+        #vm_menu.responsive {
+            position: relative;
+            animation: vm_menu_show 1.8s;
+        }
+        #vm_menu.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+        #vm_menu.responsive .vm_dropdown {float: none;}
+        #vm_menu.responsive .vm_dropdown-content {position: relative;}
+        #vm_menu.responsive .vm_dropdown .vm_dropbtn {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        #vm_menu {
+            margin-top:0px;
+            margin-right:0px;
+            margin-left:0px;
+            overflow: hidden;
+            background: #1c3144;
+            display:block;
+            float:unset;
+        }
+        #header__ID{
+            height:unset;
+            background: rgba(0,0,0,0.3);
+        }
+        #vm_logo{
+            display:none;
+        }
+        #vm_search{
+            display:none;
+        }
+    }
+    @keyframes vm_menu_show {
+        from {max-height: 0px;}
+        to {max-height: 1000px;}
+    }
+    /*----------------------*/
+    /*content*/
+    #content_container__ID{
+        position:fixed;
+        width:100%;
+        overflow:hidden;
+    }
+    #vm_loader{
+        display:none;
+        position:absolute;
+    }
+    .loader__ID {
+      height: 4px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background-color: #ddd;
+    }
+    .loader__ID:before{
+      display: block;
+      position: absolute;
+      content: "";
+      left: -200px;
+      width: 200px;
+      height: 4px;
+      background-color: #2980b9;
+      animation: loading 2s linear infinite;
+    }
+    @keyframes loading {
+        from {left: -200px; width: 30%;}
+        50% {width: 30%;}
+        70% {width: 70%;}
+        80% { left: 50%;}
+        95% {left: 120%;}
+        to {left: 100%;}
+    }
+    /*----------------------*/
+    /*footer*/
+    #footer__ID{
+        height:24px;
+        color: #fff;
+        padding: 3px;
+        background-color: #333;
+        font:80%/18px arial;
+        text-align: center;
+    }
+    @media screen and (max-width: 900px){
+        #FL__ID{
+            display:none;
+        }
+    }
+    /*----------------------*/
+    /*top right*/
+    #top_right_corner__ID{
+        display:block;
+        position:fixed;
+        top:3px;
+        right:3px;
+        font-size:11px;
+        line-height:13px;
+        color:#fff;
+        z-index: 99999;
+    }
+    #username__ID{
+        float:right;
+    }
+    #database_d__ID{
+        display:none;
+    }
+    #database_p__ID{
+        display:none;
+    }
+    /*----------------------*/
+	@keyframes vm_module_fadein {
+		from { opacity:0; }
+		to {opacity:1;}
+	}
+    @keyframes vm_module_slide_in {
+		from { margin-top:50%; }
+		to {margin-top:0;}
+	}
+    @keyframes vm_module_slide_out {
+        from { margin-top:0; }
+		to {margin-top:-50%;}
+	}
+    .ui-widget-content{
+        background:#eff3dc!important;
+    }
+    .ui-autocomplete.ui-menu{font-size:12px}
+	.ui-menu-item .ui-menu-item-wrapper:hover{
+		font-weight:normal;
+	}
+    #layout__ID {
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow:hidden;
+    }
+    @media print {
+        html,body{
+            width:100%;
+            height:100%;
+            overflow:visible;
+        }
+        body * {
+            visibility: hidden;
+        }
+        #content_container_0, #content_container_0 *{
+            visibility: visible;
+        }
+    }
+</style>

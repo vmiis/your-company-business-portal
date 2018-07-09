@@ -1,0 +1,6 @@
+{"modules":{
+    "portal":      {"url":"modules/portal.html"},
+	"task1":       {"table_id":"91000096","url":"modules/tasks/task.html"},
+    "task2":       {"table_id":"91000097","url":"modules/tasks/task.html"},
+    "task3":       {"table_id":"91000098","url":"modules/tasks/task.html"}
+}}

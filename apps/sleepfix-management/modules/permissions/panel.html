@@ -1,0 +1,202 @@
+<div id=page__ID>
+	<section id=panel__ID>
+		<div class='nav__ID'>
+            <span>Administrator</span>
+            <ul>
+				<li m=permission-role-login-data>Roles - login names</li>
+            </ul>
+            <br>
+            <span>Data Owner</span>
+            <ul>
+				<li m=permission-role-table-group-data>Roles - table group</li>
+            </ul>
+            <br>
+            <span>Developer</span>
+            <ul>
+                <li m=permission-query-data>Permission queries</li>
+				<li m=permission-check>Permission Check</li>
+            </ul>
+		</div>
+	</section>
+</div>
+<script>
+    function F__ID(){
+        //--------------------------------------------------------
+		var set_li_text=function(){
+    	    $('.nav__ID li').each(function(){
+    	        $(this).attr('data-li_text',$(this).text());
+    	    })
+    	}
+    	set_li_text();
+    	//---------------------------------------------
+    	var clear_counting=function(){
+    		$('.nav__ID li').each(function(){
+    			var txt=$(this).attr('data-li_text');
+    			if(txt!=undefined){
+    				$(this).text(txt);
+    			}
+    		})
+    	}
+    	//---------------------------------------------
+		var this_module=$vm.module_list[$vm.vm['__ID'].name];
+		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+		//--------------------------------------------------------
+        $('#panel__ID li').on('click',function(){
+			if( $(this).hasClass( 'not_allowed__ID' )===true){
+    		    alert("No permission!");
+    		    return;
+    		}
+			var m=$(this).attr('m');
+            if(m!=undefined){
+				$vm.load_module_v2(prefix+m,'',{});
+            }
+        })
+        //--------------------------------------------------------
+		$('#D__ID').on('load',function(){
+    		var pids="";
+    		if($vm.server==='production'){
+    		  $('.nav__ID li').each(function(index){
+    		      var name=$(this).attr('module');
+    		      var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+    		      if(pid!==undefined && pid!=='--------'){
+    		         if(pids!=="") pids+=",";
+    		         pids+=pid;
+    		      }
+    		  });
+    		  if(pids!==""){
+    		      $VmAPI.request({data:{cmd:'permissions',pids:pids},callback:function(res){
+    		          $('.nav__ID li').each(function(index){
+    		              var name=$(this).attr('module');
+    					  var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+    		              if(pid!==undefined && pid!=='--------'){
+    		                  $(this).removeClass('not_allowed__ID');
+    		                  if(res[pid]===undefined){
+    		                      $(this).addClass('not_allowed__ID')
+    		                  }
+    		              }
+    		          })
+    		      }})
+    		  }
+    		}
+    	})
+    	//---------------------------------------------------------------
+    	$('#count__ID').on('click',function(){
+    		clear_counting();
+    		var N=0;
+    		$('#panel__ID li').each(function(){
+    			var $li=$(this);
+    			N++;
+    			var m=$li.attr('m');
+    			if(m!=undefined){
+    				check_count($li,N);
+    			}
+    		});
+    	})
+    	//--------------------------------------------------------
+    	var check_count=function($li,N){
+    		//do not send too many requests to the server in a short period
+    		setTimeout(function(){check_count_d($li)}, N*200);
+    	}
+    	//--------------------------------------------------------
+    	var check_count_d=function($li){
+    		var m=$li.attr('m');
+    		if($vm.module_list[prefix+m]!=undefined){
+    			var pid=$vm.module_list[prefix+m].table_id;
+    			if(pid!=undefined){
+    				var sql="select Num=count(ID) from [TABLE-"+pid+"]";
+    				$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+    					var num=res.records[0].Num;
+    					var txt=$('<div/>').html($li.attr('data-li_text')).text();
+    					$li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
+    				}})
+    			}
+    		}
+    	}
+		//--------------------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+        color:#283f55;
+        font-size:10pt;
+        font-family: Verdana,Helvetica,Arial,sans-serif;
+		background: rgba(255,255,255,0.95);
+        overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+        padding:10px 0 0 20px;
+		display:inline-block;
+    }
+    #info__ID{
+        font-size: 11px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	#toolbar__ID{
+		background-color:#ccc;
+		margin-bottom:0px;
+		overflow:hidden;
+        padding: 5px 0 5px 10px;
+	}
+    #toolbar__ID .form-inline > * {
+        margin-right:5px;
+    }
+	@media screen and (max-width:768px){
+		#toolbar__ID{
+			padding: 3px 10px;
+		}
+		#toolbar__ID div{
+			padding-left:3px;
+		}
+	}
+	li::before{
+		font-size: 20px!Important;
+	}
+    .nav__ID{
+        padding:6px 26px 6px 6px;
+        /*color: #202727;*/
+        float:left;
+    }
+    .nav__ID span{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 10px;
+    }
+	.nav__ID li:hover{
+		color:red;
+	    cursor:pointer;
+	}
+	.app__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.ul__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.nav__ID ul{
+		margin:0 0 3px 0;
+	}
+	.nav__ID p{
+		margin:0;
+	}
+	.data__ID{
+		color:#709aab;
+	}
+    .space__ID{
+        width:34px;
+        display:inline-block;
+    }
+	.li__ID{
+		display:inline-block;
+		width:150px;
+	}
+	/*
+    .nav__ID>ul>li u:nth-child(2){
+        font-size:11px;
+	}
+	*/
+</style>

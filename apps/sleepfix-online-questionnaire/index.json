@@ -1,0 +1,21 @@
+{
+    "modules":
+	{
+        "bl-login":             {                      "url":"modules/login.html","TP":"bl-panel"},
+        "w1-login":             {                      "url":"modules/login.html","TP":"w1-panel"},
+        "w2-login":             {                      "url":"modules/login.html","TP":"w2-panel"},
+        "w3-login":             {                      "url":"modules/login.html","TP":"w3-panel"},
+        "w6-login":             {                      "url":"modules/login.html","TP":"w6-panel"},
+        "w12-login":            {                      "url":"modules/login.html","TP":"w12-panel"},
+
+        "bl-panel":             {                      "url":"modules/panel-bl.html"},
+        "w1-panel":             {                      "url":"modules/panel-w1.html"},
+        "w2-panel":             {                      "url":"https://codepen.io/vmiis/pen/VdPyxO.html"},
+        "w3-panel":             {                      "url":"https://codepen.io/vmiis/pen/WyRdyR.html"},
+        "w6-panel":             {                      "url":"https://codepen.io/vmiis/pen/yEgpEz.html"},
+        "w12-panel":            {                      "url":"https://codepen.io/vmiis/pen/rKjpKd.html"},
+
+        "bl-questionnaire-form":    {"table_id":"20011570","url":"modules/tasks/mirror/bl-questionnaire-form.html"}
+
+	}
+}
