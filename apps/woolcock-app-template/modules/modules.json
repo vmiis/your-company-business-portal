@@ -1,0 +1,8 @@
+{
+    "modules":
+	{
+        "portal": {"url":"tasks/portal.html"},
+        "long":  {"url":"tasks/long.html"},
+        "short": {"url":"tasks/short.html"}
+	}
+}

@@ -1,0 +1,7 @@
+{
+    "modules":
+	{
+        "long":  {"url":"tasks/long.html"},
+        "short": {"url":"tasks/short.html"}
+	}
+}

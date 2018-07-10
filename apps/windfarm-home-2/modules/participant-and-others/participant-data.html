@@ -4,7 +4,7 @@
 <script>
     function F__ID(){
         //-------------------------------------
-		_fields="_Form,Participant ID|UID,Screening_ID,Randomisation_ID,Initials,Sex,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
+		_fields="_Form,Participant ID|UID,Randomisation_Number,Randomised_by,Screening_ID,Initials,Sex,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
         _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
         //-------------------------------------
         VmInclude:__COMPONENT__/grid/grid.v3.js
@@ -25,6 +25,28 @@
 				case 'UID':
                     records[I].vm_readonly[field]=true;
                 	break;
+                case 'Randomised_by':
+					records[I].vm_readonly[field]=true;
+                    break;
+				case 'Randomisation_Number':
+					records[I].vm_readonly[field]=true;
+					td.html(records[I][field]);
+					if(records[I][field]==undefined || records[I][field]==''){
+						td.on('click', function(){
+							var sql="select top 1 RN=max(V1) from [TABLE-"+_db_pid+"]";
+							$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+								if(res.records.length==1){
+									var RN=parseInt(res.records[0].RN)+1;
+									RN=RN.toString()
+									td.html(RN);
+                                    records[I].Randomised_by=$vm.user;
+									set_value(RN,records,I,field);
+                                    td.parent().find("td[data-id='Randomised_by']").html($vm.user);
+								}
+							}})
+						})
+					}
+				    break;
 				case 'Sex':
 					var html="<select style='border:0;''>"
 					html+="<option value=''>---</option>";
@@ -41,14 +63,14 @@
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Data Entry</u>");
                     td.find('u').on('click',function(){
-                        $vm.load_module_v2('child',$vm.root_layout_content_slot,{record:records[I]});
+                        $vm.nav_load_module('child',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Setup':
                     records[I].vm_custom[field]=true;
                     td.html("<u style='cursor:pointer'>Login Setup</u>");
                     td.find('u').on('click',function(){
-						$vm.load_module_v2(prefix+'login-setup',$vm.root_layout_content_slot,{record:records[I]});
+						$vm.nav_load_module(prefix+'login-setup',$vm.root_layout_content_slot,{record:records[I]});
                     });
                     break;
                 case '_Quest':
@@ -60,8 +82,7 @@
 						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
 						var q_url="https://woolcock-imr.github.io/windfarm-home-online-questionnaire-2/index.html"+p;
 						if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-							//q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/woolcock-imr")
-                            q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/vmiis/your-company-business-portal/apps")
+							q_url=q_url.replace("https://woolcock-imr.github.io","http://127.0.0.1:8000/woolcock-imr")
 						};
 						q_url=$vm.url(q_url)
 						window.open(q_url);
@@ -78,9 +99,12 @@
             }
         }
         //-------------------------------------
-		_before_submit=function(record,dbv){
-			return true;
-        }
+        _before_submit=function(record,dbv){
+			if(record.Randomisation_Number!=''){
+				dbv.V1=record.Randomisation_Number;
+			}
+            return true;
+        };
         //-------------------------------------
 		var _set_req=function(){
             //-------------------

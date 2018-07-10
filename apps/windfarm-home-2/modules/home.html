@@ -2,12 +2,24 @@
 	<div class="container-fluid" style='max-width:800px'>
 		<div class="text-center">
 		  <h3><a id=a1__ID>The Woolcock is a world-class network of specialised researchers and clinicians who deal with the causes, prevention, diagnosis and treatment of respiratory disease and sleep disorders</a></h3>
+	  	  <hr id=hr__ID></hr>
+          <button id=a2__ID class="btn btn-primary">Wind Farms Home Study</button>
+		  <br>
 		  <br><br>
 		</div>
 	</div>
 </div>
 <script>
 	function F__ID(){
+        //----------------------------------------
+		$('#a1__ID').on('click',function(){
+			$vm.load_module_v2('main');
+		})
+		//----------------------------------------
+		$('#a2__ID').on('click',function(){
+			$vm.load_module_v2('main');
+		})
+		//----------------------------------------
 	}
 </script>
 <style>

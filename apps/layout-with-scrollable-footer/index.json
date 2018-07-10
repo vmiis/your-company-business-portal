@@ -1,7 +1,0 @@
-{
-    "modules":
-	{
-        "long":  {"url":"modules/long.html"},
-        "short": {"url":"modules/short.html"}
-	}
-}
