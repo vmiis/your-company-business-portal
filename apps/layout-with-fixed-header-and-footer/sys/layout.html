@@ -1,5 +1,5 @@
-<div layout-html id=layout__ID>
-    <div header id=header__ID>
+<div layout-html id=layout_0>
+    <div header id=header_0>
         <div>
             <div mobile>
                 <span module=Home id=m_title>Business Portal</span>
@@ -13,15 +13,15 @@
                 <a module=Home><i class="fa fa-home"></i> Home</a>
                 <a module=long>Long</a>
                 <a module=short>Short</a>
-                <div class="vm_dropdown" id=signin__ID>
+                <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
-                        <a id=google__ID >With your Google account</a>
-                        <a id=facebook__ID >With your Facebook account</a>
+                        <a id=google_0 >With your Google account</a>
+                        <a id=facebook_0 >With your Facebook account</a>
                         <a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
                     </div>
                 </div>
-                <a id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                <a class=vm_hide id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
             </div>
             <div search id="vm_search">
                 <input id=vm_system_search  type="text" placeholder="Search pages..." />
@@ -29,22 +29,22 @@
         </div>
     </div>
     <div content>
-        <div content-container id="content_container__ID">
-        	<div id=vm_loader class="loader__ID"></div>
+        <div content-container id="content_container_0">
+        	<div id=vm_loader class="loader_0"></div>
         </div>
     </div>
-    <div footer id=footer__ID>
-    	<span id=text__ID></span>
+    <div footer id=footer_0>
+    	<span id=text_0></span>
     </div>
 </div>
 <div system-html>
-    <div top-right-corner id=top_right_corner__ID class='d-none d-xl-block'>
+    <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
         <div>
-            <span id=username__ID></span>
+            <span id=vm_username></span>
         </div>
     </div>
-    <div style='position:absolute;right:20px;bottom:0'>
-        <span id=database_d__ID><span id=vm_system_info style='color:#555';></span></span>
+    <div style='position:fixed;right:20px;bottom:0'>
+        <span id=database_d_0><span id=vm_system_info style='color:#555';></span></span>
     </div>
     <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
@@ -68,23 +68,23 @@
 <script layout-js>
     $vm.layout=function(){
 		//------------------------------------
-        $vm.root_layout_content_slot="content_container__ID";
+        $vm.root_layout_content_slot="content_container_0";
 		//------------------------------------
         var set_height=function(){
-			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
-			var footer_height=$('#footer__ID').outerHeight();
+			var header_height=$('#header_0').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer_0').outerHeight();
 			$vm.min_height=($(window).height()-header_height-footer_height);
-			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
+			$('#content_container_0').css({'height':($vm.min_height)+'px'});
 		}
 		//------------------------------------
 		set_height();window.onresize=function(){set_height();}
         //-----------------------------------------
 	}
     $vm.footer=function(){
-        $vm.root_layout_footer='footer__ID';
-        if($vm.server=='production') $('#database_d__ID').hide();
+        $vm.root_layout_footer='footer_0';
+        if($vm.server=='production') $('#database_d_0').hide();
         //-----------------------------------------------------
-        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL__ID>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).  </span>");
+        $('#text_0').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).  </span>");
         //------------------------------------
     }
     //---------------------------------------------
@@ -117,21 +117,21 @@
             if($vm.user_puid=="1") third=" (Google)";
             if($vm.user_puid=="2") third=" (Facebook)";
             if($vm.user=='guest'){
-                $('#username__ID').text('');
-                $('#signin__ID').show();
-                $('#signout__ID').hide();
+                $('#vm_username').text('');
+                $('#vm_signin').removeClass('vm_hide');
+                $('#vm_signout').addClass('vm_hide');
             }
             else{
-                $('#username__ID').text('Signed in as '+ $vm.user+third);
-                $('#signin__ID').hide();
-                $('#signout__ID').show();
+                $('#vm_username').text('Signed in as '+ $vm.user+third);
+                $('#vm_signin').addClass('vm_hide');
+                $('#vm_signout').removeClass('vm_hide');
             }
         }
         show_user();
         //---------------------------------------------
         if(window.location.hostname!='127.0.0.1'){
-            $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
-            $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+            $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google_0',show_user);
+            $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
         }
         //---------------------------------------------
     }
@@ -156,19 +156,21 @@
     #vm_framework{
         height:100%;
     }
-    #layout__ID {
+    #layout_0 {
         height: 100%;
         display: grid;
         grid-template-rows: auto 1fr auto;
         overflow:hidden;
     }
+    /*----------------------*/
+    /*nodule*/
     .vm_module{
         width:100%;
         height:100%;
     }
     /*----------------------*/
     /*header*/
-    #header__ID{
+    #header_0{
         height:100px;
         background: rgba(0,0,0,0.5);
     }
@@ -192,6 +194,17 @@
         font-size: 93%;
         line-height:80%;
         display:inline-block;
+    }
+    #m_title{
+        display:none;
+    }
+    #vm_icon {
+      display: none;
+    }
+    /*----------------------*/
+    /*menu*/
+    .vm_hide{
+        display:none!Important;
     }
     #vm_menu {
         margin-top:50px;
@@ -222,9 +235,6 @@
       text-decoration: none;
       font-size: 14px;
       cursor:pointer;
-    }
-    #vm_icon {
-      display: none;
     }
     .vm_active {
       background-color: #4CAF50;
@@ -276,9 +286,78 @@
         background-color: #ddd;
         color: black;
     }
-    #m_title{
-        display:none;
+    /*----------------------*/
+    /*search*/
+    .ui-widget-content{
+        background:#eff3dc!important;
     }
+    .ui-autocomplete.ui-menu{font-size:12px}
+	.ui-menu-item .ui-menu-item-wrapper:hover{
+		font-weight:normal;
+	}
+    /*----------------------*/
+    /*content*/
+    #content_container_0{
+        /*position:fixed;*/
+        width:100%;
+        overflow:hidden;
+    }
+    #vm_loader{
+        display:none;
+        position:absolute;
+    }
+    .loader_0 {
+      height: 4px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background-color: #ddd;
+    }
+    .loader_0:before{
+      display: block;
+      position: absolute;
+      content: "";
+      left: -200px;
+      width: 200px;
+      height: 4px;
+      background-color: #2980b9;
+      animation: loading 2s linear infinite;
+    }
+    @keyframes loading {
+        from {left: -200px; width: 30%;}
+        50% {width: 30%;}
+        70% {width: 70%;}
+        80% { left: 50%;}
+        95% {left: 120%;}
+        to {left: 100%;}
+    }
+    /*----------------------*/
+    /*footer*/
+    #footer_0{
+        height:24px;
+        color: #fff;
+        padding: 3px;
+        background-color: #333;
+        font:80%/18px arial;
+        text-align: center;
+    }
+    /*----------------------*/
+    /*top right*/
+    #top_right_corner_0{
+        display:block;
+        position:fixed;
+        top:3px;
+        right:3px;
+        font-size:11px;
+        line-height:13px;
+        color:#fff;
+        z-index: 99999;
+    }
+    #vm_username{
+        float:right;
+    }
+    /*-------------------------------------------------------*/
+    /*mobile*/
     @media screen and (max-width: 1280px) {
         #m_title{
             color:#fff;
@@ -300,6 +379,13 @@
             top: 0;
             cursor:pointer;
             color:#fff;
+        }
+        #vm_menu {
+          padding-left:15px;
+          padding-right:15px;
+        }
+        #vm_menu > a {
+          color: #fff;
         }
         #vm_menu.responsive {
             position: relative;
@@ -326,7 +412,7 @@
             display:block;
             float:unset;
         }
-        #header__ID{
+        #header_0{
             height:unset;
             background: rgba(0,0,0,0.3);
         }
@@ -341,71 +427,10 @@
         from {max-height: 0px;}
         to {max-height: 1000px;}
     }
-    /*----------------------*/
-    /*content*/
-    #content_container__ID{
-        /*position:fixed;*/
-        width:100%;
-        overflow:hidden;
-    }
-    #vm_loader{
-        display:none;
-        position:absolute;
-    }
-    .loader__ID {
-      height: 4px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      background-color: #ddd;
-    }
-    .loader__ID:before{
-      display: block;
-      position: absolute;
-      content: "";
-      left: -200px;
-      width: 200px;
-      height: 4px;
-      background-color: #2980b9;
-      animation: loading 2s linear infinite;
-    }
-    @keyframes loading {
-        from {left: -200px; width: 30%;}
-        50% {width: 30%;}
-        70% {width: 70%;}
-        80% { left: 50%;}
-        95% {left: 120%;}
-        to {left: 100%;}
-    }
-    /*----------------------*/
-    /*footer*/
-    #footer__ID{
-        height:24px;
-        color: #fff;
-        padding: 3px;
-        background-color: #333;
-        font:80%/18px arial;
-        text-align: center;
-    }
     @media screen and (max-width: 900px){
-        #FL__ID{
+        #FL_0{
             display:none;
         }
-    }
-    /*----------------------*/
-    /*top right*/
-    #top_right_corner__ID{
-        display:block;
-        position:fixed;
-        top:3px;
-        right:3px;
-        font-size:11px;
-        line-height:13px;
-        color:#fff;
-        z-index: 99999;
-    }
-    #username__ID{
-        float:right;
     }
     /*----------------------*/
 	@keyframes vm_module_fadein {
@@ -419,13 +444,6 @@
     @keyframes vm_module_slide_out {
         from { margin-top:0; }
 		to {margin-top:-50%;}
-	}
-    .ui-widget-content{
-        background:#eff3dc!important;
-    }
-    .ui-autocomplete.ui-menu{font-size:12px}
-	.ui-menu-item .ui-menu-item-wrapper:hover{
-		font-weight:normal;
 	}
     @media print {
         html,body{

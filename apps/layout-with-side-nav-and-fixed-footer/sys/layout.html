@@ -1,12 +1,12 @@
-<div layout-html id=layout__ID>
-    <div id=header__ID>
-        <div id=m_header__ID>
-            <span module=Home id=m_title__ID>Business Portal</span> <a id=vm_toggle__ID onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+<div layout-html id=layout_0>
+    <div id=header_0>
+        <div id=m_header_0>
+            <span module=Home id=m_title_0>Business Portal</span> <a id=vm_toggle_0 onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
         </div>
-        <div id=d_header__ID>Header</div>
+        <div id=d_header_0>Header</div>
     </div>
-    <div id=main__ID>
-        <div id=sidebar__ID class=vm_hide>
+    <div id=main_0>
+        <div id=sidebar_0 class=vm_sidebar_hide>
             <div id=vm_logo module=Home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
@@ -21,49 +21,50 @@
         			<li module=two-columns>Article 3</li>
         		</ul>
                 <u class=vm_li module=portal><i class="fa fa-th"></i>Sitemap</u>
-                <div id=signin__ID>
+                <div id=vm_signin>
                     <u class=vm_folder><i class="fa fa-folder-o"></i>Sign In</u>
-                    <ul class=vm_menu_hide__ID>
-                        <li id=google__ID >With your Google account</li>
-                        <li id=facebook__ID >With your Facebook account</li>
+                    <ul class=vm_menu_hide_0>
+                        <li id='google_0' >With your Google account</li>
+                        <li id='facebook_0'>With your Facebook account</li>
                         <li onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</li>
                     </ul>
                     <br>
                 </div>
-                <div id=signout__ID>
-                    <u style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</u>
+                <div id=vm_signout>
+                    <u onclick=$vm.nav_signout()><i class="fa fa-user"></i>Sign Out</u>
                 </div>
             </div>
             <div id="vm_search">
                 <input id=vm_system_search  type="text" placeholder=" Search pages..." />
             </div>
             <div id="vm_social">
-                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button__ID twitter__ID"><i class="fa fa-twitter"></i><span></span></a>
-                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button__ID facebook__ID"><i class="fa fa-facebook"></i><span></span></a>
-                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button__ID google-plus__ID"><i class="fa fa-google"></i><span></span></a>
-                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button__ID linkedin__ID"><i class="fa fa-linkedin"></i><span></span></a>
-                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button__ID pinterest__ID"><i class="fa fa-pinterest"></i><span></span></a>
+                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button_0 twitter_0"><i class="fa fa-twitter"></i><span></span></a>
+                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button_0 facebook_0"><i class="fa fa-facebook"></i><span></span></a>
+                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button_0 google-plus_0"><i class="fa fa-google"></i><span></span></a>
+                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button_0 linkedin_0"><i class="fa fa-linkedin"></i><span></span></a>
+                <a target=_blank href="https://www.linkedin.com/in/zhimingzhouaustralia/" class="icon-button_0 pinterest_0"><i class="fa fa-pinterest"></i><span></span></a>
             </div>
             <style>
             </style>
         </div>
-        <div id=content__ID>
-            <div content-container id="content_container__ID">
-            	<div id=vm_loader class="loader__ID"></div>
+        <div id=content_0>
+            <div content-container id="content_container_0">
+            	<div id=vm_loader class="loader_0"></div>
             </div>
         </div>
     </div>
-    <div id=footer__ID>
-    	<span id=text__ID></span><span id=vm_system_info style='color:#555;float:right'></span>
+    <div id=footer_0>
+    	<span id=text_0></span><span id=vm_system_info style='color:#555;float:right'></span>
     </div>
 </div>
 <div system-html>
-    <div top-right-corner id=top_right_corner__ID class='d-none d-xl-block'>
+    <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
         <div>
-            <span id=database_p__ID style='color:green'>. </span>
-            <span id=database_d__ID style='color:red'>. </span>
-            <span id=username__ID></span>
+            <span id=vm_username></span>
         </div>
+    </div>
+    <div style='position:fixed;right:20px;bottom:0'>
+        <span id=database_d_0><span id=vm_system_info style='color:#555';></span></span>
     </div>
     <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
@@ -88,14 +89,14 @@
     //---------------------------------------------
 	$vm.layout=function(){
 		//------------------------------------
-        $vm.root_layout_content_slot="content_container__ID";
+        $vm.root_layout_content_slot="content_container_0";
 		//------------------------------------
         var set_height=function(){
-			var header_height=$('#m_header__ID').outerHeight(); $vm.header_height=header_height;
-			var footer_height=$('#footer__ID').outerHeight();
+			var header_height=$('#m_header_0').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer_0').outerHeight();
 			$vm.min_height=($(window).height()-header_height-footer_height);
-			$('#content_container__ID').css({'height':($vm.min_height)+'px'});
-            $('#sidebar__ID').css({'height':($vm.min_height)+'px'});
+			$('#content_container_0').css({'height':($vm.min_height)+'px'});
+            $('#sidebar_0').css({'height':($vm.min_height)+'px'});
 		}
 		//------------------------------------
 		set_height();window.onresize=function(){set_height();}
@@ -103,15 +104,15 @@
 	}
     //---------------------------------------------
     $vm.footer=function(){
-        $vm.root_layout_footer='footer__ID';
+        $vm.root_layout_footer='footer_0';
         //-----------------------------------------------------
-        $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL__ID>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).  </span>");
+        $('#text_0').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).  </span>");
         //------------------------------------
     }
     //---------------------------------------------
     $vm.top_right_corner=function(){
-        if($vm.server=='development') $('#database_d__ID').show();
-        else if($vm.server=='production') $('#database_p__ID').show();
+        if($vm.server=='development') $('#database_d_0').show();
+        else if($vm.server=='production') $('#database_p_0').show();
     }
     //---------------------------------------------
     $('#vm_menu .vm_folder').on('click',function(){
@@ -119,11 +120,11 @@
         var $ul=$(this).next('ul');
         if($folder.hasClass('fa-folder-open-o')){
             $folder.removeClass('fa-folder-open-o').addClass('fa-folder-o');
-            $ul.removeClass('vm_menu_show__ID').addClass('vm_menu_hide__ID');
+            $ul.removeClass('vm_menu_show_0').addClass('vm_menu_hide_0');
         }
         else if($folder.hasClass('fa-folder-o')){
             $folder.removeClass('fa-folder-o').addClass('fa-folder-open-o');
-            $ul.removeClass('vm_menu_hide__ID').addClass('vm_menu_show__ID');
+            $ul.removeClass('vm_menu_hide_0').addClass('vm_menu_show_0');
         }
     })
     //--------------------------------------------------------
@@ -135,8 +136,8 @@
                 return;
             }
             $vm.load_module_v2(m,'',{});
-            var d=$('#sidebar__ID');
-            d.removeClass('vm_show').addClass('vm_hide');
+            var d=$('#sidebar_0');
+            //d.removeClass('vm_show').addClass('vm_hide');
         }
     }
     //--------------------------------------------------------
@@ -145,16 +146,17 @@
     $('#vm_menu .vm_li').on('click',function(){ $vm.menu_click_process($(this));})
     //--------------------------------------------------------
     $vm.toggle=function() {
-        var d=$('#sidebar__ID');
-        if(d.hasClass('vm_show')){
-            d.removeClass('vm_show').addClass('vm_hide');
+        var d=$('#sidebar_0');
+        $('#sidebar_0').css({'height':'unset'});
+        if(d.hasClass('vm_sidebar_hide')){
+            d.removeClass('vm_sidebar_hide').addClass('vm_show');
         }
         else{
-            d.removeClass('vm_hide').addClass('vm_show');
+            d.removeClass('vm_show').addClass('vm_sidebar_hide');
         }
     }
     $vm.header=function(){
-        $('#m_title__ID').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
+        $('#m_title_0').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
         $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
         //---------------------------------------------
         var show_user=function(){
@@ -162,21 +164,21 @@
             if($vm.user_puid=="1") third=" (Google)";
             if($vm.user_puid=="2") third=" (Facebook)";
             if($vm.user=='guest'){
-                $('#username__ID').text('');
-                $('#signin__ID').show();
-                $('#signout__ID').hide();
+                $('#vm_username').text('');
+                $('#vm_signin').removeClass('vm_hide');
+                $('#vm_signout').addClass('vm_hide');
             }
             else{
-                $('#username__ID').text('Signed in as '+ $vm.user+third);
-                $('#signin__ID').hide();
-                $('#signout__ID').show();
+                $('#vm_username').text('Signed in as '+ $vm.user+third);
+                $('#vm_signin').addClass('vm_hide');
+                $('#vm_signout').removeClass('vm_hide');
             }
         }
         show_user();
         //---------------------------------------------
         if(window.location.hostname!='127.0.0.1'){
-            $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
-            $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+            $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google_0',show_user);
+            $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
         }
         //---------------------------------------------
     }
@@ -200,41 +202,49 @@
     #vm_framework{
         height:100%;
     }
-    #layout__ID {
+    #layout_0 {
         height: 100%;
         display: grid;
         grid-template-rows: auto 1fr auto;
         overflow:hidden;
     }
+    /*----------------------*/
+    /*nodule*/
     .vm_module{
         width:100%;
         height:100%;
     }
     /*side nav-----------------------------------------------*/
-    #m_header__ID{
+    #m_header_0{
         display:none;
     }
-    #d_header__ID{
+    #d_header_0{
       display:block;
       height:0px;
       overflow:hidden;
     }
-    #main__ID{
+    #main_0{
         height:100%;
     }
-    #sidebar__ID{
+    #sidebar_0{
         float: left;
         width:280px;
         height:100%;
         overflow: auto;
         height: 100%;
     }
-    #content__ID{
+    #content_0{
         margin-left:280px;
     }
+    /*
     .vm_hide{
     }
-    /*menu-----------------------------------------------*/
+    */
+    /*----------------------*/
+    /*menu*/
+    .vm_hide{
+        display:none!Important;
+    }
     #vm_menu i{
         width:20px;
         display:inline-block;
@@ -249,7 +259,7 @@
     .vm_li{
         width:100%;
     }
-    #sidebar__ID{
+    #sidebar_0{
         background: rgba(0,0,0,0.5);
     }
     #vm_logo{
@@ -304,31 +314,31 @@
         margin-top:5px;
         border-radius:.25rem;
     }
-    #vm_toggle__ID {
+    #vm_toggle_0 {
       display: none;
     }
     .vm_active {
       background-color: #4CAF50;
       color: white;
     }
-    #m_title__ID{
+    #m_title_0{
         display:none;
     }
-    .vm_menu_show__ID{
+    .vm_menu_show_0{
         display:block;
         max-height: 1000px;
         overflow: hidden;
-        animation: vm_menu_show__ID 1.8s;
+        animation: vm_menu_show_0 1.8s;
     }
-    .vm_menu_hide__ID{
+    .vm_menu_hide_0{
         display:none;
         /*
         max-height: 0px;
         overflow: hidden;
-        animation: vm_menu_hide__ID 1.8s;
+        animation: vm_menu_hide_0 1.8s;
         */
     }
-    #footer__ID{
+    #footer_0{
         height:24px;
         color: #fff;
         padding: 3px;
@@ -337,11 +347,11 @@
         text-align: center;
     }
     @media screen and (max-width: 900px){
-        #FL__ID{
+        #FL_0{
             display:none;
         }
     }
-    #content_container__ID{
+    #content_container_0{
         width:100%;
         overflow:hidden;
     }
@@ -349,14 +359,14 @@
         display:none;
         position:absolute;
     }
-    .loader__ID {
+    .loader_0 {
       height: 4px;
       width: 100%;
       position: relative;
       overflow: hidden;
       background-color: #ddd;
     }
-    .loader__ID:before{
+    .loader_0:before{
       display: block;
       position: absolute;
       content: "";
@@ -367,18 +377,21 @@
       animation: loading 2s linear infinite;
     }
 
-
-
+    .vm_sidebar_hide{
+    }
     @media screen and (max-width: 1280px) {
-        #m_header__ID{
+        .vm_sidebar_hide{
+            display:none;
+        }
+        #m_header_0{
             display:block;
             background: rgba(0, 0, 0, 0.3);
         }
-        #content__ID{
+        #content_0{
             display:block;
             margin-left:0px;
         }
-        #sidebar__ID{
+        #sidebar_0{
             float: none;
             min-width:100%;
             height:auto;
@@ -388,19 +401,16 @@
             display:block;
             max-height: 1000px;
             overflow: hidden;
-            animation: vm_menu_show__ID 1.8s;
+            animation: vm_menu_show_0 1.8s;
         }
-        .vm_hide{
-            display:none;
-        }
-        #m_title__ID{
+        #m_title_0{
             color:#fff;
             font-size: 28px;
             display:inline-block;
             padding: 7px 0 0 12px;
             cursor: pointer;
         }
-        #vm_toggle__ID {
+        #vm_toggle_0 {
             float: right;
             display: block;
             font-size:28px;
@@ -431,7 +441,7 @@
     }
 
 
-    #top_right_corner__ID{
+    #top_right_corner_0{
         display:block;
         position:fixed;
         top:3px;
@@ -441,18 +451,18 @@
         color:#fff;
         z-index: 99999;
     }
-    #username__ID{
+    #username_0{
         float:right;
     }
-    #database_d__ID{
+    #database_d_0{
         display:none;
     }
-    #database_p__ID{
+    #database_p_0{
         display:none;
     }
     /*--------------------------------*/
     /*social*/
-    .icon-button__ID {
+    .icon-button_0 {
         color:white;
         background-color: white;
         border-radius: 20px;
@@ -470,19 +480,19 @@
             -ms-user-select: none;
                 user-select: none;
     }
-    .twitter__ID {
+    .twitter_0 {
     	background-color: rgba(64,153,255,.7);
     }
-    .facebook__ID  {
+    .facebook_0  {
     	background-color: rgba(80,122,189,.7);
     }
-    .google-plus__ID {
+    .google-plus_0 {
     	background-color: rgba(219,90,60,.7);
     }
-    .linkedin__ID {
+    .linkedin_0 {
     	background-color: rgba(16,134,200,.7);
     }
-    .pinterest__ID {
+    .pinterest_0 {
     	background-color: rgba(203,32,39,.7);
     }
     /*--------------------------------*/
@@ -516,11 +526,11 @@
         from { margin-top:0; }
 		to {margin-top:-50%;}
 	}
-    @keyframes vm_menu_show__ID {
+    @keyframes vm_menu_show_0 {
         from {max-height: 0px;}
         to {max-height: auto;}
     }
-    @keyframes vm_menu_hide__ID {
+    @keyframes vm_menu_hide_0 {
         from {max-height: 100px;}
         to {max-height: 0px;}
     }

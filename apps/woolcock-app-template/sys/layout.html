@@ -11,13 +11,13 @@
     					<img width=360 src='sys/layout.logo.gif' style='margin-top:10px;margin-bottom:10px'></img>
         	        </div>
                 </div>
-                <div id="vm_system_menu">
+                <div id="vm_menu">
                     <a module=Home _class="vm_active"><i class="fa fa-home"></i> Home</a>
                     <a module=long>Long</a>
                     <a module=short>Short</a>
                     <a module=portal><i class="fa fa-th"></i> Portal</a>
                     <a id=signin__ID onclick=$vm.nav_wappsystem_signin()><i class="fa fa-user"></i> Sign In</a>
-                    <a id=signout__ID style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                    <a id=signout__ID class=vm_hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
                 </div>
             </div>
         </div>
@@ -91,16 +91,16 @@
         //------------------------------------
     }
     $vm.toggle=function(){
-        var x = document.getElementById("vm_system_menu");
+        var x = document.getElementById("vm_menu");
         if(x.className==='') x.className="responsive";
         else x.className="";
     }
     $vm.header=function(){
-        $('#vm_system_menu a').on('click',function(){
+        $('#vm_menu a').on('click',function(){
             var module=$(this).attr('module');
             if(module!=undefined) $vm.load_module_v2(module);
             if( $(this).attr('toggle')==undefined){
-                var x = document.getElementById("vm_system_menu");
+                var x = document.getElementById("vm_menu");
                 if(x.className==='responsive') x.className="";
             }
         })
@@ -120,13 +120,13 @@
             if($vm.user_puid=="2") third=" (Facebook)";
             if($vm.user=='guest'){
                 $('#username__ID').text('');
-                $('#signin__ID').show();
-                $('#signout__ID').hide();
+                $('#signin__ID').removeClass('vm_hide');
+                $('#signout__ID').addClass('vm_hide');
             }
             else{
                 $('#username__ID').text('Signed in as '+ $vm.user+third);
-                $('#signin__ID').hide();
-                $('#signout__ID').show();
+                $('#signin__ID').addClass('vm_hide');
+                $('#signout__ID').removeClass('vm_hide');
             }
         }
         show_user();
@@ -191,7 +191,12 @@
         line-height:80%;
         display:inline-block;
     }
-    #vm_system_menu {
+    /*----------------------*/
+    /*menu*/
+    .vm_hide{
+        display:none!Important;
+    }
+    #vm_menu {
         margin-top:50px;
         margin-right:20px;
         overflow: hidden;
@@ -205,7 +210,7 @@
         border-radius:.25rem;
         padding-left:6px
     }
-    #vm_system_menu > a {
+    #vm_menu > a {
       float: left;
       display: block;
       color: #000000;
@@ -254,7 +259,7 @@
         text-align: left;
         cursor:pointer;
     }
-    #vm_system_menu > a:hover, .vm_dropdown:hover .vm_dropbtn {
+    #vm_menu > a:hover, .vm_dropdown:hover .vm_dropbtn {
       background-color: #555;
       color: white;
       border-radius:4px;
@@ -274,7 +279,7 @@
             padding: 7px 0 0 12px;
             cursor: pointer;
         }
-        #vm_system_menu a, .vm_dropdown .vm_dropbtn {
+        #vm_menu a, .vm_dropdown .vm_dropbtn {
             display: none;
         }
         #vm_icon {
@@ -288,20 +293,27 @@
             cursor:pointer;
             color:#fff;
         }
-        #vm_system_menu.responsive {position: relative;}
-        #vm_system_menu.responsive a {
+        #vm_menu {
+            padding-left:15px;
+            padding-right:15px;
+        }
+        #vm_menu > a {
+          color: #fff;
+        }
+        #vm_menu.responsive {position: relative;}
+        #vm_menu.responsive a {
             float: none;
             display: block;
             text-align: left;
         }
-        #vm_system_menu.responsive .vm_dropdown {float: none;}
-        #vm_system_menu.responsive .vm_dropdown-content {position: relative;}
-        #vm_system_menu.responsive .vm_dropdown .vm_dropbtn {
+        #vm_menu.responsive .vm_dropdown {float: none;}
+        #vm_menu.responsive .vm_dropdown-content {position: relative;}
+        #vm_menu.responsive .vm_dropdown .vm_dropbtn {
             display: block;
             width: 100%;
             text-align: left;
         }
-        #vm_system_menu {
+        #vm_menu {
             margin-top:0px;
             margin-right:0px;
             overflow: hidden;
