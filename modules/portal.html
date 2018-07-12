@@ -55,7 +55,7 @@
 			</ul>
 		</div>
 		<div class='nav__ID modules__ID'>
-            <span>Layout Templates</span>
+            <span>Website Templates</span>
 			<ul>
 				<li><u a=layout-with-fixed-header-and-footer>layout with fixed header and footer</u></li>
 				<li><u a=layout-with-scrollable-footer>Layout with scrollable footer</u></li>
@@ -63,14 +63,15 @@
 				<li><u a=layout-with-scrollable-header-and-footer>layout with scrollable header and footer</u></li>
 				<li><u a=layout-with-side-nav-and-fixed-footer>layout with side nav and fixed footer</u></li>
 				<li><u a=woolcock-app-template>Woolcock application template</u></li>
+				<li><u a=personal-website-template>Personal website template</u></li>
 			</ul>
 			<br>
 			<span>Projects</span>
 			<ul>
 				<li><u a=woolcock-hdeeg-mci>HDEEG-MCI</u></li>
 				<li><u a=woolcock-hdeeg-mci-online-questionnaire>HDEEG-MCI online questionnaire</u></li>
-				<li><u a=windfarm-home-2>Windfarm home study</u></li>
-				<li><u a=windfarm-home-online-questionnaire-2>Windfarm home study online questionnaire</u></li>
+				<li><u a="https://woolcock-imr.github.io/windfarm-home-2/?database=development">Windfarm home study</u></li>
+				<li><u a="https://woolcock-imr.github.io/windfarm-home-online-questionnaire-2/?database=development">Windfarm home study online questionnaire</u></li>
 				<li><u a="https://wappsystem.github.io/sleepfix/">SleepFix</u></li>
 				<li><u a="https://wappsystem.github.io/sleepfix-management/">SleepFix managemnet</u></li>
 				<li><u a="https://wappsystem.github.io/sleepfix-online-questionnaire/">SleepFix online questionnaire</u></li>
@@ -120,6 +121,10 @@
             var a=$(this).attr('a');
             if(a!=undefined){
 				if(a.substring(0,4)=='http'){
+					if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+						a=a.replace("https://wappsystem.github.io/","http://127.0.0.1:8000/wappsystem/");
+						a=a.replace("https://woolcock-imr.github.io/","http://127.0.0.1:8000/woolcock-imr/");
+					}
 					window.open(a);
 				}
 				else window.open('apps/'+a+'/index.html');
