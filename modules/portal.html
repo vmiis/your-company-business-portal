@@ -71,9 +71,9 @@
 				<li><u a=woolcock-hdeeg-mci-online-questionnaire>HDEEG-MCI online questionnaire</u></li>
 				<li><u a=windfarm-home-2>Windfarm home study</u></li>
 				<li><u a=windfarm-home-online-questionnaire-2>Windfarm home study online questionnaire</u></li>
-				<li><u a=sleepfix>SleepFix</u></li>
-				<li><u a=sleepfix-management>SleepFix managemnet</u></li>
-				<li><u a=sleepfix-online-questionnaire>SleepFix online questionnaire</u></li>
+				<li><u a="https://wappsystem.github.io/sleepfix/">SleepFix</u></li>
+				<li><u a="https://wappsystem.github.io/sleepfix-management/">SleepFix managemnet</u></li>
+				<li><u a="https://wappsystem.github.io/sleepfix-online-questionnaire/">SleepFix online questionnaire</u></li>
 			</ul>
 		</div>
 		<div class='nav__ID modules__ID'>
@@ -119,7 +119,10 @@
             }
             var a=$(this).attr('a');
             if(a!=undefined){
-				window.open('apps/'+a+'/index.html');
+				if(a.substring(0,4)=='http'){
+					window.open(a);
+				}
+				else window.open('apps/'+a+'/index.html');
             }
         })
         //--------------------------------------------------------

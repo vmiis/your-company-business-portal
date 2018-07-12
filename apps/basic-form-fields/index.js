@@ -90,7 +90,7 @@ $vm.app_init=function(callback){
         //------------------------------------------
         if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
             console.log('loading from url. '+url)
-            $.get(url+'?_='+$vm.reload,function(data){
+            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
                 localStorage.setItem(url+"_ver",$vm.ver[1]);
                 $('head').append('<scr'+'ipt>'+data+'</scr'+'ipt>');
