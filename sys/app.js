@@ -1,6 +1,6 @@
 //------------------------------------
 $vm.module_links=[
-    "index.json",
+    "modules/modules.json",
     "abf|apps/a-basic-application-framework/index.json",
     "sfw|apps/sleepfix-workbench/index.json",
     "ajs|apps/angularjs/index.json",
@@ -49,7 +49,7 @@ $vm.module_links=[
     "il|apps/clinical-trials-005/pages/index.json",
 ];
 $vm.module_list={
-    "Home":  {"url":"modules/home.html"}
+    "Home":     {"url":"modules/home.html"}
 }
 //------------------------------------
 $vm.app_config={
@@ -87,7 +87,7 @@ $vm.app_init=function(callback){
     }
     $vm.version=$vm.ver[0];
     //--------------------------------------------------------
-    $vm.parts_path="https://component.vmiis.com/";
+    $vm.parts_path="https://vmiis.github.io/component";
     if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
         $vm.library_path =window.location.protocol+'//'+window.location.host;
     }
@@ -158,11 +158,11 @@ $vm.app_init=function(callback){
 		text=text.replace(/__LIB__\/vmiis\/Common-Code\//g,'__COMPONENT__/');
 		text=text.replace(/__BASE__\/vmiis\/common-code\//g,'__COMPONENT__/');
 		text=text.replace(/__LIB__\/vmiis\/common-code\//g,'__COMPONENT__/');
-		text=text.replace(/__PARTS__\//g,'__COMPONENT__/');
+        text=text.replace(/__PARTS__\//g,'__COMPONENT__/');
 		text=text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/');
 		if(window.location.toString().indexOf('_d=1')!=-1){
 			//use local system files
-			var host=window.location.protocol+'//'+window.location.host;
+            var host=window.location.protocol+'//'+window.location.host;
 			text=text.replace(/https:\/\/api.vmiis.com/g,host+'/vmiis/api-2');
 			text=text.replace(/https:\/\/framework.vmiis.com/g,host+'/vmiis/framework-2');
 			text=text.replace(/https:\/\/component.vmiis.com/g,host+'/vmiis/component-2');
@@ -270,6 +270,15 @@ $vm.app_init(function(){
     }
     //------------------------------------
     var load_search_module=function(){
+        var a=window.location.href.split('page=sitemap');
+        if(a.length==2){
+            var txt="";
+            for(var k in $vm.module_list){
+                if(k[0]!='_') txt+="https://www.vmiis.com/?page="+k+"\r\n";
+            }
+            $vm.view_code(txt,"Sitemap");
+            return;
+        }
         var a=window.location.href.split('page=');
         if(a.length==2){
             var name=a[1].split('&')[0];
@@ -288,16 +297,6 @@ $vm.app_init(function(){
         var search_loop=setInterval(function (){
 			if($vm['jquery-ui-min-js']==1){
 				clearInterval(search_loop);
-                /*
-                for(k in $vm.module_list){
-                    if($vm.module_list[k].name_for_search!=undefined){
-                        if($vm.module_list[k].name_for_search!=""){
-                            $vm.website_module_list_for_search.push({label:$vm.module_list[k].name_for_search,value:k});
-                        }
-                    }
-                    else $vm.website_module_list_for_search.push({label:k,value:k});
-                }
-                */
                 $("#vm_system_search").autocomplete({
                     minLength:0,
                     source: function(request, response) {
@@ -323,51 +322,50 @@ $vm.app_init(function(){
     //------------------------------------
     var module_links=function(){
         var rm=$vm.module_links;
-        var process=function(prefix,nm){
+        var i=0
+        var N=rm.length;
+        var process=function(I,prefix,nm){
             $.get(nm+'?_='+$vm.ver[0]+$vm.reload,function(txt){
                 var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
                 var modules=config.modules;
                 var path=nm.replace('index.json','');
+                path=path.replace('modules.json','');
                 for (var k in modules){
-                    if(modules[k].url!=undefined){
-                        if(modules[k].url.toString().startsWith('http://') || modules[k].url.toString().startsWith('https://') )
-                            modules[k].url=modules[k].url;
-                        else
-                            modules[k].url=path+modules[k].url;
-                        $vm.module_list[prefix+k]=modules[k];
-                        $vm.module_list[prefix+k].prefix=prefix;
-                        var snm=modules[k]['name_for_search'];
-                        if(snm!=""){
-                            if(snm==undefined) snm=prefix+k;
-                            $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
-                        }
+                    modules[k].url=path+modules[k].url;
+                    $vm.module_list[prefix+k]=modules[k];
+                    $vm.module_list[prefix+k].prefix=prefix;
+                    var snm=modules[k]['name_for_search'];
+                    if(snm!=""){
+                        if(snm==undefined) snm=prefix+k;
+                        $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
                     }
+                }
+                if(I==N-1){ //all module's link are ready
+                    if($vm.home_process!=undefined) $vm.home_process();
+                    else load_search_module();
                 }
             },'text');
         }
-        var i=0
-        var N=rm.length;
         if(N>0){
             var link_remote_module_loop=setInterval(function (){
                 if(i>=N){
                     clearInterval(link_remote_module_loop);
-                    load_search_module();
+                    //load_search_module();
                     return;
                 }
                 var ns=rm[i].split('|');
-                if(ns.length==1) process("",ns[0])
-                else process(ns[0]+"_",ns[1]);
+                if(ns.length==1) process(i,"",ns[0])
+                else process(i,ns[0]+"_",ns[1]);
                 i++;
             },10);
         }
     }
     //------------------------------------
     $vm.layout();
-    $vm.top_right_corner();
     $vm.header();
     $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-    $vm.load_module_v2("Home",'',{});
+    var a=window.location.href.split('page=');if(a.length==1) $vm.load_module_v2("Home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
     over_write_alert();
     set_module_search();
