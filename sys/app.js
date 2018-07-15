@@ -1,7 +1,6 @@
 //------------------------------------
 $vm.module_links=[
     "modules/modules.json",
-    "abf|apps/a-basic-application-framework/index.json",
     "sfw|apps/sleepfix-workbench/index.json",
     "ajs|apps/angularjs/index.json",
     "bff|apps/basic-form-fields/index.json",
@@ -351,7 +350,6 @@ $vm.app_init(function(){
             var link_remote_module_loop=setInterval(function (){
                 if(i>=N){
                     clearInterval(link_remote_module_loop);
-                    //load_search_module();
                     return;
                 }
                 var ns=rm[i].split('|');
