@@ -274,7 +274,8 @@ $vm.app_init(function(){
         if(a.length==2){
             var txt="";
             for(var k in $vm.module_list){
-                if(k[0]!='_') txt+="https://www.vmiis.com/?page="+k+"\r\n";
+                //if(k[0]!='_') txt+="https://www.vmiis.com/?page="+k+"\r\n";
+                if(k[0]!='_') txt+="<a href=https://www.vmiis.com/?page="+k+">"+k+"</a><br>\r\n";
             }
             $vm.view_code(txt,"Sitemap");
             return;
