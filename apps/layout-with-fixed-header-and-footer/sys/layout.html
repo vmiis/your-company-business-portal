@@ -10,9 +10,9 @@
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a module=Home><i class="fa fa-home"></i> Home</a>
-                <a module=long>Long</a>
-                <a module=short>Short</a>
+                <a href="?page=Home" module=Home><i class="fa fa-home"></i> Home</a>
+                <a href="?page=long" module=long>Long</a>
+                <a href="?page=short" module=short>Short</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -94,7 +94,8 @@
         else x.className="";
     }
     $vm.header=function(){
-        $('#vm_menu a').on('click',function(){
+        $('#vm_menu a').on('click',function(e){
+            e.preventDefault();
             var module=$(this).attr('module');
             if(module!=undefined) $vm.load_module_v2(module);
             if( $(this).attr('toggle')==undefined){
@@ -132,6 +133,23 @@
         if(window.location.hostname!='127.0.0.1'){
             $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google_0',show_user);
             $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
+        }
+        //---------------------------------------------
+        if($vm.vm==undefined) $vm.vm={}
+        $vm.vm["_0"]={}
+        $vm.vm["_0"].meta={}
+        $vm.vm["_0"].meta.title="Website Layout with fixed header and footer";
+        $vm.vm["_0"].meta.description="Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!";
+        $vm.change_meta=function(id){
+            if($vm.vm[id].meta!=undefined){
+                if($vm.vm[id].meta.title!=undefined) document.title=$vm.vm[id].meta.title; else document.title=$vm.vm['_0'].meta.title;
+                if($vm.vm[id].meta.description!=undefined)  $("meta[name='description']").attr("content", $vm.vm[id].meta.description);
+                else $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+            }
+            else{
+                document.title=$vm.vm['_0'].meta.title;
+                $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+            }
         }
         //---------------------------------------------
     }

@@ -14,6 +14,10 @@
 <script>
     function F__ID(){
         //--------------------------------------------------------
+		$vm.vm["__ID"].meta={};
+		$vm.vm["__ID"].meta.title="Portal | Modular distributed web application";
+	    $vm.vm["__ID"].meta.description="Control Panel";
+        //--------------------------------------------------------
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
