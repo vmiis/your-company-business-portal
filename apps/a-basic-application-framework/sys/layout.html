@@ -93,7 +93,8 @@
         else x.className="";
     }
     $vm.header=function(){
-        $('#vm_menu a').on('click',function(){
+        $('#vm_menu a').on('click',function(e){
+            e.preventDefault();
             var module=$(this).attr('module');
             if(module!=undefined) $vm.load_module_v2(module);
             if( $(this).attr('toggle')==undefined){

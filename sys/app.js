@@ -3,7 +3,6 @@ $vm.module_links=[
     "modules/modules.json",
     "sfw|apps/sleepfix-workbench/index.json",
     "ajs|apps/angularjs/index.json",
-    "bff|apps/basic-form-fields/index.json",
     "wfh|apps/windfarm-home-2/index.json",
     "who|apps/windfarm-home-online-questionnaire-2/index.json",
     "myf|apps/my-first-hello-world-module-in-an-application/index.json",

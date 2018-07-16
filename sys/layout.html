@@ -10,9 +10,9 @@
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a module=Home><i class="fa fa-home"></i> Home</a>
-                <a module=portal><i class="fa fa-th"></i> Business Portal</a>
-                <a module=about-this-website><i class="fa fa-info-circle"></i> About</a>
+                <a href="?page=Home" module=Home><i class="fa fa-home"></i> Home</a>
+                <a href="?page=portal" module=portal><i class="fa fa-th"></i> Business Portal</a>
+                <a href="?page=about-this-website" module=about-this-website><i class="fa fa-info-circle"></i> About</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -64,9 +64,6 @@
             </div>
         </div>
     </div>
-    <div style='position:fixed;left:-100px;bottom:-30px'>
-        <a target=_blank href=sys/sitemap.html>Sitemap<a>
-    </div>
 </div>
 <script layout-js>
     $vm.layout=function(){
@@ -97,7 +94,8 @@
         else x.className="";
     }
     $vm.header=function(){
-        $('#vm_menu a').on('click',function(){
+        $('#vm_menu a').on('click',function(e){
+            e.preventDefault();
             var module=$(this).attr('module');
             if(module!=undefined) $vm.load_module_v2(module);
             if( $(this).attr('toggle')==undefined){
@@ -138,6 +136,24 @@
         }
         //---------------------------------------------
     }
+    if($vm.vm==undefined) $vm.vm={}
+    //---------------------------------------------
+    $vm.vm["_0"]={}
+    $vm.vm["_0"].meta={}
+    $vm.vm["_0"].meta.title="Modular distributed web application";
+    $vm.vm["_0"].meta.description="A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!";
+    $vm.change_meta=function(id){
+        if($vm.vm[id].meta!=undefined){
+            if($vm.vm[id].meta.title!=undefined) document.title=$vm.vm[id].meta.title; else document.title=$vm.vm['_0'].meta.title;
+            if($vm.vm[id].meta.description!=undefined)  $("meta[name='description']").attr("content", $vm.vm[id].meta.description);
+            else $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+        }
+        else{
+            document.title=$vm.vm['_0'].meta.title;
+            $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+        }
+    }
+    //---------------------------------------------
 </script>
 <style layout-css>
 	html,body{

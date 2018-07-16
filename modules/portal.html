@@ -3,16 +3,16 @@
 		<div class='nav__ID modules__ID'>
             <span>Web application templates</span>
 			<ul>
-				<li><u a=layout-with-fixed-header-and-footer>layout with fixed header and footer</u></li>
-				<li><u a=layout-with-scrollable-footer>Layout with scrollable footer</u></li>
-				<li><u a=layout-with-sticky-header-and-scrollable-footer>Layout with sticky header and scrollable footer</u></li>
-				<li><u a=layout-with-scrollable-header-and-footer>layout with scrollable header and footer</u></li>
-				<li><u a=layout-with-side-nav-and-fixed-footer>layout with side nav and fixed footer</u></li>
-				<li><u a=woolcock-app-template>Woolcock application template</u></li>
-				<li><u a=personal-website-template>Personal website template</u></li>
-				<li><u a=a-basic-application-framework>A basic application framework</u></li>
-				<li><u a=layout-with-snow-background>Layout with snow background</u></li>
-				<li><u a=basic-form-fields>Basic form fields</u></li>
+				<li><a target=_blank href="apps/layout-with-fixed-header-and-footer/">layout with fixed header and footer</a></li>
+				<li><a target=_blank href="apps/layout-with-scrollable-footer/">Layout with scrollable footer</a></li>
+				<li><a target=_blank href="apps/layout-with-sticky-header-and-scrollable-footer/">Layout with sticky header and scrollable footer</a></li>
+				<li><a target=_blank href="apps/layout-with-scrollable-header-and-footer/">layout with scrollable header and footer</a></li>
+				<li><a target=_blank href="apps/layout-with-side-nav-and-fixed-footer/">layout with side nav and fixed footer</a></li>
+				<li><a target=_blank href="apps/woolcock-app-template/">Woolcock application template</a></li>
+				<li><a target=_blank href="apps/personal-website-template/">Personal website template</a></li>
+				<li><a target=_blank href="apps/a-basic-application-framework/">A basic application framework</a></li>
+				<li><a target=_blank href="apps/layout-with-snow-background/">Layout with snow background</a></li>
+				<li><a target=_blank href="apps/basic-form-fields/">Basic form fields</a></li>
 			</ul>
 			<br>
 			<span>Web application examples</span>
@@ -110,10 +110,19 @@
 </div>
 <script>
     function F__ID(){
+		//--------------------------------------------------------
+		$vm.vm["__ID"].meta={};
+		$vm.vm["__ID"].meta.title="Portal | Modular distributed web application";
+	    $vm.vm["__ID"].meta.description="Control Panel";
         //--------------------------------------------------------
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
+		/*
+		$('#panel__ID a').on('click',function(e){
+			event.preventDefault();
+		})
+		*/
         $('#panel__ID u').on('click',function(){
 			var m=$(this).attr('m');
             if(m!=undefined){
@@ -226,4 +235,7 @@
     .nav__ID>ul>li u:nth-child(2){
         font-size:9px;
 	}
+	.nav__ID a {color: #283f55;	}
+	.nav__ID a:link { text-decoration: underline; }
+	.nav__ID a:hover { 	color: red;	}
 </style>
