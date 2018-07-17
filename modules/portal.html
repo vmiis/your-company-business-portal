@@ -25,6 +25,10 @@
 				<li><u a="https://wappsystem.github.io/sleepfix-management/">SleepFix managemnet</u></li>
 				<li><u a="https://wappsystem.github.io/sleepfix-online-questionnaire/">SleepFix online questionnaire</u></li>
 			</ul>
+			<span>Data and form examples</span>
+			<ul class=module_>
+				<li><a href="?page=sleepfix_screening-data">data</a> <a href="?page=sleepfix_screening-form">SleepFix Registration</a></li>
+			</ul>
 		</div>
 		<div class='nav__ID'>
             <span>Module Examples</span>
@@ -118,11 +122,11 @@
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
-		/*
-		$('#panel__ID a').on('click',function(e){
+		$('#panel__ID .module a').on('click',function(e){
 			event.preventDefault();
+			var href=$(this).attr('href');
+			alert(href)
 		})
-		*/
         $('#panel__ID u').on('click',function(){
 			var m=$(this).attr('m');
             if(m!=undefined){

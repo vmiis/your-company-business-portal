@@ -1,6 +1,7 @@
 //------------------------------------
 $vm.module_links=[
     "modules/modules.json",
+    "sleepfix|https://wappsystem.github.io/sleepfix-management/modules/modules.json",
     "sfw|apps/sleepfix-workbench/index.json",
     "ajs|apps/angularjs/index.json",
     "wfh|apps/windfarm-home-2/index.json",
@@ -55,6 +56,7 @@ $vm.app_config={
     "api_path_production":"https://cbs.wappsystem.com/pro/",
     "default_production":"No",
 }
+$vm.vm_router=1;
 //------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
@@ -290,6 +292,18 @@ $vm.app_init(function(){
             }
             else alert("The module "+name+" is not correct!");
         }
+        var a=window.location.href.split('?/');
+        if(a.length==2){
+            var name=a[1].split('&')[0];
+            if(name.length>0){
+                if($vm.module_list[name]!=undefined){
+                    $vm.load_module_v2(name,'',{});
+                    return;
+                }
+                else alert("The module "+name+" is not in the module list!");
+            }
+            else alert("The module "+name+" is not correct!");
+        }
     }
     //------------------------------------
     var set_module_search=function(){
@@ -363,7 +377,7 @@ $vm.app_init(function(){
     $vm.header();
     $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-    var a=window.location.href.split('page=');if(a.length==1) $vm.load_module_v2("Home",'',{});
+    var a=window.location.href.split('?/');if(a.length==1) $vm.load_module_v2("Home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
     over_write_alert();
     set_module_search();
