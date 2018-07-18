@@ -105,7 +105,14 @@
                   $('#mobileNumber__ID').val(mn.substring(0,4)+'-'+mn.substring(4,7)+'-'+mn.substring(7,10))
               }
           })
+          /*
           m.load=function(){
+              custom_field_process();
+          }
+          */
+          m.default_load=m.load;
+          m.load=function(){
+              m.default_load();
               custom_field_process();
           }
           var custom_field_process=function(){
