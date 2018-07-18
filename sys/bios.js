@@ -22,7 +22,7 @@ var process=function(){
 }
 //------------------------------------------
 if(ver_h!=$vm.ver[0] || txt_h===null || $vm.localhost==true){
-	console.log('loading from url. layout.html');
+	console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. layout.html');
 	$.get('sys/layout.html?_='+$vm.ver[0],function(new_txt){
 		new_txt_h=new_txt;
 		localStorage.setItem(url+"h_txt",new_txt_h);
@@ -31,12 +31,12 @@ if(ver_h!=$vm.ver[0] || txt_h===null || $vm.localhost==true){
 	},'text');
 }
 else{
-	console.log('loading from storage. layout.html');
+	console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from storage. layout.html');
 	new_txt_h=txt_h;
 	process();
 }
 if(ver_j!=$vm.ver[0] || txt_j===null || $vm.localhost==true){
-	console.log('loading from url. os.js');
+	console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. os.js');
 	$.get('sys/app.js?_='+$vm.ver[0]+$vm.reload,function(new_txt){
 		new_txt_j=new_txt;
 		localStorage.setItem(url+"j_txt",new_txt_j);
@@ -45,7 +45,7 @@ if(ver_j!=$vm.ver[0] || txt_j===null || $vm.localhost==true){
 	},'text');
 }
 else{
-	console.log('loading from storage. layout.html');
+	console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from storage. layout.html');
 	new_txt_j=txt_j;
 	process();
 }
