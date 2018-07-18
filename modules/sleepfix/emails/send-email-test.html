@@ -1,0 +1,52 @@
+<div id=D__ID>
+    <div>
+        <input type=text id=email__ID placeholder="Email template ID" /><br>
+        <input type=text id=subject__ID placeholder="Subject" /><br>
+        <input type=text id=to__ID placeholder="To" /><br>
+        <button type=button id=send__ID>Send</button>
+    </div>
+    <script>
+        function F__ID(){
+            //---------------------------------------------
+    		var this_module=$vm.module_list[$vm.vm['__ID'].name];
+    		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+    		//--------------------------------------------------------
+            $('#send__ID').on('click',function(){
+                var email_id=$('#email__ID').val();
+                var Subject=$('#subject__ID').val();
+                var To=$('#to__ID').val();
+                var m=$vm.module_list[prefix+email_id];
+                if(m!=undefined){
+                    var url=m.url;
+                    $.get(url+'?_='+$vm.ver[0],function(txt){
+                        var body=$(txt).filter('#D__'+'ID').html();
+                        body=$(body).filter('#email__'+'ID').html();
+                        var req={cmd:'send-email','permission-query':'send-email',db_pid:'20011578',qid:$vm.qid,To:To,Subject:Subject,Body:body}
+                        $VmAPI.request({data:req,callback:function(res){
+                            if(res.ret==1){
+                                $vm.alert("The email has been sent out to "+To);
+                                var data={Subject:Subject,To:To}
+                                var dbv={S1:Subject,S2:To}
+                                var req={cmd:"add",qid:$vm.qid,db_pid:'20011579',data:data,dbv:dbv};
+                                $VmAPI.request({data:req,callback:function(res){
+                                }});
+                            }
+                            else{
+                                $vm.alert("Error");
+                            }
+                        }});
+                	},'text');
+                }
+            })
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            animation: vm_module_fadein 1.0s;
+            overflow:auto;
+            background-color:#fff;
+            padding:30px;
+        }
+    </style>
+</div>

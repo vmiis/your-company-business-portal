@@ -1,20 +1,19 @@
 <div id=page__ID>
-	<span style='display:none;font-size:200%'></span> <a id=app__ID target=_blank href='apps/basic-form-fields/' >Run as a seperate application </a>
     <br>
 	<section id=panel__ID>
 		<div class='nav__ID'>
             <span>Modules</span>
 			<ul>
-				<li><u m=autocomplete-data>Autocomplete</u></li>
-				<li><u m=caculation-data>Caculation</u></li>
-				<li><u m=checkbox-data>Checkbox</u></li>
-				<li><u m=color-data>Color</u></li>
-				<li><u m=date-data>Date</u></li>
-				<li><u m=file-data>File</u></li>
-				<li><u m=image-data>Image</u></li>
-				<li><u m=postcode-data>Postcode</u></li>
-				<li><u m=radio-data>Radio</u></li>
-				<li><u m=select-data>Select</u></li>
+				<li><a href="?/autocomplete-data">Autocomplete</u></li>
+				<li><a href="?/caculation-data">Caculation</u></li>
+				<li><a href="?/checkbox-data">Checkbox</u></li>
+				<li><a href="?/color-data">Color</u></li>
+				<li><a href="?/date-data">Date</u></li>
+				<li><a href="?/file-data">File</u></li>
+				<li><a href="?/image-data">Image</u></li>
+				<li><a href="?/postcode-data">Postcode</u></li>
+				<li><a href="?/radio-data">Radio</u></li>
+				<li><a href="?/select-data">Select</u></li>
 			</ul>
 		</div>
 	</section>
@@ -25,15 +24,25 @@
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
-        $('#panel__ID u').on('click',function(){
+		$('#panel__ID a').on('click',function(e){
+			event.preventDefault();
+			var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(prefix+href,'',{});
+            }
+		})
+		//--------------------------------------------------------
+		/*
+		$('#panel__ID u').on('click',function(){
 			var m=$(this).attr('m');
             if(m!=undefined){
 				$vm.load_module_v2(prefix+m,'',{});
             }
         })
+		*/
         //--------------------------------------------------------
-		if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
-		//--------------------------------------------------------
     }
 </script>
 <style>
@@ -100,4 +109,7 @@
     .nav__ID>ul>li u:nth-child(2){
         font-size:11px;
 	}
+	.nav__ID a {color: #283f55;	}
+	.nav__ID a:link { text-decoration: underline; }
+	.nav__ID a:hover { 	color: red;	}
 </style>

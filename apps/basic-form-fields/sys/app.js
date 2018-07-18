@@ -3,7 +3,7 @@ $vm.module_links=[
     "modules/modules.json"
 ];
 $vm.module_list={
-    "Home":     {"url":"modules/home.html"}
+    "home":     {"url":"modules/home.html"},
 }
 //------------------------------------
 $vm.app_config={
@@ -12,6 +12,7 @@ $vm.app_config={
     "default_production":"No",
 }
 $vm.qid='10000000';
+$vm.vm_router=1;
 //------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
@@ -89,7 +90,7 @@ $vm.app_init=function(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
+        if(ver!=$vm.ver[1] || txt===null || $vm.reload!='' || $vm.localhost==true && url.indexOf('vmiis.com')==-1){
             console.log('loading from url. '+url)
             $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
@@ -203,18 +204,9 @@ $vm.app_init(function(){
     }
     //------------------------------------
     var load_search_module=function(){
-        var a=window.location.href.split('page=sitemap');
+        var a=window.location.href.split('?/');
         if(a.length==2){
-            var txt="";
-            for(var k in $vm.module_list){
-                if(k[0]!='_' && k!='uploading_file_dialog_module') txt+="<a href=https://www.vmiis.com/?page="+k+">"+k+"</a><br>\r\n";
-            }
-            $vm.view_code(txt,"Sitemap");
-            return;
-        }
-        var a=window.location.href.split('page=');
-        if(a.length==2){
-            var name=a[1].split('&')[0];
+            var name=a[1].split('&')[0].replace(/\//g,'_');
             if(name.length>0){
                 if($vm.module_list[name]!=undefined){
                     $vm.load_module_v2(name,'',{});
@@ -319,7 +311,7 @@ $vm.app_init(function(){
     $vm.header();
     $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-    var a=window.location.href.split('page=');if(a.length==1) $vm.load_module_v2("Home",'',{});
+    var a=window.location.href.split('?/');if(a.length==1) $vm.load_module_v2("home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
     over_write_alert();
     set_module_search();

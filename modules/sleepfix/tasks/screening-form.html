@@ -1,0 +1,361 @@
+<div id=D__ID>
+
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+
+        <!-- form container start -->
+
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+
+              <!-- form start -->
+
+              <form id="F__ID">
+                  <h3>Screening Questions</h3>
+                  <!-- participant name and study id -->
+
+                  <div class="form-group" style='display:none!Important'>
+                    <div class="row" style="padding-bottom:10px">
+                      <div class="col-lg-9 col-sm-12">
+                        <label for="participant-name">Participant</label>
+                        <input type="text" class="form-control" name="Participant" placeholder="">
+                      </div>
+                      <div class="col-lg-3 col-sm-12">
+                        <label for="participant-id">Participant ID</label>
+                        <input type="text" class="form-control" name="Participant_uid" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- form group -->
+
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>1. Are you aged between 18-65?</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="between_18_65" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="between_18_65" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>2. Are you fluent in English?</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="english" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="english" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>3. Do you have a smartphone?</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="smartphone" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="smartphone" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>4. Are you planning to have a baby or currently pregnant?</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="baby" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="baby" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>5. Are you a shift worker (i.e. work commencing before 6am or later than 8pm)?</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="shift" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="shift" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                <div class="form-group">
+                    <fieldset class="subquestions">
+                        <h4>6. Have you been diagnosed with any of the following physical health
+                        conditions: cardiovascular disease (stroke, heart
+                        failure), neurological disorders (epilepsy, motor neuron disease,
+                        Parkinson’s disease)*</h4>
+                        <label class="radiobuttons">
+                          <input type="radio" name="disease" value="Yes" required >
+                          <span class="checkmark"></span> Yes</label>
+                        <label class="radiobuttons">
+                          <input type="radio" name="disease" value="No">
+                          <span class="checkmark"></span> No</label>
+                    </fieldset>
+                </div>
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>7. Have you been diagnosed with any of the following mental health
+                          conditions: schizophrenia, psychosis, mania*</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="mental_health" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="mental_health" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>8. Have you travelled to a destination with a time difference of more than 2 hours in the past month?</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="time_difference_2h" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="time_difference_2h" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
+                      <fieldset class="subquestions">
+                          <h4>9. Do you anticipate on traveling to a destination more than an hour time difference in the next 12 weeks?</h4>
+                          <label class="radiobuttons">
+                            <input type="radio" name="time_difference_1h" value="Yes" required >
+                            <span class="checkmark"></span> Yes</label>
+                          <label class="radiobuttons">
+                            <input type="radio" name="time_difference_1h" value="No">
+                            <span class="checkmark"></span> No</label>
+                      </fieldset>
+                  </div>
+                  <div class="form-group">
+                      <h4>10. Over the last 2 weeks, how often have you been bothered by thoughts that you would be better off dead, or of hurting yourself</h4>
+      				  <div class="questiongroup">
+                          <fieldset>
+                              <label class="radiobuttons">
+                                <input type="radio" name="phq_9" value="0" required>
+                                <span class="checkmark"></span> Not at all</label><br>
+                              <label class="radiobuttons">
+                                <input type="radio" name="phq_9" value="1">
+                                <span class="checkmark"></span> Several days</label><br>
+                              <label class="radiobuttons">
+                                <input type="radio" name="phq_9" value="2">
+                                <span class="checkmark"></span> More than half the days</label><br>
+                              <label class="radiobuttons">
+                                <input type="radio" name="phq_9" value="3">
+                                <span class="checkmark"></span> Nearly every day</label><br>
+                          </fieldset>
+                     </div>
+      		      </div>
+                  <div class="form-group">
+                    <p class="note">*If unsure, please contact the research team. <br>
+                        SleepFix Research Team<br>
+                        <strong>Phone:</strong> (02) 9114 0481<br>
+                        <strong>Email:</strong> sleepfix@woolcock.org.au</p>
+                 </div>
+
+                 <h3>Insomnia Severity Index</h3>
+                 <div class="form-group">
+                     <h4>1. Please rate the CURRENT (i.e. PAST WEEK) SEVERITY of your insomnia problem(s).</h4>
+     				<div class="questiongroup ">
+                         <fieldset class="subquestions">
+                             <legend>A. Difficulty falling asleep</legend>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1a" value="0" required>
+                               <span class="checkmark"></span> None</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1a" value="1">
+                               <span class="checkmark"></span> Mild</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1a" value="2">
+                               <span class="checkmark"></span> Moderate</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1a" value="3">
+                               <span class="checkmark"></span> Severe</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1a" value="4">
+                               <span class="checkmark"></span> Very severe</label>
+                         </fieldset>
+                         <fieldset class="subquestions">
+                             <legend>B. Difficulty staying asleep</legend>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1b" value="0" required>
+                               <span class="checkmark"></span> None</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1b" value="1">
+                               <span class="checkmark"></span> Mild</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1b" value="2">
+                               <span class="checkmark"></span> Moderate</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1b" value="3">
+                               <span class="checkmark"></span> Severe</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1b" value="4">
+                               <span class="checkmark"></span> Very severe</label>
+                         </fieldset>
+                         <fieldset class="subquestions">
+                             <legend>C. Problem waking up too early</legend>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1c" value="0" required>
+                               <span class="checkmark"></span> None</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1c" value="1">
+                               <span class="checkmark"></span> Mild</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1c" value="2">
+                               <span class="checkmark"></span> Moderate</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1c" value="3">
+                               <span class="checkmark"></span> Severe</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_1c" value="4">
+                               <span class="checkmark"></span> Very severe</label>
+                         </fieldset>
+                    </div>
+                </div>
+                 <div class="form-group">
+                     <h4>2. How SATISFIED/DISSATISFIED are you with your CURRENT sleep pattern?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_2" value="0" required>
+                               <span class="checkmark"></span> Very satisfied</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_2" value="1">
+                               <span class="checkmark"></span> Satisfied</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_2" value="2">
+                               <span class="checkmark"></span> Neutral</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_2" value="3">
+                               <span class="checkmark"></span> Dissatisfied</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_2" value="4">
+                               <span class="checkmark"></span> Very dissatisfied</label><br>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div class="form-group">
+                     <h4>3. To what extent do you consider your sleep problem to INTERFERE with your daily functioning (e.g. daytime fatigue, mood, ability to function at work/daily chores, concentration, memory, mood, etc.) CURRENTLY?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_3" value="0" required>
+                               <span class="checkmark"></span> Not at all interfering</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_3" value="1">
+                               <span class="checkmark"></span> A little</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_3" value="2">
+                               <span class="checkmark"></span> Somewhat</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_3" value="3">
+                               <span class="checkmark"></span> Much</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_3" value="4">
+                               <span class="checkmark"></span> Very much interfering</label><br>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div class="form-group">
+                     <h4>4. How NOTICEABLE to others do you think your sleep problem is in terms of impairing the quality of your life?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_4" value="0" required>
+                               <span class="checkmark"></span> Not at all noticeable</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_4" value="1">
+                               <span class="checkmark"></span> A little</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_4" value="2">
+                               <span class="checkmark"></span> Somewhat</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_4" value="3">
+                               <span class="checkmark"></span> Much</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_4" value="4">
+                               <span class="checkmark"></span> Very much noticeable</label><br>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div class="form-group">
+                     <h4>5. How WORRIED/DISTRESSED are you about your current sleep problem?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_5" value="0" required>
+                               <span class="checkmark"></span> Not at all worried</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_5" value="1">
+                               <span class="checkmark"></span> A little</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_5" value="2">
+                               <span class="checkmark"></span> Somewhat</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_5" value="3">
+                               <span class="checkmark"></span> Much</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="ISI_5" value="4">
+                               <span class="checkmark"></span> Very much worried</label><br>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                 <input type="text" style="display:none" name="Eligible" />
+              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/form.v1.js
+            //-------------------------------------
+            m.before_submit=function(record,dbv){
+                if((record.between_18_65!='Yes' || record.english!='Yes' || record.smartphone!='Yes' || record.baby!='No' || record.shift!='No' || record.disease!='No' || record.mental_health!='No' || record.time_difference_2h!='No' || record.time_difference_1h!='No')
+                    ||
+                    (parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c) <= 15)
+                    ||
+                    (parseInt(record.phq_9) >1))
+                    {record.Eligible="No"}
+                else{record.Eligible="Yes"};
+            }
+            //-------------------------------------
+            m.after_add=function(record,dbv,res){
+                if((record.between_18_65!='Yes' || record.english!='Yes' || record.smartphone!='Yes' || record.baby!='No' || record.shift!='No' || record.disease!='No' || record.mental_health!='No' || record.time_difference_2h!='No' || record.time_difference_1h!='No')
+                    ||
+                    (parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c) <= 15)
+                    ||
+                    (parseInt(record.phq_9) >1))
+                    {
+                    $vm.load_module_v2(m.prefix+'screen-failure-thank-you-page','',{});
+                }
+                else{
+                    $vm.load_module_v2(m.prefix+'pis-form','',{first_uid:res.uid});
+                }
+            }
+            //--------------------------------------------------------
+            $('#D__ID').css('min-height',$vm.min_height);
+            //--------------------------------------------------------
+            $(this).scrollTop(0);
+    }
+    </script>
+    <style>
+    #D__ID{
+      height:100%;
+      animation: vm_module_fadein 1.0s;
+      overflow: auto;
+    }
+    </style>
+    VmInclude:__CURRENT_PATH__/task-form.css
+</div>

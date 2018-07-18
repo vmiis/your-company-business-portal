@@ -1,0 +1,217 @@
+<div id=D__ID>
+
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+
+        <!-- form container start -->
+
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+
+              <!-- form start -->
+
+              <form id="F__ID">
+                  <!-- participant name and study id -->
+
+                  <div class="form-group" style='display:none!Important'>
+                    <div class="row" style="padding-bottom:10px">
+                      <div class="col-lg-9 col-sm-12">
+                        <label for="participant-name">Participant</label>
+                        <input type="text" class="form-control" name="Participant" placeholder="">
+                      </div>
+                      <div class="col-lg-3 col-sm-12">
+                        <label for="participant-id">Participant ID</label>
+                        <input type="text" class="form-control" name="Participant_uid" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3>Baseline Questionnaire</h3>
+                 <div class="form-group">
+                     <h4>What is your gender?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Gender" value="Male" required>
+                               <span class="checkmark"></span> Male</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Gender" value="Female">
+                               <span class="checkmark"></span> Female</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Gender" value="Prefer not to say">
+                               <span class="checkmark"></span> Prefer not to say</label><br>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div class="form-group">
+                   <h4>Age</h4>
+                   <fieldset>
+                     <input type="Number" min="18" class="form-control" name="Age" id="age" required placeholder="Age">
+                   </fieldset>
+                 </div>
+                 <div class="form-group">
+                     <h4>Which of these best describes the highest level of education you have completed?</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Secondary school" required>
+                               <span class="checkmark"></span> Secondary school</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Trade certificate">
+                               <span class="checkmark"></span> Trade certificate</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Bachelor degree">
+                               <span class="checkmark"></span> Bachelor degree</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Education" value="Postgraduate Degree">
+                               <span class="checkmark"></span> Postgraduate Degree</label><br>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div class="form-group">
+                     <h4>What is your current employment status? (select all that apply)</h4>
+     				<div class="questiongroup">
+                         <fieldset>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Employment_Full_Time" id="Employment_Full_Time__ID">
+                               <span class="check_checkmark"></span> Employment Full Time (38 hours or more per week)</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Employment_Part_Time" id="Employment_Part_Time__ID">
+                               <span class="check_checkmark"></span> Employment Part Time (less than 38 hours per week)</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Unemployed" id="Unemployed__ID">
+                               <span class="check_checkmark"></span> Unemployed</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Student" id="Student__ID">
+                               <span class="check_checkmark"></span> Student</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Retired" id="Retired__ID">
+                               <span class="check_checkmark"></span> Retired</label><br>
+                             <label class="checkboxes">
+                               <input type="checkbox" name="Other" id="Other__ID">
+                               <span class="check_checkmark"></span> Other</label><br>
+                             <div id=specify__ID>
+                               <label for="firstName">(please specify)</label>
+                               <input type="text" class="form-control" name="Other_Specify" id="Other_Specify__ID"  required >
+                             </div>
+                         </fieldset>
+                    </div>
+     		     </div>
+                 <div id=Occu__ID >
+                     <div class="form-group" >
+                         <h4>What is your current occupation?</h4>
+         				<div class="questiongroup">
+                             <fieldset>
+                                   <input type="text" class="form-control" name="Occupation" id=Occupation__ID required >
+                             </fieldset>
+                        </div>
+         		     </div>
+                 </div>
+                 <div class="form-group">
+                     <h4>What is your relationship status?</h4>
+                    <div class="questiongroup">
+                         <fieldset>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Relationship" value="Single" required>
+                               <span class="checkmark"></span> Single</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Relationship" value="Defacto">
+                               <span class="checkmark"></span> Defacto</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Relationship" value="Married">
+                               <span class="checkmark"></span> Married</label><br>
+                           <label class="radiobuttons">
+                             <input type="radio" name="Relationship" value="Divorced">
+                             <span class="checkmark"></span> Divorced</label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Relationship" value="Widowed">
+                               <span class="checkmark"></span> Widowed</label><br>
+                         </fieldset>
+                    </div>
+                 </div>
+                 <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+  </div>
+  <script>
+      function F__ID(){
+          //-------------------------------------
+          VmInclude:__COMPONENT__/module/form.v1.js
+          VmInclude:__CURRENT_PATH__/task-form.js
+          //-------------------------------------
+          m.load_2=function(){
+              if($('#Employment_Full_Time__ID').is(":checked")==true || $('#Employment_Part_Time__ID').is(":checked")==true ){
+                  $('#Occu__ID').show() ;
+              }
+              else {
+                  $('#Occu__ID').hide();
+              }
+              if($('#Other__ID').is(":checked")==true ){
+                  $('#specify__ID').show() ;
+                  $('#Other_Specify__ID').prop('required', true);
+              }
+              else {
+                  $('#Other_Specify__ID').prop('required',false);
+                  $('#specify__ID').hide();
+              }
+          }
+          //-------------------------------------
+          m.before_submit_2=function(record,dbv){
+              if($('#Employment_Full_Time__ID').is(":checked")!==true &&
+                  $('#Employment_Part_Time__ID').is(":checked")!==true &&
+                  $('#Unemployed__ID').is(":checked")!==true &&
+                  $('#Student__ID').is(":checked")!==true &&
+                  $('#Retired__ID').is(":checked")!==true &&
+                  $('#Other__ID').is(":checked")!==true){
+                      $vm.alert('Please select at least one employment status'); return false;
+              }
+          }
+          //-------------------------------------
+          $('#Employment_Full_Time__ID').on('click', function(){
+              if($('#Employment_Full_Time__ID').is(":checked")==true || $('#Employment_Part_Time__ID').is(":checked")==true ){
+                  $('#Occu__ID').show() ;
+                  $('#Occupation__ID').prop('required', true);
+              }
+              else {
+                  $('#Occu__ID').hide();
+                  $('#Occupation__ID').prop('required', false);
+              }
+          })
+          $('#Employment_Part_Time__ID').on('click', function(){
+              if($('#Employment_Full_Time__ID').is(":checked")==true || $('#Employment_Part_Time__ID').is(":checked")==true ){
+                  $('#Occu__ID').show() ;
+                  $('#Occupation__ID').prop('required', true);
+              }
+              else {
+                  $('#Occu__ID').hide();
+                  $('#Occupation__ID').prop('required', false);
+              }
+          })
+          $('#Other__ID').on('click', function(){
+              if($('#Other__ID').is(":checked")==true ){
+                  $('#specify__ID').show() ;
+                  $('#Other_Specify__ID').prop('required', true);
+              }
+              else {
+                  $('#Other_Specify__ID').prop('required',false);
+                  $('#specify__ID').hide();
+              }
+          })
+          //-------------------------------------
+      }
+    </script>
+    <style>
+        #D__ID{
+        height:100%;
+        animation: vm_module_fadein 1.0s;
+        /*background-color: #fff;*/
+        overflow:auto;
+    }
+    </style>
+    VmInclude:__CURRENT_PATH__/task-form.css
+</div>

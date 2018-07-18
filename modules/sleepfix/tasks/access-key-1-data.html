@@ -1,0 +1,27 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/grid/grid.v3.js
+      //-------------------------------------
+      var fields="access_key_1";
+      _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      //-------------------------------------
+      $('#D__ID').on('load',function(){
+          if($vm.vm['__ID'].input.preload==true) return;
+          _set_req(); _request_data();
+      })
+      //-------------------------------------
+      var _before_submit=function(record,dbv){
+          if(typeof(before_submit)!='undefined') before_submit(record,dbv);
+      };
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+  </style>
+</div>

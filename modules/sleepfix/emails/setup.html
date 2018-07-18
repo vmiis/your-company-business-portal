@@ -1,0 +1,26 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__COMPONENT__/module/grid.v1.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      //-------------------------------------
+      var fields="Subject,From_Email,From_Name";
+      m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      m.before_submit=function(record,dbv){
+          dbv.S1=record.Subject;
+          dbv.S2=record.From_Email;
+          dbv.S3=record.From_Name;
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

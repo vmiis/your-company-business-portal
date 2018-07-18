@@ -1,7 +1,8 @@
 //------------------------------------
 $vm.module_links=[
     "modules/modules.json",
-    "sleepfix|https://wappsystem.github.io/sleepfix-management/modules/modules.json",
+    "sleepfix|modules/sleepfix/modules.json",
+    "basic-form-fields|apps/basic-form-fields/modules/modules.json",
     "sfw|apps/sleepfix-workbench/index.json",
     "ajs|apps/angularjs/index.json",
     "wfh|apps/windfarm-home-2/index.json",
@@ -42,13 +43,12 @@ $vm.module_links=[
     "rjs|apps/reactjs/index.json",
     "pat|apps/particles/index.json",
     "blg|apps/blog/index.json",
-
     "re|apps/restaurant/pages/index.json",
     "sm|apps/sfix-app-survey-management/pages/index.json",
     "il|apps/clinical-trials-005/pages/index.json",
 ];
 $vm.module_list={
-    "Home":     {"url":"modules/home.html"}
+    "home":     {"url":"modules/home.html"}
 }
 //------------------------------------
 $vm.app_config={
@@ -134,7 +134,7 @@ $vm.app_init=function(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
+        if(ver!=$vm.ver[1] || txt===null || $vm.reload!='' || $vm.localhost==true && url.indexOf('vmiis.com')==-1){
             console.log('loading from url. '+url)
             $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
@@ -294,7 +294,7 @@ $vm.app_init(function(){
         }
         var a=window.location.href.split('?/');
         if(a.length==2){
-            var name=a[1].split('&')[0];
+            var name=a[1].split('&')[0].replace(/\//g,'_');
             if(name.length>0){
                 if($vm.module_list[name]!=undefined){
                     $vm.load_module_v2(name,'',{});
@@ -377,7 +377,7 @@ $vm.app_init(function(){
     $vm.header();
     $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-    var a=window.location.href.split('?/');if(a.length==1) $vm.load_module_v2("Home",'',{});
+    var a=window.location.href.split('?/');if(a.length==1) $vm.load_module_v2("home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
     over_write_alert();
     set_module_search();

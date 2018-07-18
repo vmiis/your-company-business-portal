@@ -2,17 +2,17 @@
     <div header id=header_0>
         <div>
             <div mobile>
-                <span module=Home id=m_title>Business Portal</span>
+                <span module=home id=m_title>Business Portal</span>
                 <a toggle id="vm_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
             </div>
-            <div desktop id=vm_logo module=Home>
+            <div desktop id=vm_logo module=home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a href="?page=Home" module=Home><i class="fa fa-home"></i> Home</a>
-                <a href="?page=portal" module=portal><i class="fa fa-th"></i> Business Portal</a>
-                <a href="?page=about-this-website" module=about-this-website><i class="fa fa-info-circle"></i> About</a>
+                <a href="?/home" module=home><i class="fa fa-home"></i> Home</a>
+                <a href="?/portal" module=portal><i class="fa fa-th"></i> Business Portal</a>
+                <a href="?/about-this-website" module=about-this-website><i class="fa fa-info-circle"></i> About</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -317,7 +317,7 @@
     /*----------------------*/
     /*content*/
     #content_container_0{
-        /*position:fixed;*/
+        position:fixed;
         width:100%;
         overflow:hidden;
     }

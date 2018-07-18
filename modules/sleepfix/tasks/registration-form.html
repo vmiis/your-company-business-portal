@@ -1,0 +1,172 @@
+<div id=D__ID>
+
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+
+        <!-- form container start -->
+
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+
+              <!-- form start -->
+
+              <form id="F__ID">
+                  <h3>Registration</h3>
+                  <!-- form group -->
+
+                  <div class="form-group">
+                    <h4>Please enter your details below:</h4>
+                    <fieldset>
+                      <label for="firstName__ID">First Name</label>
+                      <input type="text" class="form-control" name="First_Name" id="firstName__ID" required placeholder="First Name">
+                      <label for="lastName__ID">Last Name</label>
+                      <input type="text" class="form-control" name="Last_Name" id="lastName__ID" required placeholder="Last Name">
+                      <label for="mobileNumber__ID">Mobile</label>
+                      <input type="tel" class="form-control" name="Mobile_Phone" id="mobileNumber__ID" required placeholder="XXXX-XXX-XXX" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}">
+                      <label class="checkboxes">
+                     <input type="checkbox" name="SMS" id="SMS__ID" >
+                     <span class="check_checkmark"></span>I want to have sms alert when an email has been sent. </label><br>
+                     <label for="emailAddress__ID">Email</label>
+                     <input type="email" class="form-control" name="Email" id="emailAddress__ID" required placeholder="Email">
+                     <label for="emailconfirmationAddress__ID">Email Confirmation</label>
+                     <input type="email" class="form-control" name="Email_Confirmation" id="emailconfirmationAddress__ID" required placeholder="Email">
+                      <label for="address__ID">Address</label>
+                      <input type="text" class="form-control" name="Address" id="address__ID" required placeholder="Address">
+                      <div data-id=Suburb data-custom=1>
+                          <label for="suburb__ID">Suburb</label>
+                          <input type="text" class="form-control" name="Suburb" id="suburb__ID" data-id=Suburb data-custom=1 required placeholder="Suburb">
+                      </div>
+                      <div data-id=Postcode data-custom=1>
+                          <label for="postcode__ID">Postcode</label>
+                          <input type="text" class="form-control" name="Postcode" id="postcode__ID" data-custom=1 required placeholder="XXXX" pattern="[0-7]{1}[0-9]{3}">
+                      </div>
+                      <label for="state__ID">State</label>
+                      <select name="State" class="form-control" id="state__ID">
+                            <option value="NSW">NSW</option>
+                            <option value="NT">NT</option>
+                            <option value="SA">SA</option>
+                            <option value="QLD">QLD</option>
+                            <option value="TAS">TAS</option>
+                            <option value="VIC">VIC</option>
+                            <option value="WA">WA</option>
+                      </select>
+                      <!--<input type="text" class="form-control" name="State" id="state" required placeholder="State">-->
+                    </fieldset>
+                  </div>
+                 <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                 <div style='display:none'>
+                     <input type="text" name=Password />
+                     <input type="text" name=Start_Date />
+                 </div>
+              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+  </div>
+
+    <script>
+      function F__ID(){
+          //-------------------------------------
+          VmInclude:__COMPONENT__/module/form.v1.js
+          //m.add_anonymous=1;
+          //-------------------------------------
+          m.before_submit=function(record,dbv){
+              if(record.Email!=record.Email_Confirmation){
+                  $('#submit__ID').show();
+                  $vm.alert("Email and confirmation email not same");
+                  return false;
+              }
+              dbv.S2=record.Email;
+              if(record.Password==""){ dbv.S3=record.Password=$vm.vm_password(8,false); record.Password;}
+              if(record.Start_Date==""){ dbv.DT1=record.Start_Date=$vm.date_to_string_yyyymmdd(new Date());}
+              dbv.V1=0; if(record.SMS=='on') dbv.V1=1;
+              dbv.PUID=m.input.first_uid;
+
+          }
+          //-------------------------------------
+          m.after_add=function(record,dbv,res){
+              //We should send email here
+              $vm.load_module_v2(m.prefix+'sleepfix-study-page','',{});
+          }
+          $(this).scrollTop(0);
+          //-------------------------------------
+          $('#emailconfirmationAddress__ID').on('paste',function(){
+              setTimeout(function() {
+                  $('#emailconfirmationAddress__ID').val('');
+                }, 100);
+          })
+          //-------------------------------------
+          $('#mobileNumber__ID').on('change',function(){
+              var mn=$('#mobileNumber__ID').val();
+              if(mn.length==10){
+                  $('#mobileNumber__ID').val(mn.substring(0,4)+'-'+mn.substring(4,7)+'-'+mn.substring(7,10))
+              }
+          })
+          m.load=function(){
+              custom_field_process();
+          }
+          var custom_field_process=function(){
+              $('#F__ID div[data-custom=1]').each(function(){
+                  var field=$(this).attr('data-id');
+                  switch(field){
+                      case "Suburb":
+                          $(this).find("input[name='"+field+"']").on('keyup',function(){
+                              $(this).autocomplete({
+                                  minLength:1,
+                                  source:function(request,response){
+                                      $VmAPI.request({data:{cmd:'suburb',query:request.term,count:'10'},callback:function(res){
+                                          response($.parseJSON(res.ret));
+                                      }});
+                                  },
+                                  select: function(event,ui){
+                                      var suburb=ui.item.label.split('/')[0];
+                                      var postcode=ui.item.label.split('/')[2];
+                                      var state=ui.item.label.split('/')[1];
+                                      ui.item.value=suburb
+                                      $('input[name=Postcode').val(postcode);
+                                      $('select[name=State').val(state);
+                                  }
+                              })
+
+                          });
+                          break;
+                      case "Postcode":
+                          $(this).find("input[name='"+field+"']").on('keyup',function(){
+                              $(this).autocomplete({
+                                  minLength:1,
+                                  source:function(request,response){
+                                      $VmAPI.request({data:{cmd:'postcode',query:request.term,count:'10'},callback:function(res){
+                                          response($.parseJSON(res.ret));
+                                      }});
+                                  },
+                                  select: function(event,ui){
+                                      var suburb=ui.item.label.split('/')[0];
+                                      var postcode=ui.item.label.split('/')[2];
+                                      var state=ui.item.label.split('/')[1];
+                                      ui.item.value=postcode
+                                      $('input[name=Suburb').val(suburb);
+                                      $('select[name=State').val(state);
+                                  }
+                              })
+
+                          });
+                          break;
+                  }
+              })
+          }
+
+      }
+      </script>
+      <style>
+        #D__ID{
+          height:100%;
+          animation: vm_module_fadein 1.0s;
+          /*background-color: #fff;*/
+          overflow:auto;
+        }
+      </style>
+      VmInclude:__CURRENT_PATH__/task-form.css
+  </div>

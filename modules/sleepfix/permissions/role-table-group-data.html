@@ -1,0 +1,27 @@
+<section>
+    VmInclude:__COMPONENT__/module/grid.v1.html
+</section>
+<script>
+    function F__ID(){
+		//-------------------------------------
+        VmInclude:__COMPONENT__/module/grid.v1.js
+        //-------------------------------------
+        var fields="Role,Permission";
+        m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        m.form_fields=fields+",TID";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  m.set_req(); m.request_data(); })
+        //-------------------------------------
+        m.before_submit=function(record,dbv){
+            dbv.S1=record.Role;
+            dbv.S2=record.Permission;
+            return true;
+        }
+        //-------------------------------------
+        $('#new__ID').off('click').on('click',function(){$vm.load_module_v2(m.form_module,'',{goback:1})})
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+</style>

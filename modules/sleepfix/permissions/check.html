@@ -1,0 +1,103 @@
+<section id=form_container__ID>
+	<div id=header__ID>
+		Access Check
+	</div>
+	<form id=F__ID>
+		<div class="container">
+            <div class="row row__ID">
+                <div class="col-sm col-lg-6">
+                    <span>Command</span>
+                    <input type=text class="form-control" name="Command" required ></input>
+                </div>
+				<div class="col-sm col-lg-6">
+                    <span>Login Name</span>
+                    <input type=text class="form-control" name="Login" required />
+                </div>
+            </div>
+			<div class="row row__ID">
+                <div class="col">
+                    <span>Table ID or SQL Statement for read command</u></span>
+                    <textarea class="form-control" name="TID" required style='min-height:160px'></textarea>
+                </div>
+            </div>
+			<div class="row row__ID">
+                <div class="col">
+                    <span>Resulte</span>
+                    <textarea id=resulte__ID type=text class="form-control" name="Resulte" ></textarea>
+                </div>
+            </div>
+            <br>
+			<div class="row">
+				<div class=col>
+					<button id=check__ID type="submit" class="btn btn-secondary">Check</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		$('#F__ID').submit(function(event){
+			//--------------------------------------------------------
+		    event.preventDefault();
+		    //--------------------------------------------------------
+			$('#resulte__ID').val('');
+			var data=$vm.serialize('#F__ID');
+			var req={cmd:"check_permission",qid:$vm.qid,db_pid:data.TID,command:data.Command,login:data.Login};
+	        $VmAPI.request({data:req,callback:function(res){
+				$('#resulte__ID').val(res.permission);
+			}})
+		})
+		//-------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow:auto;
+		animation: vm_module_fadein 1.0s;
+        background-color: #fff;
+	}
+    #form_container__ID{
+        margin-top:20px;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+		font-family: Verdana,sans-serif;
+    	font-size: 15px;
+    	line-height: 1.5;
+	}
+    #F__ID{
+		border:1px solid #bbb;
+        border-top-width: 0;
+		padding:6px 15px 20px 15px;
+	}
+	#header__ID{
+		background-color:#727b84;
+		color:#fff;
+		padding:10px 15px 10px 15px;
+		font-size:120%;
+        border:1px solid #bbb;
+        border-bottom-width: 0;
+	}
+	#all_tid__ID{
+		cursor:pointer;
+	}
+    .row__ID{
+		padding:6px 0;
+	}
+	.row__ID:hover{
+		background-color: rgba(0,0,0,0.1);
+	}
+	.row__ID span{
+        font-weight:bold;
+    	display: inline-block;
+    	padding: 5px 0;
+	}
+	@media screen and (max-width:768px){
+		#form_container__ID{
+			padding:20px 10px 50px 10px;
+		}
+	}
+</style>

@@ -1,0 +1,105 @@
+<div id=D__ID>
+
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+
+        <!-- form container start -->
+
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+
+              <!-- form start -->
+                <form id=F__ID>
+                    <h3>Consent</h3>
+                    <!-- form group -->
+                    <div class="form-group">
+                        <fieldset class="subquestions">
+                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                                qui officia deserunt mollit anim id est laborum.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                                qui officia deserunt mollit anim id est laborum.</h4>
+                        </fieldset>
+                    </div>
+                    <div class="form-group">
+                        <fieldset class="subquestions">
+                            <h4>By ticking 'Yes', I hereby agree to participate in all aspects of this research study.</h4>
+                            <label class="radiobuttons">
+                              <input type="radio" name="Consent" value="Yes" required >
+                              <span class="checkmark"></span> Yes</label>
+                            <label class="radiobuttons">
+                              <input type="radio" name="Consent" value="No">
+                              <span class="checkmark"></span> No</label>
+                        </fieldset>
+                    </div>
+                    <div id=consent_no_text__ID>
+                        <div class="form-group" >
+                            <fieldset class="subquestions">
+                                <h4>Text shown when No is selected<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                qui officia deserunt mollit anim id est laborum.
+                                </h4>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/form.v1.js
+            m.add_anonymous=1;
+            //-------------------------------------
+            m.load=function(){
+                m.input=$vm.vm['__ID'].input; if(m.input==undefined) m.input={};
+                $('#F__ID')[0].reset();
+                $('#submit__ID').show();
+                var grid_record=m.input.record;
+                $('#delete__ID').hide(); if(grid_record!=undefined && grid_record.ID!==undefined) $('#delete__ID').show();
+                $vm.deserialize(grid_record,'#F__ID');
+
+                if(grid_record==undefined) $('#submit__ID').hide();
+                $('#consent_no_text__ID').hide();
+            }
+            //-------------------------------
+            $("#D__ID input[name=Consent]").on('click',function(){
+                if($(this).attr('value')=='Yes') {$('#submit__ID').show();$('#consent_no_text__ID').hide();}
+                else {$('#submit__ID').hide();$('#consent_no_text__ID').show();}
+            })
+            //-------------------------------
+            m.before_submit=function(record,dbv){
+                dbv.PUID=m.input.first_uid;
+            }
+            //-------------------------------------
+            m.after_add=function(record,dbv,res){
+                $vm.load_module_v2(m.prefix+'registration-form','',{first_uid:m.input.first_uid});
+            }
+            //--------------------------------------------------------
+            $('#D__ID').css('min-height',$vm.min_height);
+            //--------------------------------------------------------
+            $(this).scrollTop(0);
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            animation: vm_module_fadein 1.0s;
+            overflow: auto;
+        }
+    </style>
+    VmInclude:__CURRENT_PATH__/task-form.css
+</div>

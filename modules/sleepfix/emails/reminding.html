@@ -1,0 +1,69 @@
+<div id=D__ID>
+    <span>Baseline</span>
+    <div id=bl__ID>
+    </div>
+    <br>
+    <span>Week 1</span>
+    <div id=w1__ID>
+    </div>
+    <br>
+    <span>Week 2</span>
+    <div id=w2__ID>
+    </div>
+    <br>
+    <span>Week 3</span>
+    <div id=w3__ID>
+    </div>
+    <br>
+    <span>Week 6</span>
+    <div id=w6__ID>
+    </div>
+    <br>
+    <span>Week 12</span>
+    <div id=w12__ID>
+    </div>
+    <script>
+        function F__ID(){
+            //---------------------------------------------
+    		var this_module=$vm.module_list[$vm.vm['__ID'].name];
+    		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+    		//--------------------------------------------------------
+            $('#D__ID').on('load',function(){
+                require_data('#bl__ID',-7,0);
+                require_data('#w1__ID',-14,-7);
+                require_data('#w2__ID',-21,-14);
+                require_data('#w3__ID',-28,-21);
+                require_data('#w6__ID',-49,-42);
+                require_data('#w12__ID',-91,-84);
+            });
+            //--------------------------------------------------------
+            var require_data=function(id,n1,n2){
+                var sql="select S2, DateTime from [TABLE-20011505] where DateTime>@T1 and DateTime<@T2";
+                var dt=new Date();
+                var dt1=$vm.date_add_days(dt,n1);
+                var dt2=$vm.date_add_days(dt,n2);
+                var t1=$vm.date_to_string_yyyymmdd(dt1);
+                var t2=$vm.date_to_string_yyyymmdd(dt2);
+                var req={cmd:'read',sql:sql,qid:$vm.qid,t1:t1,t2:t2}
+                $VmAPI.request({data:req,callback:function(res){
+                    var txt="";
+                    for(var i=0;i<res.records.length;i++){
+                        if(txt!="") txt+="<br>";
+                        txt+=res.records[i].DateTime.split(' ')[0]+' - '+res.records[i].S2;
+                    }
+                    $(id).html(txt);
+                }})
+            }
+            //--------------------------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            animation: vm_module_fadein 1.0s;
+            overflow:auto;
+            background-color:#fff;
+            padding:30px;
+        }
+    </style>
+</div>
