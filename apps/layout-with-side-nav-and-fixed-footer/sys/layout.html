@@ -1,29 +1,26 @@
 <div layout-html id=layout_0>
     <div id=header_0>
         <div id=m_header_0>
-            <span module=Home id=m_title_0>Business Portal</span> <a id=vm_toggle_0 onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+            <span module=home id=m_title_0>Business Portal</span> <a id=vm_toggle_0 onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
         </div>
         <div id=d_header_0>Header</div>
     </div>
     <div id=main_0>
         <div id=sidebar_0 class=vm_sidebar_hide>
-            <div id=vm_logo module=Home>
+            <div id=vm_logo module=home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
                 <br><br>
             </div>
             <div id="vm_menu">
-                <u class=vm_li module=Home><i class="fa fa-home"></i>Home</u>
+                <a href="?/home"><i class="fa fa-home"></i>Home</a>
                 <u class=vm_folder><i class="fa fa-folder-open-o"></i>Articles</u>
                 <ul>
                     <li><a href="?/long">Article 1</li>
                     <li><a href="?/short">Article 2</a></li>
                     <li><a href="?/two-columns">Article 3</a></li>
-                    <li module=long>Article 1</li>
-                    <li module=short>Article 2</li>
-        			<li module=two-columns>Article 3</li>
         		</ul>
-                <u class=vm_li module=portal><i class="fa fa-th"></i>Sitemap</u>
+                <a href="?/portal"><i class="fa fa-th"></i>Sitemap</a>
                 <div id=vm_signin>
                     <u class=vm_folder><i class="fa fa-folder-o"></i>Sign In</u>
                     <ul class=vm_menu_hide_0>
@@ -99,7 +96,7 @@
 			var footer_height=$('#footer_0').outerHeight();
 			$vm.min_height=($(window).height()-header_height-footer_height);
 			$('#content_container_0').css({'height':($vm.min_height)+'px'});
-            $('#sidebar_0').css({'height':($vm.min_height)+'px'});
+            //$('#sidebar_0').css({'height':($vm.min_height)+'px'});
 		}
 		//------------------------------------
 		set_height();window.onresize=function(){set_height();}
@@ -131,26 +128,9 @@
         }
     })
     //--------------------------------------------------------
-    $vm.menu_click_process=function($li){
-        var m=$li.attr('module');
-        if(m!=undefined){
-            if($vm.module_list[m]==undefined){
-                alert(m +" is not in the module list.");
-                return;
-            }
-            $vm.load_module_v2(m,'',{});
-            var d=$('#sidebar_0');
-            //d.removeClass('vm_show').addClass('vm_hide');
-        }
-    }
-    //--------------------------------------------------------
-    $('#vm_menu li').on('click',function(){ $vm.menu_click_process($(this));})
-    //--------------------------------------------------------
-    $('#vm_menu .vm_li').on('click',function(){ $vm.menu_click_process($(this));})
-    //--------------------------------------------------------
     $vm.toggle=function() {
         var d=$('#sidebar_0');
-        $('#sidebar_0').css({'height':'unset'});
+        //$('#sidebar_0').css({'height':'unset'});
         if(d.hasClass('vm_sidebar_hide')){
             d.removeClass('vm_sidebar_hide').addClass('vm_show');
         }
@@ -167,10 +147,7 @@
 				href=href.replace('?\/','');
 				href=href.replace(/\//g,'_');
 				$vm.load_module_v2(href,'',{});
-            }
-            else if( $(this).attr('toggle')==undefined){
-                var x = document.getElementById("vm_menu");
-                if(x.className==='responsive') x.className="";
+                $vm.toggle();
             }
         })
         //---------------------------------------------
@@ -197,6 +174,23 @@
         if(window.location.hostname!='127.0.0.1'){
             $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google_0',show_user);
             $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
+        }
+        //---------------------------------------------
+        if($vm.vm==undefined) $vm.vm={}
+        $vm.vm["_0"]={}
+        $vm.vm["_0"].meta={}
+        $vm.vm["_0"].meta.title="Website layout with side nav and fixed footer";
+        $vm.vm["_0"].meta.description="Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!";
+        $vm.change_meta=function(id){
+            if($vm.vm[id].meta!=undefined){
+                if($vm.vm[id].meta.title!=undefined) document.title=$vm.vm[id].meta.title; else document.title=$vm.vm['_0'].meta.title;
+                if($vm.vm[id].meta.description!=undefined)  $("meta[name='description']").attr("content", $vm.vm[id].meta.description);
+                else $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+            }
+            else{
+                document.title=$vm.vm['_0'].meta.title;
+                $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+            }
         }
         //---------------------------------------------
     }
@@ -267,17 +261,15 @@
         width:20px;
         display:inline-block;
     }
-    .vm_folder:hover, .vm_li:hover, #vm_menu li:hover{
+    .vm_folder:hover, #vm_menu li:hover{
         color:red;
     }
     .vm_folder{
         display:block;
         width:100%;
     }
-    .vm_li{
-        width:100%;
-    }
     #sidebar_0{
+        height: 100%;
         background: rgba(0,0,0,0.5);
     }
     #vm_logo{
@@ -317,6 +309,12 @@
     }
     #vm_menu li {
         cursor:pointer;
+    }
+    #vm_menu a {
+      color: #fff;
+    }
+    #vm_menu a:hover {
+      color: red;
     }
     #vm_search {
         padding-top:20px;

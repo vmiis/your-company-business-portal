@@ -65,16 +65,10 @@
 </div>
 <script>
     function F__ID(){
-        //--------------------------------------------------------
-		var this_module=$vm.module_list[$vm.vm['__ID'].name];
-		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
-        $('#panel__ID u').on('click',function(){
-			var m=$(this).attr('m');
-            if(m!=undefined){
-				$vm.load_module_v2(prefix+m,'',{});
-            }
-        })
+		$vm.vm["__ID"].meta={};
+		$vm.vm["__ID"].meta.title="Short Page | "+$vm.vm["_0"].meta.title;
+	    $vm.vm["__ID"].meta.description="short page for testing the scroll bar";
         //--------------------------------------------------------
     }
 </script>
@@ -100,56 +94,4 @@
 	#page__ID{
         padding:10px 0 0 20px;
     }
-    #info__ID{
-        font-size: 11px;
-        padding:5px 10px 0 10px;
-        color:#222;
-    }
-	li::before{
-		font-size: 20px!Important;
-	}
-    .nav__ID{
-        padding:6px 26px 6px 6px;
-        /*color: #202727;*/
-        float:left;
-    }
-    .nav__ID span{
-		color:#283f55;
-		font-weight: bold;
-		margin:3px 10px;
-    }
-	.nav__ID u:hover{
-		color:red;
-	    cursor:pointer;
-	}
-	.app__ID{
-		color:#283f55;
-		font-weight: bold;
-		margin:3px 0px 3px 5px;
-	}
-	.ul__ID{
-		color:#283f55;
-		font-weight: bold;
-		margin:3px 0px 3px 5px;
-	}
-	.nav__ID ul{
-		margin:0 0 3px 0;
-	}
-	.nav__ID p{
-		margin:0;
-	}
-	.data__ID{
-		color:#709aab;
-	}
-    .space__ID{
-        width:34px;
-        display:inline-block;
-    }
-	.li__ID{
-		display:inline-block;
-		width:150px;
-	}
-    .nav__ID>ul>li u:nth-child(2){
-        font-size:11px;
-	}
 </style>
