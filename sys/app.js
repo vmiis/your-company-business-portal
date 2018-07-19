@@ -271,20 +271,6 @@ $vm.app_init(function(){
     }
     //------------------------------------
     var load_search_module=function(){
-        /*
-        var a=window.location.href.split('page=');
-        if(a.length==2){
-            var name=a[1].split('&')[0];
-            if(name.length>0){
-                if($vm.module_list[name]!=undefined){
-                    $vm.load_module_v2(name,'',{});
-                    return;
-                }
-                else alert("The module "+name+" is not in the module list!");
-            }
-            else alert("The module "+name+" is not correct!");
-        }
-        */
         var a=window.location.href.split('?/');
         if(a.length==2){
             var name=a[1].split('&')[0].replace(/\//g,'_');
@@ -369,7 +355,6 @@ $vm.app_init(function(){
                 }
                 if(I==N-1){ //all module's link are ready
                     if($vm.home_process!=undefined) $vm.home_process();
-                    //else load_search_module();
                 }
             })
         }

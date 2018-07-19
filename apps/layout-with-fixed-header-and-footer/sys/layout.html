@@ -2,17 +2,17 @@
     <div header id=header_0>
         <div>
             <div mobile>
-                <span module=Home id=m_title>Business Portal</span>
+                <span module=home id=m_title>Business Portal</span>
                 <a toggle id="vm_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
             </div>
-            <div desktop id=vm_logo module=Home>
+            <div desktop id=vm_logo module=home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a href="?page=Home" module=Home><i class="fa fa-home"></i> Home</a>
-                <a href="?page=long" module=long>Long</a>
-                <a href="?page=short" module=short>Short</a>
+                <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                <a href="?/long">Long</a>
+                <a href="?/short">Short</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -96,9 +96,13 @@
     $vm.header=function(){
         $('#vm_menu a').on('click',function(e){
             e.preventDefault();
-            var module=$(this).attr('module');
-            if(module!=undefined) $vm.load_module_v2(module);
-            if( $(this).attr('toggle')==undefined){
+            var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(href,'',{});
+            }
+            else if( $(this).attr('toggle')==undefined){
                 var x = document.getElementById("vm_menu");
                 if(x.className==='responsive') x.className="";
             }

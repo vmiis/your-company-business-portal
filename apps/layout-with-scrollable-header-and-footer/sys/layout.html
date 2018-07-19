@@ -2,17 +2,17 @@
     <div header id=header_0>
         <div>
             <div mobile>
-                <span module=Home id=m_title>Business Portal</span>
+                <span module=home id=m_title>Business Portal</span>
                 <a toggle id="vm_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
             </div>
-            <div desktop id=vm_logo module=Home>
+            <div desktop id=vm_logo module=home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a module=Home><i class="fa fa-home"></i> Home</a>
-                <a module=long>Long</a>
-                <a module=short>Short</a>
+                <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                <a href="?/long">Long</a>
+                <a href="?/short">Short</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -97,9 +97,13 @@
     $vm.header=function(){
         $('#vm_menu a').on('click',function(e){
             e.preventDefault();
-            var module=$(this).attr('module');
-            if(module!=undefined) $vm.load_module_v2(module);
-            if( $(this).attr('toggle')==undefined){
+            var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(href,'',{});
+            }
+            else if( $(this).attr('toggle')==undefined){
                 var x = document.getElementById("vm_menu");
                 if(x.className==='responsive') x.className="";
             }
@@ -134,6 +138,23 @@
         if(window.location.hostname!='127.0.0.1'){
             $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google_0',show_user);
             $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
+        }
+        //---------------------------------------------
+        if($vm.vm==undefined) $vm.vm={}
+        $vm.vm["_0"]={}
+        $vm.vm["_0"].meta={}
+        $vm.vm["_0"].meta.title="Website layout with scrollable header and footer";
+        $vm.vm["_0"].meta.description="Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!";
+        $vm.change_meta=function(id){
+            if($vm.vm[id].meta!=undefined){
+                if($vm.vm[id].meta.title!=undefined) document.title=$vm.vm[id].meta.title; else document.title=$vm.vm['_0'].meta.title;
+                if($vm.vm[id].meta.description!=undefined)  $("meta[name='description']").attr("content", $vm.vm[id].meta.description);
+                else $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+            }
+            else{
+                document.title=$vm.vm['_0'].meta.title;
+                $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+            }
         }
         //---------------------------------------------
     }

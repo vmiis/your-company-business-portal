@@ -11,8 +11,11 @@
 </div>
 <script>
 	function F__ID(){
-		var text=$vm.module_list[$vm.vm['__ID'].name].text;
-        if(text!=undefined) $('#text__ID').text(text);
+		//--------------------------------------------------------
+		$vm.vm["__ID"].meta={};
+        $vm.vm["__ID"].meta.title="Under construction | "+$vm.vm["_0"].meta.title;
+	    $vm.vm["__ID"].meta.description="Under construction page";
+        //--------------------------------------------------------
 	}
 </script>
 <style>

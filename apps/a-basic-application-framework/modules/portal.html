@@ -4,9 +4,9 @@
 		<div class='nav__ID'>
             <span>Control Panel</span>
 			<ul>
-				<li><u m=link-1>Link 1</u></li>
-                <li><u m=link-2>Link 2</u></li>
-                <li><u m=link-3>Link 3</u></li>
+				<li><a href="?/link-1">Link 1</a></li>
+                <li><a href="?/link-2">Link 2</a></li>
+                <li><a href="?/link-3">Link 3</a></li>
 			</ul>
 		</div>
 	</section>
@@ -15,19 +15,22 @@
     function F__ID(){
         //--------------------------------------------------------
 		$vm.vm["__ID"].meta={};
-		$vm.vm["__ID"].meta.title="Portal | Modular distributed web application";
+        $vm.vm["__ID"].meta.title="Portal | "+$vm.vm["_0"].meta.title;
 	    $vm.vm["__ID"].meta.description="Control Panel";
         //--------------------------------------------------------
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
-        $('#panel__ID u').on('click',function(){
-			var m=$(this).attr('m');
-            if(m!=undefined){
-				$vm.load_module_v2(prefix+m,'',{});
+        $('#panel__ID a').on('click',function(e){
+			event.preventDefault();
+			var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(prefix+href,'',{});
             }
-        })
-        //--------------------------------------------------------
+		})
+		//--------------------------------------------------------
     }
 </script>
 <style>
@@ -94,4 +97,7 @@
     .nav__ID>ul>li u:nth-child(2){
         font-size:11px;
 	}
+    .nav__ID a {color: #283f55;	}
+	.nav__ID a:link { text-decoration: underline; }
+	.nav__ID a:hover { 	color: red;	}
 </style>

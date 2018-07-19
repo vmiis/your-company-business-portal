@@ -16,6 +16,9 @@
                 <u class=vm_li module=Home><i class="fa fa-home"></i>Home</u>
                 <u class=vm_folder><i class="fa fa-folder-open-o"></i>Articles</u>
                 <ul>
+                    <li><a href="?/long">Article 1</li>
+                    <li><a href="?/short">Article 2</a></li>
+                    <li><a href="?/two-columns">Article 3</a></li>
                     <li module=long>Article 1</li>
                     <li module=short>Article 2</li>
         			<li module=two-columns>Article 3</li>
@@ -155,7 +158,22 @@
             d.removeClass('vm_show').addClass('vm_sidebar_hide');
         }
     }
+    //--------------------------------------------------------
     $vm.header=function(){
+        $('#vm_menu a').on('click',function(e){
+            e.preventDefault();
+            var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(href,'',{});
+            }
+            else if( $(this).attr('toggle')==undefined){
+                var x = document.getElementById("vm_menu");
+                if(x.className==='responsive') x.className="";
+            }
+        })
+        //---------------------------------------------
         $('#m_title_0').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
         $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
         //---------------------------------------------
