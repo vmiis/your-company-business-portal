@@ -2,17 +2,17 @@
     <div header id=header_0>
         <div>
             <div mobile>
-                <span module=Home id=m_title>Business Portal</span>
+                <span module=home id=m_title>Business Portal</span>
                 <a toggle id="vm_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
             </div>
-            <div desktop id=vm_logo module=Home>
+            <div desktop id=vm_logo module=home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a module=Home><i class="fa fa-home"></i> Home</a>
-                <a module=long>Long</a>
-                <a module=short>Short</a>
+                <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                <a href="?/long">Long</a>
+                <a href="?/short">Short</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -97,12 +97,13 @@
     $vm.header=function(){
         $('#vm_menu a').on('click',function(e){
             e.preventDefault();
-            var module=$(this).attr('module');
-            if(module!=undefined) $vm.load_module_v2(module);
-            if( $(this).attr('toggle')==undefined){
-                var x = document.getElementById("vm_menu");
-                if(x.className==='responsive') x.className="";
+            var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(href,'',{});
             }
+            $vm.toggle();
         })
         $('.vm_dropdown').on('click',function(){
             var d=$(this).find('.vm_dropdown-content');
@@ -134,6 +135,17 @@
         if(window.location.hostname!='127.0.0.1'){
             $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google_0',show_user);
             $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
+        }
+        //---------------------------------------------
+        $vm.default_title="Layout with sticky header and scrollable footer";
+        $vm.show=function(id){
+            if($vm.vm[id].show!=undefined){
+                $vm.vm[id].show();
+            }
+            else{
+                document.title=$vm.default_title;
+                $("meta[name='description']").attr("content", "Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
+            }
         }
         //---------------------------------------------
     }
@@ -181,6 +193,7 @@
         top: 0;
         left:0;
         right:0;
+        z-index:999;
     }
     #vm_logo{
         display:inline-block;

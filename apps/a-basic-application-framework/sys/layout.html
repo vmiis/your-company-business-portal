@@ -10,8 +10,8 @@
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a href="?/home" module=home><i class="fa fa-home"></i> Home</a>
-                <a href="?/portal" module=portal><i class="fa fa-th"></i> Business Portal</a>
+                <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -95,12 +95,13 @@
     $vm.header=function(){
         $('#vm_menu a').on('click',function(e){
             e.preventDefault();
-            var module=$(this).attr('module');
-            if(module!=undefined) $vm.load_module_v2(module);
-            if( $(this).attr('toggle')==undefined){
-                var x = document.getElementById("vm_menu");
-                if(x.className==='responsive') x.className="";
+            var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(href,'',{});
             }
+            $vm.toggle();
         })
         $('.vm_dropdown').on('click',function(){
             var d=$(this).find('.vm_dropdown-content');
