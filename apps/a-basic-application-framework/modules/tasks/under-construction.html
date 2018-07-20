@@ -12,9 +12,10 @@
 <script>
 	function F__ID(){
 		//--------------------------------------------------------
-		$vm.vm["__ID"].meta={};
-        $vm.vm["__ID"].meta.title="Under construction | "+$vm.vm["_0"].meta.title;
-	    $vm.vm["__ID"].meta.description="Under construction page";
+		$vm.vm["__ID"].show=function(){
+			document.title="Under construction | "+$vm.default_title;
+            $("meta[name='description']").attr("content","Under construction page");
+		}
         //--------------------------------------------------------
 	}
 </script>

@@ -141,20 +141,14 @@
         //---------------------------------------------
     }
     //---------------------------------------------
-    if($vm.vm==undefined) $vm.vm={}
-    $vm.vm["_0"]={}
-    $vm.vm["_0"].meta={}
-    $vm.vm["_0"].meta.title="Modular distributed web application";
-    $vm.vm["_0"].meta.description="A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!";
-    $vm.change_meta=function(id){
-        if($vm.vm[id].meta!=undefined){
-            if($vm.vm[id].meta.title!=undefined) document.title=$vm.vm[id].meta.title; else document.title=$vm.vm['_0'].meta.title;
-            if($vm.vm[id].meta.description!=undefined)  $("meta[name='description']").attr("content", $vm.vm[id].meta.description);
-            else $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+    $vm.default_title="Modular distributed web application";
+    $vm.show=function(id){
+        if($vm.vm[id].show!=undefined){
+            $vm.vm[id].show();
         }
         else{
-            document.title=$vm.vm['_0'].meta.title;
-            $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+            document.title=$vm.default_title;
+            $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
         }
     }
     //---------------------------------------------

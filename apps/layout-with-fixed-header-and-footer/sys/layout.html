@@ -139,20 +139,14 @@
             $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
         }
         //---------------------------------------------
-        if($vm.vm==undefined) $vm.vm={}
-        $vm.vm["_0"]={}
-        $vm.vm["_0"].meta={}
-        $vm.vm["_0"].meta.title="Website Layout with fixed header and footer";
-        $vm.vm["_0"].meta.description="Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!";
-        $vm.change_meta=function(id){
-            if($vm.vm[id].meta!=undefined){
-                if($vm.vm[id].meta.title!=undefined) document.title=$vm.vm[id].meta.title; else document.title=$vm.vm['_0'].meta.title;
-                if($vm.vm[id].meta.description!=undefined)  $("meta[name='description']").attr("content", $vm.vm[id].meta.description);
-                else $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+        $vm.default_title="Website layout with fixed header and footer";
+        $vm.show=function(id){
+            if($vm.vm[id].show!=undefined){
+                $vm.vm[id].show();
             }
             else{
-                document.title=$vm.vm['_0'].meta.title;
-                $("meta[name='description']").attr("content", $vm.vm['_0'].meta.description);
+                document.title=$vm.default_title;
+                $("meta[name='description']").attr("content", "Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
             }
         }
         //---------------------------------------------

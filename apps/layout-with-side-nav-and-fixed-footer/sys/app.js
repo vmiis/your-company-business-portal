@@ -291,6 +291,7 @@ $vm.app_init(function(){
         var i=0
         var N=rm.length;
         var process=function(I,prefix,url){
+            if(url.substring(0,4)!='http') url=$vm.hosting_path+"/"+url;
             load_url(url,function(txt){
                 var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
                 var modules=config.modules;
