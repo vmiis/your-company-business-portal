@@ -2,6 +2,7 @@
     "modules":
 	{
         "long":  {"url":"tasks/long.html"},
-        "short": {"url":"tasks/short.html"}
+        "short": {"url":"tasks/short.html"},
+        "about":  {"url":"https://www.vmiis.com/modules/about/about-this-website.html"}
 	}
 }

@@ -4,6 +4,7 @@
         "portal": {"url":"tasks/portal.html"},
         "long":  {"url":"tasks/long.html"},
         "short": {"url":"tasks/short.html"},
-        "two-columns":  {"url":"tasks/two-columns.html"}
+        "two-columns":  {"url":"tasks/two-columns.html"},
+        "about":  {"url":"https://www.vmiis.com/modules/about/about-this-website.html"}
 	}
 }
