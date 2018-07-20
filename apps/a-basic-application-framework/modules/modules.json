@@ -4,6 +4,7 @@
         "portal": {"url":"portal.html"},
         "link-1": {"url":"tasks/under-construction.html","preload":true,"name_for_search":"Link 1","text":"Under Construction"},
 		"link-2": {"url":"tasks/under-construction.html","preload":true,"name_for_search":"Link 2","text":"Not Ready"},
-		"link-3": {"url":"tasks/under-construction.html","preload":true,"name_for_search":"Link 3","text":"Comming soon..."}
+		"link-3": {"url":"tasks/under-construction.html","preload":true,"name_for_search":"Link 3","text":"Comming soon..."},
+        "about":  {"url":"https://www.vmiis.com/modules/about/about-this-website.html"}
 	}
 }

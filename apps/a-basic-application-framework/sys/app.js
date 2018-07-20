@@ -298,7 +298,7 @@ $vm.app_init(function(){
                 var path=url.replace('index.json','');
                 path=path.replace('modules.json','');
                 for (var k in modules){
-                    modules[k].url=path+modules[k].url;
+                    if(modules[k].url.substring(0,4)!='http') modules[k].url=path+modules[k].url;
                     $vm.module_list[prefix+k]=modules[k];
                     $vm.module_list[prefix+k].prefix=prefix;
                     if($vm.search_module==(prefix+k)) $vm.load_module_v2($vm.search_module,'',{});
