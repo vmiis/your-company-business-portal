@@ -102,10 +102,7 @@
 				href=href.replace(/\//g,'_');
 				$vm.load_module_v2(href,'',{});
             }
-            else if( $(this).attr('toggle')==undefined){
-                var x = document.getElementById("vm_menu");
-                if(x.className==='responsive') x.className="";
-            }
+            $vm.toggle();
         })
         $('.vm_dropdown').on('click',function(){
             var d=$(this).find('.vm_dropdown-content');
