@@ -256,7 +256,7 @@ $vm.app_init(function(){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || ($vm.localhost==true && url.indexOf('127.0.0.1')!=-1 && url.indexOf('localhost')!=-1) ){
+        if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || ($vm.localhost==true && (url.indexOf('127.0.0.1')!=-1 || url.indexOf('localhost')!=-1)) ){
             console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url+'?_='+$vm.ver[0]+$vm.reload)
             $.get(url+'?_='+$vm.ver[0]+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);

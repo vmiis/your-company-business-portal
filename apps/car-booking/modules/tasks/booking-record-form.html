@@ -126,12 +126,8 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
         VmInclude:__CURRENT_PATH__/task_form.js
         //-------------------------------------
         var before_submit=function(record,dbv){
-            var input=$vm.vm['__ID'].op;
+            var input=$vm.vm['__ID'].input;
             var puid=input.puid;
-            if(puid==undefined){
-                 input=input.input;
-                 puid=input.puid;
-            }
             if(puid!=undefined) dbv.PUID=puid; //new booking
             dbv.DT1=record.Date;
             dbv.S1=record.Time;

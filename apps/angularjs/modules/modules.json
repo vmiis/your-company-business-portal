@@ -1,0 +1,8 @@
+{
+    "modules":
+	{
+        "portal":	{"url":"portal.html"},
+        "hello":	{"url":"hello.html"},
+        "about":  {"url":"https://www.vmiis.com/modules/about/about-this-website.html"}
+	}
+}

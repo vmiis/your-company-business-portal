@@ -1,31 +1,35 @@
 <div id=page__ID>
-	<span style='display:none;font-size:200%'></span> <a id=app__ID target=_blank href='apps/reactjs/' >Run as a seperate application </a>
-    <br>
 	<section id=panel__ID>
 		<div class='nav__ID'>
             <span>Control Panel</span>
 			<ul>
-				<li><u m=hello-world>Hello world</u></li>
-                <li><u m=tic-tac-toe-starter>Tic tac toe starter</u></li>
-                <li><u m=tic-tac-toe-passing-value>Tic tac toe passing value</u></li>
+				<li><a href="hello-world">Hello world</a></li>
+                <li><a href="tic-tac-toe-starter">Tic tac toe starter</a></li>
+                <li><a href="tic-tac-toe-passing-value">Tic tac toe passing value</a></li>
 			</ul>
 		</div>
 	</section>
 </div>
 <script>
     function F__ID(){
-        //--------------------------------------------------------
+		//--------------------------------------------------------
+		$vm.vm["__ID"].show=function(){
+			document.title="Portal | "+$vm.default_title;
+			$("meta[name='description']").attr("content","Control Panel");
+		}
+		//--------------------------------------------------------
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
-        $('#panel__ID u').on('click',function(){
-			var m=$(this).attr('m');
-            if(m!=undefined){
-				$vm.load_module_v2(prefix+m,'',{});
-            }
-        })
-        //--------------------------------------------------------
-		if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
+		$('#panel__ID a').on('click',function(e){
+			event.preventDefault();
+			var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(prefix+href,'',{});
+			}
+		})
 		//--------------------------------------------------------
     }
 </script>
@@ -93,4 +97,7 @@
     .nav__ID>ul>li u:nth-child(2){
         font-size:11px;
 	}
+	.nav__ID a {color: #283f55;	}
+	.nav__ID a:link { text-decoration: underline; }
+	.nav__ID a:hover { 	color: red;	}
 </style>

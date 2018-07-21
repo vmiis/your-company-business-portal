@@ -1,20 +1,7 @@
 //------------------------------------
-$vm.module_links=[
-    "index.json"
-];
-$vm.module_list={
-    "Home":     {"url":"modules/home.html"}
-}
-//------------------------------------
-$vm.app_config={
-    "api_path_development":"https://cbs.wappsystem.com/dev/",
-    "api_path_production":"https://cbs.wappsystem.com/pro/",
-    "default_production":"No",
-}
-//------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
-function vm_init(callback){
+$vm.app_init=function(callback){
     console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* start running init ************************");
     //--------------------------------------------------------
     //check and clear localstorage
@@ -88,8 +75,8 @@ function vm_init(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
-            console.log('loading from url. '+url)
+        if(ver!=$vm.ver[1] || txt===null || $vm.reload!='' || $vm.localhost==true && url.indexOf('vmiis.com')==-1){
+            console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url)
             $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
                 localStorage.setItem(url+"_ver",$vm.ver[1]);
@@ -98,14 +85,14 @@ function vm_init(callback){
             },'text');
         }
         else{
-            console.log('loading from stotage. '+url)
+            console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from stotage. '+url)
             $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next();
         }
         //------------------------------------------
     }
     //--------------------------------------------------------
     $vm.url=function(text){
-        //replace some text in old modules to the correct ones
+		//replace some text in old modules to the correct ones
 		text=text.replace(/__HOST__\//g,$vm.hosting_path+'/');
 		text=text.replace(/__VER__/g,$vm.ver[0]);
 		text=text.replace(/__BASE__\/vmiis\/Common-Code\//g,'__COMPONENT__/');
@@ -114,7 +101,6 @@ function vm_init(callback){
 		text=text.replace(/__LIB__\/vmiis\/common-code\//g,'__COMPONENT__/');
         text=text.replace(/__PARTS__\//g,'__COMPONENT__/');
 		text=text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/');
-
 		if(window.location.toString().indexOf('_d=1')!=-1){
 			//use local system files
             var host=window.location.protocol+'//'+window.location.host;
@@ -124,12 +110,12 @@ function vm_init(callback){
 		}
 		return text;
 	}
-	//--------------------------------------------------------
+	//------------------------------------
     load_vmapi();
     //------------------------------------
 }
 //------------------------------------
-vm_init(function(){
+$vm.app_init(function(){
     //-----------------------------------------
     window.onmessage=function(e){
         if(e.data.username!=undefined && e.data.user_id!=undefined){
@@ -143,9 +129,8 @@ vm_init(function(){
     var resources=[
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
-
-      "https://unpkg.com/react@16/umd/react.production.min.js",
-      "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
@@ -225,9 +210,9 @@ vm_init(function(){
     }
     //------------------------------------
     var load_search_module=function(){
-        var a=window.location.href.split('page=');
+        var a=window.location.href.split('?/');
         if(a.length==2){
-            var name=a[1].split('&')[0];
+            var name=a[1].split('&')[0].replace(/\//g,'_');
             if(name.length>0){
                 if($vm.module_list[name]!=undefined){
                     $vm.load_module_v2(name,'',{});
@@ -243,14 +228,6 @@ vm_init(function(){
         var search_loop=setInterval(function (){
 			if($vm['jquery-ui-min-js']==1){
 				clearInterval(search_loop);
-                for(k in $vm.module_list){
-                    if($vm.module_list[k].name_for_search!=undefined){
-                        if($vm.module_list[k].name_for_search!=""){
-                            $vm.website_module_list_for_search.push({label:$vm.module_list[k].name_for_search,value:k});
-                        }
-                    }
-                    else $vm.website_module_list_for_search.push({label:k,value:k});
-                }
                 $("#vm_system_search").autocomplete({
                     minLength:0,
                     source: function(request, response) {
@@ -268,66 +245,84 @@ vm_init(function(){
                     position: {  collision: "flip"  }
                 });
                 $("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
-				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* search is ready ************************");
+				console.log((new Date().getTime()-$vm.start_time).toString()+" --- ********************* search is ready ************************");
 			}
 		},100);
 		//------------------------------------
     }
     //------------------------------------
-    var loading_back_image=function(){
-        //This is the place we can add background image to body (Asynchronous)
-        var $image1 = $("<img>");
-        $image1.on('load',(function(){
-            $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");
-            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
-        }));
-        $image1.attr("src", "layout.jpg");
+    var load_url=function(url,next){
+        //------------------------------------------
+        var ver=localStorage.getItem(url+"_ver");
+        var txt=localStorage.getItem(url+"_txt");
+        //------------------------------------------
+        if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || ($vm.localhost==true && (url.indexOf('127.0.0.1')!=-1 || url.indexOf('localhost')!=-1)) ){
+            console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url+'?_='+$vm.ver[0]+$vm.reload)
+            $.get(url+'?_='+$vm.ver[0]+$vm.reload,function(data){
+                localStorage.setItem(url+"_txt",data);
+                localStorage.setItem(url+"_ver",$vm.ver[0]);
+                next(data);
+            },'text');
+        }
+        else{
+            console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from stotage. '+url)
+            next(txt);
+        }
+        //------------------------------------------
     }
     //------------------------------------
     var module_links=function(){
         var rm=$vm.module_links;
-        var process=function(prefix,nm){
-            $.get(nm+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+        var i=0
+        var N=rm.length;
+        var process=function(I,prefix,url){
+            if(url.substring(0,4)!='http') url=$vm.hosting_path+"/"+url;
+            load_url(url,function(txt){
                 var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
                 var modules=config.modules;
-                var path=nm.replace('index.json','');
+                var path=url.replace('index.json','');
+                path=path.replace('modules.json','');
                 for (var k in modules){
                     if(modules[k].url.substring(0,4)!='http') modules[k].url=path+modules[k].url;
                     $vm.module_list[prefix+k]=modules[k];
                     $vm.module_list[prefix+k].prefix=prefix;
+                    if($vm.search_module==(prefix+k)) $vm.load_module_v2($vm.search_module,'',{});
                     var snm=modules[k]['name_for_search'];
                     if(snm!=""){
                         if(snm==undefined) snm=prefix+k;
                         $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
                     }
                 }
-            },'text');
+                if(I==N-1){ //all module's link are ready
+                    if($vm.home_process!=undefined) $vm.home_process();
+                }
+            })
         }
-        var i=0
-        var N=rm.length;
         if(N>0){
             var link_remote_module_loop=setInterval(function (){
                 if(i>=N){
                     clearInterval(link_remote_module_loop);
-                    load_search_module();
                     return;
                 }
                 var ns=rm[i].split('|');
-                if(ns.length==1) process("",ns[0])
-                else process(ns[0]+"_",ns[1]);
+                if(ns.length==1) process(i,"",ns[0])
+                else process(i,ns[0]+"_",ns[1]);
                 i++;
             },10);
         }
     }
     //------------------------------------
-    vm_layout();
-    vm_top_right_corner();
-    vm_header();
-    vm_footer();
+    $vm.layout();
+    $vm.header();
+    $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-    $vm.load_module_v2("Home",'',{});
+    var a=window.location.href.split('?/');
+    if(a.length==1) $vm.load_module_v2("home",'',{});
+    else if(a.length==2){
+        $vm.search_module=a[1].split('&')[0].replace(/\//g,'_');
+        if($vm.search_module=='home') $vm.load_module_v2("home",'',{});
+    }
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
-    loading_back_image();
     over_write_alert();
     set_module_search();
     module_links();

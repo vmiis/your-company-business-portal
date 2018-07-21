@@ -1,9 +1,0 @@
-{
-    "modules":
-	{
-        "portal": {"url":"modules/portal.html"},
-        "hello-world":	                {"url":"modules/hello-world/hello-world.html"},
-        "tic-tac-toe-starter":          {"url":"modules/tic-tac-toe-starter/tic-tac-toe.html"},
-        "tic-tac-toe-passing-value":    {"url":"modules/tic-tac-toe-passing-value/tic-tac-toe.html"}
-	}
-}

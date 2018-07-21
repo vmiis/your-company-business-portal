@@ -1,7 +1,0 @@
-{
-    "modules":
-	{
-        "portal":	{"url":"modules/portal.html"},
-        "hello":	{"url":"modules/hello.html"}
-	}
-}

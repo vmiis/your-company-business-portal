@@ -12,7 +12,7 @@
             <div menu id="vm_menu">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
                 <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
-                <a href="?/about-this-website"><i class="fa fa-info-circle"></i> About</a>
+                <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -68,50 +68,7 @@
 <script layout-js>
     //------------------------------------
     $vm.module_links=[
-        "modules/modules.json",
-        "sleepfix|modules/sleepfix/modules.json",
-        "static|apps/layout-with-fixed-header-and-footer/modules/modules.json",
-        "basic-form-fields|apps/basic-form-fields/modules/modules.json",
-        "sfw|apps/sleepfix-workbench/index.json",
-        "wfh|apps/windfarm-home-2/index.json",
-        "who|apps/windfarm-home-online-questionnaire-2/index.json",
-        "myf|apps/my-first-hello-world-module-in-an-application/index.json",
-        "fns|apps/fitness/index.json",
-        "mep|apps/medical-practitioner/index.json",
-        "w01|apps/website-template-001/index.json",
-        "w02|apps/website-template-002/index.json",
-        "w03|apps/website-template-003/index.json",
-        "w04|apps/website-template-004/index.json",
-        "rpc|apps/reporting-central/index.json",
-        "clt|apps/clinical-trials-001/index.json",
-        "cto|apps/clinical-trials-001-online-questionnaire/index.json",
-        "pvb|apps/clinical-trials-participant-visit-booking/index.json",
-        "cbe|apps/crc-stream-b-extension/index.json",
-        "bkk|apps/bookkeeping/index.json",
-        "cab|apps/car-booking/index.json",
-        "dbm|apps/distributed-modules/index.json",
-        "dct|apps/document-collaboration-tracking/index.json",
-        "eai|apps/education-and-immigration/index.json",
-        "enq|apps/enquiry/index.json",
-        "eqb|apps/equipment-booking/index.json",
-        "inr|apps/incident-reporting/index.json",
-        "inv|apps/invoice/index.json",
-        "ppm|apps/program-and-project-management/index.json",
-        "por|apps/purchase-order-request/index.json",
-        "rmb|apps/room-booking/index.json",
-        "sat|apps/sales-tracking/index.json",
-        "svb|apps/service-booking/index.json",
-        "suv|apps/survey/index.json",
-        "wpi|apps/workplace-inspection/index.json",
-        "tec|apps/team-event-calendar/index.json",
-        "tom|apps/tom-data-management/index.json",
-        "wdm|apps/woolcock-data-management/index.json",
-        "wcc|apps/woolworths-credit-card/index.json",
-        "pat|apps/particles/index.json",
-        "blg|apps/blog/index.json",
-        "re|apps/restaurant/pages/index.json",
-        "sm|apps/sfix-app-survey-management/pages/index.json",
-        "il|apps/clinical-trials-005/pages/index.json",
+        "modules/modules.json"
     ];
     $vm.module_list={
         "home":     {"url":"modules/home.html"}
@@ -122,8 +79,20 @@
         "api_path_production":"https://cbs.wappsystem.com/pro/",
         "default_production":"No",
     }
+    $vm.qid='10000000';
     $vm.vm_router=1;
     //------------------------------------
+    $vm.default_title="Bootstrap Pages";
+    $vm.show=function(id){
+        if($vm.vm[id].show!=undefined){
+            $vm.vm[id].show();
+        }
+        else{
+            document.title=$vm.default_title;
+            $("meta[name='description']").attr("content", "Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
+        }
+    }
+    //---------------------------------------------
     $vm.layout=function(){
 		//------------------------------------
         $vm.root_layout_content_slot="content_container_0";
@@ -142,7 +111,7 @@
         $vm.root_layout_footer='footer_0';
         if($vm.server=='production') $('#database_d_0').hide();
         //-----------------------------------------------------
-        $('#text_0').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).  </span>");
+        $('#text_0').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
         //------------------------------------
     }
     //---------------------------------------------
@@ -195,18 +164,7 @@
         }
         //---------------------------------------------
     }
-    //---------------------------------------------
-    $vm.default_title="Modular distributed web application";
-    $vm.show=function(id){
-        if($vm.vm[id].show!=undefined){
-            $vm.vm[id].show();
-        }
-        else{
-            document.title=$vm.default_title;
-            $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
-        }
-    }
-    //---------------------------------------------
+    //------------------------------------
 </script>
 <style layout-css>
 	html,body{
@@ -370,7 +328,7 @@
     /*----------------------*/
     /*content*/
     #content_container_0{
-        position:fixed;
+        /*position:fixed;*/
         width:100%;
         overflow:hidden;
     }
