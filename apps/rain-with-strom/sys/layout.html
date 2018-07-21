@@ -11,7 +11,8 @@
             </div>
             <div menu id="vm_menu">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
+                <a href="?/long">Long</a>
+                <a href="?/short">Short</a>
                 <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
@@ -38,6 +39,11 @@
     </div>
 </div>
 <div system-html>
+    <div id=vm_background>
+        <div class="cloud1"></div>
+		<div class="cloud2"> </div>
+		<div class="cloud3"> </div>
+    </dov>
     <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
         <div>
             <span id=vm_username></span>
@@ -82,19 +88,18 @@
     $vm.qid='10000000';
     $vm.vm_router=1;
     //------------------------------------
-    $vm.default_title="A basic application framework";
+    $vm.default_title="Layout with particle background";
     $vm.show=function(id){
         if($vm.vm[id].show!=undefined){
             $vm.vm[id].show();
         }
         else{
             document.title=$vm.default_title;
-            $("meta[name='description']").attr("content", "Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
+            $("meta[name='description']").attr("content", "website template --- single page application and modular distributed structure, static hosting, multiple url for SEO,  mobile responsive.");
         }
     }
     //---------------------------------------------
     $vm.layout=function(){
-		//------------------------------------
         $vm.root_layout_content_slot="content_container_0";
 		//------------------------------------
         var set_height=function(){
@@ -164,7 +169,6 @@
         }
         //---------------------------------------------
     }
-    //------------------------------------
 </script>
 <style layout-css>
 	html,body{
@@ -174,13 +178,6 @@
         margin:0;
         font-family:Arial;
 	}
-    body{
-        background-image: url(sys/layout.jpg);
-        background-size: cover;
-        background-repeat: repeat-x;
-        background-position: center top;
-        background-attachment: fixed;
-    }
     /*----------------------*/
     /*layout*/
     #vm_framework{
@@ -202,7 +199,7 @@
     /*header*/
     #header_0{
         height:100px;
-        background: rgba(0,0,0,0.5);
+        background: rgba(100,150,200,0.5);
     }
     #vm_logo{
         display:inline-block;
@@ -488,4 +485,340 @@
             visibility: visible;
         }
     }
+</style>
+<style>
+  #vm_background {
+      overflow: hidden;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    height: 100%;
+    width: 100%;
+    background:url("https://sharabindu.com/pure_css_rain_with_strom/img/storm-bg.jpg") center center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+  }
+  #vm_background:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    -webkit-animation: flash 5s ease-in infinite;
+    animation: flash 5s ease-in infinite;
+    z-index: 50;
+  }
+  #vm_background:before {
+    position: absolute;
+    top:-150px;
+    right:100px;
+    bottom: 0;
+    left:0px;
+    content: '';
+    -webkit-animation: strome 5s ease-in infinite;
+    animation: strome 5s ease-in infinite;
+    z-index: 9999;
+  }
+  @-webkit-keyframes strome{
+    0% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    1% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    2% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    3% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    4% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    5% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    6% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    7% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    8% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    9% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    10%, 100% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+  }
+  @keyframes strome{
+    0% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    1% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    2% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+    3% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    4% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    5% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    6% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    7% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    8% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0.5;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    }
+    9% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    10%, 100% {
+      background-image:url('https://sharabindu.com/pure_css_rain_with_strom/img/22.png');
+      background-repeat: no-repeat;
+      opacity:0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+  }
+  @-webkit-keyframes flash {
+    0% {
+      background: transparent;
+    }
+    1% {
+      background:rgba(255,255,255,.1);
+    }
+    2% {
+      background: transparent;
+    }
+    3% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    4% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    5% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    6% {
+      background:rgba( 255, 255, 255,.1);
+    }
+    7% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    8% {
+      background:rgba( 255, 255, 255,.1);
+    }
+    9% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    10%, 100% {
+      background: transparent;
+    }
+  }
+  @keyframes flash {
+    0% {
+      background: transparent;
+    }
+    1% {
+      background:rgba(255,255,255,.1);
+    }
+    2% {
+      background: transparent;
+    }
+    3% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    4% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    5% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    6% {
+      background:rgba( 255, 255, 255,.1);
+    }
+    7% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    8% {
+      background:rgba( 255, 255, 255,.1);
+    }
+    9% {
+      background:rgba( 255, 255, 255,.2);
+    }
+    10%, 100% {
+      background: transparent;
+    }
+  }
+  .cloud1{
+    background:url("https://sharabindu.com/pure_css_rain_with_strom/img/Rain.png");
+    background-repeat:repeat;
+    background-size:cover;
+    top:0px;
+    z-index:9999;
+    left:0px;
+    width:100%;
+    height:100%;
+    background-size:100px;
+    position:absolute;
+    -webkit-animation: cloudone infinite 1s linear;
+    animation: cloudone infinite 1s linear;
+  }
+  .cloud2{
+    background:url("https://sharabindu.com/pure_css_rain_with_strom/img/Rain.png");
+    background-repeat:repeat;
+    background-size:cover;
+    top:0px;
+    left:50px;
+    width:100%;
+    z-index:9999;
+    height:650px;
+    background-size:150px;
+    position:absolute;
+    -webkit-animation: cloudtwo infinite 2s linear;
+    animation: cloudtwo infinite 2s linear;
+  }
+  .cloud3{
+    background:url("https://sharabindu.com/pure_css_rain_with_strom/img/Rain.png");
+    background-repeat:repeat;
+    background-size:cover;
+    top:0px;
+    left:30px;
+    width:100%;
+    z-index:9999;
+    height:650px;
+    background-size:150px;
+    position:absolute;
+    -webkit-animation: cloudthree infinite 1.5s linear;
+    animation: cloudthree infinite 1.5s linear;
+  }
+  @-webkit-keyframes cloudone{
+    0%{
+      background-position:0px 0px;
+    }
+    100%{
+      background-position:100px 650px;
+    }
+  }
+  @keyframes cloudone{
+    0%{
+      background-position:0px 0px;
+    }
+    100%{
+      background-position:100px 650px;
+    }
+  }
+  @-webkit-keyframes cloudtwo{
+    0%{
+      background-position:0px -100px;
+    }
+    100%{
+      background-position:0px 650px;
+    }
+  }
+  @keyframes cloudtwo{
+    0%{
+      background-position:0px -100px;
+    }
+    100%{
+      background-position:0px 650px;
+    }
+  }
+  @-webkit-keyframes cloudthree{
+    0%{
+      background-position:0px 100px;
+    }
+    100%{
+      background-position:300px 650px;
+    }
+  }
+  @keyframes cloudthree{
+    0%{
+      background-position:0px 100px;
+    }
+    100%{
+      background-position:300px 650px;
+    }
+  }
 </style>

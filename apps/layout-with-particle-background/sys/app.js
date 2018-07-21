@@ -129,10 +129,8 @@ $vm.app_init(function(){
     var resources=[
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
-
       "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
-
       "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
@@ -258,7 +256,7 @@ $vm.app_init(function(){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || ($vm.localhost==true && url.indexOf('127.0.0.1')!=-1 && url.indexOf('localhost')!=-1) ){
+        if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || $vm.localhost==true){
             console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url+'?_='+$vm.ver[0]+$vm.reload)
             $.get(url+'?_='+$vm.ver[0]+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
@@ -272,7 +270,7 @@ $vm.app_init(function(){
         }
         //------------------------------------------
     }
-    //--------------------------------------------------------
+    //------------------------------------
     var module_links=function(){
         var rm=$vm.module_links;
         var i=0
@@ -285,7 +283,7 @@ $vm.app_init(function(){
                 var path=url.replace('index.json','');
                 path=path.replace('modules.json','');
                 for (var k in modules){
-                    modules[k].url=path+modules[k].url;
+                    if(modules[k].url.substring(0,4)!='http') modules[k].url=path+modules[k].url;
                     $vm.module_list[prefix+k]=modules[k];
                     $vm.module_list[prefix+k].prefix=prefix;
                     if($vm.search_module==(prefix+k)) $vm.load_module_v2($vm.search_module,'',{});

@@ -1,19 +1,4 @@
 //------------------------------------
-$vm.module_links=[
-    "modules/modules.json"
-];
-$vm.module_list={
-    "home":     {"url":"modules/home.html"}
-}
-//------------------------------------
-$vm.app_config={
-    "api_path_development":"https://cbs.wappsystem.com/dev/",
-    "api_path_production":"https://cbs.wappsystem.com/pro/",
-    "default_production":"No",
-}
-$vm.qid='10000000';
-$vm.vm_router=1;
-//------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
 $vm.app_init=function(callback){
