@@ -326,17 +326,16 @@
                     ||
                     (parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c) <= 15)
                     ||
-                    (parseInt(record.phq_9) >1))
+                    (parseInt(record.phq_9) >0))
                     {record.Eligible="No"}
                 else{record.Eligible="Yes"};
             }
             //-------------------------------------
             m.after_add=function(record,dbv,res){
-                if((record.between_18_65!='Yes' || record.english!='Yes' || record.smartphone!='Yes' || record.baby!='No' || record.shift!='No' || record.disease!='No' || record.mental_health!='No' || record.time_difference_2h!='No' || record.time_difference_1h!='No')
+                if(parseInt(record.phq_9) >0) {$vm.load_module_v2(m.prefix+'screen-failure-phq-9','',{});}
+                else if((record.between_18_65!='Yes' || record.english!='Yes' || record.smartphone!='Yes' || record.baby!='No' || record.shift!='No' || record.disease!='No' || record.mental_health!='No' || record.time_difference_2h!='No' || record.time_difference_1h!='No')
                     ||
-                    (parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c) <= 15)
-                    ||
-                    (parseInt(record.phq_9) >1))
+                    (parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c) <= 15))
                     {
                     $vm.load_module_v2(m.prefix+'screen-failure-thank-you-page','',{});
                 }

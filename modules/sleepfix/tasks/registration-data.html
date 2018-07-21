@@ -17,6 +17,17 @@
           case 'PUID':
             records[I].vm_readonly[field]=true;
             break;
+          case 'Start_Date':
+              records[I].vm_custom[field]=true;
+              td.html('<input style="border:0; width:80px" />')
+              td.find('input').val(records[I][field])
+              var dateFormat='yy-mm-dd';
+              if(typeof _dateFormat!=='undefined') dateFormat=_dateFormat;
+              td.find('input').datepicker({dateFormat:dateFormat,changeMonth:true, changeYear:true,onClose:function(dateText) {
+                  set_value(dateText,records,I,field);
+              }});
+            break;
+
         }
       }
       //-------------------------------------

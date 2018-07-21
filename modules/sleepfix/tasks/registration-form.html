@@ -1,21 +1,15 @@
 <div id=D__ID>
-
     <!--third html start -->
     <div class="container mt-95 mb-3">
       <div class="row" >
-
         <!-- form container start -->
-
         <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
           <div class="row">
             <div class="col-12">
-
               <!-- form start -->
-
               <form id="F__ID">
                   <h3>Registration</h3>
                   <!-- form group -->
-
                   <div class="form-group">
                     <h4>Please enter your details below:</h4>
                     <fieldset>
@@ -26,7 +20,7 @@
                       <label for="mobileNumber__ID">Mobile</label>
                       <input type="tel" class="form-control" name="Mobile_Phone" id="mobileNumber__ID" required placeholder="XXXX-XXX-XXX" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}">
                       <label class="checkboxes">
-                     <input type="checkbox" name="SMS" id="SMS__ID" >
+                     <input type="checkbox" name="SMS" id="SMS__ID" checked>
                      <span class="check_checkmark"></span>I want to have sms alert when an email has been sent. </label><br>
                      <label for="emailAddress__ID">Email</label>
                      <input type="email" class="form-control" name="Email" id="emailAddress__ID" required placeholder="Email">
@@ -81,7 +75,7 @@
               }
               dbv.S2=record.Email;
               if(record.Password==""){ dbv.S3=record.Password=$vm.vm_password(8,false); record.Password;}
-              if(record.Start_Date==""){ dbv.DT1=record.Start_Date=$vm.date_to_string_yyyymmdd(new Date());}
+              //if(record.Start_Date==""){ dbv.DT1=record.Start_Date=$vm.date_to_string_yyyymmdd(new Date());}
               dbv.V1=0; if(record.SMS=='on') dbv.V1=1;
               dbv.PUID=m.input.first_uid;
 
@@ -105,11 +99,6 @@
                   $('#mobileNumber__ID').val(mn.substring(0,4)+'-'+mn.substring(4,7)+'-'+mn.substring(7,10))
               }
           })
-          /*
-          m.load=function(){
-              custom_field_process();
-          }
-          */
           m.default_load=m.load;
           m.load=function(){
               m.default_load();

@@ -14,6 +14,7 @@ $vm.app_config={
 $vm.qid='10000000';
 $vm.vm_router=1;
 //------------------------------------
+//------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
 $vm.app_init=function(callback){
@@ -267,15 +268,16 @@ $vm.app_init(function(){
     }
     //------------------------------------
     var load_url=function(url,next){
+        var storage_url=$vm.hosting_path+"-"+url;
         //------------------------------------------
-        var ver=localStorage.getItem(url+"_ver");
-        var txt=localStorage.getItem(url+"_txt");
+        var ver=localStorage.getItem(storage_url+"_ver");
+        var txt=localStorage.getItem(storage_url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || $vm.localhost==true){
+        if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || ($vm.localhost==true && url.indexOf('http')==-1) ){
             console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url+'?_='+$vm.ver[0]+$vm.reload)
             $.get(url+'?_='+$vm.ver[0]+$vm.reload,function(data){
-                localStorage.setItem(url+"_txt",data);
-                localStorage.setItem(url+"_ver",$vm.ver[0]);
+                localStorage.setItem(storage_url+"_txt",data);
+                localStorage.setItem(storage_url+"_ver",$vm.ver[0]);
                 next(data);
             },'text');
         }
@@ -291,7 +293,6 @@ $vm.app_init(function(){
         var i=0
         var N=rm.length;
         var process=function(I,prefix,url){
-            if(url.substring(0,4)!='http') url=$vm.hosting_path+"/"+url;
             load_url(url,function(txt){
                 var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
                 var modules=config.modules;
