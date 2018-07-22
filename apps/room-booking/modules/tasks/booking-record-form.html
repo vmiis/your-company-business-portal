@@ -1,16 +1,20 @@
 VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 <section id=form_container__ID>
 	<div id=header__ID>
-		Equipment booking
+		Room booking
 	</div>
 	<form id=F__ID>
 		<div class="container">
 			<div class="row row__ID">
-                <div class="col">
-                    <span>Equipment</span>
-                    <input type=text class="form-control" name="Equipment" readonly required>
+                <div class="col-sm col-lg-4">
+                    <span>Room Number</span>
+                    <input type=text class="form-control" name="Room_Number" readonly required>
                 </div>
-			</div>
+                <div class="col-sm col-lg-8">
+                    <span>Room Name</span>
+                    <input type=text class="form-control" name="Room_Name" readonly required>
+                </div>
+            </div>
             <div class="row row__ID">
                 <div class="col-sm col-lg-6">
                     <span>Date</span>
@@ -54,24 +58,26 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
             </div>
             <div class="row row__ID">
                 <div class="col">
-                    <span>Contact Name</span>
+                    <span>Description</span>
+                    <textarea class="form-control" name="Description" style='min-height:100px'></textarea>
+                </div>
+            </div>
+            <div class="row row__ID">
+                <div class="col">
+                    <span>Contact name</span>
                     <input type=text class="form-control" name="Contact_Name">
                 </div>
             </div>
             <div class="row row__ID">
-				<div class="col-sm col-lg-6">
+                <div class="col">
                     <span>Contact phone</span>
                     <input type=text class="form-control" name="Contact_Phone">
                 </div>
-				<div class="col-sm col-lg-6">
+            </div>
+            <div class="row row__ID">
+                <div class="col">
                     <span>Contact email</span>
                     <input type=text class="form-control" name="Contact_Email">
-                </div>
-            </div>
-			<div class="row row__ID">
-                <div class="col">
-                    <span>Addtional Information</span>
-                    <textarea class="form-control" name="Addtional_Information" style='min-height:50px'></textarea>
                 </div>
             </div>
             <br>
@@ -89,12 +95,8 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
         VmInclude:__CURRENT_PATH__/task_form.js
         //-------------------------------------
         var before_submit=function(record,dbv){
-            var input=$vm.vm['__ID'].op;
+            var input=$vm.vm['__ID'].input;
             var puid=input.puid;
-            if(puid==undefined){
-                 input=input.input;
-                 puid=input.puid;
-            }
             if(puid!=undefined) dbv.PUID=puid; //new booking
             dbv.DT1=record.Date;
             dbv.S1=record.Time;
