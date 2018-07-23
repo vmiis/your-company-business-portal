@@ -49,6 +49,8 @@
 				<li><a target=_blank href="https://wappsystem.github.io/sleepfix/?database=development">SleepFix</a></li>
 				<li><a target=_blank href="https://wappsystem.github.io/sleepfix-management/?database=development">SleepFix managemnet</a></li>
 				<li><a target=_blank href="https://wappsystem.github.io/sleepfix-online-questionnaire/?database=development">SleepFix online questionnaire</a></li>
+				<li><a target=_blank href="https://wappsystem.github.io/isleephealth/?database=development">iSleepHealth</a></li>
+				<li><a target=_blank href="https://wappsystem.github.io/isleephealth-patients-portal/?database=development">iSleepHealth patients portal</a></li>
 			</ul>
 			<span>Others</span>
 			<ul>
@@ -149,6 +151,15 @@
 </div>
 <script>
     function F__ID(){
+		//--------------------------------------------------------
+		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			$('#panel__ID a').each(function(){
+				var a=$(this).attr('href');
+				a=a.replace("https://wappsystem.github.io/","http://127.0.0.1:8000/wappsystem/");
+				a=a.replace("https://woolcock-imr.github.io/","http://127.0.0.1:8000/woolcock-imr/");
+				$(this).attr('href',a);
+			})
+		}
 		//--------------------------------------------------------
 		$vm.vm["__ID"].show=function(){
 			document.title="Portal | "+$vm.default_title;
