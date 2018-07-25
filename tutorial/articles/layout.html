@@ -1,0 +1,82 @@
+<div ID=D__ID>
+    <div id=page__ID>
+    	<div class=container style='max-width:800px;'>
+    		<div class=row>
+    			<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
+    				<h1>Layout</h1>
+    			</div>
+    		</div>
+    		<div class=columnbox__ID>
+    			<div>
+                    Layout is a HTML div with child divs for different parts of contents of a website.<br>
+                    Let's start up with a simple layout with header, content and footer.
+<xmp style='background-color:#ddd'>
+    <html>
+        <body>
+            <div id=layout>
+                <div id=header>
+                    Header
+                </div>
+                <div id=content>
+                    Contents
+                </div>
+                <div id=footer>
+                    footer
+                </div>
+            </div>
+            <style>
+                html,body{
+                    margin:0;
+                    padding:0;
+                    height:100%;
+                }
+                #layout {
+                    height: 100%;
+                    display: grid;
+                    grid-template-rows: auto 1fr auto;
+                    overflow:hidden;
+                }
+                #header,#content{
+                    border-bottom:1px solid green;
+                }
+            </style>
+        </body>
+    </html>
+
+</xmp>
+<a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/OwgzmV?editors=1000>Try it yourself</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script>
+        function F__ID(){
+    		//--------------------------------------------------------
+    		$vm.vm["__ID"].show=function(){
+    			document.title="Website layout frame | "+$vm.default_title;
+                $("meta[name='description']").attr("content","Single page application development");
+    		}
+            //--------------------------------------------------------
+        }
+    </script>
+    <style>
+    	.columnbox__ID{
+    		max-width: 800px;
+    		column-count: 1;
+    		column-width: 600px;
+    		column-gap: 30px;
+    	}
+    	#D__ID{
+    		height:100%;
+    		overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+    		background: rgba(255,255,255,0.95);
+    		color:#283f55;
+            font-size:11pt;
+            font-family: Verdana,Helvetica,Arial,sans-serif;
+    	}
+    	#page__ID{
+            padding:10px 0 20px 20px;
+        }
+    </style>
+</div>

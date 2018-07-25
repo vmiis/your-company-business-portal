@@ -316,11 +316,17 @@ $vm.app_init(function(){
     $vm.header();
     $vm.footer();
     $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-    var a=window.location.href.split('?/');
-    if(a.length==1) $vm.load_module_v2("home",'',{});
-    else if(a.length==2){
-        $vm.search_module=a[1].split('&')[0].replace(/\//g,'_');
-        if($vm.search_module=='home') $vm.load_module_v2("home",'',{});
+    if(sessionStorage["signinout"]==1){
+        sessionStorage["signinout"]=0;
+        $vm.load_module_v2("home",'',{});
+    }
+    else{
+        var a=window.location.href.split('?/');
+        if(a.length==1) $vm.load_module_v2("home",'',{});
+        else if(a.length==2){
+            $vm.search_module=a[1].split('&')[0].replace(/\//g,'_');
+            if($vm.search_module=='home') $vm.load_module_v2("home",'',{});
+        }
     }
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
     over_write_alert();
