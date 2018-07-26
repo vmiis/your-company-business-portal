@@ -1,7 +1,13 @@
 {"modules":{
 	"portal":             	{"url":"portal.html"},
+
 	"about-this-website":   {"url":"about/about-this-website.html","name_for_search":"About this website"},
-    "business":    	    	{"url":"panels/business.html"},
+
+	"tutorial_introduction":{"url":"tutorial/introduction.html"},
+	"tutorial_layout":		{"url":"tutorial/layout.html"},
+
+
+	"business":    	    	{"url":"panels/business.html"},
     "clinical-trials":  	{"url":"panels/clinical-trials.html"},
     "development": 	    	{"url":"panels/development.html"},
     "dm_panel-001":	        {"url":"panels/distributed-modules.html"},
