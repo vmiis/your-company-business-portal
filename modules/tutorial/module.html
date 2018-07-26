@@ -1,0 +1,81 @@
+<div ID=D__ID>
+    <div id=page__ID>
+    	<div class=container style='max-width:800px;'>
+    		<div class=row>
+    			<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
+    				<h1>Module</h1>
+    			</div>
+    		</div>
+    		<div class=columnbox__ID>
+    			<div>
+                    <div id=text__ID>
+                        A module is a file that contains HTML div with 3 parts, HTML, JavaScript and Style.
+                        It will be loaded dynamically into the content div of the layout. It can be stored
+                        or hosted on any static server. The module's div ID must be set as D__@@ and the
+                        function name in the script must be F__@@. The _@@ will be replaced automatically
+                        with a unique number. The function F__@@ will run after the module is appended to
+                        the content div.<br>
+                        Let's start with a very simple "Hello World" module.
+                    </div>
+<xmp id=xmp__ID style='background-color:#ddd'>
+    <div id=D__@@>
+        <div>
+            Hello World!
+        </div>
+        <script>
+            function F__@@(){
+
+            }
+        </script>
+        <style>
+            #D__@@{
+                background-color:#ccc;
+            }
+        </style>
+    </div>
+
+</xmp>
+
+                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/JBrdMq?editors=1000>Try it yourself</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script>
+        function F__ID(){
+    		//--------------------------------------------------------
+    		$vm.vm["__ID"].show=function(){
+    			document.title="Website layout frame | "+$vm.default_title;
+                $("meta[name='description']").attr("content","Single page application development");
+    		}
+            //--------------------------------------------------------
+            var c=$('#xmp__ID').text();
+            c=c.replace(/@@/g,'ID');
+            $('#xmp__ID').text(c);
+            var c=$('#text__ID').text();
+            c=c.replace(/@@/g,'ID');
+            $('#text__ID').text(c);
+            //--------------------------------------------------------
+        }
+    </script>
+    <style>
+    	.columnbox__ID{
+    		max-width: 800px;
+    		column-count: 1;
+    		column-width: 600px;
+    		column-gap: 30px;
+    	}
+    	#D__ID{
+    		height:100%;
+    		overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+    		background: rgba(255,255,255,0.95);
+    		color:#283f55;
+            font-size:11pt;
+            font-family: Verdana,Helvetica,Arial,sans-serif;
+    	}
+    	#page__ID{
+            padding:10px 0 20px 20px;
+        }
+    </style>
+</div>

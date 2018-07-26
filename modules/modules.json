@@ -5,6 +5,7 @@
 
 	"tutorial_introduction":{"url":"tutorial/introduction.html"},
 	"tutorial_layout":		{"url":"tutorial/layout.html"},
+	"tutorial_module":		{"url":"tutorial/module.html"},
 
 
 	"business":    	    	{"url":"panels/business.html"},
