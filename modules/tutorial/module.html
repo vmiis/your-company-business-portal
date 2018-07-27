@@ -29,7 +29,9 @@
         </script>
         <style>
             #D__@@{
-                background-color:#ccc;
+                height:100%;
+                color:#fff;
+                background-color:#17293e;
             }
         </style>
     </div>
@@ -37,6 +39,30 @@
 </xmp>
 
                     <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/JBrdMq?editors=1000>Try it yourself</a>
+<br><br>
+Another module example:
+<xmp id=xmp2__ID style='background-color:#ddd'>
+    <div id=D__@@>
+        <div>
+            Second module.
+        </div>
+        <script>
+            function F__@@(){
+
+            }
+        </script>
+        <style>
+            #D__@@{
+                height:100%;
+                color:#ff0;
+                background-color:#22442c;
+            }
+        </style>
+    </div>
+
+</xmp>
+
+                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/OwxNdg?editors=1000>Try it yourself</a>
     			</div>
     		</div>
     	</div>
@@ -52,6 +78,9 @@
             var c=$('#xmp__ID').text();
             c=c.replace(/@@/g,'ID');
             $('#xmp__ID').text(c);
+            var c=$('#xmp2__ID').text();
+            c=c.replace(/@@/g,'ID');
+            $('#xmp2__ID').text(c);
             var c=$('#text__ID').text();
             c=c.replace(/@@/g,'ID');
             $('#text__ID').text(c);
