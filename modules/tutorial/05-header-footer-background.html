@@ -1,0 +1,269 @@
+<div ID=D__ID>
+    <div id=page__ID>
+    	<div class=container style='max-width:800px;'>
+    		<div class=row>
+    			<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
+    				<h1>Make a proper header, footer and background with CSS</h1>
+                    <a class=a__ID target=_blank href=https://codepen.io/vmiis/pen/EpwQwO?editors=1000>Live demo</a>
+    			</div>
+    		</div>
+    		<div class=columnbox__ID>
+    			<div>
+                    <p>
+                        We have built a simple website framework for loading and displaying modules.
+                        Now we want to make the website looks better.
+                    </p>
+                    <p>
+                        Add a background image.
+                    </p>
+<xmp id=xmp__ID >
+    body{
+        background-image: url(https://www.vmiis.com/sys/layout.jpg);
+        background-size: cover;
+        background-repeat: repeat-x;
+        background-position: center top;
+        background-attachment: fixed;
+    }
+
+</xmp>
+                    <p>
+                        Style the header and footer.
+                    </p>
+<xmp id=xmp__ID >
+    #header{
+        height:100px;
+        background: rgba(0,0,0,0.5);
+    }
+    #vm_logo{
+        display:inline-block;
+        padding-top:35px;
+        padding-left:20px;
+        cursor:pointer;
+        float:left;
+    }
+    #vm_logo_label_A{
+        font-family: Arial, sans-serif;
+        color:#fff;
+        font-size: 280%;
+        line-height:10px;
+        display:inline-block;
+        padding-top:10px;
+    }
+    #footer{
+        height:20px;
+        color: #fff;
+        padding: 3px;
+        background-color: #333;
+        font:80%/18px arial;
+        text-align: center;
+    }
+
+</xmp>
+                    <p>
+                        Style the menu.
+                    </p>
+<xmp>
+    #vm_menu {
+        margin-top:50px;
+        margin-left:160px;
+        overflow: hidden;
+        background: rgba(0,0,0,0.0);
+        display:inline-block;
+        float:left;
+    }
+    #vm_menu > a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 10px 8px;
+        text-decoration: none;
+        font-size: 14px;
+        cursor:pointer;
+    }
+    #vm_menu > a:hover{
+        background-color: #555;
+        color: white;
+        border-radius:4px;
+    }
+
+</xmp>
+                    <p>
+                        At last we put all code together and play it on codepen website.
+                    </p>
+<xmp id=xmp2__ID style='background-color:#ddd'>
+    <html>
+        <head>
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+        </head>
+        <body>
+            <div id=layout>
+                <div id=header>
+                    <div id=vm_logo>
+                        <span id=vm_logo_label_A>Logo</span>
+                    </div>
+                    <div id=vm_menu>
+                        <a href="hello-world">Hello World</a>
+                        <a href="second-module">Second Module</a>
+                    </div>
+                </div>
+                <div id=content style='height:100%'>
+                </div>
+                <div id=footer>
+                    Copyright ©, Company Name
+                </div>
+            </div>
+            <script>
+                //------------------------------------
+                var app_init=function(){
+                    $vm={};$vm.vm={}; $vm.version=1; $vm.reload='';
+                    $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+                }
+                app_init();
+                //------------------------------------
+            </script>
+            <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=-3"></script>
+            <script>
+                $vm.module_list={
+                    "hello-world":{"url":"https://codepen.io/vmiis/pen/JBrdMq.html"},
+                    "second-module":{"url":"https://codepen.io/vmiis/pen/OwxNdg.html"}
+                }
+            	//------------------------------------
+                $('#header a').on('click',function(){
+                    event.preventDefault();
+                    var href=$(this).attr('href');
+                    if(href!=undefined){
+                        $vm.load_module_v2(href,'content',{});
+                    }
+                })
+                //------------------------------------
+            </script>
+            <style>
+                html,body{
+                    margin:0;
+                    padding:0;
+                    height:100%;
+                    font-family:Arial;
+                }
+                body{
+                    background-image: url(https://www.vmiis.com/sys/layout.jpg);
+                    background-size: cover;
+                    background-repeat: repeat-x;
+                    background-position: center top;
+                    background-attachment: fixed;
+                }
+                #layout {
+                    height: 100%;
+                    display: grid;
+                    grid-template-rows: auto 1fr auto;
+                    overflow:hidden;
+                }
+                #header{
+                    height:100px;
+                    background: rgba(0,0,0,0.5);
+                }
+                #vm_logo{
+                    display:inline-block;
+                    padding-top:35px;
+                    padding-left:20px;
+                    cursor:pointer;
+                    float:left;
+                }
+                #vm_logo_label_A{
+                    font-family: Arial, sans-serif;
+                    color:#fff;
+                    font-size: 280%;
+                    line-height:10px;
+                    display:inline-block;
+                    padding-top:10px;
+                }
+                #footer{
+                    height:20px;
+                    color: #fff;
+                    padding: 3px;
+                    background-color: #333;
+                    font:80%/18px arial;
+                    text-align: center;
+                }
+                #vm_menu {
+                    margin-top:50px;
+                    margin-left:160px;
+                    overflow: hidden;
+                    background: rgba(0,0,0,0.0);
+                    display:inline-block;
+                    float:left;
+                }
+                #vm_menu > a {
+                    float: left;
+                    display: block;
+                    color: #f2f2f2;
+                    text-align: center;
+                    padding: 10px 8px;
+                    text-decoration: none;
+                    font-size: 14px;
+                    cursor:pointer;
+                }
+                #vm_menu > a:hover{
+                    background-color: #555;
+                    color: white;
+                    border-radius:4px;
+                }
+            </style>
+        </body>
+    </html>
+
+</xmp>
+
+                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/EpwQwO?editors=1000>Try it yourself</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script>
+        function F__ID(){
+    		//--------------------------------------------------------
+    		$vm.vm["__ID"].show=function(){
+    			document.title="Website layout frame | "+$vm.default_title;
+                $("meta[name='description']").attr("content","Single page application development");
+    		}
+            //--------------------------------------------------------
+            var c=$('#xmp__ID').text();
+            c=c.replace('http:\/\/127.0.0.1:8000\/vmiis\/framework-2\/','https:\/\/framework.vmiis.com\/');
+            $('#xmp__ID').text(c);
+            var c=$('#xmp2__ID').text();
+            c=c.replace('http:\/\/127.0.0.1:8000\/vmiis\/framework-2\/','https:\/\/framework.vmiis.com\/');
+            $('#xmp2__ID').text(c);
+            //--------------------------------------------------------
+        }
+    </script>
+    <style>
+    	.columnbox__ID{
+    		max-width: 800px;
+    		column-count: 1;
+    		column-width: 600px;
+    		column-gap: 30px;
+    	}
+    	#D__ID{
+    		height:100%;
+    		overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+    		background: rgba(255,255,255,0.95);
+    		color:#283f55;
+            font-size:11pt;
+            font-family: Verdana,Helvetica,Arial,sans-serif;
+    	}
+    	#page__ID{
+            padding:10px 0 20px 20px;
+        }
+        #D__ID xmp{
+            background-color:#ddd;
+        }
+        #D__ID h1{
+            display:inline-block;
+        }
+        .a__ID{
+            color:green;
+            text-decoration: underline;
+        }
+    </style>
+</div>

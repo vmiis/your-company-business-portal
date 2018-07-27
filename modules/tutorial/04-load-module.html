@@ -3,87 +3,43 @@
     	<div class=container style='max-width:800px;'>
     		<div class=row>
     			<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
-    				<h1>Make a proper header, footer and background with CSS</h1>
+    				<h1>Load module into the content div</h1>
+                    <a class=a__ID target=_blank href=https://codepen.io/vmiis/pen/ajLZxp?editors=1000>Live demo</a>
     			</div>
     		</div>
     		<div class=columnbox__ID>
     			<div>
                     <p>
-                        We have built a simple website framework for loading and displaying modules.
-                        Now we want to make the website looks better.
+                        Using pure JavaScript to build a single page application is not a simple job.
+                        Fortunately there are some JavaScript library can be used to make such
+                        application a lot easier.  VM library is a light JavaScript library we
+                        will use to build our single page application.
                     </p>
                     <p>
-                        Add a background image.
+                        The minimal code for loading and initial the VM library is as following.
                     </p>
 <xmp id=xmp__ID >
-    body{
-        background-image: url(https://www.vmiis.com/sys/layout.jpg);
-        background-size: cover;
-        background-repeat: repeat-x;
-        background-position: center top;
-        background-attachment: fixed;
-    }
+    <script>
+        //------------------------------------
+        var app_init=function(){
+            $vm={};$vm.vm={}; $vm.version=1; $vm.reload='';
+            $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+        }
+        app_init();
+        //------------------------------------
+    </script>
+    <script src="https://framework.vmiis.com/distribution/vmframework.min.js"></script>
 
 </xmp>
                     <p>
-                        Style the header and footer.
-                    </p>
-<xmp id=xmp__ID >
-    #header{
-        height:100px;
-        background: rgba(0,0,0,0.5);
-    }
-    #vm_logo{
-        display:inline-block;
-        padding-top:35px;
-        padding-left:20px;
-        cursor:pointer;
-        float:left;
-    }
-    #vm_logo_label_A{
-        font-family: Arial, sans-serif;
-        color:#fff;
-        font-size: 280%;
-        line-height:10px;
-        display:inline-block;
-        padding-top:10px;
-    }
-    #footer{
-        height:20px;
-        color: #fff;
-        padding: 3px;
-        background-color: #333;
-        font:80%/18px arial;
-        text-align: center;
-    }
-
-</xmp>
-                    <p>
-                        Style the menu.
+                        In order to load modules into the system, we need to build a module list
+                        so that the system will know where the modules are located. The code to
+                        build a module list is as follow.
                     </p>
 <xmp>
-    #vm_menu {
-        margin-top:50px;
-        margin-left:160px;
-        overflow: hidden;
-        background: rgba(0,0,0,0.0);
-        display:inline-block;
-        float:left;
-    }
-    #vm_menu > a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 10px 8px;
-        text-decoration: none;
-        font-size: 14px;
-        cursor:pointer;
-    }
-    #vm_menu > a:hover{
-        background-color: #555;
-        color: white;
-        border-radius:4px;
+    $vm.module_list={
+        "hello-world":{"url":"https://codepen.io/vmiis/pen/JBrdMq.html"},
+        "second-module":{"url":"https://codepen.io/vmiis/pen/OwxNdg.html"}
     }
 
 </xmp>
@@ -216,6 +172,13 @@
         }
         #D__ID xmp{
             background-color:#ddd;
+        }
+        #D__ID h1{
+            display:inline-block;
+        }
+        .a__ID{
+            color:green;
+            text-decoration: underline;
         }
     </style>
 </div>
