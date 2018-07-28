@@ -1,99 +1,22 @@
 <div ID=D__ID>
     <div id=page__ID>
-    	<div class=container style='max-width:800px;'>
-    		<div class=row>
-    			<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
-    				<h1>Make a proper header, footer and background with CSS</h1>
-                    <a class=a__ID target=_blank href=https://codepen.io/vmiis/full/EpwQwO/ >Live demo</a>
-    			</div>
-    		</div>
-    		<div class=columnbox__ID>
-    			<div>
-                    <p>
-                        We have built a simple website framework for loading and displaying modules.
-                        Now we want to make the website looks better.
-                    </p>
-                    <p>
-                        Add a background image.
-                    </p>
-<xmp id=xmp__ID >
-    body{
-        background-image: url(https://www.vmiis.com/sys/layout.jpg);
-        background-size: cover;
-        background-repeat: repeat-x;
-        background-position: center top;
-        background-attachment: fixed;
-    }
-
-</xmp>
-                    <p>
-                        Style the header and footer.
-                    </p>
-<xmp id=xmp__ID >
-    #header{
-        height:100px;
-        background: rgba(0,0,0,0.5);
-    }
-    #vm_logo{
-        display:inline-block;
-        padding-top:35px;
-        padding-left:20px;
-        cursor:pointer;
-        float:left;
-    }
-    #vm_logo_label_A{
-        font-family: Arial, sans-serif;
-        color:#fff;
-        font-size: 280%;
-        line-height:10px;
-        display:inline-block;
-        padding-top:10px;
-    }
-    #footer{
-        height:20px;
-        color: #fff;
-        padding: 3px;
-        background-color: #333;
-        font:80%/18px arial;
-        text-align: center;
-    }
-
-</xmp>
-                    <p>
-                        Style the menu.
-                    </p>
-<xmp>
-    #vm_menu {
-        margin-top:50px;
-        margin-left:160px;
-        overflow: hidden;
-        background: rgba(0,0,0,0.0);
-        display:inline-block;
-        float:left;
-    }
-    #vm_menu > a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 10px 8px;
-        text-decoration: none;
-        font-size: 14px;
-        cursor:pointer;
-    }
-    #vm_menu > a:hover{
-        background-color: #555;
-        color: white;
-        border-radius:4px;
-    }
-
-</xmp>
-                    <p>
-                        At last we put all code together and play it on codepen website.
-                    </p>
-<xmp id=xmp2__ID style='background-color:#ddd'>
+        <div class=container style='max-width:800px;'>
+            <div class=row>
+            	<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
+            		<h1>Load home module at start point</h1>
+                    <a class=a__ID target=_blank href=https://codepen.io/vmiis/full/bjYGpa/ >Live demo</a>
+            	</div>
+            </div>
+            <div class=columnbox__ID>
+            	<div>
+                    <div id=text__ID>
+                        We have built a home module. Now we nned to add it to the module list and
+                        load it at start point.<br>
+                    </div>
+<xmp id=xmp__ID style='background-color:#ddd'>
     <html>
         <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
             <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
         </head>
         <body>
@@ -103,6 +26,7 @@
                         <span id=vm_logo_label_A>Logo</span>
                     </div>
                     <div id=vm_menu>
+                        <a href="home">Home</a>
                         <a href="hello-world">Hello World</a>
                         <a href="second-module">Second Module</a>
                     </div>
@@ -124,11 +48,15 @@
             </script>
             <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=-3"></script>
             <script>
+                //------------------------------------
                 $vm.module_list={
+                    "home":{"url":"https://codepen.io/vmiis/pen/RBjbJP.html"},
                     "hello-world":{"url":"https://codepen.io/vmiis/pen/JBrdMq.html"},
                     "second-module":{"url":"https://codepen.io/vmiis/pen/OwxNdg.html"}
                 }
-            	//------------------------------------
+                //------------------------------------
+                $vm.load_module_v2('home','content',{});
+                //------------------------------------
                 $('#header a').on('click',function(){
                     event.preventDefault();
                     var href=$(this).attr('href');
@@ -214,7 +142,7 @@
 
 </xmp>
 
-                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/EpwQwO?editors=1000>Try it yourself</a>
+                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/bjYGpa?editors=1000>Try it yourself</a>
     			</div>
     		</div>
     	</div>
@@ -223,16 +151,16 @@
         function F__ID(){
     		//--------------------------------------------------------
     		$vm.vm["__ID"].show=function(){
-    			document.title="Website layout frame | "+$vm.default_title;
+    			document.title="Make a home module | "+$vm.default_title;
                 $("meta[name='description']").attr("content","Single page application development");
     		}
             //--------------------------------------------------------
             var c=$('#xmp__ID').text();
-            c=c.replace('http:\/\/127.0.0.1:8000\/vmiis\/framework-2\/','https:\/\/framework.vmiis.com\/');
+            c=c.replace(/@@/g,'ID');
             $('#xmp__ID').text(c);
-            var c=$('#xmp2__ID').text();
-            c=c.replace('http:\/\/127.0.0.1:8000\/vmiis\/framework-2\/','https:\/\/framework.vmiis.com\/');
-            $('#xmp2__ID').text(c);
+            var c=$('#text__ID').text();
+            c=c.replace(/@@/g,'ID');
+            $('#text__ID').text(c);
             //--------------------------------------------------------
         }
     </script>
@@ -254,9 +182,6 @@
     	}
     	#page__ID{
             padding:10px 0 20px 20px;
-        }
-        #D__ID xmp{
-            background-color:#ddd;
         }
         #D__ID h1{
             display:inline-block;

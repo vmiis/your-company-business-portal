@@ -8,8 +8,8 @@
 	"tutorial_module":		{"url":"tutorial/03-module.html"},
 	"tutorial_load-module":	{"url":"tutorial/04-load-module.html"},
 	"tutorial_header-footer-background": {"url":"tutorial/05-header-footer-background.html"},
-	"tutorial_home-module":		{"url":"tutorial/06-home-module.html"},
-
+	"tutorial_home-module":				 {"url":"tutorial/06-home-module.html"},
+	"tutorial_load-home-module":		 {"url":"tutorial/07-load-home-module-at-start-point.html"},
 
 	"business":    	    	{"url":"panels/business.html"},
     "clinical-trials":  	{"url":"panels/clinical-trials.html"},
