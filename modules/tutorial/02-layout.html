@@ -12,19 +12,37 @@
                     Layout is a HTML div with child divs for different parts of contents of a website.<br>
                     Let's start with a simple layout with header, content and footer.
 <xmp style='background-color:#ddd'>
+    <!--visit https://www.vmiis.com/?/portal for articles-->
     <html>
+        <head>
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+        </head>
         <body>
+            <!----------------------------------------------->
             <div id=layout>
-                <div id=header>
+                <div id=header></div>
+                <div id=content></div>
+                <div id=footer></div>
+            </div>
+            <!----------------------------------------------->
+            <div id=components>
+                <div id=c_header>
                     Header
                 </div>
-                <div id=content>
+                <div id=c_content>
                     Contents
                 </div>
-                <div id=footer>
+                <div id=c_footer>
                     footer
                 </div>
             </div>
+            <!----------------------------------------------->
+            <script>
+                $('#c_header').contents().appendTo('#header');
+                $('#c_content').contents().appendTo('#content');
+                $('#c_footer').contents().appendTo('#footer');
+            </script>
+            <!----------------------------------------------->
             <style>
                 html,body{
                     margin:0;
@@ -40,7 +58,11 @@
                 #header,#content{
                     border-bottom:1px solid black;
                 }
+                #components{
+                    display:none;
+                }
             </style>
+            <!----------------------------------------------->
         </body>
     </html>
 

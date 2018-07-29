@@ -14,39 +14,52 @@
                         load it at start point.<br>
                     </div>
 <xmp id=xmp__ID style='background-color:#ddd'>
+    <!--visit https://www.vmiis.com/?/portal for articles-->
     <html>
         <head>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
             <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
         </head>
         <body>
+            <!----------------------------------------------->
             <div id=layout>
                 <div id=header>
-                    <div id=vm_logo>
-                        <span id=vm_logo_label_A>Logo</span>
-                    </div>
-                    <div id=vm_menu>
-                        <a href="home">Home</a>
-                        <a href="hello-world">Hello World</a>
-                        <a href="second-module">Second Module</a>
-                    </div>
+                    <div id=logo></div><div id=menu></div>
                 </div>
-                <div id=content style='height:100%'>
+                <div id=content></div>
+                <div id=footer></div>
+            </div>
+            <!----------------------------------------------->
+            <div id=components>
+                <div id=c_logo>
+                    <span id=logo_label_A>Logo</span>
                 </div>
-                <div id=footer>
-                    Copyright ©, Company Name
+                <div id=c_menu>
+                    <a href="home">Home</a>
+                    <a href="hello-world">Hello World</a>
+                    <a href="second-module">Second Module</a>
+                </div>
+                <div id=c_footer>
+                    Company Name
                 </div>
             </div>
+            <!----------------------------------------------->
             <script>
-                //------------------------------------
+                $('#c_logo').contents().appendTo('#logo');
+                $('#c_menu').contents().appendTo('#menu');
+                $('#c_footer').contents().appendTo('#footer');
+            </script>
+            <!----------------------------------------------->
+            <script>
                 var app_init=function(){
                     $vm={};$vm.vm={}; $vm.version=1; $vm.reload='';
                     $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/'));
                 }
                 app_init();
-                //------------------------------------
             </script>
+            <!----------------------------------------------->
             <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=-3"></script>
+            <!----------------------------------------------->
             <script>
                 //------------------------------------
                 $vm.module_list={
@@ -57,7 +70,7 @@
                 //------------------------------------
                 $vm.load_module_v2('home','content',{});
                 //------------------------------------
-                $('#header a').on('click',function(){
+                $('#menu a').on('click',function(){
                     event.preventDefault();
                     var href=$(this).attr('href');
                     if(href!=undefined){
@@ -66,6 +79,7 @@
                 })
                 //------------------------------------
             </script>
+            <!----------------------------------------------->
             <style>
                 html,body{
                     margin:0;
@@ -86,18 +100,24 @@
                     grid-template-rows: auto 1fr auto;
                     overflow:hidden;
                 }
+                #content{
+                    overflow:hidden;
+                }
+                #components{
+                    display:none;
+                }
                 #header{
                     height:100px;
                     background: rgba(0,0,0,0.5);
                 }
-                #vm_logo{
+                #logo{
                     display:inline-block;
                     padding-top:35px;
                     padding-left:20px;
                     cursor:pointer;
                     float:left;
                 }
-                #vm_logo_label_A{
+                #logo_label_A{
                     font-family: Arial, sans-serif;
                     color:#fff;
                     font-size: 280%;
@@ -113,7 +133,7 @@
                     font:80%/18px arial;
                     text-align: center;
                 }
-                #vm_menu {
+                #menu {
                     margin-top:50px;
                     margin-left:160px;
                     overflow: hidden;
@@ -121,7 +141,7 @@
                     display:inline-block;
                     float:left;
                 }
-                #vm_menu > a {
+                #menu > a {
                     float: left;
                     display: block;
                     color: #f2f2f2;
@@ -131,12 +151,13 @@
                     font-size: 14px;
                     cursor:pointer;
                 }
-                #vm_menu > a:hover{
+                #menu > a:hover{
                     background-color: #555;
                     color: white;
                     border-radius:4px;
                 }
             </style>
+            <!----------------------------------------------->
         </body>
     </html>
 

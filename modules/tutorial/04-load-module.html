@@ -12,7 +12,8 @@
                     <p>
                         Using pure JavaScript to build a single page application is not a simple job.
                         Fortunately there are some JavaScript library can be used to make such
-                        application a lot easier.  VM library is a light JavaScript library we
+                        application a lot easier.  VM library is a light JavaScript library
+                        (open source project on <a target=_blank href=https://github.com/vmiis/framework-2 >https://github.com/vmiis/framework-2)</a> we
                         will use to build our single page application.
                     </p>
                     <p>
@@ -55,7 +56,7 @@
                         The code to load the module is as follow.
                     </p>
 <xmp>
-    $('#header a').on('click',function(){
+    $('#menu a').on('click',function(){
         event.preventDefault();
         var href=$(this).attr('href');
         if(href!=undefined){
@@ -68,38 +69,53 @@
                         At last we put all code together and play it on codepen website.
                     </p>
 <xmp id=xmp2__ID style='background-color:#ddd'>
+    <!--visit https://www.vmiis.com/?/portal for articles-->
     <html>
         <head>
             <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
         </head>
         <body>
+            <!----------------------------------------------->
             <div id=layout>
                 <div id=header>
+                    <div id=menu></div>
+                </div>
+                <div id=content></div>
+                <div id=footer></div>
+            </div>
+            <!----------------------------------------------->
+            <div id=components>
+                <div id=c_menu>
                     <a href="hello-world">Hello World</a> <a href="second-module">Second Module</a>
                 </div>
-                <div id=content style='height:100%'>
-                </div>
-                <div id=footer>
+                <div id=c_footer>
                     footer
                 </div>
             </div>
+            <!----------------------------------------------->
             <script>
-                //------------------------------------
+                $('#c_menu').contents().appendTo('#menu');
+                $('#c_footer').contents().appendTo('#footer');
+            </script>
+            <!----------------------------------------------->
+            <script>
                 var app_init=function(){
                     $vm={};$vm.vm={}; $vm.version=1; $vm.reload='';
                     $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/'));
                 }
                 app_init();
-                //------------------------------------
             </script>
+            <!----------------------------------------------->
             <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=-3"></script>
+            <!----------------------------------------------->
             <script>
+                //------------------------------------
                 $vm.module_list={
                     "hello-world":{"url":"https://codepen.io/vmiis/pen/JBrdMq.html"},
                     "second-module":{"url":"https://codepen.io/vmiis/pen/OwxNdg.html"}
                 }
-            	//------------------------------------
-                $('#header a').on('click',function(){
+                //------------------------------------
+                $('#menu a').on('click',function(){
                     event.preventDefault();
                     var href=$(this).attr('href');
                     if(href!=undefined){
@@ -108,6 +124,7 @@
                 })
                 //------------------------------------
             </script>
+            <!----------------------------------------------->
             <style>
                 html,body{
                     margin:0;
@@ -120,10 +137,17 @@
                     grid-template-rows: auto 1fr auto;
                     overflow:hidden;
                 }
+                #content{
+                    overflow:hidden;
+                }
                 #header,#content{
                     border-bottom:1px solid black;
                 }
+                #components{
+                    display:none;
+                }
             </style>
+            <!----------------------------------------------->
         </body>
     </html>
 
