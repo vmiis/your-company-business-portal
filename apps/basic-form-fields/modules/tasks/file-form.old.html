@@ -16,19 +16,6 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 </section>
 <script>
     function F__ID(){
-		//-------------------------------------
-		VmInclude:__COMPONENT__/module/form.v1.js
-        //-------------------------------------
-		m.default_load=m.load;
-		m.load=function(){
-			m.default_load();
-			var record=$vm.vm['__ID'].input.record;
-			$vm.render_file_field(record,'__ID',$('#File_Name__ID'),function(size,lastModified){
-				$('#Size__ID').val(size);
-				$('#lastModified__ID').val(lastModified);
-			});
-		}
-		/*
         //-------------------------------------
         $('#D__ID').on('load',function(){
             $('#F__ID')[0].reset();
@@ -80,7 +67,6 @@ VmInclude:__COMPONENT__/toolbar/form-toolbar.html
 			//--------------------------------------------------------
 		})
 		//--------------------------------------------------------
-		*/
     }
 </script>
 <style>
