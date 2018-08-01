@@ -4,39 +4,38 @@
             <div class=row>
             	<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
             		<h1>Responsive header and menu</h1>
-                    <a class=a__ID target=_blank href=https://codepen.io/vmiis/full/bjYGpa/ >Live demo</a>
+                    <a class=a__ID target=_blank href=https://codepen.io/vmiis/full/ajEJPW/ >Live demo</a>
             	</div>
             </div>
             <div class=columnbox__ID>
             	<div>
                     <div id=text__ID>
-                        A website supporting mobile phone is important. The following code is a basic
+                        A website supporting mobile phone is very important. The following code is a basic
                         implementation of a responsive header with navigation menu<br>
                     </div>
 <xmp id=xmp__ID style='background-color:#ddd'>
+    <!--visit https://www.vmiis.com/?/portal for articles-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <div header id=header_0>
-        <div>
-            <div for-mobile>
-                <span module=home id=m_title>Business Portal</span>
-                <a toggle id="m_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
-            </div>
-            <div for-desktop id=vm_logo>
-                <span id=vm_logo_label_A>Business Portal</span><br>
-                <span id=vm_logo_label_B>on-demand business applications</span>
-            </div>
-            <div menu id="vm_menu">
-                <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
-                <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
-                <div class="vm_dropdown">
-                    <button class="vm_dropbtn">Links <i class="fa fa-caret-down"></i></button>
-                    <div class="vm_dropdown-content">
-                        <a href="?/link1">Link 1</a>
-                        <a href="?/link2">Link 2</a>
-                        <a href="?/link3">Link 3</a>
-                    </div>
+        <div for-mobile>
+            <span id=m_title>Business Portal</span>
+            <a toggle id="m_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+        </div>
+        <div for-desktop id=vm_logo>
+            <span id=vm_logo_label_A>Business Portal</span><br>
+            <span id=vm_logo_label_B>on-demand business applications</span>
+        </div>
+        <div menu id="vm_menu">
+            <a href="?/home"><i class="fa fa-home"></i> Home</a>
+            <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
+            <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
+            <div class="vm_dropdown">
+                <button class="vm_dropbtn">Links <i class="fa fa-caret-down"></i></button>
+                <div class="vm_dropdown-content">
+                    <a href="?/link1">Link 1</a>
+                    <a href="?/link2">Link 2</a>
+                    <a href="?/link3">Link 3</a>
                 </div>
             </div>
         </div>
@@ -55,9 +54,9 @@
             $('#vm_menu a').on('click',function(e){
                 e.preventDefault();
                 var href=$(this).attr('href');
-    			if(href!=undefined){
-    				href=href.replace('?\/','');
-    				href=href.replace(/\//g,'_');
+                if(href!=undefined){
+                    href=href.replace('?\/','');
+                    href=href.replace(/\//g,'_');
                     console.log('load module '+href)
                 }
                 $vm.toggle();
@@ -77,6 +76,8 @@
     <style>
         /*----------------------*/
         body{
+            margin:0;
+            padding:0;
             background-color:#222;
         }
         /*mobile*/
@@ -180,7 +181,7 @@
         }
         /*----------------------*/
         /*mobile*/
-        @media screen and (max-width: 1280px) {
+        @media screen and (max-width: 900px) {
             #header_0{
                 height:unset;
                 background: rgba(0,0,0,0.8);
@@ -199,7 +200,7 @@
                 float: right;
                 display: block;
                 font-size:28px;
-                padding:12px 16px 0px 16px;
+                padding:5px 16px 3px 16px;
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -240,16 +241,17 @@
                 text-align: left;
             }
         }
+        /*animation*/
         @keyframes vm_menu_show {
             from {max-height: 0px;}
             to {max-height: 1000px;}
         }
         /*----------------------*/
     </style>
-    
+
 </xmp>
 
-                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/bjYGpa?editors=1000>Try it yourself</a>
+                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/ajEJPW?editors=1000>Try it yourself</a>
     			</div>
     		</div>
     	</div>

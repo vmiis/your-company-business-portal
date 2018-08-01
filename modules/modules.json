@@ -10,6 +10,8 @@
 	"tutorial_header-footer-background": {"url":"tutorial/05-header-footer-background.html"},
 	"tutorial_home-module":				 {"url":"tutorial/06-home-module.html"},
 	"tutorial_load-home-module":		 {"url":"tutorial/07-load-home-module-at-start-point.html"},
+	"tutorial_make-responsive-header-and-menu":{"url":"tutorial/08-make-responsive-header-and-menu.html"},
+	"tutorial_add-responsive-header-and-menu":{"url":"tutorial/09-add-responsive-header-and-menu.html"},
 
 	"business":    	    	{"url":"panels/business.html"},
     "clinical-trials":  	{"url":"panels/clinical-trials.html"},

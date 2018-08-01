@@ -1,0 +1,371 @@
+<div ID=D__ID>
+    <div id=page__ID>
+        <div class=container style='max-width:800px;'>
+            <div class=row>
+            	<div class="col-sm-12 col-lg-12 _text-center" style='padding:20px'>
+            		<h1>Website with responsive header and menu</h1>
+                    <a class=a__ID target=_blank href=https://codepen.io/vmiis/full/KBQGgw/ >Live demo</a>
+            	</div>
+            </div>
+            <div class=columnbox__ID>
+            	<div>
+                    <div id=text__ID>
+                        We have built a website and a heder with responsive menu.
+                        Now We will add the responsive header and menu to our website.
+                        We are trying to make each component to be independent so we can easy to replace them.
+                        Play the following code on your static server or try it yourself on codepen.
+                        <br>
+                    </div>
+<xmp id=xmp__ID style='background-color:#ddd'>
+    <html>
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+        </head>
+        <body>
+            <!----------------------------------------------->
+            <div id=layout>
+                <div id=header_0></div>
+                <div id=content_0></div>
+                <div id=footer_0></div>
+            </div>
+            <!----------------------------------------------->
+            <div id=components>
+                <div id=c_header>
+                    <div for-mobile>
+                        <span id=m_title>Business Portal</span>
+                        <a toggle id="m_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <div for-desktop id=vm_logo>
+                        <span id=vm_logo_label_A>Business Portal</span><br>
+                        <span id=vm_logo_label_B>on-demand business applications</span>
+                    </div>
+                    <div menu id="vm_menu">
+                        <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                        <a href="?/hello-world">Hello World</a>
+                        <a href="?/second-module">Second Module</a>
+                    </div>
+                </div>
+                <div id=c_footer>
+                    Company Name
+                </div>
+            </div>
+            <!----------------------------------------------->
+            <script>
+                $('#c_header').contents().appendTo('#header_0');
+                $('#c_footer').contents().appendTo('#footer_0');
+            </script>
+            <!----------------------------------------------->
+            <script>
+                var app_init=function(){
+                    $vm={};$vm.vm={}; $vm.version=1; $vm.reload='';
+                    $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+                }
+                app_init();
+            </script>
+            <!----------------------------------------------->
+            <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=-3"></script>
+            <!----------------------------------------------->
+            <script>
+                //------------------------------------
+                $vm.module_list={
+                    "home":{"url":"https://codepen.io/vmiis/pen/RBjbJP.html"},
+                    "hello-world":{"url":"https://codepen.io/vmiis/pen/JBrdMq.html"},
+                    "second-module":{"url":"https://codepen.io/vmiis/pen/OwxNdg.html"}
+                }
+                //------------------------------------
+                $vm.root_layout_content_slot='content_0'
+                $vm.load_module_v2('home',$vm.root_layout_content_slot,{});
+                //------------------------------------
+                $vm.toggle=function() {
+                    var x = document.getElementById("vm_menu");
+                    if(x.className==='') x.className="responsive";
+                    else x.className="";
+                }
+                //------------------------------------
+                $vm.header_menu=function(){
+                    $('#vm_menu a').on('click',function(e){
+                        e.preventDefault();
+                        var href=$(this).attr('href');
+                        if(href!=undefined){
+                            href=href.replace('?\/','');
+                            href=href.replace(/\//g,'_');
+                            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+                        }
+                        $vm.toggle();
+                    })
+                    $('.vm_dropdown').on('click',function(){
+                        var d=$(this).find('.vm_dropdown-content');
+                        if(d.css('display')=='block') d.css('display','none');
+                        else d.css('display','block');
+                    })
+                    $(".vm_dropdown").mouseleave(function (){  $(".vm_dropdown-content").hide();  })
+                    $(".vm_dropdown-content").mouseleave(function (){  $(this).hide();  })
+                    //---------------------------------------------
+                }
+                $vm.header_menu();
+                //------------------------------------
+            </script>
+            <!----------------------------------------------->
+            <style>
+                html,body{
+                    margin:0;
+                    padding:0;
+                    height:100%;
+                    font-family:Arial;
+                }
+                body{
+                    background-image: url(https://www.vmiis.com/sys/layout.jpg);
+                    background-size: cover;
+                    background-repeat: repeat-x;
+                    background-position: center top;
+                    background-attachment: fixed;
+                }
+                #layout {
+                    height: 100%;
+                    display: grid;
+                    grid-template-rows: auto 1fr auto;
+                    overflow:hidden;
+                }
+                #content_0{
+                    overflow:hidden;
+                }
+                #footer_0{
+                    height:20px;
+                    color: #fff;
+                    padding: 3px;
+                    background-color: #333;
+                    font:80%/18px arial;
+                    text-align: center;
+                }
+                #components{
+                    display:none;
+                }
+            </style>
+            <style for-header>
+                /*----------------------*/
+                /*mobile*/
+                #m_title{
+                    display:none;
+                }
+                #m_icon {
+                  display: none;
+                }
+                /*header*/
+                #header_0{
+                    height:100px;
+                    background: rgba(0,0,0,0.8);
+                }
+                /*logo*/
+                #vm_logo{
+                    display:inline-block;
+                    padding-top:35px;
+                    padding-left:20px;
+                    cursor:pointer;
+                    float:left;
+                }
+                #vm_logo_label_A{
+                    font-family: Arial, sans-serif;
+                    color:#fff;
+                    font-size: 200%;
+                    line-height:10px;
+                    display:inline-block;
+                }
+                #vm_logo_label_B{
+                    font-family: Arial, sans-serif;
+                    color:#fff;
+                    font-size: 93%;
+                    line-height:80%;
+                    display:inline-block;
+                }
+                /*menu*/
+                #vm_menu {
+                    margin-top:50px;
+                    margin-left:160px;
+                    overflow: hidden;
+                    background: rgba(0,0,0,0.0);
+                    display:inline-block;
+                    float:left;
+                }
+                #vm_menu > a {
+                  float: left;
+                  display: block;
+                  color: #f2f2f2;
+                  text-align: center;
+                  padding: 10px 8px;
+                  text-decoration: none;
+                  font-size: 14px;
+                  cursor:pointer;
+                }
+                .vm_dropdown {
+                    float: left;
+                    overflow: hidden;
+                }
+                .vm_dropdown .vm_dropbtn {
+                    font-size: 14px;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    padding: 10px 8px;
+                    background-color: inherit;
+                    font-family: inherit;
+                    margin: 0;
+                }
+                .vm_dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                    max-height: 1000px;
+                    overflow-y: hidden;
+                    border-radius: 0px 3px 3px 3px;
+                    animation: vm_menu_show 1.8s;
+                }
+                .vm_dropdown-content a {
+                    float: none;
+                    font-size: 14px;
+                    color: #666!important;
+                    padding: 3px 16px;
+                    text-decoration: none;
+                    display: block;
+                    text-align: left;
+                    cursor:pointer;
+                    border-bottom:1px solid #ddd;
+                }
+                #vm_menu > a:hover, .vm_dropdown:hover .vm_dropbtn {
+                  background-color: #555;
+                  color: white;
+                  border-radius:4px;
+                }
+                .vm_dropdown-content a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+                /*----------------------*/
+                /*mobile*/
+                @media screen and (max-width: 900px) {
+                    #header_0{
+                        height:unset;
+                        background: rgba(0,0,0,0.8);
+                    }
+                    #vm_logo{
+                        display:none;
+                    }
+                    #m_title{
+                        color:#fff;
+                        font-size: 28px;
+                        display:inline-block;
+                        padding: 3px 0 3px 12px;
+                        cursor: pointer;
+                    }
+                    #m_icon {
+                        float: right;
+                        display: block;
+                        font-size:28px;
+                        padding:5px 16px 3px 16px;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        cursor:pointer;
+                        color:#fff;
+                    }
+                    #vm_menu {
+                        margin-top:0px;
+                        margin-right:0px;
+                        margin-left:0px;
+                        padding-left:15px;
+                        padding-right:15px;
+                        overflow: hidden;
+                        background: #1c3144;
+                        display:block;
+                        float:unset;
+                    }
+                    #vm_menu a, .vm_dropdown .vm_dropbtn {
+                        display: none;
+                    }
+                    #vm_menu > a {
+                      color: #fff;
+                    }
+                    #vm_menu.responsive {
+                        position: relative;
+                        animation: vm_menu_show 1.8s;
+                    }
+                    #vm_menu.responsive a {
+                        float: none;
+                        display: block;
+                        text-align: left;
+                    }
+                    #vm_menu.responsive .vm_dropdown {float: none;}
+                    #vm_menu.responsive .vm_dropdown-content {position: relative;}
+                    #vm_menu.responsive .vm_dropdown .vm_dropbtn {
+                        display: block;
+                        width: 100%;
+                        text-align: left;
+                    }
+                }
+                /*animation*/
+                @keyframes vm_menu_show {
+                    from {max-height: 0px;}
+                    to {max-height: 1000px;}
+                }
+                /*----------------------*/
+            </style>
+            <!----------------------------------------------->
+        </body>
+    </html>
+
+</xmp>
+
+                    <a class="btn btn-secondary" target=_blank href=https://codepen.io/vmiis/pen/KBQGgw?editors=1000>Try it yourself</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script>
+        function F__ID(){
+    		//--------------------------------------------------------
+    		$vm.vm["__ID"].show=function(){
+    			document.title="Make a home module | "+$vm.default_title;
+                $("meta[name='description']").attr("content","Single page application development");
+    		}
+            //--------------------------------------------------------
+            var c=$('#xmp__ID').text();
+            c=c.replace(/@@/g,'ID');
+            $('#xmp__ID').text(c);
+            var c=$('#text__ID').text();
+            c=c.replace(/@@/g,'ID');
+            $('#text__ID').text(c);
+            //--------------------------------------------------------
+        }
+    </script>
+    <style>
+    	.columnbox__ID{
+    		max-width: 800px;
+    		column-count: 1;
+    		column-width: 600px;
+    		column-gap: 30px;
+    	}
+    	#D__ID{
+    		height:100%;
+    		overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+    		background: rgba(255,255,255,0.95);
+    		color:#283f55;
+            font-size:11pt;
+            font-family: Verdana,Helvetica,Arial,sans-serif;
+    	}
+    	#page__ID{
+            padding:10px 0 20px 20px;
+        }
+        #D__ID h1{
+            display:inline-block;
+        }
+        .a__ID{
+            color:green;
+            text-decoration: underline;
+        }
+    </style>
+</div>
