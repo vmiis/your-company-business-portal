@@ -286,6 +286,7 @@ $vm.app_init(function(){
                 var path=url.replace('index.json','');
                 path=path.replace('modules.json','');
                 for (var k in modules){
+                    if(modules[k].url.substring(0,4)=='http') path="";
                     modules[k].url=path+modules[k].url;
                     $vm.module_list[prefix+k]=modules[k];
                     $vm.module_list[prefix+k].prefix=prefix;

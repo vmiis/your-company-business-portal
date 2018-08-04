@@ -1,22 +1,29 @@
 <div id=page__ID>
 	<section id=panel__ID>
 		<div class='nav__ID modules__ID'>
-			<h4>How to build a website</h4>
-            <span>Tutorial</span>
+			<h5>Step by step to build a single <br>page application (SPA)</h5>
+            <span>Startup</span>
 			<ul class=vmmodule>
 				<li><a href="?/tutorial/introduction">Introduction</a></li>
-				<li><a href="?/tutorial/layout">Website layout</a></li>
-				<li><a href="?/tutorial/module">Module</a></li>
-				<li><a href="?/tutorial/load-module">Load module into content div</a></li>
-				<li><a href="?/tutorial/header-footer-background">Make a proper header, footer and background</a></li>
-				<li><a href="?/tutorial/home-module">Make a home module</a></li>
-				<li><a href="?/tutorial/load-home-module">Load home module at start point</a></li>
-				<li><a href="?/tutorial/make-responsive-header-and-menu">Make a responsive header and menu</a></li>
-				<li><a href="?/tutorial/add-responsive-header-and-menu">Add the responsive header and menu to our website</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/OwgzmV/ target=_blank >SPA - start with a simple layout</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/JBrdMq/ target=_blank >Create a module (web page)</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/ajLZxp/ target=_blank >SPA - loading module into the content div</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/EpwQwO/ target=_blank >SPA - make a proper header, footer and background with CSS</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/RBjbJP/ target=_blank >Create a home module</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/bjYGpa/ target=_blank >SPA - home module loaded at start point</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/ajEJPW/ target=_blank >Make a responsive header and menu</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/KBQGgw/ target=_blank >SPA - responsive header and menu</a></li>
+            </ul>
+            <span>Animation background</span>
+			<ul class=vmmodule>
+                <li><a href=https://codepen.io/vmiis/pen/MBXQjx/ target=_blank >Create a particle background module</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/varRJV/ target=_blank >SPA - particle background</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/ZjRjwy/ target=_blank >Create a fountains illumination background module</a></li>
+                <li><a href=https://codepen.io/vmiis/pen/oMyMOa/ target=_blank >SPA - fountains illumination background</a></li>
 			</ul>
         </div>
 		<div class='nav__ID modules__ID'>
-			<h4>Web application templates</h4>
+			<h5>Web application templates</h5>
             <span>Layout</span>
 			<ul>
 				<li><a target=_blank href="apps/layout-with-fixed-header-and-footer/">Fixed header and footer</a></li>
@@ -40,9 +47,6 @@
 				<li><a target=_blank href="apps/woolcock-app-template/">Woolcock application template</a></li>
 				<li><a target=_blank href="apps/enquiry/">Enquiry</a></li>
 			</ul>
-		</div>
-		<div class='nav__ID modules__ID'>
-			<h4><br></h4>
 			<span>Build modules with different technologies</span>
 			<ul>
 				<li><a target=_blank href="apps/angularjs/">AngularJS</a></li>
@@ -107,9 +111,7 @@
 				<li><u m=others>Others</u></li>
 			</ul>
 			<br>
-		</div>
-		<div class='nav__ID modules__ID'>
-			<h4>Module examples</h4>
+			<h5>Module examples</h5>
             <span>Static</span>
 			<ul class=vmmodule>
 				<li><a href="?/static/long">Long page</a></li>
@@ -186,12 +188,15 @@
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
 		$('#panel__ID .vmmodule a').on('click',function(e){
-			event.preventDefault();
 			var href=$(this).attr('href');
 			if(href!=undefined){
 				href=href.replace('?\/','');
 				href=href.replace(/\//g,'_');
-				$vm.load_module_v2(prefix+href,'',{});
+                if(href.substring(0,4)=='http'){}
+                else{
+                    e.preventDefault();
+                    $vm.load_module_v2(prefix+href,'',{});
+                }
             }
 		})
 		//--------------------------------------------------------
@@ -247,7 +252,7 @@
 	#D__ID{
         color:#283f55;
         font-size:10pt;
-        font-family: Verdana,Helvetica,Arial,sans-serif;
+        font-family: Arial,sans-serif;
 		background: rgba(255,255,255,0.95);
         overflow: auto;
 		animation: vm_module_fadein 1.0s;

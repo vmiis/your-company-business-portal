@@ -1,18 +1,7 @@
 {"modules":{
 	"portal":             	{"url":"portal.html"},
-
 	"about-this-website":   {"url":"about/about-this-website.html","name_for_search":"About this website"},
-
 	"tutorial_introduction":{"url":"tutorial/01-introduction.html"},
-	"tutorial_layout":		{"url":"tutorial/02-layout.html"},
-	"tutorial_module":		{"url":"tutorial/03-module.html"},
-	"tutorial_load-module":	{"url":"tutorial/04-load-module.html"},
-	"tutorial_header-footer-background": {"url":"tutorial/05-header-footer-background.html"},
-	"tutorial_home-module":				 {"url":"tutorial/06-home-module.html"},
-	"tutorial_load-home-module":		 {"url":"tutorial/07-load-home-module-at-start-point.html"},
-	"tutorial_make-responsive-header-and-menu":{"url":"tutorial/08-make-responsive-header-and-menu.html"},
-	"tutorial_add-responsive-header-and-menu":{"url":"tutorial/09-add-responsive-header-and-menu.html"},
-
 	"business":    	    	{"url":"panels/business.html"},
     "clinical-trials":  	{"url":"panels/clinical-trials.html"},
     "development": 	    	{"url":"panels/development.html"},
