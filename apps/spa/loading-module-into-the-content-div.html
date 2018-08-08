@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- the following div is comments, not part of the SPA -->
+<div style='position:fixed;z-index:-1;top:200px;left:30px;max-width:600px;font-family: Verdana; line-height:20px;font-size:15px;color:#666'>
+    Using pure JavaScript to build a single page application is not a simple job.
+    Fortunately there are some JavaScript library can be used to make such
+    application a lot easier. VM library is a light JavaScript library
+    (open source project on https://github.com/vmiis/framework-2).
+    We will build our single page application with this library.
+</div>
+<!--------------------------------------------------------------------->
+<html>
+    <head>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <!----------------------------------------------->
+        <div id=layout>
+            <div id=header></div>
+            <div id=content></div>
+            <div id=footer></div>
+        </div>
+        <!----------------------------------------------->
+        <div id=components>
+            <div id=c_header>
+                <div id=menu>
+                    <a href="hello-world">Hello World</a>
+                    <a href="second-module">Second Module</a>
+                </div>
+            </div>
+            <div id=c_footer>
+                footer
+            </div>
+        </div>
+        <!----------------------------------------------->
+        <script>
+            $('#c_header').contents().appendTo('#header');
+            $('#c_footer').contents().appendTo('#footer');
+        </script>
+        <!----------------------------------------------->
+        <!-- the minimal code for loading and initial the VM library -->
+        <script>
+            var app_init=function(){
+                $vm={};$vm.vm={}; $vm.version=1; $vm.reload='';
+                $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+            }
+            app_init();
+        </script>
+        <!-- load VM javascript library -->
+        <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=3"></script>
+        <!------------------------------------------------------------->
+        <script>
+            //------------------------------------
+            //create a module list, let system know where the distributed modules are located
+            //the modules can be hosted on any static web server around the world,
+            //like a image hosted on any static web server.
+            $vm.module_list={
+                "hello-world":{"url":"https://www.vmiis.com/modules/spa/hello-world.html"},
+                "second-module":{"url":"https://www.vmiis.com/modules/spa/second-module.html"}
+            }
+            //------------------------------------
+            // to handle the click event of the menu bar
+            $('#menu a').on('click',function(){
+                event.preventDefault();
+                var href=$(this).attr('href');
+                if(href!=undefined){
+                    //this is the line we load the module into the 'content' div
+                    $vm.load_module_v2(href,'content',{});
+                    //vm library supports the browser’s native back and forward functions
+                }
+            })
+            //------------------------------------
+        </script>
+        <!----------------------------------------------->
+        <style>
+            html,body{
+                margin:0;
+                padding:0;
+                height:100%;
+            }
+            #layout {
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                overflow:hidden;
+            }
+            #content{
+                overflow:hidden;
+            }
+            #header,#content{
+                border-bottom:1px solid black;
+            }
+            #components{
+                display:none;
+            }
+        </style>
+        <!----------------------------------------------->
+    </body>
+</html>

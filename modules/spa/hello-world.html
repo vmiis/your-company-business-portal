@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- comments, not part of the module-->
+<div style='position:fixed;z-index:-1;top:200px;left:30px;max-width:600px;font-family: Verdana; line-height:20px;font-size:15px;color:#666'>
+    A module is a file that contains a HTML div with 3 parts, HTML, JavaScript and Style.
+    It will be loaded dynamically into the content div of the layout. It can be stored
+    or hosted on any static server. The module's div ID must be set as D__ID and the
+    function name in the script must be F__ID. The _ID will be replaced automatically
+    with a unique number. The function F__ID will run after the module is appended to
+    the content div.
+    Let's start with a very simple "Hello World" module.
+</div>
+<!--------------------------------------------------------------------->
+<div id=D__ID>
+    <!-- html part -->
+    <div>
+        Hello World!<br>
+        I am a module.<br>
+        I can be hosted at any static web server.<br>
+        I can be lorded into your single page application when you need.
+    </div>
+    <!-- code part -->
+    <script>
+        /* the funtion F__ID will be called after the
+        module is loaded */
+        function F__ID(){
+            console.log("I am called.")
+        }
+    </script>
+    <!-- style part -->
+    <style>
+        #D__ID{
+            height:100%;
+            color:#fff;
+            background-color:#17293e;
+            padding:20px;
+        }
+    </style>
+    <!--
+        all "_ID" will be replaced with a unique number (1,2,3...)
+        so we are confident no ID conflict in the application
+    -->
+</div>

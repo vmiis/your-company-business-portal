@@ -286,15 +286,17 @@ $vm.app_init(function(){
                 var path=url.replace('index.json','');
                 path=path.replace('modules.json','');
                 for (var k in modules){
-                    if(modules[k].url.substring(0,4)=='http') path="";
-                    modules[k].url=path+modules[k].url;
-                    $vm.module_list[prefix+k]=modules[k];
-                    $vm.module_list[prefix+k].prefix=prefix;
-                    if($vm.search_module==(prefix+k)) $vm.load_module_v2($vm.search_module,'',{});
-                    var snm=modules[k]['name_for_search'];
-                    if(snm!=""){
-                        if(snm==undefined) snm=prefix+k;
-                        $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
+                    if(modules[k].url!=undefined){
+                        if(modules[k].url.substring(0,4)=='http') path="";
+                        modules[k].url=path+modules[k].url;
+                        $vm.module_list[prefix+k]=modules[k];
+                        $vm.module_list[prefix+k].prefix=prefix;
+                        if($vm.search_module==(prefix+k)) $vm.load_module_v2($vm.search_module,'',{});
+                        var snm=modules[k]['name_for_search'];
+                        if(snm!=""){
+                            if(snm==undefined) snm=prefix+k;
+                            $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
+                        }
                     }
                 }
                 if(I==N-1){ //all module's link are ready

@@ -1,5 +1,11 @@
 {"modules":{
+	"tutorial":           	{"url":"tutorial.html"},
 	"portal":             	{"url":"portal.html"},
+
+	"spa-hello-world": 		{"url":"spa/hello-world.html"},
+	"spa-second-module": 	{"url":"spa/second-module.html"},
+	"spa-home-module": 		{"url":"spa/home-module.html"},
+
 	"about-this-website":   {"url":"about/about-this-website.html","name_for_search":"About this website"},
 	"tutorial_introduction":{"url":"tutorial/01-introduction.html"},
 	"business":    	    	{"url":"panels/business.html"},

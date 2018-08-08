@@ -1,19 +1,31 @@
 <div id=page__ID>
 	<section id=panel__ID>
 		<div class='nav__ID' style='float:unset;'>
-			<h5>Step by step to build a single page application (SPA)</h5>
-			Source code on https://codepen.io/vmiis, <a href=https://codepen.io/vmiis/pen/jpaNLw/ target=_blank >Try it yourself</a><br><br>
+			<h4 style='display:inline-block'>Modular distributed web applications</h4>
+			<i>Open source code on https://github.com/vmiis, <a href=https://github.com/vmiis/your-company-business-portal target=_blank >Colone or download</a></i>
+			<div style='color:#666'>
+                We will step by step build web applications with the following key features:
+                <ul>
+                    <li>Single page application (SPA) –– fast response, batter user experience</li>
+					<li>Microservices architecture –– service-oriented architecture (SOA)</li>
+                    <li>Static web hosting from anywhere –– fast, secure and low cost or free (using GitHub+CloudFlare free services) </li>
+                    <li>No server side coding –– simple development and easy maintenance</li>
+                    <li>Modular distributed –– scalable, flexible, reusable and easy replaceable</li>
+                    <li>Data access with APIs –– directly read/write data from/to a cloud database with APIs</li>
+                </ul>
+            </div>
 			<div class=columnbox__ID>
                 <span>Startup</span>
                 <ul>
-                    <li><a href=https://codepen.io/vmiis/pen/OwgzmV/ target=_blank >SPA - start with a simple layout</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/JBrdMq/ target=_blank >Create a module (web page)</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/ajLZxp/ target=_blank >SPA - loading module into the content div</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/EpwQwO/ target=_blank >SPA - make a proper header, footer and background with CSS</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/RBjbJP/ target=_blank >Create a home module</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/bjYGpa/ target=_blank >SPA - home module loaded at start point</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/ajEJPW/ target=_blank >Make a responsive header and menu</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/KBQGgw/ target=_blank >SPA - responsive header and menu</a></li>
+                    <li><u class=try href=apps/spa/start-with-a-simple-layout.html>Try it yourself</u>							<a href=apps/spa/start-with-a-simple-layout.html target=_blank >SPA - start with a simple layout</a></li>
+                    <li><u class=try href=modules/spa/hello-world.html>Try it yourself</u>										<a href=?/spa-hello-world class=modular >Hello world module (web page)</a></li>
+					<li><u class=try href=modules/spa/second-module.html>Try it yourself</u>									<a href=?/spa-second-module class=modular >Second module</a></li>
+                    <li><u class=try href=apps/spa/loading-module-into-the-content-div.html>Try it yourself</u>					<a href=apps/spa/loading-module-into-the-content-div.html target=_blank >SPA - loading module into the content div</a></li>
+					<li><u class=try href=apps/spa/make-a-proper-header-footer-and-background-with-css.html>Try it yourself</u>	<a href=apps/spa/make-a-proper-header-footer-and-background-with-css.html target=_blank >SPA - make a proper header, footer and background with CSS</a></li>
+					<li><u class=try href=modules/spa/home-module.html>Try it yourself</u>										<a href=?/spa-home-module target=_blank >Home module</a></li>
+					<li><u class=try href=modules/spa/home-module-loaded-at-start-point.html>Try it yourself</u> 				<a href=apps/spa/home-module-loaded-at-start-point.html target=_blank >SPA - home module loaded at start point</a></li>
+					<li><u class=try href=modules/spa/reaponsive-header-and-menu.html>Try it yourself</u>						<a href=modules/spa/reaponsive-header-and-menu.html target=_blank >Make a responsive header and menu</a></li>
+					<li><u class=try href=apps/spa/website-with-responsive-header-and-menu.html>Try it yourself</u> 			<a href=apps/spa/website-with-responsive-header-and-menu.html target=_blank >SPA - responsive header and menu</a></li>
                 </ul>
                 <span>Animation background</span>
                 <ul>
@@ -47,14 +59,6 @@
                     <li><a href=https://codepen.io/vmiis/pen/yqxzYv/ target=_blank >Make the data module code simple by using common code inclusion</a></li>
                     <li><a href=https://codepen.io/vmiis/pen/OwoOqd/ target=_blank >SPA - show modules we have made about APIs</a></li>
                 </ul>
-                <br>
-                Next one comming soon...
-            </div>
-        </div>
-		<div class='nav__ID' style='float:unset;'>
-			<h5>Single page application (SPA) templates</h5>
-			Source code on https://github.com/vmiis, <a href=https://github.com/vmiis/your-company-business-portal/tree/master/apps target=_blank >Colone or download</a><br><br>
-			<div class=columnbox__ID>
 	            <span>Layout</span>
 				<ul>
 					<li><a target=_blank href="apps/layout-with-fixed-header-and-footer/" >Fixed header and footer</a></li>
@@ -197,6 +201,17 @@
 		</div>
 	</section>
 </div>
+<form id=codepen_form action="https://codepen.io/pen/define" method="POST" target="_blank" style='_display:none' >
+  <input id=codepen_form_value type="hidden" name="data" value='{"title": "New Pen!", "html": ""}'>
+  <button type=submit>S</button>
+</form>
+<script>
+	var try_it_yourself=function(title,html){
+		var v={title:title,html:html,editors:1000}
+		$('#codepen_form_value').val(JSON.stringify(v));
+		$('#codepen_form').submit();
+	}
+</script>
 <script>
     function F__ID(){
 		//--------------------------------------------------------
@@ -217,17 +232,29 @@
 		var this_module=$vm.module_list[$vm.vm['__ID'].name];
 		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
 		//--------------------------------------------------------
-		$('#panel__ID .vmmodule a').on('click',function(e){
+		$('#panel__ID a').on('click',function(e){
 			var href=$(this).attr('href');
 			if(href!=undefined){
 				href=href.replace('?\/','');
 				href=href.replace(/\//g,'_');
-                if(href.substring(0,4)=='http'){}
+                if(href.substring(0,4)=='http' || href.substring(0,4)=='apps' || href.substring(0,8)=='modules_'){}
                 else{
                     e.preventDefault();
                     $vm.load_module_v2(prefix+href,'',{});
                 }
             }
+		})
+		//--------------------------------------------------------
+		$('#panel__ID u.try').on('click',function(e){
+			var href=$(this).attr('href');
+			var title=href.split('/').pop().split('.html')[0];
+			var html=""
+			jQuery.ajaxSetup({async:false});
+			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+				html=txt;
+            },'text');
+			jQuery.ajaxSetup({async:true});
+			try_it_yourself(title,html);
 		})
 		//--------------------------------------------------------
         $('#panel__ID u').on('click',function(){
@@ -279,10 +306,14 @@
     }
 </script>
 <style>
+	#D__ID li u:first-child{
+		color:#666;
+		margin-right:10px;
+	}
 	.columnbox__ID{
-		max-width: 900px;
+		max-width: 1200px;
 		column-count: 2;
-		column-width: 400px;
+		column-width: 550px;
 		column-gap: 30px;
 		padding:0 0 30px 0;
 	}

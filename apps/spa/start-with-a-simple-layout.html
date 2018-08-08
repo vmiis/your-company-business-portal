@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- comments -->
+<div style='position:fixed;z-index:-1;top:200px;left:30px;max-width:600px;font-family: Verdana; line-height:20px;font-size:15px;color:#666'>
+    Layout is a HTML div with child divs for different parts of contents of a website.<br>
+    Let's start with a simple layout with header, content and footer.
+</div>
+<!-------------------------------------------------------------------------------------->
+<html>
+    <head>
+        <!-- we use jquery library -->
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <!----------------------------------------------->
+        <!-- this part will be visible in web browser -->
+        <!-- contents will be dynamically loaded into this area -->
+        <div id=layout>
+            <div id=header></div>
+            <div id=content></div>
+            <div id=footer></div>
+        </div>
+        <!----------------------------------------------->
+        <!-- this part will be hidden in web browser -->
+        <!-- we prepare our components in this area -->
+        <div id=components>
+            <div id=c_header>
+                Header
+            <div id=c_content>
+                Contents
+            </div>
+            <div id=c_footer>
+                footer
+            </div>
+        </div>
+        <!----------------------------------------------->
+        <script>
+            /*We push our components to the visible area*/
+            $('#c_header').contents().appendTo('#header');
+            $('#c_content').contents().appendTo('#content');
+            $('#c_footer').contents().appendTo('#footer');
+        </script>
+        <!----------------------------------------------->
+        <style>
+            html,body{
+                margin:0;
+                padding:0;
+                height:100%;
+            }
+            /*setup the layout*/
+            #layout {
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                overflow:hidden;
+            }
+            /*create a border line so we can see the sections*/
+            #header,#content{
+                border-bottom:1px solid black;
+            }
+            /*make the components area to be hidden*/
+            #components{
+                display:none;
+            }
+        </style>
+        <!----------------------------------------------->
+    </body>
+</html>
