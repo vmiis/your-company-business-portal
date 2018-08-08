@@ -2,9 +2,15 @@
 	"tutorial":           	{"url":"tutorial.html"},
 	"portal":             	{"url":"portal.html"},
 
-	"spa-hello-world": 		{"url":"spa/hello-world.html"},
-	"spa-second-module": 	{"url":"spa/second-module.html"},
-	"spa-home-module": 		{"url":"spa/home-module.html"},
+	"spa-hello-world": 		          {"url":"spa/hello-world.html"},
+	"spa-second-module": 	          {"url":"spa/second-module.html"},
+	"spa-home-module": 		          {"url":"spa/home-module.html"},
+    "spa-about": 		              {"url":"spa/about.html"},
+    "spa-2-columns-contents-module":  {"url":"spa/2-columns-contents-module.html"},
+    "spa-services": 		          {"url":"spa/services.html"},
+    "spa-trainers": 		          {"url":"spa/trainers.html"},
+    "spa-prices": 		              {"url":"spa/prices.html"},
+    "spa-carousel": 		          {"url":"spa/carousel.html"},
 
 	"about-this-website":   {"url":"about/about-this-website.html","name_for_search":"About this website"},
 	"tutorial_introduction":{"url":"tutorial/01-introduction.html"},

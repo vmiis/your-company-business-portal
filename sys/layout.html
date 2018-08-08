@@ -197,12 +197,12 @@
     //---------------------------------------------
     $vm.default_title="Modular distributed web application";
     $vm.show=function(id){
+        document.title=$vm.default_title;
+        $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
+        $("body").removeClass();
+        $("body").addClass('body_background_default');
         if($vm.vm[id].show!=undefined){
             $vm.vm[id].show();
-        }
-        else{
-            document.title=$vm.default_title;
-            $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
         }
     }
     //---------------------------------------------
@@ -221,6 +221,9 @@
         background-repeat: repeat-x;
         background-position: center top;
         background-attachment: fixed;
+    }
+    .body_background_default{
+        background-image: url(https://www.vmiis.com/sys/layout.jpg);
     }
     /*----------------------*/
     /*layout*/
