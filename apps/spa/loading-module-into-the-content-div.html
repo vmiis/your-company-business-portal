@@ -40,7 +40,7 @@
         <!-- the minimal code for loading and initial the VM library -->
         <script>
             var app_init=function(){
-                $vm={};$vm.vm={}; $vm.version=1; $vm.reload='';
+                $vm={};$vm.vm={}; $vm.reload=''; $vm.ver=[2,2];$vm.version=$vm.ver[0];
                 $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/'));
             }
             app_init();
