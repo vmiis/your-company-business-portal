@@ -11,6 +11,15 @@
     "spa-trainers": 		          {"url":"spa/trainers.html"},
     "spa-prices": 		              {"url":"spa/prices.html"},
     "spa-carousel": 		          {"url":"spa/carousel.html"},
+	"spa-submit-form": 		          {"url":"spa/submit-form-data-to-a-cloud-database.html"},
+	"spa-form-validation": 		      {"url":"spa/submit-form-with-data-validation.html"},
+	"spa-contact-us-data": 		  	  {"table_id":"20011502","url":"spa/contact-us-data.html","form_module":"spa-contact-us-form"},
+	"spa-contact-us-form": 		  	  {"table_id":"20011502","url":"spa/contact-us-form.html"},
+	"spa-contact-us": 		  	  	  {"url":"spa/contact-us.html"},
+	"spa-read-data-from-cloud":		  {"url":"spa/read-data-from-cloud.html"},
+
+
+
 
 	"about-this-website":   {"url":"about/about-this-website.html","name_for_search":"About this website"},
 	"tutorial_introduction":{"url":"tutorial/01-introduction.html"},

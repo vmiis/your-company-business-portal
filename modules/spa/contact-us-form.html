@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- emulate the hosting environment  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+
+<!-- module start ------------------------------------------------------------------->
+<div id=D__ID>
+    <div id=form_container__ID>
+        <div id=header__ID>
+            Contact Information
+        </div>
+        <form id=F__ID>
+            <div class="container">
+                <div class="row row__ID">
+                    <div class="col">
+                        <span>Name</span>
+                        <input type="text" class="form-control" placeholder="Name" name="Name" required />
+                    </div>
+                </div>
+                <div class="row row__ID">
+                    <div class="col">
+                        <span>Email</span>
+                        <input type="email" class="form-control" placeholder="Email" name="Email" />
+                    </div>
+                </div>
+                <div class="row row__ID">
+                    <div class="col">
+                        <span>Message</span>
+                        <textarea class="form-control" placeholder="Message" name="Message" ></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class=col>
+                        <button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            //the form processing part is same for most form data collection module,
+            //so we put the common part into a common file,
+            //in this example, we use https://component.vmiis.com/module/form.v1.js
+
+            VmInclude:__COMPONENT__/module/form.v1.js
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            overflow:auto;
+            animation: vm_module_fadein 1.0s;
+            padding:30px 0 0 100px;
+            background-color:#fff;
+        }
+        #form_container__ID{
+            margin-top:20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+
+            font-family: Verdana,sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        #form_container__ID .row__ID{
+            padding:6px 5px;
+        }
+        #form_container__ID .row__ID:hover{
+            background-color: #ddd;
+        }
+        #header__ID{
+            background-color:#727b84;
+            color:#fff;
+            padding:10px 15px 10px 15px;
+            font-size:120%;
+            border:1px solid #bbb;
+            border-bottom-width: 0;
+        }
+        #F__ID{
+            border:1px solid #bbb;
+            border-top-width: 0;
+            padding:6px 15px 20px 15px;
+            margin-bottom:200px;
+        }
+        #F__ID fieldset {
+            border: 0px solid #c0c0c0;
+            margin: 0;
+            padding: 0;
+        }
+        .row__ID span{
+            font-weight:bold;
+            display: inline-block;
+            padding: 5px 0;
+        }
+    </style>
+</div>
+<!-- module end ------------------------------------------------------------------->
+
+
+
+
+<!-- emulate the hosting environment  -->
+<script>
+    $vm={};$vm.vm={};$VmAPI={};
+</script>
+<script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=3"></script>
+<script src="https://api.vmiis.com/distribution/vmapi.min.js"></script>
+<script>
+	//------------------------------------
+	var load_include=function(url,callback){
+        url=url.replace(/__COMPONENT__\//g,'https://component.vmiis.com/')
+        $.get(url, function(text){
+            callback(text)
+        },'text');
+    }
+    //------------------------------------
+    $VmAPI.api_base="https://cbs.wappsystem.com/dev/";
+    $vm.vm["__ID"]={}
+    $vm.init_v3({callback:function(){
+        $vm.init_status=1;
+        //load form and run the form function
+        var include="__COMPONENT__/module/form.v1.js";
+        load_include(include,function(text){
+            F__ID=Function(F__ID.toString().replace('Vm'+'Include:'+include,text));
+            F__ID();
+        })
+    }})
+	//------------------------------------
+</script>
+<style>
+    html,body{
+        margin:0;
+        padding:0;
+        height:100%;
+        font-family:Arial;
+    }
+    body{
+        background-size: cover;
+        background-repeat: repeat-x;
+        background-position: center top;
+        background-attachment: fixed;
+    }
+</style>

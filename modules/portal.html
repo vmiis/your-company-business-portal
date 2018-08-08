@@ -42,23 +42,29 @@
                     <li><u class=try href=modules/spa/trainers.html>Try it yourself</u>                         <a href=?/spa-trainers>Trainers</a></li>
                     <li><u class=try href=modules/spa/prices.html>Try it yourself</u>                           <a href=?/spa-prices>Prices</a></li>
                     <li><u class=try href=modules/spa/carousel.html>Try it yourself</u>                         <a href=?/spa-carousel>Carousel</a></li>
-                    <li><u class=try href=apps/spa/website-with-common-static-modules.html>Try it yourself</u>  <a href=apps/spa/website-with-common-static-modules.html target=_blank >Website with common static modules</a></li>
+                    <li><u class=try href=apps/spa/website-with-common-static-modules.html>Try it yourself</u>  <a href=apps/spa/website-with-common-static-modules.html target=_blank >Website with the modules above</a></li>
                 </ul>
                 <span>Layout</span>
                 <ul>
-                    <li><a href=https://codepen.io/vmiis/pen/rrrwGM/ target=_blank >SPA - push down footer when contents is longer</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/jppLam/ target=_blank >SPA - scrolling header, contents and footer together when page is longer</a></li>
+                    <li><u class=try href=apps/spa/push-down-footer-when-contents-is-longer.html>Try it yourself</u>
+						<a href=apps/spa/push-down-footer-when-contents-is-longer.html target=_blank >Push down footer when contents is longer</a></li>
+                    <li><u class=try href=apps/spa/scrolling-header-contents-and-footer-together-when-page-is-longer.html>Try it yourself</u>
+						<a href=apps/spa/scrolling-header-contents-and-footer-together-when-page-is-longer.html target=_blank >Scrolling header, contents and footer together when page is longer</a></li>
                 </ul>
                 <span>Database API</span>
                 <ul>
-					<li><a href=https://codepen.io/vmiis/pen/jppYxw/ target=_blank >Data collection, submit form data to a cloud database</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/EppBoZ/ target=_blank >Make a proper form with data validation</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/rrZyqd/ target=_blank >Make the form module code simple by using common code inclusion</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/qyMVXr/ target=_blank >Make a contact us page with proper CSS style</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/jpvLzV/ target=_blank >Read data from cloud database to client side</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/yqxzYv/ target=_blank >Make the data module code simple by using common code inclusion</a></li>
-                    <li><a href=https://codepen.io/vmiis/pen/OwoOqd/ target=_blank >SPA - show modules we have made about APIs</a></li>
+					<li><u class=try href=spa-submit-form>Try it yourself</u>			<a href=?/spa-submit-form >Submit form data to a cloud database</a></li>
+                    <li><u class=try href=spa-form-validation>Try it yourself</u> 		<a href=?/spa-form-validation target=_blank >Make a proper form with data validation</a></li>
+					<li><u class=try href=spa-contact-us-form>Try it yourself</u> 		<a href=?/spa-contact-us-form target=_blank >Make the form module code simple by using common code inclusion</a></li>
+					<li><u class=try href=spa-contact-us>Try it yourself</u>			<a href=?/spa-contact-us target=_blank >Make a contact us page with proper CSS style</a></li>
+                    <li><u class=try href=spa-read-data-from-cloud>Try it yourself</u> 	<a href=?/spa-read-data-from-cloud target=_blank >Read data from cloud database to client side</a></li>
+					<li><u class=try href=spa-contact-us-data>Try it yourself</u> 		<a href=?/spa-contact-us-data target=_blank >Make the data module code simple by using common code inclusion</a></li>
+
+					<li><u class=try href=apps/spa/website-with-modules-we-have-made-about-apis.html>Try it yourself</u>
+						<a href=apps/spa/website-with-modules-we-have-made-about-apis.html target=_blank >Website with modules we have made about APIs</a></li>
                 </ul>
+				<br>
+				<h4>Templates</h4>
 	            <span>Layout</span>
 				<ul>
 					<li><a target=_blank href="apps/layout-with-fixed-header-and-footer/" >Fixed header and footer</a></li>
@@ -247,6 +253,7 @@
 		//--------------------------------------------------------
 		$('#panel__ID u.try').on('click',function(e){
 			var href=$(this).attr('href');
+			if($vm.module_list[href]!=undefined) href=$vm.module_list[href].url;
 			var title=href.split('/').pop().split('.html')[0];
 			var html=""
 			jQuery.ajaxSetup({async:false});
