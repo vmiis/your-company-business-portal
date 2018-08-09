@@ -10,9 +10,8 @@
                 <span id=vm_logo_label_B>on-demand business applications</span>
             </div>
             <div menu id="vm_menu">
-                <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
-                <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
+                <a module=home><i class="fa fa-home"></i> Home</a>
+                <a module=portal><i class="fa fa-th"></i> Business Portal</a>
                 <div class="vm_dropdown" id=vm_signin>
                     <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
                     <div class="vm_dropdown-content">
@@ -28,39 +27,44 @@
             </div>
         </div>
     </div>
-        <div content id="content_container_0">
+    <div content>
+        <div content-container id="content_container_0">
         	<div id=vm_loader class="loader_0"></div>
         </div>
+    </div>
     <div footer id=footer_0>
     	<span id=text_0></span>
     </div>
 </div>
+<div system-html>
+    <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
+        <div>
+            <span id=vm_username></span>
+        </div>
+    </div>
+    <div style='position:fixed;right:20px;bottom:0'>
+        <span id=database_d_0><span id=vm_system_info style='color:#555';></span></span>
+    </div>
+    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script layout-js>
-    //------------------------------------
-    $vm.module_links=[
-        "modules/modules.json"
-    ];
-    $vm.module_list={
-        "home": {"url":"modules/home.html"}
-    }
-    //------------------------------------
-    $vm.app_config={
-        "api_path_development":"https://cbs.wappsystem.com/dev/",
-        "api_path_production":"https://cbs.wappsystem.com/pro/",
-        "default_production":"No",
-    }
-    $vm.qid='10000000';
-    $vm.vm_router=1;
-    //------------------------------------
-    $vm.default_title="A basic application framework";
-    $vm.show=function(id){
-        document.title=$vm.default_title;
-        $("meta[name='description']").attr("content", "Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
-        if($vm.vm[id].show!=undefined){
-            $vm.vm[id].show();
-        }
-    }
-    //---------------------------------------------
     $vm.layout=function(){
 		//------------------------------------
         $vm.root_layout_content_slot="content_container_0";
@@ -68,7 +72,7 @@
         var set_height=function(){
 			var header_height=$('#header_0').outerHeight(); $vm.header_height=header_height;
 			var footer_height=$('#footer_0').outerHeight();
-			$vm.min_height=($('body').height()-header_height-footer_height);
+			$vm.min_height=($(window).height()-header_height-footer_height);
 			$('#content_container_0').css({'height':($vm.min_height)+'px'});
 		}
 		//------------------------------------
@@ -91,13 +95,12 @@
     $vm.header=function(){
         $('#vm_menu a').on('click',function(e){
             e.preventDefault();
-            var href=$(this).attr('href');
-			if(href!=undefined){
-				href=href.replace('?\/','');
-				href=href.replace(/\//g,'_');
-				$vm.load_module_v2(href,'',{});
+            var module=$(this).attr('module');
+            if(module!=undefined) $vm.load_module_v2(module);
+            if( $(this).attr('toggle')==undefined){
+                var x = document.getElementById("vm_menu");
+                if(x.className==='responsive') x.className="";
             }
-            $vm.toggle();
         })
         $('.vm_dropdown').on('click',function(){
             var d=$(this).find('.vm_dropdown-content');
@@ -132,36 +135,7 @@
         }
         //---------------------------------------------
     }
-    //------------------------------------
 </script>
-<div system-html>
-    <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
-        <div>
-            <span id=vm_username></span>
-        </div>
-    </div>
-    <div style='position:fixed;right:20px;bottom:0'>
-        <span id=database_d_0><span id=vm_system_info style='color:#555';></span></span>
-    </div>
-    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel">Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <style layout-css>
 	html,body{
         width: 100%;
@@ -324,7 +298,7 @@
     /*----------------------*/
     /*content*/
     #content_container_0{
-        /*position:fixed;*/
+        position:fixed;
         width:100%;
         overflow:hidden;
     }

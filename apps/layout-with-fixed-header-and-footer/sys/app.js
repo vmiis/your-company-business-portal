@@ -1,20 +1,4 @@
 //------------------------------------
-$vm.module_links=[
-    "modules/modules.json"
-];
-$vm.module_list={
-    "home":     {"url":"modules/home.html"}
-}
-//------------------------------------
-$vm.app_config={
-    "api_path_development":"https://cbs.wappsystem.com/dev/",
-    "api_path_production":"https://cbs.wappsystem.com/pro/",
-    "default_production":"No",
-}
-$vm.qid='10000000';
-$vm.vm_router=1;
-//------------------------------------
-//------------------------------------
 $vm.website_module_list_for_search=[];
 //------------------------------------
 $vm.app_init=function(callback){
@@ -331,12 +315,18 @@ $vm.app_init(function(){
     $vm.layout();
     $vm.header();
     $vm.footer();
-    $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-    var a=window.location.href.split('?/');
-    if(a.length==1) $vm.load_module_v2("home",'',{});
-    else if(a.length==2){
-        $vm.search_module=a[1].split('&')[0].replace(/\//g,'_');
-        if($vm.search_module=='home') $vm.load_module_v2("home",'',{});
+    if($vm.server!='production') $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+    if(sessionStorage["signinout"]==1){
+        sessionStorage["signinout"]=0;
+        $vm.load_module_v2("home",'',{});
+    }
+    else{
+        var a=window.location.href.split('?/');
+        if(a.length==1) $vm.load_module_v2("home",'',{});
+        else if(a.length==2){
+            $vm.search_module=a[1].split('&')[0].replace(/\//g,'_');
+            if($vm.search_module=='home') $vm.load_module_v2("home",'',{});
+        }
     }
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
     over_write_alert();

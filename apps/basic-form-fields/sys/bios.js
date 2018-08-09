@@ -1,9 +1,7 @@
-$vm={};	$vm.start_time=new Date().getTime();
+$vm.start_time=new Date().getTime();
 $.ajaxSetup({cache:true});
-$.get('sys/version.html',function(v){
 //------------------------------------------
-console.log(v);	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.localhost=true;
-$vm.ver=v.trim().split(',');
+console.log($vm.ver);if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.localhost=true;
 var url=window.location.href.split('?')[0];
 var ver_h=localStorage.getItem(url+"h_ver");
 var txt_h=localStorage.getItem(url+"h_txt");
@@ -50,4 +48,3 @@ else{
 	process();
 }
 //------------------------------------------
-},'text')

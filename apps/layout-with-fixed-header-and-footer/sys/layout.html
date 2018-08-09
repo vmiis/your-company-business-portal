@@ -29,44 +29,39 @@
             </div>
         </div>
     </div>
-    <div content>
-        <div content-container id="content_container_0">
-        	<div id=vm_loader class="loader_0"></div>
-        </div>
+    <div content id="content_container_0">
+    	<div id=vm_loader class="loader_0"></div>
     </div>
     <div footer id=footer_0>
     	<span id=text_0></span>
     </div>
 </div>
-<div system-html>
-    <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
-        <div>
-            <span id=vm_username></span>
-        </div>
-    </div>
-    <div style='position:fixed;right:20px;bottom:0'>
-        <span id=database_d_0><span id=vm_system_info style='color:#555';></span></span>
-    </div>
-    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel">Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <script layout-js>
+    //------------------------------------
+    $vm.module_links=[
+        "modules/modules.json"
+    ];
+    $vm.module_list={
+        "home": {"url":"modules/home.html"}
+    }
+    //------------------------------------
+    $vm.app_config={
+        "api_path_development":"https://cbs.wappsystem.com/dev/",
+        "api_path_production":"https://cbs.wappsystem.com/pro/",
+        "default_production":"No",
+    }
+    $vm.qid='10000000';
+    $vm.vm_router=1;
+    //------------------------------------
+    $vm.default_title="Website layout with fixed header and footer";
+    $vm.show=function(id){
+        document.title=$vm.default_title;
+        $("meta[name='description']").attr("content", "Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
+        if($vm.vm[id].show!=undefined){
+            $vm.vm[id].show();
+        }
+    }
+    //---------------------------------------------
     $vm.layout=function(){
 		//------------------------------------
         $vm.root_layout_content_slot="content_container_0";
@@ -74,7 +69,7 @@
         var set_height=function(){
 			var header_height=$('#header_0').outerHeight(); $vm.header_height=header_height;
 			var footer_height=$('#footer_0').outerHeight();
-			$vm.min_height=($(window).height()-header_height-footer_height);
+			$vm.min_height=($('body').height()-header_height-footer_height);
 			$('#content_container_0').css({'height':($vm.min_height)+'px'});
 		}
 		//------------------------------------
@@ -137,19 +132,37 @@
             $vm.facebook_signin_setup('360182794393427','facebook_0',show_user);
         }
         //---------------------------------------------
-        $vm.default_title="Website layout with fixed header and footer";
-        $vm.show=function(id){
-            if($vm.vm[id].show!=undefined){
-                $vm.vm[id].show();
-            }
-            else{
-                document.title=$vm.default_title;
-                $("meta[name='description']").attr("content", "Modular distributed web application. A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
-            }
-        }
-        //---------------------------------------------
     }
+    //------------------------------------
 </script>
+<div system-html>
+    <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
+        <div>
+            <span id=vm_username></span>
+        </div>
+    </div>
+    <div style='position:fixed;right:20px;bottom:0'>
+        <span id=database_d_0><span id=vm_system_info style='color:#555';></span></span>
+    </div>
+    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <style layout-css>
 	html,body{
         width: 100%;
@@ -312,7 +325,7 @@
     /*----------------------*/
     /*content*/
     #content_container_0{
-        position:fixed;
+        /*position:fixed;*/
         width:100%;
         overflow:hidden;
     }
