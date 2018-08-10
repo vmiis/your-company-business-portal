@@ -13,7 +13,6 @@
             m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
             m.form_fields=fields;
             //-------------------------------------
-
     		m.before_submit=function(record,dbv){
                 var vpsqi1=0;
                 var v4=parseFloat(record.PSQI4);
@@ -95,7 +94,7 @@
         }
     </script>
     <style>
-    VmInclude:__COMPONENT__/module/grid.v1.css
+        VmInclude:__COMPONENT__/module/grid.v1.css
         /**/
     </style>
 </div>
@@ -107,9 +106,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
-<script>
-    $vm={};$vm.vm={};$VmAPI={};
-</script>
+<script>$vm={};$vm.vm={};$VmAPI={};$vm.ver=[2,2];</script>
 <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=3"></script>
 <script src="https://api.vmiis.com/distribution/vmapi.min.js"></script>
 <div id=content></div>
@@ -122,7 +119,7 @@
     }
     $vm.init_v3({callback:function(){
         $vm.init_status=1;
-        $vm.version=1; $vm.reload="";
+        $vm.version=$vm.ver[0]; $vm.reload="";
         $vm.hosting_path="codepen";
         $vm.url=function(text){ return text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/'); }
         $vm.alert=function(msg){alert(msg)};

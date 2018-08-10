@@ -410,9 +410,11 @@
     <script>
     	function F__ID(){
     		//-------------------------------------
-    		VmInclude:__CURRENT_PATH__/task_form.js
+            VmInclude:__COMPONENT__/module/form.v1.js
     		//-------------------------------------
-            var on_load=function(){
+            m.defaule_load=m.load;
+            m.load=function(){
+                m.defaule_load();
                 $('#F__ID input[name=PSQI5j]').triggerHandler('change');
                 $('#F__ID input[name=PSQI10e]').triggerHandler('change');
                 $('#F__ID input[name=PSQI10]').triggerHandler('click');
@@ -447,7 +449,7 @@
                 else                  $("#F__ID input[name='PSQI10ei']").prop('disabled',false).prop('required',true);
             })
             //-------------------------------------
-    		var before_submit=function(record,dbv){
+    		m.before_submit=function(record,dbv){
                 var vpsqi1=0;
                 var v4=parseFloat(record.PSQI4);
                 if(v4>=7) vpsqi1=0;

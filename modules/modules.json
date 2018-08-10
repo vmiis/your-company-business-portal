@@ -21,6 +21,8 @@
 	"spa-consent-form": 		  	  {"table_id":"20008387","url":"spa/consent-form.html"},
 	"spa-ess-data": 		  	  	  {"table_id":"20008395","url":"spa/epworth-sleepiness-scale-data.html","form_module":"spa-ess-form"},
 	"spa-ess-form": 		  	  	  {"table_id":"20008395","url":"spa/epworth-sleepiness-scale-form.html"},
+	"spa-psqi-data": 		  	  	  {"table_id":"20008396","url":"spa/pittsburgh-sleep-quality-index-data.html","form_module":"spa-psqi-form"},
+	"spa-psqi-form": 		  	  	  {"table_id":"20008396","url":"spa/pittsburgh-sleep-quality-index-form.html"},
 
 
 
