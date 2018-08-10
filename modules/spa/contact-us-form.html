@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!-- emulate the hosting environment  -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
-
 <!-- module start ------------------------------------------------------------------->
 <div id=D__ID>
     <div id=form_container__ID>
@@ -44,7 +40,6 @@
             //the form processing part is same for most form data collection module,
             //so we put the common part into a common file,
             //in this example, we use https://component.vmiis.com/module/form.v1.js
-
             VmInclude:__COMPONENT__/module/form.v1.js
             //-------------------------------------
         }
@@ -105,30 +100,31 @@
 
 
 <!-- emulate the hosting environment  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
 <script>
     $vm={};$vm.vm={};$VmAPI={};
 </script>
 <script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=3"></script>
 <script src="https://api.vmiis.com/distribution/vmapi.min.js"></script>
+<div id=content></div>
 <script>
 	//------------------------------------
-	var load_include=function(url,callback){
-        url=url.replace(/__COMPONENT__\//g,'https://component.vmiis.com/')
-        $.get(url, function(text){
-            callback(text)
-        },'text');
-    }
-    //------------------------------------
     $VmAPI.api_base="https://cbs.wappsystem.com/dev/";
-    $vm.vm["__ID"]={}
+    $vm.module_list={
+        "contact-form":{"table_id":"20011502","url":"codepen"}
+    }
     $vm.init_v3({callback:function(){
         $vm.init_status=1;
-        //load form and run the form function
-        var include="__COMPONENT__/module/form.v1.js";
-        load_include(include,function(text){
-            F__ID=Function(F__ID.toString().replace('Vm'+'Include:'+include,text));
-            F__ID();
-        })
+        $vm.version=1; $vm.reload="";
+        $vm.hosting_path="codepen";
+        $vm.url=function(text){ return text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/'); }
+        $vm.alert=function(msg){alert(msg)};
+        var data=$('#D__ID').html();
+        $('#D__ID').remove();
+		localStorage.setItem($vm.hosting_path+"-codepen_txt",data);
+		localStorage.setItem($vm.hosting_path+"-codepen_ver",$vm.version);
+        $vm.load_module_v2('contact-form','content',{})
     }})
 	//------------------------------------
 </script>

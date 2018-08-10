@@ -9,7 +9,7 @@
             //-------------------------------------
             VmInclude:__COMPONENT__/module/grid.v1.js
             //-------------------------------------
-            var fields="Name,Email,Message";
+            var fields="Consent";
             m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
             m.form_fields=fields;
             //-------------------------------------
@@ -21,7 +21,6 @@
     </style>
 </div>
 <!-- module end ------------------------------------------------------------------->
-
 
 
 
@@ -40,8 +39,8 @@
 	//------------------------------------
     $VmAPI.api_base="https://cbs.wappsystem.com/dev/";
     $vm.module_list={
-        "contact-data":{"table_id":"20011502","url":"codepen","form_module":"contact-form"},
-        "contact-form":{"table_id":"20011502","url":"https://www.vmiis.com/modules/spa/contact-us-form.html"}
+        "consent-data":{"table_id":"20008387","url":"codepen","form_module":"consent-form"},
+        "consent-form":{"table_id":"20008387","url":"https://www.vmiis.com/modules/spa/consent-form.html"}
     }
     $vm.init_v3({callback:function(){
         $vm.init_status=1;
@@ -54,7 +53,7 @@
 		localStorage.setItem($vm.hosting_path+"-codepen_txt",data);
 		localStorage.setItem($vm.hosting_path+"-codepen_ver",$vm.version);
         $vm.root_layout_content_slot="content";
-        $vm.load_module_v2('contact-data','',{})
+        $vm.load_module_v2('consent-data','',{})
     }})
 	//------------------------------------
 </script>

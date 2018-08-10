@@ -17,6 +17,10 @@
 	"spa-contact-us-form": 		  	  {"table_id":"20011502","url":"spa/contact-us-form.html"},
 	"spa-contact-us": 		  	  	  {"url":"spa/contact-us.html"},
 	"spa-read-data-from-cloud":		  {"url":"spa/read-data-from-cloud.html"},
+	"spa-consent-data": 		  	  {"table_id":"20008387","url":"spa/consent-data.html","form_module":"spa-consent-form"},
+	"spa-consent-form": 		  	  {"table_id":"20008387","url":"spa/consent-form.html"},
+	"spa-ess-data": 		  	  	  {"table_id":"20008395","url":"spa/epworth-sleepiness-scale-data.html","form_module":"spa-ess-form"},
+	"spa-ess-form": 		  	  	  {"table_id":"20008395","url":"spa/epworth-sleepiness-scale-form.html"},
 
 
 
