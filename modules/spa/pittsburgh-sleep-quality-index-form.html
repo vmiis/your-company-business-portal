@@ -642,44 +642,36 @@
 
 <!-- emulate the hosting environment  -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
-<script>
-    $vm={};$vm.vm={};$VmAPI={};
-</script>
-<script src="https://framework.vmiis.com/distribution/vmframework.min.js?v=3"></script>
-<script src="https://api.vmiis.com/distribution/vmapi.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>$vm={};$vm.ver=[3,3];$vm.version=$vm.ver[0]; $vm.reload="";</script>
 <div id=content></div>
 <script>
 	//------------------------------------
-    $VmAPI.api_base="https://cbs.wappsystem.com/dev/";
-    $vm.module_list={
-        "psqi-form":{"table_id":"20008396","url":"codepen"}
+    $vm.start=function(){
+        $vm.module_list={
+            "data":{"table_id":"20008396","url":"local"},
+        }
+        $vm.init_v3({callback:function(){
+            var data=$('#D__ID').html();
+            $('#D__ID').remove();
+            $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+    		localStorage.setItem($vm.hosting_path+"-local_txt",data);
+    		localStorage.setItem($vm.hosting_path+"-local_ver",$vm.version);
+            $vm.root_layout_content_slot="content";
+            $vm.url=function(text){ return text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/'); }
+            $vm.load_module_v2('data','',{})
+        }});
     }
-    $vm.init_v3({callback:function(){
-        $vm.init_status=1;
-        $vm.version=1; $vm.reload="";
-        $vm.hosting_path="codepen";
-        $vm.url=function(text){ return text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/'); }
-        $vm.alert=function(msg){alert(msg)};
-        var data=$('#D__ID').html();
-        $('#D__ID').remove();
-		localStorage.setItem($vm.hosting_path+"-codepen_txt",data);
-		localStorage.setItem($vm.hosting_path+"-codepen_ver",$vm.version);
-        $vm.load_module_v2('psqi-form','content',{})
-    }})
-	//------------------------------------
+    var url="https://component.vmiis.com/app/os-002.html";
+    $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
+        $('#content').append(data);
+    },'text');
+    //---------------------------------------------
 </script>
 <style>
     html,body{
-        margin:0;
-        padding:0;
-        height:100%;
-        font-family:Arial;
-    }
-    body{
-        background-size: cover;
-        background-repeat: repeat-x;
-        background-position: center top;
-        background-attachment: fixed;
+        margin:0;padding:0;height:100%;font-family:Arial;
     }
 </style>

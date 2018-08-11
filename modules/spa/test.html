@@ -112,8 +112,8 @@
 	//------------------------------------
     $vm.start=function(){
         $vm.module_list={
-            "data":{"table_id":"20008396","url":"local","form_module":"form"},
-            "form":{"table_id":"20008396","url":"https://www.vmiis.com/modules/spa/pittsburgh-sleep-quality-index-form.html"}
+            "module":{"table_id":"20008396","url":"local","form_module":"psqi-form"},
+            "psqi-form":{"table_id":"20008396","url":"https://www.vmiis.com/modules/spa/pittsburgh-sleep-quality-index-form.html"}
         }
         $vm.init_v3({callback:function(){
             var data=$('#D__ID').html();
@@ -123,7 +123,7 @@
     		localStorage.setItem($vm.hosting_path+"-local_ver",$vm.version);
             $vm.root_layout_content_slot="content";
             $vm.url=function(text){ return text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/'); }
-            $vm.load_module_v2('data','',{})
+            $vm.load_module_v2('module','',{})
         }});
     }
     var url="https://component.vmiis.com/app/os-002.html";
@@ -134,6 +134,15 @@
 </script>
 <style>
     html,body{
-        margin:0;padding:0;height:100%;font-family:Arial;
+        margin:0;
+        padding:0;
+        height:100%;
+        font-family:Arial;
+    }
+    body{
+        background-size: cover;
+        background-repeat: repeat-x;
+        background-position: center top;
+        background-attachment: fixed;
     }
 </style>

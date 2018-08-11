@@ -115,7 +115,7 @@
               "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
               "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
               "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
-              "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+              "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
               "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
               "https://apis.google.com/js/plusone.js",
               "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
@@ -125,8 +125,7 @@
             //---------------------------------------------
             $vm.start_time=new Date().getTime();
             $.ajaxSetup({cache:true});
-            //var url="https://component.vmiis.com/app/os-001.html";
-            var url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
+            var url="https://component.vmiis.com/app/os-001.html";
             $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
                 $('#content').append(data);
             },'text');

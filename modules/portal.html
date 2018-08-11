@@ -1,16 +1,37 @@
 <div id=page__ID>
 	<section id=panel__ID>
 		<div class='nav__ID' style='float:unset;'>
-			<h4 style='display:inline-block'>Templates</h4>
-			<i style='font-size:10px'>Open source code on https://github.com/vmiis, <a href=https://github.com/vmiis/your-company-business-portal target=_blank >Colone or download</a></i>
-			<div class=columnbox__ID>
+            <h4>Build web applications with modern architecture</h4>
+            Download and play it yourself. You can run an application locally by downloading the single file to you local computer and open it with a web browser.
+            <br><br>
+            <div class=columnbox__ID>
 	            <span>Layout</span>
 				<ul>
-					<li><a target=_blank href="apps/layout-with-fixed-header-and-footer/" >Fixed header and footer</a></li>
-					<li><a target=_blank href="apps/layout-with-scrollable-footer/" >Scrollable footer</a></li>
-					<li><a target=_blank href="apps/layout-with-sticky-header-and-scrollable-footer/" >Sticky header and scrollable footer</a></li>
-					<li><a target=_blank href="apps/layout-with-scrollable-header-and-footer/" >Scrollable header and footer</a></li>
-					<li><a target=_blank href="apps/layout-with-side-nav-and-fixed-footer/" >Side nav and fixed footer</a></li>
+					<li>
+                        <u class=try href="apps/layout-with-fixed-header-and-footer/" >Try it yourself</u>
+                        <u class=dld href="apps/layout-with-fixed-header-and-footer/" >Download</u>
+                        <a target=_blank href="apps/layout-with-fixed-header-and-footer/" >Fixed header and footer</a>
+                    </li>
+					<li>
+                        <u class=try href="apps/layout-with-scrollable-footer/" >Try it yourself</u>
+                        <u class=dld href="apps/layout-with-scrollable-footer/" >Download</u>
+                        <a target=_blank href="apps/layout-with-scrollable-footer/" >Scrollable footer</a>
+                    </li>
+					<li>
+                        <u class=try href="apps/layout-with-sticky-header-and-scrollable-footer/" >Try it yourself</u>
+                        <u class=dld href="apps/layout-with-sticky-header-and-scrollable-footer/" >Download</u>
+                        <a target=_blank href="apps/layout-with-sticky-header-and-scrollable-footer/" >Sticky header and scrollable footer</a>
+                    </li>
+					<li>
+                        <u class=try href="apps/layout-with-scrollable-header-and-footer/" >Try it yourself</u>
+                        <u class=dld href="apps/layout-with-scrollable-header-and-footer/" >Download</u>
+                        <a target=_blank href="apps/layout-with-scrollable-header-and-footer/" >Scrollable header and footer</a>
+                    </li>
+					<li>
+                        <u class=try href="apps/layout-with-side-nav-and-fixed-footer/" >Try it yourself</u>
+                        <u class=dld href="apps/layout-with-side-nav-and-fixed-footer/" >Download</u>
+                        <a target=_blank href="apps/layout-with-side-nav-and-fixed-footer/" >Side nav and fixed footer</a>
+                    </li>
 	            </ul>
 	            <span>Background</span>
 				<ul>
@@ -21,7 +42,11 @@
 				</ul>
 				<span>Startup</span>
 				<ul>
-					<li><a target=_blank href="apps/a-basic-application-framework/" >A basic application framework</a></li>
+					<li>
+                        <u class=try href="apps/a-basic-application-framework/" >Try it yourself</u>
+                        <u class=dld href="apps/a-basic-application-framework/" >Download</u>
+                        <a target=_blank href="apps/a-basic-application-framework/" >A basic application framework</a>
+                    </li>
 					<li><a target=_blank href="apps/personal-website-template/" >Personal website template</a></li>
 					<li><a target=_blank href="apps/basic-form-fields/" >Basic form fields</a></li>
 					<li><a target=_blank href="apps/woolcock-app-template/" >Woolcock application template</a></li>
@@ -146,15 +171,15 @@
 		</div>
 	</section>
 </div>
-<form id=codepen_form action="https://codepen.io/pen/define" method="POST" target="_blank" style='display:none' >
-  <input id=codepen_form_value type="hidden" name="data" value='{"title": "New Pen!", "html": ""}'>
+<form id=codepen_form__ID action="https://codepen.io/pen/define" method="POST" target="_blank" style='display:none' >
+  <input id=codepen_form_value__ID type="hidden" name="data" value='{"title": "New Pen!", "html": ""}'>
   <button type=submit>S</button>
 </form>
 <script>
-	var try_it_yourself=function(title,html){
-		var v={title:title,html:html,editors:1000}
-		$('#codepen_form_value').val(JSON.stringify(v));
-		$('#codepen_form').submit();
+	var try_it_yourself__ID=function(title,html){
+		var v={title:title,html:html,editors:1000,tags:["SPA","modular","API","microservices","architecture"],description:"modern web application architecture, modular distributed, microservices,single page application (SPA),static web hosting, mo server side coding, data access with APIs. Open source cod on https://github.com/vmiis"}
+		$('#codepen_form_value__ID').val(JSON.stringify(v));
+		$('#codepen_form__ID').submit();
 	}
 </script>
 <script>
@@ -193,14 +218,47 @@
 		$('#panel__ID u.try').on('click',function(e){
 			var href=$(this).attr('href');
 			if($vm.module_list[href]!=undefined) href=$vm.module_list[href].url;
-			var title=href.split('/').pop().split('.html')[0];
+            var tt=href.split('/'); tt.pop();
+			var title=tt.pop();
 			var html=""
 			jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
 				html=txt;
             },'text');
 			jQuery.ajaxSetup({async:true});
-			try_it_yourself(title,html);
+			try_it_yourself__ID(title,html);
+		})
+		//--------------------------------------------------------
+        function download(filename, html) {
+          var bytes = [];
+          for (var i = 0; i < html.length; i++) bytes.push(html.charCodeAt(i));
+          var u8 = new Uint8Array(bytes);
+          var blob = new Blob([u8]);
+
+          var link = document.createElement("a");
+          link.setAttribute("href", window.URL.createObjectURL(blob));
+          link.setAttribute("download", name);
+          link.style = "visibility:hidden";
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+
+        $('#panel__ID u.dld').on('click',function(e){
+
+			var href=$(this).attr('href');
+			if($vm.module_list[href]!=undefined) href=$vm.module_list[href].url;
+            var tt=href.split('/'); tt.pop();
+			var title=tt.pop();
+			var html=""
+			jQuery.ajaxSetup({async:false});
+			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+				html=txt;
+            },'text');
+			jQuery.ajaxSetup({async:true});
+
+            download(title+".html",html);
 		})
 		//--------------------------------------------------------
         $('#panel__ID u').on('click',function(){
@@ -252,7 +310,7 @@
     }
 </script>
 <style>
-	#D__ID li u:first-child{
+	#D__ID li u{
 		/*color:#666;*/
 		margin-right:10px;
 	}
