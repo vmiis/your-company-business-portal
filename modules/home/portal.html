@@ -1,0 +1,104 @@
+<div id=page__ID>
+    <br>
+	<section id=panel__ID>
+		<div class='nav__ID'>
+            <span>Control Panel</span>
+			<ul>
+				<li><a href="?/link-1">Link 1</a></li>
+                <li><a href="?/link-2">Link 2</a></li>
+                <li><a href="?/link-3">Link 3</a></li>
+			</ul>
+		</div>
+	</section>
+</div>
+<script>
+    function F__ID(){
+        //--------------------------------------------------------
+        $vm.vm["__ID"].show=function(){
+			document.title="Portal | "+$vm.default_title;
+            $("meta[name='description']").attr("content","Control Panel");
+		}
+        //--------------------------------------------------------
+		var this_module=$vm.module_list[$vm.vm['__ID'].name];
+		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+		//--------------------------------------------------------
+        $('#panel__ID a').on('click',function(e){
+			event.preventDefault();
+			var href=$(this).attr('href');
+			if(href!=undefined){
+				href=href.replace('?\/','');
+				href=href.replace(/\//g,'_');
+				$vm.load_module_v2(prefix+href,'',{});
+            }
+		})
+		//--------------------------------------------------------
+    }
+</script>
+<style>
+	#D__ID{
+        color:#283f55;
+        font-size:10pt;
+        font-family: Verdana,Helvetica,Arial,sans-serif;
+		background: rgba(255,255,255,0.95);
+        overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+        padding:10px 0 0 20px;
+    }
+    #info__ID{
+        font-size: 11px;
+        padding:5px 10px 0 10px;
+        color:#222;
+    }
+	li::before{
+		font-size: 20px!Important;
+	}
+    .nav__ID{
+        padding:6px 26px 6px 6px;
+        /*color: #202727;*/
+        float:left;
+    }
+    .nav__ID span{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 10px;
+    }
+	.nav__ID u:hover{
+		color:red;
+	    cursor:pointer;
+	}
+	.app__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.ul__ID{
+		color:#283f55;
+		font-weight: bold;
+		margin:3px 0px 3px 5px;
+	}
+	.nav__ID ul{
+		margin:0 0 3px 0;
+	}
+	.nav__ID p{
+		margin:0;
+	}
+	.data__ID{
+		color:#709aab;
+	}
+    .space__ID{
+        width:34px;
+        display:inline-block;
+    }
+	.li__ID{
+		display:inline-block;
+		width:150px;
+	}
+    .nav__ID>ul>li u:nth-child(2){
+        font-size:11px;
+	}
+    .nav__ID a {color: #283f55;	}
+	.nav__ID a:link { text-decoration: underline; }
+	.nav__ID a:hover { 	color: red;	}
+</style>

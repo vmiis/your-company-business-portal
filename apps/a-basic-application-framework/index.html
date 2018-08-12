@@ -49,7 +49,7 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$vm.ver=[2,2];$VmAPI={};
+            $vm={};$vm.ver=[3,3];$VmAPI={};
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
             $vm.default_production="No";
@@ -58,8 +58,8 @@
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_list={
-                "home":   {"url":"_C_/modules/static/home-002.html"},
-                "portal": {"url":"_C_/portal.html"},
+                "home":   {"url":"_C_/modules/home/home-002.html"},
+                "portal": {"url":"_C_/modules/home/portal.html"},
                 "link-1": {"url":"_C_/modules/static/under-construction.html","text":"Under Construction"},
                 "link-2": {"url":"_C_/modules/static/under-construction.html","text":"Not Ready"},
                 "link-3": {"url":"_C_/modules/static/under-construction.html","text":"Comming soon..."},
@@ -70,19 +70,6 @@
                 if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
                 else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://www.vmiis.com/');
             }
-            //------------------------------------
-            /*
-            for(p in $vm.module_list){
-                if($vm.localhost!=true){
-                    $vm.module_list[p].url=$vm.module_list[p].url.replace('_A_/','https://component.vmiis.com/app/')
-                    $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://www.vmiis.com/modules/a-basic-application-framework/')
-                }
-                else{
-                    // for local debug:
-                    $vm.module_list[p].url=$vm.module_list[p].url.replace('_A_/','http://127.0.0.1:8000/vmiis/component-2/app/')
-                    $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/a-basic-application-framework/')
-                }
-            }*/
             //------------------------------------
             $vm.start=function(){
                 $vm.init_v3({callback:function(){
