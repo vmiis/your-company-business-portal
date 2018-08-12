@@ -27,7 +27,14 @@
                 </div>
                 <div menu id="vm_menu">
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
+                    <div class="vm_dropdown">
+                        <button class="vm_dropbtn">Modules <i class="fa fa-caret-down"></i></button>
+                        <div class="vm_dropdown-content">
+                            <a href="?/link-1">Linke 1</a>
+                            <a href="?/link-2">Linke 2</a>
+                            <a href="?/link-3">Linke 3</a>
+                        </div>
+                    </div>
                     <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
                     <div class="vm_dropdown" id=vm_signin>
                         <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
@@ -59,11 +66,10 @@
             //------------------------------------
             $vm.module_list={
                 "home":   {"url":"_C_/modules/home/home-002.html"},
-                "portal": {"url":"_C_/modules/home/portal.html"},
                 "link-1": {"url":"_C_/modules/static/under-construction.html","text":"Under Construction"},
                 "link-2": {"url":"_C_/modules/static/under-construction.html","text":"Not Ready"},
                 "link-3": {"url":"_C_/modules/static/under-construction.html","text":"Comming soon..."},
-                "about":  {"url":"https://www.vmiis.com/modules/about/about-this-website.html"}
+                "about":  {"url":"_C_/modules/about/about-this-website.html"}
             }
             //------------------------------------
             for(p in $vm.module_list){

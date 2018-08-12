@@ -12,6 +12,9 @@
 <script>
 	function F__ID(){
 		//--------------------------------------------------------
+		var text=$vm.module_list[$vm.vm['__ID'].name].text;
+        if(text!=undefined) $('#text__ID').text(text);
+		//--------------------------------------------------------
 		$vm.vm["__ID"].show=function(){
 			document.title="Under construction | "+$vm.default_title;
             $("meta[name='description']").attr("content","Under construction page");
