@@ -10,49 +10,27 @@
         <!----------------------------------------------->
         <div id=layout>
             <div id=header></div>
-            <div id=nav_content>
-                <div id=nav></div>
-                <div id=content><div id=vm_loader class="loader_0"></div></div>
-            </div>
+            <div id=content></div>
             <div id=footer></div>
         </div>
+        <div id=background_0></div>
         <!----------------------------------------------->
         <div id=components>
             <!----------------------------------------------->
             <div id=c_header>
-                <div id=m_header_0>
-                    <span module=home id=m_title_0>Business Portal</span> <a id=vm_toggle_0 onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                <div for-mobile>
+                    <span id=m_title>Business Portal</span>
+                    <a toggle id="m_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
                 </div>
-                <div id=d_header_0>Header</div>
-            </div>
-            <div id=c_nav>
-                <div id=sidebar_0 class=vm_sidebar_hide>
-                    <div id=vm_logo module=home>
-                        <span id=vm_logo_label_A>Business Portal</span><br>
-                        <span id=vm_logo_label_B>on-demand business applications</span>
-                        <br><br>
-                    </div>
-                    <div id="vm_menu">
-                        <a href="?/home"><i class="fa fa-home"></i>Home</a>
-                        <u class=vm_folder><i class="fa fa-folder-open-o"></i>Articles</u>
-                        <ul>
-                            <li><a href="?/short">Short</a></li>
-                            <li><a href="?/long">Long</a></li>
-                		</ul>
-                        <a href="?/about"><i class="fa fa-info-circle"></i> About</a><br>
-                        <div id=vm_signin>
-                            <u class=vm_folder><i class="fa fa-folder-o"></i>Sign In</u>
-                            <ul class=vm_menu_hide_0>
-                                <li id='google_0' >With your Google account</li>
-                                <li id='facebook_0'>With your Facebook account</li>
-                                <li onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</li>
-                            </ul>
-                            <br>
-                        </div>
-                        <div id=vm_signout>
-                            <u onclick=$vm.nav_signout()><i class="fa fa-user"></i>Sign Out</u>
-                        </div>
-                    </div>
+                <div for-desktop id=vm_logo>
+                    <span id=vm_logo_label_A>Business Portal</span><br>
+                    <span id=vm_logo_label_B>on-demand business applications</span>
+                </div>
+                <div menu id="vm_menu">
+                    <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                    <a href="?/hello-world">Hello World</a>
+                    <a href="?/second-module">Second Module</a>
+                    <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
                 </div>
             </div>
             <!----------------------------------------------->
@@ -65,7 +43,6 @@
         <script>
             //------------------------------------
             $vm={};$VmAPI={};$vm.ver=[1.00,1.00];
-            $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
             $vm.default_production="No";
@@ -74,10 +51,11 @@
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_list={
-                "home":   {"url":"_C_/modules/home/home.html"},
-                "short":  {"url":"_C_/modules/static/short.html"},
-                "long":   {"url":"_C_/modules/static/long.html"},
-                "about":  {"url":"_C_/modules/about/about-this-website.html"}
+                "background":   {"url":"_C_/modules/background/particle.html"},
+                "home":         {"url":"_C_/modules/home/home.html"},
+                "hello-world":  {"url":"_C_/modules/spa/hello-world.html"},
+                "second-module":{"url":"_C_/modules/spa/second-module.html"},
+                "about":        {"url":"_C_/modules/about/about-this-website.html"}
             }
             //------------------------------------
             for(p in $vm.module_list){
@@ -86,6 +64,7 @@
             }
             //------------------------------------
             $vm.start=function(){
+                $vm.load_module_v2('background','hidden',{});
                 $vm.init_v3({callback:function(){
                    $vm.init_status=1;
                    $vm.show_user();
@@ -93,7 +72,7 @@
             }
             //------------------------------------
             $vm.default_title="Single Page Application";
-            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
+            $('#text_0').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
             //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;
@@ -108,7 +87,6 @@
             $vm.show();
             //------------------------------------
             $('#c_header').contents().appendTo('#header');
-            $('#c_nav').contents().appendTo('#nav');
             $('#c_footer').contents().appendTo('#footer');
             //------------------------------------
             $vm.root_layout_content_slot='content'
@@ -129,10 +107,13 @@
               "https://www.gstatic.com/charts/loader.js"
             ];
             //---------------------------------------------
+            $vm.start_time=new Date().getTime();
             $.ajaxSetup({cache:true});
-            var url="https://component.vmiis.com/app/os-003.html";
-            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-003.html";
-            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){$('#content').append(data);},'text');
+            var url="https://component.vmiis.com/app/os-001.html";
+            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
+            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
+                $('#content').append(data);
+            },'text');
             //---------------------------------------------
         </script>
         <!----------------------------------------------->
@@ -140,7 +121,6 @@
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
-                background-image: url(https://image.vmiis.com/bk006.jpg);
             }
             #layout {
                 height: 100%;
@@ -148,13 +128,8 @@
                 grid-template-rows: auto 1fr auto;
                 overflow:hidden;
             }
-            #nav_content{
-                display: grid;
-                grid-template-columns: auto 1fr;
-                overflow:hidden;
-            }
             #content{
-                overflow:auto;
+                overflow:hidden;
             }
             .vm_hide{
                 display:none!Important;
