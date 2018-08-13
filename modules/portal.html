@@ -232,15 +232,16 @@
 		$('#panel__ID u.try').on('click',function(e){
 			var href=$(this).attr('href');
 			if($vm.module_list[href]!=undefined) href=$vm.module_list[href].url;
-            var tt=href.split('/'); tt.pop();
+            var tt=href.split('/');
 			var title=tt.pop();
+			if(title=='') title=tt.pop();
 			var html=""
 			jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
 				html=txt;
             },'text');
 			jQuery.ajaxSetup({async:true});
-			try_it_yourself__ID(title,html);
+			try_it_yourself__ID(title.split('.')[0],html);
 		})
 		//--------------------------------------------------------
         function download(filename, html) {
@@ -263,8 +264,11 @@
 
 			var href=$(this).attr('href');
 			if($vm.module_list[href]!=undefined) href=$vm.module_list[href].url;
-            var tt=href.split('/'); tt.pop();
+            //var tt=href.split('/'); tt.pop();
+			//var title=tt.pop();
+			var tt=href.split('/');
 			var title=tt.pop();
+			if(title=='') title=tt.pop();
 			var html=""
 			jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
@@ -272,7 +276,7 @@
             },'text');
 			jQuery.ajaxSetup({async:true});
 
-            download(title+".html",html);
+            download(title.split('.')[0]+".html",html);
 		})
 		//--------------------------------------------------------
         $('#panel__ID u').on('click',function(){
