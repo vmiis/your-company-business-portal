@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- module start ------------------------------------------------------------------->
+<div id=D__ID>
+    <div class=info__ID>"Modular distributed" means that a module (a page or part of a page) can be hosted on any static web server around the world. Key Alt+mouse double click" will show the source code of this module and where it is hosted.</div>
+    <div id=page__ID>
+        <div id=container__ID></div>
+        <br><xmp>
+            ReactDOM.render(
+              <h1>Hello, world!</h1>,
+              document.getElementById('container__ID')
+            );
+        </xmp>
+    </div>
+    <script>
+    	function F__ID(){
+            ReactDOM.render(
+              React.createElement("h1", null, "Hello, world!"),
+              document.getElementById('container__ID')
+            );
+    	}
+    </script>
+    <style>
+    	#D__ID{
+    		height:100%;
+            overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+            background-color: #fff;
+    	}
+        #page__ID{
+            padding:30px;
+            animation: page__ID 3.0s;
+        }
+        @keyframes page__ID {
+    		from {padding-top: 300px;}
+    		to {padding-top: 30px;}
+    	}
+    	.info__ID{
+    		position:absolute;
+    		padding:5px;
+    		font-size:10px;
+    	}
+    </style>
+</div>
+<!-- module end ------------------------------------------------------------------->
+
+
+<!-- emulate website -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js"></script>
+<script>
+    F__ID();
+</script>
+<style>
+    body{
+        margin:0;
+        padding:0;
+    }
+</style>

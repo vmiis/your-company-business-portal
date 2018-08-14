@@ -23,9 +23,10 @@
 	"spa-ess-form": 		  	  	  {"table_id":"20008395","url":"spa/epworth-sleepiness-scale-form.html"},
 	"spa-psqi-data": 		  	  	  {"table_id":"20008396","url":"spa/pittsburgh-sleep-quality-index-data.html","form_module":"spa-psqi-form"},
 	"spa-psqi-form": 		  	  	  {"table_id":"20008396","url":"spa/pittsburgh-sleep-quality-index-form.html"},
-
-
-
+	"angularjs-hello": 		          {"url":"angularjs/hello.html"},
+	"reactjs-hello-world": 		      		{"url":"reactjs/hello-world.html"},
+	"reactjs-tic-tac-toe-starter":	  		{"url":"reactjs/tic-tac-toe-starter.html"},
+	"reactjs-tic-tac-toe-passing-value":	{"url":"reactjs/tic-tac-toe-passing-value.html"},
 
 	"about-this-website":   {"url":"about/about-this-website.html","name_for_search":"About this website"},
 	"tutorial_introduction":{"url":"tutorial/01-introduction.html"},

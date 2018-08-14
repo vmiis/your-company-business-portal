@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- module start ------------------------------------------------------------------->
+<div id=D__ID>
+    <div class=info__ID>"Modular distributed" means that a module (a page or part of a page) can be hosted on any static web server around the world. Key Alt+mouse double click" will show the source code of this module and where it is hosted.</div>
+    <div id=page__ID>
+        <div id=container__ID></div>
+        <br>
+<xmp>
+    class Square extends React.Component {
+      render() {
+        return (
+          <button className="square">
+            {/* TODO */}
+          </button>
+        );
+      }
+    }
+
+    class Board extends React.Component {
+      renderSquare(i) {
+        return <Square />;
+      }
+
+      render() {
+        const status = 'Next player: X';
+
+        return (
+          <div>
+            <div className="status">{status}</div>
+            <div className="board-row">
+              {this.renderSquare(0)}
+              {this.renderSquare(1)}
+              {this.renderSquare(2)}
+            </div>
+            <div className="board-row">
+              {this.renderSquare(3)}
+              {this.renderSquare(4)}
+              {this.renderSquare(5)}
+            </div>
+            <div className="board-row">
+              {this.renderSquare(6)}
+              {this.renderSquare(7)}
+              {this.renderSquare(8)}
+            </div>
+          </div>
+        );
+      }
+    }
+
+    class Game extends React.Component {
+      render() {
+        return (
+          <div className="game">
+            <div className="game-board">
+              <Board />
+            </div>
+            <div className="game-info">
+              <div>{/* status */}</div>
+              <ol>{/* TODO */}</ol>
+            </div>
+          </div>
+        );
+      }
+    }
+
+    // ========================================
+
+    ReactDOM.render(
+      <Game />,
+      document.getElementById('container__ID')
+    );
+</xmp>
+    </div>
+    <script>
+    	function F__ID(){
+            class Square extends React.Component {
+              render() {
+                return (
+                  React.createElement("button", {className: "square"}
+                    /* TODO */
+                  )
+                );
+              }
+            }
+
+            class Board extends React.Component {
+              renderSquare(i) {
+                return React.createElement(Square, null);
+              }
+
+              render() {
+                const status = 'Next player: X';
+
+                return (
+                  React.createElement("div", null,
+                    React.createElement("div", {className: "status"}, status),
+                    React.createElement("div", {className: "board-row"},
+                      this.renderSquare(0),
+                      this.renderSquare(1),
+                      this.renderSquare(2)
+                    ),
+                    React.createElement("div", {className: "board-row"},
+                      this.renderSquare(3),
+                      this.renderSquare(4),
+                      this.renderSquare(5)
+                    ),
+                    React.createElement("div", {className: "board-row"},
+                      this.renderSquare(6),
+                      this.renderSquare(7),
+                      this.renderSquare(8)
+                    )
+                  )
+                );
+              }
+            }
+
+            class Game extends React.Component {
+              render() {
+                return (
+                  React.createElement("div", {className: "game"},
+                    React.createElement("div", {className: "game-board"},
+                      React.createElement(Board, null)
+                    ),
+                    React.createElement("div", {className: "game-info"},
+                      React.createElement("div", null/* status */),
+                      React.createElement("ol", null/* TODO */)
+                    )
+                  )
+                );
+              }
+            }
+
+            // ========================================
+
+            ReactDOM.render(
+              React.createElement(Game, null),
+              document.getElementById('container__ID')
+            );
+        }
+    </script>
+    <style>
+    	#D__ID{
+    		height:100%;
+            overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+            background-color: #fff;
+    	}
+        #page__ID{
+            padding:50px;
+        }
+
+
+        #D__ID ol, #D__ID ul {
+          padding-left: 30px;
+        }
+
+        #D__ID .board-row:after {
+          clear: both;
+          content: "";
+          display: table;
+        }
+
+        #D__ID .status {
+          margin-bottom: 10px;
+        }
+
+        #D__ID .square {
+          background: #fff;
+          border: 1px solid #999;
+          float: left;
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 34px;
+          height: 34px;
+          margin-right: -1px;
+          margin-top: -1px;
+          padding: 0;
+          text-align: center;
+          width: 34px;
+        }
+
+        #D__ID .square:focus {
+          outline: none;
+        }
+
+        #D__ID .kbd-navigation .square:focus {
+          background: #ddd;
+        }
+
+        #D__ID .game {
+          display: flex;
+          flex-direction: row;
+        }
+
+        #D__ID .game-info {
+          margin-left: 20px;
+        }
+    	.info__ID{
+    		position:absolute;
+    		padding:5px;
+    		font-size:10px;
+    	}
+    </style>
+</div>
+<!-- module end ------------------------------------------------------------------->
+
+
+<!-- emulate website -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js"></script>
+<script>
+    F__ID();
+</script>
+<style>
+    body{
+        margin:0;
+        padding:0;
+    }
+</style>
