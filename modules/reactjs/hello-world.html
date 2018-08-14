@@ -13,10 +13,23 @@
     </div>
     <script>
     	function F__ID(){
-            ReactDOM.render(
-              React.createElement("h1", null, "Hello, world!"),
-              document.getElementById('container__ID')
-            );
+            var start=function(){
+                ReactDOM.render(
+                  React.createElement("h1", null, "Hello, world!"),
+                  document.getElementById('container__ID')
+                );
+            }
+            //-------------------------------------
+            var I=0;
+            var loop__ID=setInterval(function (){
+                if($vm['react-production-min-js']!=undefined){
+                    clearInterval(loop__ID); start();
+                }
+                I++; if(I>50){
+                    clearInterval(loop__ID); alert("react-production-min-js is not installed.");
+                }
+            },100);
+            //-------------------------------------
     	}
     </script>
     <style>
