@@ -1,0 +1,36 @@
+<section>
+    VmInclude:__COMPONENT__/grid/grid.v3.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        var fields="Room_Number,Room_Name,Date,Time,Duration,Color,Description,Contact_Name,Contact_Phone,Contact_Email";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__COMPONENT__/grid/grid.v3.js
+        VmInclude:__CURRENT_PATH__/task_data.js
+        //-------------------------------------
+        $('#new__ID').hide();
+        $('#save__ID').hide();
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Color':
+                    var html='<input style="border:0;height:18px;width:30px;padding:0" type=Color />';
+                    $vm.render_color_field(records[I],'__ID',td,html)
+                    break;
+            }
+        }
+        //-------------------------------------
+        //convert the existed au date to the new standard format
+        _data_process=function(){
+            for(var i=0;i<_records.length;i++){
+                _records[i].Date=$vm.au_date_to_string_yyyymmdd(_records[i].Date);
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/grid/grid.v3.css
+</style>

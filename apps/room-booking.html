@@ -10,7 +10,7 @@
         <!----------------------------------------------->
         <div id=layout>
             <div id=header></div>
-            <div id=content></div>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
             <div id=footer></div>
         </div>
         <!----------------------------------------------->
@@ -27,14 +27,10 @@
                 </div>
                 <div menu id="vm_menu">
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <div class="vm_dropdown">
-                        <button class="vm_dropbtn">Modules <i class="fa fa-caret-down"></i></button>
-                        <div class="vm_dropdown-content">
-                            <a href="?/link-1">Linke 1</a>
-                            <a href="?/link-2">Linke 2</a>
-                            <a href="?/link-3">Linke 3</a>
-                        </div>
-                    </div>
+                    <a href="?/monthly">Calendar</a>
+                    <a href="?/daily">Booking</a>
+                    <a href="?/booking-record-data">Booking Records</a>
+                    <a href="?/room-data">Room Setup</a>
                     <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
                     <div class="vm_dropdown" id=vm_signin>
                         <button class="vm_dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></button>
@@ -57,6 +53,7 @@
         <script>
             //------------------------------------
             $vm={};$VmAPI={};$vm.ver=[1.02,1.02];
+            $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
             $vm.default_production="No";
@@ -65,11 +62,15 @@
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_list={
-                "home":   {"url":"_C_/modules/home/home-002.html"},
-                "link-1": {"url":"_C_/modules/static/under-construction.html","text":"Under Construction"},
-                "link-2": {"url":"_C_/modules/static/under-construction.html","text":"Not Ready"},
-                "link-3": {"url":"_C_/modules/static/under-construction.html","text":"Comming soon..."},
-                "about":  {"url":"_C_/modules/about/about-this-website.html"}
+                "home":                     {"url":"_C_/modules/home/home.html"},
+                "about":                    {"url":"_C_/modules/about/about-this-website.html"},
+
+                "monthly":               {"table_id":"20003813", "url":"_C_/modules/room-booking/monthly.html",	"daily_module":"daily","booking_form":"booking-record-form"},
+                "daily":                 {"table_id":"20003813", "url":"_C_/modules/room-booking/daily.html",   "room_tid":"20003812","booking_form":"booking-record-form"},
+                "booking-record-data":   {"table_id":"20003813", "url":"_C_/modules/room-booking/booking-record-data.html","form_module":"booking-record-form"},
+                "booking-record-form":   {"table_id":"20003813", "url":"_C_/modules/room-booking/booking-record-form.html"},
+                "room-data":             {"table_id":"20003812", "url":"_C_/modules/room-booking/room-data.html","form_module":"room-form"},
+                "room-form":             {"table_id":"20003812", "url":"_C_/modules/room-booking/room-form.html"},
             }
             //------------------------------------
             for(p in $vm.module_list){
@@ -85,7 +86,7 @@
             }
             //------------------------------------
             $vm.default_title="Single Page Application";
-            $('#text_0').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
             //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;
@@ -120,13 +121,10 @@
               "https://www.gstatic.com/charts/loader.js"
             ];
             //---------------------------------------------
-            $vm.start_time=new Date().getTime();
             $.ajaxSetup({cache:true});
             var url="https://component.vmiis.com/app/os-001.html";
             if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
-            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){
-                $('#content').append(data);
-            },'text');
+            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){$('#content').append(data);},'text');
             //---------------------------------------------
         </script>
         <!----------------------------------------------->
@@ -134,7 +132,7 @@
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
-                background-image: url(https://image.vmiis.com/bk001.jpg);
+                background-image: url(https://image.vmiis.com/bk011.jpg);
             }
             #layout {
                 height: 100%;
@@ -143,7 +141,7 @@
                 overflow:hidden;
             }
             #content{
-                overflow:hidden;
+                overflow:auto;
             }
             .vm_hide{
                 display:none!Important;
