@@ -1,9 +1,0 @@
-{
-	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://rt.woolcock.org.au/",
-	"default_production":"Yes",
-	"panels":{
-		"home":	        {"url":"panels/home.html",	"modules":[], "prefix":"pages"},
-		"pages":	    {"url":"",					"modules":["pages|index.json"]}
-	}
-}

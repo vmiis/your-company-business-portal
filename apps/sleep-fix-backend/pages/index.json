@@ -1,7 +1,0 @@
-{
-    "modules":
-	{
-        "contact-data":	    {"table_id":"20011491","url":"modules/contact-data.html","form_module":"contact-form","preload":true},
-        "contact-form":	    {"table_id":"20011491","url":"modules/contact-form.html","preload":true}
-	}
-}
