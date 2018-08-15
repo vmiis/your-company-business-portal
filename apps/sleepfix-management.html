@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <!----------------------------------------------->
+        <div id=layout>
+            <div id=header></div>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
+            <div id=footer></div>
+        </div>
+        <!----------------------------------------------->
+        <div id=components>
+            <!----------------------------------------------->
+            <div id=c_header>
+                <div for-mobile>
+                    <span id=m_title>SleepFix</span>
+                    <a toggle id="m_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                </div>
+                <div for-desktop id=vm_logo>
+                    <span id=vm_logo_label_A>SleepFix</span><br>
+                    <span id=vm_logo_label_B>Management</span>
+                </div>
+                <div menu id="vm_menu">
+                    <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                    <a href=?/data-management><i class="fa fa-th"></i> Data Management</a>
+                    <a href=?/permissions>Permissions</a>
+                    <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fa fa-user"></i> Sign In</a>
+                    <a id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                </div>
+            </div>
+            <!----------------------------------------------->
+            <div id=c_footer>
+                <span id=text_0></span>
+            </div>
+            <!----------------------------------------------->
+        </div>
+        <!----------------------------------------------->
+        <script>
+            //------------------------------------
+            $vm={};$VmAPI={};$vm.ver=[1.02,1.02];
+            $vm.start_time=new Date().getTime();
+            $vm.api_path_development="https://cbs.wappsystem.com/dev/";
+            $vm.api_path_production="https://cbs.wappsystem.com/pro/";
+            $vm.default_production="No";
+            $vm.qid='10000000';
+            $vm.vm_router=undefined;
+            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+            //------------------------------------
+            $vm.module_list={
+                "home":                     {"url":"_C_/modules/home.html"},
+                "data-management":          {"url":"_C_/modules/data-management.html"},
+                "permissions":              {"url":"_C_/modules/permissions/panel.html"},
+                "permission-check":                     {                      "url":"_C_/modules/permissions/check.html"},
+                "permission-role-login-data":           {"table_id":"20011574","url":"_C_/modules/permissions/role-login-data.html","form_module":"permission-role-login-form"},
+                "permission-role-login-form":           {"table_id":"20011574","url":"_C_/modules/permissions/role-login-form.html"},
+                "permission-role-table-group-data":     {"table_id":"20011573","url":"_C_/modules/permissions/role-table-group-data.html","form_module":"permission-role-table-group-form"},
+                "permission-role-table-group-form":     {"table_id":"20011573","url":"_C_/modules/permissions/role-table-group-form.html"},
+            	"permission-query-data":                {"table_id":"20011572","url":"_C_/modules/permissions/query-data.html","form_module":"permission-query-form"},
+                "permission-query-form":                {"table_id":"20011572","url":"_C_/modules/permissions/query-form.html"},
+                "email-setup":                          {"table_id":"20011578","url":"_C_/modules/emails/setup.html"},
+                "email-log":                            {"table_id":"20011579","url":"_C_/modules/emails/log.html"},
+                "reminding":                            {                      "url":"_C_/modules/emails/reminding.html"},
+                "email-01":                             {                      "url":"_C_/modules/emails/email-01.html"},
+                "send-email-test":                      {                      "url":"_C_/modules/emails/send-email-test.html"},
+
+
+                "screening-form":           {"table_id":"20011503","url":"_C_/modules/tasks/screening-form.html"},
+                "screening-data":           {"table_id":"20011503","url":"_C_/modules/tasks/screening-data.html","form_module":"screening-form"},
+
+                "pis-form":                 {"url":"_C_/modules/tasks/pis-form.html"},
+                "sp-form":                  {"url":"_C_/modules/tasks/sp-form.html"},
+                "sleepfix-study-page": {"url":"_C_/modules/tasks/sleepfix-study-page.html"},
+
+                "consent-form":             {"table_id":"20011504","url":"_C_/modules/tasks/consent-form.html"},
+                "consent-data":             {"table_id":"20011504","url":"_C_/modules/tasks/consent-data.html","form_module":"consent-form"},
+                "registration-form":        {"table_id":"20011505","url":"_C_/modules/tasks/registration-form.html"},
+                "registration-data":        {"table_id":"20011505","url":"_C_/modules/tasks/registration-data.html","form_module":"registration-form"},
+                "bl-isi-data":              {"table_id":"20011508","url":"_C_/modules/tasks/isi-data.html","form_module":"bl-isi-form"},
+
+                "w1-isi-s-f-t-data":        {"table_id":"20011509","url":"_C_/modules/tasks/isi-s-f-t-data.html","form_module":"w1-isi-s-f-t-form"},
+                "w2-isi-s-f-t-data":        {"table_id":"20011510","url":"_C_/modules/tasks/isi-s-f-t-data.html","form_module":"w2-isi-s-f-t-form"},
+                "w3-isi-s-f-t-data":        {"table_id":"20011511","url":"_C_/modules/tasks/isi-s-f-t-data.html","form_module":"w3-isi-s-f-t-form"},
+                "w6-isi-data":              {"table_id":"20011512","url":"_C_/modules/tasks/isi-data.html","form_module":"w6-isi-form"},
+                "w12-isi-data":             {"table_id":"20011513","url":"_C_/modules/tasks/isi-data.html","form_module":"w12-isi-form"},
+                "bl-isi-form":              {"table_id":"20011508","url":"_C_/modules/tasks/isi-form.html"},
+                "w1-isi-s-f-t-form":        {"table_id":"20011509","url":"_C_/modules/tasks/isi-s-f-t-form.html"},
+                "w2-isi-s-f-t-form":        {"table_id":"20011510","url":"_C_/modules/tasks/isi-s-f-t-form.html"},
+                "w3-isi-s-f-t-form":        {"table_id":"20011511","url":"_C_/modules/tasks/isi-s-f-t-form.html"},
+                "w6-isi-form":              {"table_id":"20011512","url":"_C_/modules/tasks/isi-form.html"},
+                "w12-isi-form":             {"table_id":"20011513","url":"_C_/modules/tasks/isi-form.html"},
+                "bl-gses-data":             {"table_id":"20011514","url":"_C_/modules/tasks/gses-data.html","form_module":"bl-gses-form"},
+                "bl-gses-form":             {"table_id":"20011514","url":"_C_/modules/tasks/gses-form.html"},
+                "bl-acta-data":             {"table_id":"20011515","url":"_C_/modules/tasks/acta-data.html","form_module":"bl-acta-form"},
+                "bl-acta-form":             {"table_id":"20011515","url":"_C_/modules/tasks/acta-form.html"},
+                "bl-sq-data":               {"table_id":"20011516","url":"_C_/modules/tasks/sq2-data.html","form_module":"bl-sq-form"},
+                "w1-sq-f-data":             {"table_id":"20011517","url":"_C_/modules/tasks/sq-f-data.html","form_module":"w1-sq-f-form"},
+                "w2-sq-f-data":             {"table_id":"20011518","url":"_C_/modules/tasks/sq-f-data.html","form_module":"w2-sq-f-form"},
+                "w3-sq-f-data":             {"table_id":"20011519","url":"_C_/modules/tasks/sq-f-data.html","form_module":"w3-sq-f-form"},
+                "w6-sq-data":               {"table_id":"20011520","url":"_C_/modules/tasks/sq2-data.html","form_module":"w6-sq-form"},
+                "w12-sq-data":              {"table_id":"20011521","url":"_C_/modules/tasks/sq-data.html","form_module":"w12-sq-form"},
+                "bl-sq-form":               {"table_id":"20011516","url":"_C_/modules/tasks/sq2-form.html"},
+                "w1-sq-f-form":             {"table_id":"20011517","url":"_C_/modules/tasks/sq-f-form.html"},
+                "w2-sq-f-form":             {"table_id":"20011518","url":"_C_/modules/tasks/sq-f-form.html"},
+                "w3-sq-f-form":             {"table_id":"20011519","url":"_C_/modules/tasks/sq-f-form.html"},
+                "w6-sq2-form":              {"table_id":"20011520","url":"_C_/modules/tasks/sq2-form.html"},
+                "w12-sq-form":              {"table_id":"20011521","url":"_C_/modules/tasks/sq-form.html"},
+                "bl-phq9-data":             {"table_id":"20011522","url":"_C_/modules/tasks/phq9-data.html","form_module":"bl-phq9-form"},
+                "w6-phq9-data":             {"table_id":"20011523","url":"_C_/modules/tasks/phq9-data.html","form_module":"w6-phq9-form"},
+                "w12-phq9-data":            {"table_id":"20011524","url":"_C_/modules/tasks/phq9-data.html","form_module":"w12-phq9-form"},
+                "bl-phq9-form":             {"table_id":"20011522","url":"_C_/modules/tasks/phq8-form.html"},
+                "w6-phq9-form":             {"table_id":"20011523","url":"_C_/modules/tasks/phq9-form.html"},
+                "w12-phq9-form":            {"table_id":"20011524","url":"_C_/modules/tasks/phq9-form.html"},
+                "bl-gad7-data":             {"table_id":"20011525","url":"_C_/modules/tasks/gad7-data.html","form_module":"bl-gad7-form"},
+                "w6-gad7-data":             {"table_id":"20011526","url":"_C_/modules/tasks/gad7-data.html","form_module":"w6-gad7-form"},
+                "w12-gad7-data":            {"table_id":"20011527","url":"_C_/modules/tasks/gad7-data.html","form_module":"w12-gad7-form"},
+                "bl-gad7-form":             {"table_id":"20011525","url":"_C_/modules/tasks/gad7-form.html"},
+                "w6-gad7-form":             {"table_id":"20011526","url":"_C_/modules/tasks/gad7-form.html"},
+                "w12-gad7-form":            {"table_id":"20011527","url":"_C_/modules/tasks/gad7-form.html"},
+                "w1-tens-i-data":           {"table_id":"20011528","url":"_C_/modules/tasks/tens-i-data.html","form_module":"w1-tens-i-form"},
+                "w2-tens-i-data":           {"table_id":"20011529","url":"_C_/modules/tasks/tens-i-data.html","form_module":"w2-tens-i-form"},
+                "w3-tens-i-data":           {"table_id":"20011530","url":"_C_/modules/tasks/tens-i-data.html","form_module":"w3-tens-i-form"},
+                "w1-tens-i-form":           {"table_id":"20011528","url":"_C_/modules/tasks/tens-i-form.html"},
+                "w2-tens-i-form":           {"table_id":"20011529","url":"_C_/modules/tasks/tens-i-form.html"},
+                "w3-tens-i-form":           {"table_id":"20011530","url":"_C_/modules/tasks/tens-i-form.html"},
+                "access-key-1-data":        {"table_id":"20011531","url":"_C_/modules/tasks/access-key-1-data.html"},
+                "w1-ffs1-data":             {"table_id":"20011532","url":"_C_/modules/tasks/ffs1-data.html","form_module":"w1-ffs1-form"},
+                "w2-ffs1-data":             {"table_id":"20011533","url":"_C_/modules/tasks/ffs1-data.html","form_module":"w2-ffs1-form"},
+                "w3-ffs1-data":             {"table_id":"20011534","url":"_C_/modules/tasks/ffs1-data.html","form_module":"w3-ffs1-form"},
+                "w6-fu-2-item-data":        {"table_id":"20011535","url":"_C_/modules/tasks/fu-2-item-data.html","form_module":"w6-fu-2-item-form"},
+                "w12-ffs1-data":            {"table_id":"20011536","url":"_C_/modules/tasks/ffs1-data.html","form_module":"w12-ffs1-form"},
+                "bl-ffs1-form":             {"table_id":"20011531","url":"_C_/modules/tasks/ffs1-form.html"},
+                "w1-ffs1-form":             {"table_id":"20011532","url":"_C_/modules/tasks/ffs1-form.html"},
+                "w2-ffs1-form":             {"table_id":"20011533","url":"_C_/modules/tasks/ffs1-form.html"},
+                "w3-ffs1-form":             {"table_id":"20011534","url":"_C_/modules/tasks/ffs1-form.html"},
+                "w6-fu-2-item-form":        {"table_id":"20011535","url":"_C_/modules/tasks/fu-2-item-form.html"},
+                "w12-ffs1-form":            {"table_id":"20011536","url":"_C_/modules/tasks/ffs1-form.html"},
+                "bl-ess-s2-f-data":         {"table_id":"20011537","url":"_C_/modules/tasks/ess-s2-f-data.html","form_module":"bl-ess-s2-f-form"},
+                "w6-ess-s2-f-data":         {"table_id":"20011538","url":"_C_/modules/tasks/ess-s2-f-data.html","form_module":"w6-ess-s2-f-form"},
+                "w12-ess-s-f-data":         {"table_id":"20011539","url":"_C_/modules/tasks/ess-s-f-data.html","form_module":"w12-ess-s-f-form"},
+                "bl-ess-s2-f-form":         {"table_id":"20011537","url":"_C_/modules/tasks/ess-s2-f-form.html"},
+                "w6-ess-s2-f-form":         {"table_id":"20011538","url":"_C_/modules/tasks/ess-s2-f-form.html"},
+                "w12-ess-s-f-form":         {"table_id":"20011539","url":"_C_/modules/tasks/ess-s-f-form.html"},
+                "bl-hpq-data":              {"table_id":"20011540","url":"_C_/modules/tasks/hpq-data.html","form_module":"bl-hpq-form"},
+                "w6-hpq-data":              {"table_id":"20011541","url":"_C_/modules/tasks/hpq-data.html","form_module":"w6-hpq-form"},
+                "w12-hpq-data":             {"table_id":"20011542","url":"_C_/modules/tasks/hpq-data.html","form_module":"w12-hpq-form"},
+                "bl-hpq-form":              {"table_id":"20011540","url":"_C_/modules/tasks/hpq-form.html"},
+                "w6-hpq-form":              {"table_id":"20011541","url":"_C_/modules/tasks/hpq-form.html"},
+                "w12-hpq-form":             {"table_id":"20011542","url":"_C_/modules/tasks/hpq-form.html"},
+                "bl-bpns-data":             {"table_id":"20011543","url":"_C_/modules/tasks/bpns-data.html","form_module":"bl-bpns-form"},
+                "w12-bpns-data":            {"table_id":"20011544","url":"_C_/modules/tasks/bpns-data.html","form_module":"w12-bpns-form"},
+                "bl-bpns-form":             {"table_id":"20011543","url":"_C_/modules/tasks/bpns-form.html"},
+                "w12-bpns-form":            {"table_id":"20011544","url":"_C_/modules/tasks/bpns-form.html"},
+                "w1-tens-t-data":           {"table_id":"20011545","url":"_C_/modules/tasks/tens-t-data.html","form_module":"w1-tens-t-form"},
+                "w2-tens-t-data":           {"table_id":"20011546","url":"_C_/modules/tasks/tens-t-data.html","form_module":"w2-tens-t-form"},
+                "w3-tens-t-data":           {"table_id":"20011547","url":"_C_/modules/tasks/tens-t-data.html","form_module":"w3-tens-t-form"},
+                "w1-tens-t-form":           {"table_id":"20011545","url":"_C_/modules/tasks/tens-t-form.html"},
+                "w2-tens-t-form":           {"table_id":"20011546","url":"_C_/modules/tasks/tens-t-form.html"},
+                "w3-tens-t-form":           {"table_id":"20011547","url":"_C_/modules/tasks/tens-t-form.html"},
+                "w1-std-data":              {"table_id":"20011548","url":"_C_/modules/tasks/std-data.html","form_module":"w1-std-form"},
+                "w2-std-data":              {"table_id":"20011549","url":"_C_/modules/tasks/std-data.html","form_module":"w2-std-form"},
+                "w3-std-data":              {"table_id":"20011550","url":"_C_/modules/tasks/std-data.html","form_module":"w3-std-form"},
+                "w6-std-data":              {"table_id":"20011551","url":"_C_/modules/tasks/std-data.html","form_module":"w3-std-form"},
+                "w1-std-form":              {"table_id":"20011548","url":"_C_/modules/tasks/std-form.html"},
+                "w2-std-form":              {"table_id":"20011549","url":"_C_/modules/tasks/std-form.html"},
+                "w3-std-form":              {"table_id":"20011550","url":"_C_/modules/tasks/std-form.html"},
+                "w6-std-form":              {"table_id":"20011551","url":"_C_/modules/tasks/std-form.html"},
+                "w1-adherenceS-data":       {"table_id":"20011552","url":"_C_/modules/tasks/adherenceS-data.html","form_module":"w1-adherenceS-form"},
+                "w2-adherenceS-data":       {"table_id":"20011553","url":"_C_/modules/tasks/adherenceS-data.html","form_module":"w2-adherenceS-form"},
+                "w3-adherenceS-data":       {"table_id":"20011554","url":"_C_/modules/tasks/adherenceS-data.html","form_module":"w3-adherenceS-form"},
+                "w6-adherenceS-data":       {"table_id":"20011555","url":"_C_/modules/tasks/adherenceS-data.html","form_module":"w3-adherenceS-form"},
+                "w12-adherenceS-data":      {"table_id":"20011556","url":"_C_/modules/tasks/adherenceS-data.html","form_module":"w3-adherenceS-form"},
+                "w1-adherenceS-form":       {"table_id":"20011552","url":"_C_/modules/tasks/adherenceS-form.html"},
+                "w2-adherenceS-form":       {"table_id":"20011553","url":"_C_/modules/tasks/adherenceS-form.html"},
+                "w3-adherenceS-form":       {"table_id":"20011554","url":"_C_/modules/tasks/adherenceS-form.html"},
+                "w6-adherenceS-form":       {"table_id":"20011555","url":"_C_/modules/tasks/adherenceS-form.html"},
+                "w12-adherenceS-form":      {"table_id":"20011556","url":"_C_/modules/tasks/adherenceS-form.html"},
+                "w1-adherenceF-data":       {"table_id":"20011557","url":"_C_/modules/tasks/adherenceF-data.html","form_module":"w1-adherenceF-form"},
+                "w2-adherenceF-data":       {"table_id":"20011558","url":"_C_/modules/tasks/adherenceF-data.html","form_module":"w2-adherenceF-form"},
+                "w3-adherenceF-data":       {"table_id":"20011559","url":"_C_/modules/tasks/adherenceF-data.html","form_module":"w3-adherenceF-form"},
+                "w6-adherenceF-data":       {"table_id":"20011560","url":"_C_/modules/tasks/adherenceF-data.html","form_module":"w3-adherenceF-form"},
+                "w12-adherenceF-data":      {"table_id":"20011561","url":"_C_/modules/tasks/adherenceF-data.html","form_module":"w3-adherenceF-form"},
+                "w1-adherenceF-form":       {"table_id":"20011557","url":"_C_/modules/tasks/adherenceF-form.html"},
+                "w2-adherenceF-form":       {"table_id":"20011558","url":"_C_/modules/tasks/adherenceF-form.html"},
+                "w3-adherenceF-form":       {"table_id":"20011559","url":"_C_/modules/tasks/adherenceF-form.html"},
+                "w6-adherenceF-form":       {"table_id":"20011560","url":"_C_/modules/tasks/adherenceF-form.html"},
+                "w12-adherenceF-form":      {"table_id":"20011561","url":"_C_/modules/tasks/adherenceF-form.html"},
+                "bl-questionnaire-data":    {"table_id":"20011570","url":"_C_/modules/tasks/bl-questionnaire-data.html","form_module":"bl-questionnaire-form"},
+                "bl-questionnaire-form":    {"table_id":"20011570","url":"_C_/modules/tasks/bl-questionnaire-form.html"},
+                "w6-two-item-fu-data":      {"table_id":"20011571","url":"_C_/modules/tasks/two-item-fu-data.html","form_module":"w6-two-item-fu-form"},
+                "w6-two-item-fu-form":      {"table_id":"20011571","url":"_C_/modules/tasks/two-item-fu-form.html"}
+            }
+            //------------------------------------
+            for(p in $vm.module_list){
+                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
+                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://management.sfix.com.au/');
+            }
+            //------------------------------------
+            $vm.start=function(){
+                $vm.init_v3({callback:function(){
+                   $vm.init_status=1;
+                   $vm.show_user();
+               }})
+            }
+            //------------------------------------
+            $vm.default_title="SleepFix Management";
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", SleepFix. Powered by Wappsystem");
+            //------------------------------------
+            $vm.show=function(id){
+                document.title=$vm.default_title;
+                $("meta[name='description']").attr("content", "SleepFix Management");
+                $("body").removeClass();
+                $("body").addClass('body_background_default');
+                if(id!=undefined && $vm.vm[id].show!=undefined){
+                    $vm.vm[id].show();
+                }
+            }
+            //------------------------------------
+            $vm.show();
+            //------------------------------------
+            $('#c_header').contents().appendTo('#header');
+            $('#c_footer').contents().appendTo('#footer');
+            //------------------------------------
+            $vm.root_layout_content_slot='content'
+            $vm.root_layout_footer='footer';
+            //------------------------------------
+            $vm.resources=[
+              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+              "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
+              "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+              "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
+              "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
+              "https://apis.google.com/js/plusone.js",
+              "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
+              "https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
+              "https://www.gstatic.com/charts/loader.js"
+            ];
+            //---------------------------------------------
+            $.ajaxSetup({cache:true});
+            var url="https://component.vmiis.com/app/os-001.html";
+            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
+            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){$('#content').append(data);},'text');
+            //---------------------------------------------
+        </script>
+        <!----------------------------------------------->
+        <style>
+            html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
+            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+            .body_background_default{
+                background-image: url(https://www.sfix.com.au/sys/layout.jpg);
+            }
+            #layout{
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                overflow:hidden;
+            }
+            #header{
+                background: rgba(0,0,0,0.5);
+            }
+            #vm_logo_label_B{
+                font-size:130%;
+            }
+            #content{
+                overflow:auto;
+            }
+            .vm_hide{
+                display:none!Important;
+            }
+        </style>
+        <!----------------------------------------------->
+    </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <!----------------------------------------------->
+        <div id=layout>
+            <div id=header></div>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
+            <footer id=footer></footer>
+        </div>
+        <!----------------------------------------------->
+        <div id=components>
+            <!----------------------------------------------->
+            <div id=c_header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="container"> <a id=logo_0 style='cursor:pointer'><img src="https://www.sfix.com.au/images/sleepfix-logo.png" width="auto" height="45px" alt=""></a>
+                      <button type="button" id=btn1_0 class="btn btn-outline-light">SLEEPFIX STUDY PAGE</button>
+                  </div>
+                </nav>
+            </div>
+            <!----------------------------------------------->
+            <div id=c_footer>
+                <div class="container mt-0" id=appstore style="display:none">
+                  <div class="row justify-content-end px-0">
+                    <div class="col"><a id=btn2_0><img src="https://www.sfix.com.au/images/AppStore.png" alt="Download from the App Store"/></a><a id=btn3_0><img src="https://www.sfix.com.au/images/GooglePlay.png" alt="Download from Google Play"/></a> </div>
+                  </div>
+                </div>
+                <div class="container mt-0" id=logos__ID style="">
+                  <div class="row justify-content-left px-0">
+                    <div class="col-4-sm ">
+                        <a><img src="https://www.sfix.com.au/images/crc-logo.png" style="width:250px" alt="CRC Alertness,Productivity and Safety"/></a>
+                    </div>
+                    <div class="col-4-sm ">
+                        <a ><img src="https://www.sfix.com.au/images/usyd_new_logo.png" style="width:250px" alt="USYD"/></a>
+                    </div>
+                    <div class="col-4-sm ">
+                        <a ><img src="https://www.sfix.com.au/images/woolcock.gif" style="width:300px" alt="Woolcock"/></a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!----------------------------------------------->
+        </div>
+        <!----------------------------------------------->
+        <script>
+            //------------------------------------
+            $vm={};$VmAPI={};$vm.ver=[1.02,1.02];
+            $vm.start_time=new Date().getTime();
+            $vm.api_path_development="https://cbs.wappsystem.com/dev/";
+            $vm.api_path_production="https://cbs.wappsystem.com/pro/";
+            $vm.default_production="No";
+            $vm.qid='20011572';
+            $vm.vm_router=undefined;
+            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+            //------------------------------------
+            $vm.module_list={
+                "home":                             {"url":"_C_/modules/home.html"},
+                "screening-form":                   {"table_id":"20011503", "url":"_C_/modules/tasks/mirror/screening-form.html"},
+                "pis-form":                         {                       "url":"_C_/modules/tasks/mirror/pis-form.html"},
+                "consent-form":                     {"table_id":"20011504", "url":"_C_/modules/tasks/mirror/consent-form.html"},
+                "registration-form":                {"table_id":"20011505", "url":"_C_/modules/tasks/mirror/registration-form.html"},
+                "screen-failure-phq-9":             {"url":"_C_/modules/tasks/screen-failure-phq-9.html"},
+                "screen-failure-thank-you-page":    {"url":"_C_/modules/tasks/screen-failure-thank-you-page.html"},
+                "sleepfix-study-page":              {"url":"_C_/modules/tasks/sleepfix-study-page.html"}
+            }
+            //------------------------------------
+            for(p in $vm.module_list){
+                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/sleepfix/');
+                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://www.sfix.com.au/');
+            }
+            //------------------------------------
+            $vm.start=function(){
+                $vm.init_v3({callback:function(){
+                   $vm.init_status=1;
+                   $vm.show_user();
+               }})
+            }
+            //------------------------------------
+            $vm.default_title="SleepFix Study Page";
+            //------------------------------------
+            $vm.show=function(id){
+                document.title=$vm.default_title;
+                $("meta[name='description']").attr("content", "SleepFix");
+                $("body").removeClass();
+                $("body").addClass('body_background_default');
+                if(id!=undefined && $vm.vm[id].show!=undefined){
+                    $vm.vm[id].show();
+                }
+            }
+            //------------------------------------
+            $vm.show();
+            //------------------------------------
+            $('#c_header').contents().appendTo('#header');
+            $('#c_footer').contents().appendTo('#footer');
+            //------------------------------------
+            $vm.root_layout_content_slot='content'
+            $vm.root_layout_footer='footer';
+            //------------------------------------
+            $vm.resources=[
+                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+            ];
+            //---------------------------------------------
+            $.ajaxSetup({cache:true});
+            var url="https://component.vmiis.com/app/os-001.html";
+            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
+            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){$('#content').append(data);},'text');
+            //---------------------------------------------
+
+            //-------------------------------------
+            $('#btn1_0').on('click',function(){
+                $vm.load_module_v2('sleepfix-study-page','',{});
+                $('#appstore').show();
+                $('#logos__ID').hide();
+            })
+            //-------------------------------------
+            $('#logo_0').on('click',function(){
+                $vm.load_module_v2('home','',{});
+                $('#appstore').hide();
+                $('#logos__ID').show();
+            })
+            //-------------------------------------
+            $('#btn2_0').on('click',function(){
+               alert("Where to go?");
+            })
+            //-------------------------------------
+            $('#btn3_0').on('click',function(){
+               alert("Where to go?");
+            })
+            //-------------------------------------
+
+        </script>
+        <!----------------------------------------------->
+        <style>
+            html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
+            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+            .body_background_default{
+                background-image: url(https://www.sfix.com.au/sys/layout.jpg);
+            }
+            #layout {
+                height: 100%;
+                display: grid;
+                grid-template-rows: 1fr auto;
+                overflow:auto;
+            }
+            #content{
+                margin-top:80px;
+            }
+            #header{
+                position:fixed;
+                width:100%;
+                height:80px;
+                background: unset;
+                z-index: 1030;
+            }
+            #footer{
+                padding-top: 35px;
+            }
+            #vm_logo{
+                padding-top:0px;
+            }
+            .vm_hide{
+                display:none!Important;
+            }
+        </style>
+        <!----------------------------------------------->
+        <style third-party>
+            @import url('https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab');
+            .navbar {
+                background-color: rgba(162, 213, 203, 0.7) !important;
+                border-bottom: 1px solid #fff !important;
+                height: 80px;
+            }
+            .btn-outline-light {
+            	font-family: 'Nunito Sans';
+                font-weight: 100;
+            	font-size: 12px;
+            	letter-spacing: 1px;
+            	color: #FFFFFF;
+            	text-align: center;
+            	line-height: 18px;
+            	text-transform: uppercase;
+            	border-radius: 15px;
+            	border-width: 2px;
+            	padding-left: 25px;
+            	padding-right: 25px
+            }
+            .btn-outline-light:hover {
+            	color: #23807F;
+            }
+            footer {
+            	background-color: #23807F !important;
+            	height: 290px !important;
+            	padding-top: 35px;
+            }
+
+            footer img {
+            	width: 170px;
+            	height: auto;
+            	float: right;
+            	margin-left:50px;
+            	margin-right:50px;
+                margin-bottom:10px;
+            }
+            .logos {
+            	width: 250px;
+            	height: auto;
+            	float: right;
+            	margin-left:5px;
+            	margin-right:5px;
+            }
+            @media (min-width: 768px) {
+                footer {
+                	height: 200px !important;
+                }
+
+            /*------------------------*/
+        </style>
+    </body>
+</html>

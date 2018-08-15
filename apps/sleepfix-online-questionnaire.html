@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <!----------------------------------------------->
+        <div id=layout>
+            <div id=header></div>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
+            <div id=footer></div>
+        </div>
+        <!----------------------------------------------->
+        <div id=components>
+            <!----------------------------------------------->
+            <div id=c_header>
+                <div for-mobile>
+                    <span id=m_title>SleepFix</span>
+                    <a toggle id="m_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                </div>
+                <div for-desktop id=vm_logo>
+                    <span id=vm_logo_label_A>SleepFix</span><br>
+                    <span id=vm_logo_label_B>Online Questionnaire</span>
+                </div>
+                <div menu id="vm_menu">
+                    <a style='display:none' id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                </div>
+            </div>
+            <!----------------------------------------------->
+            <div id=c_footer>
+                <span id=text_0></span>
+            </div>
+            <!----------------------------------------------->
+        </div>
+        <!----------------------------------------------->
+        <script>
+            //------------------------------------
+            $vm={};$VmAPI={};$vm.ver=[1.02,1.02];
+            $vm.start_time=new Date().getTime();
+            $vm.api_path_development="https://cbs.wappsystem.com/dev/";
+            $vm.api_path_production="https://cbs.wappsystem.com/pro/";
+            $vm.default_production="No";
+            $vm.qid='20011572';
+            $vm.vm_router=undefined;
+            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+            //------------------------------------
+            $vm.module_list={
+                "home":                 {                      "url":"_C_/modules/home2.html"},
+                "bl-login":             {                      "url":"_C_/modules/login.html","TP":"bl-panel"},
+                "w1-login":             {                      "url":"_C_/modules/login.html","TP":"w1-panel"},
+                "w2-login":             {                      "url":"_C_/modules/login.html","TP":"w2-panel"},
+                "w3-login":             {                      "url":"_C_/modules/login.html","TP":"w3-panel"},
+                "w6-login":             {                      "url":"_C_/modules/login.html","TP":"w6-panel"},
+                "w12-login":            {                      "url":"_C_/modules/login.html","TP":"w12-panel"},
+
+                "bl-panel":             {                      "url":"_C_/modules/panel-bl.html"},
+                "w1-panel":             {                      "url":"_C_/modules/panel-w1.html"},
+                "w2-panel":             {                      "url":"_C_/modules/panel-w2.html"},
+                "w3-panel":             {                      "url":"_C_/modules/panel-w3.html"},
+                "w6-panel":             {                      "url":"_C_/modules/panel-w6.html"},
+                "w12-panel":            {                      "url":"_C_/modules/panel-w12.html"},
+
+                "bl-questionnaire-form":    {"table_id":"20011570","url":"_C_/modules/tasks/mirror/bl-questionnaire-form.html"},
+                "bl-ess-s2-f-form":         {"table_id":"20011537","url":"_C_/modules/tasks/mirror/ess-s2-f-form.html"},
+                "bl-phq9-form":             {"table_id":"20011522","url":"_C_/modules/tasks/mirror/phq8-form.html"},
+                "bl-gad7-form":             {"table_id":"20011525","url":"_C_/modules/tasks/mirror/gad7-form.html"},
+                "bl-gses-form":             {"table_id":"20011514","url":"_C_/modules/tasks/mirror/gses-form.html"},
+                "bl-hpq-form":              {"table_id":"20011540","url":"_C_/modules/tasks/mirror/hpq-form.html"},
+                "bl-bpns-form":             {"table_id":"20011543","url":"_C_/modules/tasks/mirror/bpns-form.html"},
+                "bl-acta-form":             {"table_id":"20011515","url":"_C_/modules/tasks/mirror/acta-form.html"},
+                "w1-isi-s-f-t-form":        {"table_id":"20011509","url":"_C_/modules/tasks/mirror/isi-s-f-t-form.html"},
+                "w2-isi-s-f-t-form":        {"table_id":"20011510","url":"_C_/modules/tasks/mirror/isi-s-f-t-form.html"},
+                "w3-isi-s-f-t-form":        {"table_id":"20011511","url":"_C_/modules/tasks/mirror/isi-s-f-t-form.html"},
+                "w6-isi-form":              {"table_id":"20011512","url":"_C_/modules/tasks/mirror/isi-form.html"},
+                "w6-ess-s2-f-form":         {"table_id":"20011538","url":"_C_/modules/tasks/mirror/ess-s2-f-form.html"},
+                "w6-phq9-form":             {"table_id":"20011523","url":"_C_/modules/tasks/mirror/phq9-form.html"},
+                "w6-gad7-form":             {"table_id":"20011526","url":"_C_/modules/tasks/mirror/gad7-form.html"},
+                "w6-hpq-form":              {"table_id":"20011541","url":"_C_/modules/tasks/mirror/hpq-form.html"},
+                "w6-two-item-fu-form":      {"table_id":"20011571","url":"_C_/modules/tasks/mirror/two-item-fu-form.html"},
+                "w12-isi-form":             {"table_id":"20011513","url":"_C_/modules/tasks/mirror/isi-form.html"},
+                "w12-ess-s-f-form":         {"table_id":"20011539","url":"_C_/modules/tasks/mirror/ess-s-f-form.html"},
+                "w12-phq9-form":            {"table_id":"20011524","url":"_C_/modules/tasks/mirror/phq9-form.html"},
+                "w12-gad7-form":            {"table_id":"20011527","url":"_C_/modules/tasks/mirror/gad7-form.html"},
+                "w12-hpq-form":             {"table_id":"20011542","url":"_C_/modules/tasks/mirror/hpq-form.html"},
+                "w12-bpns-form":            {"table_id":"20011544","url":"_C_/modules/tasks/mirror/bpns-form.html"}
+            }
+            //------------------------------------
+            for(p in $vm.module_list){
+                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/sleepfix-online-questionnaire/');
+                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://online-questionnaire.sfix.com.au/');
+            }
+            //------------------------------------
+            $vm.start=function(){
+                $vm.init_v3({callback:function(){
+                   $vm.init_status=1;
+                   $vm.show_user();
+               }})
+            }
+            //------------------------------------
+            $vm.default_title="SleepFix online questionnaire";
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", SleepFix. Powered by Wappsystem");
+            //------------------------------------
+            $vm.show=function(id){
+                document.title=$vm.default_title;
+                $("meta[name='description']").attr("content", "SleepFix online questionnaire");
+                $("body").removeClass();
+                $("body").addClass('body_background_default');
+                if(id!=undefined && $vm.vm[id].show!=undefined){
+                    $vm.vm[id].show();
+                }
+            }
+            //------------------------------------
+            $vm.show();
+            //------------------------------------
+            $('#c_header').contents().appendTo('#header');
+            $('#c_footer').contents().appendTo('#footer');
+            //------------------------------------
+            $vm.root_layout_content_slot='content'
+            $vm.root_layout_footer='footer';
+            //------------------------------------
+            $vm.resources=[
+              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+              "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
+              "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+              "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
+              "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
+              "https://apis.google.com/js/plusone.js",
+              "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
+              "https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
+              "https://www.gstatic.com/charts/loader.js"
+            ];
+            //---------------------------------------------
+            $.ajaxSetup({cache:true});
+            var url="https://component.vmiis.com/app/os-001.html";
+            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
+            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){$('#content').append(data);},'text');
+            //---------------------------------------------
+        </script>
+        <!----------------------------------------------->
+        <style>
+            html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
+            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+            .body_background_default{
+                background-image: url(https://www.sfix.com.au/sys/layout.jpg);
+            }
+            #layout{
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                overflow:hidden;
+            }
+            #header{
+                background: rgba(0,0,0,0.5);
+            }
+            #vm_logo_label_B{
+                font-size:83%;
+            }
+            #content{
+                overflow:auto;
+            }
+            .vm_hide{
+                display:none!Important;
+            }
+        </style>
+        <!----------------------------------------------->
+    </body>
+</html>
