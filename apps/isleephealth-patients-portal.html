@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--------------------------------------------------------------------->
 <html>
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -9,32 +8,26 @@
     <body>
         <!----------------------------------------------->
         <div id=layout>
-            <div id=header></div>
+            <div id=header class=vm-header></div>
             <div id=content><div id=vm_loader class="loader_0"></div></div>
             <div id=footer></div>
         </div>
         <!----------------------------------------------->
-        <div id=components>
+        <div id=components style='display:none'>
             <!----------------------------------------------->
             <div id=c_header>
-                <div for-mobile>
-                    <span id=m_title>Business Portal</span>
-                    <a toggle id="m_icon" onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                <div class=vm-mobile>
+                    <span id=vm-mobile_title class=vm-mobile-title>iSleepHealth</span>
+                    <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
                 </div>
-                <div for-desktop id=vm_logo>
-                    <span id=vm_logo_label_A>Business Portal</span><br>
-                    <span id=vm_logo_label_B>on-demand business applications</span>
-                </div>
-                <div menu id="vm_menu">
-                    <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <a href="?/enquiry-form">Enquiry</a>
-                    <div class="vm_dropdown">
-                        <button class="vm_dropbtn">Administrator <i class="fa fa-caret-down"></i></button>
-                        <div class="vm_dropdown-content">
-                            <a href="?/enquiry-data">Enquiry data</a>
-                        </div>
+                <div class=vm-desk-logo>
+                    <div id=vm-logo-image></div>
+                    <div id=vm-logo-label>
+                        <span id=vm_logo_label_A>Online Questionnaire</span>
                     </div>
-                    <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
+                </div>
+                <div id="vm-menu">
+                    <a id=vm_signout class=vm_hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
                 </div>
             </div>
             <!----------------------------------------------->
@@ -51,36 +44,85 @@
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
             $vm.default_production="No";
-            $vm.qid='10000000';
-            $vm.vm_router=1;
+            $vm.qid='20011581';
+            $vm.vm_router=undefined;
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_list={
-                "home":                     {"url":"_C_/modules/home/home.html"},
-                "about":                    {"url":"_C_/modules/about/about-this-website.html"},
+                "home":                     {"url":"_C_/modules/frame/home.html"},
 
-                "enquiry-data":             {"table_id":"20009702","v3":"18033002","url":"_C_/modules/enquiry/enquiry-data.html","form_module":"enquiry-form"},
-                "enquiry-form":             {"table_id":"20009702","v3":"18033002","url":"_C_/modules/enquiry/enquiry-form.html"}
+                "questionnaire-setup":  {"url":"_C_/modules/frame/setup.html"},
+        		"reports":    			{"url":"_C_/modules/frame/report.html"},
+        		"panel-initial": 		{"url":"_C_/modules/frame/initial.html","nosearch":"1"},
+
+        		"permissions":                          {                      "url":"_C_/modules/permissions/panel.html"},
+                "permission-check":                     {"table_id":"20011583","url":"_C_/modules/permissions/check.html"},
+                "permission-role-login-data":           {"table_id":"20011583","url":"_C_/modules/permissions/role-login-data.html","form_module":"permission-role-login-form"},
+                "permission-role-login-form":           {"table_id":"20011583","url":"_C_/modules/permissions/role-login-form.html"},
+                "permission-role-table-group-data":     {"table_id":"20011582","url":"_C_/modules/permissions/role-table-group-data.html","form_module":"permission-role-table-group-form"},
+                "permission-role-table-group-form":     {"table_id":"20011582","url":"_C_/modules/permissions/role-table-group-form.html"},
+            	"permission-query-data":                {"table_id":"20011581","url":"_C_/modules/permissions/query-data.html","form_module":"permission-query-form"},
+                "permission-query-form":                {"table_id":"20011581","url":"_C_/modules/permissions/query-form.html"},
+
+
+        		"appointment-data":  	{"table_id":"20011471","url":"_C_/modules/setup/appointment-data.html","physician_tid":"20011472","appointment_type_tid":"20011473","name_for_search":"Appointment Data","form_module":"appointment-form"},
+        		"appointment-form":  	{"table_id":"20011471","url":"_C_/modules/setup/appointment-form.html","physician_tid":"20011472","appointment_type_tid":"20011473","name_for_search":"Appointment Form"},
+        		"physician":      		{"table_id":"20011472","url":"_C_/modules/setup/physician.html","name_for_search":"Physician"},
+        		"appointment-type": 	{"table_id":"20011473","url":"_C_/modules/setup/appointment-type.html","name_for_search":"Appointment Type"},
+        		"email-001":      		{"table_id":"20011471","url":"_C_/modules/setup/email-001.html","name_for_search":""},
+        		"patient-info":   		{"table_id":"20011471","url":"_C_/modules/setup/patient-info.html","name_for_search":""},
+        		"report":         		{"table_id":"20011471","url":"_C_/modules/setup/report.html","name_for_search":""},
+        		"email-setup":      	{"table_id":"20011580","url":"_C_/modules/setup/email-setup.html"},
+
+        		"report-daily-first":   {"url":"_C_/modules//isleephealth/task/report-daily-first.html","table_id":"20011195","name_for_search":""},
+
+        		"report-initial-appointment-day-list":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-day-list.html"},
+        		"report-initial-appointment-summary":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-summary.html"},
+        		"report-initial-appointment-check":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-check.html"},
+        		"report-initial-appointment-patient-info":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-patient-info.html"},
+        		"report-initial-appointment-patient-list":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-patient-list.html"},
+
+        		"contact-details":		{"table_id":"20011470","url":"_C_/modules/initial/contact-details.html"},
+        		"medicare-referrals":	{"table_id":"20011363","url":"_C_/modules/initial/medicare-referrals.html"},
+                "sleep-history-report":		{"table_id":"20011469","url":"_C_/modules/initial/sleep-history-report.html"},
+        		"health-history-report":		{"table_id":"20011365","url":"_C_/modules/initial/health-history-report.html"},
+        		"ess-report":					{"table_id":"20011364","url":"_C_/modules/initial/ess-report.html"},
+        		"dass-report":					{"table_id":"20011464","url":"_C_/modules/initial/dass-report.html"},
+        		"isi-report":					{"table_id":"20011465","url":"_C_/modules/initial/isi-report.html"},
+        		"psqi":							{"table_id":"20011466","url":"_C_/modules/initial/psqi.html"},
+        		"phq-report":					{"table_id":"20011467","url":"_C_/modules/initial/phq-report.html"},
+        		"fss-report":					{"table_id":"20011468","url":"_C_/modules/initial/fss-report.html"}
             }
             //------------------------------------
             for(p in $vm.module_list){
-                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
-                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://www.vmiis.com/');
+                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/isleephealth/');
+                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://wappsystem.github.io/isleephealth/');
             }
             //------------------------------------
             $vm.start=function(){
                 $vm.init_v3({callback:function(){
                    $vm.init_status=1;
+                   $('#c_header').contents().appendTo('#header');
+                   $('#c_footer').contents().appendTo('#footer');
                    $vm.show_user();
                }})
             }
             //------------------------------------
-            $vm.default_title="Single Page Application";
-            $('#text_0').html("Copyright © "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
+            $vm.menu_click=function(href){
+                href=href.replace('?\/','');
+                href=href.replace(/\//g,'_');
+                $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+            }
+            //------------------------------------
+            $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            //------------------------------------
+            $vm.default_title="Integrated Sleep Health";
+            $('#text_0').html("INTEGRATED SLEEP HEALTH <span id=FL_0>LEVEL 57, MLC BUILDING, 19-29 MARTIN PLACE, SYDNEY, NSW, 2000 LEVEL 22, WESTFIELD TOWER 2, 101 GRAFTON ST, BONDI JUNCTION, NSW, 2022</span>");
             //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;
-                $("meta[name='description']").attr("content", "Single Page Application");
+                $("meta[name='description']").attr("content", "Integrated Sleep Health");
                 $("body").removeClass();
                 $("body").addClass('body_background_default');
                 if(id!=undefined && $vm.vm[id].show!=undefined){
@@ -90,31 +132,45 @@
             //------------------------------------
             $vm.show();
             //------------------------------------
-            $('#c_header').contents().appendTo('#header');
-            $('#c_footer').contents().appendTo('#footer');
-            //------------------------------------
             $vm.root_layout_content_slot='content'
             $vm.root_layout_footer='footer';
             //------------------------------------
             $vm.resources=[
-              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-              "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
-              "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
-              "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
-              "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
-              "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
-              "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
-              "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
-              "https://apis.google.com/js/plusone.js",
-              "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
-              "https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
-              "https://www.gstatic.com/charts/loader.js"
+                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+                "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
+                "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+                "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
+                "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
+                "https://apis.google.com/js/plusone.js",
+                "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
+                "https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
+                "https://www.gstatic.com/charts/loader.js"
             ];
             //---------------------------------------------
-            $.ajaxSetup({cache:true});
-            var url="https://component.vmiis.com/app/os-001.html";
-            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
-            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){$('#content').append(data);},'text');
+            var url1="https://www.vmiis.com/modules/starter/start-001.htm"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/starter-001.html";
+            var url2="https://www.vmiis.com/modules/menu/menu-001.htm";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/menu-001.html";
+            var urls=[url1,url2]; $vm.module_start_id=2;
+            //---------------------------------------------
+            $(urls).each(function(index,url){
+                var ver=localStorage.getItem(url+"ver");
+                var txt=localStorage.getItem(url+"txt");
+                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                        localStorage.setItem(url+"txt",new_txt);
+                        localStorage.setItem(url+"ver",$vm.ver[0]);
+                        console.log('loading from url. '+url);
+                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
+                    },'text');
+                }
+                else{
+                    console.log('loading from storage. '+url);
+                    $('#content').append(txt.replace(/__ID/g,'_'+index));
+                }
+                //---------------------------------------------
+            })
             //---------------------------------------------
         </script>
         <!----------------------------------------------->
@@ -122,7 +178,7 @@
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
-                background-image: url(https://image.vmiis.com/bk016.jpg);
+                background-image: url(https://image.vmiis.com/bk017.jpg);
             }
             #layout {
                 height: 100%;
@@ -136,6 +192,59 @@
             .vm_hide{
                 display:none!Important;
             }
+
+            :root {
+                --menu-color: #fff;
+                --menu-hover-color: #29eca6;
+                --menu-hover-background-color: #555;
+
+                --dropdown-menu-color:#666;
+                --dropdown-menu-background-color:#f9f9f9;
+                --dropdown-menu-hover-color:#555;
+                --dropdown-menu-hover-background-color:#ddd;
+                --dropdown-menu-border-color:#ddd;
+
+                --mobile-title-color:#fff;
+                --mobile-hamburger-color:#fff;
+                --mobile-menu-background-color:#1c3144;
+                --mobile-break-point:700px;
+            }
+            .vm-header{height:100px;background:rgba(0,0,0,0.5);}
+            .vm-desk-logo{ display:inline-block;float:left;padding:0px 30px 0 30px;cursor:pointer;}
+            #vm-menu{ float:left;padding:50px 30px 0 30px;}
+            @media screen and (max-width: 900px){
+                .vm-header{height:50px;}
+                .vm-desk-logo{display:none;}
+                #vm-menu{padding:0;}
+            }
+            #vm-logo-image{
+                margin-top: 6px;
+                width:180px;
+                height:100px;
+                background: url('https://image.vmiis.com/logo.ish.png') no-repeat top center;
+                background-size: cover;
+                float:left;
+            }
+            #footer{
+                height:24px;
+                color: #fff;
+                padding: 3px;
+                background-color: #333;
+                font:80%/18px arial;
+                text-align: center;
+            }
+            #vm-logo-label{
+                float:left;
+            }
+            #vm_logo_label_A{
+                padding-top:35px;
+                font-family: Arial, sans-serif;
+                color:#fff;
+                font-size: 200%;
+                line-height:10px;
+                display:inline-block;
+            }
+            /*----------------------*/
         </style>
         <!----------------------------------------------->
     </body>

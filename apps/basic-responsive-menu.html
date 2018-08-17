@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--------------------------------------------------------------------->
 <html>
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -14,7 +13,7 @@
             <div id=footer></div>
         </div>
         <!----------------------------------------------->
-        <div id=components>
+        <div id=components style='display:none'>
             <!----------------------------------------------->
             <div id=c_header>
                 <div class=vm-mobile>
@@ -72,6 +71,8 @@
             $vm.start=function(){
                 $vm.init_v3({callback:function(){
                    $vm.init_status=1;
+                   $('#c_header').contents().appendTo('#header');
+                   $('#c_footer').contents().appendTo('#footer');
                    $vm.show_user();
                }})
             }
@@ -81,6 +82,10 @@
                 href=href.replace(/\//g,'_');
                 $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
             }
+            //------------------------------------
+            $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            //------------------------------------
             $vm.default_title="Single Page Application";
             $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
             //------------------------------------
@@ -95,9 +100,6 @@
             }
             //------------------------------------
             $vm.show();
-            //------------------------------------
-            $('#c_header').contents().appendTo('#header');
-            $('#c_footer').contents().appendTo('#footer');
             //------------------------------------
             $vm.root_layout_content_slot='content'
             $vm.root_layout_footer='footer';
@@ -117,22 +119,27 @@
                 "https://www.gstatic.com/charts/loader.js"
             ];
             //---------------------------------------------
-            var url="https://component.vmiis.com/app/os-005.htm";
-            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-005.html";
-            var ver=localStorage.getItem(url+"ver");
-            var txt=localStorage.getItem(url+"txt");
-            if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
-                console.log('loading from url. start');
-                $.get(url+'?_='+$vm.ver[0],function(new_txt){
-                    localStorage.setItem(url+"txt",new_txt);
-                    localStorage.setItem(url+"ver",$vm.ver[0]);
-                    $('#content').append(new_txt.replace(/__ID/g,'_0'));
-                },'text');
-            }
-            else{
-                console.log('loading from storage. start');
-                $('#content').append(txt.replace(/__ID/g,'_0'));
-            }
+            var url1="https://www.vmiis.com/modules/starter/start-001.htm"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/starter-001.html";
+            var url2="https://www.vmiis.com/modules/menu/menu-001.htm";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/menu-001.html";
+            var urls=[url1,url2]; $vm.module_start_id=2;
+            //---------------------------------------------
+            $(urls).each(function(index,url){
+                var ver=localStorage.getItem(url+"ver");
+                var txt=localStorage.getItem(url+"txt");
+                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                        localStorage.setItem(url+"txt",new_txt);
+                        localStorage.setItem(url+"ver",$vm.ver[0]);
+                        console.log('loading from url. '+url);
+                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
+                    },'text');
+                }
+                else{
+                    console.log('loading from storage. '+url);
+                    $('#content').append(txt.replace(/__ID/g,'_'+index));
+                }
+                //---------------------------------------------
+            })
             //---------------------------------------------
         </script>
         <!----------------------------------------------->
@@ -172,7 +179,7 @@
                 --mobile-break-point:700px;
             }
             .vm-header{height:100px;background:rgba(0,0,0,0.8);}
-            .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;}
+            .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
             #vm-menu{ float:left;padding:50px 30px 0 30px;}
             @media screen and (max-width: 900px){
                 .vm-header{height:50px;}
