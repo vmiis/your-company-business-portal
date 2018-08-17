@@ -51,52 +51,22 @@
             $vm.module_list={
                 "home":                     {"url":"_C_/modules/frame/home.html"},
 
-                "questionnaire-setup":  {"url":"_C_/modules/frame/setup.html"},
-        		"reports":    			{"url":"_C_/modules/frame/report.html"},
-        		"panel-initial": 		{"url":"_C_/modules/frame/initial.html","nosearch":"1"},
-
-        		"permissions":                          {                      "url":"_C_/modules/permissions/panel.html"},
-                "permission-check":                     {"table_id":"20011583","url":"_C_/modules/permissions/check.html"},
-                "permission-role-login-data":           {"table_id":"20011583","url":"_C_/modules/permissions/role-login-data.html","form_module":"permission-role-login-form"},
-                "permission-role-login-form":           {"table_id":"20011583","url":"_C_/modules/permissions/role-login-form.html"},
-                "permission-role-table-group-data":     {"table_id":"20011582","url":"_C_/modules/permissions/role-table-group-data.html","form_module":"permission-role-table-group-form"},
-                "permission-role-table-group-form":     {"table_id":"20011582","url":"_C_/modules/permissions/role-table-group-form.html"},
-            	"permission-query-data":                {"table_id":"20011581","url":"_C_/modules/permissions/query-data.html","form_module":"permission-query-form"},
-                "permission-query-form":                {"table_id":"20011581","url":"_C_/modules/permissions/query-form.html"},
-
-
-        		"appointment-data":  	{"table_id":"20011471","url":"_C_/modules/setup/appointment-data.html","physician_tid":"20011472","appointment_type_tid":"20011473","name_for_search":"Appointment Data","form_module":"appointment-form"},
-        		"appointment-form":  	{"table_id":"20011471","url":"_C_/modules/setup/appointment-form.html","physician_tid":"20011472","appointment_type_tid":"20011473","name_for_search":"Appointment Form"},
-        		"physician":      		{"table_id":"20011472","url":"_C_/modules/setup/physician.html","name_for_search":"Physician"},
-        		"appointment-type": 	{"table_id":"20011473","url":"_C_/modules/setup/appointment-type.html","name_for_search":"Appointment Type"},
-        		"email-001":      		{"table_id":"20011471","url":"_C_/modules/setup/email-001.html","name_for_search":""},
-        		"patient-info":   		{"table_id":"20011471","url":"_C_/modules/setup/patient-info.html","name_for_search":""},
-        		"report":         		{"table_id":"20011471","url":"_C_/modules/setup/report.html","name_for_search":""},
-        		"email-setup":      	{"table_id":"20011580","url":"_C_/modules/setup/email-setup.html"},
-
-        		"report-daily-first":   {"url":"_C_/modules//isleephealth/task/report-daily-first.html","table_id":"20011195","name_for_search":""},
-
-        		"report-initial-appointment-day-list":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-day-list.html"},
-        		"report-initial-appointment-summary":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-summary.html"},
-        		"report-initial-appointment-check":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-check.html"},
-        		"report-initial-appointment-patient-info":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-patient-info.html"},
-        		"report-initial-appointment-patient-list":{"table_id":"20011471","url":"_C_/modules/reports/report-initial-appointment-patient-list.html"},
-
-        		"contact-details":		{"table_id":"20011470","url":"_C_/modules/initial/contact-details.html"},
-        		"medicare-referrals":	{"table_id":"20011363","url":"_C_/modules/initial/medicare-referrals.html"},
-                "sleep-history-report":		{"table_id":"20011469","url":"_C_/modules/initial/sleep-history-report.html"},
-        		"health-history-report":		{"table_id":"20011365","url":"_C_/modules/initial/health-history-report.html"},
-        		"ess-report":					{"table_id":"20011364","url":"_C_/modules/initial/ess-report.html"},
-        		"dass-report":					{"table_id":"20011464","url":"_C_/modules/initial/dass-report.html"},
-        		"isi-report":					{"table_id":"20011465","url":"_C_/modules/initial/isi-report.html"},
-        		"psqi":							{"table_id":"20011466","url":"_C_/modules/initial/psqi.html"},
-        		"phq-report":					{"table_id":"20011467","url":"_C_/modules/initial/phq-report.html"},
-        		"fss-report":					{"table_id":"20011468","url":"_C_/modules/initial/fss-report.html"}
+                "panel_initial":		{					   "url":"_C_/modules/frame/initial.html"},
+        		"contact-details":		{"table_id":"20011470","url":"_C_/modules/initial/mirror/contact-details.html"},
+        		"medicare-referrals":	{"table_id":"20011363","url":"_C_/modules/initial/mirror/medicare-referrals.html"},
+                "sleep-history":		{"table_id":"20011469","url":"_C_/modules/initial/mirror/sleep-history.html"},
+        		"health-history":		{"table_id":"20011365","url":"_C_/modules/initial/mirror/health-history.html"},
+        		"ess":					{"table_id":"20011364","url":"_C_/modules/initial/mirror/ess.html"},
+        		"dass":					{"table_id":"20011464","url":"_C_/modules/initial/mirror/dass.html"},
+        		"isi":					{"table_id":"20011465","url":"_C_/modules/initial/mirror/isi.html"},
+        		"psqi":					{"table_id":"20011466","url":"_C_/modules/initial/mirror/psqi.html"},
+        		"phq":					{"table_id":"20011467","url":"_C_/modules/initial/mirror/phq.html"},
+        		"fss":					{"table_id":"20011468","url":"_C_/modules/initial/mirror/fss.html"}
             }
             //------------------------------------
             for(p in $vm.module_list){
-                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/isleephealth/');
-                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://wappsystem.github.io/isleephealth/');
+                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/isleephealth-patients-portal/');
+                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://wappsystem.github.io/isleephealth-patients-portal/');
             }
             //------------------------------------
             $vm.start=function(){
@@ -237,10 +207,10 @@
                 float:left;
             }
             #vm_logo_label_A{
-                padding-top:35px;
+                padding-top:50px;
                 font-family: Arial, sans-serif;
                 color:#fff;
-                font-size: 200%;
+                font-size: 280%;
                 line-height:10px;
                 display:inline-block;
             }
