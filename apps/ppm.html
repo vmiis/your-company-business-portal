@@ -20,33 +20,34 @@
             <!----------------------------------------------->
             <div id=c_header>
                 <div class=vm-mobile>
-                    <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
+                    <span id=vm-mobile_title class=vm-mobile-title>ChildFund</span>
                     <a id="vm-hamburger-button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
             <div id=c_nav>
                 <div class="vm-desk-logo vm-desk-items">
-                    <span id=vm-logo-label-A>Business Portal</span><br>
-                    <span id=vm-logo-label-B>on-demand business applications</span>
+                    <div id=vm-logo-image></div>
                 </div>
                 <div id="vm-menu">
                     <a href="?/home"><i class="fa fa-home"></i>Home</a>
                     <div>
-                        <span class=vm-folder><i class="fa fa-folder-open-o"></i>Articles</span>
+                        <span class=vm-folder><i class="fa fa-folder-open-o"></i>Data Entry</span>
                         <div class="vm-folder-content vm-menu-show">
-                            <li><a href="?/short">Short</a></li>
-                            <li><a href="?/long">Long</a></li>
+                            <li><a href="?/program-data">Programs</a></li>
+                            <li><a href="?/program-document-data">&rarr; Document</a></li>
+                            <li><a href="?/project-open-data">Projects (Open)</a></li>
+                            <li><a href="?/project-document-data">&rarr; Document</a></li>
                         </div>
                     </div>
-                    <a href="?/about"><i class="fa fa-info-circle"></i> About</a><br>
-                    <div id=vm_signin>
-                        <span class=vm-folder><i class="fa fa-folder-o"></i>Sign In</span>
+                    <div>
+                        <span class=vm-folder><i class="fa fa-folder-o"></i>View</span>
                         <div class="vm-folder-content vm-menu-hide">
-                            <li><a id='google_0' >With your Google account</a></li>
-                            <li><a id='facebook_0'>With your Facebook account</a></li>
-                            <li><a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a></li>
+                            <li><a href="?/project-closed-data">Projects (Closed)</a></li>
+                            <li><a href="?/project-document-data">&rarr; Document</a></li>
                         </div>
                     </div>
+                    <a href="?/about"><i class="fa fa-info-circle"></i>About</a>
+                    <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fa fa-user"></i>Sign In</a>
                     <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fa fa-user"></i>Sign Out</a>
                 </div>
             </div>
@@ -69,15 +70,37 @@
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_list={
-                "home":   {"url":"_C_/modules/home/home.html"},
-                "short":  {"url":"_C_/modules/static/short.html"},
-                "long":   {"url":"_C_/modules/static/long.html"},
-                "about":  {"url":"_C_/modules/about/about-this-website.html"}
+                "home":   {"url":"_C_/modules/home.html"},
+                "program-data":         {"table_id":"20000013", "url":"_C_/modules/program-data.html","form_module":"program-form"},
+        	    "program-form":         {"table_id":"20000013", "url":"_C_/modules/program-form.html"},
+                "program-document-data":{"table_id":"20000028", "url":"_C_/modules/program-document-data.html","form_module":"program-document-form"},
+        	    "program-document-form":{"table_id":"20000028", "url":"_C_/modules/program-document-form.html"},
+                "country-data":         {"table_id":"20011479", "url":"_C_/modules/country-data.html","form_module":"country-form"},
+        	    "country-form":         {"table_id":"20011479", "url":"_C_/modules/country-form.html"},
+                "document-type-data":   {"table_id":"20011477", "url":"_C_/modules/document-type-data.html","form_module":"document-type-form"},
+        	    "document-type-form":   {"table_id":"20011477", "url":"_C_/modules/document-type-form.html"},
+                "project-open-data":	{"table_id":"20000012", "url" :"_C_/modules/project-data.html","form_module":"project-form","status":"open"},
+                "project-closed-data":	{"table_id":"20000012", "url" :"_C_/modules/project-data.html","form_module":"project-form","status":"closed"},
+        	    "project-form":	        {"table_id":"20000012", "url":"_C_/modules/project-form.html"},
+                "sector-data":          {"table_id":"20011480", "url":"_C_/modules/sector-data.html","form_module":"sector-form"},
+        	    "sector-form":          {"table_id":"20011480", "url":"_C_/modules/sector-form.html"},
+                "project-approval-status-data":    {"table_id":"20011487", "url":"_C_/modules/project-approval-status-data.html","form_module":"project-approval-status-form"},
+        	    "project-approval-status-form":    {"table_id":"20011487", "url":"_C_/modules/project-approval-status-form.html"},
+                "implementation-arrangement-data": {"table_id":"20011485", "url":"_C_/modules/implementation-arrangement-data.html","form_module":"implementation-arrangement-form"},
+        	    "implementation-arrangement-form": {"table_id":"20011485", "url":"_C_/modules/implementation-arrangement-form.html"},
+                "drr-mainstreaming-data": {"table_id":"20011486", "url":"_C_/modules/drr-mainstreaming-data.html","form_module":"drr-mainstreaming-form"},
+        	    "drr-mainstreaming-form": {"table_id":"20011486", "url":"_C_/modules/drr-mainstreaming-form.html"},
+                "theme-data":             {"table_id":"20011484", "url":"_C_/modules/theme-data.html","form_module":"theme-form"},
+        	    "theme-form":             {"table_id":"20011484", "url":"_C_/modules/theme-form.html"},
+                "location-data":          {"table_id":"20011481", "url":"_C_/modules/location-data.html","form_module":"location-form"},
+        	    "location-form":          {"table_id":"20011481", "url":"_C_/modules/location-form.html"},
+        	    "project-document-data":  {"table_id":"20000017", "url" :"_C_/modules/project-document-data.html","form_module":"project-document-form"},
+        	    "project-document-form":  {"table_id":"20000017", "url":"_C_/modules/project-document-form.html"},
             }
             //------------------------------------
             for(p in $vm.module_list){
-                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
-                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://www.vmiis.com/');
+                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/ppm/');
+                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://wappsystem.github.io/ppm/');
             }
             //------------------------------------
             $vm.start=function(){
@@ -99,12 +122,12 @@
             $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             //------------------------------------
-            $vm.default_title="Single Page Application";
-            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
+            $vm.default_title="PnP";
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Child Fund Australia");
             //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;
-                $("meta[name='description']").attr("content", "Single Page Application");
+                $("meta[name='description']").attr("content", "Child Fund Australia");
                 $("body").removeClass();
                 $("body").addClass('body_background_default');
                 if(id!=undefined && $vm.vm[id].show!=undefined){
@@ -160,7 +183,7 @@
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
-                background-image: url(https://image.vmiis.com/bk006.jpg);
+                background-image: url(https://image.vmiis.com/bk018.jpg);
             }
             #layout {
                 height: 100%;
@@ -181,19 +204,13 @@
             #content{
                 overflow:auto;
             }
-            #vm-logo-label-A{
-                font-family: Arial, sans-serif;
-                color:#fff;
-                font-size: 200%;
-                line-height:10px;
-                display:inline-block;
-            }
-            #vm-logo-label-B{
-                font-family: Arial, sans-serif;
-                color:#fff;
-                font-size: 93%;
-                line-height:80%;
-                display:inline-block;
+            #vm-logo-image{
+                margin-top: 6px;
+                width:191px;
+                height:71px;
+                background: url('https://image.vmiis.com/logo.childfund.png') no-repeat top center;
+                background-size: cover;
+                float:left;
             }
             #footer{
                 height:24px;
