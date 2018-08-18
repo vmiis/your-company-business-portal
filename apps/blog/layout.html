@@ -6,7 +6,7 @@
         <div id=d_header__ID>Header</div>
     </div>
     <div id=main__ID>
-        <div id=sidebar__ID class=vm_hide>
+        <div id=sidebar__ID class=vm-hide>
             <div id=vm_logo module=Home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
@@ -136,7 +136,7 @@
             }
             $vm.load_module_v2(m,'',{});
             var d=$('#sidebar__ID');
-            d.removeClass('vm_show').addClass('vm_hide');
+            d.removeClass('vm_show').addClass('vm-hide');
         }
     }
     //--------------------------------------------------------
@@ -147,10 +147,10 @@
     $vm.toggle=function() {
         var d=$('#sidebar__ID');
         if(d.hasClass('vm_show')){
-            d.removeClass('vm_show').addClass('vm_hide');
+            d.removeClass('vm_show').addClass('vm-hide');
         }
         else{
-            d.removeClass('vm_hide').addClass('vm_show');
+            d.removeClass('vm-hide').addClass('vm_show');
         }
     }
     $vm.header=function(){
@@ -225,7 +225,7 @@
     #content__ID{
         margin-left:280px;
     }
-    .vm_hide{
+    .vm-hide{
     }
     /*menu-----------------------------------------------*/
     #vm_menu i{
@@ -383,7 +383,7 @@
             overflow: hidden;
             animation: vm_menu_show__ID 1.8s;
         }
-        .vm_hide{
+        .vm-hide{
             display:none;
         }
         #m_title__ID{

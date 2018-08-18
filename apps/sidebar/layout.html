@@ -3,7 +3,7 @@
         <div id=m_header__ID>
             <span module=Home id=m_title>Business Portal</span><a toggle id="vm_icon" onclick="vm_toggle()"><i class="fa fa-bars"></i></a>
         </div>
-        <div id=navbar__ID class=vm_hide>
+        <div id=navbar__ID class=vm-hide>
             <div id=vm_logo module=Home>
                 <span id=vm_logo_label_A>Business Portal</span><br>
                 <span id=vm_logo_label_B>on-demand business applications</span>
@@ -190,7 +190,7 @@
                         }
                         $vm.load_module_v2(m,'',{});
                         var d=$('#navbar__ID');
-                        d.removeClass('vm_show').addClass('vm_hide');
+                        d.removeClass('vm_show').addClass('vm-hide');
                     }
                 }
                 //--------------------------------------------------------
@@ -201,10 +201,10 @@
                 function vm_toggle() {
                     var d=$('#navbar__ID');
                     if(d.hasClass('vm_show')){
-                        d.removeClass('vm_show').addClass('vm_hide');
+                        d.removeClass('vm_show').addClass('vm-hide');
                     }
                     else{
-                        d.removeClass('vm_hide').addClass('vm_show');
+                        d.removeClass('vm-hide').addClass('vm_show');
                     }
                 }
                 var vm_header=function(){
@@ -310,7 +310,7 @@
             #content__ID{
                 margin-left:280px;
             }
-            .vm_hide{
+            .vm-hide{
             }
             @media screen and (max-width: 1280px) {
                 #content__ID{
@@ -332,7 +332,7 @@
                     overflow: hidden;
                     animation: vm_menu_show__ID 1.8s;
                 }
-                .vm_hide{
+                .vm-hide{
                     display:none;
                 }
             }

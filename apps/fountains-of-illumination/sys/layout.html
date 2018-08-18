@@ -22,7 +22,7 @@
                         <a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
                     </div>
                 </div>
-                <a class=vm_hide id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                <a class=vm-hide id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
             </div>
             <div search id="vm_search">
                 <input id=vm_system_search  type="text" placeholder="Search pages..." />
@@ -148,13 +148,13 @@
             if($vm.user_puid=="2") third=" (Facebook)";
             if($vm.user=='guest'){
                 $('#vm_username').text('');
-                $('#vm_signin').removeClass('vm_hide');
-                $('#vm_signout').addClass('vm_hide');
+                $('#vm_signin').removeClass('vm-hide');
+                $('#vm_signout').addClass('vm-hide');
             }
             else{
                 $('#vm_username').text('Signed in as '+ $vm.user+third);
-                $('#vm_signin').addClass('vm_hide');
-                $('#vm_signout').removeClass('vm_hide');
+                $('#vm_signin').addClass('vm-hide');
+                $('#vm_signout').removeClass('vm-hide');
             }
         }
         show_user();
@@ -530,7 +530,7 @@
     }
     /*----------------------*/
     /*menu*/
-    .vm_hide{
+    .vm-hide{
         display:none!Important;
     }
     #vm_menu {

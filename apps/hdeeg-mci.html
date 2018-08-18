@@ -39,13 +39,13 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[1.02,1.02];
+            $vm={};$VmAPI={};$vm.ver=[1.03,1.03];
             $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
             $vm.default_production="No";
             $vm.qid='10000000';
-            $vm.vm_router=1;
+            $vm.vm_router=undefined;
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_list={
@@ -665,7 +665,7 @@
             $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             //------------------------------------
-            $vm.default_title="Single Page Application";
+            $vm.default_title="HDEEG-MCI";
             $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Woolcock Institute of Medical Research");
             //------------------------------------
             $vm.show=function(id){
@@ -699,7 +699,7 @@
             ];
             //---------------------------------------------
             var url1="https://www.vmiis.com/modules/starter/starter-001.html"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/starter-001.html";
-            var url2="https://www.vmiis.com/modules/menu/menu-001.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/menu-001.html";
+            var url2="https://www.vmiis.com/modules/menu/topbar-menu.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/topbar-menu.html";
             var urls=[url1,url2]; $vm.module_start_id=2;
             //---------------------------------------------
             $(urls).each(function(index,url){
@@ -737,7 +737,7 @@
             #content{
                 overflow:auto;
             }
-            .vm_hide{
+            .vm-hide{
                 display:none!Important;
             }
             :root {

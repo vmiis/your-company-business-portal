@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--------------------------------------------------------------------->
 <html>
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -44,7 +43,7 @@
                             <a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
                         </div>
                     </div>
-                    <a class=vm_hide id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                    <a class=vm-hide id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
                 </div>
             </div>
             <!----------------------------------------------->
@@ -56,7 +55,7 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[1.02,1.02];
+            $vm={};$VmAPI={};$vm.ver=[1.03,1.03];
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
             $vm.default_production="No";
@@ -145,7 +144,7 @@
             #content{
                 overflow:hidden;
             }
-            .vm_hide{
+            .vm-hide{
                 display:none!Important;
             }
         </style>

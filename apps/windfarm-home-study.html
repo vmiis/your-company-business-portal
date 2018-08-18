@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <!----------------------------------------------->
+        <div id=layout>
+            <div id=header class=vm-header></div>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
+            <div id=footer></div>
+        </div>
+        <!----------------------------------------------->
+        <div id=components style='display:none'>
+            <!----------------------------------------------->
+            <div id=c_header>
+                <div class=vm-mobile>
+                    <span id=vm-mobile_title class=vm-mobile-title>Woolcock</span>
+                    <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class=vm-desk-logo>
+                    <div id=vm-logo-image></div>
+                </div>
+                <div id="vm-menu">
+                    <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                    <a href="?/main"><i class="fa fa-th"></i> Windfarm Home Study</a>
+                    <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fa fa-user"></i> Sign In</a>
+                    <a id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                </div>
+            </div>
+            <!----------------------------------------------->
+            <div id=c_footer>
+                <span id=text_0></span>
+            </div>
+            <!----------------------------------------------->
+        </div>
+        <!----------------------------------------------->
+        <script>
+            //------------------------------------
+            $vm={};$VmAPI={};$vm.ver=[1.03,1.03];
+            $vm.start_time=new Date().getTime();
+            $vm.api_path_development="https://cbs.wappsystem.com/dev/";
+            $vm.api_path_production="https://cbs.wappsystem.com/pro/";
+            $vm.default_production="No";
+            $vm.qid='10000000';
+            $vm.vm_router=undefined;
+            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+            //------------------------------------
+            $vm.module_list={
+                "home":   {"url":"_C_/modules/home.html"},
+
+                "main":   {"url":"_C_/modules/panels/main.html"},
+            	"child":  {"url":"_C_/modules/panels/child.html"},
+
+                "randomisation-schedule":   {"table_id":"91000116", "url":"_C_/modules/participant-and-others/randomisation-schedule.html"},
+                "participant-data":         {"table_id":"91000001", "url":"_C_/modules/participant-and-others/participant-data.html","notes":"91000002","login_setup":"91000003","form_module":"participant-form","name_for_search":"Participant data"},
+                "participant-form":         {"table_id":"91000001", "url":"_C_/modules/participant-and-others/participant-form.html","notes":"91000002","login_setup":"91000003","name_for_search":"Participant form"},
+                "task-notes":	            {"table_id":"91000002","url":"_C_/modules/participant-and-others/task-notes.html", "participant":"91000001","name_for_search":"EDC notes"},
+                "login-setup":	            {"table_id":"91000003","url":"_C_/modules/participant-and-others/participant-login-setup.html", "name_for_search":"Login setup"},
+                "consent2-s":    			{"table_id":"91000078","url":"_C_/modules/tasks/consent2.html","name_for_search":"Screening - Consent 2"},
+                "check-eligibility-s":    	{"table_id":"91000077","url":"_C_/modules/tasks/check-eligibility.html","name_for_search":"Screening - Check Eligibility"},
+                "sleep-diary-s":    		{"table_id":"91000073","url":"_C_/modules/tasks/file-upload.html","name_for_search":"Screening - Sleep Diary"},
+                "sleep-diary-b":    		{"table_id":"91000074","url":"_C_/modules/tasks/file-upload.html","name_for_search":"Baseline - Sleep Diary"},
+                "sleep-diary-3":    		{"table_id":"91000075","url":"_C_/modules/tasks/file-upload.html","name_for_search":"3 Month - Sleep Diary"},
+                "sleep-diary-6":    		{"table_id":"91000076","url":"_C_/modules/tasks/file-upload.html","name_for_search":"6 Month - Sleep Diary"},
+                "consent-s":    			{"table_id":"91000062","url":"_C_/modules/tasks/consent.html","name_for_search":"Screening - Consent"},
+                "general-s":    			{"table_id":"91000063","url":"_C_/modules/tasks/general-information.html","name_for_search":"Screening - General Information"},
+                "wns-s":    				{"table_id":"91000004","url":"_C_/modules/tasks/wns.html","name_for_search":"Screening - Weinstein’s Noise Sensitivity Scale (WNS)"},
+                "shiftwork-s":    			{"table_id":"91000057","url":"_C_/modules/tasks/shiftwork.html","name_for_search":"Screening - Shiftwork Questionnaire"},
+                "medication-s":    			{"table_id":"91000058","url":"_C_/modules/tasks/medication.html","name_for_search":"Screening - Medication"},
+                "sleep-disorders-and-patterns-questionnaire-s":    {"table_id":"91000072","url":"_C_/modules/tasks/sleep-disorders-and-patterns.html","name_for_search":"Screening - Sleep Disorders and Patterns Questionnaire"},
+                "medical-history-s":    		{"table_id":"91000059","url":"_C_/modules/tasks/medical-history.html","name_for_search":"Screening - Medical History"},
+                "insomnia-severity-index-s":    {"table_id":"91000005","url":"_C_/modules/tasks/insomnia-severity-index.html","name_for_search":"Screening - Insomnia Severity Index"},
+                "phone-screening-hearing-s":    {"table_id":"91000060","url":"_C_/modules/tasks/phone-screening-hearing.html","name_for_search":"Screening - Phone Screening Hearing"},
+                "actigraphy-s":    				{"table_id":"91000018","url":"_C_/modules/tasks/actiwatch.html","name_for_search":"Screening - Actigraphy"},
+                "cardiovascular-sleep-illness-b":   {"table_id":"91000022","url":"_C_/modules/tasks/cardiovascular-sleep-illness.html","name_for_search":"Baseline - Cardio and Sleep Illnesses "},
+                "wemwbs-b":    						{"table_id":"91000051","url":"_C_/modules/tasks/wewb.html","name_for_search":"Baseline - Warwick Edinburgh Mental Well-being Scale (WEMWBS)"},
+                "tower-of-london-b":    			{"table_id":"91000029","url":"_C_/modules/tasks/tower-of-london.html","name_for_search":"Baseline - Tower of London"},
+                "sleep-disorders-and-patterns-questionnaire-b":    {"table_id":"91000032","url":"_C_/modules/tasks/sleep-disorders-and-patterns.html","name_for_search":"Baseline - Sleep Disorders and Patterns Questionnaire"},
+                "pulse-wave-b":    					{"table_id":"91000044","url":"_C_/modules/tasks/pulse-wave.html","name_for_search":"Baseline - Pulse wave"},
+                "psg-b":    						{"table_id":"91000023","url":"_C_/modules/tasks/psg.html","name_for_search":"Baseline - PSG"},
+                "office-blood-pressure-b":    		{"table_id":"91000038","url":"_C_/modules/tasks/blood-pressure.html","name_for_search":"Baseline - Office Blood Pressure"},
+                "neuro-otological-evaluation-b":    {"table_id":"91000054","url":"_C_/modules/tasks/neuro-otological-evaluation.html","name_for_search":"Baseline - Neuro-otological evaluation"},
+                "n-back-b":                         {"table_id":"91000026","url":"_C_/modules/tasks/n-back.html","name_for_search":"Baseline - N-back"},
+                "kessler-10-b":                     {"table_id":"91000014","url":"_C_/modules/tasks/kessler-10.html","name_for_search":"Baseline - Kessler-10"},
+                "insomnia-severity-index-b":        {"table_id":"91000006","url":"_C_/modules/tasks/insomnia-severity-index.html","name_for_search":"Baseline - Insomnia Severity Index"},
+                "height-weight-waist-circumference-b":    {"table_id":"91000035","url":"_C_/modules/tasks/height-weight-waist-circumference.html","name_for_search":"Baseline - Height, Weight, Waist circumference"},
+                "eysenck-personality-questionnaire-b":    {"table_id":"91000050","url":"_C_/modules/tasks/eysenck.html","name_for_search":"Baseline - EYSENCK Personality Questionnaire"},
+                "epworth-sleepiness-scale-b":             {"table_id":"91000008","url":"_C_/modules/tasks/epworth-sleepiness-scale.html","name_for_search":"Baseline - Epworth Sleepiness Scale"},
+                "dass-21-b":                              {"table_id":"91000011","url":"_C_/modules/tasks/dass-21.html","name_for_search":"Baseline - DASS-21"},
+                "blood-and-urine-b":                      {"table_id":"91000041","url":"_C_/modules/tasks/blood-urine.html","name_for_search":"Baseline - Blood and Urine"},
+                "attitudes-on-wind-farms-b":    {"table_id":"91000017","url":"_C_/modules/tasks/attitudes-on-wind-farms.html","name_for_search":"Baseline - Attitudes on Wind farms"},
+                "visual-analogue-scale-b":      {"table_id":"91000047","url":"_C_/modules/tasks/vas.html","name_for_search":"Baseline - Visual Analogue Scale"},
+                "noise-annoyance-scale-b":      {"table_id":"91000067","url":"_C_/modules/tasks/noise.html","name_for_search":"Baseline - Noise Annoyance Scale"},
+                "actigraphy-b":                 {"table_id":"91000019","url":"_C_/modules/tasks/actiwatch.html","name_for_search":"Baseline - Actigraphy"},
+                "wemwbs-3":                     {"table_id":"91000052","url":"_C_/modules/tasks/wewb.html","name_for_search":"3Month - Warwick Edinburgh Mental Well-being Scale (WEMWBS)"},
+                "tower-of-london-3":            {"table_id":"91000030","url":"_C_/modules/tasks/tower-of-london.html","name_for_search":"3Month - Tower of London"},
+                "sleep-disorders-and-patterns-questionnaire-3":    {"table_id":"91000033","url":"_C_/modules/tasks/sleep-disorders-and-patterns.html","name_for_search":"3Month - Sleep Disorders and Patterns Questionnaire"},
+                "pulse-wave-3":                                    {"table_id":"91000045","url":"_C_/modules/tasks/pulse-wave.html","name_for_search":"3Month - Pulse wave"},
+                "psg-3":                                           {"table_id":"91000024","url":"_C_/modules/tasks/psg.html","name_for_search":"3Month - PSG"},
+                "office-blood-pressure-3":                         {"table_id":"91000039","url":"_C_/modules/tasks/blood-pressure.html","name_for_search":"3Month - Office Blood Pressure"},
+                "neuro-otological-evaluation-3":                   {"table_id":"91000055","url":"_C_/modules/tasks/neuro-otological-evaluation.html","name_for_search":"3Month - Neuro-otological evaluation"},
+                "n-back-3":                                        {"table_id":"91000027","url":"_C_/modules/tasks/n-back.html","name_for_search":"3Month - N-back"},
+                "kessler-10-3":                                    {"table_id":"91000015","url":"_C_/modules/tasks/kessler-10.html","name_for_search":"3Month - Kessler-10"},
+                "insomnia-severity-index-3":            {"table_id":"91000007","url":"_C_/modules/tasks/insomnia-severity-index.html","name_for_search":"3Month - Insomnia Severity Index"},
+                "height-weight-waist-circumference-3":  {"table_id":"91000036","url":"_C_/modules/tasks/height-weight-waist-circumference.html","name_for_search":"3Month - Height, Weight, Waist circumference"},
+                "epworth-sleepiness-scale-3":           {"table_id":"91000009","url":"_C_/modules/tasks/epworth-sleepiness-scale.html","name_for_search":"3Month - Epworth Sleepiness Scale"},
+                "dass-21-3":                            {"table_id":"91000012","url":"_C_/modules/tasks/dass-21.html","name_for_search":"3Month - DASS-21"},
+                "blood-and-urine-3":                    {"table_id":"91000042","url":"_C_/modules/tasks/blood-urine.html","name_for_search":"3Month - Blood and Urine"},
+                "visual-analogue-scale-3":              {"table_id":"91000048","url":"_C_/modules/tasks/vas.html","name_for_search":"3Month - Visual Analogue Scale"},
+                "noise-annoyance-scale-3":              {"table_id":"91000068","url":"_C_/modules/tasks/noise.html","name_for_search":"3Month - Noise Annoyance Scale"},
+                "actigraphy-3":                         {"table_id":"91000020","url":"_C_/modules/tasks/actiwatch.html","name_for_search":"3Month - Actigraphy"},
+                "wemwbs-6":                             {"table_id":"91000053","url":"_C_/modules/tasks/wewb.html","name_for_search":"6Month - Warwick Edinburgh Mental Well-being Scale (WEMWBS)"},
+                "tower-of-london-6":                    {"table_id":"91000031","url":"_C_/modules/tasks/tower-of-london.html","name_for_search":"6Month - Tower of London"},
+                "sleep-disorders-and-patterns-questionnaire-6":     {"table_id":"91000034","url":"_C_/modules/tasks/sleep-disorders-and-patterns.html","name_for_search":"6Month - Sleep Disorders and Patterns Questionnaire"},
+                "pulse-wave-6":                                     {"table_id":"91000046","url":"_C_/modules/tasks/pulse-wave.html","name_for_search":"6Month - Pulse wave"},
+                "psg-6":                                            {"table_id":"91000025","url":"_C_/modules/tasks/psg.html","name_for_search":"6Month - PSG"},
+                "office-blood-pressure-6":                          {"table_id":"91000040","url":"_C_/modules/tasks/blood-pressure.html","name_for_search":"6Month - Office Blood Pressure"},
+                "neuro-otological-evaluation-6":                    {"table_id":"91000056","url":"_C_/modules/tasks/neuro-otological-evaluation.html","name_for_search":"6Month - Neuro-otological evaluation"},
+                "n-back-6":                                         {"table_id":"91000028","url":"_C_/modules/tasks/n-back.html","name_for_search":"6Month - N-back"},
+                "kessler-10-6":                                     {"table_id":"91000016","url":"_C_/modules/tasks/kessler-10.html","name_for_search":"6Month - Kessler-10"},
+                "insomnia-severity-index-6":                        {"table_id":"91000060","url":"_C_/modules/tasks/insomnia-severity-index.html","name_for_search":"6Month - Insomnia Severity Index"},
+                "height-weight-waist-circumference-6":      {"table_id":"91000037","url":"_C_/modules/tasks/height-weight-waist-circumference.html","name_for_search":"6Month - Height, Weight, Waist circumference"},
+                "epworth-sleepiness-scale-6":               {"table_id":"91000010","url":"_C_/modules/tasks/epworth-sleepiness-scale.html","name_for_search":"6Month - Epworth Sleepiness Scale"},
+                "dass-21-6":                                {"table_id":"91000013","url":"_C_/modules/tasks/dass-21.html","name_for_search":"6Month - DASS-21"},
+                "blood-and-urine-6":                        {"table_id":"91000043","url":"_C_/modules/tasks/blood-urine.html","name_for_search":"6Month - Blood and Urine"},
+                "visual-analogue-scale-6":                  {"table_id":"91000049","url":"_C_/modules/tasks/vas.html","name_for_search":"6Month - Visual Analogue Scale"},
+                "noise-annoyance-scale-6":                  {"table_id":"91000069","url":"_C_/modules/tasks/noise.html","name_for_search":"6Month - Noise Annoyance Scale"},
+                "actigraphy-6":                             {"table_id":"91000021","url":"_C_/modules/tasks/actiwatch.html","name_for_search":"6Month - Actigraphy"},
+                "n2-back-p":                                {"table_id":"91000070","url":"_C_/modules/tasks/n-back.html","name_for_search":"Practice N-back"},"n2-back-p-form": {"table_id":"91000070","url":"_C_/modules/tasks/n2-back-practice.form.html"},
+
+                "quest_list":{
+                    "list":{
+                        "Screening":[
+                            {"table_id":"91000062","task_name":"Screening - Consent"},
+                            {"table_id":"91000063","task_name":"Screening - General Information"},
+                            {"table_id":"91000057","task_name":"Screening - Shiftwork Questionnaire"},
+                            {"table_id":"91000004","task_name":"Screening - Weinstein’s Noise Sensitivity Scale (WNS)"},
+                            {"table_id":"91000077","task_name":"Screening - Eligibility Check"},
+                            {"table_id":"91000058","task_name":"Screening - Medication"},
+                            {"table_id":"91000072","task_name":"Screening - Sleep Disorders and Patterns Questionnaire"},
+                            {"table_id":"91000059","task_name":"Screening - Medical History"},
+                            {"table_id":"91000005","task_name":"Screening - Insomnia Severity Index"},
+                            {"table_id":"91000078","task_name":"Screening - Consent 2"}
+                        ],
+                        "Baseline":[
+                            {"table_id":"91000017","task_name":"Baseline - Attitudes on Wind farms"},
+                            {"table_id":"91000022","task_name":"Baseline - Cardio and Sleep Illnesses"},
+                            {"table_id":"91000032","task_name":"Baseline - Sleep Disorders and Patterns Questionnaire"},
+                            {"table_id":"91000051","task_name":"Baseline - Warwick Edinburgh Mental Well-being Scale (WEMWBS)"},
+                            {"table_id":"91000014","task_name":"Baseline - Kessler-10"},
+                            {"table_id":"91000006","task_name":"Baseline - Insomnia Severity Index"},
+                            {"table_id":"91000050","task_name":"Baseline - EYSENCK Personality Questionnaire"},
+                            {"table_id":"91000008","task_name":"Baseline - Epworth Sleepiness Scale"},
+                            {"table_id":"91000011","task_name":"Baseline - DASS-21"},
+                            {"table_id":"91000047","task_name":"Baseline - Visual Analogue Scale"},
+                            {"table_id":"91000067","task_name":"Baseline - Noise Annoyance Scale"},
+                            {"table_id":"91000029","task_name":"Baseline - Tower of London"},
+                            {"table_id":"91000026","task_name":"Baseline - N-back"}
+                        ],
+                        "3 Month":[
+                            {"table_id":"91000033","task_name":"3Month - Sleep Disorders and Patterns Questionnaire"},
+                            {"table_id":"91000052","task_name":"3Month - Warwick Edinburgh Mental Well-being Scale (WEMWBS)"},
+                            {"table_id":"91000015","task_name":"3Month - Kessler-10"},
+                            {"table_id":"91000009","task_name":"3Month - Epworth Sleepiness Scale"},
+                            {"table_id":"91000007","task_name":"3Month - Insomnia Severity Index"},
+                            {"table_id":"91000012","task_name":"3Month - DASS-21"},
+                            {"table_id":"91000048","task_name":"3Month - Visual Analogue Scale"},
+                            {"table_id":"91000068","task_name":"3Month - Noise Annoyance Scale"},
+                            {"table_id":"91000030","task_name":"3Month - Tower of London"},
+                            {"table_id":"91000027","task_name":"3Month - N-back"}
+                        ],
+                        "6 Month":[
+                            {"table_id":"91000034","task_name":"6Month - Sleep Disorders and Patterns Questionnaire"},
+                            {"table_id":"91000053","task_name":"6Month - Warwick Edinburgh Mental Well-being Scale (WEMWBS)"},
+                            {"table_id":"91000016","task_name":"6Month - Kessler-10"},
+                            {"table_id":"91000060","task_name":"6Month - Insomnia Severity Index"},
+                            {"table_id":"91000010","task_name":"6Month - Epworth Sleepiness Scale"},
+                            {"table_id":"91000013","task_name":"6Month - DASS-21"},
+                            {"table_id":"91000049","task_name":"6Month - Visual Analogue Scale"},
+                            {"table_id":"91000069","task_name":"6Month - Noise Annoyance Scale"},
+                            {"table_id":"91000031","task_name":"6Month - Tower of London"},
+                            {"table_id":"91000028","task_name":"6Month - N-back"}
+                        ],
+                        "6 Month":[
+                            {"table_id":"91000070","task_name":"Practice - N-back"}
+                        ]
+                    }
+                }
+            }
+            //------------------------------------
+            for(p in $vm.module_list){
+                if($vm.module_list[p].url!=undefined){
+                    if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/woolcock-imr/windfarm-home-2/');
+                    else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://windfarm-home.rt.org.au/');
+                }
+            }
+            //------------------------------------
+            $vm.start=function(){
+                $vm.init_v3({callback:function(){
+                   $vm.init_status=1;
+                   $('#c_header').contents().appendTo('#header');
+                   $('#c_footer').contents().appendTo('#footer');
+                   $vm.show_user();
+               }})
+            }
+            //------------------------------------
+            $vm.menu_click=function(href){
+                href=href.replace('?\/','');
+                href=href.replace(/\//g,'_');
+                $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+            }
+            //------------------------------------
+            $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            //------------------------------------
+            $vm.default_title="Windfarm Home Study";
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Woolcock Institute of Medical Research");
+            //------------------------------------
+            $vm.show=function(id){
+                document.title=$vm.default_title;
+                $("meta[name='description']").attr("content", "Single Page Application");
+                $("body").removeClass();
+                $("body").addClass('body_background_default');
+                if(id!=undefined && $vm.vm[id].show!=undefined){
+                    $vm.vm[id].show();
+                }
+            }
+            //------------------------------------
+            $vm.show();
+            //------------------------------------
+            $vm.root_layout_content_slot='content'
+            $vm.root_layout_footer='footer';
+            //------------------------------------
+            $vm.resources=[
+                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+                "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
+                "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+                "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
+                "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
+                "https://apis.google.com/js/plusone.js",
+                "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
+                "https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
+                "https://www.gstatic.com/charts/loader.js"
+            ];
+            //---------------------------------------------
+            var url1="https://www.vmiis.com/modules/starter/starter-001.html"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/starter-001.html";
+            var url2="https://www.vmiis.com/modules/menu/topbar-menu.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/topbar-menu.html";
+            var urls=[url1,url2]; $vm.module_start_id=2;
+            //---------------------------------------------
+            $(urls).each(function(index,url){
+                var ver=localStorage.getItem(url+"ver");
+                var txt=localStorage.getItem(url+"txt");
+                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                        localStorage.setItem(url+"txt",new_txt);
+                        localStorage.setItem(url+"ver",$vm.ver[0]);
+                        console.log('loading from url. '+url);
+                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
+                    },'text');
+                }
+                else{
+                    console.log('loading from storage. '+url);
+                    $('#content').append(txt.replace(/__ID/g,'_'+index));
+                }
+                //---------------------------------------------
+            })
+            //---------------------------------------------
+        </script>
+        <!----------------------------------------------->
+        <style>
+            html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
+            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+            .body_background_default{
+                background-image: url(https://image.vmiis.com/bk014.jpg);
+            }
+            #layout {
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                overflow:hidden;
+            }
+            #content{
+                overflow:auto;
+            }
+            .vm-hide{
+                display:none!Important;
+            }
+            :root {
+                --menu-color: #000;
+                --menu-hover-color: #29eca6;
+                --menu-hover-background-color: #555;
+
+                --dropdown-menu-color:#666;
+                --dropdown-menu-background-color:#f9f9f9;
+                --dropdown-menu-hover-color:#555;
+                --dropdown-menu-hover-background-color:#ddd;
+                --dropdown-menu-border-color:#ddd;
+
+                --mobile-title-color:#fff;
+                --mobile-hamburger-color:#fff;
+                --mobile-menu-background-color:#1c3144;
+                --mobile-break-point:700px;
+            }
+            .vm-header{height:100px;background:rgba(100,100,100,0.2);}
+            .vm-desk-logo{ display:inline-block;float:left;padding:0px 30px 0 30px;cursor:pointer;}
+            #vm-menu{ float:left;padding:50px 30px 0 30px;}
+            @media screen and (max-width: 900px){
+                .vm-header{height:50px;}
+                .vm-desk-logo{display:none;}
+                #vm-menu{padding:0;}
+            }
+            #vm-logo-image{
+                 margin-top: 12px;
+                 width:360px;
+                 height:69px;
+                 background: url('https://image.vmiis.com/logo.woolcock.gif') no-repeat top center;
+                 background-size: cover;
+                 float:left;
+             }
+            #footer{
+                height:24px;
+                color: #fff;
+                padding: 3px;
+                background-color: #333;
+                font:80%/18px arial;
+                text-align: center;
+            }
+            /*----------------------*/
+        </style>
+        <!----------------------------------------------->
+    </body>
+</html>

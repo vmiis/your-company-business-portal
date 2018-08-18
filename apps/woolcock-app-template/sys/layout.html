@@ -17,7 +17,7 @@
                     <a module=short>Short</a>
                     <a module=portal><i class="fa fa-th"></i> Portal</a>
                     <a id=signin__ID onclick=$vm.nav_wappsystem_signin()><i class="fa fa-user"></i> Sign In</a>
-                    <a id=signout__ID class=vm_hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                    <a id=signout__ID class=vm-hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
                 </div>
             </div>
         </div>
@@ -120,13 +120,13 @@
             if($vm.user_puid=="2") third=" (Facebook)";
             if($vm.user=='guest'){
                 $('#username__ID').text('');
-                $('#signin__ID').removeClass('vm_hide');
-                $('#signout__ID').addClass('vm_hide');
+                $('#signin__ID').removeClass('vm-hide');
+                $('#signout__ID').addClass('vm-hide');
             }
             else{
                 $('#username__ID').text('Signed in as '+ $vm.user+third);
-                $('#signin__ID').addClass('vm_hide');
-                $('#signout__ID').removeClass('vm_hide');
+                $('#signin__ID').addClass('vm-hide');
+                $('#signout__ID').removeClass('vm-hide');
             }
         }
         show_user();
@@ -193,7 +193,7 @@
     }
     /*----------------------*/
     /*menu*/
-    .vm_hide{
+    .vm-hide{
         display:none!Important;
     }
     #vm_menu {
