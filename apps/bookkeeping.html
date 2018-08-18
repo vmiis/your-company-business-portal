@@ -26,15 +26,10 @@
                 </div>
                 <div id="vm-menu">
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <div class="vm-dropdown">
-                        <span class="vm-dropbtn">Modules <i class="fa fa-caret-down"></i></span>
-                        <div class="vm-dropdown-content">
-                            <a href="?/hello-world">Hello world</a>
-                            <a href="?/tic-tac-toe-starter">Tic tac toe starter</a>
-                            <a href="?/tic-tac-toe-passing-value">Tic tac toe passing value</a>
-                        </div>
-                    </div>
+                    <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
                     <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
+                    <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fa fa-user"></i> Sign In</a>
+                    <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
                 </div>
             </div>
             <!----------------------------------------------->
@@ -56,11 +51,28 @@
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_list={
-                "home":                     {"url":"_C_/modules/home/home.html"},
-                "hello-world":              {"url":"_C_/modules/reactjs/hello-world.html"},
-                "tic-tac-toe-starter":      {"url":"_C_/modules/reactjs/tic-tac-toe-starter.html"},
-                "tic-tac-toe-passing-value":{"url":"_C_/modules/reactjs/tic-tac-toe-passing-value.html"},
-                "about":                    {"url":"_C_/modules/about/about-this-website.html"}
+                "home":                             {"url":"_C_/modules/home/home.html"},
+                "portal":                           {"url":"_C_/modules/bookkeeping/portal.html"},
+                "transactions":	                    {"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction/transactions_with_basic_toolbar.html","form_module":"transaction-form","name_for_search":"Transactions"},
+                "transactions_with_period":	        {"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction/transactions_with_period_toolbar.html","form_module":"transaction-form","name_for_search":"Transactions (period)"},
+                "transactions_with_year_and_month":	{"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction/transactions_with_year_month_toolbar.html","form_module":"transaction-form","name_for_search":"Transactions (month)"},
+                "transactions_with_year_quarter":	{"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction/transactions_with_year_quarter_toolbar.html","form_module":"transaction-form","name_for_search":"Transactions (quarter)"},
+                "transaction-form":	                {"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction/transaction-form.html"},
+                "bi_processing":	                {"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction/income_and_expense_bookkeeping_bi.html","name_for_search":"BI processing"},
+                "bi_processing_details":	        {"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction/income_and_expense_bookkeeping_bi_details.html","name_for_search":""},
+                "income_aggregation_table":	        {"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction_reporting/aggregation_query_income.html","name_for_search":"Income aggregation table"},
+                "expense_aggregation_table":	    {"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction_reporting/aggregation_query_expense.html","name_for_search":"Expense aggregation table"},
+                "income_chart":	                    {"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction_reporting/chart_income.html","name_for_search":"Income aggregation chart"},
+                "expense_chart":	                {"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction_reporting/chart_expense.html","name_for_search":"Expense aggregation chart"},
+        		"transaction_details":	            {"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction_reporting/transaction_details_with_basic_toolbar.html","name_for_search":"Transaction details"},
+        		"transaction_details_with_period":	{"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction_reporting/transaction_details_with_period_toolbar.html","name_for_search":"Transaction details (period)"},
+        		"transaction_details_with_month":	{"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction_reporting/transaction_details_with_year_month_toolbar.html","name_for_search":"Transaction details (month)"},
+        		"transaction_details_with_quarter":	{"table_id":"20007172","url":"_C_/modules/bookkeeping/transaction_reporting/transaction_details_with_year_quarter_toolbar.html","name_for_search":"Transaction details (quarter)"},
+        		"aggregation_gst":	            	{"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction_reporting/aggregation_query_gst.html","name_for_search":"GST aggregation table"},
+        		"aggregation_tax_return":	        {"table_id":"20010377","url":"_C_/modules/bookkeeping/transaction_reporting/aggregation_query_tax_return.html","name_for_search":"Tax return aggregation table"},
+                "predefined_transaction_item":      {"table_id":"20005380","url":"_C_/modules/bookkeeping/setup/predefined-transaction-item-data.html","form_module":"predefined-transaction-item-form","name_for_search":"Predefined transaction item"},
+                "predefined-transaction-item-form": {"table_id":"20005380","url":"_C_/modules/bookkeeping/setup/predefined-transaction-item-form.html"},
+                "about":                            {"url":"_C_/modules/about/about-this-website.html"}
             }
             //------------------------------------
             for(p in $vm.module_list){
@@ -86,7 +98,7 @@
             $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             //------------------------------------
-            $vm.default_title="Single Page Application";
+            $vm.default_title="Bookkeeping";
             $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
             //------------------------------------
             $vm.show=function(id){
@@ -163,7 +175,7 @@
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
-                background-image: url(https://image.vmiis.com/bk003.jpg);
+                background-image: url(https://image.vmiis.com/bk019.jpg);
             }
             #layout {
                 height: 100%;
@@ -197,7 +209,7 @@
                 text-align: center;
             }
             /*----------------------*/
-            .vm-header{height:100px;background:rgba(0,0,0,0.8);}
+            .vm-header{height:100px;background:rgba(0,0,0,0.6);}
             .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
             #vm-menu{ float:left;padding:50px 30px 0 30px;}
             @media screen and (max-width: 900px){
