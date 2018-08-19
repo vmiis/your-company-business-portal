@@ -1,8 +1,8 @@
 <div id=page__ID>
 	<section id=panel__ID>
 		<div class='nav__ID' style='float:unset;'>
-			<h4>Build web applications with modern architecture</h4>
-			<div style='color:#555;font-size:12px'>
+            <u id=introduction__ID>Build web applications with modern architecture</u>
+			<div style='color:#555;font-size:12px;display:none'>
                 We will step by step build web applications with the following key features:
                 <ul>
 					<li>Modular distributed –– scalable, flexible, reusable and easy replaceable</li>
@@ -406,6 +406,12 @@
             }
         })
         //--------------------------------------------------------
+        $('#introduction__ID').on('click',function(){
+			var x=$(this).next('div');
+            if(x.hasClass('introduction__ID')==false) x.addClass('introduction__ID');
+            else x.removeClass('introduction__ID');
+		})
+		//--------------------------------------------------------
     }
 </script>
 <style>
@@ -486,4 +492,21 @@
 	.nav__ID a {color: #283f55;	}
 	.nav__ID a:link { text-decoration: underline; }
 	.nav__ID a:hover { 	color: red;	}
+    #D__ID u, #D__ID a{
+        text-decoration: none;
+        border-bottom: 1px solid #ccc;
+    }
+    #introduction__ID{
+        font-size: 200%;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .introduction__ID{
+		display:block!Important;
+        animation: vm_show_more_text 1.0s;
+	}
+    @keyframes vm_show_more_text {
+        from {max-height: 0px;}
+        to {max-height: 500px;}
+    }
 </style>
