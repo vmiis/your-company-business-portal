@@ -1,14 +1,11 @@
 <div id=page__ID>
-	<span style='display:none;font-size:200%'></span> <a id=app__ID target=_blank href='apps/service-booking/' >Run as a seperate application </a>
-    <br>
 	<section id=panel__ID>
-		<div class="nav__ID">
-			<span>Control Panel</span>
+		<div class='nav__ID'>
+            <span>Control Panel</span>
 			<ul>
-				<li><u m=monthly>Calendar</u></li>
-				<li><u m=daily>Booking</u></li>
-                <li><u m=booking-record>Booking Records</u></li>
-				<li><u m=client>Clients</u></li>
+				<li><u m=monthly>Monthly</u></li>
+                <li><u m=daily>Daily</u></li>
+                <li><u m=event-data>Event records</u></li>
 			</ul>
 		</div>
 	</section>
@@ -26,12 +23,11 @@
             }
         })
         //--------------------------------------------------------
-		if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
-		//--------------------------------------------------------
     }
 </script>
 <style>
 	#D__ID{
+		height:100%;
         color:#283f55;
         font-size:10pt;
         font-family: Verdana,Helvetica,Arial,sans-serif;

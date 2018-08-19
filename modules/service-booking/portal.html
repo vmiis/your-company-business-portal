@@ -1,16 +1,12 @@
 <div id=page__ID>
-	<span style='display:none;font-size:200%'></span> <a id=app__ID target=_blank href='apps/woolworths-credit-card/' >Run as a seperate application </a>
-    <br>
 	<section id=panel__ID>
-		<div class='nav__ID'>
-            <span>Control Panel</span>
+		<div class="nav__ID">
+			<span>Control Panel</span>
 			<ul>
-				<li><u m=transaction-import>Transactions</u></li>
-                <li><u m=transaction-bi>Transaction BI</u></li>
-                <li><u m=credit-query>Credit query</u></li>
-				<li><u m=debit-query>Debit query</u></li>
-				<li><u m=credit-chart>Credit chart</u></li>
-				<li><u m=debit-chart>Debit chart</u></li>
+				<li><u m=monthly>Calendar</u></li>
+				<li><u m=daily>Booking</u></li>
+                <li><u m=booking-record>Booking Records</u></li>
+				<li><u m=client>Clients</u></li>
 			</ul>
 		</div>
 	</section>
@@ -28,13 +24,12 @@
             }
         })
         //--------------------------------------------------------
-		if(window.location.href.indexOf('/apps/')!=-1) $('#app__ID').hide();
-		//--------------------------------------------------------
     }
 </script>
 <style>
 	#D__ID{
-        color:#283f55;
+		height:100%;
+		color:#283f55;
         font-size:10pt;
         font-family: Verdana,Helvetica,Arial,sans-serif;
 		background: rgba(255,255,255,0.95);

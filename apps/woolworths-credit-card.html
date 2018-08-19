@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <!----------------------------------------------->
+        <div id=layout>
+            <div id=header class=vm-header></div>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
+            <div id=footer></div>
+        </div>
+        <!----------------------------------------------->
+        <div id=components style='display:none'>
+            <!----------------------------------------------->
+            <div id=c_header>
+                <div class=vm-mobile>
+                    <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
+                    <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class=vm-desk-logo>
+                    <span id=vm-logo-label-A>Business Portal</span><br>
+                    <span id=vm-logo-label-B>on-demand business applications</span>
+                </div>
+                <div id="vm-menu">
+                    <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                    <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
+                    <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
+                    <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fa fa-user"></i> Sign In</a>
+                    <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                </div>
+            </div>
+            <!----------------------------------------------->
+            <div id=c_footer>
+                <span id=text_0></span>
+            </div>
+            <!----------------------------------------------->
+        </div>
+        <!----------------------------------------------->
+        <script>
+            //------------------------------------
+            $vm={};$VmAPI={};$vm.ver=[1.03,1.03];
+            $vm.start_time=new Date().getTime();
+            $vm.api_path_development="https://cbs.wappsystem.com/dev/";
+            $vm.api_path_production="https://cbs.wappsystem.com/pro/";
+            $vm.default_production="No";
+            $vm.qid='10000000';
+            $vm.vm_router=1;
+            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+            //------------------------------------
+            $vm.module_list={
+                "home":                  {"url":"_C_/modules/home/home.html"},
+                "portal":                {"url":"_C_/modules/woolworths-credit-card/portal.html"},
+                "transaction-import":	 {"table_id":"20010375","url":"_C_/modules/woolworths-credit-card/transaction_import.html",	  "name_for_search":"Transaction import"},
+        		"transaction-bi":        {"table_id":"20010376","url":"_C_/modules/woolworths-credit-card/transaction_bi.html",		  "name_for_search":"Transaction BI"},
+                "transaction-bi-details":{"table_id":"20010376","url":"_C_/modules/woolworths-credit-card/bi_details.html",		      "name_for_search":""},
+                "credit-query":          {"table_id":"20010376","url":"_C_/modules/woolworths-credit-card/query_credit.html",		      "name_for_search":"Credit query"},
+                "debit-query":           {"table_id":"20010376","url":"_C_/modules/woolworths-credit-card/query_debit.html",             "name_for_search":"Debit query"},
+                "credit-chart":          {"table_id":"20010376","url":"_C_/modules/woolworths-credit-card/chart_credit.html",		      "name_for_search":"Credit chart"},
+                "debit-chart":           {"table_id":"20010376","url":"_C_/modules/woolworths-credit-card/chart_debit.html",		      "name_for_search":"Debit chart"},
+                "about":                 {"url":"_C_/modules/about/about-this-website.html"}
+
+            }
+            //------------------------------------
+            for(p in $vm.module_list){
+                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
+                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://www.vmiis.com/');
+            }
+            //------------------------------------
+            $vm.start=function(){
+                $vm.init_v3({callback:function(){
+                   $vm.init_status=1;
+                   $('#c_header').contents().appendTo('#header');
+                   $('#c_footer').contents().appendTo('#footer');
+                   $vm.show_user();
+               }})
+            }
+            //------------------------------------
+            $vm.menu_click=function(href){
+                href=href.replace('?\/','');
+                href=href.replace(/\//g,'_');
+                $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+            }
+            //------------------------------------
+            $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            //------------------------------------
+            $vm.default_title="Woolworths credit cardn";
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
+            //------------------------------------
+            $vm.show=function(id){
+                document.title=$vm.default_title;
+                $("meta[name='description']").attr("content", "Single Page Application");
+                $("body").removeClass();
+                $("body").addClass('body_background_default');
+                if(id!=undefined && $vm.vm[id].show!=undefined){
+                    $vm.vm[id].show();
+                }
+            }
+            //------------------------------------
+            $vm.show();
+            //------------------------------------
+            $vm.root_layout_content_slot='content'
+            $vm.root_layout_footer='footer';
+            //------------------------------------
+            $vm.resources=[
+                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+                "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
+                "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
+                "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+                "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
+                "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
+                "https://apis.google.com/js/plusone.js",
+                "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
+                "https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
+                "https://www.gstatic.com/charts/loader.js"
+            ];
+            //---------------------------------------------
+            var url1="https://www.vmiis.com/modules/starter/starter-001.html"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/starter-001.html";
+            var url2="https://www.vmiis.com/modules/menu/topbar-menu.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/topbar-menu.html";
+            var urls=[url1,url2]; $vm.module_start_id=2;
+            //---------------------------------------------
+            $(urls).each(function(index,url){
+                var ver=localStorage.getItem(url+"ver");
+                var txt=localStorage.getItem(url+"txt");
+                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                        localStorage.setItem(url+"txt",new_txt);
+                        localStorage.setItem(url+"ver",$vm.ver[0]);
+                        console.log('loading from url. '+url);
+                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
+                    },'text');
+                }
+                else{
+                    console.log('loading from storage. '+url);
+                    $('#content').append(txt.replace(/__ID/g,'_'+index));
+                }
+                //---------------------------------------------
+            })
+            //---------------------------------------------
+        </script>
+        <!----------------------------------------------->
+        <style>
+            :root {
+                --menu-color: #fff;
+                --menu-hover-color: #29eca6;
+                --menu-hover-background-color: #555;
+
+                --dropdown-menu-color:#666;
+                --dropdown-menu-background-color:#f9f9f9;
+                --dropdown-menu-hover-color:#555;
+                --dropdown-menu-hover-background-color:#ddd;
+                --dropdown-menu-border-color:#ddd;
+
+                --mobile-title-color:#fff;
+                --mobile-hamburger-color:#fff;
+                --mobile-menu-background-color:#1c3144;
+                --mobile-break-point:700px;
+            }
+            html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
+            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+            .body_background_default{
+                background-image: url(https://image.vmiis.com/bk023.jpg);
+            }
+            #layout {
+                height: 100%;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                overflow:hidden;
+            }
+            #content{
+                overflow:auto;
+            }
+            #vm-logo-label-A{
+                font-family: Arial, sans-serif;
+                color:#fff;
+                font-size: 200%;
+                line-height:10px;
+                display:inline-block;
+            }
+            #vm-logo-label-B{
+                font-family: Arial, sans-serif;
+                color:#fff;
+                font-size: 93%;
+                line-height:80%;
+                display:inline-block;
+            }
+            #footer{
+                height:24px;
+                color: #fff;
+                padding: 3px;
+                background-color: #333;
+                font:80%/18px arial;
+                text-align: center;
+            }
+            /*----------------------*/
+            .vm-header{height:100px;background:rgba(0,0,0,0.6);}
+            .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
+            #vm-menu{ float:left;padding:50px 30px 0 30px;}
+            @media screen and (max-width: 900px){
+                .vm-header{height:50px;}
+                .vm-desk-logo{display:none;}
+                #vm-menu{padding:0;}
+            }
+            /*----------------------*/
+        </style>
+        <!----------------------------------------------->
+    </body>
+</html>

@@ -39,9 +39,12 @@
 <script>
 function F__ID(){
     //------------------------
-    VmInclude:__COMPONENT__/grid/grid.js
+    VmInclude:__COMPONENT__/grid/grid.v3.js
     //------------------------
-    var prefix=_mlist[$vm.vm['__ID'].name].prefix;
+    var this_module=$vm.module_list[$vm.vm['__ID'].name];
+    var prefix=this_module.prefix; if(prefix==undefined) prefix="";
+    //------------------------
+    //var prefix=_mlist[$vm.vm['__ID'].name].prefix;
     var record_tid=_mlist[prefix+'transaction-import'].table_id;
 	//-------------------------------------
     //year dropdown
