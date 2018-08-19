@@ -1,8 +1,0 @@
-{
-    "modules":
-	{
-        "portal": {"url":"modules/portal.html"},
-        "survey-form":	{"table_id":"20009702","url":"modules/business-demographic-survey-form.html","name_for_search":"Business demographic survey"},
-		"survey-data":	{"table_id":"20009702","url":"modules/business-demographic-survey-data.html","form_module":"survey-form","name_for_search":"Business demographic survey (record)"}
-	}
-}
