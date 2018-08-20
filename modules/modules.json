@@ -1,6 +1,7 @@
 {"modules":{
 	"tutorial":           	{"url":"tutorial.html"},
 	"portal":             	{"url":"portal.html"},
+	"module001":            {"url":"module001.html"},
 
 	"spa-hello-world": 		          {"url":"spa/hello-world.html"},
 	"spa-second-module": 	          {"url":"spa/second-module.html"},

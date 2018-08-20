@@ -1,0 +1,283 @@
+<div id=D__ID module=start>
+    <div system-html>
+        <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
+            <div>
+                <span id=vm_username></span>
+            </div>
+        </div>
+        <div style='position:fixed;right:20px;bottom:0'>
+            <span id=vm_system_info style='color:#555';></span>
+        </div>
+        <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $vm._start=function(){
+            //------------------------------------------
+            var data=''; for(var key in window.localStorage){ if(window.localStorage.hasOwnProperty(key)){ data+=window.localStorage[key]; }}
+            if(data.length>3000000) localStorage.clear();
+            //------------------------------------------
+            $vm.vm={}; $vm.version=$vm.ver[0]; $vm.reload='';
+            $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+            $vm.debug_message=true; //show debug message in console
+            //------------------------------------------
+            if($vm.default_production=='No'){
+                if(window.location.toString().indexOf('database=production')!=-1){
+                    $vm.server          ='production';
+                    $VmAPI.api_base     =$vm.api_path_production;
+                }
+                else{
+                    $vm.server          ='development';
+                    $VmAPI.api_base     =$vm.api_path_development;
+                }
+            }
+            else {
+                if(window.location.toString().indexOf('database=development')!=-1){
+                    $vm.server          ='development';
+                    $VmAPI.api_base     =$vm.api_path_development;
+                }
+                else{
+                    $vm.server          ='production';
+                    $VmAPI.api_base     =$vm.api_path_production;
+                }
+            }
+            //------------------------------------------
+            $vm.show_user=function(){
+            	var third=""
+            	if($vm.user_puid=="1") third=" (Google)";
+            	if($vm.user_puid=="2") third=" (Facebook)";
+            	if($vm.user=='guest'){
+            		$('#vm_username').text('');
+            		$('#vm_signin').removeClass('vm-hide');
+            		$('#vm_signout').addClass('vm-hide');
+            	}
+            	else{
+            		$('#vm_username').text('Signed in as '+ $vm.user+third);
+            		$('#vm_signin').addClass('vm-hide');
+            		$('#vm_signout').removeClass('vm-hide');
+            	}
+            }
+            //---------------------------------------------
+            window.onmessage=function(e){
+                if(e.data.username!=undefined && e.data.user_id!=undefined){
+                    $vm.user=e.data.username;
+                    $vm.user_id=e.data.user_id;
+                    $VmAPI.set_token(e.data.token,e.data.api_url,e.data.username,e.data.user_id,e.data.nickname);
+                    location.reload(true);
+                }
+            };
+            //------------------------------------
+            $vm.load_resources=function(links){
+                for(i in links){
+                    var e=links[i].split('.').pop();
+                    if(e=='css'){
+                        $('head').append("<link rel='stylesheet' href='"+links[i]+"'>");
+                    }
+                    else if(e=='js'){
+                        $vm.load_js_link(links[i])
+                    }
+                }
+                //-------------------------------------
+                $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html',"name_for_search":""};
+                $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html',"name_for_search":""};
+                $vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html',"name_for_search":""};
+                $vm.load_module_v2('_system_export_dialog_module','hidden',{})
+                $vm.load_module_v2('_system_import_dialog_module','hidden',{})
+                $vm.load_module_v2('uploading_file_dialog_module','hidden',{})
+                //-------------------------------------
+            }
+            //------------------------------------
+            setTimeout(function (){ $.ajaxSetup({cache:true}); $vm.load_resources($vm.resources); },10);
+            //------------------------------------
+            $vm.load_js_link=function(link){
+                $.getScript(link,function(){
+                    var nm=link.split('/').pop();
+                    nm=nm.replace(/\./g,'-');
+                    $vm[nm]=1;
+                    if(nm=='loader-js'){
+                        google.charts.load('current', {packages: ['corechart']});
+                    }
+                });
+            }
+            //------------------------------------
+            $vm.alert=function(msg){
+              $('#vm_alert_information div.modal-body').html( $('<div/>').html(msg).text() );
+              $("#vm_alert_information").modal();
+            }
+            //------------------------------------
+            $vm.close_alert=function(){
+              $('#vm_alert_information').modal('hide');
+            }
+            //------------------------------------
+            if($vm.server!='production') $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+            $vm.app_module=1;
+            //------------------------------------
+            if(sessionStorage["signinout"]==1){
+                sessionStorage["signinout"]=0;
+                $vm.load_module_v2("home",'',{});
+            }
+            else{
+                var a=window.location.href.split('?/');
+                if(a.length==1) $vm.load_module_v2("home",'',{});
+                else if(a.length==2){
+                    $vm.search_module=a[1].split('&')[0].replace(/\//g,'_');
+                    $vm.load_module_v2($vm.search_module,'',{});
+                }
+            }
+
+            //------------------------------------
+            var set_height=function(){
+                var header_height=$('#header').outerHeight();
+                var footer_height=$('#footer').outerHeight();
+                $vm.min_height=($('body').height()-header_height-footer_height);
+            }
+            //------------------------------------
+            set_height();window.onresize=function(){set_height();}
+            //-----------------------------------------
+        }
+        //------------------------------------
+        $vm._I=0; $vm._boot=function(){
+            $vm._I++;
+            if($vm._I==2){
+                $vm._id=$vm.module_start_id-1;
+                $vm._start(); $vm.start();
+            }
+        }
+        //------------------------------------------
+        $vm.url=function(text){
+            //replace some text in old modules to the correct ones
+            text=text.replace(/__HOST__\//g,$vm.hosting_path+'/');
+            text=text.replace(/__VER__/g,$vm.ver[0]);
+            text=text.replace(/__PARTS__\//g,'__COMPONENT__/');
+            text=text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/');
+            if(window.location.toString().indexOf('_d=1')!=-1){
+                //use local system files
+                var host=window.location.protocol+'//'+window.location.host;
+                text=text.replace(/https:\/\/api.vmiis.com/g,host+'/vmiis/api-2');
+                text=text.replace(/https:\/\/framework.vmiis.com/g,host+'/vmiis/framework-2');
+                text=text.replace(/https:\/\/component.vmiis.com/g,host+'/vmiis/component-2');
+            }
+            return text;
+        }
+        //---------------------------------------------
+        var url1=$vm.url("https://framework.vmiis.com/distribution/vmframework.min.js");
+        var url2=$vm.url("https://api.vmiis.com/distribution/vmapi.min.js");
+        var urls=[url1,url2];
+        //---------------------------------------------
+        $(urls).each(function(index,url){
+            var ver=localStorage.getItem(url+"ver");
+            var txt=localStorage.getItem(url+"txt");
+            if(ver!=$vm.ver[1] || txt==null || window.location.toString().indexOf('_d=1')!=-1){
+                $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                    localStorage.setItem(url+"txt",new_txt);
+                    localStorage.setItem(url+"ver",$vm.ver[0]);
+                    console.log('loading from url. '+url);
+                    $('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
+                    $vm._boot();
+                },'text');
+            }
+            else{
+                console.log('loading from storage. '+url);
+                $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>');
+                $vm._boot();
+            }
+            //---------------------------------------------
+        })
+        //---------------------------------------------
+    </script>
+    <style>
+        /*top right*/
+        #top_right_corner_0{
+            display:block;
+            position:fixed;
+            top:3px;
+            right:3px;
+            font-size:11px;
+            line-height:13px;
+            color:#fff;
+            z-index: 99999;
+        }
+        #vm_username{
+            float:right;
+        }
+        /*-------------------------------------------------------*/
+        .loader_0 {
+          height: 4px;
+          width: 100%;
+          position: relative;
+          overflow: hidden;
+          background-color: #ddd;
+        }
+        .loader_0:before{
+          display: block;
+          position: absolute;
+          content: "";
+          left: -200px;
+          width: 200px;
+          height: 4px;
+          background-color: #2980b9;
+          animation: loading 2s linear infinite;
+        }
+        /*animation*/
+        @keyframes loading {
+            from {left: -200px; width: 30%;}
+            50% {width: 30%;}
+            70% {width: 70%;}
+            80% { left: 50%;}
+            95% {left: 120%;}
+            to {left: 100%;}
+        }
+        @keyframes vm_menu_show {
+            from {max-height: 0px;}
+            to {max-height: 1000px;}
+        }
+        /*----------------------*/
+        @media screen and (max-width: 900px){
+            #FL_0{
+                display:none;
+            }
+        }
+        /*----------------------*/
+    	@keyframes vm_module_fadein {
+    		from { opacity:0; }
+    		to {opacity:1;}
+    	}
+        @keyframes vm_module_slide_in {
+    		from { margin-top:50%; }
+    		to {margin-top:0;}
+    	}
+        @keyframes vm_module_slide_out {
+            from { margin-top:0; }
+    		to {margin-top:-50%;}
+    	}
+        @media print {
+            html,body{
+                width:100%;
+                height:100%;
+                overflow:visible;
+            }
+            body * {
+                visibility: hidden;
+            }
+            #content_container_0, #content_container_0 *{
+                visibility: visible;
+            }
+        }
+    </style>
+</div>
