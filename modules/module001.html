@@ -59,6 +59,8 @@
 		for(p in $vm.module_list__ID){
 			$vm.module_list[p]=$vm.module_list__ID[p];
 		}
+
+//console.log( JSON.stringify($vm.module_list__ID,4))
 		//--------------------------------------------------------
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
 			$('#panel__ID a').each(function(){
@@ -91,20 +93,31 @@
 		})
 		//--------------------------------------------------------
 		$('#panel__ID u.try').on('click',function(e){
+			var the_module_table_id="";
 			var href=$(this).attr('href');
-			if($vm.module_list[href]!=undefined) href=$vm.module_list[href].url;
+			if($vm.module_list[href]!=undefined){
+				the_module_table_id=$vm.module_list[href].table_id;
+				href=$vm.module_list[href].url;
+			}
 			var title=href.split('/').pop().split('.html')[0];
 			var html="<!DOCTYPE html>\r\n";
 			var emul="\r\n";
 			jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				html=txt;
+				html+=txt;
             },'text');
-			$.get('modules/starter/web-emulator-standard.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				emul=txt;
+			$.get('modules/starter/starter-module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+				emul+=txt;
             },'text');
 			jQuery.ajaxSetup({async:true});
-			try_it_yourself(title,html+emul);
+
+			$vm.module_list__ID["the-module"]={
+				"table_id":the_module_table_id,
+				"url":"local"
+			}
+			var list="\r\n<scr"+"ipt>var _module_list="+JSON.stringify($vm.module_list__ID)+"</scr"+"ipt>\r\n";
+
+			try_it_yourself(title,html+list+emul);
 		})
 		//--------------------------------------------------------
         function download(filename, html) {
