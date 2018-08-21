@@ -24,14 +24,11 @@
         </div>
     </div>
 </div>
-
-
 <script>
 	//------------------------------------
     $vm.start_time=new Date().getTime();
-    $vm.api_path_development="https://cbs.wappsystem.com/dev/";
-    $vm.api_path_production="https://cbs.wappsystem.com/dev/";
-    $vm.default_production="No";
+    $vm.server          ='development';
+    $VmAPI.api_base     ="https://cbs.wappsystem.com/dev/";
     $vm.qid='10000000';
     $vm.vm_router=undefined;
     $vm.module_start_id=2;
@@ -45,8 +42,9 @@
             var module_txt=$('#D__ID').html();
             $('#D__ID').remove();
             $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
-    		localStorage.setItem($vm.hosting_path+"-local_txt",module_txt);
-    		localStorage.setItem($vm.hosting_path+"-local_ver",$vm.version);
+            var url=$vm.module_list["the-module"].url
+            localStorage.setItem(url+"_txt",module_txt);
+    		localStorage.setItem(url+"_ver",$vm.version);
             $vm.root_layout_content_slot="content";
             $vm.url=function(text){ return text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/'); }
             $vm.load_module_v2('the-module','',{})
@@ -59,54 +57,8 @@
         //------------------------------------------
         $vm.vm={}; $vm.version=$vm.ver[0]; $vm.reload='';
         $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
-        $vm.debug_message=true; //show debug message in console
+        $vm.debug_message=true;
         //------------------------------------------
-        if($vm.default_production=='No'){
-            if(window.location.toString().indexOf('database=production')!=-1){
-                $vm.server          ='production';
-                $VmAPI.api_base     =$vm.api_path_production;
-            }
-            else{
-                $vm.server          ='development';
-                $VmAPI.api_base     =$vm.api_path_development;
-            }
-        }
-        else {
-            if(window.location.toString().indexOf('database=development')!=-1){
-                $vm.server          ='development';
-                $VmAPI.api_base     =$vm.api_path_development;
-            }
-            else{
-                $vm.server          ='production';
-                $VmAPI.api_base     =$vm.api_path_production;
-            }
-        }
-        //------------------------------------------
-        $vm.show_user=function(){
-            var third=""
-            if($vm.user_puid=="1") third=" (Google)";
-            if($vm.user_puid=="2") third=" (Facebook)";
-            if($vm.user=='guest'){
-                $('#vm_username').text('');
-                $('#vm_signin').removeClass('vm-hide');
-                $('#vm_signout').addClass('vm-hide');
-            }
-            else{
-                $('#vm_username').text('Signed in as '+ $vm.user+third);
-                $('#vm_signin').addClass('vm-hide');
-                $('#vm_signout').removeClass('vm-hide');
-            }
-        }
-        //---------------------------------------------
-        window.onmessage=function(e){
-            if(e.data.username!=undefined && e.data.user_id!=undefined){
-                $vm.user=e.data.username;
-                $vm.user_id=e.data.user_id;
-                $VmAPI.set_token(e.data.token,e.data.api_url,e.data.username,e.data.user_id,e.data.nickname);
-                location.reload(true);
-            }
-        };
-        //------------------------------------
         $vm.load_resources=function(links){
             for(i in links){
                 var e=links[i].split('.').pop();
@@ -150,7 +102,7 @@
         }
         //------------------------------------
         if($vm.server!='production') $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
-        $vm.app_module=1;
+        //$vm.app_module=1;
         //------------------------------------
         var set_height=function(){
             var header_height=0;
@@ -171,18 +123,10 @@
     }
     //------------------------------------------
     $vm.url=function(text){
-        //replace some text in old modules to the correct ones
         text=text.replace(/__HOST__\//g,$vm.hosting_path+'/');
         text=text.replace(/__VER__/g,$vm.ver[0]);
         text=text.replace(/__PARTS__\//g,'__COMPONENT__/');
         text=text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/');
-        if(window.location.toString().indexOf('_d=1')!=-1){
-            //use local system files
-            var host=window.location.protocol+'//'+window.location.host;
-            text=text.replace(/https:\/\/api.vmiis.com/g,host+'/vmiis/api-2');
-            text=text.replace(/https:\/\/framework.vmiis.com/g,host+'/vmiis/framework-2');
-            text=text.replace(/https:\/\/component.vmiis.com/g,host+'/vmiis/component-2');
-        }
         return text;
     }
     //---------------------------------------------
