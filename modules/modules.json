@@ -1,7 +1,8 @@
 {"modules":{
 	"tutorial":           	{"url":"tutorial.html"},
 	"portal":             	{"url":"portal.html"},
-	"module001":            {"url":"module001.html"},
+	"commonly-used-form-fields":{"url":"../panels/commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
+	"sleepfix":					{"url":"../panels/sleepfix.html","prefix":"sleepfix_"},
 
 	"spa-hello-world": 		          {"url":"spa/hello-world.html"},
 	"spa-second-module": 	          {"url":"spa/second-module.html"},

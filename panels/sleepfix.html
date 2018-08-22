@@ -22,17 +22,22 @@
                 </ul>
             </div>
 			<div class=columnbox__ID>
-                <span>Unclassified</span>
+                <span>SleepFix</span>
                 <ul>
                     <li>
-                        <u class=try href=sfix-screening-form>Try it yourself</u>
-                        <u class=dld href=sfix-screening-form>Download</u>
-                        <a href=?/sfix-screening-form >SFIX screening form</a>
+                        <u class=try href=screening-form>Try it yourself</u>
+                        <u class=dld href=screening-form>Download</u>
+                        <a href=?/screening-form >Screening form</a>
                     </li>
 					<li>
-                        <u class=try href=sfix-screening-data>Try it yourself</u>
-                        <u class=dld href=sfix-screening-data>Download</u>
-                        <a href=?/sfix-screening-data >SFIX screening data</a>
+                        <u class=try href=screening-data>Try it yourself</u>
+                        <u class=dld href=screening-data>Download</u>
+                        <a href=?/screening-data >Screening data</a>
+                    </li>
+					<li>
+                        <u class=try href=pis-form>Try it yourself</u>
+                        <u class=dld href=pis-form>Download</u>
+                        <a href=?/pis-form >Information sheet</a>
                     </li>
                 </ul>
 			</div>
@@ -51,17 +56,7 @@
 	}
 </script>
 <script>
-	//----------------------------
-	$vm.module_list__ID={
-		"sfix-screening-form":{"table_id":"20011503","url":"https://management.sfix.com.au/modules/tasks/screening-form.html"},
-        "sfix-screening-data":{"table_id":"20011503","url":"https://management.sfix.com.au/modules/tasks/screening-data.html","form_module":"sfix-screening-form"},
-	}
-	//----------------------------
     function F__ID(){
-		//--------------------------------------------------------
-		for(p in $vm.module_list__ID){
-			$vm.module_list[p]=$vm.module_list__ID[p];
-		}
 		//--------------------------------------------------------
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
 			$('#panel__ID a').each(function(){
@@ -93,32 +88,44 @@
             }
 		})
 		//--------------------------------------------------------
-		$('#panel__ID u.try').on('click',function(e){
-			var the_module_table_id="";
-			var href=$(this).attr('href');
-			if($vm.module_list[href]!=undefined){
-				the_module_table_id=$vm.module_list[href].table_id;
-				href=$vm.module_list[href].url;
+		var get_html=function(href){
+			//var the_module_table_id="";
+			var thModule=$vm.module_list[prefix+href];
+			if($vm.module_list[prefix+href]!=undefined){
+				//the_module_table_id=$vm.module_list[prefix+href].table_id;
+				href=$vm.module_list[prefix+href].url;
 			}
-			var title=href.split('/').pop().split('.html')[0];
 			var html="<!DOCTYPE html>\r\n";
-			var emul="\r\n";
+			var S="<!"+"-- module start -------------------------------------------------------------------"+">\r\n";
+			var E="<!"+"-- module end -------------------------------------------------------------------"+">\r\n";
+			var starter="\r\n";
 			jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				html+=txt;
+				if(txt.indexOf("D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
+				html+=S+txt+E;
             },'text');
 			$.get('modules/starter/starter-module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				emul+=txt;
+				starter+=txt;
             },'text');
 			jQuery.ajaxSetup({async:true});
-
-			$vm.module_list__ID["the-module"]={
+			var mlist={};
+			mlist["the-module"]=thModule;
+			/*
+			{
 				"table_id":the_module_table_id,
 				"url":href
 			}
-			var list="\r\n<scr"+"ipt>var _module_list="+JSON.stringify($vm.module_list__ID)+"</scr"+"ipt>\r\n";
-			try_it_yourself(title,html+list+emul);
-		})
+			*/
+			for(p in $vm.module_list){
+				if(p.split('_')[0]+"_"==prefix){
+					mlist[p.replace(prefix,'')]=$vm.module_list[p];
+				}
+			}
+			var list="\r\n<scr"+"ipt>\r\nvar _module_list="+JSON.stringify(mlist,null,4)+"\r\n</scr"+"ipt>\r\n";
+			list=list.replace(/"prefix"/g,"\"_\"");
+			//list=list.replace(/"url": "modules/g,'"url":"https://www.vmiis.com/modules');
+			return html+list+starter;
+		}
 		//--------------------------------------------------------
         function download(filename, html) {
           var bytes = [];
@@ -134,31 +141,19 @@
           link.click();
           document.body.removeChild(link);
         }
-        $('#panel__ID u.dld').on('click',function(e){
-			var the_module_table_id="";
+		//--------------------------------------------------------
+		$('#panel__ID u.try').on('click',function(e){
 			var href=$(this).attr('href');
-			if($vm.module_list[href]!=undefined){
-				the_module_table_id=$vm.module_list[href].table_id;
-				href=$vm.module_list[href].url;
-			}
-			var title=href.split('/').pop().split('.html')[0];
-			var html="<!DOCTYPE html>\r\n";
-			var emul="\r\n";
-			jQuery.ajaxSetup({async:false});
-			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				html+=txt;
-            },'text');
-			$.get('modules/starter/starter-module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				emul+=txt;
-            },'text');
-			jQuery.ajaxSetup({async:true});
-
-			$vm.module_list__ID["the-module"]={
-				"table_id":the_module_table_id,
-				"url":href
-			}
-			var list="\r\n<scr"+"ipt>var _module_list="+JSON.stringify($vm.module_list__ID)+"</scr"+"ipt>\r\n";
-            download(title+".html",html+list+emul);
+			var title=href;
+			var html=get_html(href);
+			try_it_yourself(title,html);
+		})
+		//--------------------------------------------------------
+        $('#panel__ID u.dld').on('click',function(e){
+			var href=$(this).attr('href');
+			var title=href;
+			var html=get_html(href);
+            download(title+".html",html);
 		})
 		//--------------------------------------------------------
         $('#panel__ID u').on('click',function(){

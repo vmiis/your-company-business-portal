@@ -12,7 +12,13 @@
             <div menu id="vm_menu">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
                 <a href="?/tutorial"><i class="fa fa-th-list"></i> Tutorial</a>
-                <a href="?/module001"><i class="fa fa-th"></i> Module Templates</a>
+                <div class="vm_dropdown">
+                    <button class="vm_dropbtn"><i class="fa fa-list"></i> Module Templates <i class="fa fa-caret-down"></i></button>
+                    <div class="vm_dropdown-content">
+                        <a href="?/commonly-used-form-fields">Commonly used form fields</a>
+                        <a href="?/sleepfix">SleepFix</a>
+                    </div>
+                </div>
                 <a href="?/portal"><i class="fa fa-th"></i> App Templates</a>
                 <a href="?/about-this-website"><i class="fa fa-info-circle"></i> About</a>
                 <div class="vm_dropdown" id=vm_signin>
@@ -73,7 +79,9 @@
     //------------------------------------
     $vm.module_links=[
         "modules/modules.json",
-        "sleepfix|modules/sleepfix/modules.json",
+        "commonly-used-form-fields|modules/basic-form-fields/modules.json",
+        "sleepfix|https://management.sfix.com.au/modules/modules.json",
+
         "myf|apps/my-first-hello-world-module-in-an-application/index.json",
         "mep|apps/medical-practitioner/index.json",
         "w01|apps/website-template-001/index.json",
