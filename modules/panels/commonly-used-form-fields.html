@@ -141,6 +141,7 @@
 	}
     function F__ID(){
 		//--------------------------------------------------------
+		/*
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
 			$('#panel__ID a').each(function(){
 				var a=$(this).attr('href');
@@ -148,7 +149,7 @@
 				a=a.replace("https://woolcock-imr.github.io/","http://127.0.0.1:8000/woolcock-imr/");
 				$(this).attr('href',a);
 			})
-		}
+		}*/
 		//--------------------------------------------------------
 		$vm.vm["__ID"].show=function(){
 			document.title="Portal | "+$vm.default_title;
@@ -171,9 +172,11 @@
             }
 		})
 		//--------------------------------------------------------
-		var get_html=function(href){
-			var theModule=$vm.module_list[prefix+href];
+		var get_html=function(href0){
+			var href=href0;
+			var m_prefix="";
 			if($vm.module_list[prefix+href]!=undefined){
+				m_prefix=$vm.module_list[prefix+href].prefix;
 				href=$vm.module_list[prefix+href].url;
 			}
 			var html="<!DOCTYPE html>\r\n";
@@ -185,16 +188,20 @@
 				html+=S+txt+E;
             },'text');
 			jQuery.ajaxSetup({async:true});
+			var all_m_list = JSON.parse(JSON.stringify($vm.module_list));
             var mlist={};
+			var theModule=all_m_list[prefix+href0];
 			mlist["the-module"]=theModule;
-			for(p in $vm.module_list){
-				if(p.split('_')[0]+"_"==prefix){
-					mlist[p.replace(prefix,'')]=$vm.module_list[p];
+			for(p in all_m_list){
+				if($vm.remote_url!=undefined){
+					all_m_list[p].url=$vm.remote_url(all_m_list[p].url);
+					all_m_list[p].prefix="";
+				}
+				if(p.split('_')[0]+"_"==m_prefix){
+					mlist[p.replace(m_prefix,'')]=all_m_list[p];
 				}
 			}
 			var list="\r\n<scr"+"ipt>\r\nvar _module_list="+JSON.stringify(mlist,null,4)+"\r\n</scr"+"ipt>\r\n";
-			list=list.replace(/"prefix"/g,"\"_\"");
-			list=list.replace(/"url": "modules/g,'"url":"https://www.vmiis.com/modules');
             var starter="\r\n";
             starter+="<"+"!-- emulate the hosting environment  --"+">\r\n";
             starter+="<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css' />\r\n";

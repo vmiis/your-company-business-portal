@@ -38,7 +38,14 @@
                             <a href="?/unclassified">Unclassified</a>
                         </div>
                     </div>
-                    <a href="?/portal"><i class="fa fa-th"></i> App Templates</a>
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn"><i class="fa fa-list"></i> App Templates <i class="fa fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/basic">Basic</a>
+                            <a href="?/project">Projects</a>
+                            <a href="?/other">Others</a>
+                        </div>
+                    </div>
                     <a href="?/about-this-website"><i class="fa fa-info-circle"></i> About</a>
                     <div class="vm-dropdown" id=vm_signin>
                         <span class="vm-dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></span>
@@ -60,7 +67,7 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[357,315];
+            $vm={};$VmAPI={};$vm.ver=[358,316];
             $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -70,10 +77,10 @@
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
             $vm.module_links=[
-                "modules/modules.json",
-                "commonly-used-form-fields|modules/basic-form-fields/modules.json",
+                "commonly-used-form-fields|links/basic-form-fields.json",
+                "car-booking|links/car-booking.json",
                 "sleepfix|https://management.sfix.com.au/modules/modules.json",
-                "car-booking|car-booking.json",
+                "modules/modules.json",
                 "myf|apps/my-first-hello-world-module-in-an-application/index.json",
                 "mep|apps/medical-practitioner/index.json",
                 "w01|apps/website-template-001/index.json",
@@ -97,18 +104,27 @@
                 "il|apps/clinical-trials-005/pages/index.json",
             ];
             $vm.local_url=function(url){
-                urlR=url;
+                var urlR=url;
                 urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
                 urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
+                return urlR;
+            }
+            $vm.remote_url=function(url){
+                var urlR=url;
+                urlR=urlR.replace('http://127.0.0.1:8000/vmiis/your-company-business-portal/','https://www.vmiis.com/');
+                urlR=urlR.replace('http://127.0.0.1:8000/wappsystem/sleepfix-management/','https://management.sfix.com.au/');
                 return urlR;
             }
             $vm.module_list={
                 "home":                     {"url":"_C_/modules/home.html"},
                 "tutorial":           	    {"url":"_C_/modules/panels/tutorial.html"},
-            	"portal":             	    {"url":"_C_/modules/panels/portal.html"},
             	"commonly-used-form-fields":{"url":"_C_/modules/panels/commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
             	"sleepfix":					{"url":"_C_/modules/panels/sleepfix.html","prefix":"sleepfix_"},
                 "unclassified":				{"url":"_C_/modules/panels/unclassified.html"},
+                "basic":             	    {"url":"_C_/modules/panels/basic.html"},
+                "project":             	    {"url":"_C_/modules/panels/project.html"},
+                "other":             	    {"url":"_C_/modules/panels/other.html"},
+                "portal":             	    {"url":"_C_/modules/panels/portal.html"},
             }
             //------------------------------------
             for(p in $vm.module_list){
