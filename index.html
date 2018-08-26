@@ -105,8 +105,10 @@
             ];
             $vm.local_url=function(url){
                 var urlR=url;
-                urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
-                urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
+                if($vm.localhost==true){
+                    urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
+                    urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
+                }
                 return urlR;
             }
             $vm.remote_url=function(url){
