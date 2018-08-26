@@ -44,6 +44,16 @@
                         <u class=dld href=autocomplete-data>Download</u>
                         <a href=?/autocomplete-data >Autocomplete data</a>
                     </li>
+                    <li>
+                        <u class=try href=checkbox-form>Try it yourself</u>
+                        <u class=dld href=checkbox-form>Download</u>
+                        <a href=?/checkbox-form >Checkbox form</a>
+                    </li>
+                    <li>
+                        <u class=try href=checkbox-data>Try it yourself</u>
+                        <u class=dld href=checkbox-data>Download</u>
+                        <a href=?/checkbox-data >Checkbox data</a>
+                    </li>
                 </ul>
 			</div>
 		</div>
@@ -99,17 +109,18 @@
 			var html="<!DOCTYPE html>\r\n";
 			var S="<!"+"-- module start -------------------------------------------------------------------"+">\r\n";
 			var E="<!"+"-- module end -------------------------------------------------------------------"+">\r\n";
-			var starter="\r\n";
-			jQuery.ajaxSetup({async:false});
+            jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
 				if(txt.indexOf("id=D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
 				html+=S+txt+E;
             },'text');
-			$.get('modules/starter/starter-module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+            /*
+            $.get('modules/starter/module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
 				starter+=txt;
             },'text');
+            */
 			jQuery.ajaxSetup({async:true});
-			var mlist={};
+            var mlist={};
 			mlist["the-module"]=theModule;
 			for(p in $vm.module_list){
 				if(p.split('_')[0]+"_"==prefix){
@@ -119,7 +130,18 @@
 			var list="\r\n<scr"+"ipt>\r\nvar _module_list="+JSON.stringify(mlist,null,4)+"\r\n</scr"+"ipt>\r\n";
 			list=list.replace(/"prefix"/g,"\"_\"");
 			list=list.replace(/"url": "modules/g,'"url":"https://www.vmiis.com/modules');
-			return html+list+starter;
+            var starter="\r\n";
+            starter+="<!-- emulate the hosting environment  -->\r\n";
+            starter+="<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css' />\r\n";
+            starter+="<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />\r\n";
+            starter+="<scr"+"ipt src='https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js'></scr"+"ipt>\r\n";
+            starter+="<div id=content></div>\r\n";
+            starter+="<scr"+"ipt>\r\n$vm={};$VmAPI={};$vm.ver=[3,6];\r\n";
+            starter+="$.get('https://www.vmiis.com/modules/starter/module.html'+'?_='+$vm.ver[0],function(txt){\r\n";
+            starter+="   $('#content').append(txt);\r\n";
+            starter+="},'text');\r\n";
+            starter+="</scr"+"ipt>";
+            return html+list+starter;
 		}
 		//--------------------------------------------------------
         function download(filename, html) {

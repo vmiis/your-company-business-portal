@@ -54,8 +54,6 @@
 		$('#codepen_form_value').val(JSON.stringify(v));
 		$('#codepen_form').submit();
 	}
-</script>
-<script>
     function F__ID(){
 		//--------------------------------------------------------
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
@@ -89,10 +87,8 @@
 		})
 		//--------------------------------------------------------
 		var get_html=function(href){
-			//var the_module_table_id="";
 			var thModule=$vm.module_list[prefix+href];
 			if($vm.module_list[prefix+href]!=undefined){
-				//the_module_table_id=$vm.module_list[prefix+href].table_id;
 				href=$vm.module_list[prefix+href].url;
 			}
 			var html="<!DOCTYPE html>\r\n";
@@ -104,7 +100,7 @@
 				if(txt.indexOf("D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
 				html+=S+txt+E;
             },'text');
-			$.get('modules/starter/starter-module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+			$.get('modules/starter/module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
 				starter+=txt;
             },'text');
 			jQuery.ajaxSetup({async:true});
