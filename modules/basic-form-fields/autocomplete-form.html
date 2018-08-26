@@ -22,12 +22,24 @@ VmInclude:__COMPONENT__/module/form-toolbar.html
 		//-------------------------------------
 		VmInclude:__COMPONENT__/module/form.v1.js
         //-------------------------------------
-		var sql="with tb as (select name=JSON_VALUE(Information,'$.First_Name')+' '+JSON_VALUE(Information,'$.Last_Name'),value2=uid from [TABLE-20008490])";
-		sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
-		$vm.autocomplete($('#Client__ID'),sql,function(key,value){
-			$("#F__ID input[name="+key+"]").val($vm.text(value));
-		})
-		//-------------------------------------
+        var start=function(){
+            var sql="with tb as (select name=JSON_VALUE(Information,'$.First_Name')+' '+JSON_VALUE(Information,'$.Last_Name'),value2=uid from [TABLE-20008490])";
+    		sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+    		$vm.autocomplete($('#Client__ID'),sql,function(key,value){
+    			$("#F__ID input[name="+key+"]").val($vm.text(value));
+    		})
+        }
+        //-------------------------------------
+        var I=0;
+        var loop__ID=setInterval(function (){
+            if($vm['jquery-ui-min-js']!=undefined){
+                clearInterval(loop__ID); start();
+            }
+            I++; if(I>50){
+                clearInterval(loop__ID); alert("jquery-ui.min.js is not installed.");
+            }
+        },100);
+        //-------------------------------------
     }
 </script>
 <style>

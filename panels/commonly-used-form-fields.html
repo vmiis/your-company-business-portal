@@ -59,8 +59,6 @@
 		$('#codepen_form_value').val(JSON.stringify(v));
 		$('#codepen_form').submit();
 	}
-</script>
-<script>
     function F__ID(){
 		//--------------------------------------------------------
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
@@ -94,10 +92,8 @@
 		})
 		//--------------------------------------------------------
 		var get_html=function(href){
-			//var the_module_table_id="";
 			var theModule=$vm.module_list[prefix+href];
 			if($vm.module_list[prefix+href]!=undefined){
-				//the_module_table_id=$vm.module_list[prefix+href].table_id;
 				href=$vm.module_list[prefix+href].url;
 			}
 			var html="<!DOCTYPE html>\r\n";
@@ -106,7 +102,7 @@
 			var starter="\r\n";
 			jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				if(txt.indexOf("D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
+				if(txt.indexOf("id=D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
 				html+=S+txt+E;
             },'text');
 			$.get('modules/starter/starter-module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
@@ -115,12 +111,6 @@
 			jQuery.ajaxSetup({async:true});
 			var mlist={};
 			mlist["the-module"]=theModule;
-			/*
-			{
-				"table_id":the_module_table_id,
-				"url":href
-			}
-			*/
 			for(p in $vm.module_list){
 				if(p.split('_')[0]+"_"==prefix){
 					mlist[p.replace(prefix,'')]=$vm.module_list[p];
@@ -161,52 +151,6 @@
             download(title+".html",html);
 		})
 		//--------------------------------------------------------
-        $('#panel__ID u').on('click',function(){
-			var m=$(this).attr('m');
-            if(m!=undefined){
-				$vm.load_module_v2(prefix+m,'',{});
-            }
-            var a=$(this).attr('a');
-            if(a!=undefined){
-				if(a.substring(0,4)=='http'){
-					if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-						a=a.replace("https://wappsystem.github.io/","http://127.0.0.1:8000/wappsystem/");
-						a=a.replace("https://woolcock-imr.github.io/","http://127.0.0.1:8000/woolcock-imr/");
-					}
-					window.open(a);
-				}
-				else window.open('apps/'+a+'/');
-            }
-        })
-        //--------------------------------------------------------
-		var prefix_m="modules_"
-		$('.modules__ID u').each(function(){
-            var m2=$(this).attr('m2');
-            if(m2!=undefined){
-				if($vm.module_list[prefix_m+m2]==undefined){
-					$vm.module_list[prefix_m+m2]={
-						table_id:$(this).attr('table_id'),
-						url:$(this).attr('url'),
-						form_module:$(this).attr('form_module'),
-                        prefix:prefix_m
-					}
-				}
-            }
-        })
-        //--------------------------------------------------------
-		$('.modules__ID u').on('click',function(){
-			var m2=$(this).attr('m2');
-            if(m2!=undefined){
-				$vm.load_module_v2(prefix_m+m2,'',{});
-                return;
-            }
-            var http=$(this).text();
-            if(http.substring(0,4)=='http'){
-                if(http.indexOf('codepen')!=-1)  window.open(http.replace('.html',''));
-                return;
-            }
-        })
-        //--------------------------------------------------------
         $('#introduction__ID').on('click',function(){
 			var x=$(this).next('div');
             if(x.hasClass('introduction__ID')==false) x.addClass('introduction__ID');
@@ -217,7 +161,6 @@
 </script>
 <style>
 	#D__ID li u{
-		/*color:#666;*/
 		margin-right:10px;
 	}
 	.columnbox__ID{
