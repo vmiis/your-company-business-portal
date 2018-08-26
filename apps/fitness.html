@@ -51,7 +51,7 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[1.03,1.03];
+            $vm={};$VmAPI={};$vm.ver=[1.05,1.05];
             $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -96,7 +96,9 @@
             $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             //------------------------------------
             $vm.default_title="Workplace inspection";
-            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
+            var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
+            txt+=" More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>"
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+txt);
             //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;

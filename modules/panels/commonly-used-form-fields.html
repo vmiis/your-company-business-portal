@@ -54,6 +54,76 @@
                         <u class=dld href=checkbox-data>Download</u>
                         <a href=?/checkbox-data >Checkbox data</a>
                     </li>
+                    <li>
+                        <u class=try href=caculation-form>Try it yourself</u>
+                        <u class=dld href=caculation-form>Download</u>
+                        <a href=?/caculation-form >Caculation form</a>
+                    </li>
+                    <li>
+                        <u class=try href=caculation-data>Try it yourself</u>
+                        <u class=dld href=caculation-data>Download</u>
+                        <a href=?/caculation-data >Caculation data</a>
+                    </li>
+                    <li>
+                        <u class=try href=postcode-form>Try it yourself</u>
+                        <u class=dld href=postcode-form>Download</u>
+                        <a href=?/postcode-form >Postcode form</a>
+                    </li>
+                    <li>
+                        <u class=try href=postcode-data>Try it yourself</u>
+                        <u class=dld href=postcode-data>Download</u>
+                        <a href=?/postcode-data >Postcode data</a>
+                    </li>
+                    <li>
+                        <u class=try href=image-form>Try it yourself</u>
+                        <u class=dld href=image-form>Download</u>
+                        <a href=?/image-form >Image form</a>
+                    </li>
+                    <li>
+                        <u class=try href=image-data>Try it yourself</u>
+                        <u class=dld href=image-data>Download</u>
+                        <a href=?/image-data >Image data</a>
+                    </li>
+                    <li>
+                        <u class=try href=file-form>Try it yourself</u>
+                        <u class=dld href=file-form>Download</u>
+                        <a href=?/file-form >File form</a>
+                    </li>
+                    <li>
+                        <u class=try href=file-data>Try it yourself</u>
+                        <u class=dld href=file-data>Download</u>
+                        <a href=?/file-data >File data</a>
+                    </li>
+                    <li>
+                        <u class=try href=color-form>Try it yourself</u>
+                        <u class=dld href=color-form>Download</u>
+                        <a href=?/color-form >color form</a>
+                    </li>
+                    <li>
+                        <u class=try href=color-data>Try it yourself</u>
+                        <u class=dld href=color-data>Download</u>
+                        <a href=?/color-data >color data</a>
+                    </li>
+                    <li>
+                        <u class=try href=radio-form>Try it yourself</u>
+                        <u class=dld href=radio-form>Download</u>
+                        <a href=?/radio-form >Radio form</a>
+                    </li>
+                    <li>
+                        <u class=try href=radio-data>Try it yourself</u>
+                        <u class=dld href=radio-data>Download</u>
+                        <a href=?/radio-data >Radio data</a>
+                    </li>
+                    <li>
+                        <u class=try href=select-form>Try it yourself</u>
+                        <u class=dld href=select-form>Download</u>
+                        <a href=?/select-form >Select form</a>
+                    </li>
+                    <li>
+                        <u class=try href=select-data>Try it yourself</u>
+                        <u class=dld href=select-data>Download</u>
+                        <a href=?/select-data >Select data</a>
+                    </li>
                 </ul>
 			</div>
 		</div>
@@ -114,11 +184,6 @@
 				if(txt.indexOf("id=D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
 				html+=S+txt+E;
             },'text');
-            /*
-            $.get('modules/starter/module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				starter+=txt;
-            },'text');
-            */
 			jQuery.ajaxSetup({async:true});
             var mlist={};
 			mlist["the-module"]=theModule;
@@ -131,12 +196,12 @@
 			list=list.replace(/"prefix"/g,"\"_\"");
 			list=list.replace(/"url": "modules/g,'"url":"https://www.vmiis.com/modules');
             var starter="\r\n";
-            starter+="<!-- emulate the hosting environment  -->\r\n";
+            starter+="<"+"!-- emulate the hosting environment  --"+">\r\n";
             starter+="<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css' />\r\n";
             starter+="<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />\r\n";
             starter+="<scr"+"ipt src='https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js'></scr"+"ipt>\r\n";
             starter+="<div id=content></div>\r\n";
-            starter+="<scr"+"ipt>\r\n$vm={};$VmAPI={};$vm.ver=[3,6];\r\n";
+            starter+="<scr"+"ipt>\r\n$vm={};$VmAPI={};$vm.ver=[6,6];\r\n";
             starter+="$.get('https://www.vmiis.com/modules/starter/module.html'+'?_='+$vm.ver[0],function(txt){\r\n";
             starter+="   $('#content').append(txt);\r\n";
             starter+="},'text');\r\n";
@@ -145,18 +210,18 @@
 		}
 		//--------------------------------------------------------
         function download(filename, html) {
-          var bytes = [];
-          for (var i = 0; i < html.length; i++) bytes.push(html.charCodeAt(i));
-          var u8 = new Uint8Array(bytes);
-          var blob = new Blob([u8]);
-          var link = document.createElement("a");
-          link.setAttribute("href", window.URL.createObjectURL(blob));
-          link.setAttribute("download", name);
-          link.style = "visibility:hidden";
-          link.download = filename;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+            var bytes = [];
+            for (var i = 0; i < html.length; i++) bytes.push(html.charCodeAt(i));
+            var u8 = new Uint8Array(bytes);
+            var blob = new Blob([u8]);
+            var link = document.createElement("a");
+            link.setAttribute("href", window.URL.createObjectURL(blob));
+            link.setAttribute("download", name);
+            link.style = "visibility:hidden";
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 		//--------------------------------------------------------
 		$('#panel__ID u.try').on('click',function(e){
@@ -194,6 +259,7 @@
 		background-color: #fff;
 	}
 	#D__ID{
+        height:100%;
         color:#283f55;
         font-size:13px;
         font-family: Verdana,Arial,sans-serif;

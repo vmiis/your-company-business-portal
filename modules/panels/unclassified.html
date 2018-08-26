@@ -22,22 +22,17 @@
                 </ul>
             </div>
 			<div class=columnbox__ID>
-                <span>SleepFix</span>
+                <span>unclassified</span>
                 <ul>
                     <li>
-                        <u class=try href=screening-form>Try it yourself</u>
-                        <u class=dld href=screening-form>Download</u>
-                        <a href=?/screening-form >Screening form</a>
+                        <u class=try href=car-booking_car-form>Try it yourself</u>
+                        <u class=dld href=car-booking_car-form>Download</u>
+                        <a href=?/car-booking_car-form >Car form</a>
                     </li>
 					<li>
-                        <u class=try href=screening-data>Try it yourself</u>
-                        <u class=dld href=screening-data>Download</u>
-                        <a href=?/screening-data >Screening data</a>
-                    </li>
-					<li>
-                        <u class=try href=pis-form>Try it yourself</u>
-                        <u class=dld href=pis-form>Download</u>
-                        <a href=?/pis-form >Information sheet</a>
+                        <u class=try href=car-booking_car-data>Try it yourself</u>
+                        <u class=dld href=car-booking_car-data>Download</u>
+                        <a href=?/car-booking_car-data >Car data</a>
                     </li>
                 </ul>
 			</div>
@@ -87,31 +82,21 @@
 		})
 		//--------------------------------------------------------
 		var get_html=function(href){
-			var thModule=$vm.module_list[prefix+href];
+			var theModule=$vm.module_list[prefix+href];
 			if($vm.module_list[prefix+href]!=undefined){
 				href=$vm.module_list[prefix+href].url;
 			}
 			var html="<!DOCTYPE html>\r\n";
 			var S="<!"+"-- module start -------------------------------------------------------------------"+">\r\n";
 			var E="<!"+"-- module end -------------------------------------------------------------------"+">\r\n";
-			var starter="\r\n";
-			jQuery.ajaxSetup({async:false});
+            jQuery.ajaxSetup({async:false});
 			$.get(href+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				if(txt.indexOf("D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
+				if(txt.indexOf("id=D__"+"ID")==-1) txt="<div id=D__"+"ID>\r\n"+txt+"</div>\r\n";
 				html+=S+txt+E;
             },'text');
-			$.get('modules/starter/module.html'+'?_='+$vm.ver[0]+$vm.reload,function(txt){
-				starter+=txt;
-            },'text');
 			jQuery.ajaxSetup({async:true});
-			var mlist={};
-			mlist["the-module"]=thModule;
-			/*
-			{
-				"table_id":the_module_table_id,
-				"url":href
-			}
-			*/
+            var mlist={};
+			mlist["the-module"]=theModule;
 			for(p in $vm.module_list){
 				if(p.split('_')[0]+"_"==prefix){
 					mlist[p.replace(prefix,'')]=$vm.module_list[p];
@@ -119,23 +104,34 @@
 			}
 			var list="\r\n<scr"+"ipt>\r\nvar _module_list="+JSON.stringify(mlist,null,4)+"\r\n</scr"+"ipt>\r\n";
 			list=list.replace(/"prefix"/g,"\"_\"");
-			//list=list.replace(/"url": "modules/g,'"url":"https://www.vmiis.com/modules');
-			return html+list+starter;
+			list=list.replace(/"url": "modules/g,'"url":"https://www.vmiis.com/modules');
+            var starter="\r\n";
+            starter+="<"+"!-- emulate the hosting environment  --"+">\r\n";
+            starter+="<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css' />\r\n";
+            starter+="<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />\r\n";
+            starter+="<scr"+"ipt src='https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js'></scr"+"ipt>\r\n";
+            starter+="<div id=content></div>\r\n";
+            starter+="<scr"+"ipt>\r\n$vm={};$VmAPI={};$vm.ver=[6,6];\r\n";
+            starter+="$.get('https://www.vmiis.com/modules/starter/module.html'+'?_='+$vm.ver[0],function(txt){\r\n";
+            starter+="   $('#content').append(txt);\r\n";
+            starter+="},'text');\r\n";
+            starter+="</scr"+"ipt>";
+            return html+list+starter;
 		}
 		//--------------------------------------------------------
         function download(filename, html) {
-          var bytes = [];
-          for (var i = 0; i < html.length; i++) bytes.push(html.charCodeAt(i));
-          var u8 = new Uint8Array(bytes);
-          var blob = new Blob([u8]);
-          var link = document.createElement("a");
-          link.setAttribute("href", window.URL.createObjectURL(blob));
-          link.setAttribute("download", name);
-          link.style = "visibility:hidden";
-          link.download = filename;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+            var bytes = [];
+            for (var i = 0; i < html.length; i++) bytes.push(html.charCodeAt(i));
+            var u8 = new Uint8Array(bytes);
+            var blob = new Blob([u8]);
+            var link = document.createElement("a");
+            link.setAttribute("href", window.URL.createObjectURL(blob));
+            link.setAttribute("download", name);
+            link.style = "visibility:hidden";
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 		//--------------------------------------------------------
 		$('#panel__ID u.try').on('click',function(e){
@@ -152,52 +148,6 @@
             download(title+".html",html);
 		})
 		//--------------------------------------------------------
-        $('#panel__ID u').on('click',function(){
-			var m=$(this).attr('m');
-            if(m!=undefined){
-				$vm.load_module_v2(prefix+m,'',{});
-            }
-            var a=$(this).attr('a');
-            if(a!=undefined){
-				if(a.substring(0,4)=='http'){
-					if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-						a=a.replace("https://wappsystem.github.io/","http://127.0.0.1:8000/wappsystem/");
-						a=a.replace("https://woolcock-imr.github.io/","http://127.0.0.1:8000/woolcock-imr/");
-					}
-					window.open(a);
-				}
-				else window.open('apps/'+a+'/');
-            }
-        })
-        //--------------------------------------------------------
-		var prefix_m="modules_"
-		$('.modules__ID u').each(function(){
-            var m2=$(this).attr('m2');
-            if(m2!=undefined){
-				if($vm.module_list[prefix_m+m2]==undefined){
-					$vm.module_list[prefix_m+m2]={
-						table_id:$(this).attr('table_id'),
-						url:$(this).attr('url'),
-						form_module:$(this).attr('form_module'),
-                        prefix:prefix_m
-					}
-				}
-            }
-        })
-        //--------------------------------------------------------
-		$('.modules__ID u').on('click',function(){
-			var m2=$(this).attr('m2');
-            if(m2!=undefined){
-				$vm.load_module_v2(prefix_m+m2,'',{});
-                return;
-            }
-            var http=$(this).text();
-            if(http.substring(0,4)=='http'){
-                if(http.indexOf('codepen')!=-1)  window.open(http.replace('.html',''));
-                return;
-            }
-        })
-        //--------------------------------------------------------
         $('#introduction__ID').on('click',function(){
 			var x=$(this).next('div');
             if(x.hasClass('introduction__ID')==false) x.addClass('introduction__ID');
@@ -208,7 +158,6 @@
 </script>
 <style>
 	#D__ID li u{
-		/*color:#666;*/
 		margin-right:10px;
 	}
 	.columnbox__ID{
@@ -220,6 +169,7 @@
 		background-color: #fff;
 	}
 	#D__ID{
+        height:100%;
         color:#283f55;
         font-size:13px;
         font-family: Verdana,Arial,sans-serif;
