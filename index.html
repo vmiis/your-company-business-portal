@@ -35,6 +35,7 @@
                         <div class="vm-dropdown-content">
                             <a href="?/commonly-used-form-fields">Commonly used form fields</a>
                             <a href="?/sleepfix">SleepFix</a>
+                            <a href="?/shiftwork">Shiftwork</a>
                             <a href="?/unclassified">Unclassified</a>
                         </div>
                     </div>
@@ -80,6 +81,7 @@
                 "commonly-used-form-fields|links/basic-form-fields.json",
                 "car-booking|links/car-booking.json",
                 "sleepfix|https://management.sfix.com.au/modules/modules.json",
+                "shiftwork|https://shiftwork.rt.org.au/modules.json",
                 "modules/modules.json",
                 "myf|apps/my-first-hello-world-module-in-an-application/index.json",
                 "mep|apps/medical-practitioner/index.json",
@@ -108,6 +110,7 @@
                 if($vm.localhost==true){
                     urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
                     urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
+                    urlR=urlR.replace('https://shiftwork.rt.org.au/','http://127.0.0.1:8000/woolcock-imr/shiftwork/');
                 }
                 return urlR;
             }
@@ -115,14 +118,18 @@
                 var urlR=url;
                 urlR=urlR.replace('http://127.0.0.1:8000/vmiis/your-company-business-portal/','https://www.vmiis.com/');
                 urlR=urlR.replace('http://127.0.0.1:8000/wappsystem/sleepfix-management/','https://management.sfix.com.au/');
+                urlR=urlR.replace('http://127.0.0.1:8000/woolcock-imr/shiftwork/','https://shiftwork.rt.org.au/');
                 return urlR;
             }
             $vm.module_list={
                 "home":                     {"url":"_C_/modules/home.html"},
                 "tutorial":           	    {"url":"_C_/modules/panels/tutorial.html"},
-            	"commonly-used-form-fields":{"url":"_C_/modules/panels/commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
+
+                "commonly-used-form-fields":{"url":"_C_/modules/panels/commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
             	"sleepfix":					{"url":"_C_/modules/panels/sleepfix.html","prefix":"sleepfix_"},
+                "shiftwork":             	{"url":"_C_/modules/panels/shiftwork.html"},
                 "unclassified":				{"url":"_C_/modules/panels/unclassified.html"},
+
                 "basic":             	    {"url":"_C_/modules/panels/basic.html"},
                 "project":             	    {"url":"_C_/modules/panels/project.html"},
                 "other":             	    {"url":"_C_/modules/panels/other.html"},
@@ -162,7 +169,7 @@
                 $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
                 $("body").removeClass();
                 $("body").addClass('body_background_default');
-                if(id!=undefined && $vm.vm[id].show!=undefined){
+                if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined){
                     $vm.vm[id].show();
                 }
             }

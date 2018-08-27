@@ -185,13 +185,15 @@
                 var N=rm.length;
                 //------------------------------------------
                 var load_url=function(url,next){
+                    if($vm.local_url!=undefined){
+                        url=$vm.local_url(url);
+                    }
                     var storage_url=url;
                     //------------------------------------------
                     var ver=localStorage.getItem(storage_url+"_ver");
                     var txt=localStorage.getItem(storage_url+"_txt");
                     //------------------------------------------
-                    var http127_i=0;
-            		if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1) http127_i=1;
+                    var http127_i=0; if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1) http127_i=1;
                     if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || http127_i==1){
                         console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url+'?_='+$vm.ver[0]+$vm.reload)
                         $.get(url+'?_='+$vm.ver[0]+$vm.reload,function(data){
@@ -231,6 +233,9 @@
                                     if(snm==undefined) snm=prefix+k;
                                     //$vm.website_module_list_for_search.push({label:snm,value:prefix+k})
                                 }
+                            }
+                            else{
+                                $vm.module_list[prefix+k]=modules[k];
                             }
                         }
                         if(I==N-1){ //all module's link are ready
@@ -291,7 +296,7 @@
             if(ver!=$vm.ver[1] || txt==null || window.location.toString().indexOf('_d=1')!=-1){
                 $.get(url+'?_='+new Date().getTime(),function(new_txt){
                     localStorage.setItem(url+"txt",new_txt);
-                    localStorage.setItem(url+"ver",$vm.ver[0]);
+                    localStorage.setItem(url+"ver",$vm.ver[1]);
                     console.log('loading from url. '+url);
                     $('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
                     $vm._boot();
