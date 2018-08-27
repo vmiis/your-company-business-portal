@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="description" content="SleepFix">
+        <link rel="icon" href="data:,">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     </head>
@@ -30,15 +32,15 @@
                   </div>
                 </div>
                 <div class="container mt-0" id=logos__ID style="">
-                  <div class="row justify-content-left px-0">
+                  <div class="row justify-content-center px-0">
                     <div class="col-4-sm ">
-                        <a><img src="https://www.sfix.com.au/images/crc-logo.png" style="width:250px" alt="CRC Alertness,Productivity and Safety"/></a>
+                        <a><img src="https://www.sfix.com.au/images/crc-logo.png" style="width:175px;margin-top:3px" alt="CRC Alertness,Productivity and Safety"/></a>
                     </div>
                     <div class="col-4-sm ">
-                        <a ><img src="https://www.sfix.com.au/images/usyd_new_logo.png" style="width:250px" alt="USYD"/></a>
+                        <a ><img src="https://www.sfix.com.au/images/usyd_new_logo.png" style="width:175px" alt="USYD"/></a>
                     </div>
                     <div class="col-4-sm ">
-                        <a ><img src="https://www.sfix.com.au/images/woolcock.gif" style="width:300px" alt="Woolcock"/></a>
+                        <a ><img src="https://www.sfix.com.au/images/woolcock.gif" style="width:200px;margin-top:5px" alt="Woolcock"/></a>
                     </div>
                   </div>
                 </div>
@@ -48,7 +50,7 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[1.05,1.05];
+            $vm={};$VmAPI={};$vm.ver=[229,229];
             $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -57,58 +59,92 @@
             $vm.vm_router=undefined;
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
             //------------------------------------
-            $vm.module_list={
-                "home":                             {"url":"_C_/modules/home.html"},
-                "screening-form":                   {"table_id":"20011503", "url":"_C_/modules/tasks/mirror/screening-form.html"},
-                "pis-form":                         {                       "url":"_C_/modules/tasks/mirror/pis-form.html"},
-                "consent-form":                     {"table_id":"20011504", "url":"_C_/modules/tasks/mirror/consent-form.html"},
-                "registration-form":                {"table_id":"20011505", "url":"_C_/modules/tasks/mirror/registration-form.html"},
-                "screen-failure-phq-9":             {"url":"_C_/modules/tasks/screen-failure-phq-9.html"},
-                "screen-failure-thank-you-page":    {"url":"_C_/modules/tasks/screen-failure-thank-you-page.html"},
-                "sleepfix-study-page":              {"url":"_C_/modules/tasks/sleepfix-study-page.html"}
+            $vm.local_url=function(url){
+                var urlR=url;
+                if($vm.localhost==true){
+                    urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
+                    urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
+                    urlR=urlR.replace('https://www.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix/');
+                }
+                return urlR;
             }
             //------------------------------------
-            for(p in $vm.module_list){
-                if($vm.localhost) $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','http://127.0.0.1:8000/wappsystem/sleepfix/');
-                else              $vm.module_list[p].url=$vm.module_list[p].url.replace('_C_/','https://www.sfix.com.au/');
+            $vm.remote_url=function(url){
+                var urlR=url;
+                urlR=urlR.replace('http://127.0.0.1:8000/vmiis/your-company-business-portal/','https://www.vmiis.com/');
+                urlR=urlR.replace('http://127.0.0.1:8000/wappsystem/sleepfix-management/','https://management.sfix.com.au/');
+                urlR=urlR.replace('http://127.0.0.1:8000/wappsystem/sleepfix/','https://www.sfix.com.au/');
+                return urlR;
             }
+            //------------------------------------
+            $vm.module_links=[
+                "https://www.sfix.com.au/modules.json",
+            ];
+            $vm.module_list={
+                "home": {"url":"https://www.sfix.com.au/modules/home.html"},
+            }
+            //------------------------------------
+            for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
             //------------------------------------
             $vm.start=function(){
                 $vm.init_v3({callback:function(){
                    $vm.init_status=1;
+                   $('#c_header').contents().appendTo('#header');
+                   $('#c_footer').contents().appendTo('#footer');
                    $vm.show_user();
                }})
             }
             //------------------------------------
-            $vm.default_title="SleepFix Study Page";
+            $vm.menu_click=function(href){
+                href=href.replace('?\/','');
+                href=href.replace(/\//g,'_');
+                $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+            }
+            //------------------------------------
+            $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+            //------------------------------------
+            $vm.default_title="SleepFix";
             //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;
                 $("meta[name='description']").attr("content", "SleepFix");
                 $("body").removeClass();
                 $("body").addClass('body_background_default');
-                if(id!=undefined && $vm.vm[id].show!=undefined){
+                if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined){
                     $vm.vm[id].show();
                 }
             }
             //------------------------------------
             $vm.show();
             //------------------------------------
-            $('#c_header').contents().appendTo('#header');
-            $('#c_footer').contents().appendTo('#footer');
-            //------------------------------------
             $vm.root_layout_content_slot='content'
             $vm.root_layout_footer='footer';
             //------------------------------------
-            $vm.resources=[
-                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-            ];
+            var url1="https://www.vmiis.com/modules/starter/app.html";          if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/app.html";
+            var url2="https://www.vmiis.com/modules/menu/topbar-menu.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/topbar-menu.html";
+            var urls=[url1,url2]; $vm.module_start_id=2;
             //---------------------------------------------
-            $.ajaxSetup({cache:true});
-            var url="https://component.vmiis.com/app/os-001.html";
-            if($vm.localhost) url="http://127.0.0.1:8000/vmiis/component-2/app/os-001.html";
-            $.get(url+'?_='+$vm.ver[1]+$vm.reload,function(data){$('#content').append(data);},'text');
+            $(urls).each(function(index,url){
+                var ver=localStorage.getItem(url+"ver");
+                var txt=localStorage.getItem(url+"txt");
+                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                        localStorage.setItem(url+"txt",new_txt);
+                        localStorage.setItem(url+"ver",$vm.ver[0]);
+                        console.log('loading from url. '+url);
+                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
+                    },'text');
+                }
+                else{
+                    console.log('loading from storage. '+url);
+                    $('#content').append(txt.replace(/__ID/g,'_'+index));
+                }
+                //---------------------------------------------
+            })
             //---------------------------------------------
+
+
 
             //-------------------------------------
             $('#btn1_0').on('click',function(){
@@ -131,7 +167,6 @@
                alert("Where to go?");
             })
             //-------------------------------------
-
         </script>
         <!----------------------------------------------->
         <style>
@@ -162,7 +197,7 @@
             #vm_logo{
                 padding-top:0px;
             }
-            .vm-hide{
+            .vm_hide{
                 display:none!Important;
             }
         </style>
@@ -192,7 +227,7 @@
             	color: #23807F;
             }
             footer {
-            	background-color: #23807F !important;
+            	background-color: #A2D5CB !important;
             	height: 290px !important;
             	padding-top: 35px;
             }
@@ -216,7 +251,7 @@
                 footer {
                 	height: 200px !important;
                 }
-
+            }
             /*------------------------*/
         </style>
     </body>
