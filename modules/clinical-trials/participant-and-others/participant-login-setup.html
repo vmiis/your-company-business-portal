@@ -109,11 +109,11 @@
             	var task=visit;
                 var pid="";
             	txt+="<tr><td>"+No+"</td><td></td><td>"+task+"</td><td><input data-visit='"+task+"' type=checkbox class=visit__ID /></td></tr>";
-                var sublist=q_list[visit];
-                for(k in sublist){
+                var visit_array=q_list[visit];
+                for(k in visit_array){
                     No++;
-                    pid=sublist[k].table_id;
-                    task=sublist[k].task_name;
+                    pid=visit_array[k].table_id;
+                    task=visit_array[k].task_name;
                     txt+="<tr><td>"+No+"</td><td>"+pid+"</td><td>"+tab+dot+task+"</td><td><input id=task__ID"+pid+" type=checkbox class=item__ID /></td></tr>";
                 }
             }
@@ -123,16 +123,16 @@
             //check and uncheck group checkbox
             $('.visit__ID').on('click',function(){
                 var data_visit=$(this).attr('data-visit');
-                var sublistA=q_list[data_visit];
+                var visit_array=q_list[data_visit];
                 if( $(this).prop('checked')==true){
-                    for(k in sublistA){
-                        var pid=sublistA[k].table_id;
+                    for(k in visit_array){
+                        var pid=visit_array[k].table_id;
                         $("#task__ID"+pid).prop('checked',true);
                     }
                 }
                 else{
-                    for(k in sublistA){
-                        var pid=sublistA[k].table_id;
+                    for(k in visit_array){
+                        var pid=visit_array[k].table_id;
 						$("#task__ID"+pid).prop('checked',false);
                     }
                 }
