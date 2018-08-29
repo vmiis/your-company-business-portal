@@ -28,7 +28,6 @@
 	"about-this-website":   {"url":"about/about-this-website.html","name_for_search":"About this website"},
 	"tutorial_introduction":{"url":"tutorial/01-introduction.html"},
 	"business":    	    	{"url":"panels/business.html"},
-    "clinical-trials":  	{"url":"panels/clinical-trials.html"},
     "development": 	    	{"url":"panels/development.html"},
     "dm_panel-001":	        {"url":"panels/distributed-modules.html"},
     "others":      	    	{"url":"panels/others.html"},

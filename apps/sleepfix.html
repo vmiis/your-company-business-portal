@@ -5,6 +5,7 @@
         <meta name="description" content="SleepFix">
         <link rel="icon" href="data:,">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab' />
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     </head>
     <body>
@@ -50,7 +51,7 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[229,229];
+            $vm={};$VmAPI={};$vm.ver=[230,230];
             $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -58,6 +59,13 @@
             $vm.qid='20011572';
             $vm.vm_router=undefined;
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+            //------------------------------------
+            $vm.module_links=[
+                "https://www.sfix.com.au/modules.json",
+            ];
+            $vm.module_list={
+                "home": {"url":"https://www.sfix.com.au/modules/home.html"},
+            }
             //------------------------------------
             $vm.local_url=function(url){
                 var urlR=url;
@@ -69,21 +77,7 @@
                 return urlR;
             }
             //------------------------------------
-            $vm.remote_url=function(url){
-                var urlR=url;
-                urlR=urlR.replace('http://127.0.0.1:8000/vmiis/your-company-business-portal/','https://www.vmiis.com/');
-                urlR=urlR.replace('http://127.0.0.1:8000/wappsystem/sleepfix-management/','https://management.sfix.com.au/');
-                urlR=urlR.replace('http://127.0.0.1:8000/wappsystem/sleepfix/','https://www.sfix.com.au/');
-                return urlR;
-            }
-            //------------------------------------
-            $vm.module_links=[
-                "https://www.sfix.com.au/modules.json",
-            ];
-            $vm.module_list={
-                "home": {"url":"https://www.sfix.com.au/modules/home.html"},
-            }
-            //------------------------------------
+            for(p in $vm.module_links) $vm.module_links[p]=$vm.local_url($vm.module_links[p]);
             for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
             //------------------------------------
             $vm.start=function(){
@@ -173,7 +167,7 @@
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
-                background-image: url(https://www.sfix.com.au/images/layout.jpg);
+                background-image: url("https://www.sfix.com.au/images/layout.jpg");
             }
             #layout {
                 height: 100%;
@@ -203,7 +197,6 @@
         </style>
         <!----------------------------------------------->
         <style third-party>
-            @import url('https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab');
             .navbar {
                 background-color: rgba(162, 213, 203, 0.7) !important;
                 border-bottom: 1px solid #fff !important;

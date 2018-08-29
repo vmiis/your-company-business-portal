@@ -1,0 +1,49 @@
+<div id=D__ID>
+    <section>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            //Vm Include:__CURRENT_PATH__/task-data.js
+            //-------------------------------------
+            var fields="Date_of_Visit";
+            m.fields="_Form,Status|S3,Notes|NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+            m.form_fields=fields;
+            //-------------------------------------
+            /*
+            $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
+            $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
+            //-------------------------------------
+            _cell_render=function(records,I,field,td,set_value,source){
+                _default_cell_render(records,I,field,td,set_value,source);
+                switch(field){
+                    case 'Visit_date':
+                        records[I].vm_custom[field]=true;
+                        td.html('<input style="border:0; width:80px" />')
+                        td.find('input').val(records[I][field])
+                        td.find('input').datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true,onClose:function(dateText) {
+                            set_value(dateText,records,I,field);
+                        }});
+                        break;
+                    }
+            }
+            //-------------------------------------
+            _before_submit=function(record,dbv){
+                return _set_status_and_participant(record,dbv);
+            }
+            //-------------------------------------
+            */
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+        #D__ID{
+            height:100%;
+            overflow:auto;
+            animation: vm_module_fadein 1.0s;
+            background-color: #fff;
+        }
+    </style>
+</div>

@@ -1,0 +1,109 @@
+<div id=D__ID>
+    <section>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            //-------------------------------------
+            var fields="Participant_ID,Participant,Task,Short_Title,Contents,Color";
+            m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            m.form_fields=fields;
+            //-------------------------------------
+            m.cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+    				case 'Color':
+        				var html='<input style="border:0;width:40px" type=Color />';
+        				$vm.render_color_field(records[I],'__ID',td,html)
+    				break;
+                    case 'Participant_ID':
+    				case 'Participant':
+    				case 'Task':
+    					records[I].vm_readonly[field]=true;
+                        break;
+                }
+            }
+            //-------------------------------------
+            $('#new__ID').off('click').on('click',function(){
+                var task_record=m.input.record;
+                var task_module=m.input.task_module;
+                var GUID=task_record.Participant_uid;
+                var PUID=task_record.UID;
+                var PPID=m.input.pid;
+                $vm.load_module_v2(form_module,'',{
+                    record:{
+                        Participant_ID:task_record.Participant_uid,
+                        Participant:task_record.Participant,
+                        Task:$vm.module_list[task_module].name_for_search,
+                        Color:"#008800",
+                    },
+                    dbv:{
+        	            GUID:task_record.Participant_uid,
+                        PPID:PPID,
+                        PUID:PUID
+                    },
+                    goback:1
+                })
+            })
+            //-------------------------------------
+            m.before_submit=function(record,dbv){
+    			var task_record=m.input.record;
+    			if(task_record!=undefined){
+    				var task_pid=m.input.pid;
+    	            var task_record_uid=task_record.UID;
+    	            var task_record_pid=task_pid;
+    	            if(task_record_uid!==undefined) dbv.PUID=task_record_uid;
+    	            if(task_record_pid!==undefined) dbv.PPID=task_record_pid;
+    	            dbv.GUID=task_record.Participant_uid;
+    	            //dbv.GPID=participant_tid;
+    			}
+    			dbv.S1=record.Short_Title;
+    			dbv.S2=record.Color;
+    			$vm.refresh=1;
+                return true;
+            };
+            //-------------------------------------
+    		m.set_req=function(){
+                //-------------------
+                $('#new__ID').show();
+    			var record=m.input.record;
+    			var pid=m.input.pid;
+    			if(record===undefined){
+    				$('#new__ID').hide();
+    			}
+                //-------------------
+                var sql="with tb as (select Information,ID,UID,PPID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+m.db_pid+"-@S1] )";
+                sql+="select Information,ID,UID,PPID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+                var sql_n="select count(ID) from [TABLE-"+m.db_pid+"-@S1]";
+                //-------------------
+                if(record!==undefined){
+    				var sql_where=" PPID="+pid+ "and PUID="+record.UID;
+                    sql=sql.replace('RowNum between @I6 and @I7',sql_where);
+                    sql_n+=" where "+sql_where;
+                }
+                //-------------------
+                m.req={cmd:'read',qid:m.qid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+            }
+            //-------------------------------------
+            /*
+            var _data_process=function(){
+                if($vm.refresh2==1){
+                    $vm.refresh2=0;
+                    $vm.refresh=1;
+                }
+            }
+            */
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+        #D__ID{
+            height:100%;
+            overflow:auto;
+            animation: vm_module_fadein 1.0s;
+            background-color: #fff;
+        }
+    </style>
+</div>

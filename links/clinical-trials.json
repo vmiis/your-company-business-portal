@@ -1,0 +1,76 @@
+{
+	"modules":
+	{
+
+    	"main":   {"url":"https://www.vmiis.com/modules/clinical-trials/panels/main.html"},
+  		"child":  {"url":"https://www.vmiis.com/modules/clinical-trials/panels/child.html"},
+		"quest":  {"url":"https://www.vmiis.com/modules/clinical-trials/panels/quest.html"},
+
+		"participant-data":     	{"table_id":"20005031",     "url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/participant-data.html", 	"form_module":"participant-form"},
+		"participant-form":     	{"table_id":"20005031",     "url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/participant-form.html"},
+		"edc-notes-data":	  		{"table_id":"20007822",		"url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/edc-notes-data.html",		"form_module":"edc-notes-form"},
+		"edc-notes-form":	  		{"table_id":"20007822",		"url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/edc-notes-form.html"},
+		"participant-login-setup":	{"table_id":"20007821",		"url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/participant-login-setup.html"},
+
+
+		"day1-date-of-visit-data":	 	{"table_id":"20011208",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-data.html",	"form_module":"day1-date-of-visit-form"},
+		"day1-date-of-visit-form":	 	{"table_id":"20011208",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-form.html"},
+
+
+		"Ethnicity" : {"table_id" : "20011120","url":"https://www.vmiis.com/modules/clinical-trials/tasks/ethnicity.html","task" : "Ethnicity","form_module" : "Ethnicity_form"},
+	 	"Ethnicity_form" : {"table_id" : "20011120","url":"https://www.vmiis.com/modules/clinical-trials/tasks/ethnicity.form.html"},
+	 	"Lifestyle" : {"table_id" : "20011121","url":"https://www.vmiis.com/modules/clinical-trials/tasks/lifestyle.html","task" : "Lifestyle","form_module" : "Lifestyle_form"},
+		"Lifestyle_form" : {"table_id" : "20011121","url":"https://www.vmiis.com/modules/clinical-trials/tasks/lifestyle.form.html"},
+		"Education" : { "table_id" : "20011204","url":"https://www.vmiis.com/modules/clinical-trials/tasks/education.html","task" : "Education","form_module" : "Education_form"},
+
+		"quest_list":{
+			"list":{
+				"General information":[
+					{"table_id":"20011120","task_name":"Ethnicity"},
+                    {"table_id":"20011121","task_name":"Lifestyle"},
+                    {"table_id":"20011204","task_name":"Education"},
+                    {"table_id":"20011205","task_name":"Medical_history"}
+				],
+				"Adverse Events & Concom":[
+					{"table_id":"20011207","task_name":"Concom_meds"}
+				],
+				"Screening":[
+					{"table_id":"20011210","task_name":"ESS"},
+                    {"table_id":"20011211","task_name":"SC_Concom_meds"}
+				],
+				"Baseline Evening":[
+					{"table_id":"20011217","task_name":"BL_ESS"},
+                    {"table_id":"20011218","task_name":"BL_ISI"},
+                    {"table_id":"20011219","task_name":"BL_PSQI"},
+					{"table_id":"20011220","task_name":"BL_DASS"},
+                    {"table_id":"20011221","task_name":"BL_HADS"},
+                    {"table_id":"20011222","task_name":"BL_homecq"},
+                    {"table_id":"20011225","task_name":"BL_Evening_KSS"}
+				],
+				"Baseline Finger Tapping Task":[
+					{"table_id":"20011234","task_name":"BL_Fingertapping_evening"}
+				],
+				"Baseline Morning":[
+					{"table_id":"20011235","task_name":"BL_MORNING_KSS"},
+                    {"table_id":"20011236","task_name":"BL_Fingertapping_Morning"}
+				],
+				"Follow up Evening":[
+					{"table_id":"20011241","task_name":"FUP_ESS"},
+                    {"table_id":"20011242","task_name":"FUP_ISI"},
+                    {"table_id":"20011243","task_name":"FUP_PSQI"},
+					{"table_id":"20011244","task_name":"FUP_DASS"},
+                    {"table_id":"20011245","task_name":"FUP_HADS"},
+                    {"table_id":"20011246","task_name":"FUP_homecq"},
+                    {"table_id":"20011249","task_name":"FUP_KSS"}
+				],
+				"Follow up Evening Finger Tapping task":[
+					{"table_id":"20011258","task_name":"FU_Fingertapping_evening"}
+				],
+				"Follow Up Morning":[
+					{"table_id":"20011259","task_name":"FU_MORNING_KSS"},
+                    {"table_id":"20011260","task_name":"FU_Fingertapping_Morning"}
+				]
+			}
+		}
+	}
+}
