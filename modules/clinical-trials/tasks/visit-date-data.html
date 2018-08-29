@@ -6,35 +6,24 @@
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/module/grid.v1.js
-            //Vm Include:__CURRENT_PATH__/task-data.js
+            VmInclude:__CURRENT_PATH__/task-data.js
             //-------------------------------------
-            var fields="Date_of_Visit";
-            m.fields="_Form,Status|S3,Notes|NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
-            m.form_fields=fields;
+            var fields="Visit_date";
+            m.fields="_Form,Status|S3,Notes|NT,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            m.form_fields=fields+",Participant,Participant_uid";
             //-------------------------------------
             /*
-            $('#D__ID').on('load',function(){    _set_req(); _request_data(); })
-            $('#D__ID').on('back',function(){    _set_req(); _request_data(); })
-            //-------------------------------------
-            _cell_render=function(records,I,field,td,set_value,source){
-                _default_cell_render(records,I,field,td,set_value,source);
+            m.cell_render=function(records,I,field,td,set_value,source){
+                m.common_cell_render(records,I,field,td,set_value,source);
                 switch(field){
                     case 'Visit_date':
-                        records[I].vm_custom[field]=true;
-                        td.html('<input style="border:0; width:80px" />')
-                        td.find('input').val(records[I][field])
-                        td.find('input').datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true,onClose:function(dateText) {
-                            set_value(dateText,records,I,field);
-                        }});
+                        var html='<input type=date style="border:none" />';
+                        $vm.render_input_field(records[I],'__ID',td,html);
                         break;
                     }
             }
-            //-------------------------------------
-            _before_submit=function(record,dbv){
-                return _set_status_and_participant(record,dbv);
-            }
-            //-------------------------------------
             */
+            //-------------------------------------
         }
     </script>
     <style>
