@@ -9,7 +9,7 @@ m.set_req=function(){
     var participant_where="";
     var participant_uid="";
 	if($vm.vm['__ID'].input!=undefined){
-        var participant_record=$vm.vm['__ID'].input.record;//participant_uid=$vm.vm['__ID'].input.participant_uid;
+        var participant_record=$vm.vm['__ID'].input.record;
         if(participant_record!=undefined) participant_uid=participant_record.UID;
     }
     if(participant_uid!=="" && participant_uid!==undefined){
@@ -29,7 +29,7 @@ m.set_req_export=function(i1,i2){
     m.fields_e=m.form_fields;
     var sql="with participant as (select ParticipantUID=UID from [FORM-"+participant_pid+"] )";
     sql+=",task as (select ID,UID,PUID,S3,Information,DateTime,Author from [FORM-"+m.db_pid+"-@S1])";
-    sql+=",records as (select ID,ParticipantUID,Site,Information,Participant=sql_participant,DateTime,Author,RowNum=row_number() over (order by ID DESC) from participant left join task on PUID=ParticipantUID)";
+    sql+=",records as (select ID,ParticipantUID,Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from participant left join task on PUID=ParticipantUID)";
 	sql+=" select * from records where RowNum between @I1 and @I2";
     m.req={cmd:'read',qid:m.qid,sql:sql,i1:i1,i2:i2}
 }
@@ -51,13 +51,16 @@ m.cell_render=function(records,I,field,td,set_value,source){
                 $vm.load_module_v2(prefix+'task-notes',$vm.root_layout_content_slot,{
                     task_record_uid:m.records[I].UID,
                     task_record_pid:_db_pid,
-                    //task_name:task_name,
                     Visit_Task:visit_task,
                     Participant:m.records[I].Participant,
                     Participant_uid:m.records[I].Participant_uid,
                     sql_where:" PPID="+_db_pid+ "and PUID="+m.records[I].UID,
                 });
             });
+            break;
+        case 'Participant_uid':
+        case 'Participant':
+            records[I].vm_readonly[field]=true;
             break;
     }
 }
@@ -69,11 +72,10 @@ m.before_submit=function(record,dbv){
     return true;
 }
 //-------------------------------------
-m.new_pre_data_process=function(){
-    var input=$vm.vm['__ID'].input;
-    if(input!=undefined && input.record!=undefined){
-        m.records[0].Participant_uid=input.record.UID;
-        m.records[0].Participant=participant_info(input.record);
+m.new=function(){
+    if(m.module.form_module!=undefined){
+        var participant_record=$vm.vm['__ID'].input.record; //from the child panel
+        $vm.load_module_v2(m.form_module,'',{participant_record:participant_record,goback:1});
     }
 }
 //-------------------------------------

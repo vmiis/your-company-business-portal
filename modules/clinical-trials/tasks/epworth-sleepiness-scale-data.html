@@ -8,21 +8,17 @@
             VmInclude:__COMPONENT__/module/grid.v1.js
             VmInclude:__CURRENT_PATH__/task-data.js
             //-------------------------------------
-            var fields="Visit_date";
+            var fields="ESS_1,ESS_2,ESS_3,ESS_4,ESS_5,ESS_6,ESS_7,ESS_8,ESS";
             m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
             m.form_fields="Participant_uid,Participant,"+fields;
             //-------------------------------------
-            /*
-            m.cell_render=function(records,I,field,td,set_value,source){
-                m.common_cell_render(records,I,field,td,set_value,source);
-                switch(field){
-                    case 'Visit_date':
-                        var html='<input type=date style="border:none" />';
-                        $vm.render_input_field(records[I],'__ID',td,html);
-                        break;
-                    }
+            var before_submit=m.before_submit
+            m.before_submit=function(record,dbv){
+                if(record.ESS_1!='' && record.ESS_2!='' && record.ESS_3!='' && record.ESS_4!='' && record.ESS_5!='' && record.ESS_6!='' && record.ESS_7!='' && record.ESS_8!=''){
+                    record.ESS=(parseInt(record.ESS_1)+parseInt(record.ESS_2)+parseInt(record.ESS_3)+parseInt(record.ESS_4)+parseInt(record.ESS_5)+parseInt(record.ESS_6)+parseInt(record.ESS_7)+parseInt(record.ESS_8)).toString();
+                }
+                return before_submit(record,dbv)
             }
-            */
             //-------------------------------------
         }
     </script>

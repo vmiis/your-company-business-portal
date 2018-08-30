@@ -16,6 +16,9 @@
 		"v1-date-of-visit-data":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-data.html",	"form_module":"v1-date-of-visit-form"},
 		"v1-date-of-visit-form":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-form.html"},
 
+		"s-epworth-sleepiness-scale-data":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-data.html",	"form_module":"s-epworth-sleepiness-scale-form"},
+		"s-epworth-sleepiness-scale-form":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-form.html"},
+
         "quest_list":{
             "list":{
                 "Screening":[
