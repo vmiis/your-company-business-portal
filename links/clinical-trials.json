@@ -19,6 +19,12 @@
 		"s-epworth-sleepiness-scale-data":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-data.html",	"form_module":"s-epworth-sleepiness-scale-form"},
 		"s-epworth-sleepiness-scale-form":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-form.html"},
 
+		"template-1-data":	 	{"table_id":"1808311450",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-1-data.html",	"form_module":"template-1-form"},
+		"template-1-form":	 	{"table_id":"1808311450",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-1-form.html"},
+		"template-2-data":	 	{"table_id":"1808311454",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-2-data.html",	"form_module":"template-2-form"},
+		"template-2-form":	 	{"table_id":"1808311454",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-2-form.html"},
+
+
         "quest_list":{
             "list":{
                 "Screening":[
