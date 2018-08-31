@@ -88,10 +88,10 @@
                 if(res.records.length>0){
                     setup_record=res.records[0];
                     $vm.deserialize(setup_record,'#F__ID');
-                    //$('#row_participant__ID').prop("disabled",false); if(record.Participant!="" && record.Participant_uid=='') $('#row_participant__ID').prop("disabled",true);
                 }
                 else{
                     $('#F__ID textarea[name=List]').val('');
+                    $('#F__ID input[name=Login_ID]').val(participant_record.UID+"-"+form_tid);
                     $('#F__ID input[name=Password').val($vm.vm_password(8,false));
                 }
 				set_check_list();

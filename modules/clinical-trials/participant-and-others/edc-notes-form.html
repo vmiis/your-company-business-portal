@@ -6,8 +6,8 @@
 		<div class="container">
 			<div class="row row__ID">
 				<div class="col-sm col-lg-3">
-					<span>Participant_ID</span>
-					<input type="text" class="form-control" name="Participant_ID" readonly>
+					<span>Participant ID</span>
+					<input type="text" class="form-control" name="Participant_uid" readonly>
 				</div>
 				<div class="col-sm col-lg-9">
 					<span>Participant</span>
@@ -35,7 +35,7 @@
 			<div class="row row__ID">
 				<div class=col>
 					<span>Color</span>
-					<input type=color style='border:none;width:60px;height:30px;padding:0;' class="form-control" name="Color">
+					<input type=color style='border:none;width:60px;height:30px;padding:0;' class="form-control" name="Color" value="#008800" >
 				</div>
 			</div>
 			<br>
@@ -50,6 +50,30 @@
 <script>
 	function F__ID(){
 		//-------------------------------------
+		VmInclude:__COMPONENT__/module/form.v1.js
+		//-------------------------------------
+		m.before_submit=function(record,dbv){
+			var d=m.input.dbv;
+			if(d!=undefined){
+				dbv.PPID=d.PPID;
+				dbv.PUID=d.PUID;
+				dbv.GUID=d.GUID;
+			}
+			dbv.S1=record.Short_Title;
+			dbv.S2=record.Color;
+			$vm.refresh2=1;
+			return true;
+        };
+        //-------------------------------------
+		/*
+		$('#D__ID').on('load',function(){
+
+
+			alert(JSON.stringify(m.input.record))
+			alert(JSON.stringify(m.input.dbv))
+		})
+		*/
+		/*
 		var this_module	=$vm.module_list[$vm.vm['__ID'].name];
         var db_pid      =this_module.table_id;
 		//-------------------------------------
@@ -94,6 +118,7 @@
 			//--------------------------------------------------------
 		})
 		//--------------------------------------------------------
+		*/
 	}
 </script>
 <style>

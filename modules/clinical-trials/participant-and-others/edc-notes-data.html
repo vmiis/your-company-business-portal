@@ -7,7 +7,7 @@
             //-------------------------------------
             VmInclude:__COMPONENT__/module/grid.v1.js
             //-------------------------------------
-            var fields="Participant_ID,Participant,Task,Short_Title,Contents,Color";
+            var fields="Participant ID|Participant_uid,Participant,Task,Short_Title,Contents,Color";
             m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
             m.form_fields=fields;
             //-------------------------------------
@@ -17,7 +17,7 @@
         				var html='<input style="border:0;width:40px" type=Color />';
         				$vm.render_color_field(records[I],'__ID',td,html)
     				break;
-                    case 'Participant_ID':
+                    case 'Participant_uid':
     				case 'Participant':
     				case 'Task':
     					records[I].vm_readonly[field]=true;
@@ -26,50 +26,30 @@
             }
             //-------------------------------------
             $('#new__ID').off('click').on('click',function(){
-                var task_record=m.input.record;
-                var task_module=m.input.task_module;
-                var GUID=task_record.Participant_uid;
-                var PUID=task_record.UID;
-                var PPID=m.input.pid;
-                $vm.load_module_v2(form_module,'',{
+                var task=$vm.module_list[m.input.task_module_name].task_name;
+                if(task==undefined) task=m.input.task_module_name.split('_').pop();
+                $vm.load_module_v2(m.form_module,'',{
                     record:{
-                        Participant_ID:task_record.Participant_uid,
-                        Participant:task_record.Participant,
-                        Task:$vm.module_list[task_module].name_for_search,
+                        Participant_uid:m.input.record.Participant_uid,
+                        Participant:m.input.record.Participant,
+                        Task:task,
                         Color:"#008800",
                     },
                     dbv:{
-        	            GUID:task_record.Participant_uid,
-                        PPID:PPID,
-                        PUID:PUID
+        	            GUID:m.input.record.Participant_uid,
+                        PPID:m.input.record.PID,
+                        PUID:m.input.record.UID
                     },
                     goback:1
                 })
             })
             //-------------------------------------
-            m.before_submit=function(record,dbv){
-    			var task_record=m.input.record;
-    			if(task_record!=undefined){
-    				var task_pid=m.input.pid;
-    	            var task_record_uid=task_record.UID;
-    	            var task_record_pid=task_pid;
-    	            if(task_record_uid!==undefined) dbv.PUID=task_record_uid;
-    	            if(task_record_pid!==undefined) dbv.PPID=task_record_pid;
-    	            dbv.GUID=task_record.Participant_uid;
-    	            //dbv.GPID=participant_tid;
-    			}
-    			dbv.S1=record.Short_Title;
-    			dbv.S2=record.Color;
-    			$vm.refresh=1;
-                return true;
-            };
-            //-------------------------------------
     		m.set_req=function(){
                 //-------------------
                 $('#new__ID').show();
-    			var record=m.input.record;
-    			var pid=m.input.pid;
-    			if(record===undefined){
+                var task_module_name=m.input.task_module_name;
+    			var task_record=m.input.record;
+    			if(task_record===undefined){
     				$('#new__ID').hide();
     			}
                 //-------------------
@@ -77,8 +57,8 @@
                 sql+="select Information,ID,UID,PPID,PUID,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
                 var sql_n="select count(ID) from [TABLE-"+m.db_pid+"-@S1]";
                 //-------------------
-                if(record!==undefined){
-    				var sql_where=" PPID="+pid+ "and PUID="+record.UID;
+                if(task_record!==undefined){
+    				var sql_where=" PPID="+task_record.PID+ " and PUID="+task_record.UID;
                     sql=sql.replace('RowNum between @I6 and @I7',sql_where);
                     sql_n+=" where "+sql_where;
                 }
@@ -86,14 +66,12 @@
                 m.req={cmd:'read',qid:m.qid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
             }
             //-------------------------------------
-            /*
-            var _data_process=function(){
+            m.data_process=function(){
                 if($vm.refresh2==1){
                     $vm.refresh2=0;
                     $vm.refresh=1;
                 }
             }
-            */
             //-------------------------------------
         }
     </script>

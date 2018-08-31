@@ -7,7 +7,7 @@
             //-------------------------------------
             VmInclude:__COMPONENT__/module/grid.v1.js
             //-------------------------------------
-            var fields="Participant ID|UID,Subject_ID,Screening_Number,Subject_Initials,Randomisation_Number,Gender,DOB,_Data_Entry,_Setup,_Login_ID,_Password"; //,_Quest
+            var fields="Participant ID|UID,Subject_ID,Screening_Number,Subject_Initials,Randomisation_Number,Gender,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
             m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
             m.form_fields=fields;
             //-------------------------------------
@@ -34,6 +34,19 @@
                         td.html("<u style='cursor:pointer'>Login Setup</u>");
                         td.find('u').on('click',function(){
     						$vm.load_module_v2(m.prefix+'participant-login-setup',$vm.root_layout_content_slot,{record:records[I]});
+                        });
+                        break;
+                    case '_Quest':
+                        records[I].vm_custom[field]=true;
+                        td.html("<u style='cursor:pointer'>Online Questionnaire</u>");
+                        td.find('u').on('click',function(){
+    						var d="";if($vm.server=='development') d="&database=development";
+    						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
+    						var q_url="https://vmiis.github.io/your-company-business-portal/apps/clinical-trials-001-online-questionnaire/index.html"+p;
+                            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+    							q_url=q_url.replace("https://vmiis.github.io","http://127.0.0.1:8000/vmiis")
+    						};
+    						window.open(q_url);
                         });
                         break;
                     case '_Login_ID':

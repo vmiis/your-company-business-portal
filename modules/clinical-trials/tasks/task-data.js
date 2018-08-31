@@ -17,8 +17,8 @@ m.set_req=function(){
     }
     var sql="with notes as (select PUID,NT=S1,NC=S2,NRowNum=row_number() over (PARTITION BY PUID order by ID DESC) from [FORM-"+notes_pid+"] where ppid="+m.db_pid+")";
     sql+=",participant as (select ParticipantUID=UID from [FORM-"+participant_pid+"] "+participant_where+" )";
-    sql+=",task as (select ID,UID,PUID,S3,Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [FORM-"+m.db_pid+"-@S1] join participant on PUID=ParticipantUID)";
-    sql+="select ID,S3,UID,Information,DateTime,Author,RowNum,NT,NC from task left join notes on UID=notes.PUID and NRowNum=1 where RowNum between @I6 and @I7";
+    sql+=",task as (select ID,PID,UID,PUID,S3,Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [FORM-"+m.db_pid+"-@S1] join participant on PUID=ParticipantUID)";
+    sql+="select ID,S3,PID,UID,Information,DateTime,Author,RowNum,NT,NC from task left join notes on UID=notes.PUID and NRowNum=1 where RowNum between @I6 and @I7";
     var sql_n="with participant as (select ParticipantUID=UID from [FORM-"+participant_pid+"] )";
     sql_n+=" select count(ID) from [FORM-"+m.db_pid+"-@S1] join participant on PUID=ParticipantUID";
 
@@ -43,18 +43,13 @@ m.cell_render=function(records,I,field,td,set_value,source){
         case 'NT':
             records[I].vm_custom[field]=true;
             if(m.records[I].UID===undefined) return;
-            var color=m.records[I].NC;     if(color==="") color="#000000"
+            var color=records[I].NC;     if(color==="") color="#000000"
             var value=records[I][field];  if(value==="") value='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
             td.html("<u style='cursor:pointer;color:"+color+"'>"+value+"</u>");
             td.find('u').on('click',function(){
-                var visit_task=$vm.module_list[$vm.vm['__ID'].name].notes;
-                $vm.load_module_v2(prefix+'task-notes',$vm.root_layout_content_slot,{
-                    task_record_uid:m.records[I].UID,
-                    task_record_pid:_db_pid,
-                    Visit_Task:visit_task,
-                    Participant:m.records[I].Participant,
-                    Participant_uid:m.records[I].Participant_uid,
-                    sql_where:" PPID="+_db_pid+ "and PUID="+m.records[I].UID,
+                $vm.load_module_v2(prefix+'edc-notes-data',$vm.root_layout_content_slot,{
+                    task_module_name:$vm.vm['__ID'].name,
+                    record:records[I]
                 });
             });
             break;

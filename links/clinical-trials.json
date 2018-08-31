@@ -13,11 +13,11 @@
 		"participant-login-setup":	{"table_id":"20005034",		"url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/participant-login-setup.html"},
 
 
-		"v1-date-of-visit-data":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-data.html",	"form_module":"v1-date-of-visit-form"},
-		"v1-date-of-visit-form":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-form.html"},
+		"v1-date-of-visit-data":	 	{"table_id":"1808311409",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-data.html",	"form_module":"v1-date-of-visit-form"},
+		"v1-date-of-visit-form":	 	{"table_id":"1808311409",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-form.html"},
 
-		"s-epworth-sleepiness-scale-data":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-data.html",	"form_module":"s-epworth-sleepiness-scale-form"},
-		"s-epworth-sleepiness-scale-form":	 	{"table_id":"20008394",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-form.html"},
+		"s-ess-data":	 	{"table_id":"1808311410",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-data.html",	"form_module":"s-ess-form"},
+		"s-ess-form":	 	{"table_id":"1808311410",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-form.html"},
 
 		"template-1-data":	 	{"table_id":"1808311450",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-1-data.html",	"form_module":"template-1-form"},
 		"template-1-form":	 	{"table_id":"1808311450",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-1-form.html"},

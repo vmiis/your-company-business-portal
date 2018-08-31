@@ -7,6 +7,19 @@
 		</div>
 		<form id=F__ID>
 			<div class="container">
+				<!-- participant part for all tsak forms -------------------->
+                <div class="row row__ID" id=row_participant__ID>
+                    <div class="col-sm-12 col-lg-9 input__ID">
+                        <span class=label__ID>Participant</span><br>
+                        <input name="Participant" class=form-control id=Participant__ID data-id="Participant">
+                    </div>
+                    <div class="col-sm-12 col-lg-3 input__ID">
+                        <span class=label__ID>Participant ID</span><br>
+                        <input name="Participant_uid" class=form-control readonly>
+                    </div>
+                    <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+                </div>
+                <!---------------------------------------------------->
 	            <div class="row">
 	                How likely are you to doze or fall asleep in the following situations, in contrast to just feeling tired?
 	                This refers to your usual way of life in recent times. Even if you have not done some of these things recently,
@@ -101,12 +114,14 @@
 	                    </div>
 					</div>
 				</div>
-				<br>
-				<div class="row">
-					<div class=col>
-						<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
-					</div>
-				</div>
+				<!-- submit button part for all tsak forms------------>
+                <br>
+    			<div class="row">
+    				<div class=col>
+    					<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+    				</div>
+    			</div>
+                <!---------------------------------------------------->
 			</div>
 		</form>
 	</section>
@@ -114,8 +129,10 @@
 		function F__ID(){
 			//-------------------------------------
 			VmInclude:__COMPONENT__/module/form.v1.js
+			VmInclude:__CURRENT_PATH__/task-form.js
 			//-------------------------------------
-			m.before_submit=function(record,dbv){
+			var before_submit=m.before_submit
+            m.before_submit=function(record,dbv){
 				if(record.ESS_1!='' &&
 					record.ESS_2!='' &&
 					record.ESS_3!='' &&
@@ -135,7 +152,7 @@
 							parseInt(record.ESS_8)
 						).toString();
 			    }
-			    //-------------------
+			    return before_submit(record,dbv);
 			}
 			//-------------------------------------
 		}

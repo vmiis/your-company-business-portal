@@ -24,7 +24,12 @@ m.load=function(){
         $("#F__ID input[name=Participant_uid]").val(participant_record.UID);
     }
     //--------------------------
-    $('#F__ID input[name=Participant]').prop('disabled',false); if($("#F__ID input[name=Participant_uid]").val()!='') $('#F__ID input[name=Participant]').prop('disabled',true);
+    $('#F__ID input[name=Participant]').prop('readonly',false);
+    $('#F__ID input[name=Participant]').autocomplete( "enable" );
+    if($("#F__ID input[name=Participant_uid]").val()!=''){
+        $('#F__ID input[name=Participant]').prop('readonly',true);
+        $('#F__ID input[name=Participant]').autocomplete( "disable" );
+    }
     //--------------------------
 }
 //-------------------------------------
