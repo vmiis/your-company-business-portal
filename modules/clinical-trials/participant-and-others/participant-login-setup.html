@@ -82,7 +82,7 @@
             }
             $('#Participant_uid__ID').val(participant_record.UID);
             $('#Participant__ID').val(get_participant_name(participant_record));
-            var sql="select top 1 Information from [TABLE-"+setup_pid+"] where PUID="+participant_record.UID;
+            var sql="select top 1 ID,Information from [TABLE-"+setup_pid+"] where PUID="+participant_record.UID;
             var req_data={ cmd:"read",qid:$vm.qid,sql:sql}
             $VmAPI.request({data:req_data,callback:function(res){
                 if(res.records.length>0){
