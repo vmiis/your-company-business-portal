@@ -4,9 +4,21 @@ var participant_tid =$vm.module_list[m.prefix+'participant-data'].table_id;
 var participant_sql	="JSON_VALUE(Information,'$.Subject_Initials')+' '+JSON_VALUE(Information,'$.DOB')";
 var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";
 sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
-$vm.autocomplete($('#Participant__ID'),sql,function(key,value){
-    $("#F__ID input[name="+key+"]").val($vm.text(value));
-})
+var start=function(){
+    $vm.autocomplete($('#Participant__ID'),sql,function(key,value){
+        $("#F__ID input[name="+key+"]").val($vm.text(value));
+    })
+}
+//-------------------------------------
+var I=0;
+var loop__ID=setInterval(function (){
+    if($vm['jquery-ui-min-js']!=undefined){
+        clearInterval(loop__ID); start();
+    }
+    I++; if(I>50){
+        clearInterval(loop__ID); alert("jquery-ui.min.js is not installed.");
+    }
+},100);
 //-------------------------------------
 var participant_name =function(record){ if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID;}
 //-------------------------------------

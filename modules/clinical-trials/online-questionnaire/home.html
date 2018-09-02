@@ -1,14 +1,12 @@
 
-<section>
-    <div class=C__ID__s>
-        <p></p>
-        <input id=username__ID placeholder="Username" class=C__ID__input autocomplete="off" />
-        <br><input id=password__ID placeholder="Password" class=C__ID__input type=password />
-        <br><span id="ErrMsg__ID"></span>
-        <br><input id=signin__ID type=button value='Sign in' class=C__ID__button />
-        <br>
-    </div>
-</section>
+<div class=C__ID__s>
+    <p></p>
+    <input id=username__ID placeholder="Username" class=C__ID__input autocomplete="off" />
+    <br><input id=password__ID placeholder="Password" class=C__ID__input type=password />
+    <br><span id="ErrMsg__ID"></span>
+    <br><input id=signin__ID type=button value='Sign in' class=C__ID__button />
+    <br>
+</div>
 <script>
     function F__ID(){
         //---------------------
@@ -28,7 +26,6 @@
 			$('#password__ID').val(password);
 		}
         $('#D__ID').on('load',function(){
-            $('#vm_signout').hide();
 		})
         $('#signin__ID').on('click',function(){
 			//------------------------------------
@@ -57,7 +54,10 @@
                     $VmAPI.set_token(res.token,'');
                     if(res.S1!=undefined) $vm.g_participant=res.S1;
 					$vm.g_task_list=res.List;
-                    $('#vm_signout').show();
+
+                    var x = document.getElementById("vm_signout");
+                    x.className="";
+
                     $vm.load_module_v2(prefix+"quest-panel",'',{});
                 }
                 else{
@@ -78,14 +78,18 @@
         font: 18pt "Arial";
         padding:80px;
 		display:inline-block;
-		background: rgba(255,255,255,0.9);
+		background: rgba(255,255,255,1);
     }
     @media all and (max-width: 480px){
 		#D__ID{
 			padding:0px;
+            height:100%;
 		}
     	.C__ID__s{
-        	padding-left:20px;
+            width:100%;
+            height:100%;
+            padding:60px 0 0 0;
+            text-align: center;
     	}
     }
     .C__ID__input{

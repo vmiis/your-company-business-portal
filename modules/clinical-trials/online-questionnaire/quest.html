@@ -44,7 +44,7 @@
 		var setup_panel=function(){
 			//----------------------------------
 		    var pids=$vm.g_task_list.split(',');
-		    var txt="";
+		    var txt="<ul>";
 		    //----------------------------------
 		    for(var i=0;i<pids.length;i++){
 		        var pid=pids[i];
@@ -55,6 +55,7 @@
 				var module=get_module_id(pid.toString());
 				txt+="<li id="+pid+" module="+module+">"+task_name+"</li>";
 		    }
+            txt+"</ul>";
 		    $('#items__ID').html(txt);
 		    //----------------------------------
 			$('#items__ID li').each(function(){
@@ -107,7 +108,7 @@
         height:100%;
 		overflow: auto;
 		animation: vm_module_fadein 1.0s;
-		background: rgba(255,255,255,0.9);
+		background: rgba(255,255,255,1);
 	}
 	#panel__ID{
 		padding:30px;
