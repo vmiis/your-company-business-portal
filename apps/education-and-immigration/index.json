@@ -1,8 +1,0 @@
-{
-    "modules":
-	{
-        "portal": {"url":"modules/portal.html"},
-        "client-data":	      {"table_id":"20003689","url":"modules/client-data.html","form_module":"client-form","preload":true},
-        "client-form":	      {"table_id":"20003689","url":"modules/client-form.html","preload":true}
-	}
-}

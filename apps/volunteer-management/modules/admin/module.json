@@ -1,9 +1,0 @@
-{
-	"modules":
-	{
-		"project-permission": 			{"table_id":"20011344","url":"/modules/admin/task/project-permission.html","name_for_search":"Project permission"},
-		"project-volunteers-search":	{"table_id":"20008533","url":"/modules/admin/task/project-volunteers-search.html","name_for_search":""},
-		"volunteer":					{"table_id":"20008533","url":"/modules/admin/task/volunteer.html","name_for_search":"Volunteer"},
-		"alert-email-list":				{"table_id":"91000066","url":"/modules/admin/task/alert-email-list.html","name_for_search":"Alert email list"}
-	}
-}

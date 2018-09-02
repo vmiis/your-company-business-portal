@@ -1,8 +1,0 @@
-{
-    "modules":
-	{
-        "link-1":	      {"url":"modules/my-first-bootstrap-page.html"},
-        "link-2":	      {"url":"modules/dark-table.html"},
-        "link-3":	      {"url":"modules/carousel.html"}
-	}
-}

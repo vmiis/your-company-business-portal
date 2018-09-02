@@ -1,9 +1,0 @@
-{
-    "modules":
-	{
-        "portal":   {"url":"modules/portal.html"},
-        "service":	{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"service.html"},
-		"team":		{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"team.html"},
-		"work":		{"url":"modules/bridge.html","path":"free-css/lexis/index.html","page":"work.html"}
-	}
-}

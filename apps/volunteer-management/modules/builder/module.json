@@ -1,8 +1,0 @@
-{
-	"modules":
-	{
-		"builder-1":             {"table_id":"20008533","url":"modules/builder/task/builder-1.html"},
-		"builder-2":             {"table_id":"20009681","url":"modules/builder/task/builder-2.html"},
-		"builder-3":             {"table_id":"20009681","url":"modules/builder/task/builder-3.html"}
-	}
-}

@@ -1,9 +1,0 @@
-{
-    "modules":
-	{
-        "portal": {"url":"modules/portal.html"},
-        "participant-data":	      		{"table_id":"20005167","url":"modules/participant-and-others/participant-data.html"},
-        "pre-lab-sleep-diary-data":	    {"table_id":"20005170","url":"modules/edc/sleep-diary-data.html","form_module":"pre-lab-sleep-diary-form"},
-		"pre-lab-sleep-diary-form":	    {"table_id":"20005170","url":"modules/edc/sleep-diary-form.html"}
-	}
-}
