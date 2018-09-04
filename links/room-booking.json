@@ -1,0 +1,11 @@
+{
+    "modules":
+	{
+        "monthly":               {"table_id":"20003813", "url":"https://www.vmiis.com/modules/room-booking/monthly.html",	"daily_module":"daily","booking_form":"booking-record-form"},
+        "daily":                 {"table_id":"20003813", "url":"https://www.vmiis.com/modules/room-booking/daily.html",   "room_tid":"20003812","booking_form":"booking-record-form"},
+        "booking-record-data":   {"table_id":"20003813", "url":"https://www.vmiis.com/modules/room-booking/booking-record-data.html","form_module":"booking-record-form"},
+        "booking-record-form":   {"table_id":"20003813", "url":"https://www.vmiis.com/modules/room-booking/booking-record-form.html"},
+        "room-data":             {"table_id":"20003812", "url":"https://www.vmiis.com/modules/room-booking/room-data.html","form_module":"room-form"},
+        "room-form":             {"table_id":"20003812", "url":"https://www.vmiis.com/modules/room-booking/room-form.html"}
+	}
+}

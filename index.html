@@ -39,6 +39,8 @@
                             <a href="?/sleepfix">SleepFix</a>
                             <a href="?/shiftwork">Shiftwork</a>
                             <a href="?/car-booking">Car booking</a>
+                            <a href="?/room-booking">Room booking</a>
+                            <a href="?/equipment-booking">Equipment booking</a>
                         </div>
                     </div>
                     <div class="vm-dropdown">
@@ -70,7 +72,7 @@
         <!----------------------------------------------->
         <script>
             //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[366,319];
+            $vm={};$VmAPI={};$vm.ver=[367,319];
             $vm.start_time=new Date().getTime();
             $vm.api_path_development="https://cbs.wappsystem.com/dev/";
             $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -82,6 +84,8 @@
             $vm.module_links=[
                 "commonly-used-form-fields|https://www.vmiis.com/links/basic-form-fields.json",
                 "car-booking|https://www.vmiis.com/links/car-booking.json",
+                "room-booking|https://www.vmiis.com/links/room-booking.json",
+                "equipment-booking|https://www.vmiis.com/links/equipment-booking.json",
                 "sleepfix|https://management.sfix.com.au/modules.json",
                 "shiftwork|https://shiftwork.rt.org.au/modules.json",
                 "clinical-trials|https://www.vmiis.com/links/clinical-trials.json",
@@ -95,6 +99,8 @@
             	"sleepfix":					{"url":"https://www.vmiis.com/modules/panels/modules/sleepfix.html","prefix":"sleepfix_"},
                 "shiftwork":             	{"url":"https://www.vmiis.com/modules/panels/modules/shiftwork.html"},
                 "car-booking":				{"url":"https://www.vmiis.com/modules/panels/modules/car-booking.html"},
+                "room-booking":				{"url":"https://www.vmiis.com/modules/panels/modules/room-booking.html"},
+                "equipment-booking":		{"url":"https://www.vmiis.com/modules/panels/modules/equipment-booking.html"},
                 "clinical-trials":			{"url":"https://www.vmiis.com/modules/panels/modules/clinical-trials.html","prefix":"clinical-trials_"},
 
                 "basic":             	    {"url":"https://www.vmiis.com/modules/panels/apps/basic.html"},
