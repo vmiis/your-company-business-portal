@@ -2,6 +2,9 @@
 <html>
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="description" content="A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!">
+        <meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
+        <link rel="icon" href="data:,">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     </head>
@@ -24,7 +27,7 @@
                     <span id=vm-logo-label-A>Business Portal</span><br>
                     <span id=vm-logo-label-B>on-demand business applications</span>
                 </div>
-                <div id="vm-menu">
+                <div menu id="vm-menu">
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
                     <a href="?/portal"><i class="fa fa-th"></i> Business Portal</a>
                     <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
@@ -87,15 +90,17 @@
             $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             //------------------------------------
-            $vm.default_title="Workplace inspection";
-            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>). More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>");
+            $vm.default_title="Modular distributed web application";
+            var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
+            txt+=" More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>"
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+txt);
             //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;
-                $("meta[name='description']").attr("content", "Single Page Application");
+                $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
                 $("body").removeClass();
                 $("body").addClass('body_background_default');
-                if(id!=undefined && $vm.vm[id].show!=undefined){
+                if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined){
                     $vm.vm[id].show();
                 }
             }
