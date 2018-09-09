@@ -39,6 +39,12 @@
             <!----------------------------------------------->
         </div>
         <!----------------------------------------------->
+        <style>
+            .vm-header{height:100px;}
+            @media screen and (max-width: 900px){ .vm-header{height:50px;} }
+            /*----------------------*/
+        </style>
+        <!----------------------------------------------->
     </body>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
@@ -75,11 +81,17 @@
         for(p in $vm.module_links) $vm.module_links[p]=$vm.local_url($vm.module_links[p]);
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
         //------------------------------------
+        $vm.default_title="Modular distributed web application";
+        var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
+        txt+=" More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>"
+        $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+txt);
+        //------------------------------------
+        $('#c_header').contents().appendTo('#header');
+        $('#c_footer').contents().appendTo('#footer');
+        //------------------------------------
         $vm.start=function(){
             $vm.init_v3({callback:function(){
                $vm.init_status=1;
-               $('#c_header').contents().appendTo('#header');
-               $('#c_footer').contents().appendTo('#footer');
                $vm.show_user();
            }})
         }
@@ -92,11 +104,6 @@
         //------------------------------------
         $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
         $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
-        //------------------------------------
-        $vm.default_title="Modular distributed web application";
-        var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
-        txt+=" More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>"
-        $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+txt);
         //------------------------------------
         $vm.show=function(id){
             window.scrollTo(0,0);
@@ -189,22 +196,22 @@
             background-image: url(http://127.0.0.1:8000/vmiis/images/bg001.jpg);
         }
         body:before {
-          background: #000;
-          position: absolute;
-          content: "";
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          opacity: .4;
-          z-index: -10;
-      }
-      #content{
-          margin-top:100px;
-      }
-      .vm-hide{
-          display:none!Important;
-      }
+            background: #000;
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: .4;
+            z-index: -10;
+        }
+        #content{
+            margin-top:100px;
+        }
+        .vm-hide{
+            display:none!Important;
+        }
         #vm-logo-label-A{
             font-family: "Gaegu", cursive;
             color:#fff;
@@ -221,11 +228,10 @@
             text-align: center;
         }
         /*----------------------*/
-        .vm-header{height:100px;background:rgba(0,0,0,0);position:fixed;width:100%;}
+        .vm-header{background:rgba(0,0,0,0);position:fixed;width:100%;}
         .vm-desk-logo{ display:inline-block;float:left;padding:56px 30px 0 130px;cursor:pointer;}
         #vm-menu{ float:right;padding:50px 130px 0 30px;}
         @media screen and (max-width: 900px){
-            .vm-header{height:50px;}
             #content{ margin-top:50px; }
             .vm-desk-logo{display:none;}
             #vm-menu{padding:0;}
