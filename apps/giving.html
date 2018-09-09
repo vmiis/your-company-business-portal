@@ -10,7 +10,7 @@
     </head>
     <body>
         <!----------------------------------------------->
-        <div id=header class=vm-header></div>
+        <div id=header></div>
         <div id=content><div id=vm_loader class="loader_0"></div></div>
         <div id=footer></div>
         <div id=components style='display:none'>
@@ -40,8 +40,8 @@
         </div>
         <!----------------------------------------------->
         <style>
-            .vm-header{height:100px;}
-            @media screen and (max-width: 900px){ .vm-header{height:50px;} }
+            #header{height:100px;}
+            @media screen and (max-width: 900px){ #header{height:50px;} }
             /*----------------------*/
         </style>
         <!----------------------------------------------->
@@ -49,7 +49,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[1.08,1.07];
+        $vm={};$VmAPI={};$vm.ver=[1.09,1.07];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -116,9 +116,11 @@
             }
             if(id!=undefined && $vm.vm[id]!=undefined){
                 $vm.active_module=$vm.vm[id].name;
-                $('#D'+id).css('min-height',$vm.min_height);
-                if($vm.vm[id].name=='home') $(".vm-header").css("background","rgba(0,0,0,0)");
-                else $(".vm-header").css("background","rgba(0,0,0,0.5)");
+                //$('#D'+id).css('min-height',$vm.min_height);
+                $('#D'+id).css('width',$(window).width()+"px");
+                $('#D'+id).css('min-height',($(window).height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                if($vm.vm[id].name=='home') $("#header").css("background","rgba(0,0,0,0)");
+                else $("#header").css("background","rgba(0,0,0,0.5)");
             }
         }
         //------------------------------------
@@ -179,18 +181,13 @@
             if($vm.active_module=='home'){
                 var y=-$(window).scrollTop()/2;
                 $('body').css({ 'background-position-y': y+'px'});
-                var r=-y/600; if(r>0.5) r=0.5;
-                $(".vm-header").css("background","rgba(0,0,0,"+r+")");
+                var r=-y/300; if(r>0.5) r=0.5;
+                $("#header").css("background","rgba(0,0,0,"+r+")");
             }
         });
     </script>
     <style layput>
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
-        body{
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            overflow:auto;
-        }
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
         .body_background_default{
             background-image: url(https://image.vmiis.com/bg001.jpg);
@@ -204,10 +201,27 @@
             right: 0;
             bottom: 0;
             opacity: .4;
-            z-index: -10;
+            z-index: -100;
+        }
+        body{
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            overflow:auto;
+        }
+        #header{
+            background:rgba(0,0,0,0);position:fixed;width:100%;z-index:1;
         }
         #content{
             margin-top:100px;
+        }
+        #footer{
+            height:24px;
+            padding: 3px;
+            color: #fff;
+            background-color: #333;
+            font:80%/18px arial;
+            text-align: center;
         }
         .vm-hide{
             display:none!Important;
@@ -219,16 +233,7 @@
             line-height:10px;
             display:inline-block;
         }
-        #footer{
-            height:24px;
-            padding: 3px;
-            color: #fff;
-            background-color: #333;
-            font:80%/18px arial;
-            text-align: center;
-        }
         /*----------------------*/
-        .vm-header{background:rgba(0,0,0,0);position:fixed;width:100%;}
         .vm-desk-logo{ display:inline-block;float:left;padding:56px 30px 0 130px;cursor:pointer;}
         #vm-menu{ float:right;padding:50px 130px 0 30px;}
         @media screen and (max-width: 900px){
