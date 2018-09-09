@@ -145,6 +145,15 @@
             if($vm.server!='production') $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
             $vm.app_module=1;
             //------------------------------------
+            var set_height=function(){
+                var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
+                var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
+                $vm.min_height=($('body').height()-header_height-footer_height);
+                console.log(header_height);console.log(footer_height);console.log($vm.min_height)
+            }
+            //------------------------------------
+            set_height();window.onresize=function(){set_height();}
+            //-----------------------------------------
             if(sessionStorage["signinout"]==1){
                 sessionStorage["signinout"]=0;
                 $vm.load_module_v2("home",'',{});
@@ -170,14 +179,6 @@
                 }
             }
             //------------------------------------
-            var set_height=function(){
-                var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
-                var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
-                $vm.min_height=($('body').height()-header_height-footer_height);
-            }
-            //------------------------------------
-            set_height();window.onresize=function(){set_height();}
-            //-----------------------------------------
             var module_links=function(){
                 var rm=$vm.module_links;
                 if(rm==undefined) return;

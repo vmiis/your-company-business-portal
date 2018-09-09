@@ -43,7 +43,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[1.07,1.07];
+        $vm={};$VmAPI={};$vm.ver=[1.08,1.07];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -53,7 +53,7 @@
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         //------------------------------------
         $vm.module_links=[
-            "https://www.vmiis.com/links/car-booking.json",
+            //"https://www.vmiis.com/links/xxx.json",
         ];
         $vm.module_list={
             "home":     {"url":"https://www.vmiis.com/modules/home/giving.html"},
