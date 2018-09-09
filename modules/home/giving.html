@@ -1,0 +1,63 @@
+<div id=D__ID>
+	<div id=page_1__ID>
+		<div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <span>Please Help African Children Give Them A Better Life.</span>
+            </div>
+          </div>
+		</div>
+	</div>
+	<div id=page_2__ID>
+		<div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <span>Pahe 2</span>
+            </div>
+          </div>
+		</div>
+	</div>
+	<script>
+		function F__ID(){
+			$('#D__ID').on('load',function(){
+				$('#page_1__ID').css('height',$vm.min_height+'px');
+			})
+		}
+	</script>
+	<style>
+		#D__ID{
+			height:100%;
+	        overflow:auto;
+			animation: vm_module_fadein 1.0s, D__ID 3s;
+	        padding-bottom:10%;
+		}
+		#page_1__ID{
+			/*height:100%;*/
+			display: flex;
+			align-items: center;
+			color: #fff;
+		    font-size: 80px;
+		    line-height: 1.1;
+		    font-family: "Gaegu", cursive;
+		}
+		#page_2__ID{
+			height:300px;
+			display: flex;
+			align-items: center;
+			color: #fff;
+		    font-size: 80px;
+		    line-height: 1.1;
+		    font-family: "Gaegu", cursive;
+			background-color: #888;
+		}
+		@keyframes D__ID {
+			from {padding-top: 300px;}
+			to {padding-top: 0px;}
+		}
+	    @media screen and (max-width: 992px) {
+	        #D__ID{
+	            animation: vm_module_fadein 1.0s;
+	        }
+	    }
+	</style>
+</div>
