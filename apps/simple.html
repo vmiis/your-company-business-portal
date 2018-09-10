@@ -10,11 +10,9 @@
     </head>
     <body>
         <!----------------------------------------------->
-        <div id=layout>
-            <div id=header class=vm-header></div>
-            <div id=content><div id=vm_loader class="loader_0"></div></div>
-            <div id=footer></div>
-        </div>
+        <div id=header class=vm-header></div>
+        <div id=content><div id=vm_loader class="loader_0"></div></div>
+        <div id=footer></div>
         <!----------------------------------------------->
         <div id=components style='display:none'>
             <!----------------------------------------------->
@@ -83,11 +81,17 @@
             for(p in $vm.module_links) $vm.module_links[p]=$vm.local_url($vm.module_links[p]);
             for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
             //------------------------------------
+            $vm.default_title="Modular distributed web application";
+            var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
+            txt+=" More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>"
+            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+txt);
+            //------------------------------------
+            $('#c_header').contents().appendTo('#header');
+            $('#c_footer').contents().appendTo('#footer');
+            //------------------------------------
             $vm.start=function(){
                 $vm.init_v3({callback:function(){
                    $vm.init_status=1;
-                   $('#c_header').contents().appendTo('#header');
-                   $('#c_footer').contents().appendTo('#footer');
                    $vm.show_user();
                }})
             }
@@ -101,11 +105,6 @@
             $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
             //------------------------------------
-            $vm.default_title="Modular distributed web application";
-            var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
-            txt+=" More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>"
-            $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+txt);
-            //------------------------------------
             $vm.show=function(id){
                 document.title=$vm.default_title;
                 $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
@@ -114,34 +113,16 @@
                 if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined){
                     $vm.vm[id].show();
                 }
+                if(id!=undefined && $vm.vm[id]!=undefined){
+                    $('#D'+id).css('width',$('body').width()+"px");
+                    $('#D'+id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                }
             }
             //------------------------------------
             $vm.show();
             //------------------------------------
             $vm.root_layout_content_slot='content'
             $vm.root_layout_footer='footer';
-            //------------------------------------
-            var url1="https://www.vmiis.com/modules/starter/app.html"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/app.html";
-            var url2="https://www.vmiis.com/modules/menu/topbar-menu.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/topbar-menu.html";
-            var urls=[url1]; $vm.module_start_id=1;
-            //---------------------------------------------
-            $(urls).each(function(index,url){
-                var ver=localStorage.getItem(url+"ver");
-                var txt=localStorage.getItem(url+"txt");
-                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
-                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
-                        localStorage.setItem(url+"txt",new_txt);
-                        localStorage.setItem(url+"ver",$vm.ver[0]);
-                        console.log('loading from url. '+url);
-                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
-                    },'text');
-                }
-                else{
-                    console.log('loading from storage. '+url);
-                    $('#content').append(txt.replace(/__ID/g,'_'+index));
-                }
-                //---------------------------------------------
-            })
             //---------------------------------------------
             $('#vm-menu a').on('click',function(e){
                 e.preventDefault();
@@ -172,18 +153,21 @@
         <!----------------------------------------------->
         <style>
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
-            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+            body{overflow-y:auto;background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
                 background-image: url(https://image.vmiis.com/bk031.jpg);
             }
+            /*
             #layout {
                 height: 100%;
                 display: grid;
                 grid-template-rows: auto 1fr auto;
                 overflow:hidden;
             }
+            */
             #content{
-                overflow:auto;
+                /*overflow:auto;*/
+                overflow-x:auto;
             }
             #footer{
                 height:24px;
@@ -519,5 +503,29 @@
               }
             }
         </style>
+        <script start>
+            //------------------------------------
+            var url1="https://www.vmiis.com/modules/starter/app.html"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/app.html";
+            //var url2="https://www.vmiis.com/modules/menu/topbar-menu.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/topbar-menu.html";
+            var urls=[url1]; $vm.module_start_id=1;
+            //---------------------------------------------
+            $(urls).each(function(index,url){
+                var ver=localStorage.getItem(url+"ver");
+                var txt=localStorage.getItem(url+"txt");
+                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                        localStorage.setItem(url+"txt",new_txt);
+                        localStorage.setItem(url+"ver",$vm.ver[0]);
+                        console.log('loading from url. '+url);
+                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
+                    },'text');
+                }
+                else{
+                    console.log('loading from storage. '+url);
+                    $('#content').append(txt.replace(/__ID/g,'_'+index));
+                }
+                //---------------------------------------------
+            })
+        </script>
     </body>
 </html>
