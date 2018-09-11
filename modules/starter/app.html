@@ -148,7 +148,7 @@
             var set_height=function(){
                 var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
                 var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
-                $vm.min_height=($(window).height()-header_height-footer_height);
+                $vm.min_height=($('body').height()-header_height-footer_height);
                 //console.log(header_height);console.log(footer_height);console.log($vm.min_height)
             }
             //------------------------------------
