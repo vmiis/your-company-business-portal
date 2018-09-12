@@ -187,7 +187,7 @@
                     //------------------------------------------
                     var http127_i=0; if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1) http127_i=1;
                     if(ver!=$vm.ver[0] || txt===null || $vm.reload!='' || http127_i==1){
-                        console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url+'?_='+$vm.ver[0]+$vm.reload)
+                        console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from url. '+url+" "+ver+"/"+$vm.version+" 127:"+http127_i+" re:"+$vm.reload)
                         $.get(url+'?_='+$vm.ver[0]+$vm.reload,function(data){
                             localStorage.setItem(storage_url+"_txt",data);
                             localStorage.setItem(storage_url+"_ver",$vm.ver[0]);
@@ -195,7 +195,7 @@
                         },'text');
                     }
                     else{
-                        console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from stotage. '+url)
+                        console.log((new Date().getTime()-$vm.start_time).toString()+' --- loading from stotage. '+url+" "+ver+"/"+$vm.version+" 127:"+http127_i+" re:"+$vm.reload)
                         next(txt);
                     }
                     //------------------------------------------
@@ -282,13 +282,14 @@
         var url2=$vm.url("https://api.vmiis.com/distribution/vmapi.min.js");
         var urls=[url1,url2];
         //---------------------------------------------
+        var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
         $(urls).each(function(index,url){
-            var ver=localStorage.getItem(url+"ver");
-            var txt=localStorage.getItem(url+"txt");
+            var ver=localStorage.getItem(apppath+url+"ver");
+            var txt=localStorage.getItem(apppath+url+"txt");
             if(ver!=$vm.ver[1] || txt==null || window.location.toString().indexOf('_d=1')!=-1){
                 $.get(url+'?_='+new Date().getTime(),function(new_txt){
-                    localStorage.setItem(url+"txt",new_txt);
-                    localStorage.setItem(url+"ver",$vm.ver[1]);
+                    localStorage.setItem(apppath+url+"txt",new_txt);
+                    localStorage.setItem(apppath+url+"ver",$vm.ver[1]);
                     console.log('loading from url. '+url);
                     $('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
                     $vm._boot();
