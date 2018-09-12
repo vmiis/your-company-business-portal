@@ -145,18 +145,6 @@
             if($vm.server!='production') $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
             $vm.app_module=1;
             //------------------------------------
-            var set_height=function(){
-                var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
-                var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
-                $vm.min_height=($('body').height()-header_height-footer_height);
-                //console.log($('body').height()+" "+$(window).height()+" "+$('#header').outerHeight()+" "+$('#footer').outerHeight())
-                if($vm.active_id!=undefined){
-                    $('#D'+$vm.active_id).css('min-height',($(window).height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
-                }
-            }
-            //------------------------------------
-            set_height();window.onresize=function(){set_height();}
-            //-----------------------------------------
             if(sessionStorage["signinout"]==1){
                 sessionStorage["signinout"]=0;
                 $vm.load_module_v2("home",'',{});
