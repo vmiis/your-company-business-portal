@@ -10,10 +10,8 @@
         <!----------------------------------------------->
         <div id=layout>
             <div id=header></div>
-            <div id=content_footer>
-                <div id=content><div id=vm_loader class="loader_0"></div></div>
-                <div id=footer></div>
-            </div>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
+            <div id=footer></div>
         </div>
         <!----------------------------------------------->
         <div id=components>
@@ -127,18 +125,15 @@
             html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             .body_background_default{
-                background-image: url(https://image.vmiis.com/bk003.jpg);
+                background-image: url(https://image.vmiis.com/bk004.jpg);
             }
             #layout {
                 height: 100%;
                 display: grid;
-                grid-template-rows: auto 1fr;
-                overflow:hidden;
-            }
-            #content_footer{
+                grid-template-rows: auto 1fr auto;
                 overflow:auto;
-                display: grid;
-                grid-template-rows: 1fr auto;
+            }
+            #content{
             }
             .vm-hide{
                 display:none!Important;
