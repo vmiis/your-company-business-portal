@@ -290,13 +290,13 @@
                 $.get(url+'?_='+new Date().getTime(),function(new_txt){
                     localStorage.setItem(apppath+url+"txt",new_txt);
                     localStorage.setItem(apppath+url+"ver",$vm.ver[1]);
-                    console.log('loading from url. '+url);
+                    console.log('loading from url. '+url+' '+ver+'/'+$vm.ver[1]);
                     $('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
                     $vm._boot();
                 },'text');
             }
             else{
-                console.log('loading from storage. '+url);
+                console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[1]);
                 $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>');
                 $vm._boot();
             }

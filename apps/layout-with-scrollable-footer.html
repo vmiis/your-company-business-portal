@@ -9,8 +9,10 @@
     </head>
     <body>
         <div id=header class=vm-header></div>
-        <div id=content><div id=vm_loader class="loader_0"></div></div>
-        <div id=footer></div>
+        <div id=scroll>
+            <div id=content><div id=vm_loader class="loader_0"></div></div>
+            <div id=footer></div>
+        </div>
         <div id=components style='display:none'>
             <div id=c_header>
                 <div class=vm-mobile>
@@ -86,9 +88,6 @@
             var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
             var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
             $vm.min_height=($(window).height()-header_height-footer_height);
-            if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
-            }
         }
         //------------------------------------
         set_height();
@@ -114,8 +113,12 @@
             $("body").addClass('body_background_default');
             if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined) $vm.vm[id].show();
             if(id!=undefined){
-                $('#D'+id).css('min-height','unset');
-                $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+id).css('height','unset');
+                $('#D'+id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+id).css('overflow','unset');
+                $('#D'+id).css('overflow-x','auto');
+                $('#scroll').css('height',($('body').height()-$('#header').outerHeight())+"px");
+                $('#scroll').css('overflow-y','auto');
             }
         }
         //------------------------------------
@@ -143,9 +146,6 @@
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
         .body_background_default{ background-image: url(https://image.vmiis.com/bk003.jpg); }
-        #content{
-            overflow:auto;
-        }
         #vm-logo-label-A{
             font-family: Arial, sans-serif;
             color:#fff;
