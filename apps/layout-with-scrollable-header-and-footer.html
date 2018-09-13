@@ -38,7 +38,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[1.09,1.07];
+        $vm={};$VmAPI={};$vm.ver=[1.10,1.08];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -118,6 +118,7 @@
                 $('#D'+id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
                 $('#D'+id).css('overflow','unset');
                 $('#D'+id).css('overflow-x','auto');
+                if($vm.vm[id].name=='home') $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------

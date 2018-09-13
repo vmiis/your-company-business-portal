@@ -13,7 +13,7 @@
 
 <!--------------------------------------------------------------------->
 <div id=D__ID>
-    <div id="demo" class="carousel slide" data-ride="carousel">
+    <div id="demo" class="carousel slide" data-ride="carousel" style='height:100%'>
       <!-- Indicators -->
       <ul class="carousel-indicators">
         <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -39,7 +39,8 @@
 
     <script>
         function F__ID(){
-            $('div.carousel-inner').css('height',$vm.min_height);
+            //$('div.carousel-inner').css('height',$vm.min_height);
+            $('div.carousel-inner').css('height','100%');
             $('.carousel').carousel({interval: 3000})
         }
     </script>
