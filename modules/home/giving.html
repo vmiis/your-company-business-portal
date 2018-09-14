@@ -22,7 +22,7 @@
 	<script>
 		function F__ID(){
 			$('#D__ID').on('load',function(){
-				$('#page_1__ID').css('height',($vm.min_height+$vm.footer_height)+'px');
+				$('#page_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');
 			})
 		}
 	</script>

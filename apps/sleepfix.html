@@ -6,26 +6,19 @@
         <link rel="icon" href="data:,">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab' />
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     </head>
     <body>
-        <!----------------------------------------------->
-        <div id=layout>
-            <div id=header></div>
-            <div id=content><div id=vm_loader class="loader_0"></div></div>
-            <footer id=footer></footer>
-        </div>
-        <!----------------------------------------------->
+        <div id=header></div>
+        <div id=content><div id=vm_loader class="loader_0"></div></div>
+        <footer id=footer></footer>
         <div id=components>
-            <!----------------------------------------------->
             <div id=c_header>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                   <div class="container"> <a id=logo_0 style='cursor:pointer'><img src="https://www.sfix.com.au/images/sleepfix-logo.png" width="auto" height="45px" alt=""></a>
-                      <button type="button" id=btn1_0 class="btn btn-outline-light">SLEEPFIX STUDY PAGE</button>
+                      <!-- <button type="button" id=btn1_0 class="btn btn-outline-light">SLEEPFIX STUDY PAGE</button>-->
                   </div>
                 </nav>
             </div>
-            <!----------------------------------------------->
             <div id=c_footer>
                 <div class="container mt-0" id=appstore style="display:none">
                   <div class="row justify-content-end px-0">
@@ -46,206 +39,214 @@
                   </div>
                 </div>
             </div>
-            <!----------------------------------------------->
         </div>
-        <!----------------------------------------------->
-        <script>
-            //------------------------------------
-            $vm={};$VmAPI={};$vm.ver=[230,230];
-            $vm.start_time=new Date().getTime();
-            $vm.api_path_development="https://cbs.wappsystem.com/dev/";
-            $vm.api_path_production="https://cbs.wappsystem.com/pro/";
-            $vm.default_production="No";
-            $vm.qid='20011572';
-            $vm.vm_router=undefined;
-            if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
-            //------------------------------------
-            $vm.module_links=[
-                "https://www.sfix.com.au/modules.json",
-            ];
-            $vm.module_list={
-                "home": {"url":"https://www.sfix.com.au/modules/home.html"},
-            }
-            //------------------------------------
-            $vm.local_url=function(url){
-                var urlR=url;
-                if($vm.localhost==true){
-                    urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
-                    urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
-                    urlR=urlR.replace('https://www.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix/');
-                }
-                return urlR;
-            }
-            //------------------------------------
-            for(p in $vm.module_links) $vm.module_links[p]=$vm.local_url($vm.module_links[p]);
-            for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
-            //------------------------------------
-            $vm.start=function(){
-                $vm.init_v3({callback:function(){
-                   $vm.init_status=1;
-                   $('#c_header').contents().appendTo('#header');
-                   $('#c_footer').contents().appendTo('#footer');
-                   $vm.show_user();
-               }})
-            }
-            //------------------------------------
-            $vm.menu_click=function(href){
-                href=href.replace('?\/','');
-                href=href.replace(/\//g,'_');
-                $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
-            }
-            //------------------------------------
-            $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
-            $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
-            //------------------------------------
-            $vm.default_title="SleepFix";
-            //------------------------------------
-            $vm.show=function(id){
-                document.title=$vm.default_title;
-                $("meta[name='description']").attr("content", "SleepFix");
-                $("body").removeClass();
-                $("body").addClass('body_background_default');
-                if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined){
-                    $vm.vm[id].show();
-                }
-            }
-            //------------------------------------
-            $vm.show();
-            //------------------------------------
-            $vm.root_layout_content_slot='content'
-            $vm.root_layout_footer='footer';
-            //------------------------------------
-            var url1="https://www.vmiis.com/modules/starter/app.html";          if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/app.html";
-            var url2="https://www.vmiis.com/modules/menu/topbar-menu.html";     if($vm.localhost) url2="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/menu/topbar-menu.html";
-            var urls=[url1,url2]; $vm.module_start_id=2;
-            //---------------------------------------------
-            $(urls).each(function(index,url){
-                var ver=localStorage.getItem(url+"ver");
-                var txt=localStorage.getItem(url+"txt");
-                if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
-                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
-                        localStorage.setItem(url+"txt",new_txt);
-                        localStorage.setItem(url+"ver",$vm.ver[0]);
-                        console.log('loading from url. '+url);
-                        $('#content').append(new_txt.replace(/__ID/g,'_'+index));
-                    },'text');
-                }
-                else{
-                    console.log('loading from storage. '+url);
-                    $('#content').append(txt.replace(/__ID/g,'_'+index));
-                }
-                //---------------------------------------------
-            })
-            //---------------------------------------------
-
-
-
-            //-------------------------------------
-            $('#btn1_0').on('click',function(){
-                $vm.load_module_v2('sleepfix-study-page','',{});
-                $('#appstore').show();
-                $('#logos__ID').hide();
-            })
-            //-------------------------------------
-            $('#logo_0').on('click',function(){
-                $vm.load_module_v2('home','',{});
-                $('#appstore').hide();
-                $('#logos__ID').show();
-            })
-            //-------------------------------------
-            $('#btn2_0').on('click',function(){
-               alert("Where to go?");
-            })
-            //-------------------------------------
-            $('#btn3_0').on('click',function(){
-               alert("Where to go?");
-            })
-            //-------------------------------------
-        </script>
-        <!----------------------------------------------->
-        <style>
-            html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
-            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-            .body_background_default{
-                background-image: url("https://www.sfix.com.au/images/layout.jpg");
-            }
-            #layout {
-                height: 100%;
-                display: grid;
-                grid-template-rows: 1fr auto;
-                overflow:auto;
-            }
-            #content{
-                margin-top:80px;
-            }
-            #header{
-                position:fixed;
-                width:100%;
-                height:80px;
-                background: unset;
-                z-index: 1030;
-            }
-            #footer{
-                padding-top: 35px;
-            }
-            #vm_logo{
-                padding-top:0px;
-            }
-            .vm_hide{
-                display:none!Important;
-            }
-        </style>
-        <!----------------------------------------------->
-        <style third-party>
-            .navbar {
-                background-color: rgba(162, 213, 203, 0.7) !important;
-                border-bottom: 1px solid #fff !important;
-                height: 80px;
-            }
-            .btn-outline-light {
-            	font-family: 'Nunito Sans';
-                font-weight: 100;
-            	font-size: 12px;
-            	letter-spacing: 1px;
-            	color: #FFFFFF;
-            	text-align: center;
-            	line-height: 18px;
-            	text-transform: uppercase;
-            	border-radius: 15px;
-            	border-width: 2px;
-            	padding-left: 25px;
-            	padding-right: 25px
-            }
-            .btn-outline-light:hover {
-            	color: #23807F;
-            }
-            footer {
-            	background-color: #A2D5CB !important;
-            	height: 290px !important;
-            	padding-top: 35px;
-            }
-
-            footer img {
-            	width: 170px;
-            	height: auto;
-            	float: right;
-            	margin-left:50px;
-            	margin-right:50px;
-                margin-bottom:10px;
-            }
-            .logos {
-            	width: 250px;
-            	height: auto;
-            	float: right;
-            	margin-left:5px;
-            	margin-right:5px;
-            }
-            @media (min-width: 768px) {
-                footer {
-                	height: 200px !important;
-                }
-            }
-            /*------------------------*/
-        </style>
     </body>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    <script main>
+        //------------------------------------
+        $vm={};$VmAPI={};$vm.ver=[233,233];
+        $vm.start_time=new Date().getTime();
+        $vm.api_path_development="https://cbs.wappsystem.com/dev/";
+        $vm.api_path_production="https://cbs.wappsystem.com/pro/";
+        $vm.default_production="No";
+        $vm.qid='20011572';
+        $vm.vm_router=undefined;
+        if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+        //------------------------------------
+        $vm.module_links=[
+            "https://www.sfix.com.au/modules.json",
+        ];
+        $vm.module_list={
+            "home": {"url":"https://www.sfix.com.au/modules/home.html"},
+        }
+        //------------------------------------
+        $vm.local_url=function(url){
+            var urlR=url;
+            if($vm.localhost==true){
+                urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
+                urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
+                urlR=urlR.replace('https://www.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix/');
+            }
+            return urlR;
+        }
+        //------------------------------------
+        for(p in $vm.module_links) $vm.module_links[p]=$vm.local_url($vm.module_links[p]);
+        for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
+        //------------------------------------
+        $vm.default_title="SleepFix";
+        //------------------------------------
+        $('#c_header').contents().appendTo('#header');
+        $('#c_footer').contents().appendTo('#footer');
+        //------------------------------------
+        $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+        $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
+        //------------------------------------
+        $vm.root_layout_content_slot='content'
+        $vm.root_layout_footer='footer';
+        //---------------------------------------------
+        var set_height=function(){
+            var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
+            var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
+            $vm.min_height=($(window).height()-header_height-footer_height);
+            if($vm.active_id!=undefined){
+                $('#D'+$vm.active_id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+            }
+        }
+        //------------------------------------
+        set_height();
+        //-----------------------------------------
+        $vm.start=function(){
+            $vm.init_v3({callback:function(){
+               $vm.init_status=1;
+               $vm.show_user();
+           }})
+        }
+        //------------------------------------
+        $vm.menu_click=function(href){
+            href=href.replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+        }
+        //------------------------------------
+        $vm.show=function(id){
+            $vm.active_id=id;
+            document.title=$vm.default_title;
+            $("meta[name='description']").attr("content", "SleepFix");
+            $("body").removeClass();
+            $("body").addClass('body_background_default');
+            if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined) $vm.vm[id].show();
+            if(id!=undefined){
+                $('#D'+id).css('height','unset');
+                $('#D'+id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+            }
+        }
+        //------------------------------------
+        $vm.show();
+        window.onresize=function(){set_height();}
+        //------------------------------------
+    </script>
+    <script unknow>
+        //-------------------------------------
+        $('#btn1_0').on('click',function(){
+            $vm.load_module_v2('sleepfix-study-page','',{});
+            $('#appstore').show();
+            $('#logos__ID').hide();
+        })
+        //-------------------------------------
+        $('#logo_0').on('click',function(){
+            $vm.load_module_v2('home','',{});
+            $('#appstore').hide();
+            $('#logos__ID').show();
+        })
+        //-------------------------------------
+        $('#btn2_0').on('click',function(){
+           alert("Where to go?");
+        })
+        //-------------------------------------
+        $('#btn3_0').on('click',function(){
+           alert("Where to go?");
+        })
+        //-------------------------------------
+    </script>
+    <style main>
+        html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
+        body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+        .body_background_default{
+            background-image: url("https://www.sfix.com.au/images/layout.jpg");
+        }
+        #header{
+            position:fixed;
+            top:0;
+            width:100%;
+            height:80px;
+            background: unset;
+            z-index: 1030;
+        }
+        #content{
+            padding-top:80px;
+        }
+        #footer{
+            padding-top: 35px;
+        }
+        #vm_logo{
+            padding-top:0px;
+        }
+        .vm_hide{
+            display:none!Important;
+        }
+    </style>
+    <style third-party>
+        .navbar {
+            background-color: rgba(162, 213, 203, 0.7) !important;
+            border-bottom: 1px solid #fff !important;
+            height: 80px;
+        }
+        .btn-outline-light {
+            font-family: 'Nunito Sans';
+            font-weight: 100;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 18px;
+            text-transform: uppercase;
+            border-radius: 15px;
+            border-width: 2px;
+            padding-left: 25px;
+            padding-right: 25px
+        }
+        .btn-outline-light:hover {
+            color: #23807F;
+        }
+        footer {
+            background-color: #A2D5CB !important;
+            height: 290px !important;
+            padding-top: 35px;
+        }
+
+        footer img {
+            width: 170px;
+            height: auto;
+            float: right;
+            margin-left:50px;
+            margin-right:50px;
+            margin-bottom:10px;
+        }
+        .logos {
+            width: 250px;
+            height: auto;
+            float: right;
+            margin-left:5px;
+            margin-right:5px;
+        }
+        @media (min-width: 768px) {
+            footer {
+                height: 200px !important;
+            }
+        }
+        /*------------------------*/
+    </style>
+    <script boot>
+        //------------------------------------
+        var url1="https://www.vmiis.com/modules/starter/app01.html"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/app01.html";
+        var urls=[url1]; $vm.module_start_id=1;
+        //---------------------------------------------
+        $(urls).each(function(index,url){
+            var ver=localStorage.getItem(url+"ver");
+            var txt=localStorage.getItem(url+"txt");
+            if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                    localStorage.setItem(url+"txt",new_txt);
+                    localStorage.setItem(url+"ver",$vm.ver[0]);
+                    console.log('loading from url. '+url);
+                    $('#content').append(new_txt.replace(/__ID/g,'_'+index));
+                },'text');
+            }
+            else{
+                console.log('loading from storage. '+url);
+                $('#content').append(txt.replace(/__ID/g,'_'+index));
+            }
+            //---------------------------------------------
+        })
+    </script>
 </html>
