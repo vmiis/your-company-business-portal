@@ -1,54 +1,49 @@
 <div id=D__ID>
     <div>
-    	<div id=page_1__ID>
-    		<div class="container">
-              <div class="row align-items-center">
-                <div>
-                    <h1>The most valuable <br>thing is your Health</h1>
-                    <p>We care about your health Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                </div>
-              </div>
-    		</div>
-    	</div>
-    	<div id=page_2__ID>
-    		<div class="container">
-              <div class="row align-items-center">
-                <div class="col-md-7">
-                  <span>Page 2</span>
-                </div>
-              </div>
-    		</div>
-    	</div>
+    	<div id=section_1__ID></div>
+    	<div id=section_2__ID></div>
+        <div id=section_3__ID></div>
     </div>
 	<script>
 		function F__ID(){
 			$('#D__ID').on('load',function(){
-				$('#page_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');
+				$('#section_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');
 			})
+            $vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/health.html','section_1__ID');
+            $vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/service-001/c.html','section_2__ID');
+            $vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/doctor-001/c.html','section_3__ID');
 		}
+        $vm.load_component=function(url,div){
+            var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+            var ver=localStorage.getItem(apppath+url+"ver");
+            var txt=localStorage.getItem(apppath+url+"txt");
+            var http127=0;
+    		if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1) http127=1;
+            if(ver!=$vm.ver[1] || http127==1 || txt==null){
+                $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                    localStorage.setItem(apppath+url+"txt",new_txt);
+                    localStorage.setItem(apppath+url+"ver",$vm.ver[1]);
+                    console.log('loading from url. '+url+' '+ver+'/'+$vm.ver[1]+" 127:"+http127);
+                    new_txt=new_txt.replace(/__CURRENT_URL__/g,url);
+                    $('#'+div).html(new_txt);
+                },'text');
+            }
+            else{
+                console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[1]+" 127:"+http127);
+                txt=txt.replace(/__CURRENT_URL__/g,url);
+                $('#'+div).html(txt);
+            }
+            //---------------------------------------------
+        };
 	</script>
 	<style>
 		#D__ID{
 			height:100%;
 			animation: vm_module_fadein 1.0s;
 		}
-		#page_1__ID{
-			display: flex;
-			align-items: center;
-			color: #fff;
-		    /*font-size: 80px;*/
-		    line-height: 1.1;
-		    font-family: cursive
+		#section_1__ID{
 		}
-		#page_2__ID{
-			height:800px;
-			display: flex;
-			align-items: center;
-			color: #fff;
-		    /*font-size: 80px;*/
-		    line-height: 1.1;
-		    font-family: cursive;
-			background-color: #888;
+		#section_2__ID{
 		}
 		@keyframes D__ID {
 			from {padding-top: 300px;}
@@ -58,7 +53,7 @@
 	        #D__ID{
 	            animation: vm_module_fadein 1.0s;
 	        }
-            #page_1__ID{
+            #section_1__ID{
     		    /*font-size: 40px;*/
     		}
 	    }
