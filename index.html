@@ -25,6 +25,14 @@
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
                     <a href="?/tutorial"><i class="fa fa-th-list"></i> Tutorial</a>
                     <div class="vm-dropdown">
+                        <span class="vm-dropbtn"><i class="fa fa-list"></i> App Templates <i class="fa fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/basic">Basic</a>
+                            <a href="?/project">Projects</a>
+                            <a href="?/other">Others</a>
+                        </div>
+                    </div>
+                    <div class="vm-dropdown">
                         <span class="vm-dropbtn"><i class="fa fa-list"></i> Module Templates <i class="fa fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
                             <a href="?/commonly-used-form-fields">Commonly used form fields</a>
@@ -37,11 +45,9 @@
                         </div>
                     </div>
                     <div class="vm-dropdown">
-                        <span class="vm-dropbtn"><i class="fa fa-list"></i> App Templates <i class="fa fa-caret-down"></i></span>
+                        <span class="vm-dropbtn"><i class="fa fa-list"></i> Component Templates <i class="fa fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
-                            <a href="?/basic">Basic</a>
-                            <a href="?/project">Projects</a>
-                            <a href="?/other">Others</a>
+                            <a href="?/component-basic">Basic</a>
                         </div>
                     </div>
                     <a href="?/about-this-website"><i class="fa fa-info-circle"></i> About</a>
@@ -64,7 +70,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[377,323];
+        $vm={};$VmAPI={};$vm.ver=[378,325];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -99,6 +105,14 @@
             "project":             	    {"url":"https://www.vmiis.com/modules/panels/apps/project.html"},
             "other":             	    {"url":"https://www.vmiis.com/modules/panels/apps/other.html"},
             "portal":             	    {"url":"https://www.vmiis.com/modules/panels/apps/portal.html"},
+
+            "component-basic":     	    {"url":"https://www.vmiis.com/modules/panels/components/basic.html"},
+            "component-container":      {"url":"https://www.vmiis.com/modules/components/container.html"},
+
+        }
+        $vm.component_list={
+            "doctor-001":  {"url":"https://www.vmiis.com/components/doctor-001/c.html"},
+            "service-001": {"url":"https://www.vmiis.com/components/service-001/c.html"},
         }
         //------------------------------------
         $vm.local_url=function(url){
@@ -121,6 +135,7 @@
         //------------------------------------
         for(p in $vm.module_links) $vm.module_links[p]=$vm.local_url($vm.module_links[p]);
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
+        for(p in $vm.component_list) $vm.component_list[p].url=$vm.local_url($vm.component_list[p].url);
         //------------------------------------
         $vm.default_title="Modular distributed web application";
         var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";

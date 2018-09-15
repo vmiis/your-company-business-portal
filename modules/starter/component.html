@@ -1,0 +1,172 @@
+<div system-html>
+    <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+	//------------------------------------
+    $vm.start_time=new Date().getTime();
+    $vm.server          ='development';
+    $VmAPI.api_base     ="https://cbs.wappsystem.com/dev/";
+    $vm.qid='10000000';
+    $vm.vm_router=undefined;
+    $vm.module_start_id=2;
+    //------------------------------------
+    $vm.start=function(){
+        $vm.module_list={}
+        for(p in _module_list){
+            $vm.module_list[p]=_module_list[p];
+        }
+        $vm.init_v3({callback:function(){
+            var module_txt=$('#D__ID').html();
+            $('#D__ID').remove();
+            $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+            var url=$vm.module_list["the-module"].url
+            localStorage.setItem(url+"_txt",module_txt);
+    		localStorage.setItem(url+"_ver",$vm.version);
+            $vm.root_layout_content_slot="content";
+            $vm.url=function(text){ return text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/'); }
+            //$vm.load_module_v2('the-module','',{})
+            $vm.load_component('the-module','content')
+        }});
+    }
+    $vm._start=function(){
+        //------------------------------------------
+        var data=''; for(var key in window.localStorage){ if(window.localStorage.hasOwnProperty(key)){ data+=window.localStorage[key]; }}
+        if(data.length>3000000) localStorage.clear();
+        //------------------------------------------
+        $vm.vm={}; $vm.version=$vm.ver[0]; $vm.reload='';
+        $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+        $vm.debug_message=true;
+        //------------------------------------------
+        $vm.load_resources=function(links){
+            for(i in links){
+                var e=links[i].split('.').pop();
+                if(e=='css'){
+                    $('head').append("<link rel='stylesheet' href='"+links[i]+"'>");
+                }
+                else if(e=='js'){
+                    $vm.load_js_link(links[i])
+                }
+            }
+            //-------------------------------------
+            $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/export_dialog_module.html',"name_for_search":""};
+            $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/import_dialog_module.html',"name_for_search":""};
+            $vm.module_list['uploading_file_dialog_module']={table_id:'',url:'__COMPONENT__/dialog/uploading_file_dialog_module.html',"name_for_search":""};
+            $vm.load_module_v2('_system_export_dialog_module','hidden',{})
+            $vm.load_module_v2('_system_import_dialog_module','hidden',{})
+            $vm.load_module_v2('uploading_file_dialog_module','hidden',{})
+            //-------------------------------------
+        }
+        //------------------------------------
+        $vm.resources=[
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+            "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/react/16.4.1/umd/react.production.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.1/umd/react-dom.production.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+            "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js",
+            "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
+            "https://apis.google.com/js/plusone.js",
+            "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js",
+            "https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",
+            "https://www.gstatic.com/charts/loader.js"
+        ];
+        //---------------------------------------------
+        setTimeout(function (){ $.ajaxSetup({cache:true}); $vm.load_resources($vm.resources); },10);
+        //------------------------------------
+        $vm.load_js_link=function(link){
+            $.getScript(link,function(){
+                var nm=link.split('/').pop();
+                nm=nm.replace(/\./g,'-');
+                $vm[nm]=1;
+                if(nm=='loader-js'){
+                    google.charts.load('current', {packages: ['corechart']});
+                }
+            });
+        }
+        //------------------------------------
+        $vm.alert=function(msg){
+          $('#vm_alert_information div.modal-body').html( $('<div/>').html(msg).text() );
+          $("#vm_alert_information").modal();
+        }
+        //------------------------------------
+        $vm.close_alert=function(){
+          $('#vm_alert_information').modal('hide');
+        }
+        //------------------------------------
+        if($vm.server!='production') $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
+        //$vm.app_module=1;
+        //------------------------------------
+        var set_height=function(){
+            var header_height=0;
+            var footer_height=0;
+            $vm.min_height=($('body').height()-header_height-footer_height);
+        }
+        //------------------------------------
+        set_height();window.onresize=function(){set_height();}
+        //-----------------------------------------
+    }
+    //------------------------------------
+    $vm._I=0; $vm._boot=function(){
+        $vm._I++;
+        if($vm._I==2){
+            $vm._id=$vm.module_start_id-1;
+            $vm._start(); $vm.start();
+        }
+    }
+    //------------------------------------------
+    $vm.url=function(text){
+        text=text.replace(/__HOST__\//g,$vm.hosting_path+'/');
+        text=text.replace(/__VER__/g,$vm.ver[0]);
+        text=text.replace(/__PARTS__\//g,'__COMPONENT__/');
+        text=text.replace(/__COMPONENT__\//g,'https://component.vmiis.com/');
+        return text;
+    }
+    //---------------------------------------------
+    var url1=$vm.url("https://framework.vmiis.com/distribution/vmframework.min.js");
+    var url2=$vm.url("https://api.vmiis.com/distribution/vmapi.min.js");
+    var urls=[url1,url2];
+    //---------------------------------------------
+    $(urls).each(function(index,url){
+        var ver=localStorage.getItem(url+"ver");
+        var txt=localStorage.getItem(url+"txt");
+        if(ver!=$vm.ver[1] || txt==null || window.location.toString().indexOf('_d=1')!=-1){
+            $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                localStorage.setItem(url+"txt",new_txt);
+                localStorage.setItem(url+"ver",$vm.ver[0]);
+                console.log('loading from url. '+url);
+                $('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
+                $vm._boot();
+            },'text');
+        }
+        else{
+            console.log('loading from storage. '+url);
+            $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>');
+            $vm._boot();
+        }
+        //---------------------------------------------
+    })
+    //---------------------------------------------
+</script>
+<style>
+    html,body{
+        margin:0;padding:0;height:100%;font-family:Arial;
+    }
+</style>

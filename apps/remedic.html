@@ -121,6 +121,8 @@
                 $('#D'+id).css('overflow','unset');
                 $('#D'+id).css('overflow-x','auto');
                 //if($vm.vm[id].name=='home') $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                var y=-$(window).scrollTop()/2;
+                $('body').css({ 'background-position-y': '0px'});
                 if($vm.vm[id].name=='home') $("#header").css("background","rgba(0,0,0,0)");
                 else $("#header").css("background","rgba(0,0,0,0.5)");
             }
