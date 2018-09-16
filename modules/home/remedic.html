@@ -9,9 +9,9 @@
 			$('#D__ID').on('load',function(){
 				$('#section_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');
 			})
-            $vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/health.html','section_1__ID');
-            $vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/service-001/c.html','section_2__ID');
-            $vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/doctor-001/c.html','section_3__ID');
+            $vm.load_component('https://www.vmiis.com/components/health.html','section_1__ID');
+            $vm.load_component('https://www.vmiis.com/components/service-001/c.html','section_2__ID');
+            $vm.load_component('https://www.vmiis.com/components/doctor-001/c.html','section_3__ID');
 		}
         $vm.load_component=function(url,div){
             var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];

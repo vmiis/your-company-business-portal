@@ -70,7 +70,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[378,325];
+        $vm={};$VmAPI={};$vm.ver=[379,325];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -208,7 +208,6 @@
             --mobile-title-color:#fff;
             --mobile-hamburger-color:#fff;
             --mobile-menu-background-color:#1c3144;
-            --mobile-break-point:700px;
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
@@ -241,7 +240,7 @@
         .vm-header{height:100px;background:rgba(0,0,0,0.6);}
         .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
         #vm-menu{ float:left;padding:50px 30px 0 30px;}
-        @media screen and (max-width: 900px){
+        @media screen and (max-width: 1200px){
             .vm-header{height:50px;}
             .vm-desk-logo{display:none;}
             #vm-menu{padding:0;}
@@ -355,7 +354,7 @@
             display:none;
         }
         /*----------------------*/
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 1200px) {
             .vm-mobile{
                 display:block;
             }

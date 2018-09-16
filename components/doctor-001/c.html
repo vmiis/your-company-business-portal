@@ -11,7 +11,7 @@
 	</section>
     <div class="container">
         <div class="row">
-            <div class="col-sm col-md-6 col-lg-3 snip1552">
+            <div class="col-sm col-md col-lg-3 snip1552">
                 <div class="image" style="background-image: url(__CURRENT_URL__.01.jpg);">
                 </div>
                 <figcaption>
@@ -53,6 +53,7 @@
         <br>
         <br>
         <br>
+        <br>
     </div>
     <script>
         $('#doctors__ID a').on('click',function(e){
@@ -72,29 +73,14 @@
     		text-align: center;
     	}
         #doctors__ID .image{
+            min-width: 230px;
             height:400px;
             background-size: cover;
-            background-position: center center;
+            background-position: center top;
             background-repeat: no-repeat;
         }
         #doctors__ID .snip1552:hover>.image{
             opacity: 0.1;
-        }
-        #doctors__ID .snip1552 {
-            /*
-            font-family: 'Source Sans Pro', sans-serif;
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-            margin: 8px;
-            min-width: 230px;
-            max-width: 315px;
-            width: 100%;
-            color: #000000;
-            text-align: left;
-            font-size: 16px;
-            background-color: #fff;
-            */
         }
         #doctors__ID .snip1552 * {
             -webkit-box-sizing: border-box;
@@ -102,13 +88,6 @@
             -webkit-transition: all 0.45s ease;
             transition: all 0.45s ease;
         }
-
-        #doctors__ID .snip1552 img {
-          vertical-align: top;
-          max-width: 100%;
-          backface-visibility: hidden;
-        }
-
         #doctors__ID .snip1552 figcaption {
           position: absolute;
           top: 40px;
@@ -152,12 +131,12 @@
           right: 0;
           z-index: 1;
         }
-
+        /*
         #doctors__ID .snip1552:hover > img,
         #doctors__ID .snip1552.hover > img {
           opacity: 0.1;
         }
-
+        */
         #doctors__ID .snip1552:hover h3,
         #doctors__ID .snip1552.hover h3,
         #doctors__ID .snip1552:hover p,
