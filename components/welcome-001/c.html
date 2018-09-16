@@ -1,0 +1,99 @@
+<div id=welcome__ID>
+    <section>
+    	<div class="container">
+    		<div class="welcome_inner row">
+    			<div class="col-lg-5">
+    				<div class="welcome_img">
+    					<img class="img-fluid" src="__CURRENT_URL__.01.jpg" alt="">
+    				</div>
+    			</div>
+    			<div class="col-lg-6 offset-lg-1">
+    				<div class="welcome_text">
+    					<h3>Welcome to Eventure</h3>
+    					<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.</p>
+    					<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace.</p>
+    					<a href="?/more" class="main_btn" >View More Details</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+</div>
+<script>
+    $('#welcome__ID a').on('click',function(e){
+        e.preventDefault();
+        var href=$(this).attr('href');
+        if(href!=undefined && href!=''){
+            href=href.replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+        }
+    })
+</script>
+<style>
+    #welcome__ID{
+        padding:60px 0;
+        background-color: #eee;
+    }
+
+    #welcome__ID .welcome_inner .col-lg-6 {
+        vertical-align: middle;
+        -ms-flex-item-align: center;
+        align-self: center;
+    }
+
+    #welcome__ID .welcome_text h3 {
+        color: #222222;
+        font-size: 36px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+    #welcome__ID .welcome_text p {
+        margin-bottom: 25px;
+        line-height: 24px;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+        font-weight: normal;
+        color: #777777;
+    }
+
+    #welcome__ID .welcome_text .main_btn {
+        margin-top: 15px;
+    }
+
+
+
+    #welcome__ID .main_btn {
+      display: inline-block;
+      background-image: -webkit-gradient(linear, left top, right top, from(#2c28b1), color-stop(51%, #9b5cf6), to(#2c28b1));
+      background-image: -webkit-linear-gradient(left, #2c28b1 0%, #9b5cf6 51%, #2c28b1 100%);
+      background-image: -o-linear-gradient(left, #2c28b1 0%, #9b5cf6 51%, #2c28b1 100%);
+      background-image: linear-gradient(to right, #2c28b1 0%, #9b5cf6 51%, #2c28b1 100%);
+      background-size: 200% auto;
+      padding: 0px 35px;
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 50px;
+      border-radius: 5px;
+      outline: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      text-align: center;
+      cursor: pointer;
+      -webkit-transition: all 300ms linear 0s;
+      -o-transition: all 300ms linear 0s;
+      transition: all 300ms linear 0s;
+    }
+
+    #welcome__ID .main_btn:hover {
+      background-position: right center;
+      color: #fff;
+    }
+
+    #welcome__ID a{
+        text-decoration: none;
+    }
+
+</style>

@@ -6,35 +6,11 @@
     </div>
 	<script>
 		function F__ID(){
-			$('#D__ID').on('load',function(){
-				$('#section_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');
-			})
+			$('#D__ID').on('load',function(){$('#section_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');})
             $vm.load_component('https://www.vmiis.com/components/health.html','section_1__ID');
             $vm.load_component('https://www.vmiis.com/components/service-001/c.html','section_2__ID');
             $vm.load_component('https://www.vmiis.com/components/doctor-001/c.html','section_3__ID');
 		}
-        $vm.load_component=function(url,div){
-            var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
-            var ver=localStorage.getItem(apppath+url+"ver");
-            var txt=localStorage.getItem(apppath+url+"txt");
-            var http127=0;
-    		if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1) http127=1;
-            if(ver!=$vm.ver[1] || http127==1 || txt==null){
-                $.get(url+'?_='+new Date().getTime(),function(new_txt){
-                    localStorage.setItem(apppath+url+"txt",new_txt);
-                    localStorage.setItem(apppath+url+"ver",$vm.ver[1]);
-                    console.log('loading from url. '+url+' '+ver+'/'+$vm.ver[1]+" 127:"+http127);
-                    new_txt=new_txt.replace(/__CURRENT_URL__/g,url);
-                    $('#'+div).html(new_txt);
-                },'text');
-            }
-            else{
-                console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[1]+" 127:"+http127);
-                txt=txt.replace(/__CURRENT_URL__/g,url);
-                $('#'+div).html(txt);
-            }
-            //---------------------------------------------
-        };
 	</script>
 	<style>
 		#D__ID{

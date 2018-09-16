@@ -18,7 +18,7 @@
                     <h3>Archibald Northbottom</h3>
                     <p>I'm learning real skills that I can apply throughout the rest of my life ... Procrastinating and rationalizing.</p>
                 </figcaption>
-                <a href="?/donate"></a>
+                <a href="?/more"></a>
             </div>
             <div class="col-sm col-md-6 col-lg-3 snip1552">
                 <div class="image" style="background-image: url(__CURRENT_URL__.02.jpg);">
@@ -27,7 +27,7 @@
                     <h3>Druid Wensleydale</h3>
                     <p>If you do the job badly enough, sometimes you don't get asked to do it again.</p>
                 </figcaption>
-                <a href="?/donate"></a>
+                <a href="?/more"></a>
             </div>
             <div class="col-sm col-md-6 col-lg-3 snip1552">
                 <div class="image" style="background-image: url(__CURRENT_URL__.03.jpg);">
@@ -36,7 +36,7 @@
                     <h3>Druid Wensleydale</h3>
                     <p>If you do the job badly enough, sometimes you don't get asked to do it again.</p>
                 </figcaption>
-                <a href="?/donate"></a>
+                <a href="?/more"></a>
             </div>
             <div class="col-sm col-md-6 col-lg-3 snip1552">
                 <div class="image" style="background-image: url(__CURRENT_URL__.04.jpg);">
@@ -45,7 +45,7 @@
                     <h3>Indigo Violet</h3>
                     <p>But Calvin is no kind and loving god! He's one of the old gods! He demands sacrifice! </p>
                 </figcaption>
-                <a href="?/donate"></a>
+                <a href="?/more"></a>
             </div>
         </div>
         <br>
@@ -55,95 +55,98 @@
         <br>
         <br>
     </div>
-    <script>
-        $('#doctors__ID a').on('click',function(e){
-            e.preventDefault();
-            var href=$(this).attr('href').replace('?\/','');
+</div>
+<script>
+    $('#doctors__ID a').on('click',function(e){
+        e.preventDefault();
+        var href=$(this).attr('href');
+        if(href!=undefined && href!=''){
+            href=href.replace('?\/','');
             href=href.replace(/\//g,'_');
             $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
-        })
-    </script>
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-        #doctors__ID{
-            background-color: #eee;
         }
-        #doctors__ID .section-heading {
-    		padding: 40px 0px;
-    		text-align: center;
-    	}
-        #doctors__ID .image{
-            min-width: 230px;
-            height:400px;
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-        }
-        #doctors__ID .snip1552:hover>.image{
-            opacity: 0.1;
-        }
-        #doctors__ID .snip1552 * {
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            -webkit-transition: all 0.45s ease;
-            transition: all 0.45s ease;
-        }
-        #doctors__ID .snip1552 figcaption {
-          position: absolute;
-          top: 40px;
-          bottom: 40px;
-          left: 40px;
-          right: 40px;
-          z-index: 1;
-          bottom: 0;
-        }
+    })
+</script>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+    #doctors__ID{
+        background-color: #eee;
+    }
+    #doctors__ID .section-heading {
+        padding: 40px 0px;
+        text-align: center;
+    }
+    #doctors__ID .image{
+        min-width: 230px;
+        height:400px;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    #doctors__ID .snip1552:hover>.image{
+        opacity: 0.1;
+    }
+    #doctors__ID .snip1552 * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all 0.45s ease;
+        transition: all 0.45s ease;
+    }
+    #doctors__ID .snip1552 figcaption {
+      position: absolute;
+      top: 40px;
+      bottom: 40px;
+      left: 40px;
+      right: 40px;
+      z-index: 1;
+      bottom: 0;
+    }
 
-        #doctors__ID .snip1552 h3,
-        #doctors__ID .snip1552 p {
-          margin: 0;
-          opacity: 0;
-          letter-spacing: 1px;
-        }
+    #doctors__ID .snip1552 h3,
+    #doctors__ID .snip1552 p {
+      margin: 0;
+      opacity: 0;
+      letter-spacing: 1px;
+    }
 
-        #doctors__ID .snip1552 h3 {
-          -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-          text-transform: uppercase;
-          font-weight: 400;
-          margin-bottom: 5px;
-        }
+    #doctors__ID .snip1552 h3 {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
 
-        #doctors__ID .snip1552 p {
-          font-weight: normal;
-          font-style: italic;
-          color: #888;
-          font-size: 0.9em;
-          padding-left: 15px;
-          -webkit-transform: translateX(-25px);
-          transform: translateX(-25px);
-        }
+    #doctors__ID .snip1552 p {
+      font-weight: normal;
+      font-style: italic;
+      color: #888;
+      font-size: 0.9em;
+      padding-left: 15px;
+      -webkit-transform: translateX(-25px);
+      transform: translateX(-25px);
+    }
 
-        #doctors__ID .snip1552 a {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          z-index: 1;
-        }
-        /*
-        #doctors__ID .snip1552:hover > img,
-        #doctors__ID .snip1552.hover > img {
-          opacity: 0.1;
-        }
-        */
-        #doctors__ID .snip1552:hover h3,
-        #doctors__ID .snip1552.hover h3,
-        #doctors__ID .snip1552:hover p,
-        #doctors__ID .snip1552.hover p {
-          -webkit-transform: translateY(0);
-          transform: translateY(0);
-          opacity: 1;
-        }
-    </style>
-</div>
+    #doctors__ID .snip1552 a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+    /*
+    #doctors__ID .snip1552:hover > img,
+    #doctors__ID .snip1552.hover > img {
+      opacity: 0.1;
+    }
+    */
+    #doctors__ID .snip1552:hover h3,
+    #doctors__ID .snip1552.hover h3,
+    #doctors__ID .snip1552:hover p,
+    #doctors__ID .snip1552.hover p {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+</style>

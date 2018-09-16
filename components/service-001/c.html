@@ -16,24 +16,35 @@
 					<img src="__CURRENT_URL__.01.jpg" class=img-fluid alt="">
 					<h4>Proin dictum elementum velit</h4>
 					<p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum, justo eget ultrices vestibulum erat tortor venenatis risus, sit amet cursus dui augue a arcu. Quisque mauris risus, gravida a molestie eu.</p>
-					<button type="button" class="btn btn-info">Read more</button>
+                    <a href="?/more" class="btn btn-info">Read more</a>
 				</div>
 				<div class="col-sm col-md-4">
 					<img src="__CURRENT_URL__.02.jpg" class=img-fluid alt="">
 					<h4>Vestibulum iaculis lacinia est</h4>
 					<p>Quisque mauris risus, gravida a molestie eu, dictum ac augue. Integer sodales tempor lectus; sit amet dictum metus pharetra nec. Fusce bibendum dapibus pretium. Nunc eu sem vitae lacus laoreet elementum. Nulla facilisi.</p>
-					<button type="button" class="btn btn-info">Read more</button>
+                    <a href="?/more" class="btn btn-info">Read more</a>
 				</div>
 				<div class="col-sm col-md-4">
 					<img src="__CURRENT_URL__.03.jpg" class=img-fluid alt="">
 					<h4>Consectetuer adipiscing elit</h4>
 					<p>Integer sodales tempor lectus; sit amet dictum metus pharetra nec. Fusce bibendum dapibus pretium. Nunc eu sem vitae lacus laoreet elementum. Nulla facilisi. Phasellus ullamcorper elementum est, id pretium turpis.</p>
-					<button type="button" class="btn btn-info">Read more</button>
+					<a href="?/more" class="btn btn-info">Read more</a>
 				</div>
             </div>
         </div>
 	</section>
 </div>
+<script>
+    $('#services__ID a').on('click',function(e){
+        e.preventDefault();
+        var href=$(this).attr('href');
+        if(href!=undefined && href!=''){
+            href=href.replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+        }
+    })
+</script>
 <style>
 	#services__ID .page-heading {
 		padding: 40px 0px;

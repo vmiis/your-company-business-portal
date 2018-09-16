@@ -44,12 +44,15 @@
                             <a href="?/equipment-booking">Equipment booking</a>
                         </div>
                     </div>
+                    <!--
                     <div class="vm-dropdown">
                         <span class="vm-dropbtn"><i class="fa fa-list"></i> Component Templates <i class="fa fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
                             <a href="?/component-basic">Basic</a>
                         </div>
                     </div>
+                    -->
+                    <a href="?/component-basic"><i class="fa fa-list"></i> Component Templates</a>
                     <a href="?/about-this-website"><i class="fa fa-info-circle"></i> About</a>
                     <div class="vm-dropdown" id=vm_signin>
                         <span class="vm-dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></span>
@@ -70,7 +73,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[379,325];
+        $vm={};$VmAPI={};$vm.ver=[380,325];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -91,6 +94,7 @@
         ];
         $vm.module_list={
             "home":                     {"url":"https://www.vmiis.com/modules/home.html"},
+            "more":                     {"url":"https://www.vmiis.com/modules/static/more.html"},
             "tutorial":           	    {"url":"https://www.vmiis.com/modules/panels/tutorial.html"},
 
             "commonly-used-form-fields":{"url":"https://www.vmiis.com/modules/panels/modules/commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
@@ -111,6 +115,7 @@
 
         }
         $vm.component_list={
+            "welcome-001": {"url":"https://www.vmiis.com/components/welcome-001/c.html"},
             "doctor-001":  {"url":"https://www.vmiis.com/components/doctor-001/c.html"},
             "service-001": {"url":"https://www.vmiis.com/components/service-001/c.html"},
         }
