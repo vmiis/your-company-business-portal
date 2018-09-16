@@ -23,22 +23,38 @@
                     </ul>
                 </div>
     			<div class=columnbox__ID>
-    				<span>Basic</span>
+                    <span>Demo of sections used in an app</span>
+                    <ul>
+    					<li>
+                            <!--
+    						<u class=try href="component-demo-01" >Try it yourself</u>
+    						<u class=dld href="service-001" >Download</u>
+                        -->
+    						<a target=_blank href="apps/component-demo-01.html" >Demo 01</a>
+                        </li>
+                    </ul>
+                    <br>
+    				<span>Sections on a Module/Page</span>
                     <ul>
     					<li>
     						<u class=try href="service-001" >Try it yourself</u>
     						<u class=dld href="service-001" >Download</u>
-    						<a target=_blank href="service-001" >Service</a>
+    						<a href="service-001" >Service 001</a>
+                        </li>
+                        <li>
+    						<u class=try href="service-002" >Try it yourself</u>
+    						<u class=dld href="service-002" >Download</u>
+    						<a href="service-002" >Service 002</a>
                         </li>
     					<li>
     						<u class=try href="doctor-001" >Try it yourself</u>
     						<u class=dld href="doctor-001" >Download</u>
-    						<a target=_blank href="doctor-001" >Doctor</a>
+    						<a href="doctor-001" >Doctor</a>
                         </li>
                         <li>
     						<u class=try href="welcome-001" >Try it yourself</u>
     						<u class=dld href="welcome-001" >Download</u>
-    						<a target=_blank href="welcome-001" >Welcome</a>
+    						<a href="welcome-001" >Welcome</a>
                         </li>
                     </ul>
     			</div>
@@ -66,7 +82,11 @@
     		var prefix=this_module.prefix; if(prefix==undefined) prefix="";
     		//--------------------------------------------------------
     		$('#panel__ID a').on('click',function(e){
-    			var href=$(this).attr('href');
+                var target=$(this).attr('target');
+                if(target=='_blank'){
+                    return;
+                }
+                var href=$(this).attr('href');
     			if(href!=undefined){
     				href=href.replace('?\/','');
     				href=href.replace(/\//g,'_');

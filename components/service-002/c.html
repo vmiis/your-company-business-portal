@@ -1,0 +1,229 @@
+<div id=services_002__ID>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="title">
+					<h3>Our <span>Services</span></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="single-feature wow fadeInLeft">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="feature-icon">
+								<i class="fa fa-bitbucket"></i>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<div class="feature-text">
+								<h4>Lorem ipsum dolor sit amet</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+								<a href="?/more">Read More>></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="single-feature wow fadeInLeft">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="feature-icon">
+								<i class="fa fa-apple "></i>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<div class="feature-text">
+								<h4>Lorem ipsum dolor sit amet</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+								<a href="?/more">Read More>></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="single-feature wow fadeInRight">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="feature-icon">
+								<i class="fa fa-automobile "></i>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<div class="feature-text">
+								<h4>Lorem ipsum dolor sit amet</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+								<a href="?/more">Read More>></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="single-feature wow fadeInLeft">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="feature-icon">
+								<i class="fa fa-bullhorn "></i>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<div class="feature-text">
+								<h4>Lorem ipsum dolor sit amet</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+								<a href="?/more">Read More>></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="single-feature wow fadeInLeft">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="feature-icon">
+								<i class="fa fa-camera-retro"></i>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<div class="feature-text">
+								<h4>Lorem ipsum dolor sit amet</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+								<a href="?/more">Read More>></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="single-feature wow fadeInRight">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="feature-icon">
+								<i class="fa fa-coffee "></i>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<div class="feature-text">
+								<h4>Lorem ipsum dolor sit amet</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+								<a href="?/more">Read More>></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    $('#services_002__ID a').on('click',function(e){
+        e.preventDefault();
+        var href=$(this).attr('href');
+        if(href!=undefined && href!=''){
+            href=href.replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+        }
+    })
+</script>
+<style>
+	#services_002__ID{
+		padding:60px 0;
+		background:#f5fcfd;
+	}
+	#services_002__ID .title h3{
+		text-align:center;
+	}
+
+	#services_002__ID .title h3 span{
+		color:#00bcd4;
+	}
+	#services_002__ID .title{
+		margin-bottom:50px;
+	}
+
+	#services_002__ID .feature-icon i{
+		font-size:50px;
+		color:#a1a1a1;
+	}
+
+	#services_002__ID .feature-text h4{
+		font-size:16px;
+		text-transform:uppercase;
+	}
+
+	#services_002__ID .feature-text p{
+		margin:5px 0;
+	}
+
+	#services_002__ID .feature-text a{
+		font-size:13px;
+		color:#00bcd4;
+		text-transform:uppercase;
+		font-weight:500;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	#services_002__ID .single-feature{
+		margin-bottom:30px;
+	}
+
+	@-webkit-keyframes fadeInLeft {
+	  from {
+	    opacity: 0;
+	    -webkit-transform: translate3d(-100%, 0, 0);
+	    transform: translate3d(-100%, 0, 0);
+	  }
+
+	  to {
+	    opacity: 1;
+	    -webkit-transform: none;
+	    transform: none;
+	  }
+	}
+
+	@keyframes fadeInLeft {
+	  from {
+	    opacity: 0;
+	    -webkit-transform: translate3d(-100%, 0, 0);
+	    transform: translate3d(-100%, 0, 0);
+	  }
+
+	  to {
+	    opacity: 1;
+	    -webkit-transform: none;
+	    transform: none;
+	  }
+	}
+
+	.fadeInLeft {
+	  -webkit-animation-name: fadeInLeft;
+	  animation-name: fadeInLeft;
+	}
+	@media only screen and (max-width: 767px) {
+		.single-feature{
+			text-align:center;
+		}
+
+		.feature-icon{
+			margin-bottom:8px;
+		}
+
+		.feature-text h4{
+			line-height:25px;
+		}
+
+	}
+
+
+
+
+</style>

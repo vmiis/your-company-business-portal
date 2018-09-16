@@ -23,12 +23,9 @@
                 </div>
                 <div menu id="vm-menu">
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <a href="?/monthly">Monthly</a>
-                    <a href="?/daily">Daily</a>
-                    <a href="?/event-data">Event</a>
+                    <a href="?/short">Short</a>
+                    <a href="?/long">Long</a>
                     <a href="?/about"><i class="fa fa-info-circle"></i> About</a>
-                    <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fa fa-user"></i> Sign In</a>
-                    <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
                 </div>
             </div>
             <div id=c_footer>
@@ -52,13 +49,11 @@
             //"https://www.vmiis.com/links/xxx.json",
         ];
         $vm.module_list={
-            "home": {"url":"https://www.vmiis.com/modules/home/home-box.html"},
+            "home": {"url":"https://www.vmiis.com/modules/home/component-demo-01.html"},
             "about":{"url":"https://www.vmiis.com/modules/about/about-this-website.html"},
-            "portal":         {"url":"https://www.vmiis.com/modules/team-event-calendar/portal.html"},
-            "event-data":	  {"table_id":"20003773","url":"https://www.vmiis.com/modules/team-event-calendar/event-data.html", "form_module":"event-form",	"name_for_search":"Event records"},
-            "event-form":	  {"table_id":"20003773","url":"https://www.vmiis.com/modules/team-event-calendar/event-form.html"	},
-            "monthly":        {"table_id":"20003773","url":"https://www.vmiis.com/modules/team-event-calendar/monthly.html",	"event_form":"event-form","daily_module":"daily",	"name_for_search":"Monthly calendar"},
-            "daily":          {"table_id":"20003773","url":"https://www.vmiis.com/modules/team-event-calendar/daily.html",	"event_form":"event-form",		"name_for_search":"Daily calendar"},
+            "more": {"url":"https://www.vmiis.com/modules/static/short.html"},
+            "short":{"url":"https://www.vmiis.com/modules/static/short.html"},
+            "long": {"url":"https://www.vmiis.com/modules/static/long.html"},
         }
         //------------------------------------
         $vm.local_url=function(url){
@@ -91,7 +86,7 @@
             var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
             $vm.min_height=($(window).height()-header_height-footer_height);
             if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                //$('#D'+id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -118,9 +113,16 @@
             $("body").addClass('body_background_default');
             if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined) $vm.vm[id].show();
             if(id!=undefined){
-                $('#D'+id).css('overflow','auto');
-                $('#D'+id).css('min-height','unset');
-                $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $vm.active_module=$vm.vm[id].name;
+                $('#D'+id).css('height','unset');
+                $('#D'+id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+id).css('overflow','unset');
+                $('#D'+id).css('overflow-x','auto');
+                //if($vm.vm[id].name=='home') $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                var y=-$(window).scrollTop()/2;
+                $('body').css({ 'background-position-y': '0px'});
+                if($vm.vm[id].name=='home') $("#header").css("background","rgba(0,0,0,0)");
+                else $("#header").css("background","rgba(0,0,0,0.5)");
             }
         }
         //------------------------------------
@@ -146,10 +148,19 @@
             --mobile-break-point:700px;
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
-        body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk024.jpg); }
-        #content{
+        body:before {
+            background: #188085;
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: .2;
+            z-index: -100;
         }
+        body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk031.jpg); }
         #vm-logo-label-A{
             font-family: Arial, sans-serif;
             color:#fff;
@@ -164,6 +175,12 @@
             line-height:80%;
             display:inline-block;
         }
+        #header{
+            position:fixed;
+            top:0;
+            width:100%;
+            z-index:100;
+        }
         #footer{
             height:24px;
             color: #fff;
@@ -173,16 +190,28 @@
             text-align: center;
         }
         /*----------------------*/
-        .vm-header{height:100px;background:rgba(0,0,0,0.6);}
+        #header{height:100px;background:rgba(0,0,0,0.6);}
+        #content{padding-top:100px;}
         .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
-        #vm-menu{ float:left;padding:50px 30px 0 30px;}
+        #vm-menu{ float:right;padding:50px 130px 0 30px;}
         @media screen and (max-width: 900px){
-            .vm-header{height:50px;}
+            #header{height:50px;}
+            #content{padding-top:50px;}
             .vm-desk-logo{display:none;}
             #vm-menu{padding:0;}
         }
         /*----------------------*/
     </style>
+    <script parallax>
+        $(window).on('scroll', function() {
+            if($vm.active_module=='home'){
+                var y=-$(window).scrollTop()/2;
+                $('body').css({ 'background-position-y': y+'px'});
+                var r=-y/300; if(r>0.5) r=0.5;
+                $("#header").css("background","rgba(0,0,0,"+r+")");
+            }
+        });
+    </script>
     <script menu>
         //------------------------------------
         $('.vm-dropdown').on('click',function(e){
@@ -219,7 +248,7 @@
         #vm-menu {
             overflow: hidden;
             display:inline-block;
-            float:left;
+            float:right;
         }
         #vm-menu > a {
             color:var(--menu-color);

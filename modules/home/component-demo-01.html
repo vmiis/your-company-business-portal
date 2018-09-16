@@ -1,0 +1,43 @@
+<div id=D__ID>
+    <div>
+    	<div id=section_1__ID></div>
+    	<div id=section_2__ID></div>
+        <div id=section_3__ID></div>
+        <div id=section_4__ID></div>
+        <div id=section_5__ID></div>
+    </div>
+	<script>
+		function F__ID(){
+			$('#D__ID').on('load',function(){$('#section_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');})
+            $vm.load_component('https://www.vmiis.com/components/modular.html','section_1__ID');
+            //$vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/modular.html','section_1__ID');
+            $vm.load_component('https://www.vmiis.com/components/welcome-001/c.html','section_2__ID');
+            $vm.load_component('https://www.vmiis.com/components/doctor-001/c.html','section_3__ID');
+            $vm.load_component('https://www.vmiis.com/components/service-001/c.html','section_4__ID');
+            $vm.load_component('https://www.vmiis.com/components/service-002/c.html','section_5__ID');
+            //$vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/service-002/c.html','section_5__ID');
+		}
+	</script>
+	<style>
+		#D__ID{
+			height:100%;
+			animation: vm_module_fadein 1.0s;
+		}
+		#section_1__ID{
+		}
+		#section_2__ID{
+		}
+		@keyframes D__ID {
+			from {padding-top: 300px;}
+			to {padding-top: 0px;}
+		}
+	    @media screen and (max-width: 992px) {
+	        #D__ID{
+	            animation: vm_module_fadein 1.0s;
+	        }
+            #section_1__ID{
+    		    /*font-size: 40px;*/
+    		}
+	    }
+	</style>
+</div>
