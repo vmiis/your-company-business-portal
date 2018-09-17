@@ -22,9 +22,7 @@
                 </div>
                 <div menu id="vm-menu">
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <a href=?/short>Short</a>
-                    <a href=?/long>Long</a>
-                    <a href=?/portal><i class="fa fa-th"></i> Portal</a>
+                    <a href=?/main><i class="fa fa-th"></i> Project Name</a>
                     <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fa fa-user"></i> Sign In</a>
                     <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
                 </div>
@@ -47,13 +45,10 @@
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         //------------------------------------
         $vm.module_links=[
-            //"https://www.vmiis.com/links/xxx.json",
+            "https://www.vmiis.com/links/clinical-trials.json",
         ];
         $vm.module_list={
-            "home":   {"url":"https://www.vmiis.com/modules/home/woolcock.html"},
-            "portal": {"url":"https://www.vmiis.com/modules/static/portal.html"},
-            "short":  {"url":"https://www.vmiis.com/modules/static/short.html"},
-            "long":   {"url":"https://www.vmiis.com/modules/static/long.html"},
+            "home": {"url":"https://www.vmiis.com/modules/home/woolcock.html"},
         }
         //------------------------------------
         $vm.local_url=function(url){
