@@ -34,7 +34,7 @@
             if(data.length>3000000) localStorage.clear();
             //------------------------------------------
             $vm.vm={}; $vm.version=$vm.ver[0]; $vm.reload='';
-            $vm.hosting_path=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+            $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             $vm.debug_message=true; //show debug message in console
             //------------------------------------------
             if($vm.default_production=='No'){
@@ -206,7 +206,11 @@
                 var process=function(I,prefix,url){
                     if(url.substring(0,4)!='http') url=$vm.hosting_path+"/"+url;
                     load_url(url,function(txt){
-                        var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
+                        var config;
+                        try{ config=JSON.parse(txt);} catch (e){
+                            console.log(txt);
+                            alert(url+"\r\nError in config file\n"+e); return;
+                        }
                         var modules=config.modules;
                         var f=url.split('/').pop();
                         var path=url.replace(f,'');

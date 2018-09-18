@@ -5,17 +5,21 @@
         <div id=section_3__ID></div>
         <div id=section_4__ID></div>
         <div id=section_5__ID></div>
+        <div id=section_6__ID></div>
+        <div id=section_7__ID></div>
+        <div id=section_8__ID></div>
     </div>
 	<script>
 		function F__ID(){
 			$('#D__ID').on('load',function(){$('#section_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');})
             $vm.load_component('https://www.vmiis.com/components/modular.html','section_1__ID');
-            //$vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/modular.html','section_1__ID');
             $vm.load_component('https://www.vmiis.com/components/welcome-001/c.html','section_2__ID');
             $vm.load_component('https://www.vmiis.com/components/doctor-001/c.html','section_3__ID');
             $vm.load_component('https://www.vmiis.com/components/service-001/c.html','section_4__ID');
             $vm.load_component('https://www.vmiis.com/components/service-002/c.html','section_5__ID');
-            //$vm.load_component('http://127.0.0.1:8000/vmiis/your-company-business-portal/components/service-002/c.html','section_5__ID');
+            $vm.load_component('https://www.vmiis.com/components/image-001/c.html','section_6__ID');
+            $vm.load_component('https://www.vmiis.com/components/image-002/c.html','section_7__ID');
+            $vm.load_component('https://www.vmiis.com/components/image-003/c.html','section_8__ID');
 		}
 	</script>
 	<style>

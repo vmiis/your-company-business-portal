@@ -1,0 +1,128 @@
+<div id=image-002__ID>
+    <section class="section-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 >Image and title with scale/rotate effect on hover</h2>
+                    <p>Modular distributed web application</p>
+                </div>
+            </div>
+        </div>
+	</section>
+    <div class="container"><div class="row">
+        <figure class="col-sm-12 col-md-6 col-lg-3 snip1581"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample4.jpg" alt="profile-sample2"/>
+          <figcaption>
+            <h3 class="title1">The</h3>
+            <h3 class="title2">Winter</h3>
+            <h3 class="title3">Collection</h3>
+          </figcaption><a href="?/more"></a>
+        </figure>
+        <figure class="col-sm-12 col-md-6 col-lg-3 snip1581"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample13.jpg" alt="profile-sample7"/>
+          <figcaption>
+            <h3 class="title1">The</h3>
+            <h3 class="title2">Summer</h3>
+            <h3 class="title3">Collection</h3>
+          </figcaption><a href="?/more"></a>
+        </figure>
+        <figure class="col-sm-12 col-md-6 col-lg-3 snip1581"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample9.jpg" alt="profile-sample6"/>
+          <figcaption>
+            <h3 class="title1">The</h3>
+            <h3 class="title2">Autumn</h3>
+            <h3 class="title3">Collection</h3>
+          </figcaption><a href="?/more"></a>
+        </figure>
+        <figure class="col-sm-12 col-md-6 col-lg-3 snip1581"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample13.jpg" alt="profile-sample7"/>
+          <figcaption>
+            <h3 class="title1">The</h3>
+            <h3 class="title2">Summer</h3>
+            <h3 class="title3">Collection</h3>
+          </figcaption><a href="?/more"></a>
+        </figure>
+    </div></div>
+</div>
+<script>
+    $('#image-002__ID a').on('click',function(e){
+        e.preventDefault();
+        var href=$(this).attr('href');
+        if(href!=undefined && href!=''){
+            href=href.replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+        }
+    })
+</script>
+<style>
+    #image-002__ID{
+        background-color: #eee;
+        padding-bottom:60px;
+    }
+    #image-002__ID .section-heading {
+        padding: 40px 0px;
+        text-align: center;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Poppins:300,700);
+    .snip1581 {
+        padding:0px;
+      font-family: 'Poppins:400,700', Arial, sans-serif;
+      overflow: hidden;
+      width: 100%;
+      color: #ffffff;
+      text-align: left;
+      font-size: 16px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+    .snip1581 * {
+      -webkit-transition: all 0.35s;
+      transition: all 0.35s;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .snip1581 img {
+      max-width: 100%;
+      vertical-align: top;
+    }
+    .snip1581 figcaption {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .snip1581 h3 {
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 3px 0;
+    }
+    .snip1581 .title1 {
+      font-weight: 700;
+    }
+    .snip1581 .title2 {
+      color: #a58e7c;
+      font-weight: 300;
+    }
+    .snip1581 .title3 {
+      font-weight: 700;
+      font-size: 25px;
+    }
+    .snip1581 a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .snip1581:hover img,
+    .snip1581.hover img {
+      -webkit-transform: scale(1.3) rotate(5deg);
+      transform: scale(1.3) rotate(5deg);
+    }
+</style>

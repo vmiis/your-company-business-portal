@@ -1,0 +1,175 @@
+<div id=image-001__ID>
+    <section class="section-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 >Image with title on hover</h2>
+                    <p>Modular distributed web application</p>
+                </div>
+            </div>
+        </div>
+	</section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm col-md-6 col-lg-3 snip1585">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample70.jpg" alt="sample70" />
+                <figcaption>
+                    <h3>Ingredia <span>Nutrisha</span></h3>
+                </figcaption>
+                <a href="?/more"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1585">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample106.jpg" alt="sample106" />
+                <figcaption>
+                  <h3>Dianne <span>Ameter</span></h3>
+                </figcaption>
+                <a href="?/more"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1585">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample109.jpg" alt="sample109" />
+                <figcaption>
+                  <h3>Samuel <span>Serif</span></h3>
+                </figcaption>
+                <a href="?/more"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1585">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample106.jpg" alt="sample106" />
+                <figcaption>
+                  <h3>Dianne <span>Ameter</span></h3>
+                </figcaption>
+                <a href="?/more"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#image-001__ID a').on('click',function(e){
+        e.preventDefault();
+        var href=$(this).attr('href');
+        if(href!=undefined && href!=''){
+            href=href.replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+        }
+    })
+</script>
+<style>
+    #image-001__ID{
+        background-color: #eee;
+        padding-bottom:60px;
+    }
+    #image-001__ID .section-heading {
+        padding: 40px 0px;
+        text-align: center;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Roboto:100,700;);
+    #image-001__ID .snip1585 {
+        padding:0;
+        min-width: 230px;
+        width:100%;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        text-align: center;
+    }
+    #image-001__ID .snip1585 * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all 0.45s ease;
+      transition: all 0.45s ease;
+    }
+
+    #image-001__ID .snip1585:before,
+    #image-001__ID .snip1585:after {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-top: 50px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 50px solid rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: '';
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    #image-001__ID .snip1585:before {
+      -webkit-transform: scaleY(2);
+      transform: scaleY(2);
+    }
+
+    #image-001__ID .snip1585:after {
+      -webkit-transform: scaleY(2);
+      transform: scaleY(2);
+    }
+
+    #image-001__ID .snip1585 img {
+      vertical-align: top;
+      max-width: 100%;
+      backface-visibility: hidden;
+    }
+
+    #image-001__ID .snip1585 figcaption {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.1em;
+      opacity: 0;
+      z-index: 2;
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+
+    #image-001__ID .snip1585 h3 {
+      font-size: 1em;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    #image-001__ID .snip1585 h3 span {
+      display: block;
+      font-weight: 700;
+    }
+
+    #image-001__ID .snip1585 a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+    }
+
+    #image-001__ID .snip1585:hover > img,
+    #image-001__ID .snip1585.hover > img {
+      opacity: 0.7;
+    }
+
+    #image-001__ID .snip1585:hover:before,
+    #image-001__ID .snip1585.hover:before,
+    #image-001__ID .snip1585:hover:after,
+    #image-001__ID .snip1585.hover:after {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    #image-001__ID .snip1585:hover figcaption,
+    #image-001__ID .snip1585.hover figcaption {
+      opacity: 1;
+      -webkit-transition-delay: 0.1s;
+      transition-delay: 0.1s;
+    }
+</style>
