@@ -1,0 +1,151 @@
+<div id=D__ID>
+	<div>
+		<section class="page-heading">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <h1>Send a message</h1>
+	                    <p>Nunc suscipit ante in lectus laoreet, nec pharetra diam dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+	                </div>
+	            </div>
+	        </div>
+		</section>
+		<section class="page-map">
+	        <div class="container">
+				<div class="row">
+					<div class="col-sm col-md-12 col-lg-12">
+						<div id="googleMap__ID" style="height:300px;width:100%;"></div>
+						<script>
+							function myMap() {
+								var myCenter = new google.maps.LatLng(-33.865727, 151.195284);
+								var mapProp = {center:myCenter, zoom:15, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+								var map = new google.maps.Map(document.getElementById("googleMap__ID"),mapProp);
+								var marker = new google.maps.Marker({position:myCenter});
+								marker.setMap(map);
+							}
+						</script>
+						<script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap&key=AIzaSyD_hce37QhlyI59U2KDKiTEJMSlns47d6E"></script>
+					</div>
+				</div>
+	        </div>
+		</section>
+	    <section class="page-body">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm col-md-2"></div>
+	                <div class="col-sm col-md-8">
+	                    <form id=F__ID>
+	                        <div class="row">
+	                            <div class="col-sm col-md-6">
+	                                <input name="Name" type="text" class="form-control" placeholder="Name" required>
+	                            </div>
+	                            <div class="col-sm col-md-6">
+	                                <input name="Email" type="email" class="form-control" placeholder="Email" required>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-sm col-md-12">
+	                                <textarea name="Message" rows="6" class="form-control" placeholder="Message" required></textarea>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-sm col-md-12">
+	                                <br>
+	                                <input id=submit__ID type="submit" value="SEND MESSAGE" class="btn btn-secondary" />
+	                            </div>
+	                        </div>
+	                    </form>
+	                </div>
+	                <div class="col-sm col-md-2"></div>
+	            </div>
+	        </div>
+			<br><br>
+			<div class="container">
+				<div class="row">
+	                <div class="col-sm col-md-2"></div>
+	                <div class="col-sm col-md-8">
+					</div>
+					<div class="col-sm col-md-2"></div>
+				</div>
+			</div>
+	    </section>
+	</div>
+	<script>
+	    function F__ID(){
+	        //-------------------------------------
+	        VmInclude:__COMPONENT__/module/form.v1.js
+	        //-------------------------------------
+	    }
+	</script>
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+	    }
+		#D__ID .page-heading {
+		    padding: 30px 0px;
+			background: rgba(255,255,255,1);
+		    text-align: center;
+		}
+		#D__ID .page-heading h1 {
+		    margin-top: 0px;
+		    margin-bottom: 20px;
+		    font-family: 'Spectral', serif;
+		    font-size: 48px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    color: #888;
+		}
+        #D__ID .page-heading p {
+		    color: #888;
+		    font-size: 14px;
+		    padding: 0px 25%;
+		    margin-bottom: 0px;
+		}
+
+		#D__ID .page-map {
+		    padding: 10px 0px;
+			background: rgba(255,255,255,1);
+		    text-align: center;
+		}
+
+        #D__ID .page-body{
+		    padding: 30px 0px;
+			background: rgba(255,255,255,1);
+		    text-align: center;
+		}
+        #D__ID .page-body p {
+            text-align: center;
+            color: #707070;
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: 0.4px;
+        }
+        #F__ID .row{
+            margin-bottom:6px;
+        }
+		#submit__ID {
+		    width: auto;
+		    display: inline-block;
+		    background: #fa333f;
+		    padding: 0px 50px;
+		    color: #fff;
+		    font-family: "Roboto", sans-serif;
+		    font-size: 13px;
+		    font-weight: 500;
+		    line-height: 50px;
+		    border-radius: 5px;
+		    outline: none !important;
+		    box-shadow: none !important;
+		    text-align: center;
+		    border: 1px solid #fa333f;
+		    cursor: pointer;
+		    transition: all 300ms linear 0s;
+		}
+		#submit__ID:hover {
+		    background: transparent;
+		    color: #fa333f;
+		}
+	</style>
+</div>

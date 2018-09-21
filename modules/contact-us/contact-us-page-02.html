@@ -1,0 +1,115 @@
+<div id=D__ID>
+	<div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading" style="color:#3680C1">Contact Us</h2>
+					<h3 class="section-subheading text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<form id=F__ID>
+						<div class="row">
+						    <div class="col-md-6">
+								<input type="text" class="form-control" placeholder="Your Name *" name=Name required>
+								<input type="email" class="form-control" placeholder="Your Email *" name=Email required>
+								<input type="tel" class="form-control" placeholder="Your Phone" name=Phone>
+						    </div>
+						    <div class="col-md-6">
+						        <textarea class="form-control" placeholder="Your Message *" name=Message required style='height:138px'></textarea>
+						    </div>
+						</div>
+						<div class="row">
+						    <div class="col-lg-12 text-center">
+								<br><br>
+						    	<button id=submit__ID type="submit" class="btn btn-primary">Send Message</button>
+						    </div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	    function F__ID(){
+	        //-------------------------------------
+	        VmInclude:__COMPONENT__/module/form.v1.js
+	        //-------------------------------------
+	    }
+	</script>
+	<style>
+		#D__ID{
+	      height:100%;
+	      overflow:auto;
+	      animation: vm_module_fadein 1.0s;
+		  background-color: #222;
+	    }
+		#D__ID .page-heading {
+		    padding: 50px 0px;
+			background: rgba(0,0,0,0.4);
+		    text-align: center;
+		}
+		#D__ID .page-heading h1 {
+		    margin-top: 0px;
+		    margin-bottom: 20px;
+		    font-family: 'Spectral', serif;
+		    font-size: 48px;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    color: #fff;
+		}
+        #D__ID .page-heading p {
+		    color: #fff;
+		    font-size: 14px;
+		    padding: 0px 25%;
+		    margin-bottom: 0px;
+		}
+
+        #D__ID .page-body{
+		    padding: 80px 0px;
+			background: rgba(255,255,255,0.8);
+		    text-align: center;
+		}
+        #D__ID .page-body p {
+            text-align: center;
+            color: #707070;
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: 0.4px;
+        }
+        #F__ID .row{
+            margin-bottom:6px;
+        }
+
+
+		#D__ID{
+			padding-top:150px;
+		}
+		#D__ID h2{
+			font-size: 40px;
+		    margin-top: 0;
+		    margin-bottom: 15px;
+			text-transform: uppercase;
+		}
+		#D__ID h3{
+			font-size: 16px;
+		    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+		    text-transform: none;
+		    font-style: italic;
+		    font-weight: 400;
+		    margin-bottom: 75px;
+		}
+		#F__ID input, #F__ID textarea{
+			margin:12px 0;
+		}
+		@media screen and (max-width: 900px) {
+			#D__ID{
+				padding-top:10px;
+			}
+			#D__ID h3{
+				margin-bottom: 10px;
+			}
+		}
+	</style>
+</div>

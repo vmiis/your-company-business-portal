@@ -3,7 +3,7 @@
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <meta name="description" content="A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!">
-		<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
+        <meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
         <link rel="icon" href="data:,">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
     </head>
@@ -15,47 +15,18 @@
             <div id=c_header>
                 <div class=vm-mobile>
                     <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
-                    <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+                    <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fas fa-bars"></i></a>
                 </div>
                 <div class=vm-desk-logo>
                     <span id=vm-logo-label-A>Business Portal</span><br>
                     <span id=vm-logo-label-B>on-demand business applications</span>
                 </div>
                 <div menu id="vm-menu">
-                    <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <a href="?/tutorial"><i class="fa fa-th-list"></i> Tutorial</a>
-                    <div class="vm-dropdown">
-                        <span class="vm-dropbtn"><i class="fa fa-list"></i> App Templates <i class="fa fa-caret-down"></i></span>
-                        <div class="vm-dropdown-content">
-                            <a href="?/control-panel-a">A-L</a>
-                            <a href="?/control-panel-m">M-Z</a>
-                        </div>
-                    </div>
-                    <!--
-                    <div class="vm-dropdown">
-                        <span class="vm-dropbtn"><i class="fa fa-list"></i> Module Templates <i class="fa fa-caret-down"></i></span>
-                        <div class="vm-dropdown-content">
-                            <a href="?/commonly-used-form-fields">Commonly used form fields</a>
-                            <a href="?/clinical-trials">Clinical trials</a>
-                            <a href="?/sleepfix">SleepFix</a>
-                            <a href="?/shiftwork">Shiftwork</a>
-                            <a href="?/car-booking">Car booking</a>
-                            <a href="?/room-booking">Room booking</a>
-                            <a href="?/equipment-booking">Equipment booking</a>
-                        </div>
-                    </div>
-                    <a href="?/component-basic"><i class="fa fa-list"></i> Component Templates</a>
-                    -->
-                    <a href="?/about-this-website"><i class="fa fa-info-circle"></i> About</a>
-                    <div class="vm-dropdown" id=vm_signin>
-                        <span class="vm-dropbtn"><i class="fa fa-user"></i> Sign In <i class="fa fa-caret-down"></i></span>
-                        <div class="vm-dropdown-content">
-                            <a id=google_0 >With your Google account</a>
-                            <a id=facebook_0 >With your Facebook account</a>
-                            <a onclick="$vm.nav_wappsystem_signin();">With your Wappsystem account</a>
-                        </div>
-                    </div>
-                    <a class=vm-hide id=vm_signout onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</a>
+                    <a href="?/home"><i class="fas fa-home"></i> Home</a>
+                    <a href="?/link-1">Success</a>
+                    <a href="?/about"><i class="fas fa-info-circle"></i> About</a>
+                    <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fas fa-user"></i> Sign In</a>
+                    <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fas fa-user"></i> Sign Out</a>
                 </div>
             </div>
             <div id=c_footer>
@@ -66,7 +37,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[382,326];
+        $vm={};$VmAPI={};$vm.ver=[1.10,1.09];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
@@ -76,72 +47,24 @@
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         //------------------------------------
         $vm.module_links=[
-            "commonly-used-form-fields|https://www.vmiis.com/links/basic-form-fields.json",
-            "car-booking|https://www.vmiis.com/links/car-booking.json",
-            "room-booking|https://www.vmiis.com/links/room-booking.json",
-            "equipment-booking|https://www.vmiis.com/links/equipment-booking.json",
-            "sleepfix|https://management.sfix.com.au/modules.json",
-            "shiftwork|https://shiftwork.rt.org.au/modules.json",
-            "clinical-trials|https://www.vmiis.com/links/clinical-trials.json",
-            "modules/modules.json",
+            //"https://www.vmiis.com/links/xxx.json",
         ];
         $vm.module_list={
-            "home":                     {"url":"https://www.vmiis.com/modules/home.html"},
-            "more":                     {"url":"https://www.vmiis.com/modules/static/more.html"},
-            "tutorial":           	    {"url":"https://www.vmiis.com/modules/panels/tutorial.html"},
-
-            "commonly-used-form-fields":{"url":"https://www.vmiis.com/modules/panels/modules/commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
-            "sleepfix":					{"url":"https://www.vmiis.com/modules/panels/modules/sleepfix.html","prefix":"sleepfix_"},
-            "shiftwork":             	{"url":"https://www.vmiis.com/modules/panels/modules/shiftwork.html"},
-            "car-booking":				{"url":"https://www.vmiis.com/modules/panels/modules/car-booking.html"},
-            "room-booking":				{"url":"https://www.vmiis.com/modules/panels/modules/room-booking.html"},
-            "equipment-booking":		{"url":"https://www.vmiis.com/modules/panels/modules/equipment-booking.html"},
-            "clinical-trials":			{"url":"https://www.vmiis.com/modules/panels/modules/clinical-trials.html","prefix":"clinical-trials_"},
-
-            "basic":             	    {"url":"https://www.vmiis.com/apps/1-control-panel-basic.html"},
-            "project":             	    {"url":"https://www.vmiis.com/modules/panels/apps/project.html"},
-            "other":             	    {"url":"https://www.vmiis.com/modules/panels/apps/other.html"},
-            "portal":             	    {"url":"https://www.vmiis.com/modules/panels/apps/portal.html"},
-
-
-            "component-basic":     	    {"url":"https://www.vmiis.com/components/control-panel-01.html"},
-            "component-container":      {"url":"https://www.vmiis.com/modules/components/container.html"},
-
-            "control-panel-a":      {"url":"https://www.vmiis.com/apps/1-control-panel-a.html"},
-            "control-panel-m":      {"url":"https://www.vmiis.com/apps/1-control-panel-m.html"},
-
-        }
-        $vm.component_list={
-            "welcome-001": {"url":"https://www.vmiis.com/components/welcome-001/c.html"},
-            "doctor-001":  {"url":"https://www.vmiis.com/components/doctor-001/c.html"},
-            "service-001": {"url":"https://www.vmiis.com/components/service-001/c.html"},
-            "service-002": {"url":"https://www.vmiis.com/components/service-002/c.html"},
-            "image-001": {"url":"https://www.vmiis.com/components/image-001/c.html"},
-            "image-002": {"url":"https://www.vmiis.com/components/image-002/c.html"},
-            "image-003": {"url":"https://www.vmiis.com/components/image-003/c.html"},
+            "home": {"url":"https://www.vmiis.com/modules/home/home.html"},
+            "about":{"url":"https://www.vmiis.com/modules/about/about-this-website.html"},
+            "link-1":{"url":"https://www.vmiis.com/modules/static/success.html"},
         }
         //------------------------------------
         $vm.local_url=function(url){
             var urlR=url;
             if($vm.localhost==true){
                 urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/your-company-business-portal/');
-                urlR=urlR.replace('https://management.sfix.com.au/','http://127.0.0.1:8000/wappsystem/sleepfix-management/');
-                urlR=urlR.replace('https://shiftwork.rt.org.au/','http://127.0.0.1:8000/woolcock-imr/shiftwork/');
             }
-            return urlR;
-        }
-        $vm.remote_url=function(url){
-            if(url==undefined) return "";
-            var urlR=url;
-            urlR=urlR.replace('http://127.0.0.1:8000/vmiis/your-company-business-portal/','https://www.vmiis.com/');
-            urlR=urlR.replace('http://127.0.0.1:8000/wappsystem/sleepfix-management/','https://management.sfix.com.au/');
-            urlR=urlR.replace('http://127.0.0.1:8000/woolcock-imr/shiftwork/','https://shiftwork.rt.org.au/');
             return urlR;
         }
         //------------------------------------
         for(p in $vm.module_links) $vm.module_links[p]=$vm.local_url($vm.module_links[p]);
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
-        for(p in $vm.component_list) $vm.component_list[p].url=$vm.local_url($vm.component_list[p].url);
         //------------------------------------
         $vm.default_title="Modular distributed web application";
         var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
@@ -214,10 +137,17 @@
             --mobile-title-color:#fff;
             --mobile-hamburger-color:#fff;
             --mobile-menu-background-color:#1c3144;
+            --mobile-break-point:700px;
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk033.jpg);}
+        .body_background_default{ background-image: url("http://127.0.0.1:8000/a.jpg"); }
+        #layout {
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            overflow:hidden;
+        }
         #content{
         }
         #vm-logo-label-A{
@@ -246,7 +176,7 @@
         .vm-header{height:100px;background:rgba(0,0,0,0.6);}
         .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
         #vm-menu{ float:left;padding:50px 30px 0 30px;}
-        @media screen and (max-width: 1200px){
+        @media screen and (max-width: 900px){
             .vm-header{height:50px;}
             .vm-desk-logo{display:none;}
             #vm-menu{padding:0;}
@@ -360,7 +290,7 @@
             display:none;
         }
         /*----------------------*/
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 900px) {
             .vm-mobile{
                 display:block;
             }
@@ -427,15 +357,14 @@
         //------------------------------------
         var url1="https://www.vmiis.com/modules/starter/app01.html"; if($vm.localhost) url1="http://127.0.0.1:8000/vmiis/your-company-business-portal/modules/starter/app01.html";
         var urls=[url1]; $vm.module_start_id=1;
-        var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
         //---------------------------------------------
         $(urls).each(function(index,url){
-            var ver=localStorage.getItem(apppath+url+"ver");
-            var txt=localStorage.getItem(apppath+url+"txt");
+            var ver=localStorage.getItem(url+"ver");
+            var txt=localStorage.getItem(url+"txt");
             if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
                 $.get(url+'?_='+new Date().getTime(),function(new_txt){
-                    localStorage.setItem(apppath+url+"txt",new_txt);
-                    localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
+                    localStorage.setItem(url+"txt",new_txt);
+                    localStorage.setItem(url+"ver",$vm.ver[0]);
                     console.log('loading from url. '+url);
                     $('#content').append(new_txt.replace(/__ID/g,'_'+index));
                 },'text');
