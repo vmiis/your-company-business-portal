@@ -23,7 +23,13 @@
                 </div>
                 <div menu id="vm-menu">
                     <a href="?/home"><i class="fas fa-home"></i> Home</a>
-                    <a href="?/link-1">Success</a>
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn">Prices <i class="fas fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/price-01">Price 01</a>
+                            <a href="?/price-02">Price 02</a>
+                        </div>
+                    </div>
                     <a href="?/about"><i class="fas fa-info-circle"></i> About</a>
                     <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fas fa-user"></i> Sign In</a>
                     <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fas fa-user"></i> Sign Out</a>
@@ -52,7 +58,8 @@
         $vm.module_list={
             "home": {"url":"https://www.vmiis.com/modules/home/home.html"},
             "about":{"url":"https://www.vmiis.com/modules/about/about-this-website.html"},
-            "link-1":{"url":"https://www.vmiis.com/modules/static/success.html"},
+            "price-01":{"url":"https://www.vmiis.com/modules/price/price-01.html"},
+            "price-02":{"url":"https://www.vmiis.com/modules/price/price-02.html"},
         }
         //------------------------------------
         $vm.local_url=function(url){
@@ -141,7 +148,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url("https://image.vmiis.com/bg003.jpg"); }
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk004.jpg); }
         #layout {
             height: 100%;
             display: grid;

@@ -23,7 +23,21 @@
                 </div>
                 <div menu id="vm-menu">
                     <a href="?/home"><i class="fas fa-home"></i> Home</a>
-                    <a href="?/link-1">Success</a>
+                    <a href="?/form">Purchase order request</a>
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn">Administrator <i class="fas fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/link-1">Purchase order request data</a>
+                        </div>
+                    </div>
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn">Permissions <i class="fas fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/permission-role-login-data">Administrator - grant a role to a user</a>
+                            <a href="?/permission-role-table-group-data">Data owner - assign tasks to a role</a>
+                            <a href="?/permission-query-data">Developer - database access control logic</a>
+                        </div>
+                    </div>
                     <a href="?/about"><i class="fas fa-info-circle"></i> About</a>
                     <a id=vm_signin onclick="$vm.nav_wappsystem_signin();"><i class="fas fa-user"></i> Sign In</a>
                     <a id=vm_signout class=vm-hide onclick=$vm.nav_signout()><i class="fas fa-user"></i> Sign Out</a>
@@ -52,7 +66,8 @@
         $vm.module_list={
             "home": {"url":"https://www.vmiis.com/modules/home/home.html"},
             "about":{"url":"https://www.vmiis.com/modules/about/about-this-website.html"},
-            "link-1":{"url":"https://www.vmiis.com/modules/static/success.html"},
+            "form":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/request-form.html"},
+            "data":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/request-data.html"},
         }
         //------------------------------------
         $vm.local_url=function(url){
@@ -141,7 +156,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url("https://image.vmiis.com/bg003.jpg"); }
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk001.jpg); }
         #layout {
             height: 100%;
             display: grid;
