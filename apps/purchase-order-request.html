@@ -24,10 +24,33 @@
                 <div menu id="vm-menu">
                     <a href="?/home"><i class="fas fa-home"></i> Home</a>
                     <a href="?/form">Purchase order request</a>
+                    <!--
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn">My requests <i class="fas fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/data">My purchase order requests</a>
+                        </div>
+                    </div>
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn">Managers<i class="fas fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/link-1">Approving</a>
+                        </div>
+                    </div>
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn">Accountants<i class="fas fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/link-1">Processing</a>
+                        </div>
+                    </div>
+                    -->
                     <div class="vm-dropdown">
                         <span class="vm-dropbtn">Administrator <i class="fas fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
-                            <a href="?/link-1">Purchase order request data</a>
+                            <a href="?/data">Purchase order requests</a>
+                            <a href="?/manager-list-data">Manager list</a>
+                            <a href="?/accountant-list-data">Accountant list</a>
+                            <a href="?/email-setup-data">Email setup</a>
                         </div>
                     </div>
                     <div class="vm-dropdown">
@@ -51,12 +74,12 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main>
         //------------------------------------
-        $vm={};$VmAPI={};$vm.ver=[1.10,1.09];
+        $vm={};$VmAPI={};$vm.ver=[1.11,1.10];
         $vm.start_time=new Date().getTime();
         $vm.api_path_development="https://cbs.wappsystem.com/dev/";
         $vm.api_path_production="https://cbs.wappsystem.com/pro/";
         $vm.default_production="No";
-        $vm.qid='10000000';
+        $vm.qid='20011611';
         $vm.vm_router=1;
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         //------------------------------------
@@ -64,10 +87,29 @@
             //"https://www.vmiis.com/links/xxx.json",
         ];
         $vm.module_list={
-            "home": {"url":"https://www.vmiis.com/modules/home/home.html"},
+            "home": {"url":"https://www.vmiis.com/modules/home/home-box.html"},
             "about":{"url":"https://www.vmiis.com/modules/about/about-this-website.html"},
             "form":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/request-form.html"},
-            "data":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/request-data.html"},
+            "data":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/request-data.html","form_module":"form"},
+
+            "manager-list-data":		{"table_id":"20009687","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/manager-data.html","form_module":"manager-list-form"},
+            "accountant-list-data":	    {"table_id":"20003837","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/accountant-data.html","form_module":"accountant-list-form"},
+
+            "manager-list-form":		{"table_id":"20009687","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/manager-form.html"},
+            "accountant-list-form":	    {"table_id":"20003837","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/accountant-form.html"},
+
+            "email-to-manager":                {"table_id":"20011614","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/email-to-manager.html"},
+
+            "email-setup-data":                {"table_id":"20011614","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/email-setup-data.html","form_module":"email-setup-form"},
+            "email-setup-form":                {"table_id":"20011614","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/email-setup-form.html"},
+
+            "permission-role-login-data":           {"table_id":"20011613","url":"https://www.vmiis.com/modules/permissions/role-login-data.html","form_module":"permission-role-login-form"},
+            "permission-role-login-form":           {"table_id":"20011613","url":"https://www.vmiis.com/modules/permissions/role-login-form.html"},
+            "permission-role-table-group-data":     {"table_id":"20011612","url":"https://www.vmiis.com/modules/permissions/role-table-group-data.html","form_module":"permission-role-table-group-form"},
+            "permission-role-table-group-form":     {"table_id":"20011612","url":"https://www.vmiis.com/modules/permissions/role-table-group-form.html"},
+        	"permission-query-data":                {"table_id":"20011611","url":"https://www.vmiis.com/modules/permissions/query-data.html","form_module":"permission-query-form"},
+            "permission-query-form":                {"table_id":"20011611","url":"https://www.vmiis.com/modules/permissions/query-form.html"},
+
         }
         //------------------------------------
         $vm.local_url=function(url){
@@ -156,7 +198,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk001.jpg); }
+        .body_background_default{ background-image: url(https://image.vmiis.com/bg004.jpg); }
         #layout {
             height: 100%;
             display: grid;

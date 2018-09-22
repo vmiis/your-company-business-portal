@@ -57,7 +57,7 @@
                 <br>
                 <div class="row">
                     <div class=col>
-                        <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=add_an_item__ID><i class="fa fa-plus"></i> Add an item</u>
+                        <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add an item</u>
     				    <table id=grid_item_a__ID></table>
     				    <div id=total__ID style='text-align: right'>
                                 GST Amount: <input type=text name=GST_Amount style="width:120px;margin-bottom:1px" readonly><br>
@@ -68,7 +68,7 @@
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
     			<div class="row">
     				<div class=col>
-                        <button id=submit__ID type="submit" style='display:none'></button>
+                        <button id=submit0__ID type="submit" style='display:none'></button>
             			<button id=submit1__ID type="button" class="btn btn-secondary">Submit (draft)</button>
             			<button id=submit2__ID type="button" class="btn btn-secondary">Submit (completed, send alert email to the manager for approval</button>
     				</div>
@@ -79,7 +79,135 @@
     <script>
         function F__ID(){
             //-------------------------------------
-            VmInclude:__COMPONENT__/grid/grid_item_a.v3.js
+			VmInclude:__COMPONENT__/module/form.v1.js
+            VmInclude:__COMPONENT__/module/form-item-a.v1.js
+            m.add_s2=1;
+			//-------------------------------------
+            //get manager list;
+            var list_m_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-20009687]";
+            var req_m={cmd:'read',qid:$vm.qid,sql:list_m_sql};
+            $VmAPI.request({data:req_m,callback:function(res){
+                if(res.records.length>0){
+                    var list_managers=';';
+                    for(var i=0;i<res.records.length;i++){
+                        if(list_managers!='') list_managers+=','
+                        list_managers+=res.records[i].Name+";"+res.records[i].Name+"/"+res.records[i].Email+"/"+res.records[i].Login_Name;
+                    }
+                    $vm.set_dropdown_list_from_text($('#manager__ID'),list_managers);
+                }
+            }});
+            var list_a_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-20003837]";
+            var req_a={cmd:'read',qid:$vm.qid,sql:list_a_sql};
+    		$VmAPI.request({data:req_a,callback:function(res){
+                if(res.records.length>0){
+                    var list_accountants=';';
+                    for(var i=0;i<res.records.length;i++){
+                        if(list_accountants!='') list_accountants+=','
+                        list_accountants+=res.records[i].Name+";"+res.records[i].Name+"/"+res.records[i].Email+"/"+res.records[i].Login_Name;
+                    }
+                    $vm.set_dropdown_list_from_text($('#accountant__ID'),list_accountants);
+                }
+            }});
+            //-------------------------------------
+            $('#submit1__ID').on('click',function(event){	m.draft=1;	$('#submit0__ID').trigger('click'); 	});
+    		$('#submit2__ID').on('click',function(event){   m.draft=0;	$('#submit0__ID').trigger('click');		});
+    		//--------------------------------------------------------
+            m.before_submit=function(record,dbv){
+                dbv.S1=record.Short_Description;
+                dbv.V1=record.Total_Amount;
+                dbv.V2=record.GST_Amount;
+                record.items=m.item_a_get_data();
+                return true;
+            }
+            //--------------------------------------------------------
+            var load=m.load;
+            m.load=function(){
+                load();
+                if(m.input.record!=undefined && m.input.record.UID!=undefined) $('#uid__ID').val(m.input.record.UID);
+                //-------item a part
+                m.item_a_records=[]; if(m.input.record!=undefined) m.item_a_records=m.input.record.items;
+                m.item_a_render();
+                //-------
+            }
+            //--------------------------------------------------------
+            m.after_add=function(data,dbv,res){   after_submit(data); }
+            m.after_modify=function(data,dbv,res){after_submit(data);}
+            //--------------------------------------------------------
+            var after_submit=function(data){
+                $vm.refresh=1;
+                if(m.draft==0) $vm.load_module_v2('email-to-manager','',{record:data})
+                else{
+                    var rid=undefined; if(m.input.record!=undefined) rid=m.input.record.ID;
+                    if(rid!=undefined) window.history.go(-1);                       //modify
+                    else if(m.input.goback!=undefined) window.history.go(-1);       //from grid
+                    else $vm.alert('Your data has been successfully submitted');    //standalone
+                }
+            }
+            //--------------------------------------------------------
+
+
+
+
+            //----------------------------------
+            //item a part
+            m.item_a_fields="Description,Unit_Price,Quantity,GST,Amount,_Remove";
+            //----------------------------------
+            $('#item_a_add__ID').on('click',function(){ m.item_a_add(); })
+            //----------------------------------
+            m.item_a_cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+                    case "Amount":
+                        records[I].vm_readonly[field]=true;
+                        break;
+    				case "GST":
+                        var html='<input type=checkbox />';
+                        $vm.render_checkbox_field(records[I],'__ID',td,html)
+                        td.find('input').on('change',function(){
+    						cal();
+    					})
+                        break;
+                }
+            }
+            //----------------------------------
+            m.item_a_after_change=function(records,I,field,td,set_value,source){
+                switch(field){
+    				case "Unit_Price":
+                    case "Quantity":
+    				case "GST":
+                        cal();
+                        break;
+                }
+            }
+            //----------------------------------
+            m.item_a_after_remove=function(){
+                cal();
+            }
+            //----------------------------------
+            var cal=function(){
+                var total=0,gst=0;
+                for(var i=0;i<m.item_a_records.length;i++){
+                    var p=parseFloat(m.item_a_records[i].Unit_Price);
+                    var q=parseFloat(m.item_a_records[i].Quantity);
+                    if(m.item_a_records[i].Unit_Price=='') p=0;
+                    if(m.item_a_records[i].Quantity=='') q=0;
+                    var a=p*q;
+    				if(m.item_a_records[i].GST=='1'){
+    					gst+=a*0.1;
+    					a=a*1.1;
+    				}
+                    m.item_a_records[i].Amount=a.toFixed(2);
+                    total+=a;
+                }
+                $('#F__ID input[name=GST_Amount]').val(gst.toFixed(2));
+                $('#F__ID input[name=Total_Amount]').val(total.toFixed(2));
+                m.item_a_render();
+            }
+            //----------------------------------
+
+
+            /*
+            //-------------------------------------
+            Vm Include:__COMPONENT__/grid/grid_item_a.v3.js
             //-------------------------------------
             var this_module=$vm.module_list[$vm.vm['__ID'].name];
             var prefix=this_module.prefix; if(prefix==undefined) prefix="";
@@ -189,7 +317,7 @@
             //item a part
             _item_a_fields="Description,Unit_Price,Quantity,GST,Amount,_Remove";
             //----------------------------------
-            $('#add_an_item__ID').on('click',function(){ _item_a_add(); })
+            $('#item_a_add__ID').on('click',function(){ _item_a_add(); })
             //----------------------------------
             _item_a_cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
@@ -245,6 +373,7 @@
                 _item_a_render();
             }
             //----------------------------------
+            */
         }
     </script>
     <style>
@@ -293,10 +422,13 @@
     		background-color: rgba(0,0,0,0.1);
     	}
     	.row__ID span{
-            font-weight:bold;
+            color:#333;
         	display: inline-block;
         	padding: 5px 0;
     	}
+        #F__ID input,#F__ID textarea,#F__ID select,#F__ID td{
+            font-weight:bold;
+        }
     	@media screen and (max-width:768px){
     		#form_container__ID{
     			padding:20px 10px 50px 10px;

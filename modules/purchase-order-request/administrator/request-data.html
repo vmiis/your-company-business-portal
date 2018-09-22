@@ -1,0 +1,48 @@
+<div id=D__ID>
+    <section>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            $('#new__ID').hide();
+            $('#save__ID').hide();
+            //-------------------------------------
+            var fields="Purchase_Order_ID,Short_Description,GST_Amount,Total_Amount";
+            m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            m.form_fields=fields;
+            //-------------------------------------
+            m.cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+    				case 'Purchase_Order_ID':
+                        records[I].vm_readonly[field]=true;
+    					if(records[I].UID!=undefined) td.text(records[I].UID)
+                        break;
+                        /*
+                    case '_Approved_by':
+                        records[I].vm_custom[field]=true;
+    					if(records[I].user2!=undefined && records[I].user2!=''){
+    						td.text(records[I].user2+' on '+records[I].date2.split(' ')[0])
+    					}
+                        break;
+    				case '_Processed_by':
+                        records[I].vm_custom[field]=true;
+    					if(records[I].user3!=undefined && records[I].user3!=''){
+    						td.text(records[I].user3+' on '+records[I].date3.split(' ')[0])
+    					}
+                        break;
+                        */
+                    case 'GST_Amount':
+                    case 'Total_Amount':
+                        records[I].vm_custom[field]=true;
+                        break;
+                }
+            }
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+    </style>
+</div>
