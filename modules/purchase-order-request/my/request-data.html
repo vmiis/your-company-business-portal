@@ -12,7 +12,6 @@
             var fields="Purchase_Order_ID,Short_Description,GST_Amount,Total_Amount";
             m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
             m.form_fields=fields;
-            //m.permission_test=1;
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
@@ -41,6 +40,16 @@
                 }
             }
             //-------------------------------------
+            m.set_req=function(){
+            	m.req={cmd:'read',qid:m.qid,sql_name:'sql_my_request',sql_n_name:'sql_n_my_request',s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+            }
+            //-------------------------------------
+            m.set_req_export=function(i1,i2){
+                var sql="with tb as (select Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+m.db_pid+"-@S1] )";
+                sql+="select Information,DateTime,Author from tb where RowNum between @I1 and @I2";
+            	m.req={cmd:'read',qid:m.qid,sql:sql,i1:i1,i2:i2};
+            }
+            //-----------------------------------------------
         }
     </script>
     <style>
