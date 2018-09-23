@@ -9,7 +9,7 @@
             $('#new__ID').hide();
             $('#save__ID').hide();
             //-------------------------------------
-            var fields="Purchase_Order_ID,Short_Description,GST_Amount,Total_Amount,_Approved_by";
+            var fields="Purchase_Order_ID,Short_Description,GST_Amount,Total_Amount,_Processed_by";
             m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author";
             m.form_fields=fields;
             //-------------------------------------
@@ -19,14 +19,14 @@
                         records[I].vm_readonly[field]=true;
     					if(records[I].UID!=undefined) td.text(records[I].UID)
                         break;
-                    case '_Approved_by':
+                    case '_Processed_by':
                         records[I].vm_custom[field]=true;
     					if(records[I].PUID!=""){
     						td.html("<u style='cursor:pointer'>"+records[I].S2+' on '+records[I].sDateTime+"</u>")
                             td.find('u').on('click',function(){
                                 var req={cmd:"read",qid:m.qid,sql_name:"sql_manager_request_one",i1:records[I].sID};
                                 $VmAPI.request({data:req,callback:function(res){
-                                    $vm.load_module_v2('request-approving-form','',{record:res.records[0],readonly:1})
+                                    $vm.load_module_v2('request-processing-form','',{record:res.records[0],readonly:1})
                                 }});
                             })
     					}

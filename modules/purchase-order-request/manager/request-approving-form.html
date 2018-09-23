@@ -1,0 +1,215 @@
+<div id=D__ID>
+    <section id=form_container__ID>
+    	<div id=header__ID>
+    		Purchase order request
+    	</div>
+    	<form id=F__ID>
+    		<div class="container">
+                <div class='row row__ID'>
+                    <div class="col-sm col-lg-6">
+                		<span>Purchase Order ID</span>
+                		<input type="text" class="form-control" id="uid__ID" readonly>
+                	</div>
+                </div>
+                <div class='row row__ID'>
+                    <div class="col-sm col-lg-6">
+                		<span>Manager for Approval</span>
+                		<input class=form-control name=Manager_for_Approval id=manager__ID></input>
+                	</div>
+                    <div class="col-sm col-lg-6">
+                		<span>Accountant for Processing</span>
+                		<input class=form-control name=Accountant_for_Processing id=accountant__ID></input>
+                	</div>
+                </div>
+                <div class='row row__ID'>
+                	<div class=col>
+                		<span>Short Description</span>
+                		<input type="text" class="form-control" name="Short_Description" >
+                	</div>
+                </div>
+                <div class='row row__ID'>
+                    <div class="col-sm col-lg-6">
+                		<span>Supplier Name</span>
+                		<input type=text class=form-control name=Supplier_Name>
+                	</div>
+                    <div class="col-sm col-lg-6">
+                		<span>Supplier Account No (if applicable)</span>
+                		<input type=text class=form-control name=Supplier_Account_No>
+                	</div>
+                </div>
+                <div class='row row__ID'>
+                	<div class=col>
+                		<span>Supplier Address</span>
+                		<textarea class="form-control" name="Supplier_Address"></textarea>
+                	</div>
+                </div>
+                <div class='row row__ID'>
+                    <div class="col-sm col-lg-6">
+                		<span>Supplier Phone</span>
+                		<input type=text class=form-control name=Supplier_Phone>
+                	</div>
+                    <div class="col-sm col-lg-6">
+                		<span>Supplier Fax</span>
+                		<input type=text class=form-control name=Supplier_Fax>
+                	</div>
+                </div>
+                <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+                <br>
+                <div class="row">
+                    <div class=col>
+    				    <table id=grid_item_a__ID></table>
+    				    <div id=total__ID style='text-align: right'>
+                                GST Amount: <input type=text name=GST_Amount style="width:120px;margin-bottom:1px" readonly><br>
+                                Total Amount: <input type=text name=Total_Amount style="width:120px" readonly>
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+    			<div class="row" id=row_submit__ID>
+    				<div class=col>
+                        <button id=submit__ID type="submit" class="btn btn-secondary">I approve this request</button>
+    				</div>
+    			</div>
+    		</div>
+    	</form>
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+			VmInclude:__COMPONENT__/module/form.v1.js
+            VmInclude:__COMPONENT__/module/form-item-a.v1.js
+			//-------------------------------------
+            m.before_submit=function(record,dbv){
+                dbv.S1=record.Short_Description;
+                dbv.S2=record.Manager_for_Approval.split('/')[0];
+                dbv.S3=record.Accountant_for_Processing.split('/')[0];
+                dbv.V1=record.Total_Amount;
+                dbv.V2=record.GST_Amount;
+                if(m.input.record!=undefined && m.input.record.UID!=undefined) dbv.PUID=m.input.record.UID;
+                record.items=m.item_a_get_data();
+                return true;
+            }
+            //--------------------------------------------------------
+            var load=m.load;
+            m.load=function(){
+                load();
+                $('#manager__ID').val( $('#manager__ID').val().split('/')[0] );
+                $('#accountant__ID').val( $('#accountant__ID').val().split('/')[0] );
+                if(m.input.record!=undefined && m.input.record.UID!=undefined){
+                    m.input.record.ID=undefined;
+                    $('#uid__ID').val(m.input.record.UID);
+                    $('#row_submit__ID').show();
+                    if(m.input.readonly!=undefined){
+                        $('#row_submit__ID').hide();
+                    }
+                }
+                //-------item a part
+                m.item_a_records=[]; if(m.input.record!=undefined) m.item_a_records=m.input.record.items;
+                m.item_a_render();
+                //-------
+
+                $('#F__ID input').attr("readonly","true")
+                $('#F__ID div').attr("contenteditable","false")
+                $('#F__ID td').attr("contenteditable","false")
+            }
+            //--------------------------------------------------------
+            m.after_add=function(data,dbv,res){   after_submit(data); }
+            //--------------------------------------------------------
+            var after_submit=function(data){
+                $vm.refresh=1;
+                $vm.load_module_v2('email-to-manager','',{record:data})
+            }
+            //--------------------------------------------------------
+
+
+
+
+            //----------------------------------
+            //item a part
+            m.item_a_fields="Description,Unit_Price,Quantity,GST,Amount";
+            //----------------------------------
+            m.item_a_cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+                    case "Amount":
+                        records[I].vm_readonly[field]=true;
+                        break;
+    				case "GST":
+                        var html='<input disabled type=checkbox />';
+                        $vm.render_checkbox_field(records[I],'__ID',td,html)
+                        break;
+                }
+            }
+            //----------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/grid/grid_item_a.css
+        #total__ID{
+            margin-top:1px;
+            width:300px;
+            float:right;
+            border-collapse: collapse;
+        }
+        #total__ID td{
+            /*border:1px solid #ddd;*/
+        }
+    	#D__ID{
+    		height:100%;
+    		overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+            background-color: #fff;
+    	}
+        #form_container__ID{
+            margin-top:20px;
+    		max-width: 800px;
+    		margin-left: auto;
+    		margin-right: auto;
+    		font-family: Verdana,sans-serif;
+        	font-size: 15px;
+        	line-height: 1.5;
+    	}
+        #F__ID{
+    		border:1px solid #bbb;
+            border-top-width: 0;
+    		padding:6px 15px 20px 15px;
+    	}
+    	#header__ID{
+    		background-color:#727b84;
+    		color:#fff;
+    		padding:10px 15px 10px 15px;
+    		font-size:120%;
+            border:1px solid #bbb;
+            border-bottom-width: 0;
+    	}
+        .row__ID{
+    		padding:6px 0;
+    	}
+    	.row__ID:hover{
+    		background-color: rgba(0,0,0,0.1);
+    	}
+    	.row__ID span{
+            color:#333;
+        	display: inline-block;
+        	padding: 5px 0;
+    	}
+        #F__ID input,#F__ID textarea,#F__ID select,#F__ID td{
+            font-weight:bold;
+        }
+    	@media screen and (max-width:768px){
+    		#form_container__ID{
+    			padding:20px 10px 50px 10px;
+    		}
+    	}
+        @media print{
+            #form_container__ID{
+                margin:0;
+                padding:0;
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</div>

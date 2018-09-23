@@ -33,21 +33,21 @@
                     <div class="vm-dropdown">
                         <span class="vm-dropbtn">Managers<i class="fas fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
-                            <a href="?/manager-request-data">Requests</a>
-                            <a href="?/manager-signed-request-data">Signed Requests</a>
+                            <a href="?/manager-request-data">Requests sent to me for approving</a>
                         </div>
                     </div>
                     <div class="vm-dropdown">
                         <span class="vm-dropbtn">Accountants<i class="fas fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
-                            <a href="?/accountant-request-data">Requests</a>
-                            <a href="?/accountant-request-data">Requests</a>
+                            <a href="?/accountant-request-data">Requests sent to me for processing</a>
                         </div>
                     </div>
                     <div class="vm-dropdown">
                         <span class="vm-dropbtn">Administrator <i class="fas fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
-                            <a href="?/data">Purchase order requests</a>
+                            <a href="?/all-request-data">All purchase order requests</a>
+                            <a href="?/all-signed-data">All request snapshots with manager's signature</a>
+                            <a href="?/all-processed-data">All request snapshots with accountant's signature</a>
                             <a href="?/manager-list-data">Manager list</a>
                             <a href="?/accountant-list-data">Accountant list</a>
                             <a href="?/email-setup-data">Email setup</a>
@@ -90,15 +90,17 @@
             "home": {"url":"https://www.vmiis.com/modules/home/home-box.html"},
             "about":{"url":"https://www.vmiis.com/modules/about/about-this-website.html"},
             "form":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/request-form.html"},
-            "data":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/request-data.html","form_module":"form"},
 
-            "my-request-data":{"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/my/request-data.html","form_module":"form"},
+            "my-request-data":          {"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/my/request-data.html","form_module":"form"},
+            "manager-request-data":     {"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/manager/request-data.html","form_module":"readonly-request-form"},
+            "accountant-request-data":  {"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/accountant/request-data.html","form_module":"readonly-request-form"},
+            "all-request-data":         {"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/all-request-data.html","form_module":"readonly-request-form"},
+            "all-signed-data":          {"table_id":"20011615","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/all-request-data.html","form_module":"readonly-request-form"},
+            "all-processed-data":       {"table_id":"20011616","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/all-request-data.html","form_module":"readonly-request-form"},
 
-            "manager-request-data":         {"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/manager/request-data.html","form_module":"form"},
-            "manager-signed-request-form":  {"table_id":"20011615","url":"https://www.vmiis.com/modules/purchase-order-request/manager/signed-request-form.html"},
-
-            "accountant-request-data":         {"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/accountant/request-data.html","form_module":"form"},
-            "accountant-signed-request-data":  {"table_id":"20011616","url":"https://www.vmiis.com/modules/purchase-order-request/accountant/signed-request-data.html","form_module":"form"},
+            "readonly-request-form":    {"table_id":"20009699","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/readonly-request-form.html"},
+            "request-approving-form":   {"table_id":"20011615","url":"https://www.vmiis.com/modules/purchase-order-request/manager/request-approving-form.html"},
+            "request-processing-form":  {"table_id":"20011616","url":"https://www.vmiis.com/modules/purchase-order-request/accountant/request-processing-form.html"},
 
             "manager-list-data":		{"table_id":"20009687","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/manager-data.html","form_module":"manager-list-form"},
             "accountant-list-data":	    {"table_id":"20003837","url":"https://www.vmiis.com/modules/purchase-order-request/administrator/accountant-data.html","form_module":"accountant-list-form"},

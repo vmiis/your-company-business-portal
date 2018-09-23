@@ -1,0 +1,32 @@
+<div id=D__ID>
+    <section>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            $('#new__ID').hide();
+            $('#save__ID').hide();
+            //-------------------------------------
+            var fields="Purchase_Order_ID,Short_Description,GST_Amount,Total_Amount,Requester,Manager|Manager_for_Approval,Accountant|Accountant_for_Processing";
+            m.fields="_Form,"+fields+",Submit Date|DateTime,_Delete";
+            m.form_fields=fields;
+            //m.permission_test=1;
+            //-------------------------------------
+            m.cell_render=function(records,I,field,td,set_value,source){
+                records[I].vm_custom[field]=true;
+                switch(field){
+    				case 'Purchase_Order_ID':
+                        records[I].vm_readonly[field]=true;
+    					if(records[I].UID!=undefined) td.text(records[I].UID)
+                        break;
+                }
+            }
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+    </style>
+</div>

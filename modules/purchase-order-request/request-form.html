@@ -120,6 +120,7 @@
                 dbv.S3=record.Accountant_for_Processing.split('/')[0];
                 dbv.V1=record.Total_Amount;
                 dbv.V2=record.GST_Amount;
+                record.Requester=$vm.user;
                 record.items=m.item_a_get_data();
                 return true;
             }
@@ -129,10 +130,12 @@
                 load();
                 if(m.input.record!=undefined && m.input.record.UID!=undefined){
                     $('#uid__ID').val(m.input.record.UID);
+
                     $('#row_submit__ID').show();
-                    if($vm.user!=m.input.record.Author || m.input.record!=undefined){
+                    if(m.input.record!=undefined && m.input.record.PUID!=undefined && m.input.record.PUID!=""){
                         $('#row_submit__ID').hide();
                     }
+
                 }
                 //-------item a part
                 m.item_a_records=[]; if(m.input.record!=undefined) m.item_a_records=m.input.record.items;
