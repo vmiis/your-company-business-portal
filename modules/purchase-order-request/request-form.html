@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
-    			<div class="row">
+    			<div class="row" id=row_submit__ID>
     				<div class=col>
                         <button id=submit0__ID type="submit" style='display:none'></button>
             			<button id=submit1__ID type="button" class="btn btn-secondary">Submit (draft)</button>
@@ -84,6 +84,7 @@
             m.add_s2=1;
 			//-------------------------------------
             //get manager list;
+            jQuery.ajaxSetup({async:false});
             var list_m_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-20009687]";
             var req_m={cmd:'read',qid:$vm.qid,sql:list_m_sql};
             $VmAPI.request({data:req_m,callback:function(res){
@@ -108,12 +109,15 @@
                     $vm.set_dropdown_list_from_text($('#accountant__ID'),list_accountants);
                 }
             }});
+            jQuery.ajaxSetup({async:true});
             //-------------------------------------
             $('#submit1__ID').on('click',function(event){	m.draft=1;	$('#submit0__ID').trigger('click'); 	});
     		$('#submit2__ID').on('click',function(event){   m.draft=0;	$('#submit0__ID').trigger('click');		});
     		//--------------------------------------------------------
             m.before_submit=function(record,dbv){
                 dbv.S1=record.Short_Description;
+                dbv.S2=record.Manager_for_Approval.split('/')[0];
+                dbv.S3=record.Accountant_for_Processing.split('/')[0];
                 dbv.V1=record.Total_Amount;
                 dbv.V2=record.GST_Amount;
                 record.items=m.item_a_get_data();
@@ -123,7 +127,13 @@
             var load=m.load;
             m.load=function(){
                 load();
-                if(m.input.record!=undefined && m.input.record.UID!=undefined) $('#uid__ID').val(m.input.record.UID);
+                if(m.input.record!=undefined && m.input.record.UID!=undefined){
+                    $('#uid__ID').val(m.input.record.UID);
+                    $('#row_submit__ID').show();
+                    if($vm.user!=m.input.record.Author || m.input.record!=undefined){
+                        $('#row_submit__ID').hide();
+                    }
+                }
                 //-------item a part
                 m.item_a_records=[]; if(m.input.record!=undefined) m.item_a_records=m.input.record.items;
                 m.item_a_render();

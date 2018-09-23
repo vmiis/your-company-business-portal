@@ -10,7 +10,7 @@
             $('#save__ID').hide();
             //-------------------------------------
             var fields="Purchase_Order_ID,Short_Description,GST_Amount,Total_Amount,_Approved_by";
-            m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author";
             m.form_fields=fields;
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
@@ -21,8 +21,20 @@
                         break;
                     case '_Approved_by':
                         records[I].vm_custom[field]=true;
-                        if(records[I].PUID!=""){
-                            td.html(records[I].S2+' on '+records[I].sDateTime);
+    					if(records[I].PUID!=""){
+    						td.html("<u style='cursor:pointer'>"+records[I].S2+' on '+records[I].sDateTime+"</u>")
+                            td.find('u').on('click',function(){
+                                var req={cmd:"read",qid:m.qid,sql_name:"sql_manager_request_one",i1:records[I].sID};
+                                $VmAPI.request({data:req,callback:function(res){
+                                    $vm.load_module_v2('manager-signed-request-form','',{record:res.records[0],readonly:1})
+                                }});
+                            })
+    					}
+                        else{
+                            td.html("<u style='cursor:pointer'>Approving</u>");
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('manager-signed-request-form','',{record:records[I]})
+                            })
                         }
                         break;
                         /*
@@ -37,16 +49,11 @@
                     case 'Total_Amount':
                         records[I].vm_custom[field]=true;
                         break;
-                    case '_Delete':
-                        if(records[I].PUID!=""){
-                            td.html('');
-                        }
-                        break;
                 }
             }
             //-------------------------------------
             m.set_req=function(){
-            	m.req={cmd:'read',qid:m.qid,sql_name:'sql_my_request',sql_n_name:'sql_n_my_request',s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+            	m.req={cmd:'read',qid:m.qid,sql_name:'sql_manager_request',sql_n_name:'sql_n_manager_request',s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
             }
             //-------------------------------------
             m.set_req_export=function(i1,i2){
