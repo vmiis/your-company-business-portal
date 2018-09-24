@@ -23,12 +23,20 @@
                 </div>
                 <div menu id="vm-menu">
                     <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <a href="?/tutorial"><i class="fa fa-th-list"></i> Tutorial</a>
+                    <div class="vm-dropdown">
+                        <span class="vm-dropbtn"><i class="fa fa-list"></i> Tutorial <i class="fa fa-caret-down"></i></span>
+                        <div class="vm-dropdown-content">
+                            <a href="?/t-control-panel-startup">Startup</a>
+                            <a href="?/t-control-panel-component-01">Page sections</a>
+                            <a href="?/t-control-panel-commonly-used-form-fields">Commonly used form fields</a>
+                            <a href="?/t-control-panel-clinical-trials">Clinical trials</a>
+                        </div>
+                    </div>
                     <div class="vm-dropdown">
                         <span class="vm-dropbtn"><i class="fa fa-list"></i> App Templates <i class="fa fa-caret-down"></i></span>
                         <div class="vm-dropdown-content">
-                            <a href="?/control-panel-a">A-L</a>
-                            <a href="?/control-panel-m">M-Z</a>
+                            <a href="?/a-control-panel-a">A-L</a>
+                            <a href="?/a-control-panel-m">M-Z</a>
                         </div>
                     </div>
                     <!--
@@ -76,39 +84,36 @@
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         //------------------------------------
         $vm.module_links=[
-            "commonly-used-form-fields|https://www.vmiis.com/links/basic-form-fields.json",
+            "commonly-used-form-fields|https://www.vmiis.com/modules/1-control-panel-commonly-used-form-fields.json",
+            "clinical-trials|https://www.vmiis.com/modules/1-control-panel-clinical-trials.json",
+
             "car-booking|https://www.vmiis.com/links/car-booking.json",
             "room-booking|https://www.vmiis.com/links/room-booking.json",
             "equipment-booking|https://www.vmiis.com/links/equipment-booking.json",
             "sleepfix|https://management.sfix.com.au/modules.json",
             "shiftwork|https://shiftwork.rt.org.au/modules.json",
-            "clinical-trials|https://www.vmiis.com/links/clinical-trials.json",
             "modules/modules.json",
         ];
         $vm.module_list={
             "home":                     {"url":"https://www.vmiis.com/modules/home.html"},
             "more":                     {"url":"https://www.vmiis.com/modules/static/more.html"},
-            "tutorial":           	    {"url":"https://www.vmiis.com/modules/panels/tutorial.html"},
-
-            "commonly-used-form-fields":{"url":"https://www.vmiis.com/modules/panels/modules/commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
+            "component-container":      {"url":"https://www.vmiis.com/modules/components/container.html"},
+            "component-basic":     	    {"url":"https://www.vmiis.com/components/control-panel-01.html"},
+            /*
             "sleepfix":					{"url":"https://www.vmiis.com/modules/panels/modules/sleepfix.html","prefix":"sleepfix_"},
             "shiftwork":             	{"url":"https://www.vmiis.com/modules/panels/modules/shiftwork.html"},
             "car-booking":				{"url":"https://www.vmiis.com/modules/panels/modules/car-booking.html"},
             "room-booking":				{"url":"https://www.vmiis.com/modules/panels/modules/room-booking.html"},
             "equipment-booking":		{"url":"https://www.vmiis.com/modules/panels/modules/equipment-booking.html"},
-            "clinical-trials":			{"url":"https://www.vmiis.com/modules/panels/modules/clinical-trials.html","prefix":"clinical-trials_"},
+            */
+            "t-control-panel-startup":                  {"url":"https://www.vmiis.com/modules/1-control-panel-startup.html"},
+            "t-control-panel-commonly-used-form-fields":{"url":"https://www.vmiis.com/modules/1-control-panel-commonly-used-form-fields.html","prefix":"commonly-used-form-fields_"},
+            "t-control-panel-clinical-trials":          {"url":"https://www.vmiis.com/modules/1-control-panel-clinical-trials.html","prefix":"clinical-trials_"},
 
-            "basic":             	    {"url":"https://www.vmiis.com/apps/1-control-panel-basic.html"},
-            "project":             	    {"url":"https://www.vmiis.com/modules/panels/apps/project.html"},
-            "other":             	    {"url":"https://www.vmiis.com/modules/panels/apps/other.html"},
-            "portal":             	    {"url":"https://www.vmiis.com/modules/panels/apps/portal.html"},
+            "t-control-panel-component-01":             {"url":"https://www.vmiis.com/components/1-control-panel-01.html"},
 
-
-            "component-basic":     	    {"url":"https://www.vmiis.com/components/control-panel-01.html"},
-            "component-container":      {"url":"https://www.vmiis.com/modules/components/container.html"},
-
-            "control-panel-a":      {"url":"https://www.vmiis.com/apps/1-control-panel-a.html"},
-            "control-panel-m":      {"url":"https://www.vmiis.com/apps/1-control-panel-m.html"},
+            "a-control-panel-a":      {"url":"https://www.vmiis.com/apps/1-control-panel-a.html"},
+            "a-control-panel-m":      {"url":"https://www.vmiis.com/apps/1-control-panel-m.html"},
 
         }
         $vm.component_list={

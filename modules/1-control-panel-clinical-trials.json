@@ -1,0 +1,67 @@
+{
+	"modules":
+	{
+
+    	"main":         {"url":"https://www.vmiis.com/modules/clinical-trials/panels/main.html"},
+  		"child":        {"url":"https://www.vmiis.com/modules/clinical-trials/panels/child.html"},
+		"quest-panel":  {"url":"https://www.vmiis.com/modules/clinical-trials/online-questionnaire/quest.html"},
+
+		"participant-data":     	{"table_id":"20005031",     "url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/participant-data.html", 	"form_module":"participant-form"},
+		"participant-form":     	{"table_id":"20005031",     "url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/participant-form.html"},
+		"edc-notes-data":	  		{"table_id":"20005033",		"url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/edc-notes-data.html",		"form_module":"edc-notes-form"},
+		"edc-notes-form":	  		{"table_id":"20005033",		"url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/edc-notes-form.html"},
+		"participant-login-setup":	{"table_id":"20005034",		"url":"https://www.vmiis.com/modules/clinical-trials/participant-and-others/participant-login-setup.html"},
+
+
+		"s-consent-data":	 	{"table_id":"1809012356",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/consent-data.html",	"form_module":"s-consent-form"},
+		"s-consent-form":	 	{"table_id":"1809012356",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/consent-form.html",	"quest":"1"},
+
+		"v1-date-of-visit-data":	 	{"table_id":"1808311409",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-data.html",	"form_module":"v1-date-of-visit-form"},
+		"v1-date-of-visit-form":	 	{"table_id":"1808311409",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/visit-date-form.html","quest":"1"},
+
+		"s-ess-data":	 	{"table_id":"1808311410",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-data.html",	"form_module":"s-ess-form"},
+		"s-ess-form":	 	{"table_id":"1808311410",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/epworth-sleepiness-scale-form.html","quest":"1"},
+
+		"s-psqi-data":	 	{"table_id":"1809010715",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/pittsburgh-sleep-quality-index-data.html",	"form_module":"s-psqi-form"},
+		"s-psqi-form":	 	{"table_id":"1809010715",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/pittsburgh-sleep-quality-index-form.html","quest":"1"},
+
+		"s-dass-data":	 	{"table_id":"1809010719",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/depression-anxiety-stress-scales-data.html",	"form_module":"s-dass-form"},
+		"s-dass-form":	 	{"table_id":"1809010719",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/depression-anxiety-stress-scales-form.html","quest":"1"},
+
+		"s-ffs-data":	 	{"table_id":"1809010720",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/flinders-fatigue-scale-data.html",	"form_module":"s-ffs-form"},
+		"s-ffs-form":	 	{"table_id":"1809010720",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/flinders-fatigue-scale-form.html","quest":"1"},
+
+		"s-fss-data":	 	{"table_id":"1809010721",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/fatigue-severity-scale-data.html",	"form_module":"s-fss-form"},
+		"s-fss-form":	 	{"table_id":"1809010721",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/fatigue-severity-scale-form.html","quest":"1"},
+
+		"s-isi-data":	 	{"table_id":"1809010722",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/insomnia-severity-index-data.html",	"form_module":"s-isi-form"},
+		"s-isi-form":	 	{"table_id":"1809010722",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/insomnia-severity-index-form.html","quest":"1"},
+
+		"template-1-data":	 	{"table_id":"1808311450",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-1-data.html",	"form_module":"template-1-form"},
+		"template-1-form":	 	{"table_id":"1808311450",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-1-form.html",	"quest":"1"},
+		"template-2-data":	 	{"table_id":"1808311454",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-2-data.html",	"form_module":"template-2-form"},
+		"template-2-form":	 	{"table_id":"1808311454",		"url":"https://www.vmiis.com/modules/clinical-trials/tasks/template-2-form.html",	"quest":"1"},
+
+
+        "quest_list":{
+            "list":{
+                "Screening":[
+					{"table_id":"1809012356","task_name":"Screening - Consent"},
+                    {"table_id":"1808311410","task_name":"Screening - Epworth Sleepiness Scale"},
+                    {"table_id":"1809010715","task_name":"Screening - pittsburgh sleep quality index"},
+                    {"table_id":"1809010719","task_name":"Screening - Depression anxiety stress scales"},
+					{"table_id":"1809010720","task_name":"Screening - Flinders fatigue scale"},
+					{"table_id":"1809010721","task_name":"Screening - Fatigue severity scale"},
+					{"table_id":"1809010722","task_name":"Screening - Insomnia Severity Index"}
+    			],
+    			"Visit 1":[
+                    {"table_id":"1808311409","task_name":"Visit 1 - Data of visit"}
+    			],
+				"Template":[
+                    {"table_id":"1808311450","task_name":"Template 1"},
+					{"table_id":"1808311454","task_name":"Template 2"}
+    			]
+            }
+		}
+	}
+}
