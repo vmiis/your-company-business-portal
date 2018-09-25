@@ -1,16 +1,16 @@
+//-------------------------------------
+//for auto select participant
+var participant_tid =$vm.module_list[m.prefix+'participant-data'].table_id;
+var participant_sql	="JSON_VALUE(Information,'$.Subject_Initials')+' '+JSON_VALUE(Information,'$.DOB')";
+var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";
+sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+var participant_name =function(record){ if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID;}
+//-------------------------------------
 var wait1=function(){
-    //-------------------------------------
-    //for auto select participant
-    var participant_tid =$vm.module_list[m.prefix+'participant-data'].table_id;
-    var participant_sql	="JSON_VALUE(Information,'$.Subject_Initials')+' '+JSON_VALUE(Information,'$.DOB')";
-    var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";
-    sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
     $vm.autocomplete($('#Participant__ID'),sql,function(key,value){
         $("#F__ID input[name="+key+"]").val($vm.text(value));
     })
-    var participant_name =function(record){ if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID;}
 }
-//-------------------------------------
 var I=0, loop_1=setInterval(function (){
     if($vm['jquery-ui-min-js']!=undefined){  clearInterval(loop_1); wait1(); }
     I++; if(I>50){ clearInterval(loop_1); alert("jquery-ui.min.js is not installed.");}
