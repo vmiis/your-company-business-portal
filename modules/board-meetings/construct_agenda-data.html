@@ -1,0 +1,33 @@
+<div id=D__ID>
+    <div>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            //-------------------------------------
+            var fields=",Agenda Items|_Agenda_Items,Agenda ID|UID,Meeting date|Meeting_date,Time,Location,Attendees,Comments,Direct Link|Link";
+            m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            m.form_fields=fields;
+            //-------------------------------------
+            m.cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+                   case '_Agenda_Items':
+                       records[I].vm_custom[field]=true;
+                       if(records[I].UID===undefined) return;
+                       var html="<u style='cursor:pointer'>Agenda Items</u>";
+                       td.html(html);
+                       td.find('u').on('click',function(){
+                           $vm.load_module_v2('agenda_item-data','',{record:records[I]});
+                       })
+                       break;
+                }
+            }
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+    </style>
+</div>

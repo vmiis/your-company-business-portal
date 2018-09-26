@@ -1,0 +1,131 @@
+<div id=D__ID>
+    <div>
+        <div id=toolbar__ID class="navbar navbar-default">
+        	<form class="form-inline">
+        		<span>Board Meetings</span>
+        	</form>
+        	<span id=elapsed__ID style='float:right'></span>
+        </div>
+        <section id=panel__ID>
+        	<div class='nav__ID'>
+        		<span>CRC Board Meetings</span>
+        		<ul>
+        			<li module=agenda-data>Agendas with attachments</li>
+        		</ul>
+        		<span>Setup</span>
+        		<ul>
+        			<li module=construct-agenda-data>Construct Agendas</li>
+                    <li module=action-type-data>Action Type</li>
+        		</ul>
+        		<br>
+        	</div>
+        </section>
+    </div>
+    <script>
+        function F__ID(){
+        	var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
+            //---------------------------------------------
+        	$('#panel__ID li').on('click',function(){
+        		if( $(this).hasClass( 'not_allowed__ID' )===true){
+        		    alert("No permission!");
+        		    return;
+        		}
+        		var m=$(this).attr('module');
+        		if(m!=undefined){
+        		  if($vm.module_list[prefix+m]==undefined){
+        			  alert(prefix+m +" is not in the module list.");
+        			  return;
+        		  }
+        		  $vm.load_module_v2(prefix+m,'',{});
+        		}
+        	})
+        	//--------------------------------------------------------
+        	$('#D__ID').on('load',function(){
+        		var pids="";
+        		if($vm.server==='production'){
+        		  $('.nav__ID li').each(function(index){
+        		      var name=$(this).attr('module');
+        		      var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+        		      if(pid!==undefined && pid!=='--------'){
+        		         if(pids!=="") pids+=",";
+        		         pids+=pid;
+        		      }
+        		  });
+        		  if(pids!==""){
+        		      $VmAPI.request({data:{cmd:'permissions',pids:pids},callback:function(res){
+        		          $('.nav__ID li').each(function(index){
+        		              var name=$(this).attr('module');
+        					  var pid=undefined; if($vm.module_list[prefix+name]!==undefined)  pid=$vm.module_list[prefix+name]['table_id'];
+        		              if(pid!==undefined && pid!=='--------'){
+        		                  $(this).removeClass('not_allowed__ID');
+        		                  if(res[pid]===undefined){
+        		                      $(this).addClass('not_allowed__ID')
+        		                  }
+        		              }
+        		          })
+        		      }})
+        		  }
+        		}
+        	})
+        	//---------------------------------------------------------------
+        }
+    </script>
+    <style>
+    	VmInclude:__COMPONENT__/navigation/navigation.css
+        #toolbar__ID{
+    		background-color:#ccc;
+    		margin-bottom:0px;
+    		overflow:hidden;
+            padding: 5px 0 5px 10px;
+    	}
+        #toolbar__ID .form-inline > * {
+            margin-right:5px;
+        }
+    	@media screen and (max-width:768px){
+    		#toolbar__ID{
+    			padding: 3px 10px;
+    		}
+    		#toolbar__ID div{
+    			padding-left:3px;
+    		}
+    	}
+        #D__ID{
+    		background-color:#ffffff;
+    		height:100%;
+    		overflow: auto;
+    		animation: vm_module_fadein 1.0s;
+    	}
+    	#panel__ID{
+    		padding:20px 0 0 20px;
+    	}
+    	#D__ID li {
+    		color:#555;
+    	}
+    	li::before{
+    		font-size: 20px!Important;
+    	}
+    	#D__ID li:hover {
+    		color:#fff;
+    	}
+    	#D__ID a {
+    		text-decoration: none;
+    	}
+    	#D__ID a:link {
+    		color:#555;
+    	}
+    	#D__ID a:visited {
+    		color:#555;
+    	}
+    	#D__ID a:hover {
+    		color:#fff;
+    	}
+    	#D__ID a:active {
+    		color:#555;
+    	}
+    	@media screen and (max-width:768px){
+    		#D__ID{
+    			padding:10px 0 0 10px;
+    		}
+    	}
+    </style>
+</div>
