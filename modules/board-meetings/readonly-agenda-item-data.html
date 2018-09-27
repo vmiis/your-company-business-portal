@@ -1,0 +1,67 @@
+<div id=D__ID>
+    <div>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            $('#new__ID').hide();
+            $('#save__ID').hide();
+            //-------------------------------------
+            var fields="No.|Item_number,Item Title|Item_title,Action,Board Paper|DocBoardPaper,Reference Documents|DocReference";
+            m.fields=fields;
+            m.form_fields=fields;
+            //-------------------------------------
+            m.set_req=function(){
+                var input_record=$vm.vm['__ID'].input.record;
+                var sql_where=""; if(input_record!=undefined) sql_where='where puid='+input_record.UID
+                var sql="with tb as (select Information,ID,UID,PUID,DateTime,Modified=Convert(varchar,Modified,127),Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+m.db_pid+"-@S1] "+sql_where+" )";
+                sql+="select Information,ID,UID,PUID,DateTime,Modified,Author,RowNum from tb where RowNum between @I6 and @I7";
+                var sql_n="select count(ID) from [TABLE-"+m.db_pid+"-@S1]";
+            	m.req={cmd:'read',qid:m.qid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+            }
+            //-------------------------------------
+            m.set_req_export=function(i1,i2){
+                var input_record=$vm.vm['__ID'].input.record;
+                var sql_where=""; if(input_record!=undefined) sql_where='where puid='+input_record.UID
+                var sql="with tb as (select Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+m.db_pid+"-@S1] "+sql_where+"  )";
+                sql+="select Information,DateTime,Author from tb where RowNum between @I1 and @I2";
+            	m.req={cmd:'read',qid:m.qid,sql:sql,i1:i1,i2:i2};
+            }
+            //-----------------------------------------------
+            m.cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+                    case 'DocBoardPaper':
+                    case 'DocReference':
+                        records[I].vm_custom[field]=true;
+                        if(records[I][field]!=undefined && records[I][field]!=""){
+                            td.html("<u style='cursor:pointer'>"+records[I][field]+"</u>");
+                            td.find('u').on('click',function(){
+                                $vm.open_link_v2(records[I].ID,records[I][field],5);
+                            })
+                        }
+                    break;
+                    /*
+                    case 'Action':
+                        var action_pid=$vm.module_list["action-type-data"].table_id;
+                        var sql="with tb as (select name=@('Action'),value2=uid from [TABLE-"+action_pid+"])";
+                        sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+                        VmInclude:__COMPONENT__/grid/field_auto.js
+                    break;
+                    */
+                }
+            }
+            //-------------------------------------
+            m.before_submit=function(record,dbv){
+                var input_record=$vm.vm['__ID'].input.record;
+                if(input_record!=undefined) dbv.PUID=input_record.UID;
+                return true;
+            };
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+    </style>
+</div>
