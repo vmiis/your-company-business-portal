@@ -136,7 +136,8 @@
             }
             //------------------------------------
             $vm.alert=function(msg){
-              $('#vm_alert_information div.modal-body').html( $('<div/>').html(msg).text() );
+              //$('#vm_alert_information div.modal-body').html( $('<div/>').html(msg).text() );
+              $('#vm_alert_information div.modal-body').html( msg );
               $("#vm_alert_information").modal();
             }
             //------------------------------------
